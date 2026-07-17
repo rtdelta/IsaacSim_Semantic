@@ -1,0 +1,1369 @@
+{
+  "schema_version": 1,
+  "source_usd": "/root/gpufree-data/wyb/Semantic_260709_01.usd",
+  "semantic_type": "class",
+  "label_resolution": "last_nonempty_comma_separated_label",
+  "dataset_dtype": "uint16",
+  "semantic_prim_count": 166,
+  "class_count": 69,
+  "background": {
+    "id": 0,
+    "label": "BACKGROUND",
+    "color": [
+      0,
+      0,
+      0
+    ]
+  },
+  "unknown": {
+    "id": 65535,
+    "label": "UNLABELLED",
+    "color": [
+      255,
+      0,
+      255
+    ],
+    "policy": "error"
+  },
+  "classes": [
+    {
+      "id": 1,
+      "label": "backwheel",
+      "color": [
+        218,
+        100,
+        69
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "backwheel"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/back_wheel"
+      ]
+    },
+    {
+      "id": 2,
+      "label": "backwheelswivel",
+      "color": [
+        91,
+        199,
+        59
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "backwheelswivel"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/back_wheel_swivel"
+      ]
+    },
+    {
+      "id": 3,
+      "label": "body",
+      "color": [
+        122,
+        215,
+        38
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "body"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body"
+      ]
+    },
+    {
+      "id": 4,
+      "label": "CameraModel",
+      "color": [
+        80,
+        195,
+        245
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "CameraModel"
+        ]
+      ],
+      "prim_paths": [
+        "/Camera/OmniverseKitViewportCameraMesh/CameraModel"
+      ]
+    },
+    {
+      "id": 5,
+      "label": "CollisionMesh",
+      "color": [
+        211,
+        145,
+        80
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "CollisionMesh"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/GroundPlane/CollisionMesh"
+      ]
+    },
+    {
+      "id": 6,
+      "label": "Environment",
+      "color": [
+        68,
+        49,
+        220
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "Environment"
+        ]
+      ],
+      "prim_paths": [
+        "/Environment"
+      ]
+    },
+    {
+      "id": 7,
+      "label": "Floor",
+      "color": [
+        50,
+        119,
+        188
+      ],
+      "prim_count": 5,
+      "source_values": [
+        [
+          "Floor"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Floor",
+        "/SimpleRoom/Floor2",
+        "/SimpleRoom/Floor3",
+        "/SimpleRoom/Floor4",
+        "/SimpleRoom/Floor5"
+      ]
+    },
+    {
+      "id": 8,
+      "label": "ForkliftBackWheelB",
+      "color": [
+        60,
+        94,
+        188
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftBackWheelB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/back_wheel/SM_Forklift_BackWheel_B01_01"
+      ]
+    },
+    {
+      "id": 9,
+      "label": "ForkliftBackWheelbaseB",
+      "color": [
+        74,
+        133,
+        200
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftBackWheelbaseB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/back_wheel_swivel/SM_Forklift_BackWheelbase_B01_01"
+      ]
+    },
+    {
+      "id": 10,
+      "label": "ForkliftBodyB",
+      "color": [
+        40,
+        236,
+        194
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftBodyB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_Body_B01_01"
+      ]
+    },
+    {
+      "id": 11,
+      "label": "ForkliftBodyDecalB",
+      "color": [
+        150,
+        70,
+        209
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftBodyDecalB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_BodyDecal_B01_01"
+      ]
+    },
+    {
+      "id": 12,
+      "label": "ForkliftBodyGlassB",
+      "color": [
+        70,
+        197,
+        101
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftBodyGlassB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_BodyGlass_B01_01"
+      ]
+    },
+    {
+      "id": 13,
+      "label": "forkliftbriggedcm",
+      "color": [
+        69,
+        207,
+        157
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "forkliftbriggedcm"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm"
+      ]
+    },
+    {
+      "id": 14,
+      "label": "ForkliftCenterChainB",
+      "color": [
+        235,
+        67,
+        244
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftCenterChainB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_CenterChain_B01_01"
+      ]
+    },
+    {
+      "id": 15,
+      "label": "ForkliftCenterChainWheelB",
+      "color": [
+        218,
+        38,
+        196
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftCenterChainWheelB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_CenterChainWheel_B01_01"
+      ]
+    },
+    {
+      "id": 16,
+      "label": "ForkliftCenterHydralicLiftB",
+      "color": [
+        79,
+        113,
+        235
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftCenterHydralicLiftB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_CenterHydralicLift_B01_01"
+      ]
+    },
+    {
+      "id": 17,
+      "label": "ForkliftHoseWheelB",
+      "color": [
+        55,
+        138,
+        201
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftHoseWheelB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_HoseWheel_B01_01"
+      ]
+    },
+    {
+      "id": 18,
+      "label": "ForkliftHydraulicSystemB",
+      "color": [
+        81,
+        193,
+        55
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftHydraulicSystemB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_HydraulicSystem_B01_01"
+      ]
+    },
+    {
+      "id": 19,
+      "label": "ForkliftLeadWheelsBackLeftB",
+      "color": [
+        208,
+        100,
+        47
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLeadWheelsBackLeftB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_back_left/SM_Forklift_LeadWheelsBackLeft_B01_01"
+      ]
+    },
+    {
+      "id": 20,
+      "label": "ForkliftLeadWheelsBackRightB",
+      "color": [
+        225,
+        60,
+        195
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLeadWheelsBackRightB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_back_right/SM_Forklift_LeadWheelsBackRight_B01_01"
+      ]
+    },
+    {
+      "id": 21,
+      "label": "ForkliftLeadWheelsFrontLeftB",
+      "color": [
+        173,
+        77,
+        197
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLeadWheelsFrontLeftB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_front_left/SM_Forklift_LeadWheelsFrontLeft_B01_01"
+      ]
+    },
+    {
+      "id": 22,
+      "label": "ForkliftLeadWheelsFrontRightB",
+      "color": [
+        221,
+        80,
+        141
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLeadWheelsFrontRightB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_front_right/SM_Forklift_LeadWheelsFrontRight_B01_01"
+      ]
+    },
+    {
+      "id": 23,
+      "label": "ForkliftLeftChainB",
+      "color": [
+        205,
+        60,
+        48
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLeftChainB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_LeftChain_B01_01"
+      ]
+    },
+    {
+      "id": 24,
+      "label": "ForkliftLeftChainWheelB",
+      "color": [
+        49,
+        175,
+        221
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLeftChainWheelB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_LeftChainWheel_B01_01"
+      ]
+    },
+    {
+      "id": 25,
+      "label": "ForkliftLeftHoseB",
+      "color": [
+        223,
+        43,
+        138
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLeftHoseB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_LeftHose_B01_01"
+      ]
+    },
+    {
+      "id": 26,
+      "label": "ForkliftLiftB",
+      "color": [
+        212,
+        51,
+        230
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLiftB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/lift/SM_Forklift_Lift_B01_01"
+      ]
+    },
+    {
+      "id": 27,
+      "label": "ForkliftLiftBotWheelsB",
+      "color": [
+        124,
+        73,
+        184
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLiftBotWheelsB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_LiftBotWheels_B01_01"
+      ]
+    },
+    {
+      "id": 28,
+      "label": "ForkliftLiftTopWheelsB",
+      "color": [
+        95,
+        238,
+        38
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftLiftTopWheelsB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_LiftTopWheels_B01_01"
+      ]
+    },
+    {
+      "id": 29,
+      "label": "ForkliftMastBottomWheelsB",
+      "color": [
+        233,
+        34,
+        53
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftMastBottomWheelsB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_MastBottomWheels_B01_01"
+      ]
+    },
+    {
+      "id": 30,
+      "label": "ForkliftMastTopWheelsB",
+      "color": [
+        228,
+        115,
+        90
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftMastTopWheelsB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_MastTopWheels_B01_01"
+      ]
+    },
+    {
+      "id": 31,
+      "label": "ForkliftOperatorCabB",
+      "color": [
+        247,
+        83,
+        72
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftOperatorCabB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/lift/SM_Forklift_OperatorCab_B01_01"
+      ]
+    },
+    {
+      "id": 32,
+      "label": "ForkliftOperatorCabBotWheelsB",
+      "color": [
+        193,
+        81,
+        68
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftOperatorCabBotWheelsB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_OperatorCabBotWheels_B01_01"
+      ]
+    },
+    {
+      "id": 33,
+      "label": "ForkliftOperatorCabDecalB",
+      "color": [
+        245,
+        162,
+        61
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftOperatorCabDecalB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/lift/SM_Forklift_OperatorCabDecal_B01_01"
+      ]
+    },
+    {
+      "id": 34,
+      "label": "ForkliftOperatorCabGlassB",
+      "color": [
+        40,
+        233,
+        151
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftOperatorCabGlassB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/lift/SM_Forklift_OperatorCabGlass_B01_01"
+      ]
+    },
+    {
+      "id": 35,
+      "label": "ForkliftOperatorCabPedalB",
+      "color": [
+        192,
+        56,
+        108
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftOperatorCabPedalB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/lift/SM_Forklift_OperatorCabPedal_B01_01"
+      ]
+    },
+    {
+      "id": 36,
+      "label": "ForkliftOperatorCabTopWheelsB",
+      "color": [
+        227,
+        95,
+        158
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftOperatorCabTopWheelsB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_OperatorCabTopWheels_B01_01"
+      ]
+    },
+    {
+      "id": 37,
+      "label": "ForkliftRightChainB",
+      "color": [
+        242,
+        66,
+        133
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftRightChainB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_RightChain_B01_01"
+      ]
+    },
+    {
+      "id": 38,
+      "label": "ForkliftRightChainWheelB",
+      "color": [
+        45,
+        184,
+        30
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftRightChainWheelB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_RightChainWheel_B01_01"
+      ]
+    },
+    {
+      "id": 39,
+      "label": "ForkliftRightHoseB",
+      "color": [
+        77,
+        215,
+        216
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "ForkliftRightHoseB"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/body/SM_Forklift_RightHose_B01_01"
+      ]
+    },
+    {
+      "id": 40,
+      "label": "GroundPlane",
+      "color": [
+        177,
+        195,
+        40
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "GroundPlane"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/GroundPlane"
+      ]
+    },
+    {
+      "id": 41,
+      "label": "lift",
+      "color": [
+        244,
+        48,
+        115
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "lift"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/lift"
+      ]
+    },
+    {
+      "id": 42,
+      "label": "OmniverseKitViewportCameraMesh",
+      "color": [
+        69,
+        245,
+        181
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "OmniverseKitViewportCameraMesh"
+        ]
+      ],
+      "prim_paths": [
+        "/Camera/OmniverseKitViewportCameraMesh"
+      ]
+    },
+    {
+      "id": 43,
+      "label": "orbbecgemini2v",
+      "color": [
+        229,
+        42,
+        134
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "orbbecgemini2v"
+        ]
+      ],
+      "prim_paths": [
+        "/World/orbbec_gemini2_v1_0"
+      ]
+    },
+    {
+      "id": 44,
+      "label": "rollerbackleft",
+      "color": [
+        57,
+        211,
+        226
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "rollerbackleft"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_back_left"
+      ]
+    },
+    {
+      "id": 45,
+      "label": "rollerbackright",
+      "color": [
+        100,
+        178,
+        247
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "rollerbackright"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_back_right"
+      ]
+    },
+    {
+      "id": 46,
+      "label": "rollerfrontleft",
+      "color": [
+        125,
+        200,
+        29
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "rollerfrontleft"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_front_left"
+      ]
+    },
+    {
+      "id": 47,
+      "label": "rollerfrontright",
+      "color": [
+        194,
+        51,
+        210
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "rollerfrontright"
+        ]
+      ],
+      "prim_paths": [
+        "/World/forklift_b_rigged_cm/roller_front_right"
+      ]
+    },
+    {
+      "id": 48,
+      "label": "SimpleRoom",
+      "color": [
+        184,
+        237,
+        74
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "SimpleRoom"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom"
+      ]
+    },
+    {
+      "id": 49,
+      "label": "tablelow",
+      "color": [
+        68,
+        91,
+        229
+      ],
+      "prim_count": 2,
+      "source_values": [
+        [
+          "tablelow"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/table_low_327",
+        "/SimpleRoom/table_low_327/table_low"
+      ]
+    },
+    {
+      "id": 50,
+      "label": "TemplateMapFloor",
+      "color": [
+        36,
+        244,
+        137
+      ],
+      "prim_count": 5,
+      "source_values": [
+        [
+          "TemplateMapFloor"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Floor/SM_Template_Map_Floor",
+        "/SimpleRoom/Floor2/SM_Template_Map_Floor",
+        "/SimpleRoom/Floor3/SM_Template_Map_Floor",
+        "/SimpleRoom/Floor4/SM_Template_Map_Floor",
+        "/SimpleRoom/Floor5/SM_Template_Map_Floor"
+      ]
+    },
+    {
+      "id": 51,
+      "label": "TowelRoom01floorbottom",
+      "color": [
+        185,
+        189,
+        44
+      ],
+      "prim_count": 2,
+      "source_values": [
+        [
+          "TowelRoom01floorbottom"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_floor_bottom_218",
+        "/SimpleRoom/Towel_Room01_floor_bottom_218/Towel_Room01_floor_bottom"
+      ]
+    },
+    {
+      "id": 52,
+      "label": "TowelRoom01floorrimback",
+      "color": [
+        162,
+        201,
+        39
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01floorrimback"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_floor_rim_back001_222",
+        "/SimpleRoom/Towel_Room01_floor_rim_back001_222/Towel_Room01_floor_rim_back001",
+        "/SimpleRoom/Towel_Room01_floor_rim_back_220",
+        "/SimpleRoom/Towel_Room01_floor_rim_back_220/Towel_Room01_floor_rim_back"
+      ]
+    },
+    {
+      "id": 53,
+      "label": "TowelRoom01floorrimcorner",
+      "color": [
+        232,
+        211,
+        73
+      ],
+      "prim_count": 16,
+      "source_values": [
+        [
+          "TowelRoom01floorrimcorner"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_floor_rim_corner001_226",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner001_226/Towel_Room01_floor_rim_corner001",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner002_228",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner002_228/Towel_Room01_floor_rim_corner002",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner003_230",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner003_230/Towel_Room01_floor_rim_corner003",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner004_232",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner004_232/Towel_Room01_floor_rim_corner004",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner005_234",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner005_234/Towel_Room01_floor_rim_corner005",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner006_236",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner006_236/Towel_Room01_floor_rim_corner006",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner007_238",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner007_238/Towel_Room01_floor_rim_corner007",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner_224",
+        "/SimpleRoom/Towel_Room01_floor_rim_corner_224/Towel_Room01_floor_rim_corner"
+      ]
+    },
+    {
+      "id": 54,
+      "label": "TowelRoom01floorrimfrontcenter",
+      "color": [
+        80,
+        222,
+        225
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01floorrimfrontcenter"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center001_242",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center001_242/Towel_Room01_floor_rim_front_center001",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_240",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_240/Towel_Room01_floor_rim_front_center"
+      ]
+    },
+    {
+      "id": 55,
+      "label": "TowelRoom01floorrimfrontcenterside",
+      "color": [
+        80,
+        217,
+        121
+      ],
+      "prim_count": 8,
+      "source_values": [
+        [
+          "TowelRoom01floorrimfrontcenterside"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side001_246",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side001_246/Towel_Room01_floor_rim_front_center_side001",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side002_248",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side002_248/Towel_Room01_floor_rim_front_center_side002",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side003_250",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side003_250/Towel_Room01_floor_rim_front_center_side003",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side_244",
+        "/SimpleRoom/Towel_Room01_floor_rim_front_center_side_244/Towel_Room01_floor_rim_front_center_side"
+      ]
+    },
+    {
+      "id": 56,
+      "label": "TowelRoom01floorrimside",
+      "color": [
+        36,
+        235,
+        54
+      ],
+      "prim_count": 8,
+      "source_values": [
+        [
+          "TowelRoom01floorrimside"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_floor_rim_side001_254",
+        "/SimpleRoom/Towel_Room01_floor_rim_side001_254/Towel_Room01_floor_rim_side001",
+        "/SimpleRoom/Towel_Room01_floor_rim_side002_256",
+        "/SimpleRoom/Towel_Room01_floor_rim_side002_256/Towel_Room01_floor_rim_side002",
+        "/SimpleRoom/Towel_Room01_floor_rim_side003_258",
+        "/SimpleRoom/Towel_Room01_floor_rim_side003_258/Towel_Room01_floor_rim_side003",
+        "/SimpleRoom/Towel_Room01_floor_rim_side_252",
+        "/SimpleRoom/Towel_Room01_floor_rim_side_252/Towel_Room01_floor_rim_side"
+      ]
+    },
+    {
+      "id": 57,
+      "label": "TowelRoom01floortop",
+      "color": [
+        88,
+        136,
+        224
+      ],
+      "prim_count": 2,
+      "source_values": [
+        [
+          "TowelRoom01floortop"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_floor_top_260",
+        "/SimpleRoom/Towel_Room01_floor_top_260/Towel_Room01_floor_top"
+      ]
+    },
+    {
+      "id": 58,
+      "label": "TowelRoom01florredge",
+      "color": [
+        86,
+        202,
+        74
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01florredge"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_florr_edge001_264",
+        "/SimpleRoom/Towel_Room01_florr_edge001_264/Towel_Room01_florr_edge001",
+        "/SimpleRoom/Towel_Room01_florr_edge_262",
+        "/SimpleRoom/Towel_Room01_florr_edge_262/Towel_Room01_florr_edge"
+      ]
+    },
+    {
+      "id": 59,
+      "label": "TowelRoom01lamp",
+      "color": [
+        58,
+        194,
+        47
+      ],
+      "prim_count": 2,
+      "source_values": [
+        [
+          "TowelRoom01lamp"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_lamp_266",
+        "/SimpleRoom/Towel_Room01_lamp_266/Towel_Room01_lamp"
+      ]
+    },
+    {
+      "id": 60,
+      "label": "TowelRoom01lampframe",
+      "color": [
+        76,
+        213,
+        71
+      ],
+      "prim_count": 2,
+      "source_values": [
+        [
+          "TowelRoom01lampframe"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_lamp_frame_268",
+        "/SimpleRoom/Towel_Room01_lamp_frame_268/Towel_Room01_lamp_frame"
+      ]
+    },
+    {
+      "id": 61,
+      "label": "TowelRoom01wallback",
+      "color": [
+        195,
+        165,
+        52
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01wallback"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_wall_back001_274",
+        "/SimpleRoom/Towel_Room01_wall_back001_274/Towel_Room01_wall_back001",
+        "/SimpleRoom/Towel_Room01_wall_back_272",
+        "/SimpleRoom/Towel_Room01_wall_back_272/Towel_Room01_wall_back"
+      ]
+    },
+    {
+      "id": 62,
+      "label": "TowelRoom01wallcorner",
+      "color": [
+        190,
+        58,
+        160
+      ],
+      "prim_count": 8,
+      "source_values": [
+        [
+          "TowelRoom01wallcorner"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_wall_corner001_278",
+        "/SimpleRoom/Towel_Room01_wall_corner001_278/Towel_Room01_wall_corner001",
+        "/SimpleRoom/Towel_Room01_wall_corner002_280",
+        "/SimpleRoom/Towel_Room01_wall_corner002_280/Towel_Room01_wall_corner002",
+        "/SimpleRoom/Towel_Room01_wall_corner003_282",
+        "/SimpleRoom/Towel_Room01_wall_corner003_282/Towel_Room01_wall_corner003",
+        "/SimpleRoom/Towel_Room01_wall_corner_276",
+        "/SimpleRoom/Towel_Room01_wall_corner_276/Towel_Room01_wall_corner"
+      ]
+    },
+    {
+      "id": 63,
+      "label": "TowelRoom01wallside",
+      "color": [
+        236,
+        60,
+        224
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01wallside"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_wall_side001_286",
+        "/SimpleRoom/Towel_Room01_wall_side001_286/Towel_Room01_wall_side001",
+        "/SimpleRoom/Towel_Room01_wall_side_284",
+        "/SimpleRoom/Towel_Room01_wall_side_284/Towel_Room01_wall_side"
+      ]
+    },
+    {
+      "id": 64,
+      "label": "TowelRoom01window",
+      "color": [
+        189,
+        230,
+        40
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01window"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_window1_290",
+        "/SimpleRoom/Towel_Room01_window1_290/Towel_Room01_window1",
+        "/SimpleRoom/Towel_Room01_window_288",
+        "/SimpleRoom/Towel_Room01_window_288/Towel_Room01_window"
+      ]
+    },
+    {
+      "id": 65,
+      "label": "TowelRoom01windowframebottom",
+      "color": [
+        149,
+        73,
+        217
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01windowframebottom"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_window_frame_bottom001_292",
+        "/SimpleRoom/Towel_Room01_window_frame_bottom001_292/Towel_Room01_window_frame_bottom001",
+        "/SimpleRoom/Towel_Room01_window_frame_bottom002_294",
+        "/SimpleRoom/Towel_Room01_window_frame_bottom002_294/Towel_Room01_window_frame_bottom002"
+      ]
+    },
+    {
+      "id": 66,
+      "label": "TowelRoom01windowframecorner",
+      "color": [
+        165,
+        227,
+        44
+      ],
+      "prim_count": 8,
+      "source_values": [
+        [
+          "TowelRoom01windowframecorner"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_window_frame_corner002_296",
+        "/SimpleRoom/Towel_Room01_window_frame_corner002_296/Towel_Room01_window_frame_corner002",
+        "/SimpleRoom/Towel_Room01_window_frame_corner004_298",
+        "/SimpleRoom/Towel_Room01_window_frame_corner004_298/Towel_Room01_window_frame_corner004",
+        "/SimpleRoom/Towel_Room01_window_frame_corner005_300",
+        "/SimpleRoom/Towel_Room01_window_frame_corner005_300/Towel_Room01_window_frame_corner005",
+        "/SimpleRoom/Towel_Room01_window_frame_corner006_302",
+        "/SimpleRoom/Towel_Room01_window_frame_corner006_302/Towel_Room01_window_frame_corner006"
+      ]
+    },
+    {
+      "id": 67,
+      "label": "TowelRoom01windowframeside",
+      "color": [
+        224,
+        155,
+        59
+      ],
+      "prim_count": 4,
+      "source_values": [
+        [
+          "TowelRoom01windowframeside"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_window_frame_side001_304",
+        "/SimpleRoom/Towel_Room01_window_frame_side001_304/Towel_Room01_window_frame_side001",
+        "/SimpleRoom/Towel_Room01_window_frame_side002_306",
+        "/SimpleRoom/Towel_Room01_window_frame_side002_306/Towel_Room01_window_frame_side002"
+      ]
+    },
+    {
+      "id": 68,
+      "label": "TowelRoom01woodwall",
+      "color": [
+        169,
+        247,
+        44
+      ],
+      "prim_count": 18,
+      "source_values": [
+        [
+          "TowelRoom01woodwall"
+        ]
+      ],
+      "prim_paths": [
+        "/SimpleRoom/Towel_Room01_wood_wall_008_322",
+        "/SimpleRoom/Towel_Room01_wood_wall_008_322/Towel_Room01_wood_wall_008",
+        "/SimpleRoom/Towel_Room01_wood_wall_009_324",
+        "/SimpleRoom/Towel_Room01_wood_wall_009_324/Towel_Room01_wood_wall_009",
+        "/SimpleRoom/Towel_Room01_wood_wall_308",
+        "/SimpleRoom/Towel_Room01_wood_wall_308/Towel_Room01_wood_wall_1",
+        "/SimpleRoom/Towel_Room01_wood_wall_310",
+        "/SimpleRoom/Towel_Room01_wood_wall_310/Towel_Room01_wood_wall_2",
+        "/SimpleRoom/Towel_Room01_wood_wall_312",
+        "/SimpleRoom/Towel_Room01_wood_wall_312/Towel_Room01_wood_wall_3",
+        "/SimpleRoom/Towel_Room01_wood_wall_314",
+        "/SimpleRoom/Towel_Room01_wood_wall_314/Towel_Room01_wood_wall_4",
+        "/SimpleRoom/Towel_Room01_wood_wall_316",
+        "/SimpleRoom/Towel_Room01_wood_wall_316/Towel_Room01_wood_wall_5",
+        "/SimpleRoom/Towel_Room01_wood_wall_318",
+        "/SimpleRoom/Towel_Room01_wood_wall_318/Towel_Room01_wood_wall_6",
+        "/SimpleRoom/Towel_Room01_wood_wall_320",
+        "/SimpleRoom/Towel_Room01_wood_wall_320/Towel_Room01_wood_wall_7"
+      ]
+    },
+    {
+      "id": 69,
+      "label": "World",
+      "color": [
+        95,
+        99,
+        244
+      ],
+      "prim_count": 1,
+      "source_values": [
+        [
+          "World"
+        ]
+      ],
+      "prim_paths": [
+        "/World"
+      ]
+    }
+  ]
+}

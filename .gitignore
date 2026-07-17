@@ -1,0 +1,74 @@
+# Python bytecode and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Generated captures and remote execution output
+output*/
+remote_output*/
+*.log
+
+# 3D assets, point clouds, and scene files
+*.ply
+*.usd
+*.usda
+*.usdc
+*.obj
+*.mtl
+*.fbx
+*.stl
+*.dae
+*.abc
+*.gltf
+*.glb
+*.pcd
+*.las
+*.laz
+
+# Generated datasets and binary captures
+*.npy
+*.npz
+*.bag
+*.db3
+*.mcap
+Materials/rgb_semantic/
+Materials/test2/
+Materials/yolo_tooth/
+Materials/test2_analysis/*.csv
+Materials/test2_analysis/summary.json
+Materials/**/*.png
+Materials/**/*.jpg
+Materials/**/*.jpeg
+
+# Archives and packaged copies
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# Test and tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
