@@ -209,12 +209,19 @@ class ExcavatorJointMotion:
             )
 
     def update(self, simulation_time: float) -> None:
+        if not self._joints:
+            raise RuntimeError("ExcavatorJointMotion.initialize() must be called before update()")
         trajectory_time, targets = self.trajectory.sample(simulation_time, self.playback_mode)
         self._last_trajectory_time = trajectory_time
         for name, target in targets.items():
             joint = self._joints[name]
             joint.target = target
             joint.target_attribute.Set(target)
+
+    def apply_initial_targets(self) -> None:
+        """Author the trajectory's t=0 targets before pre-roll or first capture."""
+        self.update(0.0)
+        print("[excavator-motion] Applied trajectory targets at t=0")
 
     def trajectory_info(self) -> dict[str, Any]:
         return {

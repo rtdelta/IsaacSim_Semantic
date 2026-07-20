@@ -1,0 +1,6 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+trajectories/*.csv
+trajectories/*.json
+trajectories/*.partial.csv
