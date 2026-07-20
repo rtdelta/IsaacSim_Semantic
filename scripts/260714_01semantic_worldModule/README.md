@@ -1,14 +1,18 @@
 # 260714_01semantic_worldModule
 
 Standalone Isaac Sim project for fixed-step excavator motion and synchronized semantic-camera
-capture. Version 2 keeps one RenderProduct alive for the full run, freezes Timeline state during
-RT subframe rendering, and uses an authoritative frame context shared by the scheduler and Writer.
+capture. Version 3 drives the fixed-base four-DOF excavator through Isaac's Articulation position
+API, reads the accepted joint state back after every physics step, and preserves the version-2
+render/capture synchronization model.
 
 ## Module boundaries
 
 - `simulation_orchestrator.py`: SimulationApp lifecycle and top-level scheduling.
 - `world_scheduler.py`: fixed-step Timeline/physics and future world properties.
-- `excavator_joint_motion.py`: CSV trajectory loading, validation, interpolation, and Drive targets.
+- `joint_control_profile.py`: self-contained four-joint and Recorder-sidecar contract.
+- `articulation_stage_validator.py`: read-only fixed-base Articulation/rigid-link checks.
+- `articulation_adapter.py`: named DOF binding and batched degree/radian conversion.
+- `excavator_joint_motion.py`: CSV interpolation plus pre-step command/post-step readback.
 - `semantic_capture_custom.py`: Camera, RenderProduct, Writer, and capture calls only.
 - `semantic_dataset_writer.py`: RGB and stable semantic dataset output.
 - `semantic_mapping.py`: runtime-ID to dataset-ID mapping.
@@ -29,7 +33,8 @@ The project is self-contained and does not import another local project.
   --physics-hz 60 \
   --capture-fps 10 \
   --trajectory trajectories/excavator_motion_01.csv \
-  --trajectory-mode loop \
+  --trajectory-mode hold \
+  --joint-profile configs/excavator_four_joint_articulation.json \
   --interpolation linear \
   --width 1280 \
   --height 720 \
@@ -85,8 +90,11 @@ Frame 0000 is captured at dataset time 0 by default. Pass `--no-capture-initial-
 the legacy behavior (first frame after one capture interval) is intentional.
 
 Stage preflight is strict by default. Missing dependencies, an invalid Camera, missing semantics,
-and authored non-positive mass/inertia values block production capture. Use `--no-strict-stage`
-only for an explicitly marked diagnostic run while repairing an existing Stage.
+and authored non-positive mass/inertia values block production capture. Motion mode additionally
+requires one fixed-base Articulation root, exactly four named revolute DOFs in chain order, enabled
+non-kinematic rigid links, finite limits, positive mass/inertia, and no Angular Drive API on the
+controlled joints. Articulation failures always block motion capture; `--no-strict-stage` only
+relaxes the general Stage diagnostics.
 
 ## Static GUI/script parity capture
 
@@ -106,10 +114,17 @@ Camera_03 is a diagnostic reference, not a replacement for the production cab Ca
 Static mode does not advance dataset physics time between captures. It is intended for a matched
 Camera/Stage/render-profile comparison with Synthetic Data Recorder.
 
-The default Stage is `configs/usd_ply_combined_02_capture_overlay.usda`. It sublayers
-`/root/gpufree-data/wyb/StageMaterial/usd_ply_combined_02.usda`, normalizes six semantic
-classes, and disables nested child-mesh rigid bodies while retaining the parent rigid bodies
-used by the four joints.
+The default Stage is `configs/Sim_Fangshan_07_capture_overlay.usda`. It sublayers
+`/root/gpufree-data/wyb/StageMaterial02/Sim_Fangshan_07.usda`, whose fixed-base Articulation was
+prepared for direct four-joint control. The matching native mapping is
+`configs/semantic_mapping_Sim_Fangshan_07_native.json`. Older Sim_Fangshan_02 overlays and
+mappings remain available for explicit static diagnostics and historical reproduction.
+
+On the remote asset snapshot inspected on 2026-07-20, the source Stage references
+`StageMaterial02/textures/color_121212.hdr`, but that file is absent. Missing image/environment-map
+dependencies are recorded as `RENDER_ASSET_UNRESOLVED` warnings and no longer block strict capture.
+Missing USD composition layers and unknown dependency types remain blocking errors. Camera,
+semantics, and all Articulation contract failures also remain blocking.
 
 ## Trajectory file
 
@@ -126,8 +141,21 @@ time,cab,boom,small_arm,bucket
 
 The CSV is loaded once during initialization. Times must start at zero and increase strictly.
 All joint targets are checked against the USD limits plus a two-degree safety margin. Runtime
-targets are linearly interpolated at every physics step. `loop` requires the final joint targets
-to equal the first targets; `hold` keeps the final keyframe after the trajectory duration.
+targets are linearly interpolated at every physics step. `hold` is the default because trajectories
+recorded by `260720_01JointPositionRecorder` are normally not closed. `loop` is accepted only when
+the final four angles equal the initial angles.
+
+If `<trajectory-stem>.metadata.json` exists, it is treated as a Recorder sidecar and must report a
+completed degree-valued recording with exact joint order `cab,boom,small_arm,bucket`, compatible
+direct-position control mode, and the matching excavator profile. A malformed or incompatible
+sidecar is never ignored; hand-authored CSV files without a sidecar remain supported.
+
+The Articulation wrapper and name-to-index mapping are created before Timeline playback. After
+Timeline starts, bootstrap physics steps wait for the tensor entity, followed by one counted setup
+step at trajectory time zero. Every subsequent physics step performs one batched four-DOF command
+before stepping, zeros the selected DOF velocities, and reads all four positions after stepping.
+The command, actual readback, and signed error are saved per frame. A readback error over the
+profile tolerance (0.05 degree by default) stops the run instead of publishing misaligned labels.
 
 ## Validation
 
@@ -138,9 +166,10 @@ to equal the first targets; `hold` keeps the final keyframe after the trajectory
   --expected-frames 50
 ```
 
-For schema-v2 outputs, `--expected-frames` is optional and defaults to the value recorded in the
-run manifest. Validation checks frame context, dataset/timeline time, Writer completion counts,
-RGB/semantic resolution, semantic mapping, and the expected static or moving transform behavior.
+For schema-v2 and schema-v3 outputs, `--expected-frames` is optional and defaults to the value
+recorded in the run manifest. Schema-v3 validation additionally requires a passing Articulation
+preflight, a bound/ready named-DOF mapping, counted bootstrap/setup steps, exact four-joint state
+keys, finite command/readback/error values, safe limits, and the configured readback tolerance.
 
 Matched RGB frames can be compared separately:
 
@@ -157,7 +186,8 @@ intrinsics, and simulation state must be matched before interpreting its image m
 
 ## Output manifest
 
-`run_config.json` uses schema version 2 and transitions through `running`, `complete`, or `failed`.
-It records source-file hashes, render profile, effective Carb settings, Stage preflight, timing,
-Camera state, Writer completion statistics, and software information. A failed or incomplete
-manifest must not be treated as a production dataset.
+`run_config.json` uses schema version 3 and transitions through `running`, `complete`, or `failed`.
+It records source-file hashes, render profile, effective Carb settings, Stage and Articulation
+preflight, joint profile, Recorder metadata, runtime DOF binding, timing, Camera state, Writer
+completion statistics, and software information. A failed or incomplete manifest must not be
+treated as a production dataset.

@@ -16,6 +16,9 @@ from render_profile import SUPPORTED_RENDERERS
 from semantic_mapping import SemanticMapping
 
 
+ARTICULATION_CONTROL_MODE = "articulation_direct_position"
+
+
 def load_json(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as stream:
         return json.load(stream)
@@ -120,6 +123,145 @@ def validate_manifest_v2(run_config: dict[str, Any], expected: int) -> CaptureTi
     )
 
 
+def validate_manifest_v3(run_config: dict[str, Any]) -> None:
+    """Validate the direct-Articulation control contract added in schema v3."""
+
+    motion_enabled = bool(run_config.get("motion_enabled"))
+    motion_control = run_config.get("motion_control")
+    if not isinstance(motion_control, dict):
+        raise RuntimeError("Schema-v3 manifest must contain motion_control")
+    if motion_control.get("mode") != ARTICULATION_CONTROL_MODE:
+        raise RuntimeError(
+            "Schema-v3 motion_control mode must be "
+            f"{ARTICULATION_CONTROL_MODE!r}"
+        )
+
+    profile = motion_control.get("joint_profile")
+    if not isinstance(profile, dict):
+        raise RuntimeError("Schema-v3 manifest must record a joint-control profile")
+    logical_names = profile.get("logical_joint_names")
+    if logical_names != ["cab", "boom", "small_arm", "bucket"]:
+        raise RuntimeError(
+            "Joint-control profile must preserve recorder column order "
+            "['cab', 'boom', 'small_arm', 'bucket']"
+        )
+    tolerance = float(profile.get("readback_tolerance_degrees", 0.0))
+    if not math.isfinite(tolerance) or tolerance <= 0.0:
+        raise RuntimeError("Joint readback tolerance must be positive and finite")
+
+    if not motion_enabled:
+        return
+
+    preflight = run_config.get("preflight", {})
+    articulation_preflight = preflight.get("articulation")
+    if not isinstance(articulation_preflight, dict) or not articulation_preflight.get(
+        "passed", False
+    ):
+        raise RuntimeError("Motion capture requires a passing Articulation Stage preflight")
+
+    bootstrap_steps = motion_control.get("bootstrap_steps")
+    setup_steps = motion_control.get("setup_steps")
+    if not isinstance(bootstrap_steps, int) or isinstance(bootstrap_steps, bool):
+        raise RuntimeError("Articulation bootstrap_steps must be an integer")
+    if bootstrap_steps < 0:
+        raise RuntimeError("Articulation bootstrap_steps cannot be negative")
+    if setup_steps != 1:
+        raise RuntimeError("Direct Articulation playback requires exactly one setup step")
+
+    binding = motion_control.get("binding")
+    if not isinstance(binding, dict):
+        raise RuntimeError("Motion capture manifest does not contain an Articulation binding")
+    if binding.get("control_mode") != ARTICULATION_CONTROL_MODE:
+        raise RuntimeError("Articulation binding control mode is inconsistent")
+    adapter = binding.get("adapter")
+    if not isinstance(adapter, dict) or not adapter.get("bound") or not adapter.get("ready"):
+        raise RuntimeError("Articulation adapter was not recorded as bound and ready")
+    selected_names = binding.get("dof_names")
+    if not isinstance(selected_names, dict) or set(selected_names) != set(logical_names):
+        raise RuntimeError("Articulation binding does not identify all logical DOFs")
+    expected_dof_order = [selected_names[name] for name in logical_names]
+    if adapter.get("ordered_dof_names") != expected_dof_order:
+        raise RuntimeError("Articulation adapter DOF order does not match the excavator contract")
+
+
+def _finite_joint_values(
+    frame_id: int,
+    label: str,
+    values: Any,
+    expected_names: tuple[str, ...],
+) -> dict[str, float]:
+    if not isinstance(values, dict) or set(values) != set(expected_names):
+        raise RuntimeError(
+            f"Frame {frame_id}: {label} must contain exactly {list(expected_names)}"
+        )
+    result = {name: float(values[name]) for name in expected_names}
+    if any(not math.isfinite(value) for value in result.values()):
+        raise RuntimeError(f"Frame {frame_id}: {label} contains a non-finite value")
+    return result
+
+
+def validate_articulation_motion_state(
+    frame_id: int,
+    motion: dict[str, Any],
+    run_config: dict[str, Any],
+    joint_limits: dict[str, dict[str, Any]],
+) -> None:
+    """Validate command/readback/error values recorded after each physics step."""
+
+    expected_names = tuple(
+        run_config["motion_control"]["joint_profile"]["logical_joint_names"]
+    )
+    if motion.get("control_mode") != ARTICULATION_CONTROL_MODE:
+        raise RuntimeError(f"Frame {frame_id}: unexpected motion control mode")
+    commanded = _finite_joint_values(
+        frame_id, "commanded_degrees", motion.get("commanded_degrees"), expected_names
+    )
+    actual = _finite_joint_values(
+        frame_id, "actual_degrees", motion.get("actual_degrees"), expected_names
+    )
+    errors = _finite_joint_values(
+        frame_id,
+        "position_error_degrees",
+        motion.get("position_error_degrees"),
+        expected_names,
+    )
+    targets = _finite_joint_values(
+        frame_id, "target_degrees", motion.get("target_degrees"), expected_names
+    )
+    tolerance = float(
+        run_config["motion_control"]["joint_profile"]["readback_tolerance_degrees"]
+    )
+    for name in expected_names:
+        require_close(
+            f"Frame {frame_id} {name} legacy target/command",
+            targets[name],
+            commanded[name],
+        )
+        require_close(
+            f"Frame {frame_id} {name} readback error",
+            errors[name],
+            actual[name] - commanded[name],
+        )
+        if abs(errors[name]) > tolerance:
+            raise RuntimeError(
+                f"Frame {frame_id}: {name} readback error {errors[name]} exceeds "
+                f"{tolerance} degree tolerance"
+            )
+        joint = joint_limits.get(name)
+        if joint is None:
+            raise RuntimeError(f"Frame {frame_id}: no limits recorded for joint {name}")
+        lower = float(joint["lower_limit_degrees"])
+        upper = float(joint["upper_limit_degrees"])
+        if not lower <= commanded[name] <= upper:
+            raise RuntimeError(
+                f"Frame {frame_id}: joint {name} command is outside limits: {commanded[name]}"
+            )
+        if not lower <= actual[name] <= upper:
+            raise RuntimeError(
+                f"Frame {frame_id}: joint {name} readback is outside limits: {actual[name]}"
+            )
+
+
 def validate_frame_files(
     output: Path,
     mapping: SemanticMapping,
@@ -193,6 +335,7 @@ def validate_states(
         raise RuntimeError(f"motion_state.jsonl contains {len(states)} states, expected {expected}")
 
     joint_limits = {entry["name"]: entry for entry in run_config.get("joints", [])}
+    schema_version = int(run_config.get("schema_version", 1))
     for frame_id, (state, metadata) in enumerate(zip(states, metadata_values)):
         if int(state.get("frame_id", -1)) != frame_id:
             raise RuntimeError(f"Frame {frame_id}: motion state frame ID does not match")
@@ -210,7 +353,10 @@ def validate_states(
             )
             if int(metadata["physics_step"]) != int(state["physics_step"]):
                 raise RuntimeError(f"Frame {frame_id}: metadata/state physics step mismatch")
-        for name, target in state["motion"].get("target_degrees", {}).items():
+        motion = state["motion"]
+        if schema_version >= 3 and run_config.get("motion_enabled"):
+            validate_articulation_motion_state(frame_id, motion, run_config, joint_limits)
+        for name, target in motion.get("target_degrees", {}).items():
             if name not in joint_limits:
                 raise RuntimeError(f"Frame {frame_id}: no limits recorded for joint {name}")
             joint = joint_limits[name]
@@ -252,6 +398,8 @@ def main() -> int:
     expected = int(args.expected_frames or run_config.get("frames", 50))
     schema_version = int(run_config.get("schema_version", 1))
     timing = validate_manifest_v2(run_config, expected) if schema_version >= 2 else None
+    if schema_version >= 3:
+        validate_manifest_v3(run_config)
     metadata_values = validate_frame_files(
         output=output,
         mapping=mapping,

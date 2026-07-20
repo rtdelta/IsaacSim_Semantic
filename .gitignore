@@ -24,6 +24,7 @@ remote_output*/
 *.ply
 *.usd
 *.usda
+!scripts/260714_01semantic_worldModule/configs/Sim_Fangshan_07_capture_overlay.usda
 *.usdc
 *.obj
 *.mtl

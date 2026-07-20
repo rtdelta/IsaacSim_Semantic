@@ -6,7 +6,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from stage_preflight import PreflightReport, file_record
+from stage_preflight import (
+    PreflightReport,
+    classify_unresolved_dependency,
+    file_record,
+)
 
 
 class StagePreflightSupportTests(unittest.TestCase):
@@ -34,6 +38,20 @@ class StagePreflightSupportTests(unittest.TestCase):
         report.add("error", "CAMERA_INVALID", "missing camera")
         with self.assertRaisesRegex(RuntimeError, "not usable"):
             report.raise_if_unusable()
+
+    def test_missing_render_assets_are_warnings_but_usd_layers_remain_errors(self) -> None:
+        self.assertEqual(
+            classify_unresolved_dependency("textures/color_121212.hdr"),
+            ("warning", "RENDER_ASSET_UNRESOLVED"),
+        )
+        self.assertEqual(
+            classify_unresolved_dependency("materials/albedo.PNG"),
+            ("warning", "RENDER_ASSET_UNRESOLVED"),
+        )
+        self.assertEqual(
+            classify_unresolved_dependency("layers/excavator.usda"),
+            ("error", "ASSET_UNRESOLVED"),
+        )
 
 
 if __name__ == "__main__":

@@ -9,6 +9,35 @@ from pathlib import Path
 from typing import Any, Sequence
 
 
+NON_BLOCKING_RENDER_ASSET_EXTENSIONS = {
+    ".bmp",
+    ".dds",
+    ".exr",
+    ".hdr",
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".tga",
+    ".tif",
+    ".tiff",
+    ".tx",
+}
+
+
+def classify_unresolved_dependency(path: str | Path) -> tuple[str, str]:
+    """Keep missing render resources visible without blocking scene execution.
+
+    Missing USD composition layers and unknown dependency types remain errors.
+    Images and environment maps affect appearance but do not make the Stage,
+    Camera, semantics, or Articulation unusable, so they are warnings.
+    """
+
+    suffix = Path(str(path)).suffix.lower()
+    if suffix in NON_BLOCKING_RENDER_ASSET_EXTENSIONS:
+        return "warning", "RENDER_ASSET_UNRESOLVED"
+    return "error", "ASSET_UNRESOLVED"
+
+
 def file_record(path: str | Path) -> dict[str, Any]:
     resolved = Path(path).resolve()
     record: dict[str, Any] = {"path": str(resolved), "exists": resolved.is_file()}
@@ -193,11 +222,13 @@ class StagePreflight:
                     record.update(file_record(resolved))
                 report.external_assets.append(record)
                 if not exists:
-                    report.add("error", "ASSET_UNRESOLVED", f"Asset could not be resolved: {asset_path}")
+                    severity, code = classify_unresolved_dependency(asset_path)
+                    report.add(severity, code, f"Asset could not be resolved: {asset_path}")
             for unresolved_path in unresolved:
+                severity, code = classify_unresolved_dependency(str(unresolved_path))
                 report.add(
-                    "error",
-                    "ASSET_UNRESOLVED",
+                    severity,
+                    code,
                     f"Dependency could not be resolved: {unresolved_path}",
                 )
             _ = layers

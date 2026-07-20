@@ -117,7 +117,20 @@ class WorldScheduler:
         self._step_count += 1
         return self.simulation_time
 
-    def advance_exact_steps(self, count: int, before_step_callback: Any = None) -> float:
+    def advance_exact_steps(
+        self,
+        count: int,
+        before_step_callback: Any = None,
+        after_step_callback: Any = None,
+    ) -> float:
+        """Advance exactly ``count`` physics frames with ordered step hooks.
+
+        The before hook receives the dataset time of the frame that is about to
+        be simulated.  The after hook receives the dataset time after Kit has
+        completed that frame.  Articulation playback uses this ordering to
+        command all DOFs before physics and read their accepted state back only
+        after physics has advanced.
+        """
         if count < 0:
             raise ValueError("Step count must be non-negative")
         if self._state is not WorldState.RUNNING:
@@ -128,7 +141,43 @@ class WorldScheduler:
             if before_step_callback is not None:
                 before_step_callback(next_time)
             self.step()
+            if after_step_callback is not None:
+                after_step_callback(self.dataset_time)
         return self.dataset_time
+
+    def bootstrap_until(
+        self,
+        predicate: Any,
+        max_steps: int,
+        after_step_callback: Any = None,
+        description: str = "runtime resource",
+    ) -> int:
+        """Advance counted physics frames until a runtime resource is ready.
+
+        Articulation tensor handles are created only after Timeline playback has
+        started.  Keeping these updates inside WorldScheduler ensures bootstrap
+        frames are represented by ``physics_step`` and can be excluded from the
+        dataset time axis later with :meth:`begin_data_timeline`.
+        """
+        if max_steps <= 0:
+            raise ValueError("max_steps must be positive")
+        if self._state is not WorldState.RUNNING:
+            raise RuntimeError(f"WorldScheduler cannot bootstrap from state {self._state.name}")
+        if predicate():
+            return 0
+        for completed_steps in range(1, max_steps + 1):
+            self.step()
+            if after_step_callback is not None:
+                after_step_callback(self.simulation_time)
+            if predicate():
+                print(
+                    f"[world-scheduler] {description} ready after "
+                    f"{completed_steps} bootstrap step(s)"
+                )
+                return completed_steps
+        raise RuntimeError(
+            f"{description} did not become ready within {max_steps} physics step(s)"
+        )
 
     def freeze_for_capture(self) -> FrozenWorldSnapshot:
         if self._state is WorldState.FROZEN:

@@ -14,6 +14,7 @@ from typing import Any
 
 from capture_context import CaptureContext
 from capture_timing import CaptureTiming
+from joint_control_profile import JointControlProfile
 from render_profile import (
     RenderProfile,
     RenderProfileApplicationError,
@@ -24,17 +25,18 @@ from stage_preflight import StagePreflight, file_record
 
 
 PROJECT_DIR = Path(__file__).resolve().parent
-DEFAULT_STAGE = PROJECT_DIR / "configs" / "usd_ply_combined_02_capture_overlay.usda"
-DEFAULT_MAPPING = PROJECT_DIR / "configs" / "semantic_mapping_usd_ply_combined_02.json"
+DEFAULT_STAGE = PROJECT_DIR / "configs" / "Sim_Fangshan_07_capture_overlay.usda"
+DEFAULT_MAPPING = PROJECT_DIR / "configs" / "semantic_mapping_Sim_Fangshan_07_native.json"
 DEFAULT_TRAJECTORY = PROJECT_DIR / "trajectories" / "excavator_motion_01.csv"
+DEFAULT_JOINT_PROFILE = PROJECT_DIR / "configs" / "excavator_four_joint_articulation.json"
 DEFAULT_RENDERER = "RealTimePathTracing"
 DEFAULT_RENDER_PROFILES = {
     "RealTimePathTracing": PROJECT_DIR / "configs" / "render_realtime_pathtracing_720p.json",
     "PathTracing": PROJECT_DIR / "configs" / "render_pathtracing_720p_64spp.json",
 }
 DEFAULT_RENDER_PROFILE = DEFAULT_RENDER_PROFILES[DEFAULT_RENDERER]
-DEFAULT_OUTPUT = PROJECT_DIR / "output" / "semantic_capture_v2"
-RUN_CONFIG_SCHEMA_VERSION = 2
+DEFAULT_OUTPUT = PROJECT_DIR / "output" / "semantic_capture_v3"
+RUN_CONFIG_SCHEMA_VERSION = 3
 
 
 def utc_now() -> str:
@@ -106,9 +108,21 @@ def parse_args(argv: list[str] | None = None) -> tuple[argparse.Namespace, list[
     parser.add_argument(
         "--trajectory-mode",
         choices=("loop", "hold"),
-        default="loop",
+        default="hold",
+        help="Recorded non-closed trajectories should use hold; loop requires identical endpoints",
     )
     parser.add_argument("--interpolation", choices=("linear",), default="linear")
+    parser.add_argument(
+        "--joint-profile",
+        default=str(DEFAULT_JOINT_PROFILE),
+        help="Four-DOF fixed-base Articulation contract",
+    )
+    parser.add_argument(
+        "--articulation-ready-timeout-steps",
+        type=int,
+        default=240,
+        help="Maximum counted physics steps to wait for the Articulation tensor",
+    )
     parser.add_argument(
         "--enable-motion",
         action=argparse.BooleanOptionalAction,
@@ -157,11 +171,16 @@ def resolve_renderer_selection(requested_renderer: str | None, profile: RenderPr
     return profile.renderer
 
 
-def validate_args(args: argparse.Namespace, profile: RenderProfile) -> CaptureTiming:
+def validate_args(
+    args: argparse.Namespace,
+    profile: RenderProfile,
+    joint_profile: JointControlProfile,
+) -> CaptureTiming:
     for label, path in (
         ("USD", args.usd),
         ("semantic mapping", args.mapping),
         ("render profile", args.render_profile),
+        ("joint-control profile", args.joint_profile),
     ):
         if not os.path.isfile(path):
             raise FileNotFoundError(f"{label} file not found: {path}")
@@ -169,11 +188,15 @@ def validate_args(args: argparse.Namespace, profile: RenderProfile) -> CaptureTi
         raise ValueError("frames, width, and height must be positive")
     if args.warmup_render_frames < 0 or args.pre_roll_steps < 0:
         raise ValueError("warmup-render-frames and pre-roll-steps must be non-negative")
+    if args.articulation_ready_timeout_steps <= 0:
+        raise ValueError("articulation-ready-timeout-steps must be positive")
     motion_enabled = args.capture_mode == "motion" and args.enable_motion
     if motion_enabled and not os.path.isfile(args.trajectory):
         raise FileNotFoundError(f"Trajectory CSV not found: {args.trajectory}")
     if profile.rt_subframes <= 0:
         raise ValueError("Resolved render profile must use positive rt_subframes")
+    if tuple(joint_profile.logical_joint_names) != ("cab", "boom", "small_arm", "bucket"):
+        raise ValueError("Joint-control profile must use cab, boom, small_arm, bucket order")
     return CaptureTiming(
         physics_hz=args.physics_hz,
         capture_fps=args.capture_fps,
@@ -184,8 +207,15 @@ def validate_args(args: argparse.Namespace, profile: RenderProfile) -> CaptureTi
 
 def resolve_project_relative_paths(args: argparse.Namespace) -> None:
     """Resolve CLI file paths consistently despite run_capture_remote.sh changing cwd."""
-    for attribute in ("usd", "mapping", "render_profile", "trajectory", "output"):
-        raw_value = getattr(args, attribute)
+    for attribute in (
+        "usd",
+        "mapping",
+        "render_profile",
+        "joint_profile",
+        "trajectory",
+        "output",
+    ):
+        raw_value = getattr(args, attribute, None)
         if raw_value is None:
             continue
         value = Path(raw_value).expanduser()
@@ -256,6 +286,8 @@ def wait_for_opened_stage(simulation_app: Any, stage_path: str, max_updates: int
 def base_manifest(
     args: argparse.Namespace,
     profile: RenderProfile,
+    joint_profile: JointControlProfile,
+    trajectory_metadata: dict[str, Any] | None,
     timing: CaptureTiming,
     output_path: Path,
     original_argv: list[str],
@@ -273,6 +305,14 @@ def base_manifest(
             "trajectory": file_record(args.trajectory)
             if args.capture_mode == "motion" and args.enable_motion
             else None,
+            "trajectory_metadata": file_record(
+                joint_profile.trajectory_metadata_path(args.trajectory)
+            )
+            if trajectory_metadata is not None
+            else None,
+            "joint_control_profile": file_record(args.joint_profile)
+            if args.capture_mode == "motion" and args.enable_motion
+            else None,
         },
         "output": str(output_path),
         "frames": args.frames,
@@ -287,6 +327,15 @@ def base_manifest(
         "capture_initial_frame": bool(args.capture_initial_frame),
         "pre_roll_steps": args.pre_roll_steps,
         "motion_enabled": bool(args.capture_mode == "motion" and args.enable_motion),
+        "motion_control": {
+            "mode": "articulation_direct_position",
+            "joint_profile": joint_profile.to_dict(),
+            "trajectory_metadata": trajectory_metadata,
+            "articulation_ready_timeout_steps": args.articulation_ready_timeout_steps,
+            "bootstrap_steps": None,
+            "setup_steps": None,
+            "binding": None,
+        },
         "rt_subframes": profile.rt_subframes,
         "warmup_render_frames": args.warmup_render_frames,
         "warmup_updates": args.warmup_render_frames,
@@ -320,11 +369,25 @@ def main() -> int:
     )
     args.renderer = resolve_renderer_selection(args.renderer, profile)
     args.warmup_render_frames = profile.warmup_render_frames
-    timing = validate_args(args, profile)
+    joint_profile = JointControlProfile.load(args.joint_profile)
+    trajectory_metadata = (
+        joint_profile.load_and_validate_trajectory_metadata(args.trajectory)
+        if args.capture_mode == "motion" and args.enable_motion
+        else None
+    )
+    timing = validate_args(args, profile, joint_profile)
     output_path = Path(args.output).resolve()
     ensure_output_path(output_path, args.overwrite)
     run_config_path = output_path / "run_config.json"
-    manifest = base_manifest(args, profile, timing, output_path, original_argv)
+    manifest = base_manifest(
+        args,
+        profile,
+        joint_profile,
+        trajectory_metadata,
+        timing,
+        output_path,
+        original_argv,
+    )
     write_json_atomic(run_config_path, manifest)
 
     # Kit consumes only arguments that argparse did not recognize.
@@ -332,6 +395,7 @@ def main() -> int:
     simulation_app = None
     camera_scheduler = None
     world_scheduler = None
+    motion_scheduler = None
     exit_code = 0
 
     try:
@@ -342,7 +406,8 @@ def main() -> int:
         import carb.settings
         import omni.usd
         # These modules import Kit/Replicator APIs and therefore load after SimulationApp.
-        from excavator_joint_motion import ExcavatorJointMotion, JOINT_SPECS
+        from articulation_stage_validator import validate_articulation_stage
+        from excavator_joint_motion import ExcavatorJointMotion
         from semantic_capture_custom import SemanticCameraScheduler
         from world_scheduler import WorldScheduler
 
@@ -373,19 +438,39 @@ def main() -> int:
             camera_path=camera_path,
             cab_root=args.cab_root,
             require_camera_below_cab=args.require_camera_below_cab,
-            joint_specs=JOINT_SPECS if args.capture_mode == "motion" else (),
+            joint_specs=(),
         ).run()
-        manifest["preflight"] = preflight.to_dict()
+        motion_enabled = args.capture_mode == "motion" and args.enable_motion
+        articulation_report = (
+            validate_articulation_stage(stage, joint_profile)
+            if motion_enabled
+            else None
+        )
+        if articulation_report is not None:
+            preflight_payload = preflight.to_dict()
+            preflight_payload["articulation"] = articulation_report.to_dict()
+        else:
+            preflight_payload = preflight.to_dict()
+            preflight_payload["articulation"] = None
+        manifest["preflight"] = preflight_payload
         manifest["warnings"] = [issue.to_dict() for issue in preflight.warnings]
+        if articulation_report is not None:
+            manifest["warnings"].extend(
+                issue.to_dict() for issue in articulation_report.warnings
+            )
         write_json_atomic(run_config_path, manifest)
         preflight.raise_if_unusable()
         preflight.raise_if_blocking(strict=args.strict_stage)
+        if articulation_report is not None:
+            articulation_report.require_valid()
 
         maximum_data_step = max(
             timing.data_step_for_frame(frame_id) for frame_id in range(args.frames)
         )
         run_duration = (
-            args.pre_roll_steps + maximum_data_step
+            args.pre_roll_steps
+            + maximum_data_step
+            + (args.articulation_ready_timeout_steps + 1 if motion_enabled else 0)
         ) / float(args.physics_hz) + 1.0
         world_scheduler = WorldScheduler(
             simulation_app=simulation_app,
@@ -395,27 +480,50 @@ def main() -> int:
         )
         world_scheduler.initialize()
 
-        motion_enabled = args.capture_mode == "motion" and args.enable_motion
-        motion_scheduler = None
         if motion_enabled:
             motion_scheduler = ExcavatorJointMotion(
                 stage=stage,
                 trajectory_path=Path(args.trajectory).resolve(),
+                joint_profile=joint_profile,
+                stage_report=articulation_report,
                 playback_mode=args.trajectory_mode,
                 interpolation=args.interpolation,
-                safety_margin_degrees=2.0,
+                trajectory_metadata=trajectory_metadata,
             )
-            motion_scheduler.initialize()
-            motion_scheduler.apply_initial_targets()
+            # Wrapper creation and stable name-to-index binding happen before
+            # Timeline playback; tensor-backed reads/writes are initialized below.
+            motion_scheduler.bind()
 
         world_scheduler.start()
-        if args.pre_roll_steps:
-            hold_initial = (
-                (lambda _dataset_time: motion_scheduler.update(0.0))
-                if motion_scheduler is not None
-                else None
+        if motion_scheduler is not None:
+            bootstrap_steps = world_scheduler.bootstrap_until(
+                predicate=lambda: motion_scheduler.ready,
+                max_steps=args.articulation_ready_timeout_steps,
+                description="Articulation physics tensor",
             )
-            world_scheduler.advance_exact_steps(args.pre_roll_steps, hold_initial)
+            motion_scheduler.initialize_runtime()
+            world_scheduler.advance_exact_steps(
+                1,
+                before_step_callback=lambda _time: motion_scheduler.apply_initial_positions(),
+                after_step_callback=lambda _time: motion_scheduler.after_physics_step(0.0),
+            )
+            manifest["motion_control"]["bootstrap_steps"] = bootstrap_steps
+            manifest["motion_control"]["setup_steps"] = 1
+            manifest["motion_control"]["binding"] = motion_scheduler.binding_info()
+        if args.pre_roll_steps:
+            hold_initial_before = (
+                (lambda _time: motion_scheduler.before_physics_step(0.0))
+                if motion_scheduler is not None else None
+            )
+            hold_initial_after = (
+                (lambda _time: motion_scheduler.after_physics_step(0.0))
+                if motion_scheduler is not None else None
+            )
+            world_scheduler.advance_exact_steps(
+                args.pre_roll_steps,
+                before_step_callback=hold_initial_before,
+                after_step_callback=hold_initial_after,
+            )
         world_scheduler.begin_data_timeline()
         frozen_world = world_scheduler.freeze_for_capture()
 
@@ -466,7 +574,14 @@ def main() -> int:
                     world_scheduler.resume_after_capture()
                     world_scheduler.advance_exact_steps(
                         steps_to_advance,
-                        motion_scheduler.update if motion_scheduler is not None else None,
+                        before_step_callback=(
+                            motion_scheduler.before_physics_step
+                            if motion_scheduler is not None else None
+                        ),
+                        after_step_callback=(
+                            motion_scheduler.after_physics_step
+                            if motion_scheduler is not None else None
+                        ),
                     )
                     frozen_world = world_scheduler.freeze_for_capture()
                 else:
@@ -547,6 +662,11 @@ def main() -> int:
                 camera_scheduler.close()
             except Exception as exc:
                 print(f"[simulation-orchestrator] Camera cleanup warning: {exc}", file=sys.stderr)
+        if motion_scheduler is not None:
+            try:
+                motion_scheduler.shutdown()
+            except Exception as exc:
+                print(f"[simulation-orchestrator] Motion cleanup warning: {exc}", file=sys.stderr)
         if simulation_app is not None:
             simulation_app.close()
 
