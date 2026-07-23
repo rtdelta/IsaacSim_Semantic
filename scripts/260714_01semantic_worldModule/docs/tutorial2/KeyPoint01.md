@@ -710,7 +710,7 @@ data\_step(frame\_id)=(frame\_id+1)\times6
 
 ### 12.3 Static 模式
 
-`--capture-mode static` 时，所有帧：
+业务配置使用 `"capture_mode": "static"` 时，所有帧：
 
 ```text
 data_step = 0
@@ -1035,4 +1035,3 @@ dataset\_time(n)=\frac{6n}{60}=\frac{n}{10}
 最终应牢牢记住：
 
 > 本项目的 60 Hz 描述物理世界如何离散前进；10 FPS 描述数据集在仿真时间上如何采样；16 RT subframes 描述每个冻结采样点上渲染器计算多少次；现实时间只决定任务多久完成，不决定挖掘机在数据集中运动到哪里。
-

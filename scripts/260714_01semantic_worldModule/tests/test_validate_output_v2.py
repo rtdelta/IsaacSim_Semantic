@@ -153,6 +153,53 @@ class ValidateOutputV2Tests(unittest.TestCase):
             self.assertEqual(moving_bodies, [])
             self.assertFalse(camera_moved)
 
+    def test_motion_capture_accepts_a_static_world_camera(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output = Path(temp_dir)
+            camera_matrix = [float(index) for index in range(16)]
+            body_matrix_0 = [float(index) for index in range(16)]
+            body_matrix_1 = list(body_matrix_0)
+            body_matrix_1[12] += 1.0
+            states = [
+                {
+                    "frame_id": 0,
+                    "motion": {"body_world_transform": {"boom": body_matrix_0}},
+                    "camera": {
+                        "path": "/root/Camera_03",
+                        "world_transform": camera_matrix,
+                    },
+                },
+                {
+                    "frame_id": 1,
+                    "motion": {"body_world_transform": {"boom": body_matrix_1}},
+                    "camera": {
+                        "path": "/root/Camera_03",
+                        "world_transform": camera_matrix,
+                    },
+                },
+            ]
+            (output / "motion_state.jsonl").write_text(
+                "".join(json.dumps(state) + "\n" for state in states),
+                encoding="utf-8",
+            )
+            run_config = {
+                "schema_version": 2,
+                "capture_mode": "motion",
+                "motion_enabled": True,
+            }
+            metadata_values = [{"frame_id": 0}, {"frame_id": 1}]
+
+            moving_bodies, camera_moved = validate_states(
+                output,
+                run_config,
+                metadata_values,
+                expected=2,
+                timing=None,
+            )
+
+            self.assertEqual(moving_bodies, ["boom"])
+            self.assertFalse(camera_moved)
+
 
 class ValidateOutputV3Tests(unittest.TestCase):
     def manifest(self) -> dict:

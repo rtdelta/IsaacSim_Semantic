@@ -1,13 +1,13 @@
 # `260714_01semantic_worldModule` 学习导航
 
-> 文档对应代码状态：2026-07-20，输出清单 schema v3，四关节采用
+> 文档对应代码状态：2026-07-23，输出清单 schema v4，四关节采用
 > `articulation_direct_position` 控制。若代码继续演进，请先核对项目根目录的
 > `README.md`、`simulation_orchestrator.py` 和 `run_config.json` 的 schema 版本。
 
 ## 先说结论：这个项目在做什么
 
 这个项目把一台四自由度挖掘机放入 Isaac Sim 场景，按固定物理步长播放关节轨迹，
-在指定时刻冻结世界，通过驾驶室相机同步采集 RGB 和语义分割图，并把“图像、语义、
+在指定时刻冻结世界，通过显式选择的 Camera 同步采集 RGB 和语义分割图，并把“图像、语义、
 相机姿态、关节命令、关节实际回读、渲染配置、输入文件哈希”组织成一份可验证的数据集。
 
 它真正解决的不是“怎样保存一张图”，而是下面四个更难的问题：
@@ -37,7 +37,7 @@
 
 阅读 [动手实验与二次开发指南.md](./动手实验与二次开发指南.md)，依次完成：
 
-1. 运行 69 个单元测试；
+1. 运行普通 Python 单元测试；
 2. 计算 60 Hz 物理、10 FPS 采集的帧时间；
 3. 对 CSV 轨迹做线性插值；
 4. 测试语义标签规范化与稳定 ID 重映射；
@@ -76,7 +76,7 @@
 
 不要按文件名字母顺序阅读。建议按数据流阅读：
 
-1. `simulation_orchestrator.py`：先看参数和 `main()`，建立主线。
+1. `capture_launch_config.py`、`simulation_orchestrator.py`：先看唯一配置入口和 `main()`，建立主线。
 2. `capture_timing.py`、`world_scheduler.py`：理解时间与冻结机制。
 3. `joint_control_profile.py`、`articulation_stage_validator.py`：理解运动契约。
 4. `articulation_adapter.py`、`excavator_joint_motion.py`：理解命令与回读。
@@ -89,7 +89,8 @@
 
 ## 当前版本的关键事实
 
-- 默认 renderer：`RealTimePathTracing`。
+- 唯一业务命令行选项：`--config <json>`。
+- 样本 renderer：`RealTimePathTracing`。
 - 可选 renderer：`PathTracing`。
 - 默认分辨率：1280×720。
 - 默认物理频率：60 Hz。
@@ -101,8 +102,8 @@
 - 默认关节回读容差：0.05°。
 - 默认语义数据类型：`uint16`。
 - 背景 ID：0；未知类 ID：65535。
-- 输出总清单：`run_config.json`，schema v3。
-- 当前普通 Python 测试基线：69 个测试通过。
+- 输出总清单：`run_config.json`，schema v4。
+- 业务配置中的相对路径以该配置文件所在目录为基准。
 
 ## 学完后的验收标准
 

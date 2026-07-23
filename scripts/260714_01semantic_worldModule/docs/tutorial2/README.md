@@ -14,12 +14,13 @@
 4. 实际生效的渲染参数，是否与配置要求一致；
 5. 输出文件是否齐全、可追溯、可自动验收。
 
-默认运行参数的快照如下：
+样本业务配置的参数快照如下：
 
 | 项目 | 默认值 |
 |---|---|
 | 场景 | `configs/Sim_Fangshan_07_capture_overlay.usda` |
-| 相机 | `/root/Xform/operator_cab_mesh/Camera_01` |
+| 启动入口 | `--config configs/capture_motion_camera02.json`，不接受其他业务参数 |
+| 相机 | 配置中的 `camera_prim_path`，例如 `/root/Xform/operator_cab_mesh/Camera_02` |
 | 关节 | `cab, boom, small_arm, bucket` |
 | 物理频率 | 60 Hz |
 | 采集频率 | 10 FPS |
@@ -27,8 +28,8 @@
 | 帧数 | 50 |
 | 分辨率 | 1280×720 |
 | 默认渲染器 | `RealTimePathTracing` |
-| 输出 | `output/semantic_capture_v3` |
-| 清单版本 | `run_config.json` schema v3 |
+| 输出 | `output/semantic_capture_camera02` |
+| 清单版本 | `run_config.json` schema v4 |
 
 ## 2. 推荐学习顺序
 
@@ -54,6 +55,7 @@
 ```text
 260714_01semantic_worldModule/
 ├─ simulation_orchestrator.py       # 总入口与生命周期编排
+├─ capture_launch_config.py         # 严格加载唯一业务配置
 ├─ world_scheduler.py               # 固定物理步、Timeline、冻结/恢复
 ├─ capture_timing.py                # 纯数学：帧号 -> 物理步/数据集时间
 ├─ capture_context.py               # 不可变帧上下文、回执、线程安全账本
@@ -69,7 +71,7 @@
 ├─ validate_semantic_output.py      # 完整数据集验收
 ├─ compare_render_quality.py        # 两张 RGB 的客观指标比较
 ├─ run_capture_remote.sh            # Linux/远端 Isaac Sim 启动包装
-├─ configs/                         # 场景叠加层、语义/关节/渲染配置
+├─ configs/                         # 启动、场景叠加层、语义/关节/渲染配置
 ├─ trajectories/                    # 四关节 CSV 轨迹
 └─ tests/                           # 普通 Python 可运行的单元测试
 ```
@@ -115,4 +117,3 @@ flowchart LR
 - 看到 `target`、`commanded`、`actual` 时，分别理解为兼容字段、已提交命令、物理引擎回读值。
 - 看到 `warmup` 与 `pre-roll` 时，前者是渲染历史预热，后者是物理预运行，它们属于不同时间域。
 - 任何修改都应先问：是否破坏了“一个输出帧只有一个权威上下文”这一原则。
-

@@ -162,16 +162,12 @@ class StagePreflight:
         source_stage: str | Path,
         mapping_path: str | Path,
         camera_path: str,
-        cab_root: str,
-        require_camera_below_cab: bool,
         joint_specs: Sequence[Any] = (),
     ) -> None:
         self._stage = stage
         self._source_stage = Path(source_stage).resolve()
         self._mapping_path = Path(mapping_path).resolve()
         self._camera_path = camera_path
-        self._cab_root = cab_root
-        self._require_camera_below_cab = bool(require_camera_below_cab)
         self._joint_specs = tuple(joint_specs)
 
     def _check_files(self, report: PreflightReport) -> None:
@@ -242,23 +238,31 @@ class StagePreflight:
     def _check_camera_and_semantics(self, report: PreflightReport) -> None:
         from pxr import UsdGeom
 
-        camera_prim = self._stage.GetPrimAtPath(self._camera_path)
-        if not camera_prim.IsValid() or not camera_prim.IsA(UsdGeom.Camera):
+        if not self._camera_path or not self._camera_path.startswith("/"):
             report.add(
                 "error",
                 "CAMERA_INVALID",
-                "Camera prim is missing or is not a UsdGeom.Camera",
+                "Camera prim path must be a non-empty absolute path",
                 self._camera_path,
             )
-        elif self._require_camera_below_cab and not self._camera_path.startswith(
-            self._cab_root.rstrip("/") + "/"
-        ):
-            report.add(
-                "error",
-                "CAMERA_PARENT_INVALID",
-                f"Camera is not below configured cab root {self._cab_root}",
-                self._camera_path,
-            )
+        else:
+            try:
+                camera_prim = self._stage.GetPrimAtPath(self._camera_path)
+            except Exception as exc:
+                report.add(
+                    "error",
+                    "CAMERA_INVALID",
+                    f"Camera prim path could not be resolved: {exc}",
+                    self._camera_path,
+                )
+            else:
+                if not camera_prim.IsValid() or not camera_prim.IsA(UsdGeom.Camera):
+                    report.add(
+                        "error",
+                        "CAMERA_INVALID",
+                        "Camera prim is missing or is not a UsdGeom.Camera",
+                        self._camera_path,
+                    )
 
         count = 0
         for prim in self._stage.Traverse():

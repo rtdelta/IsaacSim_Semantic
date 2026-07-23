@@ -1,53 +1,91 @@
-"""Tests for project-relative CLI path handling."""
+"""Tests for the single-config command-line boundary."""
 
 from __future__ import annotations
 
-import argparse
 import unittest
 from pathlib import Path
 
+from capture_launch_config import CaptureLaunchConfig
+from capture_timing import CaptureTiming
+from joint_control_profile import JointControlProfile
 from render_profile import RenderProfile
 from simulation_orchestrator import (
-    DEFAULT_RENDER_PROFILES,
-    PROJECT_DIR,
-    choose_default_render_profile,
+    RUN_CONFIG_SCHEMA_VERSION,
+    base_manifest,
     parse_args,
-    resolve_project_relative_paths,
     resolve_renderer_selection,
 )
 
 
 class OrchestratorPathTests(unittest.TestCase):
-    def test_resolves_relative_paths_from_project_root(self) -> None:
-        args = argparse.Namespace(
-            usd="configs/stage.usda",
-            mapping="configs/mapping.json",
-            render_profile="configs/profile.json",
-            trajectory="trajectories/path.csv",
-            output="output/run",
-        )
-        resolve_project_relative_paths(args)
-        self.assertEqual(Path(args.output), (PROJECT_DIR / "output" / "run").resolve())
-        self.assertEqual(
-            Path(args.render_profile), (PROJECT_DIR / "configs" / "profile.json").resolve()
-        )
+    def test_config_is_the_only_business_option(self) -> None:
+        args = parse_args(["--config", "configs/capture.json"])
+        self.assertEqual(args.config, "configs/capture.json")
+        self.assertEqual(vars(args), {"config": "configs/capture.json"})
 
-    def test_renderer_selects_its_default_profile(self) -> None:
-        args, kit_args = parse_args(["--renderer", "PathTracing"])
-        self.assertEqual(kit_args, [])
-        choose_default_render_profile(args)
-        self.assertEqual(Path(args.render_profile), DEFAULT_RENDER_PROFILES["PathTracing"])
+    def test_config_is_required(self) -> None:
+        with self.assertRaises(SystemExit):
+            parse_args([])
 
-    def test_default_renderer_is_realtime_pathtracing(self) -> None:
-        args, _ = parse_args([])
-        choose_default_render_profile(args)
-        profile = RenderProfile.load(args.render_profile)
-        self.assertEqual(resolve_renderer_selection(args.renderer, profile), "RealTimePathTracing")
+    def test_legacy_business_option_is_rejected(self) -> None:
+        with self.assertRaises(SystemExit):
+            parse_args(
+                [
+                    "--config",
+                    "configs/capture.json",
+                    "--camera_prim_path",
+                    "/root/Camera",
+                ]
+            )
+
+    def test_unknown_kit_option_is_rejected(self) -> None:
+        with self.assertRaises(SystemExit):
+            parse_args(["--config", "configs/capture.json", "--/app/window/width=1280"])
 
     def test_explicit_renderer_must_match_profile(self) -> None:
-        profile = RenderProfile.load(DEFAULT_RENDER_PROFILES["PathTracing"])
+        profile = RenderProfile.load(
+            "configs/render_pathtracing_720p_64spp.json"
+        )
         with self.assertRaisesRegex(ValueError, "conflicts"):
             resolve_renderer_selection("RealTimePathTracing", profile)
+
+    def test_manifest_records_source_and_effective_configuration(self) -> None:
+        config = CaptureLaunchConfig.load("configs/capture_motion_camera02.json")
+        profile = RenderProfile.load(config.render_profile).with_capture_overrides(
+            rt_subframes=config.rt_subframes,
+            warmup_render_frames=config.warmup_render_frames,
+        )
+        joint_profile = JointControlProfile.load(config.joint_profile)
+        timing = CaptureTiming(
+            physics_hz=config.physics_hz,
+            capture_fps=config.capture_fps,
+            capture_initial_frame=config.capture_initial_frame,
+            static=config.capture_mode == "static",
+        )
+
+        manifest = base_manifest(
+            config,
+            profile,
+            joint_profile,
+            trajectory_metadata=None,
+            timing=timing,
+            output_path=Path(config.output),
+            original_argv=["simulation_orchestrator.py", "--config", str(config.source_path)],
+        )
+
+        self.assertEqual(manifest["schema_version"], RUN_CONFIG_SCHEMA_VERSION)
+        self.assertEqual(
+            manifest["launch_config"]["source"]["path"],
+            str(config.source_path),
+        )
+        self.assertEqual(
+            manifest["effective_config"]["camera_prim_path"],
+            config.camera_prim_path,
+        )
+        self.assertEqual(
+            manifest["effective_config"]["rt_subframes"],
+            profile.rt_subframes,
+        )
 
 
 if __name__ == "__main__":

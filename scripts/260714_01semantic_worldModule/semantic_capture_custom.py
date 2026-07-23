@@ -39,8 +39,7 @@ class SemanticCameraScheduler:
         self,
         simulation_app: Any,
         stage: Any,
-        camera_path: str | None,
-        cab_root: str,
+        camera_path: str,
         output_path: Path,
         mapping_path: Path,
         width: int,
@@ -48,13 +47,10 @@ class SemanticCameraScheduler:
         rt_subframes: int,
         save_runtime_ids: bool,
         strict_mapping: bool,
-        require_camera_below_cab: bool = True,
     ) -> None:
         self._app = simulation_app
         self._stage = stage
         self._requested_camera_path = camera_path
-        self._cab_root = cab_root
-        self._require_camera_below_cab = bool(require_camera_below_cab)
         self._output_path = Path(output_path)
         self._mapping_path = Path(mapping_path)
         self._width = int(width)
@@ -80,31 +76,12 @@ class SemanticCameraScheduler:
             )
 
     def _resolve_camera_path(self) -> str:
-        if self._requested_camera_path:
-            prim = self._stage.GetPrimAtPath(self._requested_camera_path)
-            if not prim.IsValid() or not prim.IsA(UsdGeom.Camera):
-                raise RuntimeError(f"Camera prim is missing or invalid: {self._requested_camera_path}")
-            if self._require_camera_below_cab and not str(prim.GetPath()).startswith(
-                self._cab_root.rstrip("/") + "/"
-            ):
-                raise RuntimeError(
-                    f"Camera {prim.GetPath()} is not a descendant of cab root {self._cab_root}"
-                )
-            return str(prim.GetPath())
-
-        cab_prim = self._stage.GetPrimAtPath(self._cab_root)
-        if not cab_prim.IsValid():
-            raise RuntimeError(f"Cab root is missing: {self._cab_root}")
-        cameras = [
-            str(prim.GetPath())
-            for prim in Usd.PrimRange(cab_prim)
-            if prim.IsA(UsdGeom.Camera)
-        ]
-        if len(cameras) != 1:
-            raise RuntimeError(
-                f"Expected exactly one Camera below {self._cab_root}, found {len(cameras)}: {cameras}"
-            )
-        return cameras[0]
+        if not self._requested_camera_path or not self._requested_camera_path.startswith("/"):
+            raise RuntimeError("Camera prim path must be a non-empty absolute path")
+        prim = self._stage.GetPrimAtPath(self._requested_camera_path)
+        if not prim.IsValid() or not prim.IsA(UsdGeom.Camera):
+            raise RuntimeError(f"Camera prim is missing or invalid: {self._requested_camera_path}")
+        return str(prim.GetPath())
 
     def initialize(self) -> None:
         """Resolve the Camera and create one RenderProduct for the entire run."""

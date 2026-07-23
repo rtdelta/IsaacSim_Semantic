@@ -4,6 +4,21 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RUNTIME_DIR="${PROJECT_DIR}/.runtime"
 
+if [[ "$#" -ne 2 || "$1" != "--config" ]]; then
+  echo "Usage: $0 --config <capture-config.json>" >&2
+  exit 2
+fi
+
+CONFIG_PATH="$2"
+if [[ "${CONFIG_PATH}" != /* ]]; then
+  CONFIG_PATH="${PROJECT_DIR}/${CONFIG_PATH}"
+fi
+if [[ ! -f "${CONFIG_PATH}" ]]; then
+  echo "Capture configuration file not found: ${CONFIG_PATH}" >&2
+  exit 2
+fi
+CONFIG_PATH="$(cd "$(dirname "${CONFIG_PATH}")" && pwd)/$(basename "${CONFIG_PATH}")"
+
 mkdir -p \
   "${RUNTIME_DIR}/tmp" \
   "${RUNTIME_DIR}/cache" \
@@ -21,4 +36,6 @@ export OPTIX_CACHE_PATH="${RUNTIME_DIR}/optix_cache"
 export PYTHONUNBUFFERED=1
 
 cd "${RUNTIME_DIR}/home"
-exec /root/isaacsim/python.sh "${PROJECT_DIR}/simulation_orchestrator.py" "$@"
+exec /root/isaacsim/python.sh \
+  "${PROJECT_DIR}/simulation_orchestrator.py" \
+  --config "${CONFIG_PATH}"

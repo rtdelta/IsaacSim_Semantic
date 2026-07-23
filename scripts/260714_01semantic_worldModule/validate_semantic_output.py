@@ -380,8 +380,6 @@ def validate_states(
     elif run_config.get("motion_enabled") and expected > 1:
         if not moving_bodies:
             raise RuntimeError("No controlled body world transform changed across motion capture")
-        if not camera_moved:
-            raise RuntimeError("Camera world transform did not change with the cab")
     return moving_bodies, camera_moved
 
 

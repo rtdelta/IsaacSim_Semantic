@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from capture_launch_config import CaptureLaunchConfig
 from capture_context import CaptureContext
 from capture_timing import CaptureTiming
 from joint_control_profile import JointControlProfile
@@ -19,160 +20,41 @@ from render_profile import (
     RenderProfile,
     RenderProfileApplicationError,
     RenderProfileManager,
-    SUPPORTED_RENDERERS,
 )
 from stage_preflight import StagePreflight, file_record
 
 
-PROJECT_DIR = Path(__file__).resolve().parent
-DEFAULT_STAGE = PROJECT_DIR / "configs" / "Sim_Fangshan_07_capture_overlay.usda"
-DEFAULT_MAPPING = PROJECT_DIR / "configs" / "semantic_mapping_Sim_Fangshan_07_native.json"
-DEFAULT_TRAJECTORY = PROJECT_DIR / "trajectories" / "excavator_motion_01.csv"
-DEFAULT_JOINT_PROFILE = PROJECT_DIR / "configs" / "excavator_four_joint_articulation.json"
-DEFAULT_RENDERER = "RealTimePathTracing"
-DEFAULT_RENDER_PROFILES = {
-    "RealTimePathTracing": PROJECT_DIR / "configs" / "render_realtime_pathtracing_720p.json",
-    "PathTracing": PROJECT_DIR / "configs" / "render_pathtracing_720p_64spp.json",
-}
-DEFAULT_RENDER_PROFILE = DEFAULT_RENDER_PROFILES[DEFAULT_RENDERER]
-DEFAULT_OUTPUT = PROJECT_DIR / "output" / "semantic_capture_v3"
-RUN_CONFIG_SCHEMA_VERSION = 3
+RUN_CONFIG_SCHEMA_VERSION = 4
 
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def parse_args(argv: list[str] | None = None) -> tuple[argparse.Namespace, list[str]]:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Schedule fixed-step world physics and synchronized semantic-camera capture"
     )
-    parser.add_argument("--usd", default=str(DEFAULT_STAGE), help="USD or USDA stage to open")
-    parser.add_argument("--mapping", default=str(DEFAULT_MAPPING), help="Stable semantic mapping JSON")
     parser.add_argument(
-        "--renderer",
-        choices=SUPPORTED_RENDERERS,
-        default=None,
-        help="RTX renderer; selects its default profile when --render-profile is omitted",
+        "--config",
+        required=True,
+        help="JSON file containing every semantic-capture business parameter",
     )
-    parser.add_argument(
-        "--render-profile",
-        default=None,
-        help="Versioned render profile; its renderer must match an explicit --renderer",
-    )
-    parser.add_argument(
-        "--camera",
-        default="/root/Xform/operator_cab_mesh/Camera_01",
-        help="Camera prim path; empty discovers the only Camera below --cab-root",
-    )
-    parser.add_argument("--cab-root", default="/root/Xform/operator_cab_mesh")
-    parser.add_argument(
-        "--require-camera-below-cab",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="Disable only for explicit static diagnostics such as /root/Camera_03",
-    )
-    parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
-    parser.add_argument("--frames", type=int, default=50)
-    parser.add_argument("--width", type=int, default=1280)
-    parser.add_argument("--height", type=int, default=720)
-    parser.add_argument(
-        "--warmup",
-        "--warmup-render-frames",
-        dest="warmup_render_frames",
-        type=int,
-        default=None,
-        help="Override the selected render profile's warm-up frame count",
-    )
-    parser.add_argument(
-        "--rt-subframes",
-        type=int,
-        default=None,
-        help="Override the render profile's RT subframe count",
-    )
-    parser.add_argument("--physics-hz", type=int, default=60)
-    parser.add_argument("--capture-fps", type=int, default=10)
-    parser.add_argument("--capture-mode", choices=("static", "motion"), default="motion")
-    parser.add_argument(
-        "--capture-initial-frame",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="When enabled, frame 0000 is captured at dataset time zero",
-    )
-    parser.add_argument("--pre-roll-steps", type=int, default=0)
-    parser.add_argument(
-        "--trajectory",
-        default=str(DEFAULT_TRAJECTORY),
-        help="CSV keyframes with columns: time,cab,boom,small_arm,bucket",
-    )
-    parser.add_argument(
-        "--trajectory-mode",
-        choices=("loop", "hold"),
-        default="hold",
-        help="Recorded non-closed trajectories should use hold; loop requires identical endpoints",
-    )
-    parser.add_argument("--interpolation", choices=("linear",), default="linear")
-    parser.add_argument(
-        "--joint-profile",
-        default=str(DEFAULT_JOINT_PROFILE),
-        help="Four-DOF fixed-base Articulation contract",
-    )
-    parser.add_argument(
-        "--articulation-ready-timeout-steps",
-        type=int,
-        default=240,
-        help="Maximum counted physics steps to wait for the Articulation tensor",
-    )
-    parser.add_argument(
-        "--enable-motion",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-    )
-    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=True)
-    parser.add_argument(
-        "--save-runtime-ids",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-    )
-    parser.add_argument(
-        "--strict-mapping",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-    )
-    parser.add_argument(
-        "--strict-stage",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="Block production capture when Stage preflight reports errors",
-    )
-    parser.add_argument(
-        "--overwrite",
-        action="store_true",
-        help="Allow writing into a non-empty output directory",
-    )
-    return parser.parse_known_args(argv)
-
-
-def choose_default_render_profile(args: argparse.Namespace) -> None:
-    """Select a default profile only when the user did not provide one."""
-    if args.render_profile is not None:
-        return
-    renderer = args.renderer or DEFAULT_RENDERER
-    args.render_profile = str(DEFAULT_RENDER_PROFILES[renderer])
+    return parser.parse_args(argv)
 
 
 def resolve_renderer_selection(requested_renderer: str | None, profile: RenderProfile) -> str:
     """Resolve the single authoritative renderer and reject conflicting inputs."""
     if requested_renderer is not None and requested_renderer != profile.renderer:
         raise ValueError(
-            f"--renderer {requested_renderer!r} conflicts with render profile "
+            f"Configured renderer {requested_renderer!r} conflicts with render profile "
             f"renderer {profile.renderer!r}: {profile.source_path}"
         )
     return profile.renderer
 
 
 def validate_args(
-    args: argparse.Namespace,
+    args: CaptureLaunchConfig,
     profile: RenderProfile,
     joint_profile: JointControlProfile,
 ) -> CaptureTiming:
@@ -186,8 +68,8 @@ def validate_args(
             raise FileNotFoundError(f"{label} file not found: {path}")
     if args.frames <= 0 or args.width <= 0 or args.height <= 0:
         raise ValueError("frames, width, and height must be positive")
-    if args.warmup_render_frames < 0 or args.pre_roll_steps < 0:
-        raise ValueError("warmup-render-frames and pre-roll-steps must be non-negative")
+    if profile.warmup_render_frames < 0 or args.pre_roll_steps < 0:
+        raise ValueError("warmup_render_frames and pre_roll_steps must be non-negative")
     if args.articulation_ready_timeout_steps <= 0:
         raise ValueError("articulation-ready-timeout-steps must be positive")
     motion_enabled = args.capture_mode == "motion" and args.enable_motion
@@ -205,25 +87,6 @@ def validate_args(
     )
 
 
-def resolve_project_relative_paths(args: argparse.Namespace) -> None:
-    """Resolve CLI file paths consistently despite run_capture_remote.sh changing cwd."""
-    for attribute in (
-        "usd",
-        "mapping",
-        "render_profile",
-        "joint_profile",
-        "trajectory",
-        "output",
-    ):
-        raw_value = getattr(args, attribute, None)
-        if raw_value is None:
-            continue
-        value = Path(raw_value).expanduser()
-        if not value.is_absolute():
-            value = PROJECT_DIR / value
-        setattr(args, attribute, str(value.resolve()))
-
-
 def ensure_output_path(path: Path, overwrite: bool) -> None:
     if path.exists() and any(path.iterdir()) and not overwrite:
         raise FileExistsError(
@@ -238,22 +101,6 @@ def write_json_atomic(path: Path, value: Any) -> None:
         json.dump(value, stream, ensure_ascii=False, indent=2)
         stream.write("\n")
     temporary_path.replace(path)
-
-
-def resolve_camera_path(stage: Any, requested: str, cab_root: str) -> str:
-    if requested:
-        return requested
-    from pxr import Usd, UsdGeom
-
-    cab_prim = stage.GetPrimAtPath(cab_root)
-    cameras = [
-        str(prim.GetPath())
-        for prim in Usd.PrimRange(cab_prim)
-        if prim.IsA(UsdGeom.Camera)
-    ]
-    if len(cameras) != 1:
-        raise RuntimeError(f"Expected one Camera below {cab_root}, found {cameras}")
-    return cameras[0]
 
 
 def wait_for_opened_stage(simulation_app: Any, stage_path: str, max_updates: int = 600) -> Any:
@@ -284,7 +131,7 @@ def wait_for_opened_stage(simulation_app: Any, stage_path: str, max_updates: int
 
 
 def base_manifest(
-    args: argparse.Namespace,
+    args: CaptureLaunchConfig,
     profile: RenderProfile,
     joint_profile: JointControlProfile,
     trajectory_metadata: dict[str, Any] | None,
@@ -297,9 +144,20 @@ def base_manifest(
         "status": "running",
         "started_at_utc": utc_now(),
         "command_line": original_argv,
+        "launch_config": {
+            "source": file_record(args.source_path),
+            "schema_version": args.schema_version,
+        },
+        "effective_config": {
+            **args.to_dict(),
+            "renderer": profile.renderer,
+            "rt_subframes": profile.rt_subframes,
+            "warmup_render_frames": profile.warmup_render_frames,
+        },
         "source_stage": str(Path(args.usd).resolve()),
         "semantic_mapping": str(Path(args.mapping).resolve()),
         "inputs": {
+            "launch_config": file_record(args.source_path),
             "source_stage": file_record(args.usd),
             "semantic_mapping": file_record(args.mapping),
             "trajectory": file_record(args.trajectory)
@@ -318,9 +176,7 @@ def base_manifest(
         "frames": args.frames,
         "resolution": [args.width, args.height],
         "capture_mode": args.capture_mode,
-        "camera": args.camera,
-        "cab_root": args.cab_root,
-        "require_camera_below_cab": bool(args.require_camera_below_cab),
+        "camera": args.camera_prim_path,
         "physics_hz": args.physics_hz,
         "capture_fps": args.capture_fps,
         "physics_steps_per_capture": timing.steps_per_capture,
@@ -337,8 +193,8 @@ def base_manifest(
             "binding": None,
         },
         "rt_subframes": profile.rt_subframes,
-        "warmup_render_frames": args.warmup_render_frames,
-        "warmup_updates": args.warmup_render_frames,
+        "warmup_render_frames": profile.warmup_render_frames,
+        "warmup_updates": profile.warmup_render_frames,
         "save_runtime_ids": bool(args.save_runtime_ids),
         "strict_mapping": bool(args.strict_mapping),
         "strict_stage": bool(args.strict_stage),
@@ -360,15 +216,13 @@ def base_manifest(
 
 def main() -> int:
     original_argv = list(sys.argv)
-    args, kit_args = parse_args()
-    choose_default_render_profile(args)
-    resolve_project_relative_paths(args)
+    cli_args = parse_args()
+    args = CaptureLaunchConfig.load(cli_args.config)
     profile = RenderProfile.load(args.render_profile).with_capture_overrides(
         rt_subframes=args.rt_subframes,
         warmup_render_frames=args.warmup_render_frames,
     )
-    args.renderer = resolve_renderer_selection(args.renderer, profile)
-    args.warmup_render_frames = profile.warmup_render_frames
+    resolve_renderer_selection(args.renderer, profile)
     joint_profile = JointControlProfile.load(args.joint_profile)
     trajectory_metadata = (
         joint_profile.load_and_validate_trajectory_metadata(args.trajectory)
@@ -390,8 +244,6 @@ def main() -> int:
     )
     write_json_atomic(run_config_path, manifest)
 
-    # Kit consumes only arguments that argparse did not recognize.
-    sys.argv = [original_argv[0], *kit_args]
     simulation_app = None
     camera_scheduler = None
     world_scheduler = None
@@ -430,14 +282,12 @@ def main() -> int:
             raise
         manifest["render"] = render_snapshot
 
-        camera_path = resolve_camera_path(stage, args.camera, args.cab_root)
+        camera_path = args.camera_prim_path
         preflight = StagePreflight(
             stage=stage,
             source_stage=args.usd,
             mapping_path=args.mapping,
             camera_path=camera_path,
-            cab_root=args.cab_root,
-            require_camera_below_cab=args.require_camera_below_cab,
             joint_specs=(),
         ).run()
         motion_enabled = args.capture_mode == "motion" and args.enable_motion
@@ -531,7 +381,6 @@ def main() -> int:
             simulation_app=simulation_app,
             stage=stage,
             camera_path=camera_path,
-            cab_root=args.cab_root,
             output_path=output_path,
             mapping_path=Path(args.mapping).resolve(),
             width=args.width,
@@ -539,10 +388,9 @@ def main() -> int:
             rt_subframes=profile.rt_subframes,
             save_runtime_ids=args.save_runtime_ids,
             strict_mapping=args.strict_mapping,
-            require_camera_below_cab=args.require_camera_below_cab,
         )
         camera_scheduler.initialize()
-        camera_scheduler.warmup(args.warmup_render_frames)
+        camera_scheduler.warmup(profile.warmup_render_frames)
         world_scheduler.assert_still_frozen(frozen_world)
         camera_scheduler.attach_writer()
 

@@ -8,6 +8,7 @@ render/capture synchronization model.
 ## Module boundaries
 
 - `simulation_orchestrator.py`: SimulationApp lifecycle and top-level scheduling.
+- `capture_launch_config.py`: strict, versioned loading of every run-time business parameter.
 - `world_scheduler.py`: fixed-step Timeline/physics and future world properties.
 - `joint_control_profile.py`: self-contained four-joint and Recorder-sidecar contract.
 - `articulation_stage_validator.py`: read-only fixed-base Articulation/rigid-link checks.
@@ -24,91 +25,70 @@ render/capture synchronization model.
 
 The project is self-contained and does not import another local project.
 
-## Default remote run
+## Remote run
 
 ```bash
 ./run_capture_remote.sh \
-  --renderer RealTimePathTracing \
-  --frames 50 \
-  --physics-hz 60 \
-  --capture-fps 10 \
-  --trajectory trajectories/excavator_motion_01.csv \
-  --trajectory-mode hold \
-  --joint-profile configs/excavator_four_joint_articulation.json \
-  --interpolation linear \
-  --width 1280 \
-  --height 720 \
-  --warmup-render-frames 16
+  --config configs/capture_motion_camera02.json
 ```
 
-`RealTimePathTracing` is the default renderer and resolves to RTX Real-Time 2.0, DLSS Quality,
-and 16 RT subframes through `configs/render_realtime_pathtracing_720p.json`. The high-quality
-alternative is selected with `--renderer PathTracing`; its default profile uses 8 samples per
-pixel per render frame, 8 RT subframes, and a 64-SPP accumulation cap.
+`--config` is the only accepted business option. The JSON file contains the Stage, semantic
+mapping, Camera Prim path, output, timing, motion, renderer, and strictness settings. Legacy
+command-line options and extra Kit options are rejected instead of overriding the file.
+
+The checked-in sample `configs/capture_motion_camera02.json` uses `RealTimePathTracing`, RTX
+Real-Time 2.0, DLSS Quality, and the capture settings from
+`configs/render_realtime_pathtracing_720p.json`.
+
+Paths inside the launch configuration are resolved relative to the launch configuration's own
+directory. This makes the sample's `usd`, `mapping`, `render_profile`, and `joint_profile` values
+refer to neighboring files, while `../trajectories/...` and `../output/...` refer to project
+directories.
 
 ## Renderer selection
 
-The two supported renderer choices are:
-
-```bash
---renderer RealTimePathTracing
---renderer PathTracing
-```
-
-When `--render-profile` is omitted, the renderer selects one of these profiles:
+The launch configuration must explicitly select one of the two supported renderer/profile pairs:
 
 ```text
 RealTimePathTracing -> configs/render_realtime_pathtracing_720p.json
 PathTracing         -> configs/render_pathtracing_720p_64spp.json
 ```
 
-An explicitly supplied profile must match an explicitly supplied renderer. A mismatch is an
-error instead of silently overriding either input. A custom profile can be used on its own, in
-which case its `renderer` field is authoritative. The schema-v1
+The configured profile must match the configured renderer. A mismatch is an error instead of
+silently overriding either input. The schema-v1
 `configs/render_quality_dlss_720p.json` profile is retained only for historical reproduction.
 
-Path Tracing example:
-
-```bash
-./run_capture_remote.sh \
-  --renderer PathTracing \
-  --capture-mode static \
-  --frames 3 \
-  --width 1280 \
-  --height 720 \
-  --output /new/pathtracing/output
-```
-
-`--rt-subframes` and `--warmup-render-frames` override the selected profile's capture settings.
+Set `rt_subframes` and `warmup_render_frames` in the launch JSON to override the selected
+profile's capture settings. Set either value to `null` to retain the profile value.
 Path Tracing SPP, accumulation cap, denoiser, bounce limits, and reset policy remain profile-owned
-so incompatible command-line combinations cannot be assembled accidentally. After every Stage
+so incompatible combinations cannot be assembled accidentally. After every Stage
 open, the program reapplies the selected SimulationApp renderer, applies the profile's Carb
 settings, and reads every required setting back. Requested and effective renderer values, the
 sampling model, and any mismatches are written to `run_config.json`.
 
-Frame 0000 is captured at dataset time 0 by default. Pass `--no-capture-initial-frame` only when
-the legacy behavior (first frame after one capture interval) is intentional.
+Set `capture_initial_frame` to `true` to capture frame 0000 at dataset time 0. Set it to `false`
+only when the legacy behavior (first frame after one capture interval) is intentional.
 
 Stage preflight is strict by default. Missing dependencies, an invalid Camera, missing semantics,
 and authored non-positive mass/inertia values block production capture. Motion mode additionally
 requires one fixed-base Articulation root, exactly four named revolute DOFs in chain order, enabled
 non-kinematic rigid links, finite limits, positive mass/inertia, and no Angular Drive API on the
-controlled joints. Articulation failures always block motion capture; `--no-strict-stage` only
-relaxes the general Stage diagnostics.
+controlled joints. Articulation failures always block motion capture; the `strict_stage`
+configuration field only relaxes the general Stage diagnostics.
 
-## Static GUI/script parity capture
+## Camera selection and static GUI/script parity capture
 
-Camera_03 is a diagnostic reference, not a replacement for the production cab Camera_01:
+Every launch configuration must select one existing `UsdGeom.Camera` with `camera_prim_path`. The Camera can be
+located anywhere in the Stage hierarchy; its parent controls inherited motion but does not affect
+capture eligibility. The project does not discover a Camera automatically or require it to be
+below the excavator cab.
 
-```bash
-./run_capture_remote.sh \
-  --usd /absolute/stage.usda \
-  --mapping /absolute/semantic_mapping.json \
-  --camera /root/Camera_03 \
-  --no-require-camera-below-cab \
-  --capture-mode static \
-  --frames 3 \
-  --output /new/diagnostic/output
+```json
+{
+  "camera_prim_path": "/root/Camera_03",
+  "capture_mode": "static",
+  "enable_motion": false
+}
 ```
 
 Static mode does not advance dataset physics time between captures. It is intended for a matched
@@ -166,7 +146,7 @@ profile tolerance (0.05 degree by default) stops the run instead of publishing m
   --expected-frames 50
 ```
 
-For schema-v2 and schema-v3 outputs, `--expected-frames` is optional and defaults to the value
+For schema-v2 and later outputs, `--expected-frames` is optional and defaults to the value
 recorded in the run manifest. Schema-v3 validation additionally requires a passing Articulation
 preflight, a bound/ready named-DOF mapping, counted bootstrap/setup steps, exact four-joint state
 keys, finite command/readback/error values, safe limits, and the configured readback tolerance.
@@ -186,8 +166,9 @@ intrinsics, and simulation state must be matched before interpreting its image m
 
 ## Output manifest
 
-`run_config.json` uses schema version 3 and transitions through `running`, `complete`, or `failed`.
-It records source-file hashes, render profile, effective Carb settings, Stage and Articulation
-preflight, joint profile, Recorder metadata, runtime DOF binding, timing, Camera state, Writer
-completion statistics, and software information. A failed or incomplete manifest must not be
-treated as a production dataset.
+`run_config.json` uses schema version 4 and transitions through `running`, `complete`, or `failed`.
+It records the source launch-configuration path and hash, the fully resolved effective
+configuration, source-file hashes, render profile, effective Carb settings, Stage and
+Articulation preflight, joint profile, Recorder metadata, runtime DOF binding, timing, Camera
+state, Writer completion statistics, and software information. A failed or incomplete manifest
+must not be treated as a production dataset.
