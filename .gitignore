@@ -73,3 +73,5 @@ Materials/**/*.jpeg
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+/Materials/

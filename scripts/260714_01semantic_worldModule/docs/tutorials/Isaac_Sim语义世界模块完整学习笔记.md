@@ -1,443 +1,539 @@
 # Isaac Sim 语义世界模块完整学习笔记
 
-> 对应工程：`260714_01semantic_worldModule`  
-> 核心主题：固定步长物理仿真、挖掘机关节轨迹、随驾驶室运动的语义相机、稳定语义 ID 映射、自定义 Replicator Writer、结果验证  
-> 阅读对象：希望理解“运动仿真 + 语义分割数据采集”完整工程链路的学习者
+> 适用版本：2026-07-20 当前代码，`run_config.json` schema v3。
+>
+> 本文已将旧版“给 Angular Drive 写目标角”的说明更新为当前的
+> `Articulation` 四 DOF 直接位置控制。阅读时以当前源码和测试为准。
 
-## 1. 模块要解决什么问题
+## 0. 先建立一个正确的心智模型
 
-该模块的目标不是简单地从 Isaac Sim 中截取若干图片，而是建立一条**可复现、可验证、可用于训练的数据生产流水线**：
+这个项目是一条“确定性仿真合成数据生产线”。输入是 USD 场景、关节轨迹、语义类别表、
+渲染配置和采集参数；输出是同步的 RGB、语义分割、相机状态、关节状态和可审计清单。
 
-1. 加载已经存在的挖掘机 USD 场景；
-2. 通过一个轻量 USDA overlay 统一场景中的语义标签，并修正会干扰关节运动的嵌套刚体设置；
-3. 按 CSV 轨迹驱动驾驶室、动臂、小臂和铲斗四个旋转关节；
-4. 使用固定物理步长推进世界；
-5. 让安装在驾驶室下的相机按独立于物理频率的采集频率生成 RGB 和语义分割图；
-6. 把 Isaac Sim 每次运行时临时分配的 semantic runtime ID，转换成跨运行稳定的 dataset ID；
-7. 保存逐帧元数据、运动状态和运行配置；
-8. 在采集结束后检查文件数量、数组类型、颜色重建、关节限位、刚体运动和相机随动。
-
-模块的核心价值可以概括为：
-
-> **用固定时间基准同步物理、关节目标和相机采集，再把易变化的运行时语义结果转换为稳定、可审计的数据集格式。**
-
-## 2. 文件结构与职责
-
-主要文件如下：
-
-```text
-260714_01semantic_worldModule/
-├── simulation_orchestrator.py       # 总入口：SimulationApp 生命周期和主调度循环
-├── world_scheduler.py               # 固定步长 Timeline/physics 调度
-├── excavator_joint_motion.py        # CSV 轨迹、插值、限位检查、Drive 目标写入
-├── semantic_capture_custom.py       # Camera、RenderProduct 和手动采集
-├── semantic_dataset_writer.py       # 自定义 Replicator Writer
-├── semantic_mapping.py              # runtime ID → stable dataset ID
-├── validate_semantic_output.py      # 采集结果验证
-├── run_capture_remote.sh            # 远端 Isaac Sim 启动封装
-├── trajectories/
-│   └── excavator_motion_01.csv       # 默认四关节轨迹
-├── configs/
-│   ├── usd_ply_combined_02_capture_overlay.usda
-│   ├── Sim_FangShan_02_capture_overlay.usda
-│   ├── semantic_mapping_usd_ply_combined_02.json
-│   ├── semantic_mapping_Sim_FangShan_02.json
-│   └── semantic_mapping_Sim_FangShan_02_native.json
-└── tests/
-    └── test_joint_motion.py          # 不依赖 Isaac Sim 的纯 Python 轨迹单元测试
-```
-
-对应源文件可直接查阅：
-
-- [simulation_orchestrator.py](../../simulation_orchestrator.py)
-- [world_scheduler.py](../../world_scheduler.py)
-- [excavator_joint_motion.py](../../excavator_joint_motion.py)
-- [semantic_capture_custom.py](../../semantic_capture_custom.py)
-- [semantic_dataset_writer.py](../../semantic_dataset_writer.py)
-- [semantic_mapping.py](../../semantic_mapping.py)
-- [validate_semantic_output.py](../../validate_semantic_output.py)
-
-这种拆分遵循“一个对象只拥有一种生命周期”的思路：
-
-| 组件 | 拥有的状态 | 不负责的内容 |
-|---|---|---|
-| `simulation_orchestrator` | `SimulationApp`、顶层执行顺序、异常清理 | 具体插值、具体写盘格式 |
-| `WorldScheduler` | Timeline、物理步数、仿真时间 | 关节和相机 |
-| `ExcavatorJointMotion` | 轨迹、关节 Drive、关节目标 | 世界推进和图像采集 |
-| `SemanticCameraScheduler` | Camera、RenderProduct、Writer | 物理和运动 |
-| `SemanticDatasetWriter` | Annotator 输出解析、逐帧落盘 | 仿真调度 |
-| `SemanticMapping` | 稳定 ID 与颜色规则 | Isaac Sim 生命周期 |
-
-## 3. 总体架构和数据流
+最简化的数据流是：
 
 ```mermaid
-flowchart TD
-    A["simulation_orchestrator.py"] --> B["打开 overlay USDA / 原始 USD"]
-    B --> C["WorldScheduler：固定 60 Hz"]
-    B --> D["ExcavatorJointMotion：加载 CSV"]
-    B --> E["SemanticCameraScheduler：创建 RenderProduct"]
-    D --> F["每个物理步前写入四个 Drive targetPosition"]
-    C --> G["SimulationApp.update：推进一个物理步"]
-    F --> G
-    G --> H{"是否达到采集间隔？"}
-    H -->|"每 6 步一次"| I["Replicator 手动采集，10 FPS"]
-    I --> J["rgb annotator"]
-    I --> K["semantic_segmentation annotator"]
-    K --> L["runtime ID + idToLabels"]
-    L --> M["SemanticMapping：转换为 uint16 dataset ID"]
-    M --> N["semantic_id/*.npy"]
-    M --> O["semantic_color/*.png"]
-    J --> P["rgb/*.png"]
-    L --> Q["metadata/*.json"]
-    G --> R["motion_state.jsonl"]
+flowchart LR
+    A["USD 场景"] --> P["Stage / Articulation 预检"]
+    B["关节轨迹 CSV"] --> M["四 DOF 运动控制"]
+    C["语义 mapping JSON"] --> W["自定义 Writer"]
+    D["渲染 profile JSON"] --> R["SimulationApp 与 RTX 设置"]
+    P --> S["固定步长世界调度"]
+    M --> S
+    R --> S
+    S --> F["冻结物理与 Timeline"]
+    F --> K["Camera + RenderProduct 采集"]
+    K --> W
+    W --> O["RGB / semantic / metadata"]
+    S --> O
+    O --> V["离线验证器"]
 ```
 
-按默认参数：
+一句话记忆主循环：
 
-```text
-physics_hz = 60
-capture_fps = 10
-steps_per_capture = 60 // 10 = 6
-physics_dt = 1 / 60 ≈ 0.016666667 s
-capture_interval = 6 × physics_dt = 0.1 s
-```
+> 先算目标时刻，再在每个物理步前写关节、步后读关节；到采集点暂停世界，锁定一帧的
+> `CaptureContext`，完成 Replicator 写盘后才继续物理。
 
-因此，每个语义帧对应 6 个确定的物理步。运动不是按“渲染帧”更新，而是按更细的“物理步”更新，这可以减少低频控制造成的跳变。
+项目最看重“正确性和可追溯性”，不是极限吞吐量。它故意逐帧阻塞等待 Writer 完成，
+用速度换取图像与状态一一对应。
 
-## 4. 为什么必须先创建 `SimulationApp`
+---
 
-入口中有一个非常关键的导入顺序：
+## 1. 零基础必备概念
 
-```python
-from isaacsim import SimulationApp
+### 1.1 USD、Stage、Prim 和 overlay
 
-simulation_app = SimulationApp(
-    launch_config={
-        "headless": args.headless,
-        "renderer": "RaytracedLighting",
-        "sync_loads": True,
-    }
-)
+- **USD**：描述场景层级、几何、材质、相机、物理属性等的数据格式。
+- **Stage**：多个 USD layer 组合后得到的完整场景视图。
+- **Prim**：Stage 树上的节点，例如相机、网格、刚体或关节。
+- **Prim path**：Prim 的绝对路径，例如 `/root/Xform/operator_cab_mesh/Camera_01`。
+- **overlay**：很薄的覆盖层。它通过 `subLayers` 引用原场景，只覆盖少量属性，而不复制
+  整个资产。
 
-try:
-    import omni.usd
-    from isaacsim.core.experimental.utils.stage import is_stage_loading
-
-    # 依赖 Kit/Replicator 的本地模块也在 SimulationApp 创建后导入
-    from excavator_joint_motion import ExcavatorJointMotion
-    from semantic_capture_custom import SemanticCameraScheduler
-    from world_scheduler import WorldScheduler
-```
-
-Isaac Sim 中许多 `omni.*`、Replicator 和 Kit API 依赖已经启动的 Kit 应用上下文。如果在 `SimulationApp(...)` 之前导入这些模块，常见后果包括插件没有加载、接口为空或初始化过程行为不稳定。
-
-这里还使用了：
-
-```python
-args, kit_args = parse_args()
-sys.argv = [sys.argv[0], *kit_args]
-```
-
-`parse_known_args()` 只消费本脚本认识的业务参数，把剩余参数保留给 Kit/Isaac Sim。这样既能使用 `--frames`、`--physics-hz` 等项目参数，也不会误吞底层运行时参数。
-
-## 5. USD overlay：不复制原场景，只覆盖必要属性
-
-默认入口加载：
-
-```python
-DEFAULT_STAGE = PROJECT_DIR / "configs" / "usd_ply_combined_02_capture_overlay.usda"
-```
-
-overlay 的开头如下：
+默认 `configs/Sim_Fangshan_07_capture_overlay.usda` 只引用远端原场景：
 
 ```usda
 #usda 1.0
 (
     subLayers = [
-        @/root/gpufree-data/wyb/StageMaterial/usd_ply_combined_02.usda@
+        @/root/gpufree-data/wyb/StageMaterial02/Sim_Fangshan_07.usda@
     ]
 )
 ```
 
-这表示当前 USDA 不重新保存整个重型场景，而是把原始场景作为较弱的 sublayer，再使用 `over` 覆盖局部属性。好处是：
+好处是修改小、资产职责清晰；代价是该绝对 Linux 路径必须真实存在。把项目拷到另一台
+机器，并不会自动带走底层场景和纹理。
 
-- 原始资产与采集配置解耦；
-- overlay 文件体积很小；
-- 可以随时替换或回退采集层；
-- 不需要直接修改共享的源 USD；
-- 语义规范化规则可以进入代码版本管理。
+### 1.2 Articulation、刚体、关节和 DOF
 
-### 5.1 添加语义标签
+**Articulation** 是一组由关节连接的刚体系统。这里的挖掘机是固定底座加 4 个旋转自由度：
 
-以动臂为例：
+1. `cab`：驾驶室/平台回转；
+2. `boom`：大臂；
+3. `small_arm`：小臂；
+4. `bucket`：铲斗。
 
-```usda
-over "boom_mesh" (
-    prepend apiSchemas = ["SemanticsLabelsAPI:class"]
-)
-{
-    token[] semantics:labels:class = ["boom"]
+逻辑名称是数据和轨迹层的稳定名称；USD 里的真实 DOF 名称分别来自配置中的
+`candidate_names`。`articulation_stage_validator.py` 负责发现并确认它们，
+`articulation_adapter.py` 再把 DOF 名称一次性绑定成索引。
 
-    over "boom" (
-        prepend apiSchemas = ["SemanticsLabelsAPI:class"]
-    )
-    {
-        token[] semantics:labels:class = ["boom"]
-    }
-}
+### 1.3 Timeline、物理步和渲染帧
+
+三者不是一回事：
+
+- **Timeline** 决定场景播放时间；
+- **物理步** 推进刚体和关节模拟；
+- **渲染帧** 让 RTX/Hydra 更新图像，可以在物理暂停时继续发生。
+
+这一区分是项目正确性的根基。预热和 `rt_subframes` 会产生渲染更新，但不应推进数据集
+物理时间；采集时也使用 `delta_time=0.0`。
+
+### 1.4 Replicator、RenderProduct、Annotator 和 Writer
+
+- **Replicator**：Isaac Sim 中的合成数据生成框架。
+- **RenderProduct**：某一台相机和某一分辨率对应的渲染输出。
+- **Annotator**：从 RenderProduct 取得一种数据，本项目使用 `rgb` 和
+  `semantic_segmentation`。
+- **Writer**：接收 Annotator 数据，转换格式并写盘。
+
+本项目不用通用 Writer 直接保存所有内容，而是实现 `SemanticDatasetWriter`，以便把临时
+runtime ID 转成稳定 dataset ID，并严格绑定帧上下文。
+
+### 1.5 语义分割中的两种 ID
+
+- **runtime ID**：Isaac/Replicator 在本次运行中分配的实例值，可能随运行和场景组合变化。
+- **dataset ID**：项目 mapping 文件固定定义的训练标签，例如背景 0、某类别 1～10。
+
+训练数据必须使用 dataset ID；runtime ID 只作为诊断和追溯信息保存。
+
+---
+
+## 2. 项目文件地图
+
+### 2.1 运行时主模块
+
+| 文件 | 职责 | 是否依赖 Isaac 运行时 |
+|---|---|---|
+| `simulation_orchestrator.py` | 参数、生命周期、预检、调度和总清单 | 部分；先解析纯配置，后启动 Isaac |
+| `world_scheduler.py` | 固定时间步、Timeline、冻结/恢复、bootstrap | 是，导入 `carb`、`omni.timeline` |
+| `semantic_capture_custom.py` | 相机、RenderProduct、预热、Writer、逐帧 capture | 是 |
+| `semantic_dataset_writer.py` | RGB/语义/metadata 落盘 | 是，使用 Replicator API |
+| `articulation_stage_validator.py` | 只读检查固定底座四关节链 | 调用检查函数时才需要 `pxr` |
+| `articulation_adapter.py` | 名称绑定、度/弧度转换、批量读写 DOF | 默认工厂运行时才导入 Isaac |
+| `excavator_joint_motion.py` | CSV、插值、安全限位、命令、回读和误差 | 运动执行依赖 Stage/Adapter |
+
+### 2.2 可在普通 Python 中重点学习的模块
+
+| 文件 | 主要知识点 |
+|---|---|
+| `capture_timing.py` | 帧号、物理步和时间的纯数学关系 |
+| `capture_context.py` | 不可变帧上下文、线程安全 FIFO、完成回执 |
+| `semantic_mapping.py` | 标签规范化、runtime ID 重映射、颜色 LUT |
+| `joint_control_profile.py` | 版本化 JSON 契约、sidecar 校验、文件哈希 |
+| `render_profile.py` | 渲染配置 schema、互斥约束、设置回读 |
+| `compare_render_quality.py` | MAE、RMSE、PSNR、全局 SSIM、锐度等指标 |
+| `validate_semantic_output.py` | 输出数据集的离线一致性验证 |
+
+### 2.3 数据和配置
+
+- `configs/excavator_four_joint_articulation.json`：四关节控制契约。
+- `configs/render_realtime_pathtracing_720p.json`：默认实时路径追踪配置。
+- `configs/render_pathtracing_720p_64spp.json`：高质量 Path Tracing 配置。
+- `configs/render_quality_dlss_720p.json`：schema v1 历史配置，仅用于复现。
+- `configs/semantic_mapping_*.json`：场景对应的稳定语义类别。
+- `trajectories/excavator_motion_01.csv`：默认关节关键帧。
+- `tests/`：69 个普通 Python 单元测试，是理解契约的可执行说明书。
+
+---
+
+## 3. 完整运行链路：从命令到一帧数据
+
+`simulation_orchestrator.py:main()` 是唯一需要先掌握的入口。它的执行顺序如下。
+
+### 3.1 Isaac 启动前：纯 Python 阶段
+
+1. `parse_args()` 解析项目参数，同时用 `parse_known_args()` 保留 Kit 自己的参数。
+2. 若未指定 `--render-profile`，根据 renderer 选择默认 profile。
+3. `resolve_project_relative_paths()` 把相对路径统一解释为“相对项目根目录”，不受 shell
+   当前目录影响。
+4. 加载 `RenderProfile`，应用 `rt_subframes` 和预热帧覆盖值。
+5. 校验显式 renderer 与 profile 的 renderer 一致，冲突直接报错。
+6. 加载 `JointControlProfile`。
+7. 若轨迹旁存在 `<stem>.metadata.json`，严格校验 Recorder sidecar。
+8. `CaptureTiming` 校验频率并建立帧时间映射。
+9. 检查输出目录。目录非空且没有 `--overwrite` 时拒绝启动。
+10. 先原子写入状态为 `running` 的 `run_config.json`。
+
+“先写 running 清单”很重要：即使后面 GPU 初始化失败，目录中仍会留下失败原因和输入
+配置，而不是一个无法解释的半成品目录。
+
+### 3.2 创建 SimulationApp 后
+
+只有在 `SimulationApp(...)` 创建之后，代码才导入 `omni.usd`、Replicator、Isaac
+Articulation 等运行时模块。Isaac/Kit 会在应用启动时注册扩展和插件；过早导入容易出现
+模块不可用或扩展未初始化。
+
+接着执行：
+
+1. 异步打开 USD；
+2. 反复 `simulation_app.update()`，直到 Stage composition 完成；
+3. `reset_render_settings()`，再应用 profile 的 Carb 设置；
+4. 逐项读取 effective value；必需项与 requested value 不一致就停止；
+5. 解析相机路径；
+6. 执行通用 Stage preflight；
+7. 动态模式额外执行 Articulation preflight；
+8. 把报告写回 `run_config.json`。
+
+### 3.3 建立运动与时间轴
+
+1. 创建并初始化 `WorldScheduler`；
+2. 创建 `ExcavatorJointMotion`；
+3. Timeline 播放前调用 `bind()`，完成稳定的 DOF 名称到索引绑定；
+4. 启动 Timeline；
+5. `bootstrap_until()` 逐物理步等待 Articulation tensor ready；
+6. `initialize_runtime()` 做运行时 DOF 数量/ready 校验并第一次回读；
+7. 用 1 个计数 setup step 写入并接受轨迹 `t=0` 初始姿态；
+8. 可选执行 pre-roll，期间一直保持初始姿态；
+9. `begin_data_timeline()` 把当前位置设成数据集时间原点；
+10. 暂停 Timeline，取得 `FrozenWorldSnapshot`。
+
+bootstrap、setup、pre-roll 都记入总物理步和 `simulation_time`，但发生在数据集原点之前，
+所以 `dataset_time` 可以从 0 开始。这避免初始化过程污染训练数据时间轴。
+
+### 3.4 建立相机采集链
+
+1. 校验相机确实存在；默认还要求相机位于驾驶室根节点下；
+2. 检查 Stage 至少有一个 `SemanticsLabelsAPI`；
+3. 关闭 capture-on-play；
+4. 创建一个贯穿整次运行的 RenderProduct；
+5. 保持 Hydra texture 更新；
+6. 在世界冻结状态做渲染预热；
+7. 预热后再 attach Writer，避免把预热帧误保存为数据帧。
+
+### 3.5 每个数据帧的严格顺序
+
+```mermaid
+sequenceDiagram
+    participant O as Orchestrator
+    participant W as WorldScheduler
+    participant M as JointMotion
+    participant C as CameraScheduler
+    participant D as DatasetWriter
+
+    O->>O: 计算目标 dataset step
+    loop 直到目标 step
+        O->>M: before_physics_step(next_time)
+        M->>M: 插值并批量写 4 DOF
+        O->>W: SimulationApp.update()
+        O->>M: after_physics_step(dataset_time)
+        M->>M: 回读 4 DOF 并检查误差
+    end
+    O->>W: pause Timeline + freeze snapshot
+    O->>O: 读取相机和运动状态
+    O->>D: arm_capture(CaptureContext)
+    O->>C: Replicator step(delta_time=0)
+    C->>D: Writer callback
+    D->>D: 重映射并安排文件写入
+    C->>C: wait_until_complete()
+    D-->>O: CaptureReceipt
+    O->>W: 再次确认物理步和 Timeline 未变化
 ```
 
-`SemanticsLabelsAPI:class` 表示应用一个名为 `class` 的语义标签实例，真正的标签值写在 `semantics:labels:class` 中。默认 overlay 最终把场景归一为六类：
+任何环节失败，`except` 都会把清单改成 `failed` 并记录异常类型和信息；`finally` 依次停止
+世界、关闭相机/Writer、释放运动 adapter、关闭 SimulationApp。
 
-| dataset ID | 标签 | 颜色 RGB |
-|---:|---|---|
-| 0 | `BACKGROUND` | `[0, 0, 0]` |
-| 1 | `boom` | `[188, 172, 29]` |
-| 2 | `bucket` | `[190, 68, 110]` |
-| 3 | `ground` | `[189, 68, 246]` |
-| 4 | `operator_cab` | `[148, 218, 60]` |
-| 5 | `small_arm` | `[69, 225, 201]` |
-| 6 | `track` | `[39, 232, 216]` |
-| 65535 | `UNLABELLED` | `[255, 0, 255]` |
+---
 
-`65535` 是 `uint16` 的最大值，被保留为未知类别。醒目的品红色有助于肉眼发现漏标。
+## 4. 四种时间必须分清
 
-### 5.2 禁用嵌套子网格刚体
+项目同时记录四种时间：
 
-overlay 中还包含：
+| 名称 | 含义 | 是否包含初始化步 |
+|---|---|---|
+| `simulation_time` | 从 WorldScheduler 启动后累计的物理时间 | 是 |
+| `dataset_time` | 从 `begin_data_timeline()` 起算的训练数据时间 | 否 |
+| `timeline_time` | Isaac Timeline 接口实际报告的时间 | 会受 bootstrap/pre-roll 影响 |
+| `trajectory_time` | 轨迹在 loop/hold 规则下采样的时间 | 由 `dataset_time` 映射 |
 
-```usda
-over "small_arm_mesh"
-{
-    bool physics:rigidBodyEnabled = 0
-}
+### 4.1 60 Hz 物理与 10 FPS 采集
+
+`CaptureTiming` 要求：
+
+```text
+physics_hz % capture_fps == 0
+steps_per_capture = physics_hz // capture_fps
 ```
 
-其目的不是让整个小臂失去物理属性，而是禁用嵌套 child mesh 上重复的刚体，让关节继续控制父级刚体。若父子层级同时存在互相冲突的刚体，可能出现关节驱动对象不明确、刚体层级非法或运动结果不符合预期。
+默认值给出：
 
-## 6. 轨迹文件：把动作从代码中解耦
+```text
+steps_per_capture = 60 // 10 = 6
+```
 
-默认轨迹是：
+启用默认 `capture_initial_frame=True` 时：
+
+| frame_id | dataset_step | dataset_time |
+|---:|---:|---:|
+| 0 | 0 | 0.0 s |
+| 1 | 6 | 0.1 s |
+| 2 | 12 | 0.2 s |
+| 3 | 18 | 0.3 s |
+
+禁用首帧后，帧 0 才会落在 step 6、`t=0.1 s`，这是保留的旧行为。
+
+### 4.2 静态模式
+
+`capture_mode=static` 时，所有帧的目标 dataset step 都是 0。物理世界始终冻结，多帧主要
+用于相同状态下的渲染稳定性、GUI/脚本对比或诊断，不代表时间序列。
+
+### 4.3 为什么只支持整除频率
+
+整除时每次采集之间恰好是固定整数物理步，不需要累计浮点误差，也不需要交替使用 5 步、
+6 步等节奏。若要支持 60 Hz 对 7 FPS，不能只删掉校验；应实现整数相位累加器或基于
+有理数的目标步调度，并新增长期漂移测试。
+
+### 4.4 冻结为何如此严格
+
+调用 `freeze_for_capture()` 后，代码保存：
+
+- 物理步号；
+- dataset time；
+- Timeline time。
+
+采集前后 `assert_still_frozen()` 会验证它们没有变化。这样 `rt_subframes=16` 即使进行了
+多次 RTX 更新，也只能改善同一世界状态的渲染，不能偷偷让挖掘机前进 16 个物理步。
+
+---
+
+## 5. 当前运动控制：四 DOF 直接位置写入
+
+### 5.1 为什么旧版 Drive 说明已经失效
+
+旧实现思路是给 USD 关节的 `PhysicsDriveAPI:angular` 写 `targetPosition`。当前版本明确采用
+`articulation_direct_position`：通过 Isaac Articulation API 批量写 DOF 位置。因此静态
+预检把 Angular Drive 当作 `DRIVE_CONFLICT` 阻塞错误，避免同一个关节同时受两套控制器
+影响。
+
+直接位置写入更接近“把状态设到确定角度”，并会把选中 DOF 的速度清零。它适合本项目的
+确定性姿态采集，但不等同于真实液压执行器的力/速度/闭环动力学仿真。
+
+### 5.2 关节配置契约
+
+`configs/excavator_four_joint_articulation.json` 固定了：
+
+- profile 名称；
+- Articulation root 路径；
+- 必须是 fixed base；
+- 禁止 Angular Drive；
+- 回读容差 0.05°；
+- 4 个逻辑关节的候选名称和候选路径；
+- 每个关节 2° 安全余量；
+- 可接受的轨迹 sidecar 单位、顺序和控制模式。
+
+配置加载阶段检查 schema、字段类型、唯一性、绝对路径、关节数量、margin 和容差。它不
+依赖 Isaac Sim，因此错误可以在昂贵的 GPU 初始化之前暴露。
+
+### 5.3 Articulation Stage 预检
+
+`validate_articulation_stage()` 只读场景，不修改 Stage。动态采集必须满足：
+
+1. 配置路径处存在 `PhysicsArticulationRootAPI`；
+2. root 是有效且启用的 fixed joint，并只连接一个根刚体；
+3. 恰好找到配置顺序中的 4 个 RevoluteJoint；
+4. 每个关节启用，且 `body0`、`body1` 各有一个目标；
+5. 没有 `PhysicsDriveAPI:angular`；
+6. 关节按 `cab → boom → small_arm → bucket` 构成连续父子链；
+7. 四关节链共有 5 个不重复刚体；
+8. 所有刚体启用、非 kinematic，并具备 RigidBodyAPI 和 MassAPI；
+9. 质量和三个对角惯量都是正有限数；
+10. 关节上下限有限，扣除 safety margin 后仍有合法区间。
+
+Articulation 报告与通用 `--strict-stage` 不同：运动模式下的 Articulation 错误总是阻塞，
+不能用 `--no-strict-stage` 绕过。
+
+### 5.4 轨迹 CSV 和线性插值
+
+列必须严格为：
 
 ```csv
 time,cab,boom,small_arm,bucket
-0.0,-2.4,-8.0,29.666664,-8.833334
-1.25,17.6,7.0,9.666664,16.166666
-2.5,-2.4,-8.0,29.666664,-8.833334
-3.75,-22.4,-23.0,49.666664,-33.833334
-5.0,-2.4,-8.0,29.666664,-8.833334
 ```
 
-四列关节名必须与代码中的 `JOINT_SPECS` 对应：
-
-```python
-JOINT_SPECS = (
-    JointSpec(
-        name="cab",
-        path="/World/Joints/track_operator_cab_joint",
-        body_path="/root/Xform/operator_cab_mesh",
-    ),
-    JointSpec(
-        name="boom",
-        path="/World/Joints/platform_boom_joint",
-        body_path="/root/Xform/boom_mesh",
-    ),
-    JointSpec(
-        name="small_arm",
-        path="/World/Joints/boom_small_arm_joint",
-        body_path="/root/Xform/small_arm_mesh",
-    ),
-    JointSpec(
-        name="bucket",
-        path="/World/Joints/small_arm_bucket_joint",
-        body_path="/root/Xform/bucket_only_full_teeth_mesh",
-    ),
-)
-```
-
-每个 `JointSpec` 同时保存：
-
-- `name`：CSV 列名和运行时字典键；
-- `path`：USD 中 `PhysicsRevoluteJoint` 的路径；
-- `body_path`：用于验证运动是否实际发生的刚体路径。
-
-### 6.1 轨迹加载时的完整校验
-
-`JointTrajectory.from_csv()` 会检查：
-
-1. 文件必须存在；
-2. 列必须**准确等于** `time,cab,boom,small_arm,bucket`，顺序也必须相同；
-3. 所有值都能转换为浮点数；
-4. 不允许 `NaN` 和正负无穷；
-5. 至少需要两个关键帧；
-6. 首帧必须从 `0.0` 开始；
-7. 时间必须严格递增。
-
-核心代码：
-
-```python
-expected_columns = ("time", *JOINT_NAMES)
-if reader.fieldnames != list(expected_columns):
-    raise ValueError(
-        f"Trajectory columns must be exactly {expected_columns}, got {reader.fieldnames}"
-    )
-
-if len(keyframes) < 2:
-    raise ValueError("Trajectory must contain at least two keyframes")
-if not math.isclose(keyframes[0].time, 0.0, abs_tol=1e-12):
-    raise ValueError("The first trajectory keyframe must start at time 0.0")
-if any(current.time <= previous.time for previous, current in zip(keyframes, keyframes[1:])):
-    raise ValueError("Trajectory times must be strictly increasing")
-```
-
-轨迹对象还会记录文件的 SHA-256：
-
-```python
-self.sha256 = hashlib.sha256(self.source_path.read_bytes()).hexdigest()
-```
-
-这让数据集中的 `run_config.json` 可以准确追踪“本次采集使用的是哪一个字节版本的轨迹”，避免只看同名文件而无法复现实验。
-
-### 6.2 线性插值
-
-假设当前时间位于关键帧 `(t0, q0)` 和 `(t1, q1)` 之间，则：
+至少两个关键帧；第一行时间必须是 0；后续时间严格递增；所有数字必须有限。若左右关键帧
+时间为 `t0`、`t1`，当前时间为 `t`，则：
 
 ```text
 alpha = (t - t0) / (t1 - t0)
-q(t) = q0 + alpha × (q1 - q0)
+q(t) = q0 + alpha * (q1 - q0)
 ```
 
-代码使用 `bisect_right` 找到右侧关键帧：
+这对四个关节分别计算。所有关键帧先与 Stage 报告的安全限位比较，越界会在播放前失败。
 
-```python
-right = bisect.bisect_right(self.times, trajectory_time)
-left_frame = self.keyframes[right - 1]
-right_frame = self.keyframes[right]
-alpha = (trajectory_time - left_frame.time) / (right_frame.time - left_frame.time)
-targets = {
-    name: left_frame.targets[name]
-    + alpha * (right_frame.targets[name] - left_frame.targets[name])
-    for name in JOINT_NAMES
-}
-```
+### 5.5 `hold` 和 `loop`
 
-例如默认首个区间是 `0.0s → 1.25s`。第一次采集发生在 `0.1s`，所以 `alpha = 0.1 / 1.25 = 0.08`。此时驾驶室目标约为：
+- `hold`：超过轨迹 duration 后保持最后关键帧，默认采用。
+- `loop`：按 duration 取模循环。为避免周期边界跳变，首尾四个角度必须相同。
+
+Recorder 生成的轨迹通常不闭合，因此不要随意改成 `loop`。
+
+### 5.6 可选 Recorder sidecar
+
+若 CSV 旁存在 `<trajectory-stem>.metadata.json`，则必须满足：
+
+- `completed` 为 true；
+- `joint_order` 精确等于 `cab, boom, small_arm, bucket`；
+- `angle_unit` 为 `degree`；
+- 若提供 `control_mode`，必须兼容 `articulation_direct_position`；
+- 若要求 profile 匹配并提供 `profile`，名称必须一致。
+
+sidecar 不存在时允许手写 CSV；一旦存在，格式错误就不能静默忽略。
+
+### 5.7 bind、bootstrap 和 runtime initialization
+
+Timeline 播放前：
+
+- 依据 Stage 报告取得真实 DOF 名称；
+- 创建 Articulation wrapper；
+- 从 `articulation.dof_names` 中查找名称；
+- 一次解析成 4 个稳定索引。
+
+Timeline 播放后，物理 tensor 可能尚未创建。`bootstrap_until()` 会推进有上限的计数物理步，
+直到 `is_physics_tensor_entity_valid()` 为真。然后 `validate_runtime()` 再确认整个
+Articulation 恰好有 4 个 DOF，索引合法。
+
+### 5.8 每个物理步的命令和回读
+
+步前：
+
+1. 用下一步的 `dataset_time` 采样轨迹；
+2. 按固定逻辑顺序组成 4 个角度；
+3. 度转换成弧度；
+4. 组成形状为 `1×4` 的 `float32` 数组；
+5. 一次调用 `set_dof_positions()`；
+6. 一次调用 `set_dof_velocities()` 把对应速度设为 0。
+
+步后：
+
+1. 一次读取 4 个 DOF 位置；
+2. 弧度转换回度；
+3. 保存 `actual_degrees`；
+4. 计算 `position_error_degrees = actual - commanded`；
+5. 任一绝对误差超过 profile 容差即终止运行。
+
+因此每帧的 `motion` 同时记录：
+
+- `commanded_degrees`：要求 Isaac 接受的角度；
+- `actual_degrees`：物理步后真正读到的角度；
+- `position_error_degrees`：两者差；
+- `target_degrees`：为旧下游兼容保留，值等于 commanded；
+- `body_world_transform`：各受控刚体的 4×4 世界矩阵。
+
+只记录命令不能证明场景真的处于该姿态；回读和误差阈值才构成闭环证据。
+
+---
+
+## 6. WorldScheduler 的状态机
+
+状态依次为：
 
 ```text
--2.4 + 0.08 × (17.6 - (-2.4)) = -0.8°
+NEW → INITIALIZED → RUNNING ⇄ FROZEN → STOPPED
 ```
 
-由于目标在每个 1/60 秒的物理步上更新，Drive 看到的是连续变化的小步目标，而不是每 0.1 秒突跳一次。
+- `initialize()`：开启 fixed time stepping，设置 Timeline 起点、时间码频率和终点。
+- `start()`：播放 Timeline。
+- `advance_exact_steps(n)`：严格调用 n 次 app update，并支持步前/步后 hook。
+- `bootstrap_until()`：带最大步数地等待运行时资源。
+- `begin_data_timeline()`：记录数据集原点物理步。
+- `freeze_for_capture()`：暂停 Timeline，返回不可变快照。
+- `assert_still_frozen()`：检查采集中没有时间漂移。
+- `resume_after_capture()`：继续播放。
+- `stop()`：暂停并进入 STOPPED。
 
-### 6.3 `loop` 与 `hold`
+步前 hook 接收“即将到达的数据集时间”，步后 hook 接收“已经完成的数据集时间”。这保证
+命令在物理计算之前提交，回读在物理计算之后发生。
 
-```python
-if playback_mode == "loop":
-    trajectory_time = simulation_time % self.duration
-    if simulation_time > 0 and math.isclose(trajectory_time, 0.0, abs_tol=1e-12):
-        trajectory_time = self.duration
-elif playback_mode == "hold":
-    trajectory_time = min(simulation_time, self.duration)
+---
+
+## 7. 渲染 profile 与可复现性
+
+### 7.1 两种正式 renderer
+
+| renderer | 默认 profile | 核心采样模型 | 适用场景 |
+|---|---|---|---|
+| `RealTimePathTracing` | `render_realtime_pathtracing_720p.json` | 实时时域 subframes + DLSS Quality | 默认批量采集候选 |
+| `PathTracing` | `render_pathtracing_720p_64spp.json` | 每渲染帧 SPP × RT subframes，受 totalSpp 上限约束 | 静态或小规模高质量采集 |
+
+显式 `--renderer` 和显式 profile 不一致会立刻报错，防止“命令写的是 A，profile 实际切到 B”。
+
+### 7.2 为什么分 launch、capture、settings
+
+- `launch_settings`：创建 `SimulationApp` 时就要给出的配置；
+- `capture_settings`：`rt_subframes` 和 warmup 帧数；
+- `settings`：应用到 Carb settings 的键值；
+- `required_settings`：必须读回一致的关键键；
+- `metadata`：用途、质量状态和策略说明。
+
+Stage 打开后可能恢复或写入自己的 render mode，所以项目会重新设置 renderer，应用 profile，
+再读取 effective values。存在 mismatch 时清单会保留快照，然后运行失败。
+
+### 7.3 Path Tracing 样本预算
+
+默认配置：
+
+```text
+spp_per_render_frame = 8
+rt_subframes = 8
+nominal_spp_per_output = 8 × 8 = 64
+total_spp_cap = 64
+planned_spp_per_output = min(64, 64) = 64
 ```
 
-- `loop`：时间对轨迹总时长取模，循环播放；
-- `hold`：到达末帧后一直保持最后一个关键帧。
+配置还要求动画时间变化时重置累积，避免上一姿态的样本污染下一姿态。
 
-`loop` 初始化时还会检查首尾关节值完全闭合：
+### 7.4 预热与时域历史
 
-```python
-if any(not math.isclose(first[name], last[name], abs_tol=1e-9) for name in JOINT_NAMES):
-    raise ValueError("Loop trajectory must end at the same joint targets where it starts")
-```
+RenderProduct 先创建，Hydra updates 一直开启；完成若干 app update 后才挂 Writer。这样可以：
 
-这是为了避免每个循环边界发生目标角度突变。恰好落在一个完整周期末端时，代码返回 `duration` 而不是立刻变成 `0`；默认轨迹首尾相同，所以数值连续。
+- 等待材质/纹理/RTX 管线稳定；
+- 建立 DLSS 等时域历史；
+- 不把预热图写入数据集；
+- 不在每帧重建 RenderProduct。
 
-### 6.4 关节类型、Drive 和安全限位
+---
 
-初始化时，每个 USD 关节必须满足：
+## 8. Stage 通用预检
 
-- Prim 有效；
-- 类型是 `PhysicsRevoluteJoint`；
-- 存在 `physics:lowerLimit`；
-- 存在 `physics:upperLimit`；
-- 存在 `drive:angular:physics:targetPosition`。
+`stage_preflight.py` 也是只读检查，主要包括：
 
-```python
-lower_attr = prim.GetAttribute("physics:lowerLimit")
-upper_attr = prim.GetAttribute("physics:upperLimit")
-target_attr = prim.GetAttribute("drive:angular:physics:targetPosition")
-```
+- source Stage 文件和 mapping 文件是否存在；
+- composed layers 是否能解析；
+- 外部依赖是否存在；
+- 相机 Prim 是否有效；
+- 若要求，相机是否位于 cab root 下；
+- Stage 是否包含语义标签；
+- 通用关节/刚体属性是否有效（当前主流程把专用四关节检查交给 Articulation validator）。
 
-所有关键帧还要经过 2° 安全边界检查：
+缺失依赖有两档：
 
-```python
-safe_lower = joint.lower_limit + self.safety_margin_degrees
-safe_upper = joint.upper_limit - self.safety_margin_degrees
-if not safe_lower <= target <= safe_upper:
-    raise ValueError(...)
-```
+- 图片、HDR、EXR、纹理等渲染资源：`RENDER_ASSET_UNRESOLVED` warning；
+- USD composition layer 或未知类型依赖：`ASSET_UNRESOLVED` error。
 
-注意，这里不是运行时把越界值裁剪到安全区间，而是**在初始化阶段直接拒绝整条非法轨迹**。这种 fail-fast 行为更适合离线数据集生产：坏配置不会悄悄生成看似正常的数据。
+原因是缺纹理会影响外观但未必让相机、语义和物理不可运行；缺 USD layer 会直接改变场景
+组成，不能当作可接受的生产输入。
 
-### 6.5 每步写入 Drive 目标
+`PreflightReport` 有两种阻断规则：
 
-```python
-def update(self, simulation_time: float) -> None:
-    trajectory_time, targets = self.trajectory.sample(simulation_time, self.playback_mode)
-    self._last_trajectory_time = trajectory_time
-    for name, target in targets.items():
-        joint = self._joints[name]
-        joint.target = target
-        joint.target_attribute.Set(target)
-```
+- `raise_if_unusable()`：关键场景错误始终阻断；
+- `raise_if_blocking(strict=...)`：普通严格错误受 `--strict-stage` 控制。
 
-这里写的是角度目标，不是直接修改刚体世界变换。真正的运动仍由 USD Physics joint 和 angular Drive 求解，因此会受到 Drive 刚度、阻尼、质量、碰撞等物理属性影响。
+生产数据应保持 strict；放宽只适合定位一般诊断问题。
 
-## 7. `WorldScheduler`：建立确定的物理时间轴
+---
 
-初始化代码：
+## 9. 相机、CaptureContext 与 Writer
 
-```python
-self.physics_hz = int(physics_hz)
-self.physics_dt = 1.0 / float(self.physics_hz)
-
-settings.set("/app/player/useFixedTimeStepping", True)
-self._timeline.set_looping(False)
-self._timeline.set_current_time(0.0)
-self._timeline.set_time_codes_per_second(float(self.physics_hz))
-self._timeline.set_end_time(max(self.maximum_duration_seconds, 1.0))
-self._timeline.commit()
-```
-
-固定步长的意义是：运行机器的快慢只影响任务花多少现实时间完成，不应改变每次 `app.update()` 对应的仿真时间长度。
-
-模块不直接依赖 Timeline 返回值来累计主时间，而是使用整数步数：
-
-```python
-@property
-def simulation_time(self) -> float:
-    return self._step_count * self.physics_dt
-
-@property
-def next_simulation_time(self) -> float:
-    return (self._step_count + 1) * self.physics_dt
-```
-
-这样做比反复浮点累加 `time += dt` 更清晰，也避免累加误差不断传播。`get_state()` 同时记录自算的 `simulation_time` 和 Timeline 的 `timeline_time`，便于事后比较两套时间是否一致。
-
-`update()` 当前是空实现：
-
-```python
-def update(self, simulation_time: float) -> None:
-    """Update scheduled world attributes before the next physics step."""
-    _ = simulation_time
-```
-
-这是有意保留的扩展点。未来可在这里按仿真时间调度灯光、天气、材质或环境状态，而不会把它们塞进关节控制器。
-
-## 8. 相机调度：让相机真正属于驾驶室
-
-### 8.1 显式路径与自动发现
+### 9.1 相机选择
 
 默认相机路径是：
 
@@ -445,854 +541,569 @@ def update(self, simulation_time: float) -> None:
 /root/Xform/operator_cab_mesh/Camera_01
 ```
 
-如果显式传入相机路径，程序会检查：
+因为相机是驾驶室层级的后代，cab 回转时其世界变换也会改变。若 `--camera ""`，代码会在
+cab root 下自动发现相机，并要求恰好一个。
 
-1. Prim 存在；
-2. Prim 类型是 `UsdGeom.Camera`；
-3. 相机是 `cab_root` 的后代。
+`/root/Camera_03` 是静态 GUI/脚本画质对比用的诊断相机，需要显式关闭“必须位于驾驶室
+下”的要求；它不是生产驾驶室相机的替代品。
 
-第三项很重要：只有相机位于驾驶室层级下，它的世界变换才会继承驾驶室运动。
+### 9.2 CaptureContext 是帧的权威身份
 
-如果传入空字符串 `--camera ""`，代码会遍历 `cab_root`：
+每次采集前创建不可变 `CaptureContext`：
 
-```python
-cameras = [
-    str(prim.GetPath())
-    for prim in Usd.PrimRange(cab_prim)
-    if prim.IsA(UsdGeom.Camera)
-]
-if len(cameras) != 1:
-    raise RuntimeError(...)
-```
+- `frame_id`；
+- `dataset_time`；
+- `timeline_time`；
+- `physics_step`；
+- `camera_path`；
+- 16 个数的相机世界矩阵；
+- 完整运动状态。
 
-自动发现要求恰好只有一台相机。这比“随便取第一台”安全，因为多相机场景下静默选择会让数据来源不明确。
+这份上下文同时进入逐帧 metadata 和 `motion_state.jsonl`，让两类文件可以互相核对。
 
-### 8.2 初始化 RenderProduct 和 Writer
+### 9.3 CaptureLedger 为什么存在
 
-```python
-carb.settings.get_settings().set("rtx/post/dlss/execMode", 2)
-rep.orchestrator.set_capture_on_play(False)
-self._render_product = rep.create.render_product(
-    self.camera_path,
-    resolution=(self._width, self._height),
-    name="SemanticCapture",
-)
-self._backend = DiskBackend(output_dir=str(self._output_path), overwrite=True)
-self._writer = SemanticDatasetWriter(
-    backend=self._backend,
-    semantic_schema=str(self._mapping_path),
-    rgb=True,
-    save_runtime_ids=self._save_runtime_ids,
-    strict_mapping=self._strict_mapping,
-)
-self._writer.attach(self._render_product)
-```
-
-关键点：
-
-- `set_capture_on_play(False)` 禁止 Timeline 一播放就按默认机制自动采集；
-- 采集时刻完全由顶层循环决定；
-- 一个 RenderProduct 将相机与分辨率绑定；
-- 自定义 Writer 同时订阅 RGB 和非着色语义分割 Annotator；
-- 写盘由 `DiskBackend` 调度。
-
-### 8.3 预热
-
-```python
-self._render_product.hydra_texture.set_updates_enabled(True)
-for _ in range(update_count):
-    self._app.update()
-self._render_product.hydra_texture.set_updates_enabled(False)
-```
-
-预热让渲染管线、材质、纹理和相关资源在正式计数前稳定下来。默认预热 10 次。预热发生在 `world_scheduler.start()` 之前，因此正式物理步计数仍从 0 开始。
-
-### 8.4 手动采集且不额外推进物理时间
-
-```python
-rep.orchestrator.step(
-    rt_subframes=self._rt_subframes,
-    delta_time=0.0,
-    pause_timeline=False,
-)
-```
-
-设计意图是：
-
-- `rt_subframes` 为光线追踪提供多个子帧，提高渲染稳定性；
-- `delta_time=0.0` 在采集动作中不额外推进仿真时间；
-- 物理时间只由 `WorldScheduler.step()` 推进；
-- `pause_timeline=False` 不在每帧采集时反复暂停 Timeline。
-
-这能避免“6 个显式物理步 + 1 个隐式渲染步”的时间漂移。
-
-### 8.5 相机状态记录
-
-```python
-cache = UsdGeom.XformCache(Usd.TimeCode.Default())
-matrix = cache.GetLocalToWorldTransform(prim)
-world_transform = [
-    float(matrix[row][column]) for row in range(4) for column in range(4)
-]
-```
-
-4×4 世界变换矩阵按行展开为 16 个浮点数，写入 `motion_state.jsonl`。验证器会检查这些矩阵在不同帧间是否改变，从而证明相机确实跟随驾驶室运动。
-
-## 9. 语义映射：为什么不能直接保存 runtime ID
-
-Isaac Sim 的 semantic segmentation Annotator 输出的是当前运行中的 ID。这些 ID 可能受场景加载、Prim 顺序或运行环境影响，不适合作为长期数据集类别编号。
-
-因此模块区分两种 ID：
-
-| 类型 | 来源 | 稳定性 | 用途 |
-|---|---|---|---|
-| runtime ID | Isaac Sim 当前 Annotator | 不保证跨运行稳定 | 调试、追踪源输出 |
-| dataset ID | 项目的 JSON schema | 稳定 | 训练、评估、跨批次合并 |
-
-映射过程是：
+Replicator 调用 Writer 的时机由框架控制，Writer 自己不能可靠猜测“这次回调属于哪个
+业务 frame_id”。项目使用线程安全 FIFO：
 
 ```text
-每像素 runtime ID
-        ↓
-idToLabels[runtime ID]
-        ↓
-canonical_label(...)
-        ↓
-label_to_id[规范化标签]
-        ↓
-每像素 uint16 dataset ID
+arm(context) → Replicator callback consume() → complete(receipt)
 ```
 
-### 9.1 Schema 的约束
+它拒绝：重复 frame ID、未 arm 就收到回调、同一帧完成两次、请求的帧没有完成。这样业务
+帧号不再依赖 Writer 内部计数器。
 
-`load_schema()` 会检查：
+### 9.4 每次 capture 的行为
 
-- `schema_version == 1`；
-- `dataset_dtype == "uint16"`；
-- background、classes、unknown 的 ID 唯一；
-- 标签忽略大小写后唯一；
-- RGB 颜色唯一；
-- background ID 必须为 0。
+`SemanticCameraScheduler.capture()`：
 
-```python
-entries = [schema["background"], *schema["classes"], schema["unknown"]]
-ids = [entry["id"] for entry in entries]
-labels = [entry["label"].casefold() for entry in entries]
-colors = [tuple(entry["color"]) for entry in entries]
-if len(ids) != len(set(ids)) or len(labels) != len(set(labels)) or len(colors) != len(set(colors)):
-    raise ValueError("Semantic IDs, labels, and colors must be unique")
-```
+1. 校验状态机和 camera path；
+2. arm `CaptureContext`；
+3. `rep.orchestrator.step(rt_subframes=..., delta_time=0.0, pause_timeline=False)`；
+4. 阻塞等待 Replicator 完成；
+5. 向 Writer 索要同 frame ID 的 `CaptureReceipt`。
 
-这里的“颜色唯一”同样重要：如果两个类别颜色相同，彩色预览图将无法无歧义地反映 dataset ID。
+Timeline 在外部已经暂停，`delta_time=0.0` 又明确要求不推进仿真。采集前后还会用世界快照
+检查物理没有变化。
 
-### 9.2 继承标签和逗号分隔标签的解析
+---
 
-`canonical_label()` 可处理字典、序列和字符串：
+## 10. 语义映射与自定义 Writer
 
-```python
-def canonical_label(value: Any, semantic_type: str = "class") -> str | None:
-    if value is None:
-        return None
-    if isinstance(value, Mapping):
-        if semantic_type in value:
-            return canonical_label(value[semantic_type], semantic_type)
-        labels = [canonical_label(item, semantic_type) for item in value.values()]
-        labels = [label for label in labels if label]
-        return labels[-1] if labels else None
-    if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
-        labels = [canonical_label(item, semantic_type) for item in value]
-        labels = [label for label in labels if label]
-        return labels[-1] if labels else None
-    text = str(value).strip()
-    labels = [item.strip() for item in text.split(",") if item.strip()]
-    return labels[-1] if labels else None
-```
+### 10.1 mapping schema
 
-核心规则是取最后一个非空标签。例如：
+mapping 文件定义：
+
+- `schema_version=1`；
+- `semantic_type=class`；
+- `dataset_dtype=uint16`；
+- background：ID 0；
+- classes：稳定 ID、标签和颜色；
+- unknown：通常 ID 65535、品红色、policy error。
+
+加载时要求 ID、大小写无关标签和 RGB 颜色都唯一。
+
+### 10.2 标签规范化
+
+Isaac 的 `idToLabels` 可能是字符串、列表或嵌套 mapping，继承标签还可能表现为逗号分隔
+文本。`canonical_label()` 的规则是递归提取目标 semantic type，并取最后一个非空标签。
+
+例如：
 
 ```text
-"vehicle, excavator, boom" → "boom"
-{"class": "machine, bucket"} → "bucket"
+"vehicle, boom"              → "boom"
+{"class": "vehicle, cab"}   → "cab"
+["vehicle", "bucket_noteeth"] → "bucket_noteeth"
 ```
 
-这适合处理从祖先 Prim 继承到子 Prim 的多层语义。schema 中的 `label_resolution` 字段记录了该约定，但当前实现的实际行为由 `canonical_label()` 固定完成。
+解析后使用 `casefold()` 查稳定 ID。背景别名映射为 0；缺少类别则映射为 65535。严格模式下
+出现任何未知标签就抛异常，不发布一帧带错误标签的数据。
 
-### 9.3 逐帧重映射
+### 10.3 runtime ID 数组兼容
 
-核心逻辑：
+Annotator 可能返回：
 
-```python
-dataset_ids = np.full(runtime_ids.shape, self.unknown_id, dtype=np.uint16)
+- 直接的二维 `uint32`；
+- `HxWx4` 的 `uint8`，四字节组成一个 uint32；
+- 其他可转换到 `uint32` 的数组。
 
-for raw_runtime_id in np.unique(runtime_ids):
-    runtime_id = int(raw_runtime_id)
-    label_info = normalized.get(runtime_id)
-    if runtime_id == 0 and label_info is None:
-        dataset_id, label = self.background_id, "BACKGROUND"
-    else:
-        dataset_id, label = self.resolve(label_info)
-    dataset_ids[runtime_ids == runtime_id] = dataset_id
-```
+Writer 统一转换成 `H×W uint32`，然后针对该帧出现的每个唯一 runtime ID 建映射，并生成
+`H×W uint16` dataset ID。
 
-程序只遍历该帧实际出现过的唯一 runtime ID，而不是逐像素调用 Python 字典。每个 ID 对应的像素通过 NumPy 布尔掩码批量赋值。
+### 10.4 颜色 LUT
 
-若出现 schema 中不存在的标签：
-
-```python
-if unknown_labels and strict:
-    raise KeyError(
-        "Semantic labels are missing from the mapping: "
-        + ", ".join(sorted(set(unknown_labels)))
-    )
-```
-
-默认 `strict_mapping=True`，任何漏标都会让采集失败。关闭严格模式后，未知像素会写成 `65535`，但仍会记录在逐帧 metadata 中。
-
-### 9.4 颜色查找表
-
-```python
-self.color_lut = np.zeros((np.iinfo(np.uint16).max + 1, 3), dtype=np.uint8)
-for entry in entries:
-    self.color_lut[int(entry["id"])] = entry["color"]
-
-def colorize(self, dataset_ids: np.ndarray) -> np.ndarray:
-    return self.color_lut[dataset_ids.astype(np.uint16, copy=False)]
-```
-
-查找表包含 65536 个 RGB 项，占用约 `65536 × 3 = 196608` 字节。以 ID 图直接索引 LUT，得到 `[H, W, 3]` 彩色图，速度快且结果完全确定。
-
-## 10. 自定义 `SemanticDatasetWriter`
-
-### 10.1 Annotator 配置
-
-```python
-if rgb:
-    self.annotators.append(AnnotatorRegistry.get_annotator("rgb"))
-self.annotators.append(
-    AnnotatorRegistry.get_annotator(
-        "semantic_segmentation",
-        init_params={"colorize": False, "semanticFilter": "class:*"},
-    )
-)
-```
-
-语义 Annotator 使用 `colorize=False`，因为项目需要原始 runtime ID，而不是 Isaac 自动生成的颜色图。`semanticFilter="class:*"` 表示只采集 `class` 类型语义。
-
-初始化时 Writer 还会把实际使用的 schema 复制到输出根目录：
-
-```python
-self.backend.schedule(
-    F.write_json,
-    data=self.mapping.schema,
-    path="semantic_mapping.json",
-)
-```
-
-因此即使之后项目配置发生变化，数据集目录内仍保留当次采集的映射快照。
-
-### 10.2 兼容不同 runtime ID 数组格式
-
-```python
-if data.dtype == np.uint32:
-    return data.reshape(height, width)
-if data.dtype == np.uint8 and data.ndim == 3 and data.shape[2] == 4:
-    return np.ascontiguousarray(data).view(np.uint32).reshape(height, width)
-return data.astype(np.uint32, copy=False).reshape(height, width)
-```
-
-Annotator 结果可能直接是 `uint32` 二维 ID，也可能以 4 个 `uint8` 通道承载一个 32 位整数。第二种情况下先确保内存连续，再用 `.view(np.uint32)` 按相同字节重新解释，避免把 RGBA 当作四个独立类别值。
-
-### 10.3 每帧写入内容
-
-Writer 对每个 RenderProduct 执行：
-
-1. 提取 semantic entry；
-2. 还原 runtime ID 二维图；
-3. 读取 `idToLabels`；
-4. 转换成 dataset ID；
-5. 保存 `semantic_id/*.npy`；
-6. 由 dataset ID 重建并保存 `semantic_color/*.png`；
-7. 可选保存 runtime ID；
-8. 保存 RGB；
-9. 保存逐帧 metadata。
-
-核心写盘代码：
-
-```python
-self.backend.schedule(
-    F.write_np,
-    data=dataset_ids,
-    path=self._path(root, "semantic_id", f"semantic_id_{frame_name}.npy"),
-)
-self.backend.schedule(
-    F.write_image,
-    data=self.mapping.colorize(dataset_ids),
-    path=self._path(root, "semantic_color", f"semantic_color_{frame_name}.png"),
-)
-```
-
-语义训练应优先使用 `.npy` 中的 `uint16` ID，而不是把彩色 PNG 再反解成类别。彩色 PNG 的主要用途是可视化检查。
-
-### 10.4 多 RenderProduct 的预留支持
-
-```python
-multi = len(render_products) > 1
-root = self._safe_name(render_product_name) if multi else ""
-```
-
-当前相机调度器只创建一个 RenderProduct，因此输出直接位于 `rgb/`、`semantic_id/` 等目录。Writer 已为多 RenderProduct 预留了按安全名称分目录的逻辑。
-
-### 10.5 Writer 帧号与调度器帧号
-
-Writer 使用自己的 `_frame_id`，每次 `write()` 后加一：
-
-```python
-frame_name = f"{self._frame_id:0{self._frame_padding}d}"
-...
-self._frame_id += 1
-```
-
-而 `SemanticCameraScheduler.capture(frame_id, simulation_time)` 当前没有把传入的两个值交给 Writer：
-
-```python
-_ = frame_id, simulation_time
-```
-
-所以现有设计隐含一个前提：**每次顶层 `capture()` 必须恰好触发一次 Writer `write()`**。若未来加入丢帧、条件采集或多次子采集，应显式建立调度帧号与 Writer 帧号的关联。
-
-## 11. 顶层主循环：同步世界、运动和相机
-
-主循环是整个工程最关键的代码：
-
-```python
-steps_per_capture = args.physics_hz // args.capture_fps
-
-world_scheduler.start()
-for frame_id in range(args.frames):
-    for _ in range(steps_per_capture):
-        next_time = world_scheduler.next_simulation_time
-        world_scheduler.update(next_time)
-        if motion_scheduler is not None:
-            motion_scheduler.update(next_time)
-        world_scheduler.step()
-
-    capture_time = world_scheduler.simulation_time
-    camera_scheduler.capture(frame_id=frame_id, simulation_time=capture_time)
-```
-
-单个物理步的严格顺序是：
+`SemanticMapping` 创建 `65536×3` 的 `uint8` 查找表：
 
 ```text
-计算下一物理时刻
-    → 更新世界计划属性
-    → 按该时刻计算并写入关节目标
-    → app.update() 推进物理
-    → 步数加一
+semantic_color[y, x] = color_lut[dataset_id[y, x]]
 ```
 
-关节目标必须在 `app.update()` 之前写入，这样本次物理求解看到的是“即将到达时刻”的目标。
+这样颜色 PNG 是 dataset ID 的确定性可视化，不依赖 Isaac 随机配色。验证器会重新 colorize
+NPY，并要求与保存的 PNG 逐像素相同。
 
-### 11.1 默认首帧不是 `t=0`
+### 10.5 Writer 的逐帧输出
 
-主循环先推进 6 个物理步，再采集 `frame_id=0`。因此默认时间序列是：
+每帧安排写入：
+
+- RGB PNG；
+- 稳定语义 ID NPY；
+- 语义颜色 PNG；
+- 可选 runtime ID NPY；
+- metadata JSON。
+
+metadata 还包含 runtime-to-dataset 映射、各 dataset ID 像素数和未知标签列表。完成安排后
+Ledger 保存一张 `CaptureReceipt`，主循环据此确认该帧的业务输出路径。
+
+---
+
+## 11. 输出目录与数据含义
+
+一次完整输出形如：
 
 ```text
-frame 0  → t = 0.1 s
-frame 1  → t = 0.2 s
-...
-frame 49 → t = 5.0 s
-```
-
-如果需求是额外保存初始姿态 `t=0`，需要在进入物理步循环前执行一次采集，并相应调整帧数与验证逻辑；仅修改帧号不能得到真正的零时刻图像。
-
-### 11.2 为什么要求频率整除
-
-参数验证中有：
-
-```python
-if args.physics_hz % args.capture_fps != 0:
-    raise ValueError(
-        "First-version scheduling requires physics-hz to be divisible by capture-fps"
-    )
-```
-
-当前调度器使用固定整数 `steps_per_capture`。若 60 Hz 物理要按 24 FPS 采集，则 `60 / 24 = 2.5`，不能每帧都推进相同整数步。要支持非整除频率，可以引入相位累加器或按“下一个采集时间”判定，但要处理 2 步、3 步交替采集及浮点容差。
-
-### 11.3 运行状态的双重记录
-
-每帧采集后写一行 JSON：
-
-```python
-state = {
-    "frame_id": frame_id,
-    "simulation_time": capture_time,
-    "world": world_scheduler.get_state(),
-    "camera": camera_scheduler.get_state(),
-    "motion": motion_scheduler.get_state(capture_time)
-    if motion_scheduler is not None
-    else {"enabled": False},
-}
-motion_stream.write(json.dumps(state, ensure_ascii=False) + "\n")
-motion_stream.flush()
-```
-
-这里采用 JSON Lines 而不是一个超大 JSON 数组，优点是：
-
-- 每帧立即落盘并 `flush()`；
-- 任务中途失败时，已经完成的状态仍可读取；
-- 可以按行流式处理；
-- 单帧记录天然与 frame ID 对齐。
-
-`run_config.json` 记录整次运行不变的配置，`motion_state.jsonl` 记录每帧变化的状态。两者配合，可以区分“实验参数”和“时序观测值”。
-
-## 12. 生命周期与异常清理
-
-入口将所有执行放在 `try/except/finally` 中：
-
-```python
-except Exception as exc:
-    exit_code = 1
-    print(f"[simulation-orchestrator] ERROR: {exc}", file=sys.stderr)
-    traceback.print_exc()
-finally:
-    if world_scheduler is not None:
-        world_scheduler.stop()
-    if camera_scheduler is not None:
-        camera_scheduler.close()
-    simulation_app.close()
-```
-
-即使轨迹非法、语义映射缺类或写盘失败，也会尽力：
-
-1. 暂停 Timeline；
-2. detach Writer；
-3. destroy RenderProduct；
-4. 关闭 SimulationApp。
-
-各清理动作又分别放入局部 `try/except`，避免一个清理失败阻止其他资源释放。
-
-## 13. 输出数据集结构
-
-单 RenderProduct 的默认输出大致如下：
-
-```text
-output_directory/
+output/
 ├── run_config.json
-├── semantic_mapping.json
 ├── motion_state.jsonl
+├── semantic_mapping.json
 ├── rgb/
-│   ├── rgb_0000.png
-│   └── ...
+│   └── rgb_0000.png
 ├── semantic_id/
-│   ├── semantic_id_0000.npy
-│   └── ...
+│   └── semantic_id_0000.npy
 ├── semantic_color/
-│   ├── semantic_color_0000.png
-│   └── ...
+│   └── semantic_color_0000.png
 ├── semantic_runtime_id/
-│   ├── semantic_runtime_id_0000.npy
-│   └── ...
+│   └── semantic_runtime_id_0000.npy
 └── metadata/
-    ├── frame_0000.json
-    └── ...
+    └── frame_0000.json
 ```
 
-各产物的职责：
+### 11.1 `run_config.json`
 
-| 文件 | 内容 | 主要用途 |
-|---|---|---|
-| `run_config.json` | 场景、相机、频率、分辨率、轨迹摘要、关节限位 | 复现实验 |
-| `semantic_mapping.json` | 当次实际使用的稳定标签 schema | 数据解释与归档 |
-| `motion_state.jsonl` | 每帧世界时间、目标角、刚体和相机变换 | 时序审计 |
-| `rgb_XXXX.png` | 相机 RGB 图像 | 训练输入或可视化 |
-| `semantic_id_XXXX.npy` | `[H,W] uint16` 稳定类别 ID | 训练标签真值 |
-| `semantic_color_XXXX.png` | `[H,W,3]` 类别颜色 | 人工检查 |
-| `semantic_runtime_id_XXXX.npy` | Isaac 原始 runtime ID | 排查映射问题 |
-| `frame_XXXX.json` | 该帧 runtime→dataset 映射、像素计数、未知标签 | 逐帧诊断 |
+这是“整次运行”的审计清单。schema v3 记录：
 
-逐帧 metadata 的核心结构：
+- 状态 `running / complete / failed` 和时间戳；
+- 原始命令行；
+- 输入文件路径、大小、修改时间和 SHA-256；
+- 帧数、分辨率、频率和采集模式；
+- 渲染 profile、requested/effective setting 和 mismatch；
+- Stage 与 Articulation preflight；
+- joint profile、trajectory sidecar、bootstrap/setup 步数；
+- DOF binding、索引和 ready 状态；
+- 相机初始状态；
+- Writer pending/completed 统计；
+- Python 和平台信息；
+- 失败时的异常类型与消息。
 
-```json
-{
-  "frame_id": 0,
-  "render_product": "...",
-  "resolution": [1280, 720],
-  "runtime_id_mapping": {
-    "1": {
-      "source": {"class": "boom"},
-      "resolved_label": "boom",
-      "dataset_id": 1,
-      "dataset_label": "boom"
-    }
-  },
-  "dataset_pixel_counts": {"0": 500000, "1": 20000},
-  "unknown_labels": []
-}
+只有 `status=complete` 仍不够；还要由离线验证器检查内容一致性。
+
+### 11.2 `motion_state.jsonl`
+
+一行一帧，便于流式追加。除 CaptureContext 外，还记录：
+
+- 总 simulation time；
+- WorldScheduler 完整状态；
+- 相机光学属性与世界矩阵；
+- 命令、回读、误差和刚体矩阵；
+- CaptureReceipt 中的相对路径。
+
+### 11.3 逐帧 metadata
+
+它由 Writer 写出，重点记录“Writer 实际处理的这帧”：帧身份、相机与运动状态、分辨率、
+runtime ID 映射、像素计数和未知标签。验证器会把它和同帧 `motion_state.jsonl` 对齐。
+
+### 11.4 NPY 与 PNG 的分工
+
+- `semantic_id_*.npy` 是训练/计算的权威语义标签，保留 `uint16` 精确值；
+- `semantic_color_*.png` 用于人眼检查，不能反过来代替权威 ID；
+- `semantic_runtime_id_*.npy` 用于诊断 Isaac 原始输出；
+- RGB PNG 是对应相机画面。
+
+---
+
+## 12. 离线验证器在证明什么
+
+`validate_semantic_output.py` 不是简单数文件。它按层检查：
+
+### 12.1 清单级
+
+- status 必须是 complete；
+- frames 与期望数量一致；
+- renderer/profile/requested/effective 一致；
+- `rt_subframes` 和采样模型合法；
+- Path Tracing 的 SPP 预算计算一致；
+- strict Stage preflight 必须通过；
+- Writer pending 为 0，completed 等于帧数。
+
+schema v3 还要求：
+
+- motion control mode 正确；
+- joint order 正确且容差为正有限值；
+- 动态模式 Articulation preflight 通过；
+- bootstrap 非负，setup 恰好 1 步；
+- adapter 记录为 bound/ready；
+- DOF 名称和顺序与逻辑契约一致。
+
+### 12.2 文件级
+
+- 必需目录中的帧数完全一致；
+- `semantic_id` 形状等于分辨率，dtype 为 `uint16`；
+- ID 只属于 mapping 定义；
+- semantic color 与 ID 经 LUT 生成的结果逐像素相同；
+- RGB 尺寸正确；
+- metadata 的 frame ID、resolution、dataset time 正确；
+- unknown labels 必须为空。
+
+### 12.3 状态级
+
+- JSONL 行数和 frame ID 正确；
+- metadata/state 的 timeline time 和 physics step 对齐；
+- commanded、actual、error、legacy target 都恰好包含四个关节且为有限数；
+- `error == actual - commanded`；
+- error 未超过容差；
+- 命令和回读都在安全限位内。
+
+动态模式多帧时还要求至少一个受控刚体世界矩阵发生变化，并要求驾驶室相机发生变化；静态
+模式则要求这些矩阵不变化。
+
+注意：当前“运动发生”检查只证明至少一个刚体矩阵变化，不是完整的运动学正确性证明。
+
+---
+
+## 13. 如何运行
+
+### 13.1 普通 Python 单元测试
+
+必须先进入项目目录，因为测试以顶层模块名导入源码：
+
+```powershell
+Set-Location 'D:\learning\IntelligentDepartment\CodesSet\Self\260707IsaacSIm\scripts\260714_01semantic_worldModule'
+python -m pytest tests -q
 ```
 
-实际键和值取决于该帧可见对象，上例仅用于说明字段含义。
+当前基线：
 
-## 14. 结果验证器检查了什么
-
-验证脚本不是只看“文件存在”，而是进行多层一致性检查。
-
-### 14.1 文件数量
-
-以下目录必须都包含 `expected_frames` 个文件：
-
-```python
-required_patterns = {
-    "rgb": "rgb_*.png",
-    "semantic_id": "semantic_id_*.npy",
-    "semantic_color": "semantic_color_*.png",
-    "semantic_runtime_id": "semantic_runtime_id_*.npy",
-    "metadata": "frame_*.json",
-}
+```text
+69 passed
 ```
 
-### 14.2 ID 数组
+若从仓库根目录直接传入测试绝对路径，可能因项目目录不在 `sys.path` 而出现
+`ModuleNotFoundError`；这不是源码逻辑失败。
 
-逐帧检查：
+### 13.2 默认远端动态采集
 
-- shape 是否等于 `[height, width]`；
-- dtype 是否严格为 `np.uint16`；
-- 所有值是否属于 `{0, 65535, schema classes...}`。
-
-### 14.3 颜色图可逆一致
-
-```python
-if not np.array_equal(saved_color, mapping.colorize(dataset_ids)):
-    raise RuntimeError(
-        f"Frame {frame_id}: semantic color PNG does not match semantic ID NPY"
-    )
-```
-
-验证器不相信已经保存的颜色 PNG，而是从 `.npy` 重新查 LUT，再逐像素比较。这能发现错误配色、错帧或写盘损坏。
-
-### 14.4 未知标签
-
-即使 `65535` 属于合法 `uint16` 保留值，当前验证器仍要求：
-
-```python
-if metadata.get("unknown_labels"):
-    raise RuntimeError(...)
-```
-
-所以最终“通过验证”的标准是没有任何未知语义标签。
-
-### 14.5 运动与相机随动
-
-验证器会：
-
-1. 检查每帧目标角是否位于 USD 原始上下限内；
-2. 比较每个受控刚体的 4×4 世界变换；
-3. 至少一个受控刚体必须发生变化；
-4. 相机世界变换必须发生变化。
-
-`changed()` 使用固定绝对容差：
-
-```python
-return any(
-    not np.allclose(present[0], value, atol=tolerance, rtol=0.0)
-    for value in present[1:]
-)
-```
-
-这验证的是物理结果，而不仅是 Drive 目标数值发生了改变。若目标变了但刚体没动，验证仍会失败。
-
-## 15. 如何运行
-
-### 15.1 默认远端采集
-
-在 Linux/Isaac Sim 运行环境中进入项目目录：
+在具有 `/root/isaacsim/python.sh` 和默认资产路径的 Linux 主机上：
 
 ```bash
+cd /path/to/260714_01semantic_worldModule
 ./run_capture_remote.sh \
+  --renderer RealTimePathTracing \
   --frames 50 \
   --physics-hz 60 \
   --capture-fps 10 \
   --trajectory trajectories/excavator_motion_01.csv \
-  --trajectory-mode loop \
+  --trajectory-mode hold \
+  --joint-profile configs/excavator_four_joint_articulation.json \
   --interpolation linear \
   --width 1280 \
   --height 720 \
-  --rt-subframes 4
+  --warmup-render-frames 16 \
+  --output /new/output/path
 ```
 
-首次写入默认输出目录不需要 `--overwrite`；若目标目录已非空，要么换新目录，要么明确传入：
+启动脚本创建项目内 `.runtime` 的 tmp/cache/config/home/CUDA/OptiX 缓存目录，避免使用环境
+中不可写的默认目录，然后 `exec` Isaac Python。
+
+### 13.3 最小静态冒烟测试
 
 ```bash
---overwrite
+./run_capture_remote.sh \
+  --capture-mode static \
+  --frames 2 \
+  --width 640 \
+  --height 360 \
+  --output /new/smoke/static
 ```
 
-### 15.2 远端启动脚本做了什么
+静态测试能验证 Stage、相机、语义、渲染和 Writer，但不会验证动态 Articulation 路径。
 
-`run_capture_remote.sh` 为每个项目建立隔离的运行目录：
+### 13.4 最小动态冒烟测试
 
 ```bash
-export HOME="${RUNTIME_DIR}/home"
-export TMPDIR="${RUNTIME_DIR}/tmp"
-export XDG_CACHE_HOME="${RUNTIME_DIR}/cache"
-export XDG_CONFIG_HOME="${RUNTIME_DIR}/config"
-export CUDA_CACHE_PATH="${RUNTIME_DIR}/cuda_cache"
-export OPTIX_CACHE_PATH="${RUNTIME_DIR}/optix_cache"
-export PYTHONUNBUFFERED=1
+./run_capture_remote.sh \
+  --capture-mode motion \
+  --frames 3 \
+  --physics-hz 60 \
+  --capture-fps 10 \
+  --output /new/smoke/motion
 ```
 
-这样能减少用户主目录权限、共享缓存和远端无交互环境带来的问题。最后通过 Isaac Sim 自带 Python 启动：
+这会覆盖 bind、tensor bootstrap、初始姿态、逐步命令、回读、相机随动和 Writer。
+
+### 13.5 Path Tracing
 
 ```bash
-exec /root/isaacsim/python.sh "${PROJECT_DIR}/simulation_orchestrator.py" "$@"
+./run_capture_remote.sh \
+  --renderer PathTracing \
+  --capture-mode static \
+  --frames 3 \
+  --output /new/pathtracing/output
 ```
 
-必须使用 Isaac Sim 的 Python，而不是普通系统 Python，因为主流程依赖 `isaacsim`、`omni`、`pxr` 和 Replicator 环境。
+先在静态小样本上评估质量和耗时，再决定是否用于动态批量数据。
 
-### 15.3 验证输出
+### 13.6 验证输出
 
 ```bash
 /root/isaacsim/python.sh validate_semantic_output.py \
   --output /absolute/output/path \
-  --mapping configs/semantic_mapping_usd_ply_combined_02.json \
-  --expected-frames 50
+  --mapping configs/semantic_mapping_Sim_Fangshan_07_native.json
 ```
 
-### 15.4 运行纯 Python 单元测试
-
-轨迹加载和插值不依赖 Isaac Sim，可以在项目根目录用普通 Python 测试：
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-必须从模块根目录运行，或者把模块根目录加入 `PYTHONPATH`，因为测试通过：
-
-```python
-from excavator_joint_motion import JointTrajectory
-```
-
-直接导入同级源码模块。
-
-当前 6 个测试覆盖：
-
-- 关键帧数量、总时长和 SHA-256；
-- 两关键帧之间的线性插值；
-- `loop` 周期回绕；
-- `hold` 末帧保持；
-- 错误列结构拒绝；
-- 非严格递增时间拒绝。
-
-## 16. 参数速查
-
-| 参数 | 默认值 | 含义 |
-|---|---:|---|
-| `--usd` | 默认 overlay | 要打开的 USD/USDA |
-| `--mapping` | 默认六类 JSON | 稳定语义映射 |
-| `--camera` | 驾驶室下 `Camera_01` | 相机 Prim 路径；空字符串表示自动发现 |
-| `--cab-root` | `/root/Xform/operator_cab_mesh` | 相机必须位于其下 |
-| `--output` | 项目内默认输出目录 | 数据集根目录 |
-| `--frames` | `50` | 采集帧数 |
-| `--width` | `1280` | 图像宽度 |
-| `--height` | `720` | 图像高度 |
-| `--warmup` | `10` | 正式采集前渲染更新次数 |
-| `--rt-subframes` | `4` | 每次 Replicator step 的光追子帧数 |
-| `--physics-hz` | `60` | 固定物理频率 |
-| `--capture-fps` | `10` | 语义相机采集频率 |
-| `--trajectory` | 默认 CSV | 四关节关键帧文件 |
-| `--trajectory-mode` | `loop` | 循环或末帧保持 |
-| `--interpolation` | `linear` | 当前只支持线性插值 |
-| `--no-enable-motion` | 未启用 | 禁用运动，仅采集静态场景 |
-| `--no-headless` | 未启用 | 显示 Isaac Sim 窗口 |
-| `--no-save-runtime-ids` | 未启用 | 不保存原始 runtime ID |
-| `--no-strict-mapping` | 未启用 | 未知标签写为 65535 而不是立即报错 |
-| `--overwrite` | 关闭 | 允许写入非空输出目录 |
-
-## 17. 已知边界条件与容易踩坑的地方
-
-### 17.1 `--no-save-runtime-ids` 与当前验证器不兼容
-
-Writer 支持关闭 runtime ID 保存，但验证器无条件要求 `semantic_runtime_id/semantic_runtime_id_*.npy` 数量正确。因此：
-
-```text
-采集时 --no-save-runtime-ids
-        +
-原样运行 validate_semantic_output.py
-        =
-验证失败
-```
-
-若要正式支持该参数，应把 `save_runtime_ids` 写入 `run_config.json`，并让验证器按配置决定是否检查该目录。
-
-### 17.2 `--no-strict-mapping` 不能让当前验证器接受未知类
-
-关闭严格映射只会让 Writer 继续写出 `65535`；验证器仍会因为 `metadata.unknown_labels` 非空而失败。这很适合“先采集诊断，再补 schema”，但不等于数据集达标。
-
-### 17.3 schema 中有些字段目前是描述性元数据
-
-当前代码实际强校验 `schema_version`、`dataset_dtype`、ID、标签、颜色和 background ID；但以下字段主要用于记录，没有被完整交叉验证：
-
-- `source_usd`；
-- `semantic_prim_count`；
-- `class_count`；
-- `unknown.policy`；
-- `label_resolution`。
-
-例如 `unknown.policy` 写成 `error` 不会自动决定行为，真正控制严格性的仍是命令行 `--strict-mapping/--no-strict-mapping`。
-
-### 17.4 相机 `frame_id` 与 Writer `_frame_id` 没有显式绑定
-
-当前一采一写时没有问题。未来若增加跳帧、失败重试或多相机，需要把帧号作为数据显式传递，或在输出后建立可靠索引。
-
-### 17.5 只验证“至少一个刚体移动”
-
-验证器当前要求 `moving_bodies` 非空，但不要求四个受控刚体全部移动。如果需要更严格的数据质量门槛，可改为检查预期 body 集合全部出现在 `moving_bodies` 中。
-
-### 17.6 目标角在限位内，不代表物理姿态一定准确到达
-
-Drive 目标只是控制输入。刚体最终角度还受 stiffness、damping、max force、质量和碰撞影响。当前状态记录了目标和 body world transform，没有直接记录实际 joint position。若训练任务对关节角真值敏感，应额外读取实际 joint state。
-
-### 17.7 overlay 使用绝对 Linux 路径
-
-两个 overlay 的 `subLayers` 都指向 `/root/gpufree-data/...`。项目复制到另一台机器后，必须保证同一路径存在，或修改 sublayer 路径。Windows 本地普通 Python 可以测试轨迹，但不能直接完成依赖该远端资产路径的 Isaac Sim 采集。
-
-## 18. 常见修改方法
-
-### 18.1 新增语义类别
-
-需要同步完成：
-
-1. 在 overlay 对目标 Prim 应用 `SemanticsLabelsAPI:class`；
-2. 在对应 mapping JSON 的 `classes` 中加入唯一 ID、标签和颜色；
-3. 更新 `class_count` 和必要的说明性元数据；
-4. 用严格映射模式进行一次短采集；
-5. 检查每帧 metadata 中 `unknown_labels` 为空；
-6. 运行验证器。
-
-仅修改 JSON 而不在 USD 上打标签，像素仍可能被视为 background；仅修改 USD 而不修改 JSON，严格模式会因未知标签失败。
-
-### 18.2 替换挖掘机资产
-
-至少要核对：
-
-- 四个 joint Prim 路径和类型；
-- 四个 body Prim 路径；
-- 每个 joint 是否存在 angular Drive target；
-- joint limit 的单位和范围；
-- 相机是否在驾驶室层级下；
-- overlay 中需要标注的 Prim 路径；
-- mapping JSON 标签是否与 overlay 完全一致。
-
-若新资产命名不同，应优先修改 `JOINT_SPECS` 和配置，不要在轨迹 CSV 中混用 USD 长路径。
-
-### 18.3 改成多相机
-
-当前 `SemanticCameraScheduler` 只拥有一个 RenderProduct。扩展时有两种思路：
-
-- 一个 scheduler 创建多个 RenderProduct，并让同一个 Writer 的多 RenderProduct 分目录逻辑接管输出；
-- 每个相机一个 scheduler/Writer，输出到独立根目录。
-
-无论哪种方式，都要重新定义：
-
-- 同一物理时刻各相机是否必须严格同步；
-- `motion_state.jsonl` 如何保存多个相机变换；
-- 验证器如何计数；
-- Writer 帧号与顶层帧号如何对应。
-
-### 18.4 支持非整除采集频率
-
-可维护下一个采集时间 `next_capture_time`：
-
-```text
-每推进一个固定物理步：
-    simulation_time += physics_dt
-    当 simulation_time >= next_capture_time - tolerance：
-        capture()
-        next_capture_time += 1 / capture_fps
-```
-
-这样 60 Hz/24 FPS 会自然形成 2 步和 3 步交替。需要额外定义采集使用“刚超过目标时间的状态”还是进行状态插值。
-
-### 18.5 采集真正的 `t=0` 初始帧
-
-应在 `world_scheduler.start()` 后、第一次 `world_scheduler.step()` 前完成一次采集和状态记录，然后再进入常规循环。与此同时需决定：
-
-- `frames` 是包含初始帧还是额外增加一帧；
-- Writer 和 motion JSONL 的帧号从 0 如何对齐；
-- 最终时刻是 `(frames-1)/fps` 还是 `frames/fps`；
-- 验证器的期望数量是否变化。
-
-## 19. 推荐的排错顺序
-
-当采集失败时，按以下顺序定位通常最快：
-
-1. **参数阶段**：USD、mapping、trajectory 文件是否存在，频率能否整除；
-2. **场景阶段**：overlay 的 sublayer 绝对路径是否有效，Stage 是否完成加载；
-3. **关节阶段**：四个 joint 路径、类型、限位和 Drive target 是否存在；
-4. **轨迹阶段**：CSV 列、时间、首尾闭合、安全限位是否通过；
-5. **相机阶段**：相机路径有效且位于 `cab_root` 下；
-6. **语义阶段**：Stage 中至少有一个 `SemanticsLabelsAPI`，metadata 是否出现未知标签；
-7. **写盘阶段**：输出目录权限、空间、是否需要 `--overwrite`；
-8. **验证阶段**：文件计数、ID dtype/shape、彩色图重建、刚体与相机变换。
-
-如果严格映射报错，优先查看异常中的标签名，或临时使用 `--no-strict-mapping` 生成 metadata 诊断；补齐 schema 后再恢复严格模式生产正式数据。
-
-## 20. 代码设计中值得学习的原则
-
-1. **把时间基准集中管理**：所有运动和采集都服从同一个固定步长世界时钟。
-2. **状态更新先于物理推进**：目标属于“下一个物理时刻”，应在求解前写入。
-3. **运行时 ID 与数据集 ID 分离**：不要把引擎临时编号当作训练标签协议。
-4. **保留原始数据和派生数据**：runtime ID 用于诊断，dataset ID 用于训练，颜色 PNG 用于查看。
-5. **配置快照进入输出**：数据集自带 mapping、轨迹 hash 和 run config，便于复现。
-6. **初始化阶段 fail fast**：路径、类型、限位和标签问题尽量在长时间采集前暴露。
-7. **验证物理结果而非只验证控制命令**：目标值变化不代表刚体真的运动。
-8. **使用 overlay 而非破坏源资产**：语义和采集修正作为轻量层叠加。
-9. **区分实验级元数据和逐帧时序数据**：`run_config.json` 与 `motion_state.jsonl` 各司其职。
-10. **清晰划分资源所有权**：谁创建 Timeline、RenderProduct、Writer，谁负责停止或销毁。
-
-## 21. 一次完整运行的心智模型
-
-可以把整个程序记成下面这条主线：
-
-```text
-解析业务参数并保留 Kit 参数
-    ↓
-创建 SimulationApp
-    ↓
-导入依赖 Kit 的模块
-    ↓
-校验路径、频率和输出目录
-    ↓
-打开 overlay Stage 并等待加载完成
-    ↓
-初始化固定步长世界
-    ↓
-加载并校验轨迹、关节和 Drive
-    ↓
-定位驾驶室相机、创建 RenderProduct 和 Writer
-    ↓
-渲染预热
-    ↓
-写 run_config.json
-    ↓
-每帧：6 次“目标更新 + 物理步” → 1 次语义采集 → 1 行运动状态
-    ↓
-等待异步写盘完成
-    ↓
-detach Writer、销毁 RenderProduct、暂停 Timeline、关闭 SimulationApp
-    ↓
-独立运行验证器检查数据与真实运动
-```
-
-掌握这条主线之后，再阅读各个类的细节会非常清楚：它们不是互相随意调用，而是在顶层编排器中按严格的生命周期和时间顺序组合。
+schema v2/v3 可以从 manifest 读取帧数；`--expected-frames` 可用于显式复核。
 
 ---
 
-## 22. 本地核对记录
+## 14. 参数分组速查
 
-本文整理时已对模块执行以下静态/纯 Python 检查：
+### 输入和输出
+
+- `--usd`：Stage/overlay。
+- `--mapping`：稳定语义 mapping。
+- `--trajectory`：动态轨迹 CSV。
+- `--joint-profile`：四关节契约。
+- `--output`：输出目录。
+- `--overwrite`：允许写入非空目录；使用前确认旧文件不会混入结果。
+
+### 时间和模式
+
+- `--frames`：输出帧数。
+- `--physics-hz`：物理频率。
+- `--capture-fps`：采集频率，必须整除物理频率。
+- `--capture-mode static|motion`。
+- `--capture-initial-frame / --no-capture-initial-frame`。
+- `--pre-roll-steps`：数据集原点前的稳定步数。
+- `--articulation-ready-timeout-steps`：等待 tensor 的上限。
+- `--enable-motion / --no-enable-motion`：motion 模式中的运动开关。
+
+### 运动
+
+- `--trajectory-mode hold|loop`。
+- `--interpolation linear`：目前只有线性。
+
+### 相机与图像
+
+- `--camera`：显式相机 Prim path；空字符串表示自动发现。
+- `--cab-root`：驾驶室层级根路径。
+- `--require-camera-below-cab / --no-require-camera-below-cab`。
+- `--width`、`--height`。
+
+### 渲染
+
+- `--renderer RealTimePathTracing|PathTracing`。
+- `--render-profile`：自定义 profile。
+- `--rt-subframes`：覆盖 profile capture 设置。
+- `--warmup-render-frames`：覆盖预热帧。
+- `--headless / --no-headless`。
+
+### 严格性与诊断
+
+- `--strict-stage / --no-strict-stage`。
+- `--strict-mapping / --no-strict-mapping`。
+- `--save-runtime-ids / --no-save-runtime-ids`。
+
+生产数据建议保持三个默认严格选项。放宽选项应只用于定位问题，并在输出用途说明中明确。
+
+---
+
+## 15. 推荐源码阅读法
+
+### 第一轮：只看接口
+
+先阅读每个模块的 docstring、class、公开 method 和 dataclass 字段，不追内部细节。目标是能
+说出每个对象“拥有什么状态、接收什么、产出什么”。
+
+### 第二轮：沿一帧向前追
+
+从 orchestrator 的 frame loop 开始，依次进入：
 
 ```text
-python -m compileall -q <module-root>       → PASS
-python -m unittest discover -s tests -v    → 6 tests PASS
+CaptureTiming
+→ WorldScheduler.advance_exact_steps
+→ ExcavatorJointMotion.before/after_physics_step
+→ freeze_for_capture
+→ CaptureContext
+→ SemanticCameraScheduler.capture
+→ SemanticDatasetWriter.write
+→ CaptureReceipt
 ```
 
-完整 Isaac Sim 采集和 GPU 渲染仍需在具备 `/root/isaacsim/python.sh`、对应 USD 资产和渲染环境的远端 Isaac Sim 环境中运行。
+### 第三轮：从验证器反推
+
+逐条查看验证器会拒绝什么，再回到生产代码找出是谁负责生成对应证据。例如：
+
+- 验证器检查 adapter ready → orchestrator 何时保存 binding？
+- 验证器检查误差 → motion scheduler 何时回读？
+- 验证器检查 metadata/state 时间一致 → CaptureContext 在哪里共享？
+- 验证器检查颜色可逆 → Writer 在哪里使用同一 LUT？
+
+### 第四轮：读测试
+
+测试中使用 fake object 隔离 Isaac 依赖，很适合学习边界条件。重点关注：
+
+- timing 的 t=0、static、非整除频率；
+- trajectory 的插值、hold、loop；
+- adapter 的批量弧度写入和速度清零；
+- Articulation 链、Drive conflict、质量惯量；
+- renderer profile 的互斥配置和 readback mismatch；
+- CaptureLedger 的重复/漏配对；
+- schema v3 回读超差时的验证失败。
+
+---
+
+## 16. 常见修改及影响范围
+
+### 16.1 修改轨迹
+
+只改 CSV 时至少检查：列顺序、起点 0、时间递增、有限值、安全范围、loop 首尾闭合、sidecar
+兼容性。先运行轨迹相关单元测试，再做 3 帧动态冒烟和完整验证。
+
+### 16.2 添加语义类别
+
+1. 在 USD/overlay 对正确 Prim 添加 `SemanticsLabelsAPI:class`；
+2. 在对应 mapping 的 `classes` 中添加唯一 ID、label、color；
+3. 更新声明性的 `class_count` / `semantic_prim_count`；
+4. 小样本采集；
+5. 查看 metadata 的 `runtime_id_mapping` 和 `unknown_labels`；
+6. 运行验证器。
+
+不要只改 mapping 而不改 USD，也不要只改 USD 而漏掉 mapping。
+
+### 16.3 替换挖掘机 Stage
+
+通常需要一起更新：overlay sublayer、mapping、camera/cab path、Articulation root、四关节候选
+名称/路径、质量惯量、关节限位、轨迹范围。新场景先通过静态 preflight，再处理动态契约。
+
+### 16.4 修改相机
+
+生产运动相机应位于受控驾驶室层级下。若改为场景固定相机，必须明确这是诊断用途并关闭
+descendant 要求；验证器对动态场景的“camera moved”要求也可能不再符合新产品定义，需要
+同步修改契约和测试，不能只换 CLI path。
+
+### 16.5 增加多相机
+
+当前 Writer 明确要求恰好一个 RenderProduct。多相机不是简单多 attach 一次，需要设计：
+
+- 每台相机的稳定名称与目录；
+- 一个 frame ID 对多个 RenderProduct 的完成屏障；
+- CaptureReceipt 的一对多结构；
+- 每台相机独立的矩阵和光学 metadata；
+- 缺少某一路时如何失败；
+- 验证器的跨相机文件计数和同步检查。
+
+### 16.6 修改 renderer
+
+优先新增版本化 profile，不在 orchestrator 中散落 `settings.set()`。将关键键加入
+`required_settings`，保留 readback 审计，并为互斥配置、样本预算和 mismatch 新增测试。
+
+---
+
+## 17. 排错顺序
+
+按成本从低到高排查：
+
+1. **命令和 cwd**：普通测试是否在项目目录执行？
+2. **输入文件**：Stage、mapping、trajectory、profile 是否存在？
+3. **绝对资产路径**：overlay 的 `/root/gpufree-data/...` 在运行主机是否存在？
+4. **`run_config.json` 状态**：是 running、failed 还是 complete？
+5. **error 字段**：异常类型和消息是什么？
+6. **preflight issues**：是缺相机、缺语义、缺 layer，还是仅缺纹理 warning？
+7. **Articulation 报告**：root、joint、body chain、Drive、limit、mass、inertia 哪项失败？
+8. **binding**：DOF names、indices、bound、ready 是否正确？
+9. **第一帧 motion state**：commanded、actual、error 是否齐全并在容差内？
+10. **Writer 统计**：pending 是否 0，completed 是否等于 frames？
+11. **逐帧 metadata**：unknown labels、resolution、frame/time 是否正确？
+12. **离线验证器**：让它给出第一个可复现的失败点。
+
+### 常见现象
+
+| 现象 | 常见原因 | 首查位置 |
+|---|---|---|
+| `ModuleNotFoundError` | 在仓库根目录直接跑 tests，项目目录不在 `sys.path` | `Set-Location` 到项目目录 |
+| Stage 久等不完成 | 底层 USD layer 路径不存在或加载卡住 | overlay 与 preflight layers |
+| 只有纹理/HDR warning | 远端渲染资源缺失 | `warnings`；画质受影响但未必阻断 |
+| `DRIVE_CONFLICT` | 关节仍应用 Angular Drive | USD joint applied schemas |
+| tensor 一直 not ready | Timeline/物理未正确启动，或 Articulation root 无效 | bootstrap 和 articulation report |
+| readback 超过 0.05° | DOF 绑定、物理状态、控制冲突或数值接受异常 | commanded/actual/error |
+| unknown labels | USD 标签与 mapping 不一致 | metadata `runtime_id_mapping` |
+| 相机不移动 | 相机不在 cab 层级或 cab 没有运动 | camera path 与 world transforms |
+| 输出目录被拒绝 | 非空且未传 `--overwrite` | 换新目录优先 |
+
+---
+
+## 18. 已知边界与不要误解的地方
+
+1. **直接位置控制不是高保真液压动力学。** 它追求姿态确定性，并将 DOF 速度清零。
+2. **回读接近命令不证明视觉资产一定正确。** 网格层级、蒙皮或局部变换错误仍需人工检查。
+3. **动态验证只要求至少一个受控刚体变化。** 它没有逐关节证明每个链接都按完整运动学链变化。
+4. **RGB 画质指标需要严格可比输入。** `compare_render_quality.py` 自己把 metadata
+   comparability 标为未验证；先匹配 Stage、相机矩阵、光学、状态和 renderer。
+5. **全局 SSIM 是简化指标。** 它不是滑窗、多尺度 SSIM 的完整实现。
+6. **默认资产路径是远端 Linux 绝对路径。** Windows 本地可跑纯 Python 测试，不代表可直接
+   完整采集。
+7. **`--no-strict-mapping` 会允许 unknown ID 进入 Writer，但当前生产验证器仍会拒绝
+   unknown labels。** 它是诊断开关，不是合格数据捷径。
+8. **关闭 runtime ID 保存是支持的。** 验证器会按 manifest 的 `save_runtime_ids` 决定是否
+   要求该目录；但失去这份原始诊断证据后，排查映射问题更困难。
+9. **`class_count`、`semantic_prim_count` 主要是描述字段。** mapping loader 当前重点验证
+   schema、dtype、ID/label/color 唯一性，不会用这两个声明自动遍历 Stage 做完全交叉校验。
+10. **原子清单不等于原子数据集。** `run_config.json` 用临时文件 replace，但图像是逐帧写入；
+    failed 目录可能保留部分文件，不能继续当成完整数据。
+
+---
+
+## 19. 设计原则总结
+
+这个项目最值得学习的并非某个 Isaac API，而是以下工程习惯：
+
+1. **昂贵运行前先做纯配置校验。**
+2. **把输入配置版本化并记录哈希。**
+3. **requested setting 必须读取 effective value 复核。**
+4. **用整数物理步构造时间，不靠漂移的浮点累加。**
+5. **命令与实际回读都保存。**
+6. **采集时冻结世界，并在采集前后断言没有推进。**
+7. **业务 frame ID 与异步 Writer 回调用显式 Ledger 配对。**
+8. **runtime ID 与 dataset ID 分离。**
+9. **生产端和离线验证端使用相同的时间、映射和渲染契约。**
+10. **失败也必须留下可审计清单。**
+
+---
+
+## 20. 学习完成自测
+
+尝试不看源码回答：
+
+1. 60 Hz / 10 FPS 下帧 17 对应多少 dataset step 和 dataset time？
+2. bootstrap 走了 4 步、setup 1 步、pre-roll 3 步时，为什么帧 0 仍可记录 `dataset_time=0`？
+3. `rt_subframes=16` 为什么不应该让挖掘机运动 16 次？
+4. 为什么 motion step 要先 command、再 physics update、最后 readback？
+5. 为什么预检禁止 Angular Drive？
+6. 为什么 trajectory 输入用度，而 adapter 调 Isaac 前转换为弧度？
+7. `actual-commanded=0.06°` 时会发生什么？
+8. runtime ID 为 37 为什么不能直接作为训练类别 37？
+9. `semantic_color` 与 `semantic_id` 的权威关系是什么？
+10. 一个目录有完整图片但 `run_config.status=failed`，能否当作生产数据？
+
+参考答案：
+
+1. step 102，time 1.7 s（默认含 t=0 首帧）。
+2. 数据集原点在这些初始化/稳定步骤之后单独设置。
+3. 世界已冻结且 Replicator 使用 `delta_time=0.0`，subframes 是同一状态的渲染更新。
+4. 这样图像元数据记录的是该物理步真正接受后的关节状态。
+5. 当前用直接 Articulation 位置写入，Drive 会造成控制冲突。
+6. 人类轨迹和配置使用度更直观；Isaac DOF API 使用弧度。
+7. 超过默认 0.05° 容差，运行失败并将 manifest 标记为 failed。
+8. runtime ID 是本次运行临时分配，必须依据标签映射到稳定 dataset ID。
+9. NPY 中的 dataset ID 是权威值，颜色 PNG 是用固定 LUT 生成的可视化。
+10. 不能；失败或未完成清单不能作为生产数据，且还需通过离线验证器。
+
+继续实践请阅读 [动手实验与二次开发指南.md](./动手实验与二次开发指南.md)。
