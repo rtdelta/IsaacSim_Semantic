@@ -11,6 +11,7 @@ from omni.replicator.core.backends import DiskBackend
 from pxr import Usd, UsdGeom
 
 from capture_context import CaptureContext, CaptureReceipt
+from capture_launch_config import ImageOutputFolders
 from semantic_dataset_writer import SemanticDatasetWriter
 
 
@@ -47,6 +48,8 @@ class SemanticCameraScheduler:
         rt_subframes: int,
         save_runtime_ids: bool,
         strict_mapping: bool,
+        output_folders: ImageOutputFolders,
+        transparent_isolated_background: bool,
     ) -> None:
         self._app = simulation_app
         self._stage = stage
@@ -58,6 +61,10 @@ class SemanticCameraScheduler:
         self._rt_subframes = int(rt_subframes)
         self._save_runtime_ids = bool(save_runtime_ids)
         self._strict_mapping = bool(strict_mapping)
+        self._output_folders = output_folders
+        self._transparent_isolated_background = bool(
+            transparent_isolated_background
+        )
         self._render_product = None
         self._writer: SemanticDatasetWriter | None = None
         self._backend = None
@@ -129,6 +136,8 @@ class SemanticCameraScheduler:
             rgb=True,
             save_runtime_ids=self._save_runtime_ids,
             strict_mapping=self._strict_mapping,
+            output_folders=self._output_folders,
+            transparent_isolated_background=self._transparent_isolated_background,
         )
         self._writer.attach(self._render_product)
         self._state = CameraSchedulerState.WRITER_ATTACHED
@@ -154,9 +163,19 @@ class SemanticCameraScheduler:
         # Blocking frame synchronization is deliberate in the correctness-first
         # implementation. Queued/asynchronous capture can be added after parity.
         rep.orchestrator.wait_until_complete()
-        receipt = self._writer.require_completed(context.frame_id)
+        receipt = self._writer.require_completed(context.frame_id, context.variant)
         self._state = CameraSchedulerState.CAPTURING
         return receipt
+
+    @staticmethod
+    def reset_render_history() -> None:
+        """Force RTX temporal/path-tracing history to restart after visibility changes."""
+        import carb.settings
+
+        settings = carb.settings.get_settings()
+        path = "/rtx/externalFrameCounter"
+        current = settings.get(path)
+        settings.set_int(path, int(current or 0) + 1)
 
     def wait_until_complete(self) -> None:
         rep.orchestrator.wait_until_complete()
@@ -197,10 +216,13 @@ class SemanticCameraScheduler:
             "optics": optics,
         }
 
-    def statistics(self) -> dict[str, int]:
+    def statistics(self) -> dict[str, Any]:
         return {
             "pending": self._writer.pending_count if self._writer is not None else 0,
             "completed": self._writer.completed_count if self._writer is not None else 0,
+            "completed_by_variant": (
+                self._writer.completed_by_variant if self._writer is not None else {}
+            ),
         }
 
     def close(self) -> None:

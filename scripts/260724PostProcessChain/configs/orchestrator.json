@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "inputs": {
+    "rgb_dir": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/combine_scene_02_run_001/excavator_only_rgb",
+    "semantic_dir": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/combine_scene_02_run_001/excavator_only_semantic/semantic_id",
+    "semantic_mapping": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/combine_scene_02_run_001/semantic_mapping.json"
+  },
+  "output_root": "../output/combine_scene_02_run_001",
+  "execution": {
+    "workers": 8,
+    "max_in_flight": 16,
+    "overwrite": false,
+    "on_frame_error": "continue"
+  },
+  "output": {
+    "image_mode": "hardlink_or_copy",
+    "write_manifest": true
+  },
+  "modules": [
+    {
+      "id": "tooth_boxes",
+      "type": "semantic_yolo_boxes",
+      "enabled": true,
+      "config": "../postprocess_chain/modules/semantic_yolo_boxes/semantic_yolo_boxes.json",
+      "depends_on": []
+    },
+    {
+      "id": "tooth_group",
+      "type": "tooth_group_yolo",
+      "enabled": true,
+      "config": "../postprocess_chain/modules/tooth_group_yolo/tooth_group_yolo.json",
+      "depends_on": [
+        "tooth_boxes"
+      ]
+    }
+  ]
+}

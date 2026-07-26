@@ -5,13 +5,13 @@ from __future__ import annotations
 import json
 from dataclasses import asdict, dataclass
 from difflib import get_close_matches
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 from render_profile import SUPPORTED_RENDERERS
 
 
-CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSION = 1
+CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSION = 2
 
 _CONFIG_FIELDS = {
     "schema_version",
@@ -23,6 +23,8 @@ _CONFIG_FIELDS = {
     "warmup_render_frames",
     "rt_subframes",
     "output",
+    "image_output_folders",
+    "excavator_only_capture",
     "overwrite",
     "frames",
     "width",
@@ -72,6 +74,13 @@ def _require_bool(raw: dict[str, Any], name: str) -> bool:
     return value
 
 
+def _require_object(raw: dict[str, Any], name: str) -> dict[str, Any]:
+    value = raw[name]
+    if not isinstance(value, dict):
+        raise _field_error(name, "a JSON object")
+    return value
+
+
 def _require_integer(
     raw: dict[str, Any],
     name: str,
@@ -110,6 +119,116 @@ def _resolve_path(value: str, base_dir: Path) -> str:
     return str(path.resolve())
 
 
+def _normalize_output_folder(value: Any, field_name: str) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise _field_error(field_name, "a non-empty relative directory")
+    normalized = PurePosixPath(value.strip().replace("\\", "/"))
+    if normalized.is_absolute() or normalized == PurePosixPath(".") or ".." in normalized.parts:
+        raise _field_error(
+            field_name,
+            "a relative directory below the configured output root without '..'",
+        )
+    return str(normalized)
+
+
+def _is_path_ancestor(parent: PurePosixPath, child: PurePosixPath) -> bool:
+    return len(parent.parts) < len(child.parts) and child.parts[: len(parent.parts)] == parent.parts
+
+
+@dataclass(frozen=True)
+class ImageOutputFolders:
+    """Relative business directories for the two paired render variants."""
+
+    full_scene_rgb: str
+    full_scene_semantic: str
+    excavator_only_rgb: str
+    excavator_only_semantic: str
+
+    @classmethod
+    def load(cls, raw: dict[str, Any]) -> "ImageOutputFolders":
+        expected = {
+            "full_scene_rgb",
+            "full_scene_semantic",
+            "excavator_only_rgb",
+            "excavator_only_semantic",
+        }
+        actual = set(raw)
+        unknown = sorted(actual - expected)
+        missing = sorted(expected - actual)
+        if unknown:
+            raise ValueError(
+                "Unknown image_output_folders field(s): " + ", ".join(unknown)
+            )
+        if missing:
+            raise ValueError(
+                "Missing image_output_folders field(s): " + ", ".join(missing)
+            )
+        values = {
+            name: _normalize_output_folder(raw[name], f"image_output_folders.{name}")
+            for name in expected
+        }
+        paths = {name: PurePosixPath(value) for name, value in values.items()}
+        for left_name, left_path in paths.items():
+            for right_name, right_path in paths.items():
+                if left_name >= right_name:
+                    continue
+                if (
+                    left_path == right_path
+                    or _is_path_ancestor(left_path, right_path)
+                    or _is_path_ancestor(right_path, left_path)
+                ):
+                    raise ValueError(
+                        "Image output folders must be distinct and non-overlapping: "
+                        f"{left_name}={left_path}, {right_name}={right_path}"
+                    )
+        return cls(**values)
+
+
+@dataclass(frozen=True)
+class ExcavatorOnlyCaptureConfig:
+    """Optional second render pass and its external Prim whitelist."""
+
+    enabled: bool
+    render_prim_paths_config: str | None
+
+    @classmethod
+    def load(
+        cls,
+        raw: dict[str, Any],
+        *,
+        base_dir: Path,
+    ) -> "ExcavatorOnlyCaptureConfig":
+        expected = {"enabled", "render_prim_paths_config"}
+        actual = set(raw)
+        unknown = sorted(actual - expected)
+        missing = sorted(expected - actual)
+        if unknown:
+            raise ValueError(
+                "Unknown excavator_only_capture field(s): " + ", ".join(unknown)
+            )
+        if missing:
+            raise ValueError(
+                "Missing excavator_only_capture field(s): " + ", ".join(missing)
+            )
+        enabled = _require_bool(raw, "enabled")
+        path_value = raw["render_prim_paths_config"]
+        if path_value is None:
+            resolved_path = None
+        elif isinstance(path_value, str) and path_value.strip():
+            resolved_path = _resolve_path(path_value.strip(), base_dir)
+        else:
+            raise _field_error(
+                "excavator_only_capture.render_prim_paths_config",
+                "a non-empty path string or null",
+            )
+        if enabled and resolved_path is None:
+            raise ValueError(
+                "excavator_only_capture.render_prim_paths_config is required when "
+                "excavator_only_capture.enabled is true"
+            )
+        return cls(enabled=enabled, render_prim_paths_config=resolved_path)
+
+
 @dataclass(frozen=True)
 class CaptureLaunchConfig:
     """Validated effective business inputs loaded before Isaac Sim starts."""
@@ -124,6 +243,8 @@ class CaptureLaunchConfig:
     warmup_render_frames: int | None
     rt_subframes: int | None
     output: str
+    image_output_folders: ImageOutputFolders
+    excavator_only_capture: ExcavatorOnlyCaptureConfig
     overwrite: bool
     frames: int
     width: int
@@ -198,6 +319,13 @@ class CaptureLaunchConfig:
         resolved_paths = {
             name: _resolve_path(string_values[name], base_dir) for name in _PATH_FIELDS
         }
+        image_output_folders = ImageOutputFolders.load(
+            _require_object(raw, "image_output_folders")
+        )
+        excavator_only_capture = ExcavatorOnlyCaptureConfig.load(
+            _require_object(raw, "excavator_only_capture"),
+            base_dir=base_dir,
+        )
 
         return cls(
             source_path=source_path,
@@ -212,6 +340,8 @@ class CaptureLaunchConfig:
             ),
             rt_subframes=_require_integer(raw, "rt_subframes", minimum=1, nullable=True),
             output=resolved_paths["output"],
+            image_output_folders=image_output_folders,
+            excavator_only_capture=excavator_only_capture,
             overwrite=_require_bool(raw, "overwrite"),
             frames=_require_integer(raw, "frames", minimum=1),
             width=_require_integer(raw, "width", minimum=1),

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "usd": "Sim_Fangshan_07_capture_overlay.usda",
   "mapping": "semantic_mapping_Sim_Fangshan_07_native.json",
   "camera_prim_path": "/root/Xform/operator_cab_mesh/Camera_02",
@@ -8,6 +8,16 @@
   "warmup_render_frames": null,
   "rt_subframes": null,
   "output": "../output/semantic_capture_camera02",
+  "image_output_folders": {
+    "full_scene_rgb": "full_scene_excavator_rgb",
+    "full_scene_semantic": "full_scene_excavator_semantic",
+    "excavator_only_rgb": "excavator_only_rgb",
+    "excavator_only_semantic": "excavator_only_semantic"
+  },
+  "excavator_only_capture": {
+    "enabled": true,
+    "render_prim_paths_config": "excavator_only_render_prims.json"
+  },
   "overwrite": false,
   "frames": 50,
   "width": 1280,

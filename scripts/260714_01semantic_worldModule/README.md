@@ -16,6 +16,8 @@ render/capture synchronization model.
 - `excavator_joint_motion.py`: CSV interpolation plus pre-step command/post-step readback.
 - `semantic_capture_custom.py`: Camera, RenderProduct, Writer, and capture calls only.
 - `semantic_dataset_writer.py`: RGB and stable semantic dataset output.
+- `isolated_render_config.py`: strict external Prim-whitelist configuration.
+- `scene_visibility_controller.py`: removable session-layer visibility isolation.
 - `semantic_mapping.py`: runtime-ID to dataset-ID mapping.
 - `capture_context.py`: immutable frame identity, frozen-world snapshot, and Writer receipt.
 - `capture_timing.py`: pure fixed-step frame/time mapping.
@@ -44,6 +46,50 @@ Paths inside the launch configuration are resolved relative to the launch config
 directory. This makes the sample's `usd`, `mapping`, `render_profile`, and `joint_profile` values
 refer to neighboring files, while `../trajectories/...` and `../output/...` refer to project
 directories.
+
+## Paired full-scene and excavator-only capture
+
+Launch-configuration schema v2 keeps one run-level `output` directory and routes images through
+four explicit business directories:
+
+```json
+{
+  "image_output_folders": {
+    "full_scene_rgb": "full_scene_excavator_rgb",
+    "full_scene_semantic": "full_scene_excavator_semantic",
+    "excavator_only_rgb": "excavator_only_rgb",
+    "excavator_only_semantic": "excavator_only_semantic"
+  },
+  "excavator_only_capture": {
+    "enabled": true,
+    "render_prim_paths_config": "excavator_only_render_prims.json"
+  }
+}
+```
+
+Each semantic business directory contains separate `semantic_color`, `semantic_id`, and optional
+`semantic_runtime_id` subdirectories. Run metadata remains below `output/metadata`.
+
+The external Prim configuration lists retained subtree roots:
+
+```json
+{
+  "schema_version": 1,
+  "render_prim_paths": [
+    "/root/Xform",
+    "/root/Light"
+  ]
+}
+```
+
+For every frame, the scheduler first captures the original full scene. When the optional second
+pass is enabled, it keeps physics and Timeline frozen, hides all non-whitelisted Imageable
+subtrees through an anonymous session layer, resets RTX render history, captures the isolated
+variant, and clears that layer's temporary visibility opinions before advancing to the next frame.
+The anonymous layer remains attached for the run so Hydra never observes a destroyed layer.
+Camera dependencies are protected automatically. Source USD layers are never modified. The
+excavator-only PNG alpha is derived from that second render's own depth buffer after isolation; it
+is never cut out of the full-scene RGB image.
 
 ## Renderer selection
 
@@ -150,6 +196,7 @@ For schema-v2 and later outputs, `--expected-frames` is optional and defaults to
 recorded in the run manifest. Schema-v3 validation additionally requires a passing Articulation
 preflight, a bound/ready named-DOF mapping, counted bootstrap/setup steps, exact four-joint state
 keys, finite command/readback/error values, safe limits, and the configured readback tolerance.
+Schema-v5 validation checks each enabled capture variant and its configured nested output paths.
 
 Matched RGB frames can be compared separately:
 
@@ -166,7 +213,7 @@ intrinsics, and simulation state must be matched before interpreting its image m
 
 ## Output manifest
 
-`run_config.json` uses schema version 4 and transitions through `running`, `complete`, or `failed`.
+`run_config.json` uses schema version 5 and transitions through `running`, `complete`, or `failed`.
 It records the source launch-configuration path and hash, the fully resolved effective
 configuration, source-file hashes, render profile, effective Carb settings, Stage and
 Articulation preflight, joint profile, Recorder metadata, runtime DOF binding, timing, Camera

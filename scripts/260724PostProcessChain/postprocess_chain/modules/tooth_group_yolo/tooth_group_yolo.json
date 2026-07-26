@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_artifact": "tooth_boxes.semantic_boxes",
+  "output": {
+    "directory": "modules/tooth_group",
+    "layout": "flat_yolo"
+  },
+  "class": {
+    "yolo_id": 0,
+    "yolo_name": "tooth_group"
+  },
+  "endpoint_selector": {
+    "type": "image_extrema",
+    "labels": [
+      "tooth_1_front_3DGS",
+      "tooth_2_front_3DGS",
+      "tooth_3_front_3DGS",
+      "tooth_4_front_3DGS",
+      "tooth_5_front_3DGS"
+    ]
+  },
+  "min_pixels": 10,
+  "missing_policy": "exclude_frame"
+}

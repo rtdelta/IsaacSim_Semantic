@@ -13,7 +13,7 @@ from capture_launch_config import CaptureLaunchConfig
 
 def valid_payload() -> dict[str, Any]:
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "usd": "stage.usda",
         "mapping": "mapping.json",
         "camera_prim_path": "/World/Camera",
@@ -22,6 +22,16 @@ def valid_payload() -> dict[str, Any]:
         "warmup_render_frames": None,
         "rt_subframes": None,
         "output": "../output/run",
+        "image_output_folders": {
+            "full_scene_rgb": "full_scene_excavator_rgb",
+            "full_scene_semantic": "full_scene_excavator_semantic",
+            "excavator_only_rgb": "excavator_only_rgb",
+            "excavator_only_semantic": "excavator_only_semantic",
+        },
+        "excavator_only_capture": {
+            "enabled": False,
+            "render_prim_paths_config": None,
+        },
         "overwrite": False,
         "frames": 50,
         "width": 1280,
@@ -66,6 +76,11 @@ class CaptureLaunchConfigTests(unittest.TestCase):
                 str((root / "trajectories" / "motion.csv").resolve()),
             )
             self.assertEqual(config.camera_prim_path, "/World/Camera")
+            self.assertEqual(
+                config.image_output_folders.full_scene_rgb,
+                "full_scene_excavator_rgb",
+            )
+            self.assertFalse(config.excavator_only_capture.enabled)
             self.assertIsNone(config.warmup_render_frames)
             self.assertNotIn("source_path", config.to_dict())
 
@@ -121,9 +136,41 @@ class CaptureLaunchConfigTests(unittest.TestCase):
     def test_rejects_unsupported_schema_version(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             payload = valid_payload()
-            payload["schema_version"] = 2
+            payload["schema_version"] = 3
             path = self.write_config(Path(temporary), payload)
             with self.assertRaisesRegex(ValueError, "Unsupported.*schema version"):
+                CaptureLaunchConfig.load(path)
+
+    def test_enabled_isolated_capture_requires_config_path(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            payload = valid_payload()
+            payload["excavator_only_capture"]["enabled"] = True
+            path = self.write_config(Path(temporary), payload)
+            with self.assertRaisesRegex(ValueError, "required when"):
+                CaptureLaunchConfig.load(path)
+
+    def test_resolves_isolated_config_from_business_config_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            payload = valid_payload()
+            payload["excavator_only_capture"] = {
+                "enabled": True,
+                "render_prim_paths_config": "isolated.json",
+            }
+            path = self.write_config(Path(temporary), payload)
+            config = CaptureLaunchConfig.load(path)
+            self.assertEqual(
+                config.excavator_only_capture.render_prim_paths_config,
+                str((path.parent / "isolated.json").resolve()),
+            )
+
+    def test_rejects_overlapping_image_output_folders(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            payload = valid_payload()
+            payload["image_output_folders"]["full_scene_semantic"] = (
+                "full_scene_excavator_rgb/semantic"
+            )
+            path = self.write_config(Path(temporary), payload)
+            with self.assertRaisesRegex(ValueError, "non-overlapping"):
                 CaptureLaunchConfig.load(path)
 
     def test_project_sample_is_loadable(self) -> None:

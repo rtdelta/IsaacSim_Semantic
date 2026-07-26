@@ -111,10 +111,28 @@ def validate_manifest_v2(run_config: dict[str, Any], expected: int) -> CaptureTi
     writer = run_config.get("writer", {})
     if int(writer.get("pending", -1)) != 0:
         raise RuntimeError(f"Writer has pending frame contexts: {writer.get('pending')}")
-    if int(writer.get("completed", -1)) != expected:
+    schema_version = int(run_config.get("schema_version", 1))
+    isolated_enabled = bool(
+        run_config.get("excavator_only_capture", {}).get("enabled", False)
+    )
+    expected_writer_completions = expected * (
+        2 if schema_version >= 5 and isolated_enabled else 1
+    )
+    if int(writer.get("completed", -1)) != expected_writer_completions:
         raise RuntimeError(
-            f"Writer completed {writer.get('completed')} frames, expected {expected}"
+            f"Writer completed {writer.get('completed')} captures, "
+            f"expected {expected_writer_completions}"
         )
+    if schema_version >= 5:
+        completed_by_variant = writer.get("completed_by_variant", {})
+        expected_by_variant = {"full_scene": expected, "excavator_only": 0}
+        if isolated_enabled:
+            expected_by_variant["excavator_only"] = expected
+        if completed_by_variant != expected_by_variant:
+            raise RuntimeError(
+                "Writer variant completion counts do not match: "
+                f"{completed_by_variant} != {expected_by_variant}"
+            )
     return CaptureTiming(
         physics_hz=int(run_config["physics_hz"]),
         capture_fps=int(run_config["capture_fps"]),
@@ -272,54 +290,114 @@ def validate_frame_files(
     expected_shape = (int(run_config["resolution"][1]), int(run_config["resolution"][0]))
     valid_ids = {0, 65535, *(int(entry["id"]) for entry in mapping.schema["classes"])}
     save_runtime_ids = bool(run_config.get("save_runtime_ids", True))
-    required_patterns = {
-        "rgb": "rgb_*.png",
-        "semantic_id": "semantic_id_*.npy",
-        "semantic_color": "semantic_color_*.png",
-        "metadata": "frame_*.json",
-    }
-    if save_runtime_ids:
-        required_patterns["semantic_runtime_id"] = "semantic_runtime_id_*.npy"
-    for folder, pattern in required_patterns.items():
-        count = len(list((output / folder).glob(pattern)))
-        if count != expected:
-            raise RuntimeError(f"{folder} contains {count} frame files, expected {expected}")
-
-    metadata_values: list[dict[str, Any]] = []
-    for frame_id in range(expected):
-        frame_name = f"{frame_id:04d}"
-        dataset_ids = np.load(output / "semantic_id" / f"semantic_id_{frame_name}.npy")
-        if dataset_ids.shape != expected_shape or dataset_ids.dtype != np.uint16:
-            raise RuntimeError(
-                f"Frame {frame_id}: invalid semantic ID array {dataset_ids.shape} {dataset_ids.dtype}"
+    schema_version = int(run_config.get("schema_version", 1))
+    if schema_version >= 5:
+        configured_folders = run_config.get("image_output_folders")
+        if not isinstance(configured_folders, dict):
+            raise RuntimeError("Schema-v5 manifest must contain image_output_folders")
+        layouts = {
+            "full_scene": (
+                configured_folders["full_scene_rgb"],
+                configured_folders["full_scene_semantic"],
             )
-        unknown_ids = set(int(value) for value in np.unique(dataset_ids)) - valid_ids
-        if unknown_ids:
-            raise RuntimeError(f"Frame {frame_id}: undefined semantic IDs {sorted(unknown_ids)}")
-        saved_color = np.asarray(
-            Image.open(output / "semantic_color" / f"semantic_color_{frame_name}.png").convert("RGB")
+        }
+        if run_config.get("excavator_only_capture", {}).get("enabled", False):
+            layouts["excavator_only"] = (
+                configured_folders["excavator_only_rgb"],
+                configured_folders["excavator_only_semantic"],
+            )
+    else:
+        layouts = {"full_scene": ("rgb", "")}
+
+    full_scene_metadata: list[dict[str, Any]] = []
+    for variant, (rgb_folder, semantic_folder) in layouts.items():
+        semantic_root = output / semantic_folder
+        metadata_root = (
+            output / "metadata" / variant
+            if schema_version >= 5
+            else output / "metadata"
         )
-        if not np.array_equal(saved_color, mapping.colorize(dataset_ids)):
-            raise RuntimeError(f"Frame {frame_id}: semantic color PNG does not match semantic ID NPY")
-        with Image.open(output / "rgb" / f"rgb_{frame_name}.png") as rgb_image:
-            if rgb_image.size != (expected_shape[1], expected_shape[0]):
-                raise RuntimeError(f"Frame {frame_id}: RGB size is {rgb_image.size}")
+        required_locations = {
+            output / rgb_folder: "rgb_*.png",
+            semantic_root / "semantic_id": "semantic_id_*.npy",
+            semantic_root / "semantic_color": "semantic_color_*.png",
+            metadata_root: "frame_*.json",
+        }
+        if save_runtime_ids:
+            required_locations[
+                semantic_root / "semantic_runtime_id"
+            ] = "semantic_runtime_id_*.npy"
+        for folder, pattern in required_locations.items():
+            count = len(list(folder.glob(pattern)))
+            if count != expected:
+                raise RuntimeError(
+                    f"{folder} contains {count} frame files, expected {expected}"
+                )
 
-        metadata = load_json(output / "metadata" / f"frame_{frame_name}.json")
-        metadata_values.append(metadata)
-        if int(metadata.get("frame_id", -1)) != frame_id:
-            raise RuntimeError(f"Frame {frame_id}: metadata frame ID does not match")
-        if metadata.get("unknown_labels"):
-            raise RuntimeError(f"Frame {frame_id}: unknown labels {metadata['unknown_labels']}")
-        if list(metadata.get("resolution", [])) != [expected_shape[1], expected_shape[0]]:
-            raise RuntimeError(f"Frame {frame_id}: metadata resolution does not match")
-        if timing is not None:
-            require_close(
-                f"Frame {frame_id} metadata dataset_time",
-                float(metadata["dataset_time"]),
-                timing.dataset_time_for_frame(frame_id),
+        for frame_id in range(expected):
+            frame_name = f"{frame_id:04d}"
+            dataset_ids = np.load(
+                semantic_root / "semantic_id" / f"semantic_id_{frame_name}.npy"
             )
-    return metadata_values
+            if dataset_ids.shape != expected_shape or dataset_ids.dtype != np.uint16:
+                raise RuntimeError(
+                    f"Frame {frame_id}/{variant}: invalid semantic ID array "
+                    f"{dataset_ids.shape} {dataset_ids.dtype}"
+                )
+            unknown_ids = set(int(value) for value in np.unique(dataset_ids)) - valid_ids
+            if unknown_ids:
+                raise RuntimeError(
+                    f"Frame {frame_id}/{variant}: undefined semantic IDs "
+                    f"{sorted(unknown_ids)}"
+                )
+            saved_color = np.asarray(
+                Image.open(
+                    semantic_root
+                    / "semantic_color"
+                    / f"semantic_color_{frame_name}.png"
+                ).convert("RGB")
+            )
+            if not np.array_equal(saved_color, mapping.colorize(dataset_ids)):
+                raise RuntimeError(
+                    f"Frame {frame_id}/{variant}: semantic color PNG does not "
+                    "match semantic ID NPY"
+                )
+            with Image.open(output / rgb_folder / f"rgb_{frame_name}.png") as rgb_image:
+                if rgb_image.size != (expected_shape[1], expected_shape[0]):
+                    raise RuntimeError(
+                        f"Frame {frame_id}/{variant}: RGB size is {rgb_image.size}"
+                    )
+
+            metadata = load_json(metadata_root / f"frame_{frame_name}.json")
+            if variant == "full_scene":
+                full_scene_metadata.append(metadata)
+            if int(metadata.get("frame_id", -1)) != frame_id:
+                raise RuntimeError(
+                    f"Frame {frame_id}/{variant}: metadata frame ID does not match"
+                )
+            if schema_version >= 5 and metadata.get("capture_variant") != variant:
+                raise RuntimeError(
+                    f"Frame {frame_id}/{variant}: metadata capture variant does not match"
+                )
+            if metadata.get("unknown_labels"):
+                raise RuntimeError(
+                    f"Frame {frame_id}/{variant}: unknown labels "
+                    f"{metadata['unknown_labels']}"
+                )
+            if list(metadata.get("resolution", [])) != [
+                expected_shape[1],
+                expected_shape[0],
+            ]:
+                raise RuntimeError(
+                    f"Frame {frame_id}/{variant}: metadata resolution does not match"
+                )
+            if timing is not None:
+                require_close(
+                    f"Frame {frame_id}/{variant} metadata dataset_time",
+                    float(metadata["dataset_time"]),
+                    timing.dataset_time_for_frame(frame_id),
+                )
+    return full_scene_metadata
 
 
 def validate_states(
@@ -336,6 +414,12 @@ def validate_states(
 
     joint_limits = {entry["name"]: entry for entry in run_config.get("joints", [])}
     schema_version = int(run_config.get("schema_version", 1))
+    isolated_enabled = bool(
+        run_config.get("excavator_only_capture", {}).get("enabled", False)
+    )
+    expected_variants = {"full_scene"}
+    if isolated_enabled:
+        expected_variants.add("excavator_only")
     for frame_id, (state, metadata) in enumerate(zip(states, metadata_values)):
         if int(state.get("frame_id", -1)) != frame_id:
             raise RuntimeError(f"Frame {frame_id}: motion state frame ID does not match")
@@ -353,6 +437,22 @@ def validate_states(
             )
             if int(metadata["physics_step"]) != int(state["physics_step"]):
                 raise RuntimeError(f"Frame {frame_id}: metadata/state physics step mismatch")
+        if schema_version >= 5:
+            receipts = state.get("capture_receipts")
+            if not isinstance(receipts, dict) or set(receipts) != expected_variants:
+                raise RuntimeError(
+                    f"Frame {frame_id}: capture_receipts variants do not match "
+                    f"{sorted(expected_variants)}"
+                )
+            for variant, receipt in receipts.items():
+                if int(receipt.get("frame_id", -1)) != frame_id:
+                    raise RuntimeError(
+                        f"Frame {frame_id}/{variant}: receipt frame ID does not match"
+                    )
+                if receipt.get("capture_variant") != variant:
+                    raise RuntimeError(
+                        f"Frame {frame_id}/{variant}: receipt variant does not match"
+                    )
         motion = state["motion"]
         if schema_version >= 3 and run_config.get("motion_enabled"):
             validate_articulation_motion_state(frame_id, motion, run_config, joint_limits)

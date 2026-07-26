@@ -1,18 +1,18 @@
 {
-  "profile_name": "four_joint_fixed_base_excavator",
-  "articulation_root_path": null,
+  "profile_name": "combine_scene_02_four_joint_fixed_base",
+  "articulation_root_path": "/Fangshan_Excavator_01/Joints/world_track_fixed_joint",
   "require_fixed_base": true,
   "arrival_tolerance_degrees": 0.01,
   "max_update_dt": 0.05,
   "default_csv_directory": "trajectories",
-  "default_csv_filename": "excavator_actual_angles.csv",
+  "default_csv_filename": "combine_scene_02_angles.csv",
   "joints": [
     {
       "logical_name": "cab",
       "display_name": "Cab",
-      "candidate_names": ["track_operator_cab_joint"],
-      "candidate_paths": ["/World/Joints/track_operator_cab_joint"],
-      "default_speed_degrees": 2.0,
+      "candidate_names": ["track_cab_joint"],
+      "candidate_paths": ["/Fangshan_Excavator_01/Joints/track_cab_joint"],
+      "default_speed_degrees": 8.0,
       "home_degrees": 0.0,
       "safety_margin_degrees": 2.0
     },
@@ -20,26 +20,26 @@
       "logical_name": "boom",
       "display_name": "Boom",
       "candidate_names": ["platform_boom_joint"],
-      "candidate_paths": ["/World/Joints/platform_boom_joint"],
-      "default_speed_degrees": 2.0,
+      "candidate_paths": ["/Fangshan_Excavator_01/Joints/platform_boom_joint"],
+      "default_speed_degrees": 5.0,
       "home_degrees": 0.0,
       "safety_margin_degrees": 2.0
     },
     {
       "logical_name": "small_arm",
       "display_name": "Small arm",
-      "candidate_names": ["boom_small_arm_joint"],
-      "candidate_paths": ["/World/Joints/boom_small_arm_joint"],
-      "default_speed_degrees": 2.0,
+      "candidate_names": ["boom_arm_joint"],
+      "candidate_paths": ["/Fangshan_Excavator_01/Joints/boom_arm_joint"],
+      "default_speed_degrees": 5.0,
       "home_degrees": 0.0,
       "safety_margin_degrees": 2.0
     },
     {
       "logical_name": "bucket",
       "display_name": "Bucket",
-      "candidate_names": ["small_arm_bucket_joint"],
-      "candidate_paths": ["/World/Joints/small_arm_bucket_joint"],
-      "default_speed_degrees": 2.0,
+      "candidate_names": ["arm_bucket_joint"],
+      "candidate_paths": ["/Fangshan_Excavator_01/Joints/arm_bucket_joint"],
+      "default_speed_degrees": 5.0,
       "home_degrees": 0.0,
       "safety_margin_degrees": 2.0
     }

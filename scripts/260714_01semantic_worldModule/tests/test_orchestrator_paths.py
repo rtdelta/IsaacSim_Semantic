@@ -7,6 +7,7 @@ from pathlib import Path
 
 from capture_launch_config import CaptureLaunchConfig
 from capture_timing import CaptureTiming
+from isolated_render_config import IsolatedRenderConfig
 from joint_control_profile import JointControlProfile
 from render_profile import RenderProfile
 from simulation_orchestrator import (
@@ -51,6 +52,9 @@ class OrchestratorPathTests(unittest.TestCase):
 
     def test_manifest_records_source_and_effective_configuration(self) -> None:
         config = CaptureLaunchConfig.load("configs/capture_motion_camera02.json")
+        isolated_render_config = IsolatedRenderConfig.load(
+            config.excavator_only_capture.render_prim_paths_config
+        )
         profile = RenderProfile.load(config.render_profile).with_capture_overrides(
             rt_subframes=config.rt_subframes,
             warmup_render_frames=config.warmup_render_frames,
@@ -65,6 +69,7 @@ class OrchestratorPathTests(unittest.TestCase):
 
         manifest = base_manifest(
             config,
+            isolated_render_config,
             profile,
             joint_profile,
             trajectory_metadata=None,
@@ -85,6 +90,11 @@ class OrchestratorPathTests(unittest.TestCase):
         self.assertEqual(
             manifest["effective_config"]["rt_subframes"],
             profile.rt_subframes,
+        )
+        self.assertTrue(manifest["excavator_only_capture"]["enabled"])
+        self.assertEqual(
+            manifest["image_output_folders"]["excavator_only_semantic"],
+            "excavator_only_semantic",
         )
 
 

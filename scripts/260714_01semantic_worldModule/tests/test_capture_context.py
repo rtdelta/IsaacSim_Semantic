@@ -4,7 +4,13 @@ from __future__ import annotations
 
 import unittest
 
-from capture_context import CaptureContext, CaptureLedger, CaptureReceipt, FrozenWorldSnapshot
+from capture_context import (
+    CaptureContext,
+    CaptureLedger,
+    CaptureReceipt,
+    CaptureVariant,
+    FrozenWorldSnapshot,
+)
 
 
 class CaptureContextTests(unittest.TestCase):
@@ -32,6 +38,7 @@ class CaptureContextTests(unittest.TestCase):
         )
         value = context.to_dict()
         self.assertEqual(value["frame_id"], 2)
+        self.assertEqual(value["capture_variant"], "full_scene")
         self.assertEqual(value["camera"]["path"], "/root/Camera")
         self.assertEqual(value["motion"]["targets"]["boom"], 1.5)
 
@@ -79,6 +86,36 @@ class CaptureContextTests(unittest.TestCase):
         self.assertEqual(ledger.require_completed(0), receipt)
         self.assertEqual(ledger.pending_count, 0)
         self.assertEqual(ledger.completed_count, 1)
+
+    def test_ledger_accepts_two_variants_for_the_same_frame(self) -> None:
+        ledger = CaptureLedger()
+        full_context = self.context(0)
+        isolated_context = CaptureContext(
+            **{
+                **full_context.__dict__,
+                "variant": CaptureVariant.EXCAVATOR_ONLY,
+            }
+        )
+        ledger.arm(full_context)
+        ledger.arm(isolated_context)
+        for context in (full_context, isolated_context):
+            self.assertEqual(ledger.consume(), context)
+            ledger.complete(
+                CaptureReceipt(
+                    frame_id=0,
+                    rgb_path=f"{context.variant.value}/rgb.png",
+                    semantic_id_path=f"{context.variant.value}/semantic.npy",
+                    semantic_color_path=f"{context.variant.value}/semantic.png",
+                    runtime_id_path=None,
+                    metadata_path=f"metadata/{context.variant.value}.json",
+                    variant=context.variant,
+                )
+            )
+        self.assertEqual(ledger.completed_count, 2)
+        self.assertEqual(
+            ledger.completed_by_variant,
+            {"full_scene": 1, "excavator_only": 1},
+        )
 
     def test_ledger_rejects_callback_without_context(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "without an armed"):

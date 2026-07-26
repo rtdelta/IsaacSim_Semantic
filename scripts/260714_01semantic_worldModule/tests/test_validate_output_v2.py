@@ -200,6 +200,131 @@ class ValidateOutputV2Tests(unittest.TestCase):
             self.assertEqual(moving_bodies, ["boom"])
             self.assertFalse(camera_moved)
 
+    def test_validates_paired_schema_v5_directory_layout(self) -> None:
+        project_dir = Path(__file__).resolve().parents[1]
+        mapping = SemanticMapping(
+            project_dir / "configs" / "semantic_mapping_Sim_FangShan_02_native.json"
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output = Path(temp_dir)
+            folders = {
+                "full_scene_rgb": "full_scene_excavator_rgb",
+                "full_scene_semantic": "full_scene_excavator_semantic",
+                "excavator_only_rgb": "excavator_only_rgb",
+                "excavator_only_semantic": "excavator_only_semantic",
+            }
+            matrix = [float(index) for index in range(16)]
+            ids = np.zeros((2, 3), dtype=np.uint16)
+            receipts = {}
+            for variant, rgb_key, semantic_key in (
+                ("full_scene", "full_scene_rgb", "full_scene_semantic"),
+                (
+                    "excavator_only",
+                    "excavator_only_rgb",
+                    "excavator_only_semantic",
+                ),
+            ):
+                rgb_root = output / folders[rgb_key]
+                semantic_root = output / folders[semantic_key]
+                metadata_root = output / "metadata" / variant
+                rgb_root.mkdir(parents=True)
+                metadata_root.mkdir(parents=True)
+                for subfolder in (
+                    "semantic_id",
+                    "semantic_color",
+                    "semantic_runtime_id",
+                ):
+                    (semantic_root / subfolder).mkdir(parents=True)
+                np.save(semantic_root / "semantic_id" / "semantic_id_0000.npy", ids)
+                np.save(
+                    semantic_root
+                    / "semantic_runtime_id"
+                    / "semantic_runtime_id_0000.npy",
+                    ids.astype(np.uint32),
+                )
+                Image.fromarray(mapping.colorize(ids)).save(
+                    semantic_root / "semantic_color" / "semantic_color_0000.png"
+                )
+                Image.fromarray(np.zeros((2, 3, 3), dtype=np.uint8)).save(
+                    rgb_root / "rgb_0000.png"
+                )
+                metadata = {
+                    "schema_version": 2,
+                    "frame_id": 0,
+                    "capture_variant": variant,
+                    "dataset_time": 0.0,
+                    "timeline_time": 0.25,
+                    "physics_step": 15,
+                    "camera": {"path": "/root/Camera", "world_transform": matrix},
+                    "render_product": "SemanticCapture",
+                    "resolution": [3, 2],
+                    "unknown_labels": [],
+                }
+                (metadata_root / "frame_0000.json").write_text(
+                    json.dumps(metadata),
+                    encoding="utf-8",
+                )
+                receipts[variant] = {
+                    "frame_id": 0,
+                    "capture_variant": variant,
+                }
+
+            state = {
+                "frame_id": 0,
+                "dataset_time": 0.0,
+                "timeline_time": 0.25,
+                "physics_step": 15,
+                "motion": {"enabled": False},
+                "camera": {"path": "/root/Camera", "world_transform": matrix},
+                "capture_receipts": receipts,
+            }
+            (output / "motion_state.jsonl").write_text(
+                json.dumps(state) + "\n",
+                encoding="utf-8",
+            )
+            run_config = {
+                "schema_version": 5,
+                "status": "complete",
+                "frames": 1,
+                "resolution": [3, 2],
+                "save_runtime_ids": True,
+                "physics_hz": 60,
+                "capture_fps": 10,
+                "capture_initial_frame": True,
+                "capture_mode": "static",
+                "motion_enabled": False,
+                "strict_stage": True,
+                "preflight": {"passed": True},
+                "render": {"mismatches": []},
+                "image_output_folders": folders,
+                "excavator_only_capture": {"enabled": True},
+                "writer": {
+                    "pending": 0,
+                    "completed": 2,
+                    "completed_by_variant": {
+                        "full_scene": 1,
+                        "excavator_only": 1,
+                    },
+                },
+            }
+            timing = validate_manifest_v2(run_config, expected=1)
+            metadata_values = validate_frame_files(
+                output,
+                mapping,
+                run_config,
+                expected=1,
+                timing=timing,
+            )
+            moving_bodies, camera_moved = validate_states(
+                output,
+                run_config,
+                metadata_values,
+                expected=1,
+                timing=timing,
+            )
+            self.assertEqual(moving_bodies, [])
+            self.assertFalse(camera_moved)
+
 
 class ValidateOutputV3Tests(unittest.TestCase):
     def manifest(self) -> dict:

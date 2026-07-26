@@ -8,13 +8,15 @@ import os
 import platform
 import sys
 import traceback
+from dataclasses import replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from capture_launch_config import CaptureLaunchConfig
-from capture_context import CaptureContext
+from capture_context import CaptureContext, CaptureVariant
 from capture_timing import CaptureTiming
+from isolated_render_config import IsolatedRenderConfig
 from joint_control_profile import JointControlProfile
 from render_profile import (
     RenderProfile,
@@ -24,7 +26,7 @@ from render_profile import (
 from stage_preflight import StagePreflight, file_record
 
 
-RUN_CONFIG_SCHEMA_VERSION = 4
+RUN_CONFIG_SCHEMA_VERSION = 5
 
 
 def utc_now() -> str:
@@ -132,6 +134,7 @@ def wait_for_opened_stage(simulation_app: Any, stage_path: str, max_updates: int
 
 def base_manifest(
     args: CaptureLaunchConfig,
+    isolated_render_config: IsolatedRenderConfig | None,
     profile: RenderProfile,
     joint_profile: JointControlProfile,
     trajectory_metadata: dict[str, Any] | None,
@@ -160,6 +163,11 @@ def base_manifest(
             "launch_config": file_record(args.source_path),
             "source_stage": file_record(args.usd),
             "semantic_mapping": file_record(args.mapping),
+            "isolated_render_config": (
+                file_record(isolated_render_config.source_path)
+                if isolated_render_config is not None
+                else None
+            ),
             "trajectory": file_record(args.trajectory)
             if args.capture_mode == "motion" and args.enable_motion
             else None,
@@ -173,6 +181,21 @@ def base_manifest(
             else None,
         },
         "output": str(output_path),
+        "image_output_folders": {
+            "full_scene_rgb": args.image_output_folders.full_scene_rgb,
+            "full_scene_semantic": args.image_output_folders.full_scene_semantic,
+            "excavator_only_rgb": args.image_output_folders.excavator_only_rgb,
+            "excavator_only_semantic": args.image_output_folders.excavator_only_semantic,
+        },
+        "excavator_only_capture": {
+            "enabled": bool(args.excavator_only_capture.enabled),
+            "render_config": (
+                isolated_render_config.to_dict()
+                if isolated_render_config is not None
+                else None
+            ),
+            "visibility_report": None,
+        },
         "frames": args.frames,
         "resolution": [args.width, args.height],
         "capture_mode": args.capture_mode,
@@ -224,6 +247,14 @@ def main() -> int:
     )
     resolve_renderer_selection(args.renderer, profile)
     joint_profile = JointControlProfile.load(args.joint_profile)
+    isolated_render_config = (
+        IsolatedRenderConfig.load(
+            args.excavator_only_capture.render_prim_paths_config
+        )
+        if args.excavator_only_capture.enabled
+        and args.excavator_only_capture.render_prim_paths_config is not None
+        else None
+    )
     trajectory_metadata = (
         joint_profile.load_and_validate_trajectory_metadata(args.trajectory)
         if args.capture_mode == "motion" and args.enable_motion
@@ -235,6 +266,7 @@ def main() -> int:
     run_config_path = output_path / "run_config.json"
     manifest = base_manifest(
         args,
+        isolated_render_config,
         profile,
         joint_profile,
         trajectory_metadata,
@@ -248,6 +280,7 @@ def main() -> int:
     camera_scheduler = None
     world_scheduler = None
     motion_scheduler = None
+    visibility_controller = None
     exit_code = 0
 
     try:
@@ -261,6 +294,7 @@ def main() -> int:
         from articulation_stage_validator import validate_articulation_stage
         from excavator_joint_motion import ExcavatorJointMotion
         from semantic_capture_custom import SemanticCameraScheduler
+        from scene_visibility_controller import SceneVisibilityController
         from world_scheduler import WorldScheduler
 
         print(f"[simulation-orchestrator] Loading stage: {args.usd}")
@@ -313,6 +347,12 @@ def main() -> int:
         preflight.raise_if_blocking(strict=args.strict_stage)
         if articulation_report is not None:
             articulation_report.require_valid()
+        if isolated_render_config is not None:
+            visibility_controller = SceneVisibilityController(
+                stage=stage,
+                included_prim_paths=isolated_render_config.render_prim_paths,
+                protected_prim_paths=(camera_path,),
+            )
 
         maximum_data_step = max(
             timing.data_step_for_frame(frame_id) for frame_id in range(args.frames)
@@ -388,6 +428,8 @@ def main() -> int:
             rt_subframes=profile.rt_subframes,
             save_runtime_ids=args.save_runtime_ids,
             strict_mapping=args.strict_mapping,
+            output_folders=args.image_output_folders,
+            transparent_isolated_background=args.excavator_only_capture.enabled,
         )
         camera_scheduler.initialize()
         camera_scheduler.warmup(profile.warmup_render_frames)
@@ -456,10 +498,41 @@ def main() -> int:
                     camera_path=camera_scheduler.camera_path,
                     camera_world_transform=tuple(camera_state["world_transform"]),
                     motion_state=motion_state,
+                    variant=CaptureVariant.FULL_SCENE,
                 )
                 world_scheduler.assert_still_frozen(frozen_world)
-                receipt = camera_scheduler.capture(context)
+                full_scene_receipt = camera_scheduler.capture(context)
                 world_scheduler.assert_still_frozen(frozen_world)
+                capture_receipts = {
+                    CaptureVariant.FULL_SCENE.value: full_scene_receipt.to_dict()
+                }
+
+                if visibility_controller is not None:
+                    isolation_report = visibility_controller.isolate()
+                    if (
+                        manifest["excavator_only_capture"]["visibility_report"]
+                        is None
+                    ):
+                        manifest["excavator_only_capture"][
+                            "visibility_report"
+                        ] = isolation_report.to_dict()
+                        write_json_atomic(run_config_path, manifest)
+                    try:
+                        camera_scheduler.reset_render_history()
+                        world_scheduler.assert_still_frozen(frozen_world)
+                        isolated_context = replace(
+                            context,
+                            variant=CaptureVariant.EXCAVATOR_ONLY,
+                        )
+                        isolated_receipt = camera_scheduler.capture(isolated_context)
+                        world_scheduler.assert_still_frozen(frozen_world)
+                        capture_receipts[
+                            CaptureVariant.EXCAVATOR_ONLY.value
+                        ] = isolated_receipt.to_dict()
+                    finally:
+                        visibility_controller.restore()
+                        camera_scheduler.reset_render_history()
+                    world_scheduler.assert_still_frozen(frozen_world)
 
                 state = {
                     **context.to_dict(),
@@ -467,13 +540,16 @@ def main() -> int:
                     "world": world_scheduler.get_state(),
                     "camera": camera_state,
                     "motion": motion_state,
-                    "capture_receipt": receipt.to_dict(),
+                    "capture_receipt": full_scene_receipt.to_dict(),
+                    "capture_receipts": capture_receipts,
                 }
                 motion_stream.write(json.dumps(state, ensure_ascii=False) + "\n")
                 motion_stream.flush()
                 print(
                     f"[simulation-orchestrator] Captured frame {frame_id + 1}/{args.frames} "
-                    f"at dataset_t={expected_time:.6f}s, timeline_t={frozen_world.timeline_time:.6f}s"
+                    f"at dataset_t={expected_time:.6f}s, "
+                    f"timeline_t={frozen_world.timeline_time:.6f}s, "
+                    f"variants={','.join(capture_receipts)}"
                 )
 
         camera_scheduler.wait_until_complete()
@@ -500,6 +576,14 @@ def main() -> int:
         print(f"[simulation-orchestrator] ERROR: {exc}", file=sys.stderr)
         traceback.print_exc()
     finally:
+        if visibility_controller is not None:
+            try:
+                visibility_controller.close()
+            except Exception as exc:
+                print(
+                    f"[simulation-orchestrator] Visibility cleanup warning: {exc}",
+                    file=sys.stderr,
+                )
         if world_scheduler is not None:
             try:
                 world_scheduler.stop()

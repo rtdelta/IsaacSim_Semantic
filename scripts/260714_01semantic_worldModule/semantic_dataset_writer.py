@@ -9,12 +9,13 @@ import numpy as np
 from omni.replicator.core import AnnotatorRegistry, Writer
 from omni.replicator.core import functional as F
 
-from capture_context import CaptureContext, CaptureLedger, CaptureReceipt
+from capture_context import CaptureContext, CaptureLedger, CaptureReceipt, CaptureVariant
+from capture_launch_config import ImageOutputFolders
 from semantic_mapping import SemanticMapping
 
 
 class SemanticDatasetWriter(Writer):
-    version = "2.0.0"
+    version = "3.0.0"
 
     def __init__(
         self,
@@ -24,6 +25,8 @@ class SemanticDatasetWriter(Writer):
         save_runtime_ids: bool = True,
         strict_mapping: bool = True,
         frame_padding: int = 4,
+        output_folders: ImageOutputFolders | None = None,
+        transparent_isolated_background: bool = False,
     ) -> None:
         self.data_structure = "renderProduct"
         self.backend = backend
@@ -33,11 +36,22 @@ class SemanticDatasetWriter(Writer):
         self._save_rgb = rgb
         self._save_runtime_ids = save_runtime_ids
         self._strict_mapping = strict_mapping
+        self._output_folders = output_folders or ImageOutputFolders(
+            full_scene_rgb="full_scene_excavator_rgb",
+            full_scene_semantic="full_scene_excavator_semantic",
+            excavator_only_rgb="excavator_only_rgb",
+            excavator_only_semantic="excavator_only_semantic",
+        )
+        self._transparent_isolated_background = bool(transparent_isolated_background)
         self._ledger = CaptureLedger()
         self.version = type(self).version
         self.annotators = []
         if rgb:
             self.annotators.append(AnnotatorRegistry.get_annotator("rgb"))
+        if self._transparent_isolated_background:
+            self.annotators.append(
+                AnnotatorRegistry.get_annotator("distance_to_camera")
+            )
         self.annotators.append(
             AnnotatorRegistry.get_annotator(
                 "semantic_segmentation",
@@ -84,6 +98,30 @@ class SemanticDatasetWriter(Writer):
             return np.ascontiguousarray(data).view(np.uint32).reshape(height, width)
         return data.astype(np.uint32, copy=False).reshape(height, width)
 
+    @classmethod
+    def _isolated_rgba(
+        cls,
+        rgb: np.ndarray,
+        depth_entry: Any,
+        expected_shape: tuple[int, int],
+    ) -> np.ndarray:
+        depth = cls._entry_data(depth_entry).astype(np.float32, copy=False)
+        if depth.ndim == 3 and depth.shape[2] == 1:
+            depth = depth[:, :, 0]
+        if depth.shape != expected_shape:
+            raise ValueError(
+                f"RGB and isolated depth resolution differ: "
+                f"{depth.shape} != {expected_shape}"
+            )
+        geometry_mask = np.isfinite(depth) & (depth > 0.0)
+        if rgb.shape[2] == 3:
+            rgba = np.empty((*expected_shape, 4), dtype=np.uint8)
+            rgba[:, :, :3] = rgb
+        else:
+            rgba = np.array(rgb, copy=True)
+        rgba[:, :, 3] = np.where(geometry_mask, 255, 0).astype(np.uint8)
+        return np.ascontiguousarray(rgba)
+
     @staticmethod
     def _id_to_labels(entry: dict[str, Any]) -> dict[Any, Any]:
         if "idToLabels" in entry:
@@ -100,8 +138,12 @@ class SemanticDatasetWriter(Writer):
     def arm_capture(self, context: CaptureContext) -> None:
         self._ledger.arm(context)
 
-    def require_completed(self, frame_id: int) -> CaptureReceipt:
-        return self._ledger.require_completed(frame_id)
+    def require_completed(
+        self,
+        frame_id: int,
+        variant: CaptureVariant = CaptureVariant.FULL_SCENE,
+    ) -> CaptureReceipt:
+        return self._ledger.require_completed(frame_id, variant)
 
     @property
     def pending_count(self) -> int:
@@ -110,6 +152,23 @@ class SemanticDatasetWriter(Writer):
     @property
     def completed_count(self) -> int:
         return self._ledger.completed_count
+
+    @property
+    def completed_by_variant(self) -> dict[str, int]:
+        return self._ledger.completed_by_variant
+
+    def _variant_roots(self, variant: CaptureVariant) -> tuple[str, str]:
+        if variant is CaptureVariant.FULL_SCENE:
+            return (
+                self._output_folders.full_scene_rgb,
+                self._output_folders.full_scene_semantic,
+            )
+        if variant is CaptureVariant.EXCAVATOR_ONLY:
+            return (
+                self._output_folders.excavator_only_rgb,
+                self._output_folders.excavator_only_semantic,
+            )
+        raise ValueError(f"Unsupported capture variant: {variant!r}")
 
     def write(self, data: dict[str, Any]) -> None:
         render_products = data.get("renderProducts")
@@ -121,9 +180,9 @@ class SemanticDatasetWriter(Writer):
             )
         context = self._ledger.consume()
         frame_name = f"{context.frame_id:0{self._frame_padding}d}"
+        rgb_root, semantic_root = self._variant_roots(context.variant)
         receipt: CaptureReceipt | None = None
         for render_product_name, render_product_data in render_products.items():
-            root = ""
             semantic_entry = self._find(render_product_data, "semantic_segmentation")
             if not isinstance(semantic_entry, dict):
                 raise KeyError(f"Missing semantic data for {render_product_name}")
@@ -133,9 +192,15 @@ class SemanticDatasetWriter(Writer):
                 self._id_to_labels(semantic_entry),
                 strict=self._strict_mapping,
             )
-            semantic_id_path = self._path(root, "semantic_id", f"semantic_id_{frame_name}.npy")
+            semantic_id_path = self._path(
+                semantic_root,
+                "semantic_id",
+                f"semantic_id_{frame_name}.npy",
+            )
             semantic_color_path = self._path(
-                root, "semantic_color", f"semantic_color_{frame_name}.png"
+                semantic_root,
+                "semantic_color",
+                f"semantic_color_{frame_name}.png",
             )
             self.backend.schedule(
                 F.write_np,
@@ -150,7 +215,7 @@ class SemanticDatasetWriter(Writer):
             runtime_id_path = None
             if self._save_runtime_ids:
                 runtime_id_path = self._path(
-                    root,
+                    semantic_root,
                     "semantic_runtime_id",
                     f"semantic_runtime_id_{frame_name}.npy",
                 )
@@ -165,23 +230,50 @@ class SemanticDatasetWriter(Writer):
                 if rgb_entry is None:
                     raise KeyError(f"Missing RGB data for {render_product_name}")
                 rgb_data = self._rgb_image(rgb_entry, runtime_ids.shape)
-                rgb_path = self._path(root, "rgb", f"rgb_{frame_name}.png")
+                if (
+                    context.variant is CaptureVariant.EXCAVATOR_ONLY
+                    and self._transparent_isolated_background
+                ):
+                    depth_entry = self._find(
+                        render_product_data,
+                        "distance_to_camera",
+                    )
+                    if depth_entry is None:
+                        raise KeyError(
+                            f"Missing isolated-render depth data for {render_product_name}"
+                        )
+                    rgb_data = self._isolated_rgba(
+                        rgb_data,
+                        depth_entry,
+                        runtime_ids.shape,
+                    )
+                rgb_path = self._path(rgb_root, f"rgb_{frame_name}.png")
                 self.backend.schedule(
                     F.write_image,
                     data=rgb_data,
                     path=rgb_path,
                 )
-            metadata_path = self._path(root, "metadata", f"frame_{frame_name}.json")
+            metadata_path = self._path(
+                "metadata",
+                context.variant.value,
+                f"frame_{frame_name}.json",
+            )
             self.backend.schedule(
                 F.write_json,
                 data={
-                    "schema_version": 2,
+                    "schema_version": 3,
                     **context.to_dict(),
                     "render_product": render_product_name,
                     "resolution": [int(runtime_ids.shape[1]), int(runtime_ids.shape[0])],
                     "runtime_id_mapping": diagnostics["runtime_id_mapping"],
                     "dataset_pixel_counts": diagnostics["dataset_pixel_counts"],
                     "unknown_labels": diagnostics["unknown_labels"],
+                    "background_alpha": (
+                        "isolated_render_depth"
+                        if context.variant is CaptureVariant.EXCAVATOR_ONLY
+                        and self._transparent_isolated_background
+                        else "source_rgb"
+                    ),
                 },
                 path=metadata_path,
             )
@@ -192,6 +284,7 @@ class SemanticDatasetWriter(Writer):
                 semantic_color_path=semantic_color_path,
                 runtime_id_path=runtime_id_path,
                 metadata_path=metadata_path,
+                variant=context.variant,
             )
         if receipt is None:
             raise RuntimeError(f"Writer did not schedule outputs for frame {context.frame_id}")

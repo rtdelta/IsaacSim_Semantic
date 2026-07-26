@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "output": {
+    "directory": "modules/tooth_boxes",
+    "layout": "flat_yolo"
+  },
+  "min_pixels": 10,
+  "targets": [
+    {
+      "yolo_id": 0,
+      "yolo_name": "tooth",
+      "semantic_labels": [
+        "tooth_1_front_3DGS",
+        "tooth_2_front_3DGS",
+        "tooth_3_front_3DGS",
+        "tooth_4_front_3DGS",
+        "tooth_5_front_3DGS"
+      ]
+    }
+  ]
+}
