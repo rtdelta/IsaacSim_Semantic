@@ -72,7 +72,10 @@ class ControllerSnapshot:
     speed_degrees_per_second: Mapping[str, float]
     joint_reached: Mapping[str, bool]
     recording: bool
+    recording_paused: bool
     recorded_samples: int
+    recording_elapsed_seconds: float
+    recording_pause_count: int
     root_position_meters: tuple[float, float, float] | None
     root_orientation_wxyz: tuple[float, float, float, float] | None
     root_forward_axis: float
@@ -105,6 +108,8 @@ class MotionController:
         self._reached = {name: False for name in self.joint_names}
         self._recorder: ActualAngleRecorder | None = None
         self._record_elapsed = 0.0
+        self._recording_paused = False
+        self._recording_pause_count = 0
         self._root_position: tuple[float, float, float] | None = None
         self._root_orientation: tuple[float, float, float, float] | None = None
         self._root_forward_axis = 0.0
@@ -121,6 +126,10 @@ class MotionController:
     @property
     def recording(self) -> bool:
         return self._recorder is not None and self._recorder.active
+
+    @property
+    def recording_paused(self) -> bool:
+        return self.recording and self._recording_paused
 
     def synchronize(self) -> ControllerSnapshot:
         if not self.adapter.ready:
@@ -293,7 +302,7 @@ class MotionController:
                 )
                 self._synchronize_root_pose()
 
-        if self.recording:
+        if self.recording and not self.recording_paused:
             self._record_elapsed += dt_value
             self._recorder.record(
                 self._record_elapsed,
@@ -338,6 +347,8 @@ class MotionController:
             additional_columns=additional_columns,
         )
         recording_metadata = dict(metadata)
+        recording_metadata.setdefault("recording_pause_supported", True)
+        recording_metadata.setdefault("recording_time_excludes_pauses", True)
         recording_metadata.setdefault(
             "column_descriptions",
             self._column_descriptions(additional_columns),
@@ -363,13 +374,36 @@ class MotionController:
         )
         self._recorder = recorder
         self._record_elapsed = 0.0
+        self._recording_paused = False
+        self._recording_pause_count = 0
         return recorder.partial_path
+
+    def pause_recording(self) -> ControllerSnapshot:
+        if not self.recording:
+            raise RuntimeError("Recording is not active")
+        if self.recording_paused:
+            raise RuntimeError("Recording is already paused")
+        self._recording_paused = True
+        self._recording_pause_count += 1
+        return self.snapshot()
+
+    def resume_recording(self) -> ControllerSnapshot:
+        if not self.recording:
+            raise RuntimeError("Recording is not active")
+        if not self.recording_paused:
+            raise RuntimeError("Recording is not paused")
+        self._recording_paused = False
+        return self.snapshot()
 
     def stop_recording(self, metadata: Mapping[str, Any] | None = None) -> Path:
         if not self.recording or self._recorder is None:
             raise RuntimeError("Recording is not active")
-        output = self._recorder.stop(metadata)
+        final_metadata = dict(metadata or {})
+        final_metadata.setdefault("recording_pause_count", self._recording_pause_count)
+        final_metadata.setdefault("recording_time_excludes_pauses", True)
+        output = self._recorder.stop(final_metadata)
         self._recorder = None
+        self._recording_paused = False
         return output
 
     def abort_recording(self) -> Path | None:
@@ -377,6 +411,7 @@ class MotionController:
             return None
         output = self._recorder.abort()
         self._recorder = None
+        self._recording_paused = False
         return output
 
     def fail(self) -> None:
@@ -394,7 +429,10 @@ class MotionController:
             speed_degrees_per_second=dict(self._speeds),
             joint_reached=dict(self._reached),
             recording=self.recording,
+            recording_paused=self.recording_paused,
             recorded_samples=self._recorder.sample_count if self._recorder is not None else 0,
+            recording_elapsed_seconds=self._record_elapsed,
+            recording_pause_count=self._recording_pause_count,
             root_position_meters=self._root_position,
             root_orientation_wxyz=self._root_orientation,
             root_forward_axis=self._root_forward_axis,

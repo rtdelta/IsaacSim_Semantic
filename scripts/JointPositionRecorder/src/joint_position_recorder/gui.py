@@ -190,10 +190,16 @@ class JointPositionRecorderWindow:
                     ui.StringField(model=self._csv_filename_model)
                 with ui.HStack(height=36, spacing=6):
                     ui.Button("Start recording", clicked_fn=self.start_recording)
+                    ui.Button("Pause recording", clicked_fn=self.pause_recording)
+                    ui.Button("Resume recording", clicked_fn=self.resume_recording)
                     ui.Button("Stop recording", clicked_fn=self.stop_recording)
 
+                self._recording_state_label = ui.Label(
+                    "Recording: stopped | samples=0", height=22
+                )
+
                 self._status_label = ui.Label(
-                    "Initializing...", height=92, word_wrap=True
+                    "Initializing...", height=70, word_wrap=True
                 )
 
     def bind_current_stage(self) -> None:
@@ -339,18 +345,41 @@ class JointPositionRecorderWindow:
                     if self.config.root_motion.enabled
                     else None
                 ),
+                "recording_pause_supported": True,
+                "recording_time_excludes_pauses": True,
                 "articulation_root": report.articulation_root_path if report else None,
                 "joint_paths": report.joint_paths if report else {},
                 "dof_names": report.dof_names if report else {},
                 "stage": self._stage.GetRootLayer().identifier if self._stage else None,
             }
             partial = controller.start_recording(output, metadata)
+            self._refresh_snapshot(controller.snapshot())
             content = (
                 "joint angles, root world position, and root quaternion/Euler angles"
                 if self.config.root_motion.enabled
                 else "actual articulation angles"
             )
             self._set_status(f"Recording {content}: {partial}")
+        except Exception as exc:
+            self._set_error(exc)
+
+    def pause_recording(self) -> None:
+        try:
+            controller = self._require_controller()
+            snapshot = controller.pause_recording()
+            self._refresh_snapshot(snapshot)
+            self._set_status(
+                "Recording paused; samples and recording time will not advance"
+            )
+        except Exception as exc:
+            self._set_error(exc)
+
+    def resume_recording(self) -> None:
+        try:
+            controller = self._require_controller()
+            snapshot = controller.resume_recording()
+            self._refresh_snapshot(snapshot)
+            self._set_status("Recording resumed")
         except Exception as exc:
             self._set_error(exc)
 
@@ -372,6 +401,8 @@ class JointPositionRecorderWindow:
                     "commanded_speeds_degrees_per_second": dict(
                         snapshot.speed_degrees_per_second
                     ),
+                    "recording_pause_count": snapshot.recording_pause_count,
+                    "recording_time_excludes_pauses": True,
                     "final_root_orientation_wxyz": (
                         list(snapshot.root_orientation_wxyz)
                         if snapshot.root_orientation_wxyz is not None
@@ -382,6 +413,7 @@ class JointPositionRecorderWindow:
                     ),
                 }
             )
+            self._refresh_snapshot(controller.snapshot())
             self._set_status(f"Recording complete: {output}")
         except Exception as exc:
             self._set_error(exc)
@@ -442,6 +474,16 @@ class JointPositionRecorderWindow:
             f"WASD+FG: {keys} | forward={snapshot.root_forward_axis:+.0f}, "
             f"turn={snapshot.root_turn_axis:+.0f}, "
             f"vertical={snapshot.root_vertical_axis:+.0f}"
+        )
+        if snapshot.recording_paused:
+            recording_state = "paused"
+        elif snapshot.recording:
+            recording_state = "active"
+        else:
+            recording_state = "stopped"
+        self._recording_state_label.text = (
+            f"Recording: {recording_state} | samples={snapshot.recorded_samples} | "
+            f"active time={snapshot.recording_elapsed_seconds:.3f} s"
         )
 
     def _on_keyboard_event(self, event: Any) -> bool:
