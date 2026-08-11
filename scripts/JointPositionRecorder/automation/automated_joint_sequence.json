@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "articulation_root_path": "/Waji_Mesh_3DGS/track",
+  "interpolation": "smoothstep",
+  "position_tolerance_degrees": 0.1,
+  "joint_limit_margin_degrees": 0.0,
+  "initial_alignment_duration_seconds": 3.0,
+  "joints": {
+    "boom": {
+      "dof_name": "platform_boom_joint",
+      "joint_path": "/World/Joints/platform_boom_joint"
+    },
+    "small_arm": {
+      "dof_name": "boom_small_arm_joint",
+      "joint_path": "/World/Joints/boom_small_arm_joint"
+    },
+    "bucket": {
+      "dof_name": "small_arm_bucket_joint",
+      "joint_path": "/World/Joints/small_arm_bucket_joint"
+    }
+  },
+  "waypoints": [
+    {
+      "name": "home",
+      "angles_degrees": {
+        "boom": 0.0,
+        "small_arm": 0.0,
+        "bucket": 0.0
+      }
+    },
+    {
+      "name": "point_1",
+      "duration_from_previous_seconds": 4.0,
+      "angles_degrees": {
+        "boom": 20.0,
+        "small_arm": 30.0,
+        "bucket": -120.0
+      }
+    },
+    {
+      "name": "point_2",
+      "duration_from_previous_seconds": 7.0,
+      "angles_degrees": {
+        "boom": -20.0,
+        "small_arm": -50.0,
+        "bucket": 60.0
+      }
+    },
+    {
+      "name": "return_home",
+      "duration_from_previous_seconds": 3.0,
+      "angles_degrees": {
+        "boom": 0.0,
+        "small_arm": 0.0,
+        "bucket": 0.0
+      }
+    }
+  ]
+}
