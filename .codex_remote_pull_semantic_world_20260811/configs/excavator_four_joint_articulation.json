@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "profile_name": "four_joint_fixed_base_excavator",
+  "articulation_root_path": "/World/Joints/world_track_fixed_joint",
+  "require_fixed_base": true,
+  "forbid_angular_drives": true,
+  "readback_tolerance_degrees": 0.05,
+  "trajectory_metadata": {
+    "sidecar_suffix": ".metadata.json",
+    "angle_unit": "degree",
+    "compatible_control_modes": [
+      "articulation_direct_position"
+    ],
+    "require_profile_match": true
+  },
+  "joints": [
+    {
+      "logical_name": "cab",
+      "candidate_names": [
+        "track_operator_cab_joint"
+      ],
+      "candidate_paths": [
+        "/World/Joints/track_operator_cab_joint"
+      ],
+      "safety_margin_degrees": 2.0
+    },
+    {
+      "logical_name": "boom",
+      "candidate_names": [
+        "platform_boom_joint"
+      ],
+      "candidate_paths": [
+        "/World/Joints/platform_boom_joint"
+      ],
+      "safety_margin_degrees": 2.0
+    },
+    {
+      "logical_name": "small_arm",
+      "candidate_names": [
+        "boom_small_arm_joint"
+      ],
+      "candidate_paths": [
+        "/World/Joints/boom_small_arm_joint"
+      ],
+      "safety_margin_degrees": 2.0
+    },
+    {
+      "logical_name": "bucket",
+      "candidate_names": [
+        "small_arm_bucket_joint"
+      ],
+      "candidate_paths": [
+        "/World/Joints/small_arm_bucket_joint"
+      ],
+      "safety_margin_degrees": 2.0
+    }
+  ]
+}

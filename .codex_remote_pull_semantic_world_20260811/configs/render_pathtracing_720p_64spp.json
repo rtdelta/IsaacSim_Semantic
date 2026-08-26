@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "name": "pathtracing_720p_64spp",
+  "renderer": "PathTracing",
+  "launch_settings": {
+    "anti_aliasing": 0,
+    "denoiser": true,
+    "samples_per_pixel_per_frame": 8,
+    "max_bounces": 4,
+    "max_specular_transmission_bounces": 6,
+    "max_volume_bounces": 64
+  },
+  "capture_settings": {
+    "rt_subframes": 8,
+    "warmup_render_frames": 16
+  },
+  "settings": {
+    "/rtx/rendermode": "PathTracing",
+    "/rtx/pathtracing/spp": 8,
+    "/rtx/pathtracing/totalSpp": 64,
+    "/rtx/pathtracing/adaptiveSampling/enabled": false,
+    "/rtx/pathtracing/maxBounces": 4,
+    "/rtx/pathtracing/maxSpecularAndTransmissionBounces": 6,
+    "/rtx/pathtracing/maxVolumeBounces": 64,
+    "/rtx/resetPtAccumOnAnimTimeChange": true,
+    "/rtx/pathtracing/fractionalCutoutOpacity": true,
+    "/rtx/pathtracing/aa/op": 1,
+    "/rtx/pathtracing/aa/filterRadius": 1.0
+  },
+  "required_settings": [
+    "/rtx/rendermode",
+    "/rtx/pathtracing/spp",
+    "/rtx/pathtracing/totalSpp",
+    "/rtx/pathtracing/maxBounces",
+    "/rtx/pathtracing/maxSpecularAndTransmissionBounces",
+    "/rtx/pathtracing/maxVolumeBounces",
+    "/rtx/resetPtAccumOnAnimTimeChange",
+    "/rtx/pathtracing/fractionalCutoutOpacity"
+  ],
+  "metadata": {
+    "status": "quality_candidate",
+    "render_mode": "RTX Interactive Path Tracing",
+    "nominal_spp_per_output": 64,
+    "motion_blur_policy": "must_be_verified_off",
+    "depth_of_field_policy": "must_be_verified_off",
+    "purpose": "High-quality static and low-volume semantic capture"
+  }
+}

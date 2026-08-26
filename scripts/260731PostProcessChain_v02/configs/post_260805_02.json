@@ -1,0 +1,124 @@
+{
+  "schema_version": 2,
+  "pipeline": {
+    "mode": "full",
+    "strict_pairing": true,
+    "on_frame_error": "fail_fast"
+  },
+  "inputs": {
+    "full_scene": {
+      "rgb_dir": "/root/gpufree-data/repositories/output/output0805_01/headless_render0805_01/full_scene_excavator_rgb",
+      "semantic_dir": "/root/gpufree-data/repositories/output/output0805_01/headless_render0805_01/full_scene_excavator_semantic/semantic_id"
+    },
+    "reference": {
+      "capture_variant": "front_teeth_only",
+      "semantic_dir": "/root/gpufree-data/repositories/output/output0805_01/headless_render0805_01/front_teeth_only_semantic/semantic_id"
+    },
+    "semantic_mapping": "/root/gpufree-data/repositories/output/output0805_01/headless_render0805_01/semantic_mapping.json"
+  },
+  "targets": {
+    "teeth": [
+      {
+        "class_id": 0,
+        "class_name": "tooth_01",
+        "semantic_label": "teeth_01_front_3DGS"
+      },
+      {
+        "class_id": 1,
+        "class_name": "tooth_02",
+        "semantic_label": "teeth_02_front_3DGS"
+      },
+      {
+        "class_id": 2,
+        "class_name": "tooth_03",
+        "semantic_label": "teeth_03_front_3DGS"
+      },
+      {
+        "class_id": 3,
+        "class_name": "tooth_04",
+        "semantic_label": "teeth_04_front_3DGS"
+      },
+      {
+        "class_id": 4,
+        "class_name": "tooth_05",
+        "semantic_label": "teeth_05_front_3DGS"
+      }
+    ],
+    "collision_model": {
+      "class_id": 0,
+      "class_name": "tooth_collision_model"
+    }
+  },
+  "modules": {
+    "semantic_features": {
+      "enabled": true,
+      "target_extraction": "single_target_scan"
+    },
+    "component_filter": {
+      "enabled": true,
+      "connectivity": 4,
+      "minimum_connected_component_pixels": 5
+    },
+    "visibility_ratio": {
+      "enabled": true,
+      "zero_reference_value": -1,
+      "ratio_over_one": "keep_and_flag"
+    },
+    "pose_metrics": {
+      "enabled": true,
+      "algorithm": "pixel_cell_min_area_rect_v1",
+      "invalid_value": -1,
+      "write_angle": true
+    },
+    "single_tooth_boxes": {
+      "enabled": true,
+      "minimum_pixels": 10
+    },
+    "threshold_rules": {
+      "enabled": true,
+      "single_tooth": {
+        "minimum_visible_ratio_a": 0.55,
+        "minimum_fill_ratio_c": 0.45,
+        "height_width_axis_mode": "x_over_y",
+        "minimum_height_width_ratio_d": 1.25,
+        "drop_all_single_boxes_if_bad_teeth_at_least": 3
+      },
+      "collision_model": {
+        "minimum_visible_ratio_b": 0.55,
+        "drop_collision_box_if_bad_teeth_at_least": 3
+      }
+    },
+    "collision_box": {
+      "enabled": true,
+      "length_axis": "x",
+      "length_source": "full_scene",
+      "width_source": "reference",
+      "union_scope": "all_valid_teeth"
+    }
+  },
+  "execution": {
+    "backend": "numpy_opencv",
+    "workers": 8,
+    "max_in_flight": 32,
+    "reader_threads": 4,
+    "verification_level": "sample",
+    "verification_sample_frames": 32
+  },
+  "cache": {
+    "enabled": true,
+    "reuse": true,
+    "directory": "/root/gpufree-data/repositories/260731PostProcessChain_v02/cache/post_260805_01",
+    "fingerprint_mode": "metadata",
+    "on_mismatch": "rebuild"
+  },
+  "output": {
+    "root": "/root/gpufree-data/repositories/output/output0805_01/PostProcess0805_02",
+    "overwrite": false,
+    "image_mode": "hardlink_required",
+    "keep_empty_label_files": true,
+    "staging_mode": "atomic_directory"
+  },
+  "reporting": {
+    "level": "full"
+  }
+}

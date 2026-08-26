@@ -6,7 +6,7 @@ from .controller import ControllerSnapshot, MotionController, MotionState
 from .gui import show_recorder_window
 from .motion_planner import ConstantSpeedPlanner, PlannerResult
 from .stage_validator import StageValidationReport, validate_stage
-from .trajectory_recorder import ActualAngleRecorder
+from .trajectory_recorder import ActualAngleRecorder, RecordingState
 
 __all__ = [
     "ActualAngleRecorder",
@@ -18,6 +18,7 @@ __all__ = [
     "MotionState",
     "PlannerResult",
     "ProjectConfig",
+    "RecordingState",
     "StageValidationReport",
     "load_project_config",
     "show_recorder_window",

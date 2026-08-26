@@ -10,7 +10,7 @@ from typing import Any, Mapping, Protocol, Sequence
 
 from .config import ProjectConfig
 from .motion_planner import ConstantSpeedPlanner
-from .trajectory_recorder import ActualAngleRecorder
+from .trajectory_recorder import ActualAngleRecorder, RecordingState
 
 
 class PositionAdapter(Protocol):
@@ -40,7 +40,10 @@ class ControllerSnapshot:
     speed_degrees_per_second: Mapping[str, float]
     joint_reached: Mapping[str, bool]
     recording: bool
+    recording_state: RecordingState
     recorded_samples: int
+    recording_elapsed_seconds: float
+    excluded_pause_duration_seconds: float
 
 
 class MotionController:
@@ -68,6 +71,8 @@ class MotionController:
         self._reached = {name: False for name in self.joint_names}
         self._recorder: ActualAngleRecorder | None = None
         self._record_elapsed = 0.0
+        self._excluded_pause_elapsed = 0.0
+        self._pause_count = 0
 
     @property
     def synchronized(self) -> bool:
@@ -76,6 +81,12 @@ class MotionController:
     @property
     def recording(self) -> bool:
         return self._recorder is not None and self._recorder.active
+
+    @property
+    def recording_state(self) -> RecordingState:
+        if self._recorder is None:
+            return RecordingState.IDLE
+        return self._recorder.state
 
     def synchronize(self) -> ControllerSnapshot:
         if not self.adapter.ready:
@@ -158,9 +169,11 @@ class MotionController:
                 self._reached = {name: True for name in self.joint_names}
                 self.state = MotionState.REACHED
 
-        if self.recording:
+        if self.recording_state is RecordingState.RECORDING:
             self._record_elapsed += dt_value
             self._recorder.record(self._record_elapsed, self._ordered(self._current))
+        elif self.recording_state is RecordingState.PAUSED:
+            self._excluded_pause_elapsed += dt_value
         return self.snapshot()
 
     def stop_motion(self) -> ControllerSnapshot:
@@ -194,13 +207,39 @@ class MotionController:
         recorder.start(self._ordered(self._current), metadata)
         self._recorder = recorder
         self._record_elapsed = 0.0
+        self._excluded_pause_elapsed = 0.0
+        self._pause_count = 0
         return recorder.partial_path
+
+    def pause_recording(self) -> ControllerSnapshot:
+        if self._recorder is None or not self._recorder.active:
+            raise RuntimeError("Recording is not active")
+        self._recorder.pause()
+        self._pause_count += 1
+        return self.snapshot()
+
+    def resume_recording(self) -> ControllerSnapshot:
+        if self._recorder is None or not self._recorder.active:
+            raise RuntimeError("Recording is not active")
+        self._recorder.resume()
+        return self.snapshot()
 
     def stop_recording(self, metadata: Mapping[str, Any] | None = None) -> Path:
         if not self.recording or self._recorder is None:
             raise RuntimeError("Recording is not active")
-        output = self._recorder.stop(metadata)
+        published_metadata = dict(metadata or {})
+        published_metadata.update(
+            {
+                "pause_count": self._pause_count,
+                "excluded_pause_duration_seconds": self._excluded_pause_elapsed,
+                "trajectory_duration_seconds": self._record_elapsed,
+                "recording_time_policy": "exclude_paused_intervals",
+                "position_priority": "actual_readback_no_interpolation",
+            }
+        )
+        output = self._recorder.stop(published_metadata)
         self._recorder = None
+        self._reset_recording_statistics()
         return output
 
     def abort_recording(self) -> Path | None:
@@ -208,6 +247,7 @@ class MotionController:
             return None
         output = self._recorder.abort()
         self._recorder = None
+        self._reset_recording_statistics()
         return output
 
     def fail(self) -> None:
@@ -222,7 +262,10 @@ class MotionController:
             speed_degrees_per_second=dict(self._speeds),
             joint_reached=dict(self._reached),
             recording=self.recording,
+            recording_state=self.recording_state,
             recorded_samples=self._recorder.sample_count if self._recorder is not None else 0,
+            recording_elapsed_seconds=self._record_elapsed,
+            excluded_pause_duration_seconds=self._excluded_pause_elapsed,
         )
 
     def _require_synchronized(self) -> None:
@@ -243,3 +286,8 @@ class MotionController:
         if any(not math.isfinite(value) for value in positions):
             raise RuntimeError("Articulation returned a non-finite joint position")
         self._current = dict(zip(self.joint_names, positions))
+
+    def _reset_recording_statistics(self) -> None:
+        self._record_elapsed = 0.0
+        self._excluded_pause_elapsed = 0.0
+        self._pause_count = 0

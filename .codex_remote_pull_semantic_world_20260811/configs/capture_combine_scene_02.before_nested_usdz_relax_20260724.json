@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "usd": "/root/gpufree-data/wyb/StageMaterial02/Combine_Scene_02.usda",
+  "mapping": "semantic_mapping_Combine_Scene_02_native.json",
+  "camera_prim_path": "/Fangshan_Excavator_01/boom_prim/Camera_01",
+  "renderer": "RealTimePathTracing",
+  "render_profile": "render_realtime_pathtracing_720p.json",
+  "warmup_render_frames": null,
+  "rt_subframes": null,
+  "output": "../output/combine_scene_02_run_001",
+  "image_output_folders": {
+    "full_scene_rgb": "full_scene_excavator_rgb",
+    "full_scene_semantic": "full_scene_excavator_semantic",
+    "excavator_only_rgb": "excavator_only_rgb",
+    "excavator_only_semantic": "excavator_only_semantic"
+  },
+  "excavator_only_capture": {
+    "enabled": true,
+    "render_prim_paths_config": "combine_scene_02_render_prims.json"
+  },
+  "overwrite": false,
+  "frames": 917,
+  "width": 1280,
+  "height": 720,
+  "physics_hz": 60,
+  "capture_fps": 10,
+  "capture_mode": "motion",
+  "capture_initial_frame": true,
+  "pre_roll_steps": 0,
+  "enable_motion": true,
+  "trajectory": "/root/gpufree-data/repositories/260720_01JointPositionRecorder/trajectories/combine_scene_02_angles01.csv",
+  "trajectory_mode": "hold",
+  "interpolation": "linear",
+  "joint_profile": "combine_scene_02_four_joint_articulation.json",
+  "articulation_ready_timeout_steps": 240,
+  "headless": true,
+  "save_runtime_ids": true,
+  "strict_mapping": true,
+  "strict_stage": true
+}

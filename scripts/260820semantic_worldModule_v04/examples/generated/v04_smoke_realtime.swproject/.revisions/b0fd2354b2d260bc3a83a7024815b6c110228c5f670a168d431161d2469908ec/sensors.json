@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "sensors": [
+    {
+      "enabled": true,
+      "parameter_sources": {},
+      "parameters": {},
+      "plugin": "pinhole_camera",
+      "prim_path": "/Excavator_Fangshan_03/boom_prim/Camera",
+      "sensor_id": "boom_camera"
+    }
+  ]
+}

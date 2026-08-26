@@ -1,0 +1,373 @@
+{
+  "schema_version": "1.0",
+  "kind": "fangshan_candidate_mapping",
+  "candidate_status": "requires_user_confirmation_before_build",
+  "independence": {
+    "build_depends_on_old_excavator_usd": false,
+    "old_excavator_usd_role": "one-time migration input for Joint world rotation lines and motion conventions; excluded from all normal builds after calibration is generated"
+  },
+  "inputs": {
+    "gaussian_part_count": 15,
+    "gaussian_total_splat_count": 397747,
+    "all_gaussian_parts_standard_3dgs": true,
+    "mesh_source": {
+      "path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/mesh_parts/拆分成五部分的mesh.usd",
+      "sha256": "99d2a09768875f0ca16b21101e3a05177dc427aa518e7ca82b3e3c11bba37703",
+      "prim_path": "/World/mesh_",
+      "point_count": 317675,
+      "face_count": 628868,
+      "connected_components": {
+        "component_count": 3892,
+        "largest_component_vertex_counts": [
+          114475,
+          99820,
+          57195,
+          23661,
+          18288,
+          142,
+          53,
+          32,
+          15,
+          14,
+          12,
+          12,
+          9,
+          8,
+          8,
+          7,
+          7,
+          6,
+          6,
+          6
+        ],
+        "single_vertex_component_count": 3861
+      }
+    }
+  },
+  "coordinate_and_units_candidate": {
+    "root_prim_path": "/Excavator",
+    "target_up_axis": "Z",
+    "target_meters_per_unit": 1.0,
+    "origin": "track Gaussian OBB center",
+    "mesh_authored_meters_per_unit": 0.01,
+    "mesh_candidate_numeric_units_to_meters": 1.0,
+    "gaussian_union_numeric_bounds": {
+      "min": [
+        -1.622904896736145,
+        -1.3384480476379395,
+        -1.2459654808044434
+      ],
+      "max": [
+        0.7551990747451782,
+        0.8797308802604675,
+        2.737499713897705
+      ]
+    },
+    "mesh_numeric_bounds": {
+      "min": [
+        -1.6369616985321045,
+        -1.3608213663101196,
+        -1.2292463779449463
+      ],
+      "max": [
+        0.7476708889007568,
+        0.8809003829956055,
+        2.734975576400757
+      ]
+    },
+    "numeric_bounds_difference_m": {
+      "min_mesh_minus_gaussian": [
+        -0.014056801795959473,
+        -0.022373318672180176,
+        0.01671910285949707
+      ],
+      "max_mesh_minus_gaussian": [
+        -0.007528185844421387,
+        0.0011695027351379395,
+        -0.002524137496948242
+      ]
+    },
+    "unit_decision_status": "candidate_pending_user_confirmation"
+  },
+  "links": [
+    {
+      "link_id": "track",
+      "mesh_part_id": "track_mesh",
+      "gaussian_part_ids": [
+        "track_gaussian"
+      ]
+    },
+    {
+      "link_id": "cab",
+      "mesh_part_id": "cab_mesh",
+      "gaussian_part_ids": [
+        "cab_gaussian"
+      ]
+    },
+    {
+      "link_id": "boom",
+      "mesh_part_id": "boom_mesh",
+      "gaussian_part_ids": [
+        "boom_gaussian"
+      ]
+    },
+    {
+      "link_id": "arm",
+      "mesh_part_id": "arm_mesh",
+      "gaussian_part_ids": [
+        "arm_gaussian"
+      ]
+    },
+    {
+      "link_id": "bucket",
+      "mesh_part_id": "bucket_mesh",
+      "gaussian_part_ids": [
+        "bucket_without_teeth_gaussian",
+        "tooth_01_front_gaussian",
+        "tooth_01_back_gaussian",
+        "tooth_02_front_gaussian",
+        "tooth_02_back_gaussian",
+        "tooth_03_front_gaussian",
+        "tooth_03_back_gaussian",
+        "tooth_04_front_gaussian",
+        "tooth_04_back_gaussian",
+        "tooth_05_front_gaussian",
+        "tooth_05_back_gaussian"
+      ]
+    }
+  ],
+  "gaussian_parts": [
+    {
+      "part_id": "track",
+      "file": "track.ply",
+      "link_id": "track",
+      "semantic_label": "track_3DGS",
+      "splat_count": 70566,
+      "sha256": "5723492cae47866a7dc4dc06c6080aa8be04fe191afc4e8a986397908c752c8f"
+    },
+    {
+      "part_id": "cab",
+      "file": "cab.ply",
+      "link_id": "cab",
+      "semantic_label": "cab_3DGS",
+      "splat_count": 185786,
+      "sha256": "10c57f47a2f52202dd523b7541f4b93b319c822c8b6905f13a5c53bc6f4a0e77"
+    },
+    {
+      "part_id": "boom",
+      "file": "boom.ply",
+      "link_id": "boom",
+      "semantic_label": "boom_3DGS",
+      "splat_count": 66794,
+      "sha256": "3d9f1ed003515fa091dcc38022a0e4bcbaac754944f75c288ea665404c1613d6"
+    },
+    {
+      "part_id": "arm",
+      "file": "arm.ply",
+      "link_id": "arm",
+      "semantic_label": "arm_3DGS",
+      "splat_count": 41716,
+      "sha256": "c7bbb9b6b3e541fd7eb9deddb17474d4f1a58ee3829c50433ca82c8af458c99e"
+    },
+    {
+      "part_id": "bucket_without_teeth",
+      "file": "bucket_without_teeth.ply",
+      "link_id": "bucket",
+      "semantic_label": "bucket_without_teeth_3DGS",
+      "splat_count": 30141,
+      "sha256": "e73264ca5923e73562327bf250eb8c699fa78053d81428e0a746b1373fcd6e3c"
+    },
+    {
+      "part_id": "tooth_01_front",
+      "file": "tooth_01_front.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_01_front_3DGS",
+      "splat_count": 320,
+      "sha256": "9f5af66ece063c69f21c97a9fdc04844fe7e58e9bef054122cb700ace5a91855"
+    },
+    {
+      "part_id": "tooth_01_back",
+      "file": "tooth_01_back.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_01_back_3DGS",
+      "splat_count": 211,
+      "sha256": "1b6df55d4a4e8aebe6fc781edb68a703cb7f53c58835733cfe81d7e11170a294"
+    },
+    {
+      "part_id": "tooth_02_front",
+      "file": "tooth_02_front.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_02_front_3DGS",
+      "splat_count": 323,
+      "sha256": "68da29ee57a59aac86753f280ac77e66a6d674da8df436fc266b03d5224dccd5"
+    },
+    {
+      "part_id": "tooth_02_back",
+      "file": "tooth_02_back.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_02_back_3DGS",
+      "splat_count": 214,
+      "sha256": "159e9211aaf9d908d0e1c9ddf169781e5b4849f2b368d1f8a6cf8c9bc5180ce8"
+    },
+    {
+      "part_id": "tooth_03_front",
+      "file": "tooth_03_front.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_03_front_3DGS",
+      "splat_count": 316,
+      "sha256": "a3d4893103794df0ac72912e8b57eccf8b0ad09b6700b6d00f7b1a582c62d24c"
+    },
+    {
+      "part_id": "tooth_03_back",
+      "file": "tooth_03_back.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_03_back_3DGS",
+      "splat_count": 235,
+      "sha256": "df097f45fdaf7fff92c1b7eca71fe9690ba23a1a548d6b8f6d9d0de138c749bb"
+    },
+    {
+      "part_id": "tooth_04_front",
+      "file": "tooth_04_front.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_04_front_3DGS",
+      "splat_count": 367,
+      "sha256": "84a426b9ee33c4441a4c8001e09581321fab69c9b44fd07e1304b03470c343bc"
+    },
+    {
+      "part_id": "tooth_04_back",
+      "file": "tooth_04_back.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_04_back_3DGS",
+      "splat_count": 199,
+      "sha256": "14100ee9b9242cf5d0c71d3603771c129776a9ef49f745fca14de4a5a05f0f87"
+    },
+    {
+      "part_id": "tooth_05_front",
+      "file": "tooth_05_front.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_05_front_3DGS",
+      "splat_count": 304,
+      "sha256": "ae780ece479ae4a5d8d2e6f41181628a7d5b80283b5586eb759441ae7d59dd80"
+    },
+    {
+      "part_id": "tooth_05_back",
+      "file": "tooth_05_back.ply",
+      "link_id": "bucket",
+      "semantic_label": "teeth_05_back_3DGS",
+      "splat_count": 255,
+      "sha256": "380181e4ddade9acf64ca0bccf9c22b016ebce559b85f80fb25ff6e730e888e5"
+    }
+  ],
+  "joints": [
+    {
+      "candidate_joint_id": "track_cab_joint",
+      "reference_joint_name": "track_operator_cab_joint",
+      "reference_body_relationships": {
+        "physics:body0": [
+          "/excavator_prim/track_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/cab_prim"
+        ]
+      },
+      "reference_axis_token": "X",
+      "reference_local_pos0": [
+        -0.6488432288169861,
+        1.533059000968933,
+        -0.491243839263916
+      ],
+      "reference_local_rot0": "(0.68522954, 2.3840534e-18, 0.72763616, 0.031719085)",
+      "reference_lower_limit_deg": -180.0,
+      "reference_upper_limit_deg": 180.0,
+      "adoption": {
+        "topology_and_body_order": "adopted_as_link_xform_relationships",
+        "limits": "adopted_from_reference_motion_convention",
+        "center_and_axis": "pending_one_time_world_line_migration_and_mesh_validation"
+      }
+    },
+    {
+      "candidate_joint_id": "cab_boom_joint",
+      "reference_joint_name": "platform_boom_joint",
+      "reference_body_relationships": {
+        "physics:body0": [
+          "/excavator_prim/cab_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/boom_prim"
+        ]
+      },
+      "reference_axis_token": "X",
+      "reference_local_pos0": [
+        -0.7674506306648254,
+        1.3535553216934204,
+        -0.06812799721956253
+      ],
+      "reference_local_rot0": "(0.9826341, -2.8687438e-18, 0.017102564, 0.18476383)",
+      "reference_lower_limit_deg": -35.0,
+      "reference_upper_limit_deg": 70.0,
+      "adoption": {
+        "topology_and_body_order": "adopted_as_link_xform_relationships",
+        "limits": "adopted_from_reference_motion_convention",
+        "center_and_axis": "pending_one_time_world_line_migration_and_mesh_validation"
+      }
+    },
+    {
+      "candidate_joint_id": "boom_arm_joint",
+      "reference_joint_name": "boom_small_arm_joint",
+      "reference_body_relationships": {
+        "physics:body0": [
+          "/excavator_prim/boom_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/arm_prim"
+        ]
+      },
+      "reference_axis_token": "X",
+      "reference_local_pos0": [
+        0.3242569863796234,
+        -0.4643000662326813,
+        1.0478482246398926
+      ],
+      "reference_local_rot0": "(0.9779655, -1.6629454e-19, -0.0031810927, 0.20874245)",
+      "reference_lower_limit_deg": -80.0,
+      "reference_upper_limit_deg": 70.0,
+      "adoption": {
+        "topology_and_body_order": "adopted_as_link_xform_relationships",
+        "limits": "adopted_from_reference_motion_convention",
+        "center_and_axis": "pending_one_time_world_line_migration_and_mesh_validation"
+      }
+    },
+    {
+      "candidate_joint_id": "arm_bucket_joint",
+      "reference_joint_name": "small_arm_bucket_joint",
+      "reference_body_relationships": {
+        "physics:body0": [
+          "/excavator_prim/arm_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/bucket_with_teeth_prim"
+        ]
+      },
+      "reference_axis_token": "X",
+      "reference_local_pos0": [
+        0.41385090351104736,
+        -0.8401621580123901,
+        -0.10665646940469742
+      ],
+      "reference_local_rot0": "(-0.19703807, -3.574176e-18, 0.13755204, 0.9706984)",
+      "reference_lower_limit_deg": -90.0,
+      "reference_upper_limit_deg": 80.0,
+      "adoption": {
+        "topology_and_body_order": "adopted_as_link_xform_relationships",
+        "limits": "adopted_from_reference_motion_convention",
+        "center_and_axis": "pending_one_time_world_line_migration_and_mesh_validation"
+      }
+    }
+  ],
+  "deliberately_unresolved": [
+    "One-time migration of four Joint world rotation lines into source Mesh numeric coordinates",
+    "Current Mesh geometry validation of the four migrated rotation lines",
+    "Mesh connected-component-to-link assignment validation",
+    "Coordinate PCA sign and final visual uprightness validation"
+  ]
+}

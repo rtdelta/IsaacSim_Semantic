@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "input_root": "/root/gpufree-data/semantic/scripts/output/output0817_01/PostProcess_v03_boom_camera",
+  "output_root": "/root/gpufree-data/semantic/scripts/output/output0817_01/Formatted0817_01_v03_boom_camera",
+  "filename_prefix": "Sim_Fangshan_tooth_260817",
+  "classes": {
+    "tooth_class_name": "tooth",
+    "collision_class_name": "tooth_collision_model"
+  },
+  "output": {
+    "preserve_reports": true,
+    "unchanged_file_mode": "hardlink_or_copy"
+  },
+  "performance": {
+    "workers": 32,
+    "max_in_flight": 512
+  }
+}

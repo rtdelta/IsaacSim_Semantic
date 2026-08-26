@@ -1,0 +1,18 @@
+{
+  "components": {
+    "capture": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/capture.json",
+    "modalities": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/modalities.json",
+    "motion": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/motion.json",
+    "output": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/output.json",
+    "render": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/render.json",
+    "semantics": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/semantics.json",
+    "sensors": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/sensors.json",
+    "stage": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/stage.json",
+    "variants": ".revisions/bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b/variants.json"
+  },
+  "description": "",
+  "name": "v04 PathTracing smoke",
+  "project_id": "v04-smoke-pathtracing",
+  "revision": "bb6fa4f41c5d49b0d3956d3c155a06a81a9c8e714f90b391c4cf5dda6262061b",
+  "schema_version": 1
+}

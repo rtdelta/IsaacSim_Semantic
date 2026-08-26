@@ -1,0 +1,271 @@
+{
+  "schema_version": 6,
+  "run_id": "example_multisensor_pathtracing",
+  "output": "/root/gpufree-data/semantic/scripts/output/example_multisensor_pathtracing",
+  "scene": {
+    "usd": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda",
+    "physics_hz": 60,
+    "mapping": "04_semantic_mapping.example.json",
+    "motion": {
+      "driver": "semantic_world_v03.motion:CsvArticulationMotion",
+      "trajectory": "07_trajectory.example.csv",
+      "settings": {
+        "articulation_prim_path": "/Excavator_Fangshan_03/track_prim",
+        "time_column": "time",
+        "joint_columns": {
+          "track_operator_cab_joint": "cab",
+          "platform_boom_joint": "boom",
+          "boom_small_arm_joint": "small_arm",
+          "small_arm_bucket_joint": "bucket"
+        },
+        "angle_units": "degrees",
+        "interpolation": "linear",
+        "root_pose": {
+          "position": [
+            "root_world_x_m",
+            "root_world_y_m",
+            "root_world_z_m"
+          ],
+          "orientation_wxyz": [
+            "root_quat_w",
+            "root_quat_x",
+            "root_quat_y",
+            "root_quat_z"
+          ]
+        }
+      }
+    },
+    "state_prim_paths": [
+      "/Excavator_Fangshan_03/track_prim"
+    ],
+    "pre_roll_steps": 0
+  },
+  "render_groups": {
+    "camera_pt": {
+      "kind": "camera_rtx",
+      "profile": "02_render_pathtracing.example.json",
+      "execution": "batched",
+      "multi_gpu": false,
+      "rt_subframes": 8,
+      "warmup_frames": 16,
+      "settings": {}
+    },
+    "lidar_rtx": {
+      "kind": "rtx_sensor",
+      "profile": "02_render_pathtracing.example.json",
+      "execution": "batched",
+      "multi_gpu": false,
+      "rt_subframes": 1,
+      "warmup_frames": 0,
+      "settings": {}
+    }
+  },
+  "drivers": {},
+  "sensors": [
+    {
+      "id": "boom_pinhole",
+      "type": "camera.pinhole",
+      "enabled": true,
+      "source": {
+        "mode": "existing_prim",
+        "prim_path": "/Excavator_Fangshan_03/boom_prim/Camera"
+      },
+      "render_group": "camera_pt",
+      "clock": {
+        "hz": 10,
+        "phase_seconds": 0,
+        "acquisition": "snapshot"
+      },
+      "modalities": [
+        "rgb",
+        "semantic_segmentation",
+        "distance_to_camera"
+      ],
+      "resolution": [
+        1280,
+        720
+      ],
+      "calibration": {
+        "policy": "read_from_prim",
+        "expected_model": "pinhole"
+      },
+      "output": {
+        "sink": "filesystem",
+        "required": true,
+        "folder": "boom_pinhole",
+        "settings": {}
+      },
+      "settings": {}
+    },
+    {
+      "id": "fisheye_existing",
+      "type": "camera.fisheye_opencv",
+      "enabled": false,
+      "source": {
+        "mode": "existing_prim",
+        "prim_path": "/World/FisheyeCamera"
+      },
+      "render_group": "camera_pt",
+      "clock": {
+        "hz": 10,
+        "phase_seconds": 0,
+        "acquisition": "snapshot"
+      },
+      "modalities": [
+        "rgb",
+        "semantic_segmentation"
+      ],
+      "resolution": [
+        1920,
+        1080
+      ],
+      "calibration": {
+        "policy": "read_and_validate",
+        "expected_model": "opencv_fisheye"
+      },
+      "output": {
+        "sink": "filesystem",
+        "required": true,
+        "folder": "fisheye_existing",
+        "settings": {}
+      },
+      "settings": {}
+    },
+    {
+      "id": "fisheye_created",
+      "type": "camera.fisheye_opencv",
+      "enabled": false,
+      "source": {
+        "mode": "create",
+        "parent_prim": "/World/Sensors",
+        "prim_name": "CreatedFisheye"
+      },
+      "render_group": "camera_pt",
+      "clock": {
+        "hz": 10,
+        "phase_seconds": 0,
+        "acquisition": "snapshot"
+      },
+      "modalities": [
+        "rgb",
+        "semantic_segmentation"
+      ],
+      "resolution": [
+        1920,
+        1080
+      ],
+      "calibration": {
+        "policy": "from_profile",
+        "profile": "05_fisheye_calibration_1920x1080.example.json",
+        "expected_model": "opencv_fisheye"
+      },
+      "output": {
+        "sink": "filesystem",
+        "required": true,
+        "folder": "fisheye_created",
+        "settings": {}
+      },
+      "settings": {
+        "warmup_frames": 4
+      }
+    },
+    {
+      "id": "rotary_lidar",
+      "type": "lidar.rtx.rotary",
+      "enabled": false,
+      "source": {
+        "mode": "create",
+        "parent_prim": "/World/Sensors",
+        "prim_name": "CreatedRotaryLidar",
+        "config": "Example_Rotary"
+      },
+      "render_group": "lidar_rtx",
+      "clock": {
+        "hz": 10,
+        "phase_seconds": 0,
+        "acquisition": "interval"
+      },
+      "modalities": [
+        "point_cloud",
+        "range",
+        "intensity",
+        "stable_id_map"
+      ],
+      "calibration": {
+        "policy": "from_profile",
+        "profile": "06_lidar_profile.example.json"
+      },
+      "output": {
+        "sink": "filesystem",
+        "required": true,
+        "folder": "rotary_lidar",
+        "settings": {}
+      },
+      "settings": {
+        "scan_rate_hz": 10,
+        "accumulate_outputs": true,
+        "aux_output_level": "EXTRA",
+        "coordinates": "SPHERICAL",
+        "attributes": {}
+      }
+    }
+  ],
+  "capture": {
+    "frames": 300,
+    "base_hz": 10,
+    "capture_initial_frame": true,
+    "variant_execution": "variant_major",
+    "variants": [
+      {
+        "id": "full_scene",
+        "visibility": {},
+        "include_paths": [],
+        "modalities_by_sensor": {
+          "boom_pinhole": [
+            "rgb",
+            "semantic_segmentation",
+            "distance_to_camera"
+          ]
+        }
+      },
+      {
+        "id": "excavator_only",
+        "visibility": {
+          "/Environment/OptionalDecoration": "invisible"
+        },
+        "include_paths": [
+          "/Environment",
+          "/Excavator_Fangshan_03"
+        ],
+        "modalities_by_sensor": {
+          "boom_pinhole": [
+            "semantic_segmentation"
+          ]
+        }
+      }
+    ],
+    "synchronization_groups": [
+      {
+        "id": "required_camera_group",
+        "sensor_ids": [
+          "boom_pinhole"
+        ],
+        "commit_policy": "all_or_nothing"
+      }
+    ]
+  },
+  "runtime": {
+    "segment_frames": 100,
+    "resume": true,
+    "heartbeat_seconds": 5,
+    "startup_timeout_seconds": 600,
+    "render_timeout_seconds": 300,
+    "shutdown_timeout_seconds": 45,
+    "max_worker_restarts": 3,
+    "poll_seconds": 1,
+    "worker_command": [
+      "/bin/bash",
+      "/root/gpufree-data/semantic/scripts/260819semantic_worldModule_v03/isaac_python_abi_safe.sh"
+    ]
+  }
+}

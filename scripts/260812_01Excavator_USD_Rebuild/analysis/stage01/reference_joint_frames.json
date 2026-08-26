@@ -1,0 +1,1812 @@
+{
+  "links": [
+    {
+      "path": "/excavator_prim/track_prim",
+      "type_name": "Xform",
+      "active": true,
+      "applied_schemas": [
+        "PhysicsRigidBodyAPI",
+        "PhysicsMassAPI"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/cab_prim",
+      "type_name": "Xform",
+      "active": true,
+      "applied_schemas": [
+        "PhysicsRigidBodyAPI",
+        "PhysicsMassAPI"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/boom_prim",
+      "type_name": "Xform",
+      "active": true,
+      "applied_schemas": [
+        "PhysicsRigidBodyAPI",
+        "PhysicsMassAPI"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -1.926156585341232e-07,
+          -4.386496144093144e-08,
+          -5.302248951011279e-07,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -1.926156585341232e-07,
+          -4.386496144093144e-08,
+          -5.302248951011279e-07,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/arm_prim",
+      "type_name": "Xform",
+      "active": true,
+      "applied_schemas": [
+        "PhysicsRigidBodyAPI",
+        "PhysicsMassAPI"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim",
+      "type_name": "Xform",
+      "active": true,
+      "applied_schemas": [
+        "PhysicsRigidBodyAPI",
+        "PhysicsMassAPI"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "visual_prims": [
+    {
+      "path": "/excavator_prim/track_prim/track_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:rotateZYX",
+        "xformOp:scale"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/track_prim/track_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/cab_prim/cab_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:rotateZYX",
+        "xformOp:scale"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/cab_prim/cab_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/boom_prim/boom_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:rotateZYX",
+        "xformOp:scale"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          -1.926156585341232e-07,
+          -4.386496144093144e-08,
+          -5.302248951011279e-07,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/boom_prim/boom_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          -1.926156585341232e-07,
+          -4.386496144093144e-08,
+          -5.302248951011279e-07,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/arm_prim/arm_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:rotateZYX",
+        "xformOp:scale"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/arm_prim/arm_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/bucket_without_teeth_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_front_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_back_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_front_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_back_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_front_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_back_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_back_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_front_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_back_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_front_3DGS",
+      "type_name": "ParticleField3DGaussianSplat",
+      "active": true,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:orient",
+        "xformOp:scale",
+        "xformOp:rotateX:unitsResolve"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.17364818099988272,
+          -0.9848077524245191,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077524245191,
+          -0.17364818099988272,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/bucket_with_teeth_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "ordered_xform_ops": [
+        "xformOp:translate",
+        "xformOp:rotateZYX",
+        "xformOp:scale"
+      ],
+      "local_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.1736481776669303,
+          -0.9848077530122081,
+          0.0
+        ],
+        [
+          0.0,
+          0.9848077530122081,
+          -0.1736481776669303,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "joints": [
+    {
+      "path": "/excavator_prim/Joints/boom_small_arm_joint",
+      "body0": "/excavator_prim/boom_prim",
+      "body1": "/excavator_prim/arm_prim",
+      "local_pos0": [
+        0.3242569863796234,
+        -0.4643000662326813,
+        1.0478482246398926
+      ],
+      "local_pos1": [
+        0.3242568075656891,
+        -0.46430009603500366,
+        1.0478477478027344
+      ],
+      "local_rot0": "(0.9779655, -1.6629454e-19, -0.0031810927, 0.20874245)",
+      "local_rot1": "(0.9779655, -1.6629454e-19, -0.0031810927, 0.20874245)",
+      "axis_token": "X",
+      "center0_world": [
+        0.3242567937639649,
+        -0.4643001100976427,
+        1.0478476944149975
+      ],
+      "center1_world": [
+        0.3242568075656891,
+        -0.46430009603500366,
+        1.0478477478027344
+      ],
+      "center_world_error": 5.690778382035566e-08,
+      "axis0_world": [
+        0.9128329371756365,
+        0.40828582580505474,
+        0.006221997587988823
+      ],
+      "axis1_world": [
+        0.9128329371756365,
+        0.40828582580505474,
+        0.006221997587988823
+      ],
+      "axis_world_alignment": 1.0
+    },
+    {
+      "path": "/excavator_prim/Joints/small_arm_bucket_joint",
+      "body0": "/excavator_prim/arm_prim",
+      "body1": "/excavator_prim/bucket_with_teeth_prim",
+      "local_pos0": [
+        0.41385090351104736,
+        -0.8401621580123901,
+        -0.10665646940469742
+      ],
+      "local_pos1": [
+        0.41385090351104736,
+        -0.8401621580123901,
+        -0.10665646940469742
+      ],
+      "local_rot0": "(-0.19703807, -3.574176e-18, 0.13755204, 0.9706984)",
+      "local_rot1": "(-0.19703807, -3.574176e-18, 0.13755204, 0.9706984)",
+      "axis_token": "X",
+      "center0_world": [
+        0.41385090351104736,
+        -0.8401621580123901,
+        -0.10665646940469742
+      ],
+      "center1_world": [
+        0.41385090351104736,
+        -0.8401621580123901,
+        -0.10665646940469742
+      ],
+      "center_world_error": 0.0,
+      "axis0_world": [
+        -0.9223519984399285,
+        -0.3825290878900911,
+        0.05420597653252872
+      ],
+      "axis1_world": [
+        -0.9223519984399285,
+        -0.3825290878900911,
+        0.05420597653252872
+      ],
+      "axis_world_alignment": 1.0
+    },
+    {
+      "path": "/excavator_prim/Joints/platform_boom_joint",
+      "body0": "/excavator_prim/cab_prim",
+      "body1": "/excavator_prim/boom_prim",
+      "local_pos0": [
+        -0.7674506306648254,
+        1.3535553216934204,
+        -0.06812799721956253
+      ],
+      "local_pos1": [
+        -0.7674504518508911,
+        1.3535553216934204,
+        -0.06812746822834015
+      ],
+      "local_rot0": "(0.9826341, -2.8687438e-18, 0.017102564, 0.18476383)",
+      "local_rot1": "(0.9826341, 2.8687438e-18, 0.017102564, 0.18476383)",
+      "axis_token": "X",
+      "center0_world": [
+        -0.7674506306648254,
+        1.3535553216934204,
+        -0.06812799721956253
+      ],
+      "center1_world": [
+        -0.7674506444665496,
+        1.353555277828459,
+        -0.06812799845323525
+      ],
+      "center_world_error": 4.6001569339596223e-08,
+      "axis0_world": [
+        0.9311396556405569,
+        0.3631104982270399,
+        -0.0336111257011128
+      ],
+      "axis1_world": [
+        0.9311396556405569,
+        0.3631104982270399,
+        -0.0336111257011128
+      ],
+      "axis_world_alignment": 1.0
+    },
+    {
+      "path": "/excavator_prim/Joints/track_operator_cab_joint",
+      "body0": "/excavator_prim/track_prim",
+      "body1": "/excavator_prim/cab_prim",
+      "local_pos0": [
+        -0.6488432288169861,
+        1.533059000968933,
+        -0.491243839263916
+      ],
+      "local_pos1": [
+        -0.6488432288169861,
+        1.533059000968933,
+        -0.491243839263916
+      ],
+      "local_rot0": "(0.68522954, 2.3840534e-18, 0.72763616, 0.031719085)",
+      "local_rot1": "(0.68522954, 2.3840534e-18, 0.72763616, 0.031719085)",
+      "axis_token": "X",
+      "center0_world": [
+        -0.6488432288169861,
+        1.533059000968933,
+        -0.491243839263916
+      ],
+      "center1_world": [
+        -0.6488432288169861,
+        1.533059000968933,
+        -0.491243839263916
+      ],
+      "center_world_error": 0.0,
+      "axis0_world": [
+        -0.06092095537576368,
+        0.04346970773294743,
+        -0.997195578462779
+      ],
+      "axis1_world": [
+        -0.06092095537576368,
+        0.04346970773294743,
+        -0.997195578462779
+      ],
+      "axis_world_alignment": 1.0
+    }
+  ],
+  "mesh_comparison": {
+    "combined_mesh_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/mesh_parts/\u62c6\u5206\u6210\u4e94\u90e8\u5206\u7684mesh.usd",
+    "combined_point_count": 317675,
+    "reference_point_count": 317675,
+    "reference_parts": [
+      {
+        "link_path": "/excavator_prim/track_prim",
+        "mesh_path": "/excavator_prim/track_prim/track_mesh",
+        "point_count": 101771,
+        "bounds_min": [
+          -1.6369616985321045,
+          -0.08394113183021545,
+          0.5952848196029663
+        ],
+        "bounds_max": [
+          0.30174022912979126,
+          0.8044276237487793,
+          2.6825551986694336
+        ]
+      },
+      {
+        "link_path": "/excavator_prim/cab_prim",
+        "mesh_path": "/excavator_prim/cab_prim/cab_mesh",
+        "point_count": 116099,
+        "bounds_min": [
+          -1.521133303642273,
+          -0.8470536470413208,
+          0.9694193601608276
+        ],
+        "bounds_max": [
+          0.19314177334308624,
+          0.2772964835166931,
+          2.734975576400757
+        ]
+      },
+      {
+        "link_path": "/excavator_prim/boom_prim",
+        "mesh_path": "/excavator_prim/boom_prim/boom_mesh",
+        "point_count": 57635,
+        "bounds_min": [
+          -0.7735157012939453,
+          -1.3124362230300903,
+          -0.7405341863632202
+        ],
+        "bounds_max": [
+          0.45387011766433716,
+          0.148930162191391,
+          1.5136648416519165
+        ]
+      },
+      {
+        "link_path": "/excavator_prim/arm_prim",
+        "mesh_path": "/excavator_prim/arm_prim/arm_mesh",
+        "point_count": 23764,
+        "bounds_min": [
+          0.2315116822719574,
+          -1.3608213663101196,
+          -1.0724594593048096
+        ],
+        "bounds_max": [
+          0.6025322079658508,
+          0.29063087701797485,
+          -0.5698822736740112
+        ]
+      },
+      {
+        "link_path": "/excavator_prim/bucket_with_teeth_prim",
+        "mesh_path": "/excavator_prim/bucket_with_teeth_prim/bucket_with_teeth_mesh",
+        "point_count": 18406,
+        "bounds_min": [
+          0.22153466939926147,
+          0.17644986510276794,
+          -1.2292463779449463
+        ],
+        "bounds_max": [
+          0.7476708889007568,
+          0.8809003829956055,
+          -0.7367352247238159
+        ]
+      }
+    ],
+    "point_multiset_exactly_equal": true,
+    "maximum_sorted_point_difference": 0.0
+  }
+}

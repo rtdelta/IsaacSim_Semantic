@@ -1,0 +1,17 @@
+{
+  "model": "opencv_fisheye",
+  "schemas": ["OmniLensDistortionOpenCvFisheyeAPI"],
+  "attributes": {
+    "omni:lensdistortion:opencvFisheye:fx": 500.0,
+    "omni:lensdistortion:opencvFisheye:fy": 500.0,
+    "omni:lensdistortion:opencvFisheye:cx": 640.0,
+    "omni:lensdistortion:opencvFisheye:cy": 360.0,
+    "omni:lensdistortion:opencvFisheye:k1": 0.0,
+    "omni:lensdistortion:opencvFisheye:k2": 0.0,
+    "omni:lensdistortion:opencvFisheye:k3": 0.0,
+    "omni:lensdistortion:opencvFisheye:k4": 0.0,
+    "omni:lensdistortion:opencvFisheye:imageSize": [1280, 720]
+  },
+  "warning": "Example only. Replace every value with the real calibrated intrinsics."
+}
+

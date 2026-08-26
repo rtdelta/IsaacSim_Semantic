@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "kind": "excavator_runtime_validation_blocker_report",
+  "status": "blocked_by_environment",
+  "asset_result": "not_tested",
+  "observed_at": "2026-08-12T18:12:33+08:00",
+  "remote": {
+    "ssh_alias": "isaacsim-gpufree-clone30257",
+    "isaac_sim_version": "6.0.1",
+    "kit_version": "110.1.2",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "driver_version": "580.126.09",
+    "gpu_memory_total_mib": 24564,
+    "gpu_memory_used_mib": 78,
+    "other_kit_processes_detected": false
+  },
+  "probe": {
+    "script": "tools/probe_simulation_app.py",
+    "loads_generated_usd": false,
+    "imports_generated_asset": false,
+    "headless": true,
+    "multi_gpu": false,
+    "disable_viewport_updates": true,
+    "exit_code": 139,
+    "last_started_extension": "omni.kit.async_engine-0.0.3",
+    "failure_phase": "SimulationApp startup before any Stage or asset open",
+    "backtrace_summary": "native crash in Python 3.12 _asyncio during omni.ext/Kit startup",
+    "remote_log": "/root/isaacsim/kit/logs/Kit/Isaac-Sim Python/6.0/kit_20260812_181233.log",
+    "remote_log_sha256": "b0fb376e05127591b6b71ba007babf5959cee8ccb4b3a2ab5eb666edcaa2add3"
+  },
+  "interpretation": {
+    "generated_asset_implicated": false,
+    "reason": "The same process crashes before the probe imports or opens any generated USD.",
+    "static_and_standalone_usd_validation_remains_valid": true
+  },
+  "resume_condition": "Repair or restart the remote Isaac Sim/Kit environment until tools/probe_simulation_app.py prints SIMULATION_APP_STARTED and exits successfully; then run tools/validate_excavator_runtime.py against the generated entry USD."
+}

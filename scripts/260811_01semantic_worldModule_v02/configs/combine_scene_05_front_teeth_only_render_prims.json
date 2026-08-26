@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "render_prim_paths": [
+    "/Excavator_Fangshan_03/bucket_prim/tooth_01_front_3DGS",
+    "/Excavator_Fangshan_03/bucket_prim/tooth_02_front_3DGS",
+    "/Excavator_Fangshan_03/bucket_prim/tooth_03_front_3DGS",
+    "/Excavator_Fangshan_03/bucket_prim/tooth_04_front_3DGS",
+    "/Excavator_Fangshan_03/bucket_prim/tooth_05_front_3DGS"
+  ]
+}

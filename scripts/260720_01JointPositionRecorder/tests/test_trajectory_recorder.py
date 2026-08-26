@@ -6,7 +6,11 @@ from pathlib import Path
 
 import pytest
 
-from joint_position_recorder.trajectory_recorder import ActualAngleRecorder, RecorderError
+from joint_position_recorder.trajectory_recorder import (
+    ActualAngleRecorder,
+    RecorderError,
+    RecordingState,
+)
 
 
 JOINTS = ("cab", "boom", "small_arm", "bucket")
@@ -52,3 +56,78 @@ def test_abort_retains_partial_file(tmp_path: Path) -> None:
     assert partial is not None
     assert partial.exists()
     assert not recorder.output_path.exists()
+
+
+def test_pause_resume_continues_same_csv_without_writing_paused_samples(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "angles.csv"
+    recorder = ActualAngleRecorder(output, JOINTS)
+    recorder.start((0.0, 0.0, 0.0, 0.0))
+    recorder.record(0.1, (1.0, 2.0, 3.0, 4.0))
+
+    recorder.pause()
+
+    assert recorder.state is RecordingState.PAUSED
+    assert recorder.active
+    assert not recorder.accepting_samples
+    assert "0.100000000,1.000000000,2.000000000,3.000000000,4.000000000" in (
+        recorder.partial_path.read_text(encoding="utf-8")
+    )
+    with pytest.raises(RecorderError, match="paused"):
+        recorder.record(0.2, (5.0, 6.0, 7.0, 8.0))
+
+    recorder.resume()
+    recorder.record(0.2, (5.0, 6.0, 7.0, 8.0))
+    recorder.stop()
+
+    rows = output.read_text(encoding="utf-8").splitlines()
+    assert rows == [
+        "time,cab,boom,small_arm,bucket",
+        "0.000000000,0.000000000,0.000000000,0.000000000,0.000000000",
+        "0.100000000,1.000000000,2.000000000,3.000000000,4.000000000",
+        "0.200000000,5.000000000,6.000000000,7.000000000,8.000000000",
+    ]
+
+
+def test_invalid_pause_resume_transitions_are_rejected(tmp_path: Path) -> None:
+    recorder = ActualAngleRecorder(tmp_path / "angles.csv", JOINTS)
+
+    with pytest.raises(RecorderError, match="not recording"):
+        recorder.pause()
+    with pytest.raises(RecorderError, match="not paused"):
+        recorder.resume()
+
+    recorder.start((0.0, 0.0, 0.0, 0.0))
+    with pytest.raises(RecorderError, match="not paused"):
+        recorder.resume()
+    recorder.pause()
+    with pytest.raises(RecorderError, match="not recording"):
+        recorder.pause()
+    recorder.abort()
+
+
+def test_paused_recorder_can_stop_and_publish(tmp_path: Path) -> None:
+    output = tmp_path / "angles.csv"
+    recorder = ActualAngleRecorder(output, JOINTS)
+    recorder.start((0.0, 0.0, 0.0, 0.0))
+    recorder.record(0.1, (1.0, 1.0, 1.0, 1.0))
+    recorder.pause()
+
+    recorder.stop()
+
+    assert output.exists()
+    assert recorder.state is RecordingState.IDLE
+    assert not recorder.active
+
+
+def test_paused_recorder_abort_retains_partial_file(tmp_path: Path) -> None:
+    recorder = ActualAngleRecorder(tmp_path / "angles.csv", JOINTS)
+    recorder.start((0.0, 0.0, 0.0, 0.0))
+    recorder.pause()
+
+    partial = recorder.abort()
+
+    assert partial is not None
+    assert partial.exists()
+    assert recorder.state is RecordingState.IDLE

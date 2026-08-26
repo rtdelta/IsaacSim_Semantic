@@ -1,0 +1,375 @@
+{
+  "schema_version": "1.1",
+  "source": {
+    "mesh_source_id": "combined_mesh",
+    "source_file": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/mesh_parts/拆分成五部分的mesh.usd",
+    "source_prim_path": "/World/mesh_",
+    "source_file_sha256": "99d2a09768875f0ca16b21101e3a05177dc427aa518e7ca82b3e3c11bba37703"
+  },
+  "coordinate_frame": {
+    "name": "source_mesh_numeric_frame",
+    "units_to_meters": 1.0,
+    "up_axis": "Y",
+    "object_to_source_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "joints": [
+    {
+      "id": "track_cab_joint",
+      "enabled": true,
+      "method": "reference_joint_migration_v1",
+      "center": [
+        -0.6488432288169861,
+        0.21756783975244742,
+        1.5950719874576407
+      ],
+      "axis": [
+        -0.0609209553757637,
+        0.974497501408098,
+        0.21597050017416336
+      ],
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": [
+          "track_mesh",
+          "cab_mesh"
+        ],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": {
+        "status": "passed",
+        "method": "dual_body_visual_inverse_plus_exact_current_mesh_identity",
+        "body_center_disagreement_m": 0.0,
+        "body_axis_alignment_dot": 1.0,
+        "body_axis_angle_error_deg": 0.0,
+        "mesh_line_proximity_metrics": {
+          "track_mesh": {
+            "point_count": 101771,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.03922938040814933,
+              "q001": 0.2228440860663846,
+              "q01": 0.2404563386436036,
+              "q05": 0.3363933502675378,
+              "median": 0.6411351108864197
+            },
+            "minimum_vertex_distance_to_center_m": 0.18514673395166836,
+            "axial_extent_about_center_m": [
+              -0.0951004545154405,
+              0.4157157702221623
+            ]
+          },
+          "cab_mesh": {
+            "point_count": 116099,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.016373400818660573,
+              "q001": 0.10130203853230421,
+              "q01": 0.1785704271659727,
+              "q05": 0.22440885434487445,
+              "median": 0.5763377163778459
+            },
+            "minimum_vertex_distance_to_center_m": 0.1760706076466846,
+            "axial_extent_about_center_m": [
+              -1.0235129158614855,
+              0.0009381841221365887
+            ]
+          }
+        },
+        "interpretation": "Proximity values are audit diagnostics, not a separately fitted replacement axis."
+      },
+      "provenance": {
+        "tool": "migrate_fangshan_joint_frames.py",
+        "operator": null,
+        "timestamp_utc": "2026-08-12T10:32:23.117035Z",
+        "reference_joint_path": "/excavator_prim/Joints/track_operator_cab_joint",
+        "reference_usd_sha256": "356ee413a2ed3b9cd83f5ab68811903ec3312e0c37173ed03048155f52fa156c",
+        "notes": "One-time migration. The historical localPos/localRot values were used only to recover the world rotation line; they were not copied into the new model."
+      }
+    },
+    {
+      "id": "cab_boom_joint",
+      "enabled": true,
+      "method": "reference_joint_migration_v1",
+      "center": [
+        -0.7674505412578583,
+        -0.16794969560174725,
+        1.3448220315707076
+      ],
+      "axis": [
+        0.9311396556405569,
+        -0.029952979130932825,
+        0.36343054458144686
+      ],
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": [
+          "cab_mesh",
+          "boom_mesh"
+        ],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": {
+        "status": "passed",
+        "method": "dual_body_visual_inverse_plus_exact_current_mesh_identity",
+        "body_center_disagreement_m": 5.583960390572811e-07,
+        "body_axis_alignment_dot": 1.0,
+        "body_axis_angle_error_deg": 0.0,
+        "mesh_line_proximity_metrics": {
+          "cab_mesh": {
+            "point_count": 116099,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.0006613527456779366,
+              "q001": 0.011072516828815136,
+              "q01": 0.03989761070853168,
+              "q05": 0.09950157739041887,
+              "median": 0.4343302058032639
+            },
+            "minimum_vertex_distance_to_center_m": 0.004338372537926656,
+            "axial_extent_about_center_m": [
+              -0.40655864269946795,
+              0.8464242431179073
+            ]
+          },
+          "boom_mesh": {
+            "point_count": 57635,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.039371965110849776,
+              "q001": 0.050141147184834575,
+              "q01": 0.09078563968582756,
+              "q05": 0.19208986854031634,
+              "median": 0.9435069275072752
+            },
+            "minimum_vertex_distance_to_center_m": 0.06613077564461131,
+            "axial_extent_about_center_m": [
+              0.02343663008986419,
+              0.44864864201819343
+            ]
+          }
+        },
+        "interpretation": "Proximity values are audit diagnostics, not a separately fitted replacement axis."
+      },
+      "provenance": {
+        "tool": "migrate_fangshan_joint_frames.py",
+        "operator": null,
+        "timestamp_utc": "2026-08-12T10:32:23.117035Z",
+        "reference_joint_path": "/excavator_prim/Joints/platform_boom_joint",
+        "reference_usd_sha256": "356ee413a2ed3b9cd83f5ab68811903ec3312e0c37173ed03048155f52fa156c",
+        "notes": "One-time migration. The historical localPos/localRot values were used only to recover the world rotation line; they were not copied into the new model."
+      }
+    },
+    {
+      "id": "boom_arm_joint",
+      "enabled": true,
+      "method": "reference_joint_migration_v1",
+      "center": [
+        0.32425689697265625,
+        -0.9513039578294791,
+        -0.639203212904099
+      ],
+      "axis": [
+        0.9128329371756365,
+        -0.07702556108216015,
+        0.4010026081552074
+      ],
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": [
+          "boom_mesh",
+          "arm_mesh"
+        ],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": {
+        "status": "passed",
+        "method": "dual_body_visual_inverse_plus_exact_current_mesh_identity",
+        "body_center_disagreement_m": 5.101335874025326e-07,
+        "body_axis_alignment_dot": 1.0,
+        "body_axis_angle_error_deg": 0.0,
+        "mesh_line_proximity_metrics": {
+          "boom_mesh": {
+            "point_count": 57635,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.005059688506187382,
+              "q001": 0.023836522352586164,
+              "q01": 0.05460110592476023,
+              "q05": 0.18404536314114706,
+              "median": 1.578299576493834
+            },
+            "minimum_vertex_distance_to_center_m": 0.07819752536243332,
+            "axial_extent_about_center_m": [
+              -0.2445144832137703,
+              0.15714077618907868
+            ]
+          },
+          "arm_mesh": {
+            "point_count": 23764,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.03805880981929523,
+              "q001": 0.04844652110689874,
+              "q01": 0.06846793670661862,
+              "q05": 0.13203303580597583,
+              "median": 0.6062131691199273
+            },
+            "minimum_vertex_distance_to_center_m": 0.06541740975028426,
+            "axial_extent_about_center_m": [
+              -0.14624498464352645,
+              0.13454314028821654
+            ]
+          }
+        },
+        "interpretation": "Proximity values are audit diagnostics, not a separately fitted replacement axis."
+      },
+      "provenance": {
+        "tool": "migrate_fangshan_joint_frames.py",
+        "operator": null,
+        "timestamp_utc": "2026-08-12T10:32:23.117035Z",
+        "reference_joint_path": "/excavator_prim/Joints/boom_small_arm_joint",
+        "reference_usd_sha256": "356ee413a2ed3b9cd83f5ab68811903ec3312e0c37173ed03048155f52fa156c",
+        "notes": "One-time migration. The historical localPos/localRot values were used only to recover the world rotation line; they were not copied into the new model."
+      }
+    },
+    {
+      "id": "arm_bucket_joint",
+      "enabled": true,
+      "method": "reference_joint_migration_v1",
+      "center": [
+        0.41385090351104736,
+        0.25092874566222245,
+        -0.8088775054495552
+      ],
+      "axis": [
+        -0.9223519984399285,
+        0.013043013067875246,
+        -0.38613038055038
+      ],
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": [
+          "arm_mesh",
+          "bucket_mesh"
+        ],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": {
+        "status": "passed",
+        "method": "dual_body_visual_inverse_plus_exact_current_mesh_identity",
+        "body_center_disagreement_m": 0.0,
+        "body_axis_alignment_dot": 1.0,
+        "body_axis_angle_error_deg": 0.0,
+        "mesh_line_proximity_metrics": {
+          "arm_mesh": {
+            "point_count": 23764,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.028146981533583866,
+              "q001": 0.034182224903792406,
+              "q01": 0.049333708857745795,
+              "q05": 0.13440488437567316,
+              "median": 0.6630274301969237
+            },
+            "minimum_vertex_distance_to_center_m": 0.03720313259854776,
+            "axial_extent_about_center_m": [
+              -0.10902643992677125,
+              0.12330451112901102
+            ]
+          },
+          "bucket_mesh": {
+            "point_count": 18406,
+            "radial_distance_to_axis_m": {
+              "minimum": 0.003449617075622225,
+              "q001": 0.011960496624808605,
+              "q01": 0.027420739270111433,
+              "q05": 0.0453180093552783,
+              "median": 0.35816241068735444
+            },
+            "minimum_vertex_distance_to_center_m": 0.0396409116018399,
+            "axial_extent_about_center_m": [
+              -0.2364657265546383,
+              0.2350411919542492
+            ]
+          }
+        },
+        "interpretation": "Proximity values are audit diagnostics, not a separately fitted replacement axis."
+      },
+      "provenance": {
+        "tool": "migrate_fangshan_joint_frames.py",
+        "operator": null,
+        "timestamp_utc": "2026-08-12T10:32:23.117035Z",
+        "reference_joint_path": "/excavator_prim/Joints/small_arm_bucket_joint",
+        "reference_usd_sha256": "356ee413a2ed3b9cd83f5ab68811903ec3312e0c37173ed03048155f52fa156c",
+        "notes": "One-time migration. The historical localPos/localRot values were used only to recover the world rotation line; they were not copied into the new model."
+      }
+    }
+  ],
+  "migration": {
+    "one_time_operation": true,
+    "status": "completed",
+    "normal_build_dependency": false,
+    "performed_at_utc": "2026-08-12T10:32:23.117035Z",
+    "tool": "migrate_fangshan_joint_frames.py",
+    "historical_source": {
+      "file": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/Excavator_Fangshan_01.usda",
+      "sha256": "356ee413a2ed3b9cd83f5ab68811903ec3312e0c37173ed03048155f52fa156c",
+      "role": "one-time recovery of Joint world rotation lines and motion conventions"
+    },
+    "retirement_rule": "After this calibration is reviewed and stored, normal builds read this file and must not open or fall back to the historical USD."
+  }
+}

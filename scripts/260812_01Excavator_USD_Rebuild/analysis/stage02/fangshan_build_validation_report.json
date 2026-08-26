@@ -1,0 +1,1098 @@
+{
+  "schema_version": "1.0",
+  "kind": "excavator_usd_build_report",
+  "status": "passed",
+  "historical_usd_used": false,
+  "inputs": {
+    "config": {
+      "path": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.build.json",
+      "sha256": "07c0ee82ca903815a536526013c478b527de2d01a578fda4ca52a11c2a685c2a"
+    },
+    "calibration": {
+      "path": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.joint_calibration.json",
+      "sha256": "8acc34bb563392bf5fa6bf9e25e8b75af4300befce451362904ccd8cb1c3e47f",
+      "migration_status": "completed"
+    },
+    "gaussian_source_sha256": {
+      "track_gaussian": "5723492cae47866a7dc4dc06c6080aa8be04fe191afc4e8a986397908c752c8f",
+      "cab_gaussian": "10c57f47a2f52202dd523b7541f4b93b319c822c8b6905f13a5c53bc6f4a0e77",
+      "boom_gaussian": "3d9f1ed003515fa091dcc38022a0e4bcbaac754944f75c288ea665404c1613d6",
+      "arm_gaussian": "c7bbb9b6b3e541fd7eb9deddb17474d4f1a58ee3829c50433ca82c8af458c99e",
+      "bucket_without_teeth_gaussian": "e73264ca5923e73562327bf250eb8c699fa78053d81428e0a746b1373fcd6e3c",
+      "tooth_01_front_gaussian": "9f5af66ece063c69f21c97a9fdc04844fe7e58e9bef054122cb700ace5a91855",
+      "tooth_01_back_gaussian": "1b6df55d4a4e8aebe6fc781edb68a703cb7f53c58835733cfe81d7e11170a294",
+      "tooth_02_front_gaussian": "68da29ee57a59aac86753f280ac77e66a6d674da8df436fc266b03d5224dccd5",
+      "tooth_02_back_gaussian": "159e9211aaf9d908d0e1c9ddf169781e5b4849f2b368d1f8a6cf8c9bc5180ce8",
+      "tooth_03_front_gaussian": "a3d4893103794df0ac72912e8b57eccf8b0ad09b6700b6d00f7b1a582c62d24c",
+      "tooth_03_back_gaussian": "df097f45fdaf7fff92c1b7eca71fe9690ba23a1a548d6b8f6d9d0de138c749bb",
+      "tooth_04_front_gaussian": "84a426b9ee33c4441a4c8001e09581321fab69c9b44fd07e1304b03470c343bc",
+      "tooth_04_back_gaussian": "14100ee9b9242cf5d0c71d3603771c129776a9ef49f745fca14de4a5a05f0f87",
+      "tooth_05_front_gaussian": "ae780ece479ae4a5d8d2e6f41181628a7d5b80283b5586eb759441ae7d59dd80",
+      "tooth_05_back_gaussian": "380181e4ddade9acf64ca0bccf9c22b016ebce559b85f80fb25ff6e730e888e5"
+    },
+    "mesh": {
+      "path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/mesh_parts/拆分成五部分的mesh.usd",
+      "sha256": "99d2a09768875f0ca16b21101e3a05177dc427aa518e7ca82b3e3c11bba37703"
+    },
+    "mesh_component_assignment": {
+      "path": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.mesh_component_assignment.json",
+      "sha256": "69d6e0b25a7710b88be1509d6e13f4570b9eee3b561e2d060d57f58d8207ebd5",
+      "one_time_migration_artifact": true
+    }
+  },
+  "coordinate_transform": {
+    "source_to_target_rotation": [
+      [
+        0.44005903042935046,
+        0.22642666136711223,
+        -0.8689528276953377
+      ],
+      [
+        0.8897025309672814,
+        0.021059385574873222,
+        0.4560547211351097
+      ],
+      [
+        0.12156256055214477,
+        -0.973800528497162,
+        -0.19218500089927476
+      ]
+    ],
+    "origin_source": [
+      -0.6468233061173139,
+      0.39414068233149285,
+      1.6141959885856387
+    ],
+    "offset_target": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "determinant": 1.0000000000000002,
+    "orthogonality_error": 2.220446049250313e-16,
+    "track_target_bounds": {
+      "min": [
+        -0.9363198352476332,
+        -0.6746464063901283,
+        -0.2542836356871834
+      ],
+      "max": [
+        0.9363198352476331,
+        0.6746464063901283,
+        0.2542836356871834
+      ]
+    }
+  },
+  "gaussian": {
+    "track_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/track_gaussian.usdc",
+      "prim_path": "/track_gaussian",
+      "splat_count": 70566,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        -1.622904896736145,
+        0.029850829392671585,
+        0.575160026550293
+      ],
+      "local_bounds_max": [
+        0.31214001774787903,
+        0.7923496961593628,
+        2.6815242767333984
+      ],
+      "bounds_min": [
+        -0.936319835247633,
+        -0.6746464063901283,
+        -0.2542836356871832
+      ],
+      "bounds_max": [
+        0.9363198352476333,
+        0.6746464063901283,
+        0.25428363568718354
+      ],
+      "sha256": "3b917b739315e08224e20cdd7d4a186a74d3763acc0a7f2567c3d21329537b24"
+    },
+    "cab_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/cab_gaussian.usdc",
+      "prim_path": "/cab_gaussian",
+      "splat_count": 185786,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        -1.5302155017852783,
+        -1.1838746070861816,
+        0.6689230799674988
+      ],
+      "local_bounds_max": [
+        0.2943733036518097,
+        0.3835503160953522,
+        2.737499713897705
+      ],
+      "bounds_min": [
+        -1.3123568716037686,
+        -0.6297584092689219,
+        0.18188954675229202
+      ],
+      "bounds_max": [
+        0.7802332160653315,
+        0.6762008928790688,
+        1.7819072977433625
+      ],
+      "sha256": "22f89a6523a7150e51a4a482597ffd07d327cccbe01bdb9bf3a9f03a8f18f94d"
+    },
+    "boom_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/boom_gaussian.usdc",
+      "prim_path": "/boom_gaussian",
+      "splat_count": 66794,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        -0.7353241443634033,
+        -1.312181830406189,
+        -0.7485301494598389
+      ],
+      "local_bounds_max": [
+        0.45845767855644226,
+        0.15181364119052887,
+        1.477620005607605
+      ],
+      "bounds_min": [
+        -0.020186849226079464,
+        -0.31731114575041214,
+        0.31217571703931285
+      ],
+      "bounds_max": [
+        2.1646476178239173,
+        0.11123945635296656,
+        2.222291848645546
+      ],
+      "sha256": "511b1ce79ad589beca590e6c999d4575b5f581a2cdbabe87f393761cdec9d868"
+    },
+    "arm_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/arm_gaussian.usdc",
+      "prim_path": "/arm_gaussian",
+      "splat_count": 41716,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.1062062457203865,
+        -1.3384480476379395,
+        -1.0751371383666992
+      ],
+      "local_bounds_max": [
+        0.6082251667976379,
+        0.26100093126296997,
+        -0.5610581636428833
+      ],
+      "bounds_min": [
+        1.9386769962573733,
+        -0.4272756059342883,
+        0.7144377623507668
+      ],
+      "bounds_max": [
+        2.756482120526912,
+        -0.007549642933174069,
+        2.2663484635787636
+      ],
+      "sha256": "a57ef7750a9b2c566d3c90a021e7803073820cac3e8258d0cb82b0873d91e4c7"
+    },
+    "bucket_without_teeth_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/bucket_without_teeth_gaussian.usdc",
+      "prim_path": "/bucket_without_teeth_gaussian",
+      "splat_count": 30141,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.21763117611408234,
+        0.17706362903118134,
+        -1.2459654808044434
+      ],
+      "local_bounds_max": [
+        0.7551990747451782,
+        0.798081636428833,
+        -0.7291570901870728
+      ],
+      "bounds_min": [
+        2.496273777218731,
+        -0.3918117105912206,
+        0.2202660306488459
+      ],
+      "bounds_max": [
+        2.98124239929332,
+        0.08802986449367481,
+        0.8529777451294522
+      ],
+      "sha256": "d2117fd376ce4005f20c104cfbc15a73d97f9a2a5c1b0caff9c6ef49eb2932dd"
+    },
+    "tooth_01_front_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_01_front_gaussian.usdc",
+      "prim_path": "/tooth_01_front_gaussian",
+      "splat_count": 320,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.5947827100753784,
+        0.7721008062362671,
+        -0.8163040280342102
+      ],
+      "local_bounds_max": [
+        0.646073043346405,
+        0.873239278793335,
+        -0.7502121329307556
+      ],
+      "bounds_min": [
+        2.712849605158554,
+        0.016027991969946954,
+        0.1403522086071073
+      ],
+      "bounds_max": [
+        2.757488155984738,
+        0.05742094352254687,
+        0.2503112886443318
+      ],
+      "sha256": "dc12f0923598718c36a79b12414d5c397a0b5b61d28d01f247f6dd4fe3698d35"
+    },
+    "tooth_01_back_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_01_back_gaussian.usdc",
+      "prim_path": "/tooth_01_back_gaussian",
+      "splat_count": 211,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.5976377725601196,
+        0.7832431197166443,
+        -0.8355850577354431
+      ],
+      "local_bounds_max": [
+        0.6527383923530579,
+        0.8740745186805725,
+        -0.7547932267189026
+      ],
+      "bounds_min": [
+        2.715759708780438,
+        0.01512130928335519,
+        0.14037521782648518
+      ],
+      "bounds_max": [
+        2.7814411906788172,
+        0.05749467193635337,
+        0.24339924534769491
+      ],
+      "sha256": "062c41d7c473461619ecf256a4119531ccfc87cee3476caa3878cab5cf3d4736"
+    },
+    "tooth_02_front_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_02_front_gaussian.usdc",
+      "prim_path": "/tooth_02_front_gaussian",
+      "splat_count": 323,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.5153003334999084,
+        0.7778851389884949,
+        -0.8524743318557739
+      ],
+      "local_bounds_max": [
+        0.5586565136909485,
+        0.8760836720466614,
+        -0.7908127307891846
+      ],
+      "bounds_min": [
+        2.712596762232573,
+        -0.0770806304916289,
+        0.1351537453896289
+      ],
+      "bounds_max": [
+        2.7544423171633348,
+        -0.03669371968173554,
+        0.24109812031153535
+      ],
+      "sha256": "e1f0b46ab02ee8f9c369bb5be41009fcb2f5dbc5084e1d91587df3fb2518ac09"
+    },
+    "tooth_02_back_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_02_back_gaussian.usdc",
+      "prim_path": "/tooth_02_back_gaussian",
+      "splat_count": 214,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.5135161876678467,
+        0.7856060862541199,
+        -0.8776928186416626
+      ],
+      "local_bounds_max": [
+        0.5667649507522583,
+        0.8731138110160828,
+        -0.7988226413726807
+      ],
+      "bounds_min": [
+        2.719106699661834,
+        -0.0769155329466796,
+        0.1391206198645646
+      ],
+      "bounds_max": [
+        2.780813054323715,
+        -0.03640083599785553,
+        0.23677160410314496
+      ],
+      "sha256": "ccca894b7a2716c94e7efa3cab32163b2e79eda4b20545963f56b7e83d4cfcd6"
+    },
+    "tooth_03_front_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_03_front_gaussian.usdc",
+      "prim_path": "/tooth_03_front_gaussian",
+      "splat_count": 316,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.4280736744403839,
+        0.7768275141716003,
+        -0.8934648036956787
+      ],
+      "local_bounds_max": [
+        0.47417354583740234,
+        0.8779038190841675,
+        -0.829398512840271
+      ],
+      "bounds_min": [
+        2.7085163384744737,
+        -0.16908568817529082,
+        0.13049206414635564
+      ],
+      "bounds_max": [
+        2.749376619191909,
+        -0.1290702516179309,
+        0.23918807133267495
+      ],
+      "sha256": "d45b524fb7b8a5cd77dfc0428e210518db3fd11ddf9a3d6d0968fa43ac8caa96"
+    },
+    "tooth_03_back_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_03_back_gaussian.usdc",
+      "prim_path": "/tooth_03_back_gaussian",
+      "splat_count": 235,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.4256398677825928,
+        0.786827802658081,
+        -0.9156341552734375
+      ],
+      "local_bounds_max": [
+        0.48431196808815,
+        0.8777961134910583,
+        -0.8346858024597168
+      ],
+      "bounds_min": [
+        2.712035786549684,
+        -0.1695094474366228,
+        0.13122351130804646
+      ],
+      "bounds_max": [
+        2.777464196982893,
+        -0.1296085500082909,
+        0.23620489351304053
+      ],
+      "sha256": "2f3897fc54a3cdd62ccbbcae83371759412f68b515472341e2e407c44cb55e8e"
+    },
+    "tooth_04_front_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_04_front_gaussian.usdc",
+      "prim_path": "/tooth_04_front_gaussian",
+      "splat_count": 367,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.34045588970184326,
+        0.7761849164962769,
+        -0.9303314685821533
+      ],
+      "local_bounds_max": [
+        0.39281830191612244,
+        0.8797308802604675,
+        -0.8664494752883911
+      ],
+      "bounds_min": [
+        2.702289176428581,
+        -0.2619490945746398,
+        0.12517353810791573
+      ],
+      "bounds_max": [
+        2.748467041720094,
+        -0.22057966047226624,
+        0.2370058970082306
+      ],
+      "sha256": "1380119f080c267216abeffd77ff647e1d6577cd1c20ed57c18130210a271093"
+    },
+    "tooth_04_back_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_04_back_gaussian.usdc",
+      "prim_path": "/tooth_04_back_gaussian",
+      "splat_count": 199,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.34127187728881836,
+        0.7914534211158752,
+        -0.9515893459320068
+      ],
+      "local_bounds_max": [
+        0.3993232846260071,
+        0.8773995041847229,
+        -0.8710739016532898
+      ],
+      "bounds_min": [
+        2.70652389111056,
+        -0.2652746434203026,
+        0.12786175723058654
+      ],
+      "bounds_max": [
+        2.770435827772392,
+        -0.2220615625369223,
+        0.22909428042114457
+      ],
+      "sha256": "79ec6ee63da0b6fb9973ce94c1872d5234608110e83c1053eca4e40ebdb0aa7f"
+    },
+    "tooth_05_front_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_05_front_gaussian.usdc",
+      "prim_path": "/tooth_05_front_gaussian",
+      "splat_count": 304,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.25628024339675903,
+        0.7801631093025208,
+        -0.9601300954818726
+      ],
+      "local_bounds_max": [
+        0.30356916785240173,
+        0.8760988116264343,
+        -0.9022369980812073
+      ],
+      "bounds_min": [
+        2.692299498498115,
+        -0.3504586863497257,
+        0.12496364949048516
+      ],
+      "bounds_max": [
+        2.7380954271486235,
+        -0.3147665628499131,
+        0.23007983664586756
+      ],
+      "sha256": "25c176313109fc8588f01865f0c02b192d6836a313a4d81fa30b137778338838"
+    },
+    "tooth_05_back_gaussian": {
+      "file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/gaussian_parts/tooth_05_back_gaussian.usdc",
+      "prim_path": "/tooth_05_back_gaussian",
+      "splat_count": 255,
+      "units_to_meters": 1.0,
+      "local_attributes_preserved": true,
+      "local_bounds_min": [
+        0.25710219144821167,
+        0.7891018390655518,
+        -0.9883989095687866
+      ],
+      "local_bounds_max": [
+        0.3114537298679352,
+        0.8756123185157776,
+        -0.9085296988487244
+      ],
+      "bounds_min": [
+        2.6990363368682204,
+        -0.3549528202513647,
+        0.12598922905661103
+      ],
+      "bounds_max": [
+        2.766640964413827,
+        -0.3149076708236145,
+        0.22467108692751384
+      ],
+      "sha256": "fdfb9789270926d590273e7ac7e3e160d148abdba945e927d7614ce7860a384f"
+    }
+  },
+  "mesh": {
+    "source_point_count": 317675,
+    "source_face_count": 628868,
+    "component_count": 31,
+    "emitted_face_count": 628868,
+    "parts": {
+      "track_mesh": {
+        "prim_path": "/MeshParts/track_mesh",
+        "point_count": 99879,
+        "face_count": 200806,
+        "bounds_min": [
+          -0.9219765314222116,
+          -0.6677394125128331,
+          -0.2587083086087866
+        ],
+        "bounds_max": [
+          0.8708785838198395,
+          0.6845217115990079,
+          0.2896229019351993
+        ]
+      },
+      "cab_mesh": {
+        "prim_path": "/MeshParts/cab_mesh",
+        "point_count": 114779,
+        "face_count": 229912,
+        "bounds_min": [
+          -1.2579345641191126,
+          -0.5776447219953798,
+          0.16551609840144813
+        ],
+        "bounds_max": [
+          0.6161117264546657,
+          0.6409359706510375,
+          1.2312090206970565
+        ]
+      },
+      "boom_mesh": {
+        "prim_path": "/MeshParts/boom_mesh",
+        "point_count": 57207,
+        "face_count": 114781,
+        "bounds_min": [
+          -0.04532524746849308,
+          -0.31518775599135873,
+          0.31439204053658165
+        ],
+        "bounds_max": [
+          2.1693516598862455,
+          0.12279713865143645,
+          2.219816957674283
+        ]
+      },
+      "arm_mesh": {
+        "prim_path": "/MeshParts/arm_mesh",
+        "point_count": 23661,
+        "face_count": 47013,
+        "bounds_min": [
+          1.99355882396035,
+          -0.3135183586082549,
+          0.6942105720747945
+        ],
+        "bounds_max": [
+          2.7537198042856317,
+          -0.07139661726440046,
+          2.2857006144322045
+        ]
+      },
+      "bucket_mesh": {
+        "prim_path": "/MeshParts/bucket_mesh",
+        "point_count": 18288,
+        "face_count": 36356,
+        "bounds_min": [
+          2.4971292245824706,
+          -0.3853884422802352,
+          0.12261991411598738
+        ],
+        "bounds_max": [
+          2.9768728603242365,
+          0.08482276575354149,
+          0.8533424011240911
+        ]
+      }
+    },
+    "component_assignments": [
+      {
+        "component_index": 0,
+        "face_count": 36356,
+        "vertex_count": 18288,
+        "assigned_mesh_part_id": "bucket_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.003304087819548868,
+        "minimum_reference_distance_m": 0.00042698781091394616,
+        "second_minimum_reference_distance_m": 0.003731075630462814
+      },
+      {
+        "component_index": 1,
+        "face_count": 47013,
+        "vertex_count": 23661,
+        "assigned_mesh_part_id": "arm_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.01930516218296514,
+        "minimum_reference_distance_m": 0.00042068671576187894,
+        "second_minimum_reference_distance_m": 0.01972584889872702
+      },
+      {
+        "component_index": 2,
+        "face_count": 114763,
+        "vertex_count": 57195,
+        "assigned_mesh_part_id": "boom_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.007018950970697839,
+        "minimum_reference_distance_m": 0.0005013469276058923,
+        "second_minimum_reference_distance_m": 0.007520297898303731
+      },
+      {
+        "component_index": 3,
+        "face_count": 18,
+        "vertex_count": 12,
+        "assigned_mesh_part_id": "boom_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.007237120251284721,
+        "minimum_reference_distance_m": 0.0023936870189873163,
+        "second_minimum_reference_distance_m": 0.009630807270272037
+      },
+      {
+        "component_index": 4,
+        "face_count": 101,
+        "vertex_count": 53,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.6897544114391783,
+        "minimum_reference_distance_m": 0.0016070926197694847,
+        "second_minimum_reference_distance_m": 0.6913615040589477
+      },
+      {
+        "component_index": 5,
+        "face_count": 278,
+        "vertex_count": 142,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.2091511295784431,
+        "minimum_reference_distance_m": 0.000517836375931165,
+        "second_minimum_reference_distance_m": 0.20966896595437426
+      },
+      {
+        "component_index": 6,
+        "face_count": 61,
+        "vertex_count": 32,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.27552778258586863,
+        "minimum_reference_distance_m": 0.0006776091780797831,
+        "second_minimum_reference_distance_m": 0.2762053917639484
+      },
+      {
+        "component_index": 7,
+        "face_count": 229407,
+        "vertex_count": 114475,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.00592794184935333,
+        "minimum_reference_distance_m": 0.0010956802587658476,
+        "second_minimum_reference_distance_m": 0.007023622108119178
+      },
+      {
+        "component_index": 8,
+        "face_count": 1,
+        "vertex_count": 3,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.03560231725452492,
+        "minimum_reference_distance_m": 0.004739594627583279,
+        "second_minimum_reference_distance_m": 0.0403419118821082
+      },
+      {
+        "component_index": 9,
+        "face_count": 5,
+        "vertex_count": 7,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.01059053679125646,
+        "minimum_reference_distance_m": 0.04048598601654706,
+        "second_minimum_reference_distance_m": 0.05107652280780352
+      },
+      {
+        "component_index": 10,
+        "face_count": 1,
+        "vertex_count": 3,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.235995494122266,
+        "minimum_reference_distance_m": 0.029355870210368794,
+        "second_minimum_reference_distance_m": 0.2653513643326348
+      },
+      {
+        "component_index": 11,
+        "face_count": 24,
+        "vertex_count": 14,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.0876909803512757,
+        "minimum_reference_distance_m": 0.0020394144665633663,
+        "second_minimum_reference_distance_m": 0.08973039481783907
+      },
+      {
+        "component_index": 12,
+        "face_count": 10,
+        "vertex_count": 12,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.15357081079970958,
+        "minimum_reference_distance_m": 0.04265302862033745,
+        "second_minimum_reference_distance_m": 0.19622383942004704
+      },
+      {
+        "component_index": 13,
+        "face_count": 1,
+        "vertex_count": 3,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.0009969447596240642,
+        "minimum_reference_distance_m": 0.002826119147706299,
+        "second_minimum_reference_distance_m": 0.0038230639073303634
+      },
+      {
+        "component_index": 14,
+        "face_count": 2,
+        "vertex_count": 4,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.0004391636484574069,
+        "minimum_reference_distance_m": 0.004587448118005656,
+        "second_minimum_reference_distance_m": 0.0050266117664630626
+      },
+      {
+        "component_index": 15,
+        "face_count": 1,
+        "vertex_count": 3,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.2376073697811097,
+        "minimum_reference_distance_m": 0.013182598153188512,
+        "second_minimum_reference_distance_m": 0.2507899679342982
+      },
+      {
+        "component_index": 16,
+        "face_count": 1,
+        "vertex_count": 3,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.21443629312866155,
+        "minimum_reference_distance_m": 0.017173362550774274,
+        "second_minimum_reference_distance_m": 0.23160965567943584
+      },
+      {
+        "component_index": 17,
+        "face_count": 7,
+        "vertex_count": 8,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.0,
+        "minimum_reference_distance_m": 0.01744424307400665,
+        "second_minimum_reference_distance_m": 0.01744424307400665
+      },
+      {
+        "component_index": 18,
+        "face_count": 2,
+        "vertex_count": 4,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.004542864305508524,
+        "minimum_reference_distance_m": 0.002972384352772893,
+        "second_minimum_reference_distance_m": 0.007515248658281417
+      },
+      {
+        "component_index": 19,
+        "face_count": 8,
+        "vertex_count": 9,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.00021155249731635178,
+        "minimum_reference_distance_m": 0.0019340811699607191,
+        "second_minimum_reference_distance_m": 0.002145633667277071
+      },
+      {
+        "component_index": 20,
+        "face_count": 2,
+        "vertex_count": 4,
+        "assigned_mesh_part_id": "cab_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.2407537486579594,
+        "minimum_reference_distance_m": 0.022075293539178868,
+        "second_minimum_reference_distance_m": 0.26282904219713826
+      },
+      {
+        "component_index": 21,
+        "face_count": 26,
+        "vertex_count": 15,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.1380856498473062,
+        "minimum_reference_distance_m": 0.0022144955571722184,
+        "second_minimum_reference_distance_m": 0.1403001454044784
+      },
+      {
+        "component_index": 22,
+        "face_count": 7,
+        "vertex_count": 8,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.005330423358295297,
+        "minimum_reference_distance_m": 0.05895363901976117,
+        "second_minimum_reference_distance_m": 0.06428406237805646
+      },
+      {
+        "component_index": 23,
+        "face_count": 200749,
+        "vertex_count": 99820,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.0693313542548738,
+        "minimum_reference_distance_m": 0.0006909620679439743,
+        "second_minimum_reference_distance_m": 0.07002231632281777
+      },
+      {
+        "component_index": 24,
+        "face_count": 6,
+        "vertex_count": 6,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.13007039810762677,
+        "minimum_reference_distance_m": 0.0009518410418965625,
+        "second_minimum_reference_distance_m": 0.13102223914952332
+      },
+      {
+        "component_index": 25,
+        "face_count": 3,
+        "vertex_count": 5,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.002215760355431715,
+        "minimum_reference_distance_m": 0.0016840360422481805,
+        "second_minimum_reference_distance_m": 0.0038997963976798956
+      },
+      {
+        "component_index": 26,
+        "face_count": 4,
+        "vertex_count": 6,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.023352695533725626,
+        "minimum_reference_distance_m": 0.09910110937200221,
+        "second_minimum_reference_distance_m": 0.12245380490572784
+      },
+      {
+        "component_index": 27,
+        "face_count": 4,
+        "vertex_count": 6,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.0008562495355159817,
+        "minimum_reference_distance_m": 0.003320403711811646,
+        "second_minimum_reference_distance_m": 0.004176653247327628
+      },
+      {
+        "component_index": 28,
+        "face_count": 5,
+        "vertex_count": 7,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.004208343564190446,
+        "minimum_reference_distance_m": 0.0006449061741703297,
+        "second_minimum_reference_distance_m": 0.004853249738360776
+      },
+      {
+        "component_index": 29,
+        "face_count": 1,
+        "vertex_count": 3,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": true,
+        "candidate_margin_m": 0.007229446750314122,
+        "minimum_reference_distance_m": 0.0007472644057174419,
+        "second_minimum_reference_distance_m": 0.007976711156031564
+      },
+      {
+        "component_index": 30,
+        "face_count": 1,
+        "vertex_count": 3,
+        "assigned_mesh_part_id": "track_mesh",
+        "assignment_method": "frozen_exact_historical_vertex_ownership",
+        "ambiguous_by_gaussian_margin": false,
+        "candidate_margin_m": 0.1450989791992169,
+        "minimum_reference_distance_m": 0.0030097899914787426,
+        "second_minimum_reference_distance_m": 0.14810876919069565
+      }
+    ],
+    "assignment_source": "frozen_exact_historical_vertex_ownership",
+    "sha256": "f1dc05017049921ba3816d2a16d366a6a1e43bc946d0d3f3072a34097b1f1f9f"
+  },
+  "joints": [
+    {
+      "id": "track_cab_joint",
+      "prim_path": "/Excavator/Joints/track_cab_joint",
+      "body0": "/Excavator/Links/track",
+      "body1": "/Excavator/Links/cab",
+      "center_target": [
+        -0.024251829601011188,
+        -0.014237236913596822,
+        0.1753765266202131
+      ],
+      "axis_target": [
+        0.006175222373824392,
+        0.06481515666748017,
+        -0.9978781799873189
+      ],
+      "local_frame_wxyz": [
+        0.5174430253674449,
+        -0.485118878920928,
+        0.4819260477485999,
+        0.5144508463541508
+      ]
+    },
+    {
+      "id": "cab_boom_joint",
+      "prim_path": "/Excavator/Joints/cab_boom_joint",
+      "body0": "/Excavator/Links/cab",
+      "body1": "/Excavator/Links/boom",
+      "center_target": [
+        0.05371790985428363,
+        -0.24200889925245553,
+        0.5844697856897043
+      ],
+      "axis_target": [
+        0.08717026160798214,
+        0.9935507326318446,
+        0.072514048141866
+      ],
+      "local_frame_wxyz": [
+        0.7368748206545179,
+        0.02450774345718372,
+        -0.026752102020722594,
+        0.675054956454274
+      ]
+    },
+    {
+      "id": "boom_arm_joint",
+      "prim_path": "/Excavator/Joints/boom_arm_joint",
+      "body0": "/Excavator/Links/boom",
+      "body1": "/Excavator/Links/arm",
+      "center_target": [
+        2.080785682775908,
+        -0.1920350674269097,
+        1.8613112252062722
+      ],
+      "axis_target": [
+        0.03580738637205177,
+        0.9934067962021857,
+        0.1089071546800834
+      ],
+      "local_frame_wxyz": [
+        0.7186586390970489,
+        0.03786097776343828,
+        -0.039250265526353356,
+        0.6932212658813093
+      ]
+    },
+    {
+      "id": "arm_bucket_joint",
+      "prim_path": "/Excavator/Joints/arm_bucket_joint",
+      "body0": "/Excavator/Links/arm",
+      "body1": "/Excavator/Links/bucket",
+      "center_target": [
+        2.5398688279580366,
+        -0.1643855331672649,
+        0.7340765140798461
+      ],
+      "axis_target": [
+        -0.06740695420659261,
+        -0.9964408126371772,
+        -0.05061629614612577
+      ],
+      "local_frame_wxyz": [
+        0.6826085537167111,
+        0.01849554782869603,
+        0.017286637586379015,
+        -0.7303455683881799
+      ]
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "entry_file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/outputs/fangshan_candidate/excavator_floating.usda",
+    "default_prim": "/Excavator",
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "link_count": 5,
+    "joint_count": 4,
+    "gaussian_part_count": 15,
+    "gaussian_splat_count": 397747,
+    "mesh_face_count": 628868,
+    "link_checks": [
+      {
+        "id": "track",
+        "rigid_body": true,
+        "kinematic_enabled": false,
+        "disable_gravity": true,
+        "physx_rigid_body_api_token": true
+      },
+      {
+        "id": "cab",
+        "rigid_body": true,
+        "kinematic_enabled": false,
+        "disable_gravity": true,
+        "physx_rigid_body_api_token": true
+      },
+      {
+        "id": "boom",
+        "rigid_body": true,
+        "kinematic_enabled": false,
+        "disable_gravity": true,
+        "physx_rigid_body_api_token": true
+      },
+      {
+        "id": "arm",
+        "rigid_body": true,
+        "kinematic_enabled": false,
+        "disable_gravity": true,
+        "physx_rigid_body_api_token": true
+      },
+      {
+        "id": "bucket",
+        "rigid_body": true,
+        "kinematic_enabled": false,
+        "disable_gravity": true,
+        "physx_rigid_body_api_token": true
+      }
+    ],
+    "joint_checks": [
+      {
+        "id": "track_cab_joint",
+        "center_error_m": 0.0,
+        "axis_alignment_dot": 1.0000000000000002
+      },
+      {
+        "id": "cab_boom_joint",
+        "center_error_m": 0.0,
+        "axis_alignment_dot": 1.0000000000000002
+      },
+      {
+        "id": "boom_arm_joint",
+        "center_error_m": 0.0,
+        "axis_alignment_dot": 1.0000000000000004
+      },
+      {
+        "id": "arm_bucket_joint",
+        "center_error_m": 0.0,
+        "axis_alignment_dot": 1.0000000000000002
+      }
+    ],
+    "errors": []
+  }
+}

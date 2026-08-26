@@ -1,0 +1,4 @@
+# Install a CUDA-compatible PyTorch build for the target machine.
+torch>=2.0
+triton>=2.1; platform_system == "Linux"
+

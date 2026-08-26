@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "usd": "/root/gpufree-data/wyb/StageMaterial02/Sim_Fangshan_08.usda",
   "mapping": "semantic_mapping_Sim_Fangshan_07_native.json",
   "camera_prim_path": "/root/Xform/operator_cab_mesh/Camera_01",
@@ -12,11 +12,18 @@
     "full_scene_rgb": "full_scene_excavator_rgb",
     "full_scene_semantic": "full_scene_excavator_semantic",
     "excavator_only_rgb": "excavator_only_rgb",
-    "excavator_only_semantic": "excavator_only_semantic"
+    "excavator_only_semantic": "excavator_only_semantic",
+    "front_teeth_only_rgb": "front_teeth_only_rgb",
+    "front_teeth_only_semantic": "front_teeth_only_semantic"
   },
   "excavator_only_capture": {
     "enabled": true,
     "render_prim_paths_config": "excavator_only_render_prims.json"
+  },
+  "front_teeth_only_capture": {
+    "enabled": false,
+    "render_prim_paths_config": null,
+    "save_rgb": false
   },
   "overwrite": false,
   "frames": 3,
@@ -34,7 +41,7 @@
   "joint_profile": "excavator_four_joint_articulation.json",
   "articulation_ready_timeout_steps": 240,
   "headless": true,
-  "save_runtime_ids": true,
+  "save_runtime_ids": false,
   "strict_mapping": true,
   "strict_stage": true
 }

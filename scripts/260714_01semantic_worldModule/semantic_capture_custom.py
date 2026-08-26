@@ -10,8 +10,18 @@ import omni.replicator.core as rep
 from omni.replicator.core.backends import DiskBackend
 from pxr import Usd, UsdGeom
 
-from capture_context import CaptureContext, CaptureReceipt
-from capture_launch_config import ImageOutputFolders
+from capture_context import (
+    CaptureContext,
+    CaptureOperation,
+    CaptureReceipt,
+    ProbeReceipt,
+)
+from capture_launch_config import ImageOutputFolders, VariantValidationConfig
+from direct_annotator_capture import (
+    attach_annotators,
+    build_writer_payload,
+    detach_annotators,
+)
 from semantic_dataset_writer import SemanticDatasetWriter
 
 
@@ -50,6 +60,9 @@ class SemanticCameraScheduler:
         strict_mapping: bool,
         output_folders: ImageOutputFolders,
         transparent_isolated_background: bool,
+        save_front_teeth_only_rgb: bool,
+        variant_validation: VariantValidationConfig,
+        overwrite_output: bool,
     ) -> None:
         self._app = simulation_app
         self._stage = stage
@@ -65,8 +78,12 @@ class SemanticCameraScheduler:
         self._transparent_isolated_background = bool(
             transparent_isolated_background
         )
+        self._save_front_teeth_only_rgb = bool(save_front_teeth_only_rgb)
+        self._variant_validation = variant_validation
+        self._overwrite_output = bool(overwrite_output)
         self._render_product = None
         self._writer: SemanticDatasetWriter | None = None
+        self._attached_annotators: tuple[Any, ...] = ()
         self._backend = None
         self._state = CameraSchedulerState.CREATED
         self.camera_path = ""
@@ -138,10 +155,22 @@ class SemanticCameraScheduler:
             strict_mapping=self._strict_mapping,
             output_folders=self._output_folders,
             transparent_isolated_background=self._transparent_isolated_background,
+            save_front_teeth_only_rgb=self._save_front_teeth_only_rgb,
+            variant_validation=self._variant_validation,
+            overwrite_output=self._overwrite_output,
         )
-        self._writer.attach(self._render_product)
+        # Attach annotators directly to the persistent RenderProduct.  The
+        # custom Writer is called synchronously after each blocking render, so
+        # no Replicator OgnWriter/WriterSyncGate graph is created.
+        self._attached_annotators = attach_annotators(
+            self._writer.annotators,
+            self._render_product,
+        )
         self._state = CameraSchedulerState.WRITER_ATTACHED
-        print("[semantic-camera] Writer attached after warmup")
+        print(
+            "[semantic-camera] Writer attached after warmup "
+            "with direct synchronized annotator capture"
+        )
 
     def capture(self, context: CaptureContext) -> CaptureReceipt:
         self._require_state(
@@ -154,18 +183,96 @@ class SemanticCameraScheduler:
             raise RuntimeError(
                 f"CaptureContext camera {context.camera_path} does not match {self.camera_path}"
             )
-        self._writer.arm_capture(context)
+        if context.operation is not CaptureOperation.CAPTURE:
+            raise ValueError("capture() requires a CAPTURE context")
+        self._render_once(context, rt_subframes=self._rt_subframes)
+        receipt = self._writer.require_completed(context.frame_id, context.variant)
+        self._state = CameraSchedulerState.CAPTURING
+        return receipt
+
+    def probe(self, context: CaptureContext, *, rt_subframes: int) -> ProbeReceipt:
+        """Render through the real Writer graph without publishing dataset files."""
+        self._require_state(
+            CameraSchedulerState.WRITER_ATTACHED,
+            CameraSchedulerState.CAPTURING,
+        )
+        if self._render_product is None or self._writer is None:
+            raise RuntimeError("SemanticCameraScheduler is not fully initialized")
+        if context.camera_path != self.camera_path:
+            raise RuntimeError(
+                f"CaptureContext camera {context.camera_path} does not match {self.camera_path}"
+            )
+        if context.operation is not CaptureOperation.PROBE:
+            raise ValueError("probe() requires a PROBE context")
+        if rt_subframes < 1:
+            raise ValueError("rt_subframes must be greater than or equal to 1")
+        self._render_once(context, rt_subframes=int(rt_subframes))
+        receipt = self._writer.require_probe_completed(context)
+        self._state = CameraSchedulerState.CAPTURING
+        return receipt
+
+    def _render_once(self, context: CaptureContext, *, rt_subframes: int) -> None:
+        if self._writer is None:
+            raise RuntimeError("SemanticCameraScheduler Writer is missing")
+        if self._writer.pending_count:
+            raise RuntimeError(
+                "Writer must be idle before arming a RenderProduct request"
+            )
+        self._writer.arm_render(context)
         rep.orchestrator.step(
-            rt_subframes=self._rt_subframes,
+            rt_subframes=rt_subframes,
             delta_time=0.0,
             pause_timeline=False,
+            wait_for_render=True,
         )
         # Blocking frame synchronization is deliberate in the correctness-first
         # implementation. Queued/asynchronous capture can be added after parity.
         rep.orchestrator.wait_until_complete()
-        receipt = self._writer.require_completed(context.frame_id, context.variant)
-        self._state = CameraSchedulerState.CAPTURING
-        return receipt
+        self._writer.write(
+            build_writer_payload(self._attached_annotators, self._render_product)
+        )
+        self._writer.wait_until_done()
+        if self._writer.pending_count:
+            raise RuntimeError(
+                f"Writer still has {self._writer.pending_count} pending request(s) "
+                f"after frame {context.frame_id}/{context.variant.value}/"
+                f"{context.operation.value}"
+            )
+
+    def reconnect_annotators(self) -> None:
+        """Rebuild direct annotator bindings without recreating the Stage/process."""
+        self._require_state(
+            CameraSchedulerState.WRITER_ATTACHED,
+            CameraSchedulerState.CAPTURING,
+        )
+        if self._render_product is None or self._writer is None:
+            raise RuntimeError("SemanticCameraScheduler is not fully initialized")
+        if self._writer.pending_count:
+            raise RuntimeError("Cannot reconnect annotators while a request is pending")
+        if self._attached_annotators:
+            detach_annotators(self._attached_annotators, self._render_product)
+            self._attached_annotators = ()
+            self._app.update()
+        self._attached_annotators = attach_annotators(
+            self._writer.annotators,
+            self._render_product,
+        )
+        self._app.update()
+        print("[semantic-camera] Direct annotators reconnected for recovery")
+
+    def commit_frame(
+        self,
+        frame_id: int,
+        receipts: tuple[CaptureReceipt, ...] | list[CaptureReceipt],
+    ) -> None:
+        if self._writer is None:
+            raise RuntimeError("SemanticCameraScheduler Writer is missing")
+        self._writer.commit_frame(frame_id, receipts)
+
+    def discard_frame(self, frame_id: int) -> None:
+        if self._writer is None:
+            return
+        self._writer.discard_frame(frame_id)
 
     @staticmethod
     def reset_render_history() -> None:
@@ -179,6 +286,8 @@ class SemanticCameraScheduler:
 
     def wait_until_complete(self) -> None:
         rep.orchestrator.wait_until_complete()
+        if self._writer is not None:
+            self._writer.wait_until_done()
         if self._writer is not None and self._writer.pending_count:
             raise RuntimeError(
                 f"Writer still has {self._writer.pending_count} pending CaptureContext(s)"
@@ -223,13 +332,21 @@ class SemanticCameraScheduler:
             "completed_by_variant": (
                 self._writer.completed_by_variant if self._writer is not None else {}
             ),
+            "completed_probes": (
+                self._writer.completed_probe_count if self._writer is not None else 0
+            ),
+            "committed_frames": (
+                self._writer.committed_frame_count if self._writer is not None else 0
+            ),
         }
 
     def close(self) -> None:
         if self._state is CameraSchedulerState.CLOSED:
             return
+        if self._attached_annotators and self._render_product is not None:
+            detach_annotators(self._attached_annotators, self._render_product)
+            self._attached_annotators = ()
         if self._writer is not None:
-            self._writer.detach()
             self._writer = None
         if self._render_product is not None:
             self._render_product.destroy()

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Sequence
 
@@ -7,6 +8,7 @@ import pytest
 
 from joint_position_recorder.config import load_project_config
 from joint_position_recorder.controller import MotionController, MotionState
+from joint_position_recorder.trajectory_recorder import RecordingState
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -114,3 +116,82 @@ def test_controller_records_adapter_read_back(tmp_path: Path, configured_control
 
     rows = output.read_text(encoding="utf-8").splitlines()
     assert rows[-1] == "0.020000000,1.000000000,2.000000000,3.000000000,4.000000000"
+
+
+def test_pause_excludes_time_and_resume_records_actual_position(
+    tmp_path: Path, configured_controller
+) -> None:
+    controller, adapter = configured_controller
+    output = tmp_path / "actual.csv"
+    controller.start_recording(output, {"test": True})
+    adapter.positions = (1.0, 2.0, 3.0, 4.0)
+    controller.update(0.02)
+
+    paused = controller.pause_recording()
+    adapter.positions = (10.0, 20.0, 30.0, 40.0)
+    during_pause = controller.update(1.0)
+
+    assert paused.recording_state is RecordingState.PAUSED
+    assert during_pause.recording
+    assert during_pause.recorded_samples == 2
+    assert during_pause.recording_elapsed_seconds == pytest.approx(0.02)
+    assert during_pause.excluded_pause_duration_seconds == pytest.approx(0.05)
+    assert tuple(during_pause.current_degrees.values()) == pytest.approx(adapter.positions)
+
+    controller.resume_recording()
+    adapter.positions = (11.0, 21.0, 31.0, 41.0)
+    resumed = controller.update(0.03)
+    controller.stop_recording()
+
+    assert resumed.recording_state is RecordingState.RECORDING
+    assert resumed.recorded_samples == 3
+    rows = output.read_text(encoding="utf-8").splitlines()
+    assert rows[-2] == "0.020000000,1.000000000,2.000000000,3.000000000,4.000000000"
+    assert rows[-1] == "0.050000000,11.000000000,21.000000000,31.000000000,41.000000000"
+    metadata = json.loads(output.with_name("actual.metadata.json").read_text(encoding="utf-8"))
+    assert metadata["pause_count"] == 1
+    assert metadata["excluded_pause_duration_seconds"] == pytest.approx(0.05)
+    assert metadata["trajectory_duration_seconds"] == pytest.approx(0.05)
+    assert metadata["recording_time_policy"] == "exclude_paused_intervals"
+    assert metadata["position_priority"] == "actual_readback_no_interpolation"
+
+
+def test_motion_continues_while_recording_is_paused(
+    tmp_path: Path, configured_controller
+) -> None:
+    controller, adapter = configured_controller
+    controller.start_recording(tmp_path / "actual.csv", {})
+    controller.pause_recording()
+    controller.start_motion(
+        {"cab": 1.0, "boom": 1.0, "small_arm": -1.0, "bucket": 0.5},
+        {"cab": 2.0, "boom": 4.0, "small_arm": 1.0, "bucket": 1.0},
+    )
+
+    snapshot = controller.update(0.05)
+
+    assert snapshot.state is MotionState.MOVING
+    assert snapshot.recording_state is RecordingState.PAUSED
+    assert snapshot.recorded_samples == 1
+    assert adapter.positions == pytest.approx((0.1, 0.2, -0.05, 0.05))
+    controller.abort_recording()
+
+
+def test_paused_controller_rejects_new_start_and_can_publish(
+    tmp_path: Path, configured_controller
+) -> None:
+    controller, _ = configured_controller
+    output = tmp_path / "actual.csv"
+    controller.start_recording(output, {})
+    controller.update(0.02)
+    controller.pause_recording()
+
+    with pytest.raises(RuntimeError, match="already active"):
+        controller.start_recording(tmp_path / "other.csv", {})
+
+    published = controller.stop_recording()
+
+    assert published == output.resolve()
+    snapshot = controller.snapshot()
+    assert snapshot.recording_state is RecordingState.IDLE
+    assert not snapshot.recording
+    assert snapshot.recording_elapsed_seconds == 0.0

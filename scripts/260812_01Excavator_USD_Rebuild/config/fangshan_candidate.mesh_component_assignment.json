@@ -1,0 +1,232 @@
+{
+  "schema_version": "1.0",
+  "kind": "exact_mesh_component_assignment",
+  "one_time_migration_artifact": true,
+  "normal_build_dependency": true,
+  "source": {
+    "file_sha256": "99d2a09768875f0ca16b21101e3a05177dc427aa518e7ca82b3e3c11bba37703",
+    "prim_path": "/World/mesh_",
+    "point_count": 317675,
+    "face_count": 628868
+  },
+  "component_count": 31,
+  "assignments": [
+    {
+      "component_index": 0,
+      "face_count": 36356,
+      "vertex_count": 18288,
+      "mesh_part_id": "bucket_mesh",
+      "historical_link_id": "bucket"
+    },
+    {
+      "component_index": 1,
+      "face_count": 47013,
+      "vertex_count": 23661,
+      "mesh_part_id": "arm_mesh",
+      "historical_link_id": "arm"
+    },
+    {
+      "component_index": 2,
+      "face_count": 114763,
+      "vertex_count": 57195,
+      "mesh_part_id": "boom_mesh",
+      "historical_link_id": "boom"
+    },
+    {
+      "component_index": 3,
+      "face_count": 18,
+      "vertex_count": 12,
+      "mesh_part_id": "boom_mesh",
+      "historical_link_id": "boom"
+    },
+    {
+      "component_index": 4,
+      "face_count": 101,
+      "vertex_count": 53,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 5,
+      "face_count": 278,
+      "vertex_count": 142,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 6,
+      "face_count": 61,
+      "vertex_count": 32,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 7,
+      "face_count": 229407,
+      "vertex_count": 114475,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 8,
+      "face_count": 1,
+      "vertex_count": 3,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 9,
+      "face_count": 5,
+      "vertex_count": 7,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 10,
+      "face_count": 1,
+      "vertex_count": 3,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 11,
+      "face_count": 24,
+      "vertex_count": 14,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 12,
+      "face_count": 10,
+      "vertex_count": 12,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 13,
+      "face_count": 1,
+      "vertex_count": 3,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 14,
+      "face_count": 2,
+      "vertex_count": 4,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 15,
+      "face_count": 1,
+      "vertex_count": 3,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 16,
+      "face_count": 1,
+      "vertex_count": 3,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 17,
+      "face_count": 7,
+      "vertex_count": 8,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 18,
+      "face_count": 2,
+      "vertex_count": 4,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 19,
+      "face_count": 8,
+      "vertex_count": 9,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 20,
+      "face_count": 2,
+      "vertex_count": 4,
+      "mesh_part_id": "cab_mesh",
+      "historical_link_id": "cab"
+    },
+    {
+      "component_index": 21,
+      "face_count": 26,
+      "vertex_count": 15,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 22,
+      "face_count": 7,
+      "vertex_count": 8,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 23,
+      "face_count": 200749,
+      "vertex_count": 99820,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 24,
+      "face_count": 6,
+      "vertex_count": 6,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 25,
+      "face_count": 3,
+      "vertex_count": 5,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 26,
+      "face_count": 4,
+      "vertex_count": 6,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 27,
+      "face_count": 4,
+      "vertex_count": 6,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 28,
+      "face_count": 5,
+      "vertex_count": 7,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 29,
+      "face_count": 1,
+      "vertex_count": 3,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    },
+    {
+      "component_index": 30,
+      "face_count": 1,
+      "vertex_count": 3,
+      "mesh_part_id": "track_mesh",
+      "historical_link_id": "track"
+    }
+  ]
+}

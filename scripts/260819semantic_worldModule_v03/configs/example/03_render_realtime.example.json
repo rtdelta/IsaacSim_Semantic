@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "realtime_pathtracing_example",
+  "renderer": "RealTimePathTracing",
+  "launch_settings": {
+    "anti_aliasing": 3,
+    "denoiser": true
+  },
+  "settings": {
+    "/rtx/rendermode": "RealTimePathTracing",
+    "/rtx/post/dlss/execMode": 2
+  }
+}

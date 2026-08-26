@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "name": "quality_dlss_720p",
+  "renderer": "RaytracedLighting",
+  "rt_subframes": 16,
+  "settings": {
+    "rtx/post/dlss/execMode": 2
+  },
+  "required_settings": [
+    "rtx/post/dlss/execMode"
+  ],
+  "metadata": {
+    "status": "legacy",
+    "antialiasing": "DLSS",
+    "dlss_mode": "Quality",
+    "motion_blur_policy": "must_be_verified_off",
+    "depth_of_field_policy": "must_be_verified_off",
+    "purpose": "First production-quality candidate; validate against native AA before release"
+  }
+}

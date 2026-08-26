@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "profile_name": "combine_scene_05_excavator_fangshan_03",
+  "articulation_root_path": "/Excavator_Fangshan_03/track_prim",
+  "require_fixed_base": false,
+  "require_floating_base": true,
+  "root_pose_playback_supported": true,
+  "forbid_angular_drives": true,
+  "readback_tolerance_degrees": 0.05,
+  "trajectory_metadata": {
+    "sidecar_suffix": ".metadata.json",
+    "angle_unit": "degree",
+    "compatible_control_modes": [
+      "articulation_direct_joint_position_and_root_pose"
+    ],
+    "require_profile_match": true,
+    "compatible_recorder_profiles": [],
+    "require_root_motion_metadata": true
+  },
+  "joints": [
+    {
+      "logical_name": "cab",
+      "candidate_names": ["track_operator_cab_joint"],
+      "candidate_paths": ["/Excavator_Fangshan_03/Joints/track_operator_cab_joint"],
+      "safety_margin_degrees": 2.0
+    },
+    {
+      "logical_name": "boom",
+      "candidate_names": ["platform_boom_joint"],
+      "candidate_paths": ["/Excavator_Fangshan_03/Joints/platform_boom_joint"],
+      "safety_margin_degrees": 2.0
+    },
+    {
+      "logical_name": "small_arm",
+      "candidate_names": ["boom_small_arm_joint"],
+      "candidate_paths": ["/Excavator_Fangshan_03/Joints/boom_small_arm_joint"],
+      "safety_margin_degrees": 2.0
+    },
+    {
+      "logical_name": "bucket",
+      "candidate_names": ["small_arm_bucket_joint"],
+      "candidate_paths": ["/Excavator_Fangshan_03/Joints/small_arm_bucket_joint"],
+      "safety_margin_degrees": 2.0
+    }
+  ]
+}

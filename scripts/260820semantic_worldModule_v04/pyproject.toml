@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-world-v04"
+version = "0.1.0"
+description = "Modular Omniverse Kit capture studio and headless Isaac Sim runtime."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Proprietary" }
+authors = [{ name = "Semantic World Module Team" }]
+
+[project.scripts]
+semantic-world-project = "semantic_world_v04.cli.project_cli:main"
+semantic-world-supervisor = "semantic_world_v04.cli.supervisor_cli:main"
+semantic-world-worker = "semantic_world_v04.runtime.worker_cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

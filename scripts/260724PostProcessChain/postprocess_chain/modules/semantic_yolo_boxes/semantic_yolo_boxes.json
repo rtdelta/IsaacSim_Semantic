@@ -8,13 +8,37 @@
   "targets": [
     {
       "yolo_id": 0,
-      "yolo_name": "tooth",
+      "yolo_name": "tooth_01",
       "semantic_labels": [
-        "tooth_1_front_3DGS",
-        "tooth_2_front_3DGS",
-        "tooth_3_front_3DGS",
-        "tooth_4_front_3DGS",
-        "tooth_5_front_3DGS"
+        "teeth_01_front_3DGS"
+      ]
+    },
+    {
+      "yolo_id": 1,
+      "yolo_name": "tooth_02",
+      "semantic_labels": [
+        "teeth_02_front_3DGS"
+      ]
+    },
+    {
+      "yolo_id": 2,
+      "yolo_name": "tooth_03",
+      "semantic_labels": [
+        "teeth_03_front_3DGS"
+      ]
+    },
+    {
+      "yolo_id": 3,
+      "yolo_name": "tooth_04",
+      "semantic_labels": [
+        "teeth_04_front_3DGS"
+      ]
+    },
+    {
+      "yolo_id": 4,
+      "yolo_name": "tooth_05",
+      "semantic_labels": [
+        "teeth_05_front_3DGS"
       ]
     }
   ]

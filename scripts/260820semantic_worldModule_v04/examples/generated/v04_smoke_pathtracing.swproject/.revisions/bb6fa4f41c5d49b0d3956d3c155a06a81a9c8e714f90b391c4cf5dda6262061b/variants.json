@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "variants": [
+    {
+      "enabled": true,
+      "exclude_paths": [],
+      "include_paths": [],
+      "modalities_by_sensor": {
+        "boom_camera": [
+          "rgb",
+          "semantic_id",
+          "semantic_color"
+        ]
+      },
+      "options": {},
+      "protected_paths": [],
+      "strategy": "full_scene",
+      "variant_id": "full_scene"
+    },
+    {
+      "enabled": true,
+      "exclude_paths": [],
+      "include_paths": [
+        "/Environment",
+        "/Excavator_Fangshan_03"
+      ],
+      "modalities_by_sensor": {
+        "boom_camera": [
+          "semantic_id",
+          "semantic_color"
+        ]
+      },
+      "options": {},
+      "protected_paths": [],
+      "strategy": "include_paths",
+      "variant_id": "excavator_only"
+    }
+  ]
+}

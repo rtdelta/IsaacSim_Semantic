@@ -1,0 +1,23 @@
+[package]
+version = "0.1.0"
+category = "Synthetic Data"
+title = "Semantic Capture Studio"
+description = "Project editor and same-host job launcher for Semantic World Module v04."
+authors = ["Semantic World Module Team"]
+keywords = ["usd", "capture", "semantic", "sensor"]
+writeTarget.kit = true
+
+[dependencies]
+"omni.kit.menu.utils" = {}
+"omni.kit.viewport.utility" = {}
+"omni.usd" = {}
+
+[[python.module]]
+path = "../../src"
+
+[[python.module]]
+name = "semantic.capture.studio"
+path = "."
+
+[[test]]
+name = "startup"

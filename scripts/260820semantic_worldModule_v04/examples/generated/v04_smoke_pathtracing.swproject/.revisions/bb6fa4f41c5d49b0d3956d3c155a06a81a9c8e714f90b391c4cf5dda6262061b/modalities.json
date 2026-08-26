@@ -1,0 +1,23 @@
+{
+  "modalities": [
+    {
+      "enabled": true,
+      "modality_id": "rgb",
+      "options": {},
+      "plugin": "rgb"
+    },
+    {
+      "enabled": true,
+      "modality_id": "semantic_id",
+      "options": {},
+      "plugin": "semantic_id"
+    },
+    {
+      "enabled": true,
+      "modality_id": "semantic_color",
+      "options": {},
+      "plugin": "semantic_color"
+    }
+  ],
+  "schema_version": 1
+}

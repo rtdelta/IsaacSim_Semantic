@@ -1,0 +1,122 @@
+{
+  "compiled_at_utc": "2026-08-20T04:09:40.565151Z",
+  "content_digest": "c4b0eaf8fa140d29215d785de6f2a65af2bef98929484f226e00b366de6606d0",
+  "job_id": "job-v04-realtime-smoke",
+  "project": {
+    "capture": {
+      "capture_fps": 10,
+      "capture_initial_frame": true,
+      "frame_count": 1,
+      "physics_hz": 60,
+      "segment_frames": 1,
+      "start_frame": 0
+    },
+    "description": "",
+    "modalities": [
+      {
+        "enabled": true,
+        "modality_id": "rgb",
+        "options": {},
+        "plugin": "rgb"
+      },
+      {
+        "enabled": true,
+        "modality_id": "semantic_id",
+        "options": {},
+        "plugin": "semantic_id"
+      },
+      {
+        "enabled": true,
+        "modality_id": "semantic_color",
+        "options": {},
+        "plugin": "semantic_color"
+      }
+    ],
+    "motion": {
+      "options": {},
+      "plugin": "none",
+      "source_path": null,
+      "supports_absolute_seek": false
+    },
+    "name": "v04 RayTracedLighting smoke",
+    "output": {
+      "atomic_frames": true,
+      "overwrite": false,
+      "retain_staging_on_failure": true,
+      "root_dir": "/root/gpufree-data/semantic/output/v04_smoke"
+    },
+    "project_id": "v04-smoke-realtime",
+    "render": {
+      "denoiser": true,
+      "max_bounces": 2,
+      "renderer": "RayTracedLighting",
+      "resolution_height": 180,
+      "resolution_width": 320,
+      "rt_subframes": 1,
+      "settings": {},
+      "spp_per_frame": 1,
+      "total_spp": 1,
+      "warmup_frames": 4
+    },
+    "schema_version": 1,
+    "semantics": {
+      "background_id": 0,
+      "label_attribute": "class",
+      "mapping_path": null,
+      "options": {}
+    },
+    "sensors": [
+      {
+        "enabled": true,
+        "parameter_sources": {},
+        "parameters": {},
+        "plugin": "pinhole_camera",
+        "prim_path": "/Excavator_Fangshan_03/boom_prim/Camera",
+        "sensor_id": "boom_camera"
+      }
+    ],
+    "stage": {
+      "load_payloads": true,
+      "meters_per_unit_override": null,
+      "usd_path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda"
+    },
+    "variants": [
+      {
+        "enabled": true,
+        "exclude_paths": [],
+        "include_paths": [],
+        "modalities_by_sensor": {
+          "boom_camera": [
+            "rgb",
+            "semantic_id",
+            "semantic_color"
+          ]
+        },
+        "options": {},
+        "protected_paths": [],
+        "strategy": "full_scene",
+        "variant_id": "full_scene"
+      },
+      {
+        "enabled": true,
+        "exclude_paths": [],
+        "include_paths": [
+          "/Environment",
+          "/Excavator_Fangshan_03"
+        ],
+        "modalities_by_sensor": {
+          "boom_camera": [
+            "semantic_id",
+            "semantic_color"
+          ]
+        },
+        "options": {},
+        "protected_paths": [],
+        "strategy": "include_paths",
+        "variant_id": "excavator_only"
+      }
+    ]
+  },
+  "schema_version": 1,
+  "source_project_path": "examples/generated/v04_smoke_realtime.swproject"
+}

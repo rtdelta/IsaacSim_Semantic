@@ -1,0 +1,1033 @@
+{
+  "schema_version": "1.0",
+  "kind": "fangshan_one_time_joint_migration_report",
+  "status": "passed",
+  "one_time_operation": true,
+  "normal_build_dependency": false,
+  "performed_at_utc": "2026-08-12T10:32:23.117035Z",
+  "inputs": {
+    "historical_usd": {
+      "path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/Excavator_Fangshan_01.usda",
+      "sha256": "356ee413a2ed3b9cd83f5ab68811903ec3312e0c37173ed03048155f52fa156c"
+    },
+    "current_combined_mesh": {
+      "path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/mesh_parts/拆分成五部分的mesh.usd",
+      "sha256": "99d2a09768875f0ca16b21101e3a05177dc427aa518e7ca82b3e3c11bba37703"
+    },
+    "current_ply_directory": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts"
+  },
+  "frame_proofs": {
+    "current_mesh_equals_historical_five_mesh_vertex_multiset": {
+      "passed": true,
+      "point_count": 317675,
+      "maximum_sorted_point_difference_m": 0.0
+    },
+    "current_ply_equals_historical_gaussian_numeric_frame": {
+      "passed": true,
+      "mapping_convention": "historical_position = current_ply_position @ row_rotation + translation",
+      "point_count": 397747,
+      "row_rotation": [
+        [
+          1.0,
+          1.0331537381599289e-16,
+          -3.8491601078315663e-16
+        ],
+        [
+          -1.2258871842127433e-16,
+          0.9999999999999999,
+          8.29796427312007e-17
+        ],
+        [
+          -1.7714912990145213e-16,
+          2.0871954788521986e-16,
+          1.0
+        ]
+      ],
+      "translation": [
+        1.6653345369377348e-16,
+        -1.5265566588595902e-16,
+        -1.1102230246251565e-16
+      ],
+      "determinant": 0.9999999999999999,
+      "maximum_error_m": 7.385278330912554e-16,
+      "rms_error_m": 3.7051815138776784e-16,
+      "parts": [
+        {
+          "part_id": "track",
+          "point_count": 70566,
+          "maximum_error_m": 1.3517848686956847e-15,
+          "rms_error_m": 5.457066354080983e-16
+        },
+        {
+          "part_id": "cab",
+          "point_count": 185786,
+          "maximum_error_m": 9.485749680535094e-16,
+          "rms_error_m": 3.5152315394210717e-16
+        },
+        {
+          "part_id": "boom",
+          "point_count": 66794,
+          "maximum_error_m": 3.3306690738754696e-16,
+          "rms_error_m": 1.8853553738591057e-16
+        },
+        {
+          "part_id": "arm",
+          "point_count": 41716,
+          "maximum_error_m": 5.23691153334427e-16,
+          "rms_error_m": 1.9925623133682388e-16
+        },
+        {
+          "part_id": "bucket_without_teeth",
+          "point_count": 30141,
+          "maximum_error_m": 2.482534153247273e-16,
+          "rms_error_m": 9.14289639160971e-17
+        },
+        {
+          "part_id": "tooth_01_front",
+          "point_count": 320,
+          "maximum_error_m": 1.1102230246251565e-16,
+          "rms_error_m": 5.822058658345462e-17
+        },
+        {
+          "part_id": "tooth_01_back",
+          "point_count": 211,
+          "maximum_error_m": 1.5700924586837752e-16,
+          "rms_error_m": 8.476597424483471e-17
+        },
+        {
+          "part_id": "tooth_02_front",
+          "point_count": 323,
+          "maximum_error_m": 1.5700924586837752e-16,
+          "rms_error_m": 1.0717468517334149e-16
+        },
+        {
+          "part_id": "tooth_02_back",
+          "point_count": 214,
+          "maximum_error_m": 1.1102230246251565e-16,
+          "rms_error_m": 4.616408214746842e-17
+        },
+        {
+          "part_id": "tooth_03_front",
+          "point_count": 316,
+          "maximum_error_m": 0.0,
+          "rms_error_m": 0.0
+        },
+        {
+          "part_id": "tooth_03_back",
+          "point_count": 235,
+          "maximum_error_m": 1.2412670766236366e-16,
+          "rms_error_m": 8.422575943618743e-17
+        },
+        {
+          "part_id": "tooth_04_front",
+          "point_count": 367,
+          "maximum_error_m": 1.9229626863835638e-16,
+          "rms_error_m": 1.0012657610168096e-16
+        },
+        {
+          "part_id": "tooth_04_back",
+          "point_count": 199,
+          "maximum_error_m": 2.220446049250313e-16,
+          "rms_error_m": 9.59062518370691e-17
+        },
+        {
+          "part_id": "tooth_05_front",
+          "point_count": 304,
+          "maximum_error_m": 5.551115123125783e-17,
+          "rms_error_m": 3.1996621892673116e-17
+        },
+        {
+          "part_id": "tooth_05_back",
+          "point_count": 255,
+          "maximum_error_m": 1.6653345369377348e-16,
+          "rms_error_m": 9.55176479499024e-17
+        }
+      ]
+    }
+  },
+  "mesh_component_assignment": {
+    "path": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.mesh_component_assignment.json",
+    "component_count": 31,
+    "method": "exact historical Link vertex ownership"
+  },
+  "joints": [
+    {
+      "joint_id": "track_cab_joint",
+      "reference_joint_path": "/excavator_prim/Joints/track_operator_cab_joint",
+      "body_links": [
+        "track",
+        "cab"
+      ],
+      "center_source_mesh_numeric_frame": [
+        -0.6488432288169861,
+        0.21756783975244742,
+        1.5950719874576407
+      ],
+      "axis_source_mesh_numeric_frame": [
+        -0.0609209553757637,
+        0.974497501408098,
+        0.21597050017416336
+      ],
+      "body_center_disagreement_m": 0.0,
+      "body_axis_alignment_dot": 1.0,
+      "body_axis_angle_error_deg": 0.0,
+      "historical_side_evidence": [
+        {
+          "body_path": "/excavator_prim/track_prim",
+          "mesh_path": "/excavator_prim/track_prim/track_mesh",
+          "local_pos": [
+            -0.6488432288169861,
+            1.533059000968933,
+            -0.491243839263916
+          ],
+          "local_rot": "(0.68522954, 2.3840534e-18, 0.72763616, 0.031719085)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "center_world": [
+            -0.6488432288169861,
+            1.533059000968933,
+            -0.491243839263916
+          ],
+          "axis_world": [
+            -0.06092095537576368,
+            0.04346970773294743,
+            -0.997195578462779
+          ],
+          "center_source": [
+            -0.6488432288169861,
+            0.21756783975244742,
+            1.5950719874576407
+          ],
+          "axis_source": [
+            -0.0609209553757637,
+            0.974497501408098,
+            0.21597050017416336
+          ]
+        },
+        {
+          "body_path": "/excavator_prim/cab_prim",
+          "mesh_path": "/excavator_prim/cab_prim/cab_mesh",
+          "local_pos": [
+            -0.6488432288169861,
+            1.533059000968933,
+            -0.491243839263916
+          ],
+          "local_rot": "(0.68522954, 2.3840534e-18, 0.72763616, 0.031719085)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "center_world": [
+            -0.6488432288169861,
+            1.533059000968933,
+            -0.491243839263916
+          ],
+          "axis_world": [
+            -0.06092095537576368,
+            0.04346970773294743,
+            -0.997195578462779
+          ],
+          "center_source": [
+            -0.6488432288169861,
+            0.21756783975244742,
+            1.5950719874576407
+          ],
+          "axis_source": [
+            -0.0609209553757637,
+            0.974497501408098,
+            0.21597050017416336
+          ]
+        }
+      ],
+      "mesh_line_proximity_metrics": {
+        "track_mesh": {
+          "point_count": 101771,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.03922938040814933,
+            "q001": 0.2228440860663846,
+            "q01": 0.2404563386436036,
+            "q05": 0.3363933502675378,
+            "median": 0.6411351108864197
+          },
+          "minimum_vertex_distance_to_center_m": 0.18514673395166836,
+          "axial_extent_about_center_m": [
+            -0.0951004545154405,
+            0.4157157702221623
+          ]
+        },
+        "cab_mesh": {
+          "point_count": 116099,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.016373400818660573,
+            "q001": 0.10130203853230421,
+            "q01": 0.1785704271659727,
+            "q05": 0.22440885434487445,
+            "median": 0.5763377163778459
+          },
+          "minimum_vertex_distance_to_center_m": 0.1760706076466846,
+          "axial_extent_about_center_m": [
+            -1.0235129158614855,
+            0.0009381841221365887
+          ]
+        }
+      }
+    },
+    {
+      "joint_id": "cab_boom_joint",
+      "reference_joint_path": "/excavator_prim/Joints/platform_boom_joint",
+      "body_links": [
+        "cab",
+        "boom"
+      ],
+      "center_source_mesh_numeric_frame": [
+        -0.7674505412578583,
+        -0.16794969560174725,
+        1.3448220315707076
+      ],
+      "axis_source_mesh_numeric_frame": [
+        0.9311396556405569,
+        -0.029952979130932825,
+        0.36343054458144686
+      ],
+      "body_center_disagreement_m": 5.583960390572811e-07,
+      "body_axis_alignment_dot": 1.0,
+      "body_axis_angle_error_deg": 0.0,
+      "historical_side_evidence": [
+        {
+          "body_path": "/excavator_prim/cab_prim",
+          "mesh_path": "/excavator_prim/cab_prim/cab_mesh",
+          "local_pos": [
+            -0.7674506306648254,
+            1.3535553216934204,
+            -0.06812799721956253
+          ],
+          "local_rot": "(0.9826341, -2.8687438e-18, 0.017102564, 0.18476383)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "center_world": [
+            -0.7674506306648254,
+            1.3535553216934204,
+            -0.06812799721956253
+          ],
+          "axis_world": [
+            0.9311396556405569,
+            0.3631104982270399,
+            -0.0336111257011128
+          ],
+          "center_source": [
+            -0.7674506306648254,
+            -0.1679494351244187,
+            1.3448220774998882
+          ],
+          "axis_source": [
+            0.9311396556405569,
+            -0.029952979130932825,
+            0.36343054458144686
+          ]
+        },
+        {
+          "body_path": "/excavator_prim/boom_prim",
+          "mesh_path": "/excavator_prim/boom_prim/boom_mesh",
+          "local_pos": [
+            -0.7674504518508911,
+            1.3535553216934204,
+            -0.06812746822834015
+          ],
+          "local_rot": "(0.9826341, 2.8687438e-18, 0.017102564, 0.18476383)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.926156585341232e-07,
+              -4.386496144093144e-08,
+              -5.302248951011279e-07,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              -1.926156585341232e-07,
+              -4.386496144093144e-08,
+              -5.302248951011279e-07,
+              1.0
+            ]
+          ],
+          "center_world": [
+            -0.7674506444665496,
+            1.353555277828459,
+            -0.06812799845323525
+          ],
+          "axis_world": [
+            0.9311396556405569,
+            0.3631104982270399,
+            -0.0336111257011128
+          ],
+          "center_source": [
+            -0.7674504518508911,
+            -0.16794995607907579,
+            1.3448219856415267
+          ],
+          "axis_source": [
+            0.9311396556405569,
+            -0.029952979130932825,
+            0.36343054458144686
+          ]
+        }
+      ],
+      "mesh_line_proximity_metrics": {
+        "cab_mesh": {
+          "point_count": 116099,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.0006613527456779366,
+            "q001": 0.011072516828815136,
+            "q01": 0.03989761070853168,
+            "q05": 0.09950157739041887,
+            "median": 0.4343302058032639
+          },
+          "minimum_vertex_distance_to_center_m": 0.004338372537926656,
+          "axial_extent_about_center_m": [
+            -0.40655864269946795,
+            0.8464242431179073
+          ]
+        },
+        "boom_mesh": {
+          "point_count": 57635,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.039371965110849776,
+            "q001": 0.050141147184834575,
+            "q01": 0.09078563968582756,
+            "q05": 0.19208986854031634,
+            "median": 0.9435069275072752
+          },
+          "minimum_vertex_distance_to_center_m": 0.06613077564461131,
+          "axial_extent_about_center_m": [
+            0.02343663008986419,
+            0.44864864201819343
+          ]
+        }
+      }
+    },
+    {
+      "joint_id": "boom_arm_joint",
+      "reference_joint_path": "/excavator_prim/Joints/boom_small_arm_joint",
+      "body_links": [
+        "boom",
+        "arm"
+      ],
+      "center_source_mesh_numeric_frame": [
+        0.32425689697265625,
+        -0.9513039578294791,
+        -0.639203212904099
+      ],
+      "axis_source_mesh_numeric_frame": [
+        0.9128329371756365,
+        -0.07702556108216015,
+        0.4010026081552074
+      ],
+      "body_center_disagreement_m": 5.101335874025326e-07,
+      "body_axis_alignment_dot": 1.0,
+      "body_axis_angle_error_deg": 0.0,
+      "historical_side_evidence": [
+        {
+          "body_path": "/excavator_prim/boom_prim",
+          "mesh_path": "/excavator_prim/boom_prim/boom_mesh",
+          "local_pos": [
+            0.3242569863796234,
+            -0.4643000662326813,
+            1.0478482246398926
+          ],
+          "local_rot": "(0.9779655, -1.6629454e-19, -0.0031810927, 0.20874245)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              -1.926156585341232e-07,
+              -4.386496144093144e-08,
+              -5.302248951011279e-07,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              -1.926156585341232e-07,
+              -4.386496144093144e-08,
+              -5.302248951011279e-07,
+              1.0
+            ]
+          ],
+          "center_world": [
+            0.3242567937639649,
+            -0.4643001100976427,
+            1.0478476944149975
+          ],
+          "axis_world": [
+            0.9128329371756365,
+            0.40828582580505474,
+            0.006221997587988823
+          ],
+          "center_source": [
+            0.3242569863796234,
+            -0.9513041952135037,
+            -0.6392032396302717
+          ],
+          "axis_source": [
+            0.9128329371756365,
+            -0.07702556108216015,
+            0.4010026081552074
+          ]
+        },
+        {
+          "body_path": "/excavator_prim/arm_prim",
+          "mesh_path": "/excavator_prim/arm_prim/arm_mesh",
+          "local_pos": [
+            0.3242568075656891,
+            -0.46430009603500366,
+            1.0478477478027344
+          ],
+          "local_rot": "(0.9779655, -1.6629454e-19, -0.0031810927, 0.20874245)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "center_world": [
+            0.3242568075656891,
+            -0.46430009603500366,
+            1.0478477478027344
+          ],
+          "axis_world": [
+            0.9128329371756365,
+            0.40828582580505474,
+            0.006221997587988823
+          ],
+          "center_source": [
+            0.3242568075656891,
+            -0.9513037204454544,
+            -0.6392031861779263
+          ],
+          "axis_source": [
+            0.9128329371756365,
+            -0.07702556108216015,
+            0.4010026081552074
+          ]
+        }
+      ],
+      "mesh_line_proximity_metrics": {
+        "boom_mesh": {
+          "point_count": 57635,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.005059688506187382,
+            "q001": 0.023836522352586164,
+            "q01": 0.05460110592476023,
+            "q05": 0.18404536314114706,
+            "median": 1.578299576493834
+          },
+          "minimum_vertex_distance_to_center_m": 0.07819752536243332,
+          "axial_extent_about_center_m": [
+            -0.2445144832137703,
+            0.15714077618907868
+          ]
+        },
+        "arm_mesh": {
+          "point_count": 23764,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.03805880981929523,
+            "q001": 0.04844652110689874,
+            "q01": 0.06846793670661862,
+            "q05": 0.13203303580597583,
+            "median": 0.6062131691199273
+          },
+          "minimum_vertex_distance_to_center_m": 0.06541740975028426,
+          "axial_extent_about_center_m": [
+            -0.14624498464352645,
+            0.13454314028821654
+          ]
+        }
+      }
+    },
+    {
+      "joint_id": "arm_bucket_joint",
+      "reference_joint_path": "/excavator_prim/Joints/small_arm_bucket_joint",
+      "body_links": [
+        "arm",
+        "bucket"
+      ],
+      "center_source_mesh_numeric_frame": [
+        0.41385090351104736,
+        0.25092874566222245,
+        -0.8088775054495552
+      ],
+      "axis_source_mesh_numeric_frame": [
+        -0.9223519984399285,
+        0.013043013067875246,
+        -0.38613038055038
+      ],
+      "body_center_disagreement_m": 0.0,
+      "body_axis_alignment_dot": 1.0,
+      "body_axis_angle_error_deg": 0.0,
+      "historical_side_evidence": [
+        {
+          "body_path": "/excavator_prim/arm_prim",
+          "mesh_path": "/excavator_prim/arm_prim/arm_mesh",
+          "local_pos": [
+            0.41385090351104736,
+            -0.8401621580123901,
+            -0.10665646940469742
+          ],
+          "local_rot": "(-0.19703807, -3.574176e-18, 0.13755204, 0.9706984)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "center_world": [
+            0.41385090351104736,
+            -0.8401621580123901,
+            -0.10665646940469742
+          ],
+          "axis_world": [
+            -0.9223519984399285,
+            -0.3825290878900911,
+            0.05420597653252872
+          ],
+          "center_source": [
+            0.41385090351104736,
+            0.25092874566222245,
+            -0.8088775054495552
+          ],
+          "axis_source": [
+            -0.9223519984399288,
+            0.01304301306787525,
+            -0.3861303805503801
+          ]
+        },
+        {
+          "body_path": "/excavator_prim/bucket_with_teeth_prim",
+          "mesh_path": "/excavator_prim/bucket_with_teeth_prim/bucket_with_teeth_mesh",
+          "local_pos": [
+            0.41385090351104736,
+            -0.8401621580123901,
+            -0.10665646940469742
+          ],
+          "local_rot": "(-0.19703807, -3.574176e-18, 0.13755204, 0.9706984)",
+          "body_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "visual_world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.1736481776669303,
+              -0.9848077530122081,
+              0.0
+            ],
+            [
+              0.0,
+              0.9848077530122081,
+              -0.1736481776669303,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "center_world": [
+            0.41385090351104736,
+            -0.8401621580123901,
+            -0.10665646940469742
+          ],
+          "axis_world": [
+            -0.9223519984399285,
+            -0.3825290878900911,
+            0.05420597653252872
+          ],
+          "center_source": [
+            0.41385090351104736,
+            0.25092874566222245,
+            -0.8088775054495552
+          ],
+          "axis_source": [
+            -0.9223519984399288,
+            0.01304301306787525,
+            -0.3861303805503801
+          ]
+        }
+      ],
+      "mesh_line_proximity_metrics": {
+        "arm_mesh": {
+          "point_count": 23764,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.028146981533583866,
+            "q001": 0.034182224903792406,
+            "q01": 0.049333708857745795,
+            "q05": 0.13440488437567316,
+            "median": 0.6630274301969237
+          },
+          "minimum_vertex_distance_to_center_m": 0.03720313259854776,
+          "axial_extent_about_center_m": [
+            -0.10902643992677125,
+            0.12330451112901102
+          ]
+        },
+        "bucket_mesh": {
+          "point_count": 18406,
+          "radial_distance_to_axis_m": {
+            "minimum": 0.003449617075622225,
+            "q001": 0.011960496624808605,
+            "q01": 0.027420739270111433,
+            "q05": 0.0453180093552783,
+            "median": 0.35816241068735444
+          },
+          "minimum_vertex_distance_to_center_m": 0.0396409116018399,
+          "axial_extent_about_center_m": [
+            -0.2364657265546383,
+            0.2350411919542492
+          ]
+        }
+      }
+    }
+  ],
+  "output_calibration": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.joint_calibration.json",
+  "retirement_rule": "The historical USD is forbidden as an implicit or explicit normal-build input after the generated calibration has been accepted."
+}

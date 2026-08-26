@@ -220,6 +220,8 @@ Target 和 Speed 使用 `ui.SimpleFloatModel`；输入控件是 `ui.FloatDrag`�
 
 CSV 目录和文件名使用 `SimpleStringModel`。当前实现没有文件选择器，也没有在关节行显示安全限位；目标超限时由 Controller 抛出包含范围的错误文本。
 
+记录区包含 Start、Pause、Resume、Stop 四个按钮和独立状态标签。按钮随 `RecordingState` 切换：空闲时只允许 Start，记录时允许 Pause/Stop，暂停时允许 Resume/Stop。暂停标签中的样本数和轨迹时间保持不变，但关节当前角与运动状态继续刷新。
+
 ## 11. 自动绑定的完整生命周期
 
 构造窗口后立即：
@@ -263,6 +265,8 @@ flowchart TD
 - 其他状态：显示 `Idle`、`Reached` 或 `Unbound` 的标题形式。
 
 已先到达的关节可以显示 `Reached`，而整体仍是 `MOVING`，直到最后一个关节到达。
+
+记录状态独立显示为 `Idle`、`Recording` 或 `Paused`，并附带样本数和压缩后的轨迹时间。Pause 不调用运动 Stop，也不暂停 Timeline。
 
 ## 14. Stage 变化、异常与记录保护
 

@@ -7,9 +7,11 @@ import unittest
 from capture_context import (
     CaptureContext,
     CaptureLedger,
+    CaptureOperation,
     CaptureReceipt,
     CaptureVariant,
     FrozenWorldSnapshot,
+    ProbeReceipt,
 )
 
 
@@ -38,7 +40,9 @@ class CaptureContextTests(unittest.TestCase):
         )
         value = context.to_dict()
         self.assertEqual(value["frame_id"], 2)
+        self.assertEqual(value["capture_operation"], "capture")
         self.assertEqual(value["capture_variant"], "full_scene")
+        self.assertEqual(value["visibility_generation"], 0)
         self.assertEqual(value["camera"]["path"], "/root/Camera")
         self.assertEqual(value["motion"]["targets"]["boom"], 1.5)
 
@@ -87,7 +91,7 @@ class CaptureContextTests(unittest.TestCase):
         self.assertEqual(ledger.pending_count, 0)
         self.assertEqual(ledger.completed_count, 1)
 
-    def test_ledger_accepts_two_variants_for_the_same_frame(self) -> None:
+    def test_ledger_accepts_three_variants_for_the_same_frame(self) -> None:
         ledger = CaptureLedger()
         full_context = self.context(0)
         isolated_context = CaptureContext(
@@ -96,9 +100,16 @@ class CaptureContextTests(unittest.TestCase):
                 "variant": CaptureVariant.EXCAVATOR_ONLY,
             }
         )
+        front_teeth_context = CaptureContext(
+            **{
+                **full_context.__dict__,
+                "variant": CaptureVariant.FRONT_TEETH_ONLY,
+            }
+        )
         ledger.arm(full_context)
         ledger.arm(isolated_context)
-        for context in (full_context, isolated_context):
+        ledger.arm(front_teeth_context)
+        for context in (full_context, isolated_context, front_teeth_context):
             self.assertEqual(ledger.consume(), context)
             ledger.complete(
                 CaptureReceipt(
@@ -111,15 +122,55 @@ class CaptureContextTests(unittest.TestCase):
                     variant=context.variant,
                 )
             )
-        self.assertEqual(ledger.completed_count, 2)
+        self.assertEqual(ledger.completed_count, 3)
         self.assertEqual(
             ledger.completed_by_variant,
-            {"full_scene": 1, "excavator_only": 1},
+            {"full_scene": 1, "excavator_only": 1, "front_teeth_only": 1},
         )
 
     def test_ledger_rejects_callback_without_context(self) -> None:
         with self.assertRaisesRegex(RuntimeError, "without an armed"):
             CaptureLedger().consume()
+
+    def test_probe_context_requires_positive_attempt(self) -> None:
+        with self.assertRaisesRegex(ValueError, "greater than or equal to 1"):
+            CaptureContext(
+                **{
+                    **self.context(0).__dict__,
+                    "operation": CaptureOperation.PROBE,
+                }
+            )
+
+    def test_ledger_tracks_probes_separately_from_formal_captures(self) -> None:
+        ledger = CaptureLedger()
+        probe_context = CaptureContext(
+            **{
+                **self.context(0).__dict__,
+                "operation": CaptureOperation.PROBE,
+                "visibility_generation": 2,
+                "attempt": 1,
+                "probe_index": 3,
+                "variant": CaptureVariant.FRONT_TEETH_ONLY,
+            }
+        )
+        ledger.arm(probe_context)
+        self.assertEqual(ledger.consume(), probe_context)
+        receipt = ProbeReceipt(
+            frame_id=0,
+            variant=CaptureVariant.FRONT_TEETH_ONLY,
+            visibility_generation=2,
+            attempt=1,
+            probe_index=3,
+            resolution=(1280, 720),
+            semantic_labels_present=("tooth",),
+            semantic_dataset_ids_present=(5,),
+            validation_passed=True,
+            validation_errors=(),
+        )
+        ledger.complete_probe(receipt)
+        self.assertEqual(ledger.require_probe_completed(probe_context), receipt)
+        self.assertEqual(ledger.completed_probe_count, 1)
+        self.assertEqual(ledger.completed_count, 0)
 
 
 if __name__ == "__main__":

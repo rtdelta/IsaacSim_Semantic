@@ -10,11 +10,18 @@ import sys
 import traceback
 from dataclasses import replace
 from datetime import datetime, timezone
+from itertools import count
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
 from capture_launch_config import CaptureLaunchConfig
-from capture_context import CaptureContext, CaptureVariant
+from capture_context import (
+    CaptureContext,
+    CaptureOperation,
+    CaptureReceipt,
+    CaptureVariant,
+    ProbeReceipt,
+)
 from capture_timing import CaptureTiming
 from isolated_render_config import IsolatedRenderConfig
 from joint_control_profile import JointControlProfile
@@ -26,7 +33,7 @@ from render_profile import (
 from stage_preflight import StagePreflight, file_record
 
 
-RUN_CONFIG_SCHEMA_VERSION = 5
+RUN_CONFIG_SCHEMA_VERSION = 7
 
 
 def utc_now() -> str:
@@ -105,6 +112,25 @@ def write_json_atomic(path: Path, value: Any) -> None:
     temporary_path.replace(path)
 
 
+def update_source_stage_integrity(
+    manifest: dict[str, Any],
+    source_stage: str | Path,
+) -> dict[str, Any]:
+    """Record whether the persistent source USD stayed byte/metadata identical."""
+    initial = manifest["inputs"]["source_stage"]
+    current = file_record(source_stage)
+    compared_fields = ("exists", "size", "mtime_ns", "sha256")
+    unchanged = all(initial.get(field) == current.get(field) for field in compared_fields)
+    result = {
+        "unchanged": bool(unchanged),
+        "compared_fields": list(compared_fields),
+        "initial": initial,
+        "current": current,
+    }
+    manifest["source_stage_integrity"] = result
+    return result
+
+
 def wait_for_opened_stage(simulation_app: Any, stage_path: str, max_updates: int = 600) -> Any:
     """Wait until omni.usd exposes a composed stage with at least one root prim."""
     import omni.usd
@@ -132,9 +158,136 @@ def wait_for_opened_stage(simulation_app: Any, stage_path: str, max_updates: int
     )
 
 
+class VariantSettleError(RuntimeError):
+    """Raised when Render/Annotator data never converges to a requested variant."""
+
+
+def assert_camera_matches_context(camera_scheduler: Any, context: CaptureContext) -> None:
+    current = tuple(camera_scheduler.get_state()["world_transform"])
+    if current != tuple(context.camera_world_transform):
+        raise RuntimeError(
+            f"Camera world transform changed during frozen frame {context.frame_id}"
+        )
+
+
+def settle_variant(
+    *,
+    camera_scheduler: Any,
+    world_scheduler: Any,
+    frozen_world: Any,
+    variant_controller: Any,
+    base_context: CaptureContext,
+    target_variant: CaptureVariant,
+    settle_render_count: int,
+    settle_rt_subframes: int,
+    maximum_settle_attempts: int,
+    probe_sequence: Iterator[int],
+) -> tuple[Any, tuple[ProbeReceipt, ...]]:
+    """Switch a variant and prove the real Annotator stream matches it."""
+    transition_report = variant_controller.transition_to(target_variant)
+    all_probes: list[ProbeReceipt] = []
+
+    for attempt in range(1, maximum_settle_attempts + 1):
+        if attempt > 1:
+            transition_report = variant_controller.force_reapply(target_variant)
+            world_scheduler.assert_still_frozen(frozen_world)
+            assert_camera_matches_context(camera_scheduler, base_context)
+            if attempt == maximum_settle_attempts:
+                camera_scheduler.reconnect_annotators()
+                world_scheduler.assert_still_frozen(frozen_world)
+                assert_camera_matches_context(camera_scheduler, base_context)
+        generation = variant_controller.visibility_generation
+        camera_scheduler.reset_render_history()
+        attempt_probes: list[ProbeReceipt] = []
+        for _ in range(settle_render_count):
+            world_scheduler.assert_still_frozen(frozen_world)
+            assert_camera_matches_context(camera_scheduler, base_context)
+            probe_context = replace(
+                base_context,
+                variant=target_variant,
+                operation=CaptureOperation.PROBE,
+                visibility_generation=generation,
+                attempt=attempt,
+                probe_index=next(probe_sequence),
+            )
+            probe_receipt = camera_scheduler.probe(
+                probe_context,
+                rt_subframes=settle_rt_subframes,
+            )
+            attempt_probes.append(probe_receipt)
+            all_probes.append(probe_receipt)
+            world_scheduler.assert_still_frozen(frozen_world)
+            assert_camera_matches_context(camera_scheduler, base_context)
+
+        last_probe = attempt_probes[-1]
+        if last_probe.validation_passed:
+            variant_controller.assert_state(
+                target_variant,
+                expected_generation=generation,
+            )
+            return transition_report, tuple(all_probes)
+
+    last_errors = all_probes[-1].validation_errors if all_probes else ()
+    generation = variant_controller.visibility_generation
+    raise VariantSettleError(
+        f"Scene variant {target_variant.value} did not settle for frame "
+        f"{base_context.frame_id}/g{generation} after "
+        f"{maximum_settle_attempts} attempt(s): "
+        + ("; ".join(last_errors) if last_errors else "no valid ProbeReceipt")
+    )
+
+
+def capture_variant_to_staging(
+    *,
+    camera_scheduler: Any,
+    world_scheduler: Any,
+    frozen_world: Any,
+    variant_controller: Any,
+    base_context: CaptureContext,
+    variant: CaptureVariant,
+    settle_attempts_before_capture: int,
+) -> CaptureReceipt:
+    """Capture one validated variant without publishing the frame yet."""
+    variant_controller.assert_state(
+        variant,
+        expected_generation=variant_controller.visibility_generation,
+    )
+    context = replace(
+        base_context,
+        variant=variant,
+        operation=CaptureOperation.CAPTURE,
+        visibility_generation=variant_controller.visibility_generation,
+        attempt=0,
+        probe_index=0,
+        settle_attempts_before_capture=settle_attempts_before_capture,
+    )
+    world_scheduler.assert_still_frozen(frozen_world)
+    assert_camera_matches_context(camera_scheduler, context)
+    receipt = camera_scheduler.capture(context)
+    world_scheduler.assert_still_frozen(frozen_world)
+    assert_camera_matches_context(camera_scheduler, context)
+    if receipt.frame_id != context.frame_id or receipt.variant is not context.variant:
+        raise RuntimeError("Writer returned a CaptureReceipt for the wrong frame or variant")
+    if receipt.visibility_generation != context.visibility_generation:
+        raise RuntimeError(
+            "Writer returned a CaptureReceipt for the wrong visibility generation"
+        )
+    if (
+        receipt.settle_attempts_before_capture
+        != context.settle_attempts_before_capture
+    ):
+        raise RuntimeError(
+            "Writer returned a CaptureReceipt with the wrong settle-attempt count"
+        )
+    if not receipt.validation_passed:
+        raise RuntimeError("Writer returned an unvalidated formal CaptureReceipt")
+    return receipt
+
+
 def base_manifest(
     args: CaptureLaunchConfig,
-    isolated_render_config: IsolatedRenderConfig | None,
+    excavator_only_render_config: IsolatedRenderConfig | None,
+    front_teeth_only_render_config: IsolatedRenderConfig | None,
     profile: RenderProfile,
     joint_profile: JointControlProfile,
     trajectory_metadata: dict[str, Any] | None,
@@ -163,9 +316,14 @@ def base_manifest(
             "launch_config": file_record(args.source_path),
             "source_stage": file_record(args.usd),
             "semantic_mapping": file_record(args.mapping),
-            "isolated_render_config": (
-                file_record(isolated_render_config.source_path)
-                if isolated_render_config is not None
+            "excavator_only_render_config": (
+                file_record(excavator_only_render_config.source_path)
+                if excavator_only_render_config is not None
+                else None
+            ),
+            "front_teeth_only_render_config": (
+                file_record(front_teeth_only_render_config.source_path)
+                if front_teeth_only_render_config is not None
                 else None
             ),
             "trajectory": file_record(args.trajectory)
@@ -186,12 +344,24 @@ def base_manifest(
             "full_scene_semantic": args.image_output_folders.full_scene_semantic,
             "excavator_only_rgb": args.image_output_folders.excavator_only_rgb,
             "excavator_only_semantic": args.image_output_folders.excavator_only_semantic,
+            "front_teeth_only_rgb": args.image_output_folders.front_teeth_only_rgb,
+            "front_teeth_only_semantic": args.image_output_folders.front_teeth_only_semantic,
         },
         "excavator_only_capture": {
             "enabled": bool(args.excavator_only_capture.enabled),
             "render_config": (
-                isolated_render_config.to_dict()
-                if isolated_render_config is not None
+                excavator_only_render_config.to_dict()
+                if excavator_only_render_config is not None
+                else None
+            ),
+            "visibility_report": None,
+        },
+        "front_teeth_only_capture": {
+            "enabled": bool(args.front_teeth_only_capture.enabled),
+            "save_rgb": bool(args.front_teeth_only_capture.save_rgb),
+            "render_config": (
+                front_teeth_only_render_config.to_dict()
+                if front_teeth_only_render_config is not None
                 else None
             ),
             "visibility_report": None,
@@ -247,12 +417,20 @@ def main() -> int:
     )
     resolve_renderer_selection(args.renderer, profile)
     joint_profile = JointControlProfile.load(args.joint_profile)
-    isolated_render_config = (
+    excavator_only_render_config = (
         IsolatedRenderConfig.load(
             args.excavator_only_capture.render_prim_paths_config
         )
         if args.excavator_only_capture.enabled
         and args.excavator_only_capture.render_prim_paths_config is not None
+        else None
+    )
+    front_teeth_only_render_config = (
+        IsolatedRenderConfig.load(
+            args.front_teeth_only_capture.render_prim_paths_config
+        )
+        if args.front_teeth_only_capture.enabled
+        and args.front_teeth_only_capture.render_prim_paths_config is not None
         else None
     )
     trajectory_metadata = (
@@ -266,7 +444,8 @@ def main() -> int:
     run_config_path = output_path / "run_config.json"
     manifest = base_manifest(
         args,
-        isolated_render_config,
+        excavator_only_render_config,
+        front_teeth_only_render_config,
         profile,
         joint_profile,
         trajectory_metadata,
@@ -280,7 +459,7 @@ def main() -> int:
     camera_scheduler = None
     world_scheduler = None
     motion_scheduler = None
-    visibility_controller = None
+    scene_variant_controller = None
     exit_code = 0
 
     try:
@@ -294,7 +473,7 @@ def main() -> int:
         from articulation_stage_validator import validate_articulation_stage
         from excavator_joint_motion import ExcavatorJointMotion
         from semantic_capture_custom import SemanticCameraScheduler
-        from scene_visibility_controller import SceneVisibilityController
+        from scene_visibility_controller import SceneVariantController
         from world_scheduler import WorldScheduler
 
         print(f"[simulation-orchestrator] Loading stage: {args.usd}")
@@ -347,12 +526,33 @@ def main() -> int:
         preflight.raise_if_blocking(strict=args.strict_stage)
         if articulation_report is not None:
             articulation_report.require_valid()
-        if isolated_render_config is not None:
-            visibility_controller = SceneVisibilityController(
-                stage=stage,
-                included_prim_paths=isolated_render_config.render_prim_paths,
-                protected_prim_paths=(camera_path,),
+        variant_prim_paths: dict[CaptureVariant, tuple[str, ...]] = {}
+        if excavator_only_render_config is not None:
+            variant_prim_paths[CaptureVariant.EXCAVATOR_ONLY] = tuple(
+                excavator_only_render_config.render_prim_paths
             )
+        if front_teeth_only_render_config is not None:
+            variant_prim_paths[CaptureVariant.FRONT_TEETH_ONLY] = tuple(
+                front_teeth_only_render_config.render_prim_paths
+            )
+        scene_variant_controller = SceneVariantController(
+            stage=stage,
+            variant_prim_paths=variant_prim_paths,
+            protected_prim_paths=(camera_path,),
+            layer_name="semantic_capture_visibility.usda",
+            stage_update_callback=simulation_app.update,
+        )
+        manifest["scene_variant_controller"] = {
+            "current_variant": scene_variant_controller.current_variant.value,
+            "visibility_generation": scene_variant_controller.visibility_generation,
+            "available_variants": [
+                variant.value for variant in scene_variant_controller.available_variants
+            ],
+            "initial_report": scene_variant_controller.last_report.to_dict(),
+            "persistent_usd_protection": (
+                scene_variant_controller.protection_report()
+            ),
+        }
 
         maximum_data_step = max(
             timing.data_step_for_frame(frame_id) for frame_id in range(args.frames)
@@ -429,7 +629,13 @@ def main() -> int:
             save_runtime_ids=args.save_runtime_ids,
             strict_mapping=args.strict_mapping,
             output_folders=args.image_output_folders,
-            transparent_isolated_background=args.excavator_only_capture.enabled,
+            transparent_isolated_background=(
+                args.excavator_only_capture.enabled
+                or args.front_teeth_only_capture.save_rgb
+            ),
+            save_front_teeth_only_rgb=args.front_teeth_only_capture.save_rgb,
+            variant_validation=args.variant_validation,
+            overwrite_output=args.overwrite,
         )
         camera_scheduler.initialize()
         camera_scheduler.warmup(profile.warmup_render_frames)
@@ -453,6 +659,7 @@ def main() -> int:
         motion_state_path = output_path / "motion_state.jsonl"
         with motion_state_path.open("w", encoding="utf-8") as motion_stream:
             for frame_id in range(args.frames):
+                scene_variant_controller.assert_state(CaptureVariant.FULL_SCENE)
                 target_data_step = timing.data_step_for_frame(frame_id)
                 steps_to_advance = target_data_step - world_scheduler.dataset_step
                 if steps_to_advance < 0:
@@ -499,40 +706,203 @@ def main() -> int:
                     camera_world_transform=tuple(camera_state["world_transform"]),
                     motion_state=motion_state,
                     variant=CaptureVariant.FULL_SCENE,
+                    operation=CaptureOperation.CAPTURE,
+                    visibility_generation=(
+                        scene_variant_controller.visibility_generation
+                    ),
                 )
-                world_scheduler.assert_still_frozen(frozen_world)
-                full_scene_receipt = camera_scheduler.capture(context)
-                world_scheduler.assert_still_frozen(frozen_world)
-                capture_receipts = {
-                    CaptureVariant.FULL_SCENE.value: full_scene_receipt.to_dict()
-                }
+                probe_sequence = count()
+                formal_receipts: list[CaptureReceipt] = []
+                probe_receipts: dict[str, list[dict[str, Any]]] = {}
+                try:
+                    _report, probes = settle_variant(
+                        camera_scheduler=camera_scheduler,
+                        world_scheduler=world_scheduler,
+                        frozen_world=frozen_world,
+                        variant_controller=scene_variant_controller,
+                        base_context=context,
+                        target_variant=CaptureVariant.FULL_SCENE,
+                        settle_render_count=args.variant_transition.settle_render_count,
+                        settle_rt_subframes=args.variant_transition.settle_rt_subframes,
+                        maximum_settle_attempts=(
+                            args.variant_transition.maximum_settle_attempts
+                        ),
+                        probe_sequence=probe_sequence,
+                    )
+                    probe_receipts["full_scene_pre_capture"] = [
+                        receipt.to_dict() for receipt in probes
+                    ]
+                    full_scene_receipt = capture_variant_to_staging(
+                        camera_scheduler=camera_scheduler,
+                        world_scheduler=world_scheduler,
+                        frozen_world=frozen_world,
+                        variant_controller=scene_variant_controller,
+                        base_context=context,
+                        variant=CaptureVariant.FULL_SCENE,
+                        settle_attempts_before_capture=probes[-1].attempt,
+                    )
+                    formal_receipts.append(full_scene_receipt)
 
-                if visibility_controller is not None:
-                    isolation_report = visibility_controller.isolate()
-                    if (
-                        manifest["excavator_only_capture"]["visibility_report"]
-                        is None
-                    ):
-                        manifest["excavator_only_capture"][
-                            "visibility_report"
-                        ] = isolation_report.to_dict()
-                        write_json_atomic(run_config_path, manifest)
-                    try:
-                        camera_scheduler.reset_render_history()
-                        world_scheduler.assert_still_frozen(frozen_world)
-                        isolated_context = replace(
-                            context,
-                            variant=CaptureVariant.EXCAVATOR_ONLY,
+                    if excavator_only_render_config is not None:
+                        transition_report, probes = settle_variant(
+                            camera_scheduler=camera_scheduler,
+                            world_scheduler=world_scheduler,
+                            frozen_world=frozen_world,
+                            variant_controller=scene_variant_controller,
+                            base_context=context,
+                            target_variant=CaptureVariant.EXCAVATOR_ONLY,
+                            settle_render_count=(
+                                args.variant_transition.settle_render_count
+                            ),
+                            settle_rt_subframes=(
+                                args.variant_transition.settle_rt_subframes
+                            ),
+                            maximum_settle_attempts=(
+                                args.variant_transition.maximum_settle_attempts
+                            ),
+                            probe_sequence=probe_sequence,
                         )
-                        isolated_receipt = camera_scheduler.capture(isolated_context)
-                        world_scheduler.assert_still_frozen(frozen_world)
-                        capture_receipts[
-                            CaptureVariant.EXCAVATOR_ONLY.value
-                        ] = isolated_receipt.to_dict()
-                    finally:
-                        visibility_controller.restore()
-                        camera_scheduler.reset_render_history()
+                        if (
+                            manifest["excavator_only_capture"]["visibility_report"]
+                            is None
+                        ):
+                            manifest["excavator_only_capture"][
+                                "visibility_report"
+                            ] = transition_report.to_dict()
+                            write_json_atomic(run_config_path, manifest)
+                        probe_receipts[CaptureVariant.EXCAVATOR_ONLY.value] = [
+                            receipt.to_dict() for receipt in probes
+                        ]
+                        formal_receipts.append(
+                            capture_variant_to_staging(
+                                camera_scheduler=camera_scheduler,
+                                world_scheduler=world_scheduler,
+                                frozen_world=frozen_world,
+                                variant_controller=scene_variant_controller,
+                                base_context=context,
+                                variant=CaptureVariant.EXCAVATOR_ONLY,
+                                settle_attempts_before_capture=probes[-1].attempt,
+                            )
+                        )
+
+                    if front_teeth_only_render_config is not None:
+                        transition_report, probes = settle_variant(
+                            camera_scheduler=camera_scheduler,
+                            world_scheduler=world_scheduler,
+                            frozen_world=frozen_world,
+                            variant_controller=scene_variant_controller,
+                            base_context=context,
+                            target_variant=CaptureVariant.FRONT_TEETH_ONLY,
+                            settle_render_count=(
+                                args.variant_transition.settle_render_count
+                            ),
+                            settle_rt_subframes=(
+                                args.variant_transition.settle_rt_subframes
+                            ),
+                            maximum_settle_attempts=(
+                                args.variant_transition.maximum_settle_attempts
+                            ),
+                            probe_sequence=probe_sequence,
+                        )
+                        if (
+                            manifest["front_teeth_only_capture"]["visibility_report"]
+                            is None
+                        ):
+                            manifest["front_teeth_only_capture"][
+                                "visibility_report"
+                            ] = transition_report.to_dict()
+                            write_json_atomic(run_config_path, manifest)
+                        probe_receipts[CaptureVariant.FRONT_TEETH_ONLY.value] = [
+                            receipt.to_dict() for receipt in probes
+                        ]
+                        formal_receipts.append(
+                            capture_variant_to_staging(
+                                camera_scheduler=camera_scheduler,
+                                world_scheduler=world_scheduler,
+                                frozen_world=frozen_world,
+                                variant_controller=scene_variant_controller,
+                                base_context=context,
+                                variant=CaptureVariant.FRONT_TEETH_ONLY,
+                                settle_attempts_before_capture=probes[-1].attempt,
+                            )
+                        )
+
+                    _report, probes = settle_variant(
+                        camera_scheduler=camera_scheduler,
+                        world_scheduler=world_scheduler,
+                        frozen_world=frozen_world,
+                        variant_controller=scene_variant_controller,
+                        base_context=context,
+                        target_variant=CaptureVariant.FULL_SCENE,
+                        settle_render_count=args.variant_transition.settle_render_count,
+                        settle_rt_subframes=args.variant_transition.settle_rt_subframes,
+                        maximum_settle_attempts=(
+                            args.variant_transition.maximum_settle_attempts
+                        ),
+                        probe_sequence=probe_sequence,
+                    )
+                    probe_receipts["full_scene_restore"] = [
+                        receipt.to_dict() for receipt in probes
+                    ]
+                    scene_variant_controller.assert_state(CaptureVariant.FULL_SCENE)
                     world_scheduler.assert_still_frozen(frozen_world)
+                    assert_camera_matches_context(camera_scheduler, context)
+                    camera_scheduler.wait_until_complete()
+                    expected_variants = {CaptureVariant.FULL_SCENE}
+                    if excavator_only_render_config is not None:
+                        expected_variants.add(CaptureVariant.EXCAVATOR_ONLY)
+                    if front_teeth_only_render_config is not None:
+                        expected_variants.add(CaptureVariant.FRONT_TEETH_ONLY)
+                    actual_variants = {
+                        receipt.variant for receipt in formal_receipts
+                    }
+                    if actual_variants != expected_variants:
+                        raise RuntimeError(
+                            f"Frame {frame_id} formal variants do not match: "
+                            f"{sorted(item.value for item in actual_variants)} != "
+                            f"{sorted(item.value for item in expected_variants)}"
+                        )
+                    camera_scheduler.commit_frame(frame_id, formal_receipts)
+                except Exception:
+                    try:
+                        settle_variant(
+                            camera_scheduler=camera_scheduler,
+                            world_scheduler=world_scheduler,
+                            frozen_world=frozen_world,
+                            variant_controller=scene_variant_controller,
+                            base_context=context,
+                            target_variant=CaptureVariant.FULL_SCENE,
+                            settle_render_count=(
+                                args.variant_transition.settle_render_count
+                            ),
+                            settle_rt_subframes=(
+                                args.variant_transition.settle_rt_subframes
+                            ),
+                            maximum_settle_attempts=(
+                                args.variant_transition.maximum_settle_attempts
+                            ),
+                            probe_sequence=probe_sequence,
+                        )
+                    except Exception as recovery_exc:
+                        print(
+                            f"[simulation-orchestrator] Frame {frame_id} full-scene "
+                            f"recovery warning: {recovery_exc}",
+                            file=sys.stderr,
+                        )
+                    try:
+                        camera_scheduler.discard_frame(frame_id)
+                    except Exception as discard_exc:
+                        print(
+                            f"[simulation-orchestrator] Frame {frame_id} staging "
+                            f"cleanup warning: {discard_exc}",
+                            file=sys.stderr,
+                        )
+                    raise
+
+                capture_receipts = {
+                    receipt.variant.value: receipt.to_dict()
+                    for receipt in formal_receipts
+                }
 
                 state = {
                     **context.to_dict(),
@@ -542,6 +912,13 @@ def main() -> int:
                     "motion": motion_state,
                     "capture_receipt": full_scene_receipt.to_dict(),
                     "capture_receipts": capture_receipts,
+                    "probe_receipts": probe_receipts,
+                    "frame_committed": True,
+                    "end_variant": scene_variant_controller.current_variant.value,
+                    "end_visibility_generation": (
+                        scene_variant_controller.visibility_generation
+                    ),
+                    "writer_pending": camera_scheduler.statistics()["pending"],
                 }
                 motion_stream.write(json.dumps(state, ensure_ascii=False) + "\n")
                 motion_stream.flush()
@@ -553,6 +930,12 @@ def main() -> int:
                 )
 
         camera_scheduler.wait_until_complete()
+        scene_variant_controller.assert_persistent_layers_pristine()
+        integrity = update_source_stage_integrity(manifest, args.usd)
+        if not integrity["unchanged"]:
+            raise RuntimeError(
+                "Persistent source USD changed during capture; refusing to mark run complete"
+            )
         manifest["writer"] = camera_scheduler.statistics()
         manifest["status"] = "complete"
         manifest["completed_at_utc"] = utc_now()
@@ -567,6 +950,13 @@ def main() -> int:
             "message": str(exc),
         }
         try:
+            update_source_stage_integrity(manifest, args.usd)
+        except Exception as integrity_exc:
+            manifest["source_stage_integrity"] = {
+                "unchanged": False,
+                "error": str(integrity_exc),
+            }
+        try:
             write_json_atomic(run_config_path, manifest)
         except Exception as manifest_exc:
             print(
@@ -576,14 +966,41 @@ def main() -> int:
         print(f"[simulation-orchestrator] ERROR: {exc}", file=sys.stderr)
         traceback.print_exc()
     finally:
-        if visibility_controller is not None:
+        visibility_cleanup_error: Exception | None = None
+        for visibility_controller in (scene_variant_controller,):
+            if visibility_controller is None:
+                continue
             try:
                 visibility_controller.close()
             except Exception as exc:
+                visibility_cleanup_error = exc
                 print(
                     f"[simulation-orchestrator] Visibility cleanup warning: {exc}",
                     file=sys.stderr,
                 )
+        try:
+            integrity = update_source_stage_integrity(manifest, args.usd)
+            if not integrity["unchanged"] or visibility_cleanup_error is not None:
+                exit_code = 1
+                manifest["status"] = "failed"
+                manifest["failed_at_utc"] = utc_now()
+                if not integrity["unchanged"]:
+                    manifest["error"] = {
+                        "type": "PersistentSourceMutationError",
+                        "message": "Persistent source USD changed during capture",
+                    }
+                elif visibility_cleanup_error is not None:
+                    manifest["error"] = {
+                        "type": type(visibility_cleanup_error).__name__,
+                        "message": str(visibility_cleanup_error),
+                    }
+            write_json_atomic(run_config_path, manifest)
+        except Exception as integrity_exc:
+            exit_code = 1
+            print(
+                f"[simulation-orchestrator] Source USD integrity warning: {integrity_exc}",
+                file=sys.stderr,
+            )
         if world_scheduler is not None:
             try:
                 world_scheduler.stop()

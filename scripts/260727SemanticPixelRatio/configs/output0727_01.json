@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "inputs": {
+    "whole_scene_semantic_dir": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/output0727_01/full_scene_excavator_semantic/semantic_id",
+    "excavator_only_semantic_dir": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/output0727_01/excavator_only_semantic/semantic_id",
+    "semantic_mapping": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/output0727_01/semantic_mapping.json"
+  },
+  "targets": {
+    "labels": [
+      "tooth_1_front_3DGS",
+      "tooth_2_front_3DGS",
+      "tooth_3_front_3DGS",
+      "tooth_4_front_3DGS",
+      "tooth_5_front_3DGS"
+    ],
+    "group_name": "tooth_front_group"
+  },
+  "ratio": {
+    "numerator": "whole_scene",
+    "denominator": "excavator_only",
+    "zero_denominator": "null",
+    "over_one": "keep_and_flag"
+  },
+  "pairing": {
+    "mode": "strict"
+  },
+  "execution": {
+    "backend": "auto",
+    "batch_frames": 128,
+    "reader_threads": 8,
+    "ring_slots": 3,
+    "cpu_workers": 16,
+    "device": "cuda",
+    "on_frame_error": "fail_fast",
+    "verify_sample_frames": 8
+  },
+  "output": {
+    "root": "../output/output0727_01",
+    "overwrite": false,
+    "resume": true,
+    "write_counts_cache": true
+  }
+}
+

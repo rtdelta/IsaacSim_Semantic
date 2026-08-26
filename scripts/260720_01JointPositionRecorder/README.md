@@ -49,7 +49,10 @@ Articulation tensor 初始化。
 - `Stop`：停在回读到的当前角度，并将目标同步为当前角度；
 - `Targets = current`：只重置输入框，不触发运动；
 - `Move home`：使用当前速度输入移动到配置的 Home 角度；
-- `Start recording` / `Stop recording`：开始或完成实际角度 CSV 记录。
+- `Start recording`：开始实际角度 CSV 记录；
+- `Pause recording`：暂停追加样本并冻结 CSV 轨迹时间，但不停止机械或 Timeline；
+- `Resume recording`：恢复后继续写入同一个 CSV 会话；
+- `Stop recording`：在记录或暂停状态下完成并发布 CSV。
 
 只修改目标值或速度不会让挖掘机运动，必须显式点击 `Move all` 或
 `Move home`。
@@ -66,6 +69,10 @@ time,cab,boom,small_arm,bucket
 正常停止后同时生成同名 `.metadata.json`。为防止意外覆盖，若目标 CSV、
 元数据或同名 partial 文件已经存在，记录器会拒绝开始。异常中止时保留
 `.partial.csv`，方便排查或恢复数据。
+
+暂停区间会从 CSV 时间轴中完全排除。恢复后的第一条样本使用 Articulation
+实际回读角度，不做插值或平滑；如果机械在暂停期间发生运动，CSV 拼接点允许
+出现真实位置跳变，相邻样本推导出的速度可能偏大。
 
 ## 测试
 

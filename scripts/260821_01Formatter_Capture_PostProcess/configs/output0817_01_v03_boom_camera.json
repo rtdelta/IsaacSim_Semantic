@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_root": "/root/gpufree-data/semantic/scripts/output/output0817_01/v03_boom_camera",
+  "output_root": "/root/gpufree-data/semantic/scripts/output/output0817_01/v03_boom_camera_postprocess_v02",
+  "semantic_mapping": "/root/gpufree-data/semantic/scripts/260819semantic_worldModule_v03/configs/semantic_mapping_excavator.json",
+  "contract": {
+    "full_scene_variant": "full_scene",
+    "reference_variant": "front_teeth_only",
+    "additional_variants": ["excavator_only"],
+    "strict_pairing": true,
+    "include_semantic_color": true,
+    "include_packet_metadata": true
+  },
+  "materialization": {
+    "mode": "hardlink",
+    "workers": 32
+  },
+  "validation": {
+    "level": "sample"
+  }
+}

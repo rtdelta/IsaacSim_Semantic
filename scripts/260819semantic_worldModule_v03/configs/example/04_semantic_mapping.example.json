@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "classes": [
+    {
+      "id": 0,
+      "name": "BACKGROUND",
+      "color": [
+        0,
+        0,
+        0
+      ],
+      "aliases": [
+        "UNLABELLED"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "excavator_body",
+      "color": [
+        69,
+        225,
+        201
+      ],
+      "aliases": [
+        "cab_3DGS",
+        "track_3DGS"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "excavator_work_equipment",
+      "color": [
+        245,
+        130,
+        48
+      ],
+      "aliases": [
+        "boom_3DGS",
+        "arm_3DGS",
+        "bucket_without_teeth_3DGS"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "bucket_tooth",
+      "color": [
+        145,
+        30,
+        180
+      ],
+      "aliases": [
+        "tooth_01_front_3DGS",
+        "tooth_02_front_3DGS",
+        "tooth_03_front_3DGS",
+        "tooth_04_front_3DGS",
+        "tooth_05_front_3DGS"
+      ]
+    }
+  ]
+}

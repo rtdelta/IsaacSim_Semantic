@@ -1,0 +1,541 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "asset_id": "fangshan_excavator",
+    "asset_name": "Fangshan Excavator",
+    "description": "Floating excavator asset constructed from 3DGS PLY and Mesh USD"
+  },
+  "paths": {
+    "relative_path_base": "config_directory",
+    "expand_environment_variables": true,
+    "joint_calibration_file": "./joint_calibration.json",
+    "mesh_component_assignment_file": null,
+    "output_directory": "../outputs/fangshan_excavator"
+  },
+  "stage": {
+    "root_prim_path": "/Excavator",
+    "default_prim_path": "/Excavator",
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "model_kind": "component"
+  },
+  "coordinates": {
+    "bake_transform_into_geometry": false,
+    "origin": {
+      "mode": "obb_center",
+      "reference": {
+        "reference_type": "gaussian_part",
+        "reference_id": "track_gaussian"
+      },
+      "offset_m": [0.0, 0.0, 0.0]
+    },
+    "orientation": {
+      "mode": "landmark_pca",
+      "pca_reference": {
+        "reference_type": "gaussian_part",
+        "reference_id": "track_gaussian"
+      },
+      "forward_from": {
+        "reference_type": "gaussian_part",
+        "reference_id": "track_gaussian"
+      },
+      "forward_to": {
+        "reference_type": "link",
+        "reference_id": "bucket"
+      },
+      "up_positive_references": [
+        {
+          "reference_type": "link",
+          "reference_id": "cab"
+        },
+        {
+          "reference_type": "link",
+          "reference_id": "boom"
+        }
+      ],
+      "target_axes": {
+        "forward": "+X",
+        "up": "+Z",
+        "lateral": "+Y"
+      },
+      "explicit_rotation_matrix": null,
+      "post_rotation_deg_xyz": [0.0, 0.0, 0.0]
+    }
+  },
+  "gaussian": {
+    "enabled": true,
+    "defaults": {
+      "source_format": "gaussian_splat_ply",
+      "units_to_meters": 1.0,
+      "visibility": "inherited",
+      "purpose": "default",
+      "preserve_all_attributes": true,
+      "sh_degree": "auto",
+      "quaternion_order": "wxyz",
+      "semantic_enabled": true,
+      "semantic_type": "class"
+    },
+    "parts": [
+      {
+        "id": "track_gaussian",
+        "enabled": true,
+        "source_file": "../inputs/ply_parts/track.ply",
+        "link_id": "track",
+        "relative_prim_path": "Visual/Gaussian/track",
+        "units_to_meters_override": null,
+        "visibility_override": null,
+        "semantic": {
+          "enabled": true,
+          "label": "track",
+          "type": "class"
+        }
+      },
+      {
+        "id": "cab_gaussian",
+        "enabled": true,
+        "source_file": "../inputs/ply_parts/cab.ply",
+        "link_id": "cab",
+        "relative_prim_path": "Visual/Gaussian/cab",
+        "units_to_meters_override": null,
+        "visibility_override": null,
+        "semantic": {
+          "enabled": true,
+          "label": "cab",
+          "type": "class"
+        }
+      },
+      {
+        "id": "boom_gaussian",
+        "enabled": true,
+        "source_file": "../inputs/ply_parts/boom.ply",
+        "link_id": "boom",
+        "relative_prim_path": "Visual/Gaussian/boom",
+        "units_to_meters_override": null,
+        "visibility_override": null,
+        "semantic": {
+          "enabled": true,
+          "label": "boom",
+          "type": "class"
+        }
+      },
+      {
+        "id": "arm_gaussian",
+        "enabled": true,
+        "source_file": "../inputs/ply_parts/arm.ply",
+        "link_id": "arm",
+        "relative_prim_path": "Visual/Gaussian/arm",
+        "units_to_meters_override": null,
+        "visibility_override": null,
+        "semantic": {
+          "enabled": true,
+          "label": "arm",
+          "type": "class"
+        }
+      },
+      {
+        "id": "bucket_gaussian",
+        "enabled": true,
+        "source_file": "../inputs/ply_parts/bucket.ply",
+        "link_id": "bucket",
+        "relative_prim_path": "Visual/Gaussian/bucket",
+        "units_to_meters_override": null,
+        "visibility_override": null,
+        "semantic": {
+          "enabled": true,
+          "label": "bucket",
+          "type": "class"
+        }
+      }
+    ]
+  },
+  "mesh": {
+    "enabled": true,
+    "defaults": {
+      "visibility": "invisible",
+      "purpose": "proxy",
+      "material_policy": "preserve",
+      "create_collision": false
+    },
+    "sources": [
+      {
+        "id": "combined_mesh",
+        "enabled": true,
+        "source_file": "../inputs/mesh_parts/拆分成五部分的mesh.usd",
+        "source_prim_path": "/World/mesh_",
+        "source_format": "usd_mesh",
+        "units_to_meters": 1.0,
+        "split": {
+          "enabled": true,
+          "mode": "connected_components_with_gaussian_reference",
+          "assignment_method": "nearest_reference_cloud",
+          "distance_metric": "euclidean",
+          "preserve_connected_components": true,
+          "preserve_topology": true,
+          "fail_on_unassigned_component": true,
+          "fail_on_ambiguous_component": true,
+          "ambiguity_margin_m": 0.01
+        }
+      }
+    ],
+    "parts": [
+      {
+        "id": "track_mesh",
+        "enabled": true,
+        "source_id": "combined_mesh",
+        "link_id": "track",
+        "relative_prim_path": "Visual/Mesh/track",
+        "reference_gaussian_part_ids": ["track_gaussian"],
+        "visibility_override": null,
+        "purpose_override": null,
+        "create_collision_override": null
+      },
+      {
+        "id": "cab_mesh",
+        "enabled": true,
+        "source_id": "combined_mesh",
+        "link_id": "cab",
+        "relative_prim_path": "Visual/Mesh/cab",
+        "reference_gaussian_part_ids": ["cab_gaussian"],
+        "visibility_override": null,
+        "purpose_override": null,
+        "create_collision_override": null
+      },
+      {
+        "id": "boom_mesh",
+        "enabled": true,
+        "source_id": "combined_mesh",
+        "link_id": "boom",
+        "relative_prim_path": "Visual/Mesh/boom",
+        "reference_gaussian_part_ids": ["boom_gaussian"],
+        "visibility_override": null,
+        "purpose_override": null,
+        "create_collision_override": null
+      },
+      {
+        "id": "arm_mesh",
+        "enabled": true,
+        "source_id": "combined_mesh",
+        "link_id": "arm",
+        "relative_prim_path": "Visual/Mesh/arm",
+        "reference_gaussian_part_ids": ["arm_gaussian"],
+        "visibility_override": null,
+        "purpose_override": null,
+        "create_collision_override": null
+      },
+      {
+        "id": "bucket_mesh",
+        "enabled": true,
+        "source_id": "combined_mesh",
+        "link_id": "bucket",
+        "relative_prim_path": "Visual/Mesh/bucket",
+        "reference_gaussian_part_ids": ["bucket_gaussian"],
+        "visibility_override": null,
+        "purpose_override": null,
+        "create_collision_override": null
+      }
+    ]
+  },
+  "physics_profiles": {
+    "capture_placeholder": {
+      "rigid_body_enabled": true,
+      "kinematic_enabled": false,
+      "disable_gravity": true,
+      "mass": 1.0,
+      "center_of_mass": [0.0, 0.0, 0.0],
+      "diagonal_inertia": [1.0, 1.0, 1.0],
+      "principal_axes_wxyz": [1.0, 0.0, 0.0, 0.0],
+      "linear_damping": null,
+      "angular_damping": null,
+      "solver_position_iteration_count": null,
+      "solver_velocity_iteration_count": null
+    }
+  },
+  "links": [
+    {
+      "id": "track",
+      "enabled": true,
+      "display_name": "Track",
+      "prim_path": "Links/track",
+      "physics_profile": "capture_placeholder",
+      "physics_overrides": {}
+    },
+    {
+      "id": "cab",
+      "enabled": true,
+      "display_name": "Cab",
+      "prim_path": "Links/cab",
+      "physics_profile": "capture_placeholder",
+      "physics_overrides": {}
+    },
+    {
+      "id": "boom",
+      "enabled": true,
+      "display_name": "Boom",
+      "prim_path": "Links/boom",
+      "physics_profile": "capture_placeholder",
+      "physics_overrides": {}
+    },
+    {
+      "id": "arm",
+      "enabled": true,
+      "display_name": "Arm",
+      "prim_path": "Links/arm",
+      "physics_profile": "capture_placeholder",
+      "physics_overrides": {}
+    },
+    {
+      "id": "bucket",
+      "enabled": true,
+      "display_name": "Bucket",
+      "prim_path": "Links/bucket",
+      "physics_profile": "capture_placeholder",
+      "physics_overrides": {}
+    }
+  ],
+  "articulation": {
+    "enabled": true,
+    "mode": "floating",
+    "articulation_root": {
+      "reference_type": "link",
+      "reference_id": "track"
+    },
+    "api_placement": "root_body",
+    "enabled_self_collisions": false,
+    "fixed_base": {
+      "enabled": false,
+      "joint_prim_path": "Joints/world_fixed",
+      "body": {
+        "reference_type": "link",
+        "reference_id": "track",
+        "prim_path": null
+      }
+    }
+  },
+  "joints": [
+    {
+      "id": "track_cab_joint",
+      "enabled": true,
+      "display_name": "Track Cab Joint",
+      "type": "revolute",
+      "prim_path": "Joints/track_cab_joint",
+      "body0": {
+        "reference_type": "link",
+        "reference_id": "track",
+        "prim_path": null
+      },
+      "body1": {
+        "reference_type": "link",
+        "reference_id": "cab",
+        "prim_path": null
+      },
+      "geometry": {
+        "source": "calibration_file",
+        "calibration_id": "track_cab_joint",
+        "coordinate_frame": "source_mesh_numeric_frame",
+        "center_override": null,
+        "axis_override": null,
+        "axis_sign": 1
+      },
+      "limits": {
+        "enabled": true,
+        "lower_deg": -180.0,
+        "upper_deg": 180.0
+      },
+      "initial_position_deg": 0.0,
+      "collision_enabled": false,
+      "drive": {
+        "enabled": false,
+        "type": "force",
+        "target_position_deg": 0.0,
+        "target_velocity_deg_s": 0.0,
+        "stiffness": 0.0,
+        "damping": 0.0,
+        "max_force": null
+      }
+    },
+    {
+      "id": "cab_boom_joint",
+      "enabled": true,
+      "display_name": "Cab Boom Joint",
+      "type": "revolute",
+      "prim_path": "Joints/cab_boom_joint",
+      "body0": {
+        "reference_type": "link",
+        "reference_id": "cab",
+        "prim_path": null
+      },
+      "body1": {
+        "reference_type": "link",
+        "reference_id": "boom",
+        "prim_path": null
+      },
+      "geometry": {
+        "source": "calibration_file",
+        "calibration_id": "cab_boom_joint",
+        "coordinate_frame": "source_mesh_numeric_frame",
+        "center_override": null,
+        "axis_override": null,
+        "axis_sign": 1
+      },
+      "limits": {
+        "enabled": true,
+        "lower_deg": -35.0,
+        "upper_deg": 70.0
+      },
+      "initial_position_deg": 0.0,
+      "collision_enabled": false,
+      "drive": {
+        "enabled": false,
+        "type": "force",
+        "target_position_deg": 0.0,
+        "target_velocity_deg_s": 0.0,
+        "stiffness": 0.0,
+        "damping": 0.0,
+        "max_force": null
+      }
+    },
+    {
+      "id": "boom_arm_joint",
+      "enabled": true,
+      "display_name": "Boom Arm Joint",
+      "type": "revolute",
+      "prim_path": "Joints/boom_arm_joint",
+      "body0": {
+        "reference_type": "link",
+        "reference_id": "boom",
+        "prim_path": null
+      },
+      "body1": {
+        "reference_type": "link",
+        "reference_id": "arm",
+        "prim_path": null
+      },
+      "geometry": {
+        "source": "calibration_file",
+        "calibration_id": "boom_arm_joint",
+        "coordinate_frame": "source_mesh_numeric_frame",
+        "center_override": null,
+        "axis_override": null,
+        "axis_sign": 1
+      },
+      "limits": {
+        "enabled": true,
+        "lower_deg": -80.0,
+        "upper_deg": 70.0
+      },
+      "initial_position_deg": 0.0,
+      "collision_enabled": false,
+      "drive": {
+        "enabled": false,
+        "type": "force",
+        "target_position_deg": 0.0,
+        "target_velocity_deg_s": 0.0,
+        "stiffness": 0.0,
+        "damping": 0.0,
+        "max_force": null
+      }
+    },
+    {
+      "id": "arm_bucket_joint",
+      "enabled": true,
+      "display_name": "Arm Bucket Joint",
+      "type": "revolute",
+      "prim_path": "Joints/arm_bucket_joint",
+      "body0": {
+        "reference_type": "link",
+        "reference_id": "arm",
+        "prim_path": null
+      },
+      "body1": {
+        "reference_type": "link",
+        "reference_id": "bucket",
+        "prim_path": null
+      },
+      "geometry": {
+        "source": "calibration_file",
+        "calibration_id": "arm_bucket_joint",
+        "coordinate_frame": "source_mesh_numeric_frame",
+        "center_override": null,
+        "axis_override": null,
+        "axis_sign": 1
+      },
+      "limits": {
+        "enabled": true,
+        "lower_deg": -90.0,
+        "upper_deg": 80.0
+      },
+      "initial_position_deg": 0.0,
+      "collision_enabled": false,
+      "drive": {
+        "enabled": false,
+        "type": "force",
+        "target_position_deg": 0.0,
+        "target_velocity_deg_s": 0.0,
+        "stiffness": 0.0,
+        "damping": 0.0,
+        "max_force": null
+      }
+    }
+  ],
+  "physics_scene": {
+    "author_in_asset": false,
+    "prim_path": "/PhysicsScene",
+    "gravity_direction": [0.0, 0.0, -1.0],
+    "gravity_magnitude": 9.81,
+    "time_steps_per_second": 60
+  },
+  "semantics": {
+    "enabled": true,
+    "api": "SemanticsAPI",
+    "instance_name": "class",
+    "apply_to": "gaussian_prim",
+    "allow_duplicate_labels": true,
+    "apply_to_mesh": false
+  },
+  "outputs": {
+    "entry_file": "excavator_floating.usda",
+    "visual_layer_file": "excavator_visual.usda",
+    "physics_layer_file": "excavator_physics.usda",
+    "mesh_layer_file": "mesh_parts.usdc",
+    "gaussian_parts": {
+      "one_file_per_part": true,
+      "directory": "gaussian_parts",
+      "file_format": "usdc"
+    },
+    "use_relative_asset_paths": true,
+    "write_resolved_config": true,
+    "resolved_config_file": "resolved_build_config.json",
+    "write_validation_report": true,
+    "validation_report_file": "build_validation_report.json",
+    "write_debug_stage": true,
+    "debug_stage_file": "excavator_debug.usda",
+    "overwrite_policy": "error"
+  },
+  "validation": {
+    "strict_mode": true,
+    "expected_counts": {
+      "enabled_links": null,
+      "enabled_joints": null,
+      "enabled_gaussian_parts": null,
+      "enabled_mesh_parts": null
+    },
+    "require_unique_ids": true,
+    "require_unique_prim_paths": true,
+    "require_existing_input_files": true,
+    "require_every_part_has_link": true,
+    "require_joint_bodies_resolve_to_links": true,
+    "require_connected_articulation": true,
+    "required_topology": "chain",
+    "require_finite_joint_limits": true,
+    "require_positive_mass": true,
+    "require_positive_diagonal_inertia": true,
+    "max_joint_fit_rms_error_m": null,
+    "max_mesh_gaussian_bounds_difference_m": null,
+    "fail_on_warning": false
+  },
+  "execution": {
+    "dry_run": false,
+    "log_level": "INFO",
+    "stop_after_phase": null
+  }
+}

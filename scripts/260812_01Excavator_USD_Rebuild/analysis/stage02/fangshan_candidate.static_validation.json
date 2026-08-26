@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "kind": "candidate_static_validation_report",
+  "config_file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.build.json",
+  "valid_for_candidate_review": true,
+  "ready_for_formal_build": true,
+  "errors": [],
+  "warnings": [],
+  "build_blockers": [],
+  "checks": {
+    "input_files": {
+      "checked_count": 16,
+      "existing_count": 16,
+      "missing": []
+    },
+    "resolved_joint_bodies": [
+      {
+        "joint_id": "track_cab_joint",
+        "body0_link": "track",
+        "body1_link": "cab"
+      },
+      {
+        "joint_id": "cab_boom_joint",
+        "body0_link": "cab",
+        "body1_link": "boom"
+      },
+      {
+        "joint_id": "boom_arm_joint",
+        "body0_link": "boom",
+        "body1_link": "arm"
+      },
+      {
+        "joint_id": "arm_bucket_joint",
+        "body0_link": "arm",
+        "body1_link": "bucket"
+      }
+    ],
+    "articulation_graph": {
+      "enabled_links": [
+        "arm",
+        "boom",
+        "bucket",
+        "cab",
+        "track"
+      ],
+      "edges": [
+        [
+          "track",
+          "cab"
+        ],
+        [
+          "cab",
+          "boom"
+        ],
+        [
+          "boom",
+          "arm"
+        ],
+        [
+          "arm",
+          "bucket"
+        ]
+      ],
+      "connected": true,
+      "is_chain": true
+    },
+    "counts": {
+      "expected": {
+        "enabled_links": 5,
+        "enabled_joints": 4,
+        "enabled_gaussian_parts": 15,
+        "enabled_mesh_parts": 5
+      },
+      "actual": {
+        "enabled_links": 5,
+        "enabled_joints": 4,
+        "enabled_gaussian_parts": 15,
+        "enabled_mesh_parts": 5
+      }
+    },
+    "calibration_file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.joint_calibration.json",
+    "mesh_component_assignment_file": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/config/fangshan_candidate.mesh_component_assignment.json"
+  }
+}

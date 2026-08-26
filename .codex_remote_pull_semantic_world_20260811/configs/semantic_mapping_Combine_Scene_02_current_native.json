@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_usd": "/root/gpufree-data/stage_material_set/combine_stage/Combine_Scene_02.usda",
+  "semantic_type": "class",
+  "label_resolution": "last_nonempty_comma_separated_label",
+  "dataset_dtype": "uint16",
+  "semantic_prim_count": 15,
+  "class_count": 15,
+  "background": {
+    "id": 0,
+    "label": "BACKGROUND",
+    "color": [0, 0, 0]
+  },
+  "unknown": {
+    "id": 65535,
+    "label": "UNLABELLED",
+    "color": [255, 0, 255],
+    "policy": "error"
+  },
+  "classes": [
+    {"id": 1, "label": "arm_3DGS", "color": [69, 225, 201]},
+    {"id": 2, "label": "boom_3DGS", "color": [188, 172, 29]},
+    {"id": 3, "label": "bucket_without_teeth_3DGS", "color": [190, 68, 110]},
+    {"id": 4, "label": "cab_3DGS", "color": [148, 218, 60]},
+    {"id": 5, "label": "teeth_01_front_3DGS", "color": [245, 130, 48]},
+    {"id": 6, "label": "teeth_01_back_3DGS", "color": [255, 225, 25]},
+    {"id": 7, "label": "teeth_02_front_3DGS", "color": [145, 30, 180]},
+    {"id": 8, "label": "teeth_02_back_3DGS", "color": [70, 240, 240]},
+    {"id": 9, "label": "teeth_03_front_3DGS", "color": [240, 50, 230]},
+    {"id": 10, "label": "teeth_03_back_3DGS", "color": [210, 245, 60]},
+    {"id": 11, "label": "teeth_04_front_3DGS", "color": [250, 190, 190]},
+    {"id": 12, "label": "teeth_04_back_3DGS", "color": [0, 128, 128]},
+    {"id": 13, "label": "teeth_05_front_3DGS", "color": [230, 25, 75]},
+    {"id": 14, "label": "teeth_05_back_3DGS", "color": [60, 180, 75]},
+    {"id": 15, "label": "track_3DGS", "color": [39, 232, 216]}
+  ]
+}

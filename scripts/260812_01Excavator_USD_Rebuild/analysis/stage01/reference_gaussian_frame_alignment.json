@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0",
+  "kind": "reference_gaussian_frame_alignment",
+  "mapping_convention": "reference_position = source_position @ row_rotation + translation",
+  "point_count": 397747,
+  "row_rotation": [
+    [
+      1.0,
+      1.0331537381599289e-16,
+      -3.8491601078315663e-16
+    ],
+    [
+      -1.2258871842127433e-16,
+      0.9999999999999999,
+      8.29796427312007e-17
+    ],
+    [
+      -1.7714912990145213e-16,
+      2.0871954788521986e-16,
+      1.0
+    ]
+  ],
+  "column_rotation_old_to_reference": [
+    [
+      1.0,
+      -1.2258871842127433e-16,
+      -1.7714912990145213e-16
+    ],
+    [
+      1.0331537381599289e-16,
+      0.9999999999999999,
+      2.0871954788521986e-16
+    ],
+    [
+      -3.8491601078315663e-16,
+      8.29796427312007e-17,
+      1.0
+    ]
+  ],
+  "translation": [
+    1.6653345369377348e-16,
+    -1.5265566588595902e-16,
+    -1.1102230246251565e-16
+  ],
+  "determinant": 0.9999999999999999,
+  "max_error_m": 7.385278330912554e-16,
+  "rms_error_m": 3.7051815138776784e-16,
+  "parts": [
+    {
+      "part_id": "track",
+      "point_count": 70566,
+      "reference_prim_path": "/excavator_prim/track_prim/track_3DGS",
+      "fit_max_error_m": 1.3517848686956847e-15,
+      "fit_rms_error_m": 5.457066354080983e-16
+    },
+    {
+      "part_id": "cab",
+      "point_count": 185786,
+      "reference_prim_path": "/excavator_prim/cab_prim/cab_3DGS",
+      "fit_max_error_m": 9.485749680535094e-16,
+      "fit_rms_error_m": 3.5152315394210717e-16
+    },
+    {
+      "part_id": "boom",
+      "point_count": 66794,
+      "reference_prim_path": "/excavator_prim/boom_prim/boom_3DGS",
+      "fit_max_error_m": 3.3306690738754696e-16,
+      "fit_rms_error_m": 1.8853553738591057e-16
+    },
+    {
+      "part_id": "arm",
+      "point_count": 41716,
+      "reference_prim_path": "/excavator_prim/arm_prim/arm_3DGS",
+      "fit_max_error_m": 5.23691153334427e-16,
+      "fit_rms_error_m": 1.9925623133682388e-16
+    },
+    {
+      "part_id": "bucket_without_teeth",
+      "point_count": 30141,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/bucket_without_teeth_3DGS",
+      "fit_max_error_m": 2.482534153247273e-16,
+      "fit_rms_error_m": 9.14289639160971e-17
+    },
+    {
+      "part_id": "tooth_01_front",
+      "point_count": 320,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_front_3DGS",
+      "fit_max_error_m": 1.1102230246251565e-16,
+      "fit_rms_error_m": 5.822058658345462e-17
+    },
+    {
+      "part_id": "tooth_01_back",
+      "point_count": 211,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_back_3DGS",
+      "fit_max_error_m": 1.5700924586837752e-16,
+      "fit_rms_error_m": 8.476597424483471e-17
+    },
+    {
+      "part_id": "tooth_02_front",
+      "point_count": 323,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_front_3DGS",
+      "fit_max_error_m": 1.5700924586837752e-16,
+      "fit_rms_error_m": 1.0717468517334149e-16
+    },
+    {
+      "part_id": "tooth_02_back",
+      "point_count": 214,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_back_3DGS",
+      "fit_max_error_m": 1.1102230246251565e-16,
+      "fit_rms_error_m": 4.616408214746842e-17
+    },
+    {
+      "part_id": "tooth_03_front",
+      "point_count": 316,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_front_3DGS",
+      "fit_max_error_m": 0.0,
+      "fit_rms_error_m": 0.0
+    },
+    {
+      "part_id": "tooth_03_back",
+      "point_count": 235,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_back_3DGS",
+      "fit_max_error_m": 1.2412670766236366e-16,
+      "fit_rms_error_m": 8.422575943618743e-17
+    },
+    {
+      "part_id": "tooth_04_front",
+      "point_count": 367,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_front_3DGS",
+      "fit_max_error_m": 1.9229626863835638e-16,
+      "fit_rms_error_m": 1.0012657610168096e-16
+    },
+    {
+      "part_id": "tooth_04_back",
+      "point_count": 199,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_back_3DGS",
+      "fit_max_error_m": 2.220446049250313e-16,
+      "fit_rms_error_m": 9.59062518370691e-17
+    },
+    {
+      "part_id": "tooth_05_front",
+      "point_count": 304,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_front_3DGS",
+      "fit_max_error_m": 5.551115123125783e-17,
+      "fit_rms_error_m": 3.1996621892673116e-17
+    },
+    {
+      "part_id": "tooth_05_back",
+      "point_count": 255,
+      "reference_prim_path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_back_3DGS",
+      "fit_max_error_m": 1.6653345369377348e-16,
+      "fit_rms_error_m": 9.55176479499024e-17
+    }
+  ],
+  "joint_frames_in_source_ply_coordinates": [
+    {
+      "reference_joint_path": "/excavator_prim/Joints/boom_small_arm_joint",
+      "center_reference_frame": [
+        0.3242567937639649,
+        -0.4643001100976427,
+        1.0478476944149975
+      ],
+      "axis_reference_frame": [
+        0.9128329371756365,
+        0.40828582580505474,
+        0.006221997587988823
+      ],
+      "center_source_ply_frame": [
+        0.32425679376396427,
+        -0.46430011009764244,
+        1.0478476944149973
+      ],
+      "axis_source_ply_frame": [
+        0.9128329371756366,
+        0.4082858258050546,
+        0.006221997587988748
+      ]
+    },
+    {
+      "reference_joint_path": "/excavator_prim/Joints/small_arm_bucket_joint",
+      "center_reference_frame": [
+        0.41385090351104736,
+        -0.8401621580123901,
+        -0.10665646940469742
+      ],
+      "axis_reference_frame": [
+        -0.9223519984399285,
+        -0.3825290878900911,
+        0.05420597653252872
+      ],
+      "center_source_ply_frame": [
+        0.41385090351104714,
+        -0.8401621580123899,
+        -0.10665646940469756
+      ],
+      "axis_source_ply_frame": [
+        -0.9223519984399287,
+        -0.382529087890091,
+        0.05420597653252881
+      ]
+    },
+    {
+      "reference_joint_path": "/excavator_prim/Joints/platform_boom_joint",
+      "center_reference_frame": [
+        -0.7674506306648254,
+        1.3535553216934204,
+        -0.06812799721956253
+      ],
+      "axis_reference_frame": [
+        0.9311396556405569,
+        0.3631104982270399,
+        -0.0336111257011128
+      ],
+      "center_source_ply_frame": [
+        -0.7674506306648256,
+        1.3535553216934204,
+        -0.068127997219562
+      ],
+      "axis_source_ply_frame": [
+        0.931139655640557,
+        0.3631104982270398,
+        -0.033611125701112896
+      ]
+    },
+    {
+      "reference_joint_path": "/excavator_prim/Joints/track_operator_cab_joint",
+      "center_reference_frame": [
+        -0.6488432288169861,
+        1.533059000968933,
+        -0.491243839263916
+      ],
+      "axis_reference_frame": [
+        -0.06092095537576368,
+        0.04346970773294743,
+        -0.997195578462779
+      ],
+      "center_source_ply_frame": [
+        -0.648843228816986,
+        1.533059000968933,
+        -0.49124383926391546
+      ],
+      "axis_source_ply_frame": [
+        -0.0609209553757633,
+        0.04346970773294735,
+        -0.9971955784627791
+      ]
+    }
+  ]
+}

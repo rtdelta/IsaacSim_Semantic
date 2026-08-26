@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "inputs": {
+    "postprocess": {
+      "output_root": "/root/gpufree-data/repositories/260724PostProcessChain/output/output0727_01_full_scene",
+      "manifest": "manifest.json",
+      "tooth_module_dir": "modules/tooth_boxes",
+      "group_module_dir": "modules/tooth_group"
+    },
+    "pixel_ratio": {
+      "output_root": "/root/gpufree-data/repositories/260727SemanticPixelRatio/output/output0727_01",
+      "manifest": "manifest.json",
+      "input_format": "counts_cache_npz",
+      "counts_cache": "counts_cache.npz",
+      "per_frame_csv": "per_frame.csv"
+    }
+  },
+  "targets": {
+    "labels_in_physical_order": [
+      "tooth_1_front_3DGS",
+      "tooth_2_front_3DGS",
+      "tooth_3_front_3DGS",
+      "tooth_4_front_3DGS",
+      "tooth_5_front_3DGS"
+    ],
+    "group_name": "tooth_front_group"
+  },
+  "identity": {
+    "mode": "legacy_zero_class_order",
+    "legacy_zero_class_order": {
+      "source_class_id": 0,
+      "source_min_pixels": 10
+    },
+    "class_id_map": {
+      "mapping": {
+        "1": "tooth_1_front_3DGS",
+        "2": "tooth_2_front_3DGS",
+        "3": "tooth_3_front_3DGS",
+        "4": "tooth_4_front_3DGS",
+        "5": "tooth_5_front_3DGS"
+      }
+    }
+  },
+  "rules": {
+    "single_tooth": {
+      "minimum_visible_ratio": 0.2
+    },
+    "tooth_group": {
+      "minimum_visible_ratio": 0.3,
+      "minimum_low_teeth": 3
+    }
+  },
+  "ratio_handling": {
+    "reference_missing": "error",
+    "empty_ratio": "error",
+    "ratio_over_one": "use_raw"
+  },
+  "execution": {
+    "workers": 8,
+    "max_in_flight": 32,
+    "on_error": "fail_fast",
+    "dry_run": false,
+    "staging_mode": "atomic_directory"
+  },
+  "performance": {
+    "vectorized_rules": true,
+    "directory_scan": "single_pass",
+    "durability": "run_level",
+    "verification_level": "sample",
+    "verification_sample_frames": 32
+  },
+  "output": {
+    "root": "../output/output260730_01",
+    "overwrite": false,
+    "image_mode": "hardlink_required",
+    "keep_empty_label_files": true
+  },
+  "reporting": {
+    "level": "full"
+  }
+}

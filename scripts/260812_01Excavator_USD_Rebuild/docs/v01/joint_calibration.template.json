@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "mesh_source_id": "combined_mesh",
+    "source_file": "../inputs/mesh_parts/拆分成五部分的mesh.usd",
+    "source_prim_path": "/World/mesh_",
+    "source_file_sha256": null
+  },
+  "coordinate_frame": {
+    "name": "source_mesh_numeric_frame",
+    "units_to_meters": 1.0,
+    "up_axis": "Y",
+    "object_to_source_matrix": [
+      [1.0, 0.0, 0.0, 0.0],
+      [0.0, 1.0, 0.0, 0.0],
+      [0.0, 0.0, 1.0, 0.0],
+      [0.0, 0.0, 0.0, 1.0]
+    ]
+  },
+  "joints": [
+    {
+      "id": "track_cab_joint",
+      "enabled": true,
+      "method": "mesh_arc_fit",
+      "center": null,
+      "axis": null,
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": ["track_mesh", "cab_mesh"],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": null,
+      "provenance": {
+        "tool": "calibrate_excavator_joints",
+        "operator": null,
+        "timestamp_utc": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "cab_boom_joint",
+      "enabled": true,
+      "method": "mesh_arc_fit",
+      "center": null,
+      "axis": null,
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": ["cab_mesh", "boom_mesh"],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": null,
+      "provenance": {
+        "tool": "calibrate_excavator_joints",
+        "operator": null,
+        "timestamp_utc": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "boom_arm_joint",
+      "enabled": true,
+      "method": "mesh_arc_fit",
+      "center": null,
+      "axis": null,
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": ["boom_mesh", "arm_mesh"],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": null,
+      "provenance": {
+        "tool": "calibrate_excavator_joints",
+        "operator": null,
+        "timestamp_utc": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "arm_bucket_joint",
+      "enabled": true,
+      "method": "mesh_arc_fit",
+      "center": null,
+      "axis": null,
+      "axis_is_normalized": true,
+      "selection": {
+        "source_mesh_part_ids": ["arm_mesh", "bucket_mesh"],
+        "selected_vertex_indices": [],
+        "selected_vertex_indices_file": null
+      },
+      "fit": {
+        "selected_point_count": null,
+        "circle_radius_m": null,
+        "plane_rms_error_m": null,
+        "circle_rms_error_m": null,
+        "maximum_error_m": null,
+        "arc_angle_deg": null
+      },
+      "validation": null,
+      "provenance": {
+        "tool": "calibrate_excavator_joints",
+        "operator": null,
+        "timestamp_utc": null,
+        "notes": null
+      }
+    }
+  ]
+}

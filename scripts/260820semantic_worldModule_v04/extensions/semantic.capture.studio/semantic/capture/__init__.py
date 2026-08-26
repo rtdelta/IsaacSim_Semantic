@@ -1,0 +1,2 @@
+"""Semantic capture Kit namespace."""
+

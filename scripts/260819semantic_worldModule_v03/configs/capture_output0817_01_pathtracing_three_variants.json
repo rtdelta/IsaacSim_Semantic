@@ -1,0 +1,160 @@
+{
+  "schema_version": 6,
+  "run_id": "output0817_01_v03_pathtracing",
+  "output": "/root/gpufree-data/semantic/scripts/output/output0817_01",
+  "scene": {
+    "usd": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda",
+    "physics_hz": 60,
+    "mapping": "semantic_mapping_excavator.json",
+    "state_prim_paths": [
+      "/Excavator_Fangshan_03/track_prim"
+    ],
+    "pre_roll_steps": 0,
+    "motion": {
+      "driver": "semantic_world_v03.motion:CsvArticulationMotion",
+      "trajectory": "/root/gpufree-data/semantic/scripts/trajectories/trajectory_0813_01.csv",
+      "settings": {
+        "articulation_prim_path": "/Excavator_Fangshan_03/track_prim",
+        "time_column": "time",
+        "joint_columns": {
+          "track_operator_cab_joint": "cab",
+          "platform_boom_joint": "boom",
+          "boom_small_arm_joint": "small_arm",
+          "small_arm_bucket_joint": "bucket"
+        },
+        "angle_units": "degrees",
+        "interpolation": "linear",
+        "root_pose": {
+          "position": [
+            "root_world_x_m",
+            "root_world_y_m",
+            "root_world_z_m"
+          ],
+          "orientation_wxyz": [
+            "root_quat_w",
+            "root_quat_x",
+            "root_quat_y",
+            "root_quat_z"
+          ]
+        }
+      }
+    }
+  },
+  "render_groups": {
+    "camera_pt": {
+      "kind": "camera_rtx",
+      "profile": "render_pathtracing_stable.json",
+      "execution": "batched",
+      "multi_gpu": false,
+      "rt_subframes": 8,
+      "warmup_frames": 16,
+      "settings": {}
+    }
+  },
+  "drivers": {},
+  "sensors": [
+    {
+      "id": "boom_camera",
+      "type": "camera.pinhole",
+      "enabled": true,
+      "source": {
+        "mode": "existing_prim",
+        "prim_path": "/Excavator_Fangshan_03/boom_prim/Camera"
+      },
+      "render_group": "camera_pt",
+      "clock": {
+        "hz": 10,
+        "phase_seconds": 0,
+        "acquisition": "snapshot"
+      },
+      "modalities": [
+        "rgb",
+        "semantic_segmentation"
+      ],
+      "resolution": [
+        1280,
+        720
+      ],
+      "calibration": {
+        "policy": "read_from_prim",
+        "expected_model": "pinhole"
+      },
+      "output": {
+        "sink": "filesystem",
+        "required": true,
+        "folder": "v03_boom_camera"
+      },
+      "settings": {}
+    }
+  ],
+  "capture": {
+    "frames": 10190,
+    "base_hz": 10,
+    "capture_initial_frame": true,
+    "variant_execution": "variant_major",
+    "variants": [
+      {
+        "id": "full_scene",
+        "visibility": {},
+        "modalities_by_sensor": {
+          "boom_camera": [
+            "rgb",
+            "semantic_segmentation"
+          ]
+        }
+      },
+      {
+        "id": "excavator_only",
+        "visibility": {},
+        "include_paths": [
+          "/Environment",
+          "/Excavator_Fangshan_03"
+        ],
+        "modalities_by_sensor": {
+          "boom_camera": [
+            "semantic_segmentation"
+          ]
+        }
+      },
+      {
+        "id": "front_teeth_only",
+        "visibility": {},
+        "include_paths": [
+          "/Excavator_Fangshan_03/bucket_prim/tooth_01_front_3DGS",
+          "/Excavator_Fangshan_03/bucket_prim/tooth_02_front_3DGS",
+          "/Excavator_Fangshan_03/bucket_prim/tooth_03_front_3DGS",
+          "/Excavator_Fangshan_03/bucket_prim/tooth_04_front_3DGS",
+          "/Excavator_Fangshan_03/bucket_prim/tooth_05_front_3DGS"
+        ],
+        "modalities_by_sensor": {
+          "boom_camera": [
+            "semantic_segmentation"
+          ]
+        }
+      }
+    ],
+    "synchronization_groups": [
+      {
+        "id": "boom_camera_sync",
+        "sensor_ids": [
+          "boom_camera"
+        ],
+        "commit_policy": "all_or_nothing"
+      }
+    ]
+  },
+  "runtime": {
+    "segment_frames": 100,
+    "resume": true,
+    "heartbeat_seconds": 5,
+    "startup_timeout_seconds": 600,
+    "render_timeout_seconds": 300,
+    "shutdown_timeout_seconds": 45,
+    "max_worker_restarts": 3,
+    "poll_seconds": 1,
+    "worker_command": [
+      "/bin/bash",
+      "/root/gpufree-data/semantic/scripts/260819semantic_worldModule_v03/isaac_python_abi_safe.sh"
+    ]
+  }
+}

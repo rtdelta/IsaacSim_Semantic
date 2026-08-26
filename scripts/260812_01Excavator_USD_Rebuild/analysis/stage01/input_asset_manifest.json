@@ -1,0 +1,2293 @@
+{
+  "schema_version": "1.0",
+  "kind": "gaussian_ply_asset_manifest",
+  "source_directory": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts",
+  "file_count": 15,
+  "inspected_count": 15,
+  "error_count": 0,
+  "total_size_bytes": 98664187,
+  "total_vertex_count": 397747,
+  "parts": [
+    {
+      "id": "arm",
+      "relative_path": "arm.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/arm.ply",
+      "size_bytes": 10347098,
+      "sha256": "c7bbb9b6b3e541fd7eb9deddb17474d4f1a58ee3829c50433ca82c8af458c99e",
+      "format": "binary_little_endian",
+      "header_bytes": 1530,
+      "vertex_count": 41716,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 10345568,
+      "minimum_expected_file_bytes": 10347098,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 41716
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.1062062457203865,
+          -1.3384480476379395,
+          -1.0751371383666992
+        ],
+        "maximum": [
+          0.6082251667976379,
+          0.26100093126296997,
+          -0.5610581636428833
+        ],
+        "mean": [
+          0.42789598288415853,
+          -0.3338479382179743,
+          -0.8481485768516817
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.6662421226501465,
+          -7.569253444671631,
+          -7.665317058563232
+        ],
+        "maximum": [
+          -2.878079891204834,
+          -1.8282427787780762,
+          -2.8409335613250732
+        ],
+        "mean": [
+          -6.368899814679509,
+          -4.94437175329322,
+          -6.3210568771470665
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -7.070248603820801
+        ],
+        "maximum": [
+          5.7694244384765625
+        ],
+        "mean": [
+          -0.9170517623908642
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.6159803311715402,
+        "maximum": 2.5713184785021443,
+        "mean": 1.1572314070144583,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "boom",
+      "relative_path": "boom.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/boom.ply",
+      "size_bytes": 16566442,
+      "sha256": "3d9f1ed003515fa091dcc38022a0e4bcbaac754944f75c288ea665404c1613d6",
+      "format": "binary_little_endian",
+      "header_bytes": 1530,
+      "vertex_count": 66794,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 16564912,
+      "minimum_expected_file_bytes": 16566442,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 66794
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          -0.7353241443634033,
+          -1.312181830406189,
+          -0.7485301494598389
+        ],
+        "maximum": [
+          0.45845767855644226,
+          0.15181364119052887,
+          1.477620005607605
+        ],
+        "mean": [
+          -0.29549658004883245,
+          -0.6028015948107134,
+          0.6864321390066389
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -9.397409439086914,
+          -9.405097007751465,
+          -9.407238960266113
+        ],
+        "maximum": [
+          -2.624438524246216,
+          -2.5024986267089844,
+          -2.061530351638794
+        ],
+        "mean": [
+          -6.596774296281966,
+          -5.785446214890785,
+          -5.77065675250855
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -7.262685775756836
+        ],
+        "maximum": [
+          8.024886131286621
+        ],
+        "mean": [
+          -0.8943233378261256
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.537226767633323,
+        "maximum": 2.340844688248948,
+        "mean": 1.0381887137344146,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "bucket_without_teeth",
+      "relative_path": "bucket_without_teeth.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/bucket_without_teeth.ply",
+      "size_bytes": 7476498,
+      "sha256": "e73264ca5923e73562327bf250eb8c699fa78053d81428e0a746b1373fcd6e3c",
+      "format": "binary_little_endian",
+      "header_bytes": 1530,
+      "vertex_count": 30141,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 7474968,
+      "minimum_expected_file_bytes": 7476498,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 30141
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.21763117611408234,
+          0.17706362903118134,
+          -1.2459654808044434
+        ],
+        "maximum": [
+          0.7551990747451782,
+          0.798081636428833,
+          -0.7291570901870728
+        ],
+        "mean": [
+          0.4917643450914692,
+          0.5017149216856013,
+          -0.9889736846769138
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.619043827056885,
+          -7.5879387855529785,
+          -7.600381851196289
+        ],
+        "maximum": [
+          -2.7410731315612793,
+          -2.8342738151550293,
+          -2.766681671142578
+        ],
+        "mean": [
+          -6.306517143911746,
+          -5.602010940272246,
+          -6.018770514690687
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -7.143627643585205
+        ],
+        "maximum": [
+          6.845213890075684
+        ],
+        "mean": [
+          -0.5610719865995925
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.5841574208120074,
+        "maximum": 2.069868650947967,
+        "mean": 1.0177185969780385,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "cab",
+      "relative_path": "cab.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/cab.ply",
+      "size_bytes": 46076459,
+      "sha256": "10c57f47a2f52202dd523b7541f4b93b319c822c8b6905f13a5c53bc6f4a0e77",
+      "format": "binary_little_endian",
+      "header_bytes": 1531,
+      "vertex_count": 185786,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 46074928,
+      "minimum_expected_file_bytes": 46076459,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 185786
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          -1.5302155017852783,
+          -1.1838746070861816,
+          0.6689230799674988
+        ],
+        "maximum": [
+          0.2943733036518097,
+          0.3835503160953522,
+          2.737499713897705
+        ],
+        "mean": [
+          -0.6366890030807512,
+          -0.17896849015534352,
+          1.4401536461419397
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -9.410897254943848,
+          -9.410953521728516,
+          -9.411431312561035
+        ],
+        "maximum": [
+          -1.7909455299377441,
+          -2.1768062114715576,
+          -1.946882724761963
+        ],
+        "mean": [
+          -6.580250234019751,
+          -6.062439075385653,
+          -6.529799142726643
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -7.5530924797058105
+        ],
+        "maximum": [
+          9.794930458068848
+        ],
+        "mean": [
+          -1.6144273995488614
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.5343655859321773,
+        "maximum": 2.852802582382926,
+        "mean": 1.1612441547702097,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_01_back",
+      "relative_path": "tooth_01_back.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_01_back.ply",
+      "size_bytes": 53856,
+      "sha256": "1b6df55d4a4e8aebe6fc781edb68a703cb7f53c58835733cfe81d7e11170a294",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 211,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 52328,
+      "minimum_expected_file_bytes": 53856,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 211
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.5976377725601196,
+          0.7832431197166443,
+          -0.8355850577354431
+        ],
+        "maximum": [
+          0.6527383923530579,
+          0.8740745186805725,
+          -0.7547932267189026
+        ],
+        "mean": [
+          0.6192844354710872,
+          0.8253770275703539,
+          -0.7944981701566145
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.447321891784668,
+          -7.393613815307617,
+          -7.44505500793457
+        ],
+        "maximum": [
+          -4.304505348205566,
+          -4.24179744720459,
+          -4.081248760223389
+        ],
+        "mean": [
+          -6.423797336234865,
+          -5.640403058291612,
+          -6.267976989113324
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.800904750823975
+        ],
+        "maximum": [
+          3.1408567428588867
+        ],
+        "mean": [
+          0.10652043274272745
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7256425668698019,
+        "maximum": 1.373135007680999,
+        "mean": 0.996487641041864,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_01_front",
+      "relative_path": "tooth_01_front.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_01_front.ply",
+      "size_bytes": 80888,
+      "sha256": "9f5af66ece063c69f21c97a9fdc04844fe7e58e9bef054122cb700ace5a91855",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 320,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 79360,
+      "minimum_expected_file_bytes": 80888,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 320
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.5947827100753784,
+          0.7721008062362671,
+          -0.8163040280342102
+        ],
+        "maximum": [
+          0.646073043346405,
+          0.873239278793335,
+          -0.7502121329307556
+        ],
+        "mean": [
+          0.6169396242126822,
+          0.8168909547850489,
+          -0.7807224079966545
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.450644016265869,
+          -7.434253692626953,
+          -7.452662944793701
+        ],
+        "maximum": [
+          -4.5001444816589355,
+          -4.070245265960693,
+          -4.227689743041992
+        ],
+        "mean": [
+          -6.510002207756043,
+          -5.611171978712082,
+          -6.444312000274659
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.619888782501221
+        ],
+        "maximum": [
+          3.1615488529205322
+        ],
+        "mean": [
+          -0.3619707387348171
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7281676310817038,
+        "maximum": 1.75037960121997,
+        "mean": 1.045210835279045,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_02_back",
+      "relative_path": "tooth_02_back.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_02_back.ply",
+      "size_bytes": 54600,
+      "sha256": "159e9211aaf9d908d0e1c9ddf169781e5b4849f2b368d1f8a6cf8c9bc5180ce8",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 214,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 53072,
+      "minimum_expected_file_bytes": 54600,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 214
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.5135161876678467,
+          0.7856060862541199,
+          -0.8776928186416626
+        ],
+        "maximum": [
+          0.5667649507522583,
+          0.8731138110160828,
+          -0.7988226413726807
+        ],
+        "mean": [
+          0.5339831420194323,
+          0.8226843392737558,
+          -0.8397980513416718
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.441823482513428,
+          -7.412093162536621,
+          -7.430480003356934
+        ],
+        "maximum": [
+          -4.352333068847656,
+          -3.8468942642211914,
+          -4.00022554397583
+        ],
+        "mean": [
+          -6.267700721170301,
+          -5.680112874396493,
+          -6.2813382193306895
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.5465168952941895
+        ],
+        "maximum": [
+          3.3615739345550537
+        ],
+        "mean": [
+          0.02766062992529195
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7286487505618103,
+        "maximum": 1.394159897520439,
+        "mean": 1.0139853768433218,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_02_front",
+      "relative_path": "tooth_02_front.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_02_front.ply",
+      "size_bytes": 81632,
+      "sha256": "68da29ee57a59aac86753f280ac77e66a6d674da8df436fc266b03d5224dccd5",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 323,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 80104,
+      "minimum_expected_file_bytes": 81632,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 323
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.5153003334999084,
+          0.7778851389884949,
+          -0.8524743318557739
+        ],
+        "maximum": [
+          0.5586565136909485,
+          0.8760836720466614,
+          -0.7908127307891846
+        ],
+        "mean": [
+          0.5320868514270606,
+          0.822880576085011,
+          -0.8177763155370305
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.448709964752197,
+          -7.441226005554199,
+          -7.450956344604492
+        ],
+        "maximum": [
+          -4.580659866333008,
+          -4.020153045654297,
+          -4.120510101318359
+        ],
+        "mean": [
+          -6.345153130983052,
+          -5.7205613198295096,
+          -6.424304373124066
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.702507495880127
+        ],
+        "maximum": [
+          3.303563356399536
+        ],
+        "mean": [
+          -0.38947172761943777
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7169065547635013,
+        "maximum": 1.6384314010537617,
+        "mean": 1.06533358238214,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_03_back",
+      "relative_path": "tooth_03_back.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_03_back.ply",
+      "size_bytes": 59808,
+      "sha256": "df097f45fdaf7fff92c1b7eca71fe9690ba23a1a548d6b8f6d9d0de138c749bb",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 235,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 58280,
+      "minimum_expected_file_bytes": 59808,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 235
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.4256398677825928,
+          0.786827802658081,
+          -0.9156341552734375
+        ],
+        "maximum": [
+          0.48431196808815,
+          0.8777961134910583,
+          -0.8346858024597168
+        ],
+        "mean": [
+          0.45326460396989865,
+          0.8257933756138416,
+          -0.8757010396490705
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.423211097717285,
+          -7.41383695602417,
+          -7.432903289794922
+        ],
+        "maximum": [
+          -4.953879356384277,
+          -4.147215843200684,
+          -4.223806381225586
+        ],
+        "mean": [
+          -6.267498805675101,
+          -5.51437641103217,
+          -6.38376000384067
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.563204765319824
+        ],
+        "maximum": [
+          3.2379982471466064
+        ],
+        "mean": [
+          0.07205472418126908
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.8132723719013424,
+        "maximum": 1.325220631674439,
+        "mean": 0.9982294214771948,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_03_front",
+      "relative_path": "tooth_03_front.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_03_front.ply",
+      "size_bytes": 79896,
+      "sha256": "a3d4893103794df0ac72912e8b57eccf8b0ad09b6700b6d00f7b1a582c62d24c",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 316,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 78368,
+      "minimum_expected_file_bytes": 79896,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 316
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.4280736744403839,
+          0.7768275141716003,
+          -0.8934648036956787
+        ],
+        "maximum": [
+          0.47417354583740234,
+          0.8779038190841675,
+          -0.829398512840271
+        ],
+        "mean": [
+          0.4452500301825849,
+          0.8254293259940569,
+          -0.856872608012791
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.444193363189697,
+          -7.422253608703613,
+          -7.440023422241211
+        ],
+        "maximum": [
+          -4.705482482910156,
+          -4.016342639923096,
+          -4.184514999389648
+        ],
+        "mean": [
+          -6.364880492415609,
+          -5.573822000358678,
+          -6.653462111195432
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -6.364252090454102
+        ],
+        "maximum": [
+          3.5087709426879883
+        ],
+        "mean": [
+          -0.20221958877047216
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7372217051327056,
+        "maximum": 1.4734362855329046,
+        "mean": 1.0370940583931703,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_04_back",
+      "relative_path": "tooth_04_back.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_04_back.ply",
+      "size_bytes": 50880,
+      "sha256": "14100ee9b9242cf5d0c71d3603771c129776a9ef49f745fca14de4a5a05f0f87",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 199,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 49352,
+      "minimum_expected_file_bytes": 50880,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 199
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.34127187728881836,
+          0.7914534211158752,
+          -0.9515893459320068
+        ],
+        "maximum": [
+          0.3993232846260071,
+          0.8773995041847229,
+          -0.8710739016532898
+        ],
+        "mean": [
+          0.36731867619495295,
+          0.8281170806693072,
+          -0.9107768361891934
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.432479381561279,
+          -7.4285173416137695,
+          -7.416635513305664
+        ],
+        "maximum": [
+          -4.459704875946045,
+          -3.8897993564605713,
+          -4.062636852264404
+        ],
+        "mean": [
+          -6.106056100759075,
+          -5.6234893259690635,
+          -6.353416162519599
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.872211933135986
+        ],
+        "maximum": [
+          3.401966094970703
+        ],
+        "mean": [
+          0.17270408699934806
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7659856155781747,
+        "maximum": 1.3391894835858014,
+        "mean": 0.9932314420954903,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_04_front",
+      "relative_path": "tooth_04_front.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_04_front.ply",
+      "size_bytes": 92544,
+      "sha256": "84a426b9ee33c4441a4c8001e09581321fab69c9b44fd07e1304b03470c343bc",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 367,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 91016,
+      "minimum_expected_file_bytes": 92544,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 367
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.34045588970184326,
+          0.7761849164962769,
+          -0.9303314685821533
+        ],
+        "maximum": [
+          0.39281830191612244,
+          0.8797308802604675,
+          -0.8664494752883911
+        ],
+        "mean": [
+          0.36112209407445195,
+          0.8272096539063415,
+          -0.8916413173363709
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.442017078399658,
+          -7.439779758453369,
+          -7.436363220214844
+        ],
+        "maximum": [
+          -4.50180196762085,
+          -4.235452175140381,
+          -4.204614162445068
+        ],
+        "mean": [
+          -6.267505432669409,
+          -5.776925940604561,
+          -6.4669240164172095
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -7.075061798095703
+        ],
+        "maximum": [
+          3.6442947387695312
+        ],
+        "mean": [
+          -0.2666649573447046
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7493527488906923,
+        "maximum": 1.652308145842373,
+        "mean": 1.0355529839807416,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_05_back",
+      "relative_path": "tooth_05_back.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_05_back.ply",
+      "size_bytes": 64768,
+      "sha256": "380181e4ddade9acf64ca0bccf9c22b016ebce559b85f80fb25ff6e730e888e5",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 255,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 63240,
+      "minimum_expected_file_bytes": 64768,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 255
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.25710219144821167,
+          0.7891018390655518,
+          -0.9883989095687866
+        ],
+        "maximum": [
+          0.3114537298679352,
+          0.8756123185157776,
+          -0.9085296988487244
+        ],
+        "mean": [
+          0.27915093057295853,
+          0.831457296072268,
+          -0.9444875429658329
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.426395416259766,
+          -7.411951541900635,
+          -7.42931604385376
+        ],
+        "maximum": [
+          -4.109811782836914,
+          -4.259545803070068,
+          -4.129995346069336
+        ],
+        "mean": [
+          -6.464689632490569,
+          -5.681924913443771,
+          -6.1652685950784125
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.8175272941589355
+        ],
+        "maximum": [
+          4.066530227661133
+        ],
+        "mean": [
+          0.2275000226437388
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7306187179017111,
+        "maximum": 1.3190658438662757,
+        "mean": 1.019507734967828,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "tooth_05_front",
+      "relative_path": "tooth_05_front.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_05_front.ply",
+      "size_bytes": 76920,
+      "sha256": "ae780ece479ae4a5d8d2e6f41181628a7d5b80283b5586eb759441ae7d59dd80",
+      "format": "binary_little_endian",
+      "header_bytes": 1528,
+      "vertex_count": 304,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 75392,
+      "minimum_expected_file_bytes": 76920,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 304
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          0.25628024339675903,
+          0.7801631093025208,
+          -0.9601300954818726
+        ],
+        "maximum": [
+          0.30356916785240173,
+          0.8760988116264343,
+          -0.9022369980812073
+        ],
+        "mean": [
+          0.2755155279056022,
+          0.8253917870552916,
+          -0.9260123279926024
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -7.437154769897461,
+          -7.357697486877441,
+          -7.440681457519531
+        ],
+        "maximum": [
+          -4.414581298828125,
+          -4.357382297515869,
+          -4.160884857177734
+        ],
+        "mean": [
+          -6.586094997431102,
+          -5.736432833106894,
+          -6.252585977315903
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -5.669899940490723
+        ],
+        "maximum": [
+          3.865403890609741
+        ],
+        "mean": [
+          0.057236520313094126
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.7903213103859926,
+        "maximum": 1.4498739978519815,
+        "mean": 1.0530465636185269,
+        "all_finite": true
+      }
+    },
+    {
+      "id": "track",
+      "relative_path": "track.ply",
+      "absolute_path": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/track.ply",
+      "size_bytes": 17501898,
+      "sha256": "5723492cae47866a7dc4dc06c6080aa8be04fe191afc4e8a986397908c752c8f",
+      "format": "binary_little_endian",
+      "header_bytes": 1530,
+      "vertex_count": 70566,
+      "vertex_record_bytes": 248,
+      "expected_vertex_data_bytes": 17500368,
+      "minimum_expected_file_bytes": 17501898,
+      "file_has_expected_vertex_bytes": true,
+      "elements": [
+        {
+          "name": "vertex",
+          "count": 70566
+        }
+      ],
+      "property_count": 62,
+      "properties": [
+        "x",
+        "y",
+        "z",
+        "nx",
+        "ny",
+        "nz",
+        "f_dc_0",
+        "f_dc_1",
+        "f_dc_2",
+        "f_rest_0",
+        "f_rest_1",
+        "f_rest_2",
+        "f_rest_3",
+        "f_rest_4",
+        "f_rest_5",
+        "f_rest_6",
+        "f_rest_7",
+        "f_rest_8",
+        "f_rest_9",
+        "f_rest_10",
+        "f_rest_11",
+        "f_rest_12",
+        "f_rest_13",
+        "f_rest_14",
+        "f_rest_15",
+        "f_rest_16",
+        "f_rest_17",
+        "f_rest_18",
+        "f_rest_19",
+        "f_rest_20",
+        "f_rest_21",
+        "f_rest_22",
+        "f_rest_23",
+        "f_rest_24",
+        "f_rest_25",
+        "f_rest_26",
+        "f_rest_27",
+        "f_rest_28",
+        "f_rest_29",
+        "f_rest_30",
+        "f_rest_31",
+        "f_rest_32",
+        "f_rest_33",
+        "f_rest_34",
+        "f_rest_35",
+        "f_rest_36",
+        "f_rest_37",
+        "f_rest_38",
+        "f_rest_39",
+        "f_rest_40",
+        "f_rest_41",
+        "f_rest_42",
+        "f_rest_43",
+        "f_rest_44",
+        "opacity",
+        "scale_0",
+        "scale_1",
+        "scale_2",
+        "rot_0",
+        "rot_1",
+        "rot_2",
+        "rot_3"
+      ],
+      "required_3dgs_groups": {
+        "position": true,
+        "scale": true,
+        "rotation": true,
+        "opacity": true,
+        "sh_dc": true
+      },
+      "is_standard_3dgs": true,
+      "sh_rest_coefficient_count": 45,
+      "sh_degree": 3,
+      "position": {
+        "minimum": [
+          -1.622904896736145,
+          0.029850829392671585,
+          0.575160026550293
+        ],
+        "maximum": [
+          0.31214001774787903,
+          0.7923496961593628,
+          2.6815242767333984
+        ],
+        "mean": [
+          -0.6916645960635696,
+          0.34529120291349663,
+          1.3311430674345184
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "log_scale": {
+        "minimum": [
+          -9.022591590881348,
+          -9.051926612854004,
+          -9.046186447143555
+        ],
+        "maximum": [
+          -2.1012115478515625,
+          -2.365119457244873,
+          -2.1356916427612305
+        ],
+        "mean": [
+          -5.608845560086394,
+          -6.928411887700443,
+          -6.048223635180888
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "opacity_logit": {
+        "minimum": [
+          -7.175577163696289
+        ],
+        "maximum": [
+          9.982623100280762
+        ],
+        "mean": [
+          -0.305267945111208
+        ],
+        "all_finite": true,
+        "non_finite_value_count": 0
+      },
+      "quaternion_norm": {
+        "minimum": 0.5774479696489087,
+        "maximum": 2.300249610101042,
+        "mean": 1.0825431320956136,
+        "all_finite": true
+      }
+    }
+  ],
+  "errors": []
+}

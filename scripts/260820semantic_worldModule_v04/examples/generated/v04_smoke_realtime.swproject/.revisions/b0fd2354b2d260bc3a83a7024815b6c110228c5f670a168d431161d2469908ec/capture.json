@@ -1,0 +1,11 @@
+{
+  "capture": {
+    "capture_fps": 10,
+    "capture_initial_frame": true,
+    "frame_count": 1,
+    "physics_hz": 60,
+    "segment_frames": 1,
+    "start_frame": 0
+  },
+  "schema_version": 1
+}

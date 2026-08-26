@@ -12,11 +12,11 @@
   "endpoint_selector": {
     "type": "image_extrema",
     "labels": [
-      "tooth_1_front_3DGS",
-      "tooth_2_front_3DGS",
-      "tooth_3_front_3DGS",
-      "tooth_4_front_3DGS",
-      "tooth_5_front_3DGS"
+      "teeth_01_front_3DGS",
+      "teeth_02_front_3DGS",
+      "teeth_03_front_3DGS",
+      "teeth_04_front_3DGS",
+      "teeth_05_front_3DGS"
     ]
   },
   "min_pixels": 10,

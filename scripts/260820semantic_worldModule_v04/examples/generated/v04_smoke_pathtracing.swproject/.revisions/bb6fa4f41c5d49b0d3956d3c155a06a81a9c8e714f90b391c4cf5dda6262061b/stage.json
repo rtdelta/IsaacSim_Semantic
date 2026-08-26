@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "stage": {
+    "load_payloads": true,
+    "meters_per_unit_override": null,
+    "usd_path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda"
+  }
+}

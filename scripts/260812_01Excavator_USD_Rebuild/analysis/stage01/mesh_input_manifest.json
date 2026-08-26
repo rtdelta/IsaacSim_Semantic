@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "kind": "usd_mesh_input_manifest",
+  "source_file": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/mesh_parts/拆分成五部分的mesh.usd",
+  "source_file_size_bytes": 53568062,
+  "source_file_sha256": "99d2a09768875f0ca16b21101e3a05177dc427aa518e7ca82b3e3c11bba37703",
+  "stage_up_axis": "Y",
+  "stage_meters_per_unit": 0.01,
+  "default_prim_path": "/World",
+  "mesh_count": 1,
+  "meshes": [
+    {
+      "prim_path": "/World/mesh_",
+      "point_count": 317675,
+      "face_count": 628868,
+      "face_vertex_index_count": 1886604,
+      "face_vertex_count_histogram": {
+        "3": 628868
+      },
+      "subdivision_scheme": "none",
+      "orientation": "rightHanded",
+      "numeric_point_bounds": {
+        "min": [
+          -1.6369616985321045,
+          -1.3608213663101196,
+          -1.2292463779449463
+        ],
+        "max": [
+          0.7476708889007568,
+          0.8809003829956055,
+          2.734975576400757
+        ],
+        "center_aabb": [
+          -0.44464540481567383,
+          -0.23996049165725708,
+          0.7528645992279053
+        ]
+      },
+      "world_aligned_bounds": {
+        "min": [
+          -1.6369616985321045,
+          -1.3608213663101196,
+          -1.2292463779449463
+        ],
+        "max": [
+          0.7476708889007568,
+          0.8809003829956055,
+          2.734975576400757
+        ]
+      },
+      "bound_material_path": "/World/Looks/material",
+      "connected_components": {
+        "component_count": 3892,
+        "largest_component_vertex_counts": [
+          114475,
+          99820,
+          57195,
+          23661,
+          18288,
+          142,
+          53,
+          32,
+          15,
+          14,
+          12,
+          12,
+          9,
+          8,
+          8,
+          7,
+          7,
+          6,
+          6,
+          6
+        ],
+        "single_vertex_component_count": 3861
+      }
+    }
+  ]
+}

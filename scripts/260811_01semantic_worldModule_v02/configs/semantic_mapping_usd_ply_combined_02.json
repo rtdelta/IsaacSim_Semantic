@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "source_usd": "/root/gpufree-data/repositories/260714_01semantic_worldModule/configs/usd_ply_combined_02_capture_overlay.usda",
+  "semantic_type": "class",
+  "label_resolution": "last_nonempty_comma_separated_label",
+  "dataset_dtype": "uint16",
+  "semantic_prim_count": 11,
+  "class_count": 6,
+  "background": {
+    "id": 0,
+    "label": "BACKGROUND",
+    "color": [0, 0, 0]
+  },
+  "unknown": {
+    "id": 65535,
+    "label": "UNLABELLED",
+    "color": [255, 0, 255],
+    "policy": "error"
+  },
+  "classes": [
+    {"id": 1, "label": "boom", "color": [188, 172, 29]},
+    {"id": 2, "label": "bucket", "color": [190, 68, 110]},
+    {"id": 3, "label": "ground", "color": [189, 68, 246]},
+    {"id": 4, "label": "operator_cab", "color": [148, 218, 60]},
+    {"id": 5, "label": "small_arm", "color": [69, 225, 201]},
+    {"id": 6, "label": "track", "color": [39, 232, 216]}
+  ]
+}

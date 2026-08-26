@@ -9,7 +9,7 @@ from .articulation_adapter import IsaacArticulationAdapter
 from .config import ProjectConfig
 from .controller import ControllerSnapshot, MotionController, MotionState
 from .stage_validator import StageValidationReport, validate_stage
-from .trajectory_recorder import resolve_csv_path
+from .trajectory_recorder import RecordingState, resolve_csv_path
 
 
 class JointPositionRecorderWindow:
@@ -48,7 +48,7 @@ class JointPositionRecorderWindow:
     def _build_window(self) -> None:
         ui = self._ui
         self._window = ui.Window(
-            "Articulation Joint Position Recorder", width=850, height=660, visible=True
+            "Articulation Joint Position Recorder", width=850, height=700, visible=True
         )
         self._window.set_visibility_changed_fn(self._on_visibility_changed)
         default_directory = self.config.resolve_csv_directory(self.project_root)
@@ -99,12 +99,26 @@ class JointPositionRecorderWindow:
                     ui.Label("CSV filename", width=120)
                     ui.StringField(model=self._csv_filename_model)
                 with ui.HStack(height=36, spacing=6):
-                    ui.Button("Start recording", clicked_fn=self.start_recording)
-                    ui.Button("Stop recording", clicked_fn=self.stop_recording)
+                    self._start_recording_button = ui.Button(
+                        "Start recording", clicked_fn=self.start_recording
+                    )
+                    self._pause_recording_button = ui.Button(
+                        "Pause recording", clicked_fn=self.pause_recording
+                    )
+                    self._resume_recording_button = ui.Button(
+                        "Resume recording", clicked_fn=self.resume_recording
+                    )
+                    self._stop_recording_button = ui.Button(
+                        "Stop recording", clicked_fn=self.stop_recording
+                    )
 
+                self._recording_status_label = ui.Label(
+                    "Recording unavailable", height=24
+                )
                 self._status_label = ui.Label(
                     "Initializing...", height=92, word_wrap=True
                 )
+        self._set_recording_controls_unavailable()
 
     def bind_current_stage(self) -> None:
         try:
@@ -200,7 +214,24 @@ class JointPositionRecorderWindow:
                 "stage": self._stage.GetRootLayer().identifier if self._stage else None,
             }
             partial = controller.start_recording(output, metadata)
+            self._refresh_snapshot(controller.snapshot())
             self._set_status(f"Recording actual articulation angles: {partial}")
+        except Exception as exc:
+            self._set_error(exc)
+
+    def pause_recording(self) -> None:
+        try:
+            snapshot = self._require_controller().pause_recording()
+            self._refresh_snapshot(snapshot)
+            self._set_status("Recording paused; trajectory time is frozen")
+        except Exception as exc:
+            self._set_error(exc)
+
+    def resume_recording(self) -> None:
+        try:
+            snapshot = self._require_controller().resume_recording()
+            self._refresh_snapshot(snapshot)
+            self._set_status("Recording resumed; the next valid update will append a sample")
         except Exception as exc:
             self._set_error(exc)
 
@@ -217,6 +248,7 @@ class JointPositionRecorderWindow:
                     ),
                 }
             )
+            self._refresh_snapshot(controller.snapshot())
             self._set_status(f"Recording complete: {output}")
         except Exception as exc:
             self._set_error(exc)
@@ -237,9 +269,9 @@ class JointPositionRecorderWindow:
             if not self._runtime_validated:
                 self._adapter.validate_runtime()
                 snapshot = self._controller.synchronize()
+                self._runtime_validated = True
                 self._write_targets(snapshot.current_degrees)
                 self._refresh_snapshot(snapshot)
-                self._runtime_validated = True
                 self._set_status("Ready: 4-DOF Articulation is initialized")
                 return
             payload = event.payload if event.payload is not None else {}
@@ -249,6 +281,7 @@ class JointPositionRecorderWindow:
         except Exception as exc:
             if self._controller is not None:
                 self._controller.fail()
+                self._refresh_snapshot(self._controller.snapshot())
             self._set_error(exc)
 
     def _refresh_snapshot(self, snapshot: ControllerSnapshot) -> None:
@@ -261,6 +294,38 @@ class JointPositionRecorderWindow:
             else:
                 text = snapshot.state.value.title()
             self._joint_status_labels[name].text = text
+        self._refresh_recording_controls(snapshot)
+
+    def _refresh_recording_controls(self, snapshot: ControllerSnapshot) -> None:
+        state = snapshot.recording_state
+        operational = self._runtime_validated and snapshot.state is not MotionState.ERROR
+        self._start_recording_button.enabled = operational and state is RecordingState.IDLE
+        self._pause_recording_button.enabled = (
+            operational and state is RecordingState.RECORDING
+        )
+        self._resume_recording_button.enabled = (
+            operational and state is RecordingState.PAUSED
+        )
+        self._stop_recording_button.enabled = operational and state in (
+            RecordingState.RECORDING,
+            RecordingState.PAUSED,
+        )
+        state_text = {
+            RecordingState.IDLE: "Idle",
+            RecordingState.RECORDING: "Recording",
+            RecordingState.PAUSED: "Paused",
+        }[state]
+        self._recording_status_label.text = (
+            f"{state_text} | {snapshot.recorded_samples} samples | "
+            f"trajectory time {snapshot.recording_elapsed_seconds:.3f} s"
+        )
+
+    def _set_recording_controls_unavailable(self) -> None:
+        self._start_recording_button.enabled = False
+        self._pause_recording_button.enabled = False
+        self._resume_recording_button.enabled = False
+        self._stop_recording_button.enabled = False
+        self._recording_status_label.text = "Recording unavailable"
 
     def _write_targets(self, values: Any) -> None:
         for name in self.config.logical_joint_names:
@@ -290,6 +355,7 @@ class JointPositionRecorderWindow:
         self._report = None
         self._stage = None
         self._runtime_validated = False
+        self._set_recording_controls_unavailable()
 
     def _on_visibility_changed(self, visible: bool) -> None:
         if not visible:

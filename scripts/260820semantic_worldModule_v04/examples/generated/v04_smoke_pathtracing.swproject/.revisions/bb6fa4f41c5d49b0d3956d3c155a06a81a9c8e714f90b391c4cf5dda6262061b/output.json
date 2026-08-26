@@ -1,0 +1,9 @@
+{
+  "output": {
+    "atomic_frames": true,
+    "overwrite": false,
+    "retain_staging_on_failure": true,
+    "root_dir": "/root/gpufree-data/semantic/output/v04_smoke"
+  },
+  "schema_version": 1
+}

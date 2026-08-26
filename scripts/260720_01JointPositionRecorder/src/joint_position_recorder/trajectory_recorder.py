@@ -6,12 +6,21 @@ import csv
 import json
 import math
 import os
+from enum import Enum
 from pathlib import Path
 from typing import IO, Any, Mapping, Sequence
 
 
 class RecorderError(RuntimeError):
     """Raised for unsafe paths, invalid samples, or recorder lifecycle misuse."""
+
+
+class RecordingState(str, Enum):
+    """Lifecycle state of one CSV recording session."""
+
+    IDLE = "IDLE"
+    RECORDING = "RECORDING"
+    PAUSED = "PAUSED"
 
 
 def resolve_csv_path(directory: str | Path, filename: str) -> Path:
@@ -45,10 +54,19 @@ class ActualAngleRecorder:
         self._last_time: float | None = None
         self._sample_count = 0
         self._metadata: dict[str, Any] = {}
+        self._state = RecordingState.IDLE
 
     @property
     def active(self) -> bool:
-        return self._stream is not None
+        return self._state in (RecordingState.RECORDING, RecordingState.PAUSED)
+
+    @property
+    def accepting_samples(self) -> bool:
+        return self._state is RecordingState.RECORDING
+
+    @property
+    def state(self) -> RecordingState:
+        return self._state
 
     @property
     def sample_count(self) -> int:
@@ -76,10 +94,13 @@ class ActualAngleRecorder:
         self._metadata = dict(metadata or {})
         self._last_time = None
         self._sample_count = 0
+        self._state = RecordingState.RECORDING
         self.record(0.0, initial_positions_degrees)
 
     def record(self, elapsed_seconds: float, positions_degrees: Sequence[float]) -> None:
-        if not self.active or self._writer is None:
+        if self._state is RecordingState.PAUSED:
+            raise RecorderError("Recorder is paused")
+        if not self.accepting_samples or self._writer is None:
             raise RecorderError("Recorder is not active")
         timestamp = float(elapsed_seconds)
         positions = tuple(float(value) for value in positions_degrees)
@@ -97,6 +118,18 @@ class ActualAngleRecorder:
         self._last_time = timestamp
         self._sample_count += 1
 
+    def pause(self) -> None:
+        if self._state is not RecordingState.RECORDING or self._stream is None:
+            raise RecorderError("Recorder is not recording")
+        self._stream.flush()
+        os.fsync(self._stream.fileno())
+        self._state = RecordingState.PAUSED
+
+    def resume(self) -> None:
+        if self._state is not RecordingState.PAUSED or self._stream is None:
+            raise RecorderError("Recorder is not paused")
+        self._state = RecordingState.RECORDING
+
     def stop(self, metadata: Mapping[str, Any] | None = None) -> Path:
         if not self.active or self._stream is None:
             raise RecorderError("Recorder is not active")
@@ -108,6 +141,7 @@ class ActualAngleRecorder:
         self._stream.close()
         self._stream = None
         self._writer = None
+        self._state = RecordingState.IDLE
 
         published_metadata = dict(self._metadata)
         published_metadata.update(dict(metadata or {}))
@@ -138,4 +172,5 @@ class ActualAngleRecorder:
             self._stream.close()
             self._stream = None
             self._writer = None
+        self._state = RecordingState.IDLE
         return self.partial_path if self.partial_path.exists() else None

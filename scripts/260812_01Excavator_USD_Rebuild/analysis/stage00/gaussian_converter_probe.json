@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "kind": "gaussian_converter_probe",
+  "runtime": "isaac_sim_standalone_usd_python",
+  "converter_package": "usd_convert_gsplat",
+  "converter_version": "0.1.14",
+  "input_file": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/mechanic_parts_set/ply_parts/tooth_01_back.ply",
+  "input_splat_count": 211,
+  "input_has_sh_rest": true,
+  "input_sh_rest_coefficient_count": 45,
+  "requested_output": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/analysis/stage00/gaussian_probe.usda",
+  "actual_output": "/root/gpufree-data/repositories/260812_01Excavator_USD_Rebuild/analysis/stage00/gaussian_probe.usda",
+  "rotation_degrees_xyz": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "stage_up_axis": "Z",
+  "stage_meters_per_unit": 1.0,
+  "default_prim_path": "/GaussianProbe",
+  "default_prim_type": "ParticleField3DGaussianSplat",
+  "particle_schema_definition_registered": true,
+  "particle_plugins": [
+    {
+      "name": "usdParticleField",
+      "path": "/root/isaacsim/extscache/omni.usd.schema.usd_particle_field-1.0.0+f9bf0dda/usd_plugins",
+      "loaded": true
+    }
+  ],
+  "attributes": [
+    {
+      "name": "doubleSided",
+      "type_name": "bool",
+      "value_size": null
+    },
+    {
+      "name": "extent",
+      "type_name": "float3[]",
+      "value_size": 2
+    },
+    {
+      "name": "opacities",
+      "type_name": "float[]",
+      "value_size": 211
+    },
+    {
+      "name": "opacitiesh",
+      "type_name": "half[]",
+      "value_size": null
+    },
+    {
+      "name": "orientation",
+      "type_name": "token",
+      "value_size": 11
+    },
+    {
+      "name": "orientations",
+      "type_name": "quatf[]",
+      "value_size": 211
+    },
+    {
+      "name": "orientationsh",
+      "type_name": "quath[]",
+      "value_size": null
+    },
+    {
+      "name": "positions",
+      "type_name": "point3f[]",
+      "value_size": 211
+    },
+    {
+      "name": "positionsh",
+      "type_name": "point3h[]",
+      "value_size": null
+    },
+    {
+      "name": "primvars:displayColor",
+      "type_name": "color3f[]",
+      "value_size": 211
+    },
+    {
+      "name": "primvars:displayOpacity",
+      "type_name": "float[]",
+      "value_size": null
+    },
+    {
+      "name": "projectionModeHint",
+      "type_name": "token",
+      "value_size": 11
+    },
+    {
+      "name": "purpose",
+      "type_name": "token",
+      "value_size": 7
+    },
+    {
+      "name": "radiance:sphericalHarmonicsCoefficients",
+      "type_name": "float3[]",
+      "value_size": 3376
+    },
+    {
+      "name": "radiance:sphericalHarmonicsCoefficientsh",
+      "type_name": "half3[]",
+      "value_size": null
+    },
+    {
+      "name": "radiance:sphericalHarmonicsDegree",
+      "type_name": "int",
+      "value_size": null
+    },
+    {
+      "name": "scales",
+      "type_name": "float3[]",
+      "value_size": 211
+    },
+    {
+      "name": "scalesh",
+      "type_name": "half3[]",
+      "value_size": null
+    },
+    {
+      "name": "sortingModeHint",
+      "type_name": "token",
+      "value_size": 6
+    },
+    {
+      "name": "visibility",
+      "type_name": "token",
+      "value_size": 9
+    },
+    {
+      "name": "xformOpOrder",
+      "type_name": "token[]",
+      "value_size": null
+    }
+  ]
+}

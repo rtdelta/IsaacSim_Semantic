@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-world-v03"
+version = "0.1.0"
+description = "Configuration-driven multi-sensor capture runtime for Isaac Sim 6"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.24",
+  "Pillow>=10",
+]
+
+[project.scripts]
+semantic-world-v03 = "semantic_world_v03.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["semantic_world_v03*"]

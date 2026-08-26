@@ -1,0 +1,552 @@
+{
+  "schema_version": "1.0",
+  "kind": "reference_excavator_usd_manifest",
+  "usage_policy": "reference_only_not_a_build_dependency",
+  "source_file": "/root/gpufree-data/stage_material_set/excavator_module_set/sim_Fangshan_01/Excavator_Fangshan_01.usda",
+  "source_file_size_bytes": 117940573,
+  "source_file_sha256": "356ee413a2ed3b9cd83f5ab68811903ec3312e0c37173ed03048155f52fa156c",
+  "stage_up_axis": "Z",
+  "stage_meters_per_unit": 1.0,
+  "default_prim_path": "/excavator_prim",
+  "joints": [
+    {
+      "path": "/excavator_prim/Joints/world_track_fixed_joint",
+      "name": "world_track_fixed_joint",
+      "type_name": "PhysicsFixedJoint",
+      "active": true,
+      "attributes": {
+        "physics:localPos0": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "physics:localPos1": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "physics:localRot0": "(1, 0, 0, 0)",
+        "physics:localRot1": "(1, 0, 0, 0)",
+        "physics:collisionEnabled": false
+      },
+      "relationships": {
+        "physics:body0": [
+          "/excavator_prim/track_prim"
+        ],
+        "physics:body1": []
+      }
+    },
+    {
+      "path": "/excavator_prim/Joints/boom_small_arm_joint",
+      "name": "boom_small_arm_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "attributes": {
+        "physics:axis": "X",
+        "physics:localPos0": [
+          0.3242569863796234,
+          -0.4643000662326813,
+          1.0478482246398926
+        ],
+        "physics:localPos1": [
+          0.3242568075656891,
+          -0.46430009603500366,
+          1.0478477478027344
+        ],
+        "physics:localRot0": "(0.9779655, -1.6629454e-19, -0.0031810927, 0.20874245)",
+        "physics:localRot1": "(0.9779655, -1.6629454e-19, -0.0031810927, 0.20874245)",
+        "physics:lowerLimit": -80.0,
+        "physics:upperLimit": 70.0,
+        "physics:collisionEnabled": false
+      },
+      "relationships": {
+        "physics:body0": [
+          "/excavator_prim/boom_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/arm_prim"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/Joints/small_arm_bucket_joint",
+      "name": "small_arm_bucket_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "attributes": {
+        "physics:axis": "X",
+        "physics:localPos0": [
+          0.41385090351104736,
+          -0.8401621580123901,
+          -0.10665646940469742
+        ],
+        "physics:localPos1": [
+          0.41385090351104736,
+          -0.8401621580123901,
+          -0.10665646940469742
+        ],
+        "physics:localRot0": "(-0.19703807, -3.574176e-18, 0.13755204, 0.9706984)",
+        "physics:localRot1": "(-0.19703807, -3.574176e-18, 0.13755204, 0.9706984)",
+        "physics:lowerLimit": -90.0,
+        "physics:upperLimit": 80.0,
+        "physics:collisionEnabled": false
+      },
+      "relationships": {
+        "physics:body0": [
+          "/excavator_prim/arm_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/bucket_with_teeth_prim"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/Joints/platform_boom_joint",
+      "name": "platform_boom_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "attributes": {
+        "physics:axis": "X",
+        "physics:localPos0": [
+          -0.7674506306648254,
+          1.3535553216934204,
+          -0.06812799721956253
+        ],
+        "physics:localPos1": [
+          -0.7674504518508911,
+          1.3535553216934204,
+          -0.06812746822834015
+        ],
+        "physics:localRot0": "(0.9826341, -2.8687438e-18, 0.017102564, 0.18476383)",
+        "physics:localRot1": "(0.9826341, 2.8687438e-18, 0.017102564, 0.18476383)",
+        "physics:lowerLimit": -35.0,
+        "physics:upperLimit": 70.0,
+        "physics:collisionEnabled": false
+      },
+      "relationships": {
+        "physics:body0": [
+          "/excavator_prim/cab_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/boom_prim"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/Joints/track_operator_cab_joint",
+      "name": "track_operator_cab_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "attributes": {
+        "physics:axis": "X",
+        "physics:localPos0": [
+          -0.6488432288169861,
+          1.533059000968933,
+          -0.491243839263916
+        ],
+        "physics:localPos1": [
+          -0.6488432288169861,
+          1.533059000968933,
+          -0.491243839263916
+        ],
+        "physics:localRot0": "(0.68522954, 2.3840534e-18, 0.72763616, 0.031719085)",
+        "physics:localRot1": "(0.68522954, 2.3840534e-18, 0.72763616, 0.031719085)",
+        "physics:lowerLimit": -180.0,
+        "physics:upperLimit": 180.0,
+        "physics:collisionEnabled": false
+      },
+      "relationships": {
+        "physics:body0": [
+          "/excavator_prim/track_prim"
+        ],
+        "physics:body1": [
+          "/excavator_prim/cab_prim"
+        ]
+      }
+    }
+  ],
+  "semantic_prims": [
+    {
+      "path": "/excavator_prim/track_prim/track_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "attributes": {
+        "semantics:labels:class": [
+          "track_mesh"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/track_prim/track_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "track_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/cab_prim/cab_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "attributes": {
+        "semantics:labels:class": [
+          "cab_mesh"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/cab_prim/cab_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "cab_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/boom_prim/boom_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "attributes": {
+        "semantics:labels:class": [
+          "boom_mesh"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/boom_prim/boom_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "boom_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/arm_prim/arm_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "attributes": {
+        "semantics:labels:class": [
+          "arm_mesh"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/arm_prim/arm_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "arm_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/bucket_without_teeth_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "bucket_without_teeth_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_01_front_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_01_back_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_02_front_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_02_back_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_03_front_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_03_back_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_04_back_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_04_front_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_05_back_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "attributes": {
+        "semantics:labels:class": [
+          "teeth_05_front_3DGS"
+        ]
+      }
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/bucket_with_teeth_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "attributes": {
+        "semantics:labels:class": [
+          "bucket_with_teeth_mesh"
+        ]
+      }
+    }
+  ],
+  "named_parts": [
+    {
+      "path": "/excavator_prim/Joints/world_track_fixed_joint",
+      "type_name": "PhysicsFixedJoint",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/Joints/boom_small_arm_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/Joints/small_arm_bucket_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/Joints/platform_boom_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/Joints/track_operator_cab_joint",
+      "type_name": "PhysicsRevoluteJoint",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/track_prim",
+      "type_name": "Xform",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/track_prim/track_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/track_prim/track_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/cab_prim",
+      "type_name": "Xform",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/cab_prim/cab_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/cab_prim/cab_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/boom_prim",
+      "type_name": "Xform",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/boom_prim/boom_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/boom_prim/boom_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/arm_prim",
+      "type_name": "Xform",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/arm_prim/arm_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/arm_prim/arm_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim",
+      "type_name": "Xform",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/bucket_without_teeth_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_01_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_02_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_03_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_04_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_back_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/tooth_05_front_3DGS",
+      "type_name": "",
+      "active": true,
+      "references": null
+    },
+    {
+      "path": "/excavator_prim/bucket_with_teeth_prim/bucket_with_teeth_mesh",
+      "type_name": "Mesh",
+      "active": false,
+      "references": null
+    }
+  ]
+}

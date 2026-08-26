@@ -1,0 +1,122 @@
+{
+  "schema_version": 5,
+  "usd": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda",
+  "mapping": "semantic_mapping_combine_scene_04.json",
+  "camera_prim_path": "/Excavator_Fangshan_03/boom_prim/Camera",
+  "renderer": "RealTimePathTracing",
+  "render_profile": "render_realtime_pathtracing_720p.json",
+  "warmup_render_frames": null,
+  "rt_subframes": null,
+  "output": "/root/gpufree-data/semantic/scripts/output/output0812_02",
+  "image_output_folders": {
+    "full_scene_rgb": "full_scene_rgb",
+    "full_scene_semantic": "full_scene_semantic",
+    "excavator_only_rgb": "excavator_only_rgb",
+    "excavator_only_semantic": "excavator_only_semantic",
+    "front_teeth_only_rgb": "teeth_only_rgb",
+    "front_teeth_only_semantic": "teeth_only_semantic"
+  },
+  "excavator_only_capture": {
+    "enabled": true,
+    "render_prim_paths_config": "combine_scene_05_excavator_only_render_prims.json"
+  },
+  "front_teeth_only_capture": {
+    "enabled": true,
+    "render_prim_paths_config": "combine_scene_05_front_teeth_only_render_prims.json",
+    "save_rgb": true
+  },
+  "variant_transition": {
+    "settle_render_count": 1,
+    "settle_rt_subframes": 16,
+    "maximum_settle_attempts": 3,
+    "restore_full_scene_after_each_frame": true
+  },
+  "variant_validation": {
+    "enabled": true,
+    "full_scene": {
+      "allowed_labels": [
+        "arm_3DGS", "boom_3DGS", "bucket_without_teeth_3DGS", "cab_3DGS",
+        "tooth_01_front_3DGS", "tooth_01_back_3DGS",
+        "tooth_02_front_3DGS", "tooth_02_back_3DGS",
+        "tooth_03_front_3DGS", "tooth_03_back_3DGS",
+        "tooth_04_front_3DGS", "tooth_04_back_3DGS",
+        "tooth_05_front_3DGS", "tooth_05_back_3DGS", "track_3DGS"
+      ],
+      "required_any_labels": [
+        "arm_3DGS", "boom_3DGS", "bucket_without_teeth_3DGS", "cab_3DGS",
+        "tooth_01_front_3DGS", "tooth_01_back_3DGS",
+        "tooth_02_front_3DGS", "tooth_02_back_3DGS",
+        "tooth_03_front_3DGS", "tooth_03_back_3DGS",
+        "tooth_04_front_3DGS", "tooth_04_back_3DGS",
+        "tooth_05_front_3DGS", "tooth_05_back_3DGS", "track_3DGS"
+      ],
+      "forbidden_labels": [],
+      "allow_empty_target": false
+    },
+    "excavator_only": {
+      "allowed_labels": [
+        "arm_3DGS", "boom_3DGS", "bucket_without_teeth_3DGS", "cab_3DGS",
+        "tooth_01_front_3DGS", "tooth_01_back_3DGS",
+        "tooth_02_front_3DGS", "tooth_02_back_3DGS",
+        "tooth_03_front_3DGS", "tooth_03_back_3DGS",
+        "tooth_04_front_3DGS", "tooth_04_back_3DGS",
+        "tooth_05_front_3DGS", "tooth_05_back_3DGS", "track_3DGS"
+      ],
+      "required_any_labels": [
+        "arm_3DGS", "boom_3DGS", "bucket_without_teeth_3DGS", "cab_3DGS",
+        "tooth_01_front_3DGS", "tooth_01_back_3DGS",
+        "tooth_02_front_3DGS", "tooth_02_back_3DGS",
+        "tooth_03_front_3DGS", "tooth_03_back_3DGS",
+        "tooth_04_front_3DGS", "tooth_04_back_3DGS",
+        "tooth_05_front_3DGS", "tooth_05_back_3DGS", "track_3DGS"
+      ],
+      "forbidden_labels": [],
+      "allow_empty_target": false
+    },
+    "front_teeth_only": {
+      "allowed_labels": [
+        "tooth_01_front_3DGS", "tooth_02_front_3DGS", "tooth_03_front_3DGS",
+        "tooth_04_front_3DGS", "tooth_05_front_3DGS"
+      ],
+      "required_any_labels": [
+        "tooth_01_front_3DGS", "tooth_02_front_3DGS", "tooth_03_front_3DGS",
+        "tooth_04_front_3DGS", "tooth_05_front_3DGS"
+      ],
+      "forbidden_labels": [
+        "arm_3DGS", "boom_3DGS", "bucket_without_teeth_3DGS", "cab_3DGS",
+        "tooth_01_back_3DGS", "tooth_02_back_3DGS", "tooth_03_back_3DGS",
+        "tooth_04_back_3DGS", "tooth_05_back_3DGS", "track_3DGS"
+      ],
+      "allow_empty_target": true
+    }
+  },
+  "overwrite": false,
+  "frames": 10117,
+  "width": 1280,
+  "height": 720,
+  "physics_hz": 60,
+  "capture_fps": 10,
+  "capture_mode": "motion",
+  "capture_initial_frame": true,
+  "pre_roll_steps": 0,
+  "enable_motion": true,
+  "trajectory": "/root/gpufree-data/semantic/scripts/trajectories/waji_aligned_joint_root_orientation.csv",
+  "trajectory_mode": "hold",
+  "interpolation": "linear",
+  "joint_profile": "combine_scene_04_four_joint_floating.json",
+  "root_pose_playback": {
+    "enabled": true,
+    "coordinate_mode": "absolute_world",
+    "position_interpolation": "linear",
+    "orientation_interpolation": "slerp",
+    "apply_policy": "authoritative_pose",
+    "zero_root_velocity": true,
+    "position_tolerance_meters": 0.001,
+    "orientation_tolerance_degrees": 0.05
+  },
+  "articulation_ready_timeout_steps": 240,
+  "headless": true,
+  "save_runtime_ids": false,
+  "strict_mapping": true,
+  "strict_stage": true
+}

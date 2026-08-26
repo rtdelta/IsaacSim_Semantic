@@ -1,0 +1,21 @@
+{
+  "model": "opencv_fisheye",
+  "schemas": [
+    "OmniLensDistortionOpenCvFisheyeAPI"
+  ],
+  "attributes": {
+    "omni:lensdistortion:opencvFisheye:fx": 578.77344,
+    "omni:lensdistortion:opencvFisheye:fy": 578.77344,
+    "omni:lensdistortion:opencvFisheye:cx": 959.1827,
+    "omni:lensdistortion:opencvFisheye:cy": 539.4186,
+    "omni:lensdistortion:opencvFisheye:k1": 0.020810684,
+    "omni:lensdistortion:opencvFisheye:k2": 0.0018665815,
+    "omni:lensdistortion:opencvFisheye:k3": -0.0011759226,
+    "omni:lensdistortion:opencvFisheye:k4": 0.00031983672,
+    "omni:lensdistortion:opencvFisheye:imageSize": [
+      1920,
+      1080
+    ]
+  },
+  "warning": "示例数值来自已验证的鱼眼相机；用于其他相机时必须替换为该相机的真实标定值。"
+}

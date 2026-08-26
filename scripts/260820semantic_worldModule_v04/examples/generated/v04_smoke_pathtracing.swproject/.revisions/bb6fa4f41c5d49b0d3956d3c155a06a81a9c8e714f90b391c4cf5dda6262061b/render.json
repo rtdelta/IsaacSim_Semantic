@@ -1,0 +1,15 @@
+{
+  "render": {
+    "denoiser": true,
+    "max_bounces": 2,
+    "renderer": "PathTracing",
+    "resolution_height": 180,
+    "resolution_width": 320,
+    "rt_subframes": 1,
+    "settings": {},
+    "spp_per_frame": 1,
+    "total_spp": 1,
+    "warmup_frames": 4
+  },
+  "schema_version": 1
+}

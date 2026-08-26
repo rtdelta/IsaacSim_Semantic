@@ -20,12 +20,28 @@ output*/
 remote_output*/
 *.log
 
+# Input images and visual assets
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.webp
+*.tif
+*.tiff
+*.exr
+*.hdr
+*.svg
+*.ico
+*.heic
+*.avif
+
 # 3D assets, point clouds, and scene files
 *.ply
 *.usd
 *.usda
-!scripts/260714_01semantic_worldModule/configs/Sim_Fangshan_07_capture_overlay.usda
 *.usdc
+*.usdz
 *.obj
 *.mtl
 *.fbx
@@ -39,19 +55,16 @@ remote_output*/
 *.laz
 
 # Generated datasets and binary captures
+*.csv
 *.npy
 *.npz
 *.bag
 *.db3
 *.mcap
-Materials/rgb_semantic/
-Materials/test2/
-Materials/yolo_tooth/
-Materials/test2_analysis/*.csv
-Materials/test2_analysis/summary.json
-Materials/**/*.png
-Materials/**/*.jpg
-Materials/**/*.jpeg
+
+# Input material directories at any depth
+**/Material/
+**/Materials/
 
 # Archives and packaged copies
 *.zip
@@ -73,5 +86,3 @@ Materials/**/*.jpeg
 .DS_Store
 Thumbs.db
 Desktop.ini
-
-/Materials/

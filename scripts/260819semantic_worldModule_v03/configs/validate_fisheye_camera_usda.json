@@ -1,0 +1,94 @@
+{
+  "schema_version": 6,
+  "run_id": "fisheye_camera_usda_headless_smoke",
+  "output": "/root/gpufree-data/semantic/scripts/output/fisheye_camera_usda_headless_smoke",
+  "scene": {
+    "usd": "/root/gpufree-data/semantic/scripts/260819semantic_worldModule_v03/validation/fisheye_camera_validation_scene.usda",
+    "physics_hz": 60,
+    "mapping": null,
+    "state_prim_paths": [],
+    "pre_roll_steps": 0
+  },
+  "render_groups": {
+    "fisheye_rt": {
+      "kind": "camera_rtx",
+      "profile": "render_realtime_pathtracing.json",
+      "execution": "batched",
+      "multi_gpu": false,
+      "rt_subframes": 1,
+      "warmup_frames": 8,
+      "settings": {}
+    }
+  },
+  "drivers": {},
+  "sensors": [
+    {
+      "id": "fisheye_camera",
+      "type": "camera.fisheye_opencv",
+      "enabled": true,
+      "source": {
+        "mode": "existing_prim",
+        "prim_path": "/World/FisheyeCamera"
+      },
+      "render_group": "fisheye_rt",
+      "clock": {
+        "hz": 10,
+        "phase_seconds": 0,
+        "acquisition": "snapshot"
+      },
+      "modalities": [
+        "rgb",
+        "semantic_segmentation"
+      ],
+      "resolution": [
+        1920,
+        1080
+      ],
+      "calibration": {
+        "policy": "read_and_validate",
+        "expected_model": "opencv_fisheye"
+      },
+      "output": {
+        "sink": "filesystem",
+        "required": true,
+        "folder": "fisheye_camera"
+      },
+      "settings": {}
+    }
+  ],
+  "capture": {
+    "frames": 1,
+    "base_hz": 10,
+    "capture_initial_frame": true,
+    "variant_execution": "variant_major",
+    "variants": [
+      {
+        "id": "full_scene",
+        "visibility": {}
+      }
+    ],
+    "synchronization_groups": [
+      {
+        "id": "fisheye_sync",
+        "sensor_ids": [
+          "fisheye_camera"
+        ],
+        "commit_policy": "all_or_nothing"
+      }
+    ]
+  },
+  "runtime": {
+    "segment_frames": 1,
+    "resume": true,
+    "heartbeat_seconds": 5,
+    "startup_timeout_seconds": 600,
+    "render_timeout_seconds": 240,
+    "shutdown_timeout_seconds": 45,
+    "max_worker_restarts": 1,
+    "poll_seconds": 1,
+    "worker_command": [
+      "/bin/bash",
+      "/root/gpufree-data/semantic/scripts/260819semantic_worldModule_v03/isaac_python_abi_safe.sh"
+    ]
+  }
+}

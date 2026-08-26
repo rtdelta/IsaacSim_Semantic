@@ -1,0 +1,94 @@
+{
+  "acquisition": "snapshot",
+  "calibration_hash": "6e8dc7dc09464d0a433611131bb407cf3de0af13484b7bb5e4673d20f7e169d1",
+  "capture_id": "fisheye_camera_usda_pathtracing_smoke:full_scene:00000000",
+  "frame_id": 0,
+  "interval_end": null,
+  "interval_start": null,
+  "metadata": {
+    "annotator_info": {
+      "rgb": {},
+      "semantic_segmentation": {
+        "idToLabels": {
+          "0": {
+            "class": "BACKGROUND"
+          },
+          "1": {
+            "class": "UNLABELLED"
+          }
+        }
+      }
+    },
+    "camera_state": {
+      "applied_schemas": [
+        "OmniLensDistortionOpenCvFisheyeAPI",
+        "OmniRtxCameraAutoExposureAPI_1",
+        "OmniRtxCameraExposureAPI_1"
+      ],
+      "attributes": {
+        "clippingRange": [
+          0.019999999552965164,
+          1000.0
+        ],
+        "exposure:fStop": 5.0,
+        "exposure:time": 0.019999999552965164,
+        "fStop": 0.0,
+        "focalLength": 1.9600000381469727,
+        "omni:lensdistortion:model": "opencvFisheye",
+        "omni:lensdistortion:opencvFisheye:cx": 959.1826782226562,
+        "omni:lensdistortion:opencvFisheye:cy": 539.4185791015625,
+        "omni:lensdistortion:opencvFisheye:fx": 578.7734375,
+        "omni:lensdistortion:opencvFisheye:fy": 578.7734375,
+        "omni:lensdistortion:opencvFisheye:imageSize": [
+          1920,
+          1080
+        ],
+        "omni:lensdistortion:opencvFisheye:k1": 0.0208106841892004,
+        "omni:lensdistortion:opencvFisheye:k2": 0.0018665815005078912,
+        "omni:lensdistortion:opencvFisheye:k3": -0.0011759225744754076,
+        "omni:lensdistortion:opencvFisheye:k4": 0.0003198367194272578
+      },
+      "prim_path": "/World/FisheyeCamera",
+      "type_name": "Camera",
+      "world_transform": [
+        -0.03347160254088597,
+        -0.14634860389390156,
+        0.004283884792355499,
+        0.0,
+        0.0772028283257219,
+        -0.01307375554225016,
+        0.11977691314240563,
+        0.0,
+        -0.10408755755246217,
+        0.025186855180883518,
+        0.09051787944195137,
+        0.0,
+        -2.822087539402073,
+        3.867430975376237,
+        7.981411079692267,
+        1.0
+      ]
+    },
+    "prim_path": "/World/FisheyeCamera",
+    "resolution_width_height": [
+      1920,
+      1080
+    ]
+  },
+  "modalities": [
+    "rgb",
+    "semantic_segmentation"
+  ],
+  "physics_step": 0,
+  "run_id": "fisheye_camera_usda_pathtracing_smoke",
+  "sample_id": 0,
+  "sensor_id": "fisheye_camera",
+  "sensor_type": "camera.fisheye_opencv",
+  "timestamp": 0.0,
+  "validation": {
+    "errors": [],
+    "passed": true
+  },
+  "variant_id": "full_scene",
+  "world_state_hash": "eac7d8460b04a0045290b3dbbd038ae258e16df010288edbb882f5529742c2b1"
+}

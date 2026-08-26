@@ -1,0 +1,119 @@
+{
+  "schema_version": 6,
+  "run_id": "semantic_v03_pathtracing",
+  "output": "/root/gpufree-data/semantic/scripts/output/v03_pathtracing",
+  "scene": {
+    "usd": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda",
+    "physics_hz": 60,
+    "mapping": "semantic_mapping_excavator.json",
+    "state_prim_paths": ["/Excavator_Fangshan_03"],
+    "pre_roll_steps": 0
+  },
+  "render_groups": {
+    "camera_pt": {
+      "kind": "camera_rtx",
+      "profile": "render_pathtracing_stable.json",
+      "execution": "batched",
+      "multi_gpu": false,
+      "rt_subframes": 8,
+      "warmup_frames": 16,
+      "settings": {}
+    },
+    "lidar_rtx": {
+      "kind": "rtx_sensor",
+      "profile": "render_pathtracing_stable.json",
+      "execution": "batched",
+      "multi_gpu": false,
+      "rt_subframes": 1,
+      "warmup_frames": 0,
+      "settings": {}
+    }
+  },
+  "drivers": {},
+  "sensors": [
+    {
+      "id": "boom_pinhole",
+      "type": "camera.pinhole",
+      "enabled": true,
+      "source": {
+        "mode": "existing_prim",
+        "prim_path": "/Excavator_Fangshan_03/boom_prim/Camera"
+      },
+      "render_group": "camera_pt",
+      "clock": {"hz": 10, "phase_seconds": 0, "acquisition": "snapshot"},
+      "modalities": ["rgb", "semantic_segmentation", "distance_to_camera"],
+      "resolution": [1280, 720],
+      "calibration": {"policy": "read_from_prim", "expected_model": "pinhole"},
+      "output": {"sink": "filesystem", "required": true, "folder": "boom_pinhole"},
+      "settings": {}
+    },
+    {
+      "id": "fisheye_existing_template",
+      "type": "camera.fisheye_opencv",
+      "enabled": false,
+      "source": {"mode": "existing_prim", "prim_path": "/World/Sensors/Fisheye"},
+      "render_group": "camera_pt",
+      "clock": {"hz": 10, "phase_seconds": 0, "acquisition": "snapshot"},
+      "modalities": ["rgb", "semantic_segmentation"],
+      "resolution": [1280, 720],
+      "calibration": {"policy": "read_and_validate", "expected_model": "opencv_fisheye"},
+      "output": {"sink": "filesystem", "required": true, "folder": "fisheye"},
+      "settings": {}
+    },
+    {
+      "id": "second_pinhole_template",
+      "type": "camera.pinhole",
+      "enabled": false,
+      "source": {"mode": "existing_prim", "prim_path": "/World/Sensors/RearCamera"},
+      "render_group": "camera_pt",
+      "clock": {"hz": 5, "phase_seconds": 0, "acquisition": "snapshot"},
+      "modalities": ["rgb"],
+      "resolution": [1280, 720],
+      "calibration": {"policy": "read_from_prim", "expected_model": "pinhole"},
+      "output": {"sink": "filesystem", "required": true, "folder": "rear_camera"},
+      "settings": {}
+    },
+    {
+      "id": "rotary_lidar_template",
+      "type": "lidar.rtx.rotary",
+      "enabled": false,
+      "source": {
+        "mode": "create",
+        "parent_prim": "/World",
+        "prim_name": "V03RotaryLidar",
+        "config": "Example_Rotary"
+      },
+      "render_group": "lidar_rtx",
+      "clock": {"hz": 10, "phase_seconds": 0, "acquisition": "interval"},
+      "modalities": ["point_cloud", "range", "intensity", "stable_id_map"],
+      "calibration": {"policy": "from_profile", "profile": "lidar_example_rotary.json"},
+      "output": {"sink": "filesystem", "required": true, "folder": "rotary_lidar"},
+      "settings": {
+        "scan_rate_hz": 10,
+        "accumulate_outputs": true,
+        "aux_output_level": "EXTRA"
+      }
+    }
+  ],
+  "capture": {
+    "frames": 3,
+    "base_hz": 10,
+    "capture_initial_frame": true,
+    "variant_execution": "variant_major",
+    "variants": [{"id": "full_scene", "visibility": {}}],
+    "synchronization_groups": [
+      {"id": "camera_sync", "sensor_ids": ["boom_pinhole"], "commit_policy": "all_or_nothing"}
+    ]
+  },
+  "runtime": {
+    "segment_frames": 100,
+    "resume": true,
+    "heartbeat_seconds": 5,
+    "startup_timeout_seconds": 600,
+    "render_timeout_seconds": 240,
+    "shutdown_timeout_seconds": 45,
+    "max_worker_restarts": 3,
+    "poll_seconds": 1,
+    "worker_command": ["/isaac-sim/python.sh"]
+  }
+}

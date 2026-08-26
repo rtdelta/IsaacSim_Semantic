@@ -1,0 +1,7 @@
+{
+  "installed_at": "2026-08-14T15:56:30.8345084+08:00",
+  "registration_mode": "ScheduledTask",
+  "task_name": "GPUFree AList Auto Mount",
+  "user": "TX5\\15452",
+  "start_script": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\configs\\gpufree_alist\\Start-GPUFreeAListMount.ps1"
+}

@@ -115,19 +115,46 @@ def validate_manifest_v2(run_config: dict[str, Any], expected: int) -> CaptureTi
     isolated_enabled = bool(
         run_config.get("excavator_only_capture", {}).get("enabled", False)
     )
-    expected_writer_completions = expected * (
-        2 if schema_version >= 5 and isolated_enabled else 1
+    front_teeth_enabled = bool(
+        run_config.get("front_teeth_only_capture", {}).get("enabled", False)
     )
+    enabled_variant_count = 1
+    if schema_version >= 5 and isolated_enabled:
+        enabled_variant_count += 1
+    if schema_version >= 6 and front_teeth_enabled:
+        enabled_variant_count += 1
+    expected_writer_completions = expected * enabled_variant_count
     if int(writer.get("completed", -1)) != expected_writer_completions:
         raise RuntimeError(
             f"Writer completed {writer.get('completed')} captures, "
             f"expected {expected_writer_completions}"
         )
+    if schema_version >= 7:
+        if int(writer.get("committed_frames", -1)) != expected:
+            raise RuntimeError(
+                f"Writer committed {writer.get('committed_frames')} frames, "
+                f"expected {expected}"
+            )
+        transition = run_config.get("effective_config", {}).get(
+            "variant_transition", {}
+        )
+        settle_render_count = int(transition.get("settle_render_count", 0))
+        probe_groups_per_frame = 2 + int(isolated_enabled) + int(front_teeth_enabled)
+        minimum_probes = expected * probe_groups_per_frame * settle_render_count
+        if int(writer.get("completed_probes", -1)) < minimum_probes:
+            raise RuntimeError(
+                f"Writer completed {writer.get('completed_probes')} probes, "
+                f"expected at least {minimum_probes}"
+            )
     if schema_version >= 5:
         completed_by_variant = writer.get("completed_by_variant", {})
         expected_by_variant = {"full_scene": expected, "excavator_only": 0}
+        if schema_version >= 6:
+            expected_by_variant["front_teeth_only"] = 0
         if isolated_enabled:
             expected_by_variant["excavator_only"] = expected
+        if schema_version >= 6 and front_teeth_enabled:
+            expected_by_variant["front_teeth_only"] = expected
         if completed_by_variant != expected_by_variant:
             raise RuntimeError(
                 "Writer variant completion counts do not match: "
@@ -289,8 +316,10 @@ def validate_frame_files(
 ) -> list[dict[str, Any]]:
     expected_shape = (int(run_config["resolution"][1]), int(run_config["resolution"][0]))
     valid_ids = {0, 65535, *(int(entry["id"]) for entry in mapping.schema["classes"])}
-    save_runtime_ids = bool(run_config.get("save_runtime_ids", True))
     schema_version = int(run_config.get("schema_version", 1))
+    save_runtime_ids = bool(
+        run_config.get("save_runtime_ids", False if schema_version >= 6 else True)
+    )
     if schema_version >= 5:
         configured_folders = run_config.get("image_output_folders")
         if not isinstance(configured_folders, dict):
@@ -306,6 +335,19 @@ def validate_frame_files(
                 configured_folders["excavator_only_rgb"],
                 configured_folders["excavator_only_semantic"],
             )
+        if (
+            schema_version >= 6
+            and run_config.get("front_teeth_only_capture", {}).get("enabled", False)
+        ):
+            front_config = run_config["front_teeth_only_capture"]
+            layouts["front_teeth_only"] = (
+                (
+                    configured_folders["front_teeth_only_rgb"]
+                    if front_config.get("save_rgb", False)
+                    else None
+                ),
+                configured_folders["front_teeth_only_semantic"],
+            )
     else:
         layouts = {"full_scene": ("rgb", "")}
 
@@ -318,11 +360,12 @@ def validate_frame_files(
             else output / "metadata"
         )
         required_locations = {
-            output / rgb_folder: "rgb_*.png",
             semantic_root / "semantic_id": "semantic_id_*.npy",
             semantic_root / "semantic_color": "semantic_color_*.png",
             metadata_root: "frame_*.json",
         }
+        if rgb_folder is not None:
+            required_locations[output / rgb_folder] = "rgb_*.png"
         if save_runtime_ids:
             required_locations[
                 semantic_root / "semantic_runtime_id"
@@ -362,11 +405,12 @@ def validate_frame_files(
                     f"Frame {frame_id}/{variant}: semantic color PNG does not "
                     "match semantic ID NPY"
                 )
-            with Image.open(output / rgb_folder / f"rgb_{frame_name}.png") as rgb_image:
-                if rgb_image.size != (expected_shape[1], expected_shape[0]):
-                    raise RuntimeError(
-                        f"Frame {frame_id}/{variant}: RGB size is {rgb_image.size}"
-                    )
+            if rgb_folder is not None:
+                with Image.open(output / rgb_folder / f"rgb_{frame_name}.png") as rgb_image:
+                    if rgb_image.size != (expected_shape[1], expected_shape[0]):
+                        raise RuntimeError(
+                            f"Frame {frame_id}/{variant}: RGB size is {rgb_image.size}"
+                        )
 
             metadata = load_json(metadata_root / f"frame_{frame_name}.json")
             if variant == "full_scene":
@@ -379,6 +423,23 @@ def validate_frame_files(
                 raise RuntimeError(
                     f"Frame {frame_id}/{variant}: metadata capture variant does not match"
                 )
+            if schema_version >= 7:
+                if metadata.get("capture_operation") != "capture":
+                    raise RuntimeError(
+                        f"Frame {frame_id}/{variant}: metadata is not a formal capture"
+                    )
+                if metadata.get("validation_passed") is not True:
+                    raise RuntimeError(
+                        f"Frame {frame_id}/{variant}: formal validation did not pass"
+                    )
+                if int(metadata.get("visibility_generation", -1)) < 0:
+                    raise RuntimeError(
+                        f"Frame {frame_id}/{variant}: visibility generation is invalid"
+                    )
+                if int(metadata.get("settle_attempts_before_capture", 0)) < 1:
+                    raise RuntimeError(
+                        f"Frame {frame_id}/{variant}: no successful settle attempt was recorded"
+                    )
             if metadata.get("unknown_labels"):
                 raise RuntimeError(
                     f"Frame {frame_id}/{variant}: unknown labels "
@@ -417,9 +478,14 @@ def validate_states(
     isolated_enabled = bool(
         run_config.get("excavator_only_capture", {}).get("enabled", False)
     )
+    front_teeth_enabled = bool(
+        run_config.get("front_teeth_only_capture", {}).get("enabled", False)
+    )
     expected_variants = {"full_scene"}
     if isolated_enabled:
         expected_variants.add("excavator_only")
+    if schema_version >= 6 and front_teeth_enabled:
+        expected_variants.add("front_teeth_only")
     for frame_id, (state, metadata) in enumerate(zip(states, metadata_values)):
         if int(state.get("frame_id", -1)) != frame_id:
             raise RuntimeError(f"Frame {frame_id}: motion state frame ID does not match")
@@ -452,6 +518,63 @@ def validate_states(
                 if receipt.get("capture_variant") != variant:
                     raise RuntimeError(
                         f"Frame {frame_id}/{variant}: receipt variant does not match"
+                    )
+                if schema_version >= 7:
+                    if receipt.get("capture_operation") != "capture":
+                        raise RuntimeError(
+                            f"Frame {frame_id}/{variant}: receipt is not a formal capture"
+                        )
+                    if receipt.get("validation_passed") is not True:
+                        raise RuntimeError(
+                            f"Frame {frame_id}/{variant}: receipt validation did not pass"
+                        )
+                    if int(receipt.get("settle_attempts_before_capture", 0)) < 1:
+                        raise RuntimeError(
+                            f"Frame {frame_id}/{variant}: receipt has no settle attempt"
+                        )
+            if schema_version >= 7:
+                if state.get("frame_committed") is not True:
+                    raise RuntimeError(f"Frame {frame_id}: frame transaction was not committed")
+                if state.get("end_variant") != "full_scene":
+                    raise RuntimeError(
+                        f"Frame {frame_id}: frame ended in {state.get('end_variant')!r}"
+                    )
+                if int(state.get("writer_pending", -1)) != 0:
+                    raise RuntimeError(f"Frame {frame_id}: Writer was not idle at frame end")
+                probes = state.get("probe_receipts")
+                expected_probe_groups = {
+                    "full_scene_pre_capture",
+                    "full_scene_restore",
+                }
+                if isolated_enabled:
+                    expected_probe_groups.add("excavator_only")
+                if front_teeth_enabled:
+                    expected_probe_groups.add("front_teeth_only")
+                if not isinstance(probes, dict) or set(probes) != expected_probe_groups:
+                    raise RuntimeError(
+                        f"Frame {frame_id}: probe receipt groups do not match "
+                        f"{sorted(expected_probe_groups)}"
+                    )
+                for group, group_receipts in probes.items():
+                    if not isinstance(group_receipts, list) or not group_receipts:
+                        raise RuntimeError(
+                            f"Frame {frame_id}/{group}: no ProbeReceipt was recorded"
+                        )
+                    if group_receipts[-1].get("validation_passed") is not True:
+                        raise RuntimeError(
+                            f"Frame {frame_id}/{group}: final ProbeReceipt did not pass"
+                        )
+                restore_receipt = probes["full_scene_restore"][-1]
+                if restore_receipt.get("capture_variant") != "full_scene":
+                    raise RuntimeError(
+                        f"Frame {frame_id}: final ProbeReceipt is not full_scene"
+                    )
+                if int(restore_receipt.get("visibility_generation", -1)) != int(
+                    state.get("end_visibility_generation", -2)
+                ):
+                    raise RuntimeError(
+                        f"Frame {frame_id}: final ProbeReceipt generation does not "
+                        "match frame-end generation"
                     )
         motion = state["motion"]
         if schema_version >= 3 and run_config.get("motion_enabled"):
@@ -512,6 +635,12 @@ def main() -> int:
         expected=expected,
         timing=timing,
     )
+    if schema_version >= 7:
+        staging_root = output / ".frame_staging"
+        if staging_root.exists() and any(staging_root.rglob("*")):
+            raise RuntimeError(
+                f"Committed dataset still contains frame staging artifacts: {staging_root}"
+            )
 
     print(
         f"[validation] PASS: {expected} frames, schema={schema_version}, "

@@ -1,0 +1,18 @@
+{
+  "components": {
+    "capture": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/capture.json",
+    "modalities": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/modalities.json",
+    "motion": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/motion.json",
+    "output": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/output.json",
+    "render": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/render.json",
+    "semantics": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/semantics.json",
+    "sensors": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/sensors.json",
+    "stage": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/stage.json",
+    "variants": ".revisions/b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec/variants.json"
+  },
+  "description": "",
+  "name": "v04 RayTracedLighting smoke",
+  "project_id": "v04-smoke-realtime",
+  "revision": "b0fd2354b2d260bc3a83a7024815b6c110228c5f670a168d431161d2469908ec",
+  "schema_version": 1
+}

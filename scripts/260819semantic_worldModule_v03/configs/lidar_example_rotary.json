@@ -1,0 +1,7 @@
+{
+  "model": "Example_Rotary",
+  "scan_rate_hz": 10,
+  "coordinates": "SPHERICAL",
+  "note": "Auditable dataset metadata for the built-in Isaac Sim Example_Rotary profile"
+}
+

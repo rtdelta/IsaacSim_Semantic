@@ -1,0 +1,41 @@
+[package]
+title = "Semantic Capture Studio"
+description = "Lightweight USD capture-project editor for Semantic World Module v04."
+version = "0.1.0"
+keywords = ["experience", "usd", "semantic-capture"]
+
+[dependencies]
+"omni.kit.mainwindow" = {}
+"omni.kit.viewport.window" = {}
+"omni.kit.manipulator.camera" = {}
+"omni.kit.manipulator.selection" = {}
+"omni.kit.window.stage" = {}
+"omni.kit.window.property" = {}
+"omni.kit.window.console" = {}
+"omni.kit.menu.utils" = {}
+"omni.hydra.rtx" = {}
+"omni.materialx.libs" = {}
+"semantic.capture.studio" = {}
+
+[settings]
+app.name = "Semantic Capture Studio"
+app.version = "0.1.0"
+app.window.title = "Semantic Capture Studio"
+app.window.width = 1600
+app.window.height = 900
+app.content.emptyStageOnStart = true
+app.file.ignoreUnsavedStage = true
+app.fastShutdown = true
+app.settings.persistent = true
+app.viewport.defaults.fillViewport = true
+app.viewport.defaults.guide.grid.visible = true
+renderer.enabled = "rtx"
+renderer.active = "rtx"
+renderer.asyncInit = true
+renderer.gpuEnumeration.glInterop.enabled = false
+rtx-transient.dlssg.enabled = false
+
+[settings.app.exts.folders]
+'++' = [
+    "${app}/../extensions",
+]

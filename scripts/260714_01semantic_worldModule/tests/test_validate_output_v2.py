@@ -200,7 +200,7 @@ class ValidateOutputV2Tests(unittest.TestCase):
             self.assertEqual(moving_bodies, ["boom"])
             self.assertFalse(camera_moved)
 
-    def test_validates_paired_schema_v5_directory_layout(self) -> None:
+    def test_validates_schema_v7_transaction_and_probe_contract(self) -> None:
         project_dir = Path(__file__).resolve().parents[1]
         mapping = SemanticMapping(
             project_dir / "configs" / "semantic_mapping_Sim_FangShan_02_native.json"
@@ -212,46 +212,54 @@ class ValidateOutputV2Tests(unittest.TestCase):
                 "full_scene_semantic": "full_scene_excavator_semantic",
                 "excavator_only_rgb": "excavator_only_rgb",
                 "excavator_only_semantic": "excavator_only_semantic",
+                "front_teeth_only_rgb": "front_teeth_only_rgb",
+                "front_teeth_only_semantic": "front_teeth_only_semantic",
             }
             matrix = [float(index) for index in range(16)]
             ids = np.zeros((2, 3), dtype=np.uint16)
             receipts = {}
-            for variant, rgb_key, semantic_key in (
-                ("full_scene", "full_scene_rgb", "full_scene_semantic"),
+            for variant, generation, rgb_key, semantic_key in (
+                ("full_scene", 0, "full_scene_rgb", "full_scene_semantic"),
                 (
                     "excavator_only",
+                    1,
                     "excavator_only_rgb",
                     "excavator_only_semantic",
                 ),
+                (
+                    "front_teeth_only",
+                    2,
+                    None,
+                    "front_teeth_only_semantic",
+                ),
             ):
-                rgb_root = output / folders[rgb_key]
+                rgb_root = output / folders[rgb_key] if rgb_key is not None else None
                 semantic_root = output / folders[semantic_key]
                 metadata_root = output / "metadata" / variant
-                rgb_root.mkdir(parents=True)
+                if rgb_root is not None:
+                    rgb_root.mkdir(parents=True)
                 metadata_root.mkdir(parents=True)
                 for subfolder in (
                     "semantic_id",
                     "semantic_color",
-                    "semantic_runtime_id",
                 ):
                     (semantic_root / subfolder).mkdir(parents=True)
                 np.save(semantic_root / "semantic_id" / "semantic_id_0000.npy", ids)
-                np.save(
-                    semantic_root
-                    / "semantic_runtime_id"
-                    / "semantic_runtime_id_0000.npy",
-                    ids.astype(np.uint32),
-                )
                 Image.fromarray(mapping.colorize(ids)).save(
                     semantic_root / "semantic_color" / "semantic_color_0000.png"
                 )
-                Image.fromarray(np.zeros((2, 3, 3), dtype=np.uint8)).save(
-                    rgb_root / "rgb_0000.png"
-                )
+                if rgb_root is not None:
+                    Image.fromarray(np.zeros((2, 3, 3), dtype=np.uint8)).save(
+                        rgb_root / "rgb_0000.png"
+                    )
                 metadata = {
-                    "schema_version": 2,
+                    "schema_version": 5,
                     "frame_id": 0,
+                    "capture_operation": "capture",
                     "capture_variant": variant,
+                    "visibility_generation": generation,
+                    "settle_attempts_before_capture": 1,
+                    "validation_passed": True,
                     "dataset_time": 0.0,
                     "timeline_time": 0.25,
                     "physics_step": 15,
@@ -266,7 +274,11 @@ class ValidateOutputV2Tests(unittest.TestCase):
                 )
                 receipts[variant] = {
                     "frame_id": 0,
+                    "capture_operation": "capture",
                     "capture_variant": variant,
+                    "visibility_generation": generation,
+                    "settle_attempts_before_capture": 1,
+                    "validation_passed": True,
                 }
 
             state = {
@@ -277,17 +289,51 @@ class ValidateOutputV2Tests(unittest.TestCase):
                 "motion": {"enabled": False},
                 "camera": {"path": "/root/Camera", "world_transform": matrix},
                 "capture_receipts": receipts,
+                "probe_receipts": {
+                    "full_scene_pre_capture": [
+                        {
+                            "capture_variant": "full_scene",
+                            "visibility_generation": 0,
+                            "validation_passed": True,
+                        }
+                    ],
+                    "excavator_only": [
+                        {
+                            "capture_variant": "excavator_only",
+                            "visibility_generation": 1,
+                            "validation_passed": True,
+                        }
+                    ],
+                    "front_teeth_only": [
+                        {
+                            "capture_variant": "front_teeth_only",
+                            "visibility_generation": 2,
+                            "validation_passed": True,
+                        }
+                    ],
+                    "full_scene_restore": [
+                        {
+                            "capture_variant": "full_scene",
+                            "visibility_generation": 3,
+                            "validation_passed": True,
+                        }
+                    ],
+                },
+                "frame_committed": True,
+                "end_variant": "full_scene",
+                "end_visibility_generation": 3,
+                "writer_pending": 0,
             }
             (output / "motion_state.jsonl").write_text(
                 json.dumps(state) + "\n",
                 encoding="utf-8",
             )
             run_config = {
-                "schema_version": 5,
+                "schema_version": 7,
                 "status": "complete",
                 "frames": 1,
                 "resolution": [3, 2],
-                "save_runtime_ids": True,
+                "save_runtime_ids": False,
                 "physics_hz": 60,
                 "capture_fps": 10,
                 "capture_initial_frame": True,
@@ -298,12 +344,22 @@ class ValidateOutputV2Tests(unittest.TestCase):
                 "render": {"mismatches": []},
                 "image_output_folders": folders,
                 "excavator_only_capture": {"enabled": True},
+                "front_teeth_only_capture": {
+                    "enabled": True,
+                    "save_rgb": False,
+                },
+                "effective_config": {
+                    "variant_transition": {"settle_render_count": 1}
+                },
                 "writer": {
                     "pending": 0,
-                    "completed": 2,
+                    "completed": 3,
+                    "completed_probes": 4,
+                    "committed_frames": 1,
                     "completed_by_variant": {
                         "full_scene": 1,
                         "excavator_only": 1,
+                        "front_teeth_only": 1,
                     },
                 },
             }

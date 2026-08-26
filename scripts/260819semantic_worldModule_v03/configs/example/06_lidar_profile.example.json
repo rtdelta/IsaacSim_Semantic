@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "model": "Example_Rotary",
+  "scan_rate_hz": 10,
+  "coordinates": "SPHERICAL",
+  "aux_output_level": "EXTRA",
+  "accumulate_outputs": true,
+  "note": "用于数据集审计和 calibration_hash；Isaac 内置 LiDAR 模型由主配置 source.config 选择。"
+}

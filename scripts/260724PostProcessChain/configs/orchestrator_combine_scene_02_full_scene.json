@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "inputs": {
-    "rgb_dir": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/combine_scene_02_run_001/full_scene_excavator_rgb",
-    "semantic_dir": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/combine_scene_02_run_001/full_scene_excavator_semantic/semantic_id",
-    "semantic_mapping": "/root/gpufree-data/repositories/260714_01semantic_worldModule/output/combine_scene_02_run_001/semantic_mapping.json"
+    "rgb_dir": "/root/gpufree-data/repositories/output/output0731_02/full_scene_excavator_rgb",
+    "semantic_dir": "/root/gpufree-data/repositories/output/output0731_02/full_scene_excavator_semantic/semantic_id",
+    "semantic_mapping": "/root/gpufree-data/repositories/output/output0731_02/semantic_mapping.json"
   },
-  "output_root": "../output/combine_scene_02_run_001_full_scene",
+  "output_root": "../output/output0731_02_full_scene",
   "execution": {
     "workers": 8,
     "max_in_flight": 16,

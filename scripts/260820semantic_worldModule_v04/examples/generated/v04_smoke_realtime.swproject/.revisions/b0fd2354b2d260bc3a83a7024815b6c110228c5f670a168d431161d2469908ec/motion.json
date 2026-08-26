@@ -1,0 +1,9 @@
+{
+  "motion": {
+    "options": {},
+    "plugin": "none",
+    "source_path": null,
+    "supports_absolute_seek": false
+  },
+  "schema_version": 1
+}

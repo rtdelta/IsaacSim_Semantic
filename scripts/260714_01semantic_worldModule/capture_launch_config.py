@@ -11,7 +11,8 @@ from typing import Any
 from render_profile import SUPPORTED_RENDERERS
 
 
-CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSION = 2
+CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSION = 4
+SUPPORTED_CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSIONS = (3, 4)
 
 _CONFIG_FIELDS = {
     "schema_version",
@@ -25,6 +26,9 @@ _CONFIG_FIELDS = {
     "output",
     "image_output_folders",
     "excavator_only_capture",
+    "front_teeth_only_capture",
+    "variant_transition",
+    "variant_validation",
     "overwrite",
     "frames",
     "width",
@@ -45,6 +49,13 @@ _CONFIG_FIELDS = {
     "strict_mapping",
     "strict_stage",
 }
+
+_VERSION_4_FIELDS = {
+    "variant_transition",
+    "variant_validation",
+}
+
+_VERSION_3_FIELDS = _CONFIG_FIELDS - _VERSION_4_FIELDS
 
 _PATH_FIELDS = (
     "usd",
@@ -112,6 +123,34 @@ def _require_choice(
     return value
 
 
+def _require_string_tuple(
+    raw: dict[str, Any],
+    name: str,
+    *,
+    nullable: bool = False,
+) -> tuple[str, ...] | None:
+    value = raw[name]
+    if nullable and value is None:
+        return None
+    if not isinstance(value, list):
+        expected = "a JSON array of non-empty strings"
+        if nullable:
+            expected += ", or null"
+        raise _field_error(name, expected)
+    normalized: list[str] = []
+    seen: set[str] = set()
+    for index, item in enumerate(value):
+        if not isinstance(item, str) or not item.strip():
+            raise _field_error(f"{name}[{index}]", "a non-empty string")
+        label = item.strip()
+        key = label.casefold()
+        if key in seen:
+            raise ValueError(f"Configuration field {name!r} contains duplicate label {label!r}")
+        seen.add(key)
+        normalized.append(label)
+    return tuple(normalized)
+
+
 def _resolve_path(value: str, base_dir: Path) -> str:
     path = Path(value).expanduser()
     if not path.is_absolute():
@@ -128,6 +167,11 @@ def _normalize_output_folder(value: Any, field_name: str) -> str:
             field_name,
             "a relative directory below the configured output root without '..'",
         )
+    if normalized.parts and normalized.parts[0] == ".frame_staging":
+        raise _field_error(
+            field_name,
+            "a directory outside the reserved .frame_staging transaction root",
+        )
     return str(normalized)
 
 
@@ -137,12 +181,14 @@ def _is_path_ancestor(parent: PurePosixPath, child: PurePosixPath) -> bool:
 
 @dataclass(frozen=True)
 class ImageOutputFolders:
-    """Relative business directories for the two paired render variants."""
+    """Relative business directories for all configured render variants."""
 
     full_scene_rgb: str
     full_scene_semantic: str
     excavator_only_rgb: str
     excavator_only_semantic: str
+    front_teeth_only_rgb: str
+    front_teeth_only_semantic: str
 
     @classmethod
     def load(cls, raw: dict[str, Any]) -> "ImageOutputFolders":
@@ -151,6 +197,8 @@ class ImageOutputFolders:
             "full_scene_semantic",
             "excavator_only_rgb",
             "excavator_only_semantic",
+            "front_teeth_only_rgb",
+            "front_teeth_only_semantic",
         }
         actual = set(raw)
         unknown = sorted(actual - expected)
@@ -230,6 +278,225 @@ class ExcavatorOnlyCaptureConfig:
 
 
 @dataclass(frozen=True)
+class FrontTeethOnlyCaptureConfig:
+    """Optional third render pass retaining only the five front-tooth subtrees."""
+
+    enabled: bool
+    render_prim_paths_config: str | None
+    save_rgb: bool
+
+    @classmethod
+    def load(
+        cls,
+        raw: dict[str, Any],
+        *,
+        base_dir: Path,
+    ) -> "FrontTeethOnlyCaptureConfig":
+        expected = {"enabled", "render_prim_paths_config", "save_rgb"}
+        actual = set(raw)
+        unknown = sorted(actual - expected)
+        missing = sorted(expected - actual)
+        if unknown:
+            raise ValueError(
+                "Unknown front_teeth_only_capture field(s): " + ", ".join(unknown)
+            )
+        if missing:
+            raise ValueError(
+                "Missing front_teeth_only_capture field(s): " + ", ".join(missing)
+            )
+        enabled = _require_bool(raw, "enabled")
+        save_rgb = _require_bool(raw, "save_rgb")
+        path_value = raw["render_prim_paths_config"]
+        if path_value is None:
+            resolved_path = None
+        elif isinstance(path_value, str) and path_value.strip():
+            resolved_path = _resolve_path(path_value.strip(), base_dir)
+        else:
+            raise _field_error(
+                "front_teeth_only_capture.render_prim_paths_config",
+                "a non-empty path string or null",
+            )
+        if enabled and resolved_path is None:
+            raise ValueError(
+                "front_teeth_only_capture.render_prim_paths_config is required when "
+                "front_teeth_only_capture.enabled is true"
+            )
+        if not enabled and save_rgb:
+            raise ValueError(
+                "front_teeth_only_capture.save_rgb must be false when the capture is disabled"
+            )
+        return cls(
+            enabled=enabled,
+            render_prim_paths_config=resolved_path,
+            save_rgb=save_rgb,
+        )
+
+
+@dataclass(frozen=True)
+class VariantTransitionConfig:
+    """Render barrier policy applied after motion and visibility changes."""
+
+    settle_render_count: int
+    settle_rt_subframes: int
+    maximum_settle_attempts: int
+    restore_full_scene_after_each_frame: bool
+
+    @classmethod
+    def default(cls) -> "VariantTransitionConfig":
+        return cls(
+            settle_render_count=1,
+            settle_rt_subframes=16,
+            maximum_settle_attempts=3,
+            restore_full_scene_after_each_frame=True,
+        )
+
+    @classmethod
+    def load(cls, raw: dict[str, Any]) -> "VariantTransitionConfig":
+        expected = {
+            "settle_render_count",
+            "settle_rt_subframes",
+            "maximum_settle_attempts",
+            "restore_full_scene_after_each_frame",
+        }
+        unknown = sorted(set(raw) - expected)
+        missing = sorted(expected - set(raw))
+        if unknown:
+            raise ValueError("Unknown variant_transition field(s): " + ", ".join(unknown))
+        if missing:
+            raise ValueError("Missing variant_transition field(s): " + ", ".join(missing))
+        restore = _require_bool(raw, "restore_full_scene_after_each_frame")
+        if not restore:
+            raise ValueError(
+                "variant_transition.restore_full_scene_after_each_frame must be true"
+            )
+        return cls(
+            settle_render_count=_require_integer(
+                raw, "settle_render_count", minimum=1
+            ),
+            settle_rt_subframes=_require_integer(
+                raw, "settle_rt_subframes", minimum=1
+            ),
+            maximum_settle_attempts=_require_integer(
+                raw, "maximum_settle_attempts", minimum=1
+            ),
+            restore_full_scene_after_each_frame=restore,
+        )
+
+
+@dataclass(frozen=True)
+class SemanticContentRule:
+    """Configuration-owned semantic acceptance rule for one scene variant."""
+
+    allowed_labels: tuple[str, ...] | None
+    required_any_labels: tuple[str, ...]
+    forbidden_labels: tuple[str, ...]
+    allow_empty_target: bool
+
+    @classmethod
+    def disabled(cls) -> "SemanticContentRule":
+        return cls(
+            allowed_labels=None,
+            required_any_labels=(),
+            forbidden_labels=(),
+            allow_empty_target=True,
+        )
+
+    @classmethod
+    def load(cls, raw: dict[str, Any], field_name: str) -> "SemanticContentRule":
+        expected = {
+            "allowed_labels",
+            "required_any_labels",
+            "forbidden_labels",
+            "allow_empty_target",
+        }
+        unknown = sorted(set(raw) - expected)
+        missing = sorted(expected - set(raw))
+        if unknown:
+            raise ValueError(f"Unknown {field_name} field(s): " + ", ".join(unknown))
+        if missing:
+            raise ValueError(f"Missing {field_name} field(s): " + ", ".join(missing))
+        rule = cls(
+            allowed_labels=_require_string_tuple(
+                raw, "allowed_labels", nullable=True
+            ),
+            required_any_labels=_require_string_tuple(raw, "required_any_labels"),
+            forbidden_labels=_require_string_tuple(raw, "forbidden_labels"),
+            allow_empty_target=_require_bool(raw, "allow_empty_target"),
+        )
+        allowed = (
+            {label.casefold() for label in rule.allowed_labels}
+            if rule.allowed_labels is not None
+            else None
+        )
+        required = {label.casefold() for label in rule.required_any_labels}
+        forbidden = {label.casefold() for label in rule.forbidden_labels}
+        overlap = required & forbidden
+        if overlap:
+            raise ValueError(
+                f"{field_name} labels cannot be both required and forbidden: "
+                + ", ".join(sorted(overlap))
+            )
+        if allowed is not None and not required.issubset(allowed):
+            raise ValueError(
+                f"{field_name}.required_any_labels must be contained in allowed_labels"
+            )
+        return rule
+
+
+@dataclass(frozen=True)
+class VariantValidationConfig:
+    """Semantic-content checks used for both PROBE and formal captures."""
+
+    enabled: bool
+    full_scene: SemanticContentRule
+    excavator_only: SemanticContentRule
+    front_teeth_only: SemanticContentRule
+
+    @classmethod
+    def default(cls) -> "VariantValidationConfig":
+        disabled = SemanticContentRule.disabled()
+        return cls(
+            enabled=False,
+            full_scene=disabled,
+            excavator_only=disabled,
+            front_teeth_only=disabled,
+        )
+
+    @classmethod
+    def load(cls, raw: dict[str, Any]) -> "VariantValidationConfig":
+        expected = {"enabled", "full_scene", "excavator_only", "front_teeth_only"}
+        unknown = sorted(set(raw) - expected)
+        missing = sorted(expected - set(raw))
+        if unknown:
+            raise ValueError("Unknown variant_validation field(s): " + ", ".join(unknown))
+        if missing:
+            raise ValueError("Missing variant_validation field(s): " + ", ".join(missing))
+        return cls(
+            enabled=_require_bool(raw, "enabled"),
+            full_scene=SemanticContentRule.load(
+                _require_object(raw, "full_scene"), "variant_validation.full_scene"
+            ),
+            excavator_only=SemanticContentRule.load(
+                _require_object(raw, "excavator_only"),
+                "variant_validation.excavator_only",
+            ),
+            front_teeth_only=SemanticContentRule.load(
+                _require_object(raw, "front_teeth_only"),
+                "variant_validation.front_teeth_only",
+            ),
+        )
+
+    def rule_for(self, variant: str) -> SemanticContentRule:
+        if variant == "full_scene":
+            return self.full_scene
+        if variant == "excavator_only":
+            return self.excavator_only
+        if variant == "front_teeth_only":
+            return self.front_teeth_only
+        raise ValueError(f"Unsupported capture variant: {variant!r}")
+
+
+@dataclass(frozen=True)
 class CaptureLaunchConfig:
     """Validated effective business inputs loaded before Isaac Sim starts."""
 
@@ -245,6 +512,9 @@ class CaptureLaunchConfig:
     output: str
     image_output_folders: ImageOutputFolders
     excavator_only_capture: ExcavatorOnlyCaptureConfig
+    front_teeth_only_capture: FrontTeethOnlyCaptureConfig
+    variant_transition: VariantTransitionConfig
+    variant_validation: VariantValidationConfig
     overwrite: bool
     frames: int
     width: int
@@ -292,17 +562,29 @@ class CaptureLaunchConfig:
                 else:
                     details.append(repr(field_name))
             raise ValueError(f"Unknown capture configuration field(s): {', '.join(details)}")
-        missing_fields = sorted(_CONFIG_FIELDS - actual_fields)
+        raw_schema_version = raw.get("schema_version")
+        required_fields = (
+            _CONFIG_FIELDS
+            if raw_schema_version == CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSION
+            else _VERSION_3_FIELDS
+        )
+        missing_fields = sorted(required_fields - actual_fields)
         if missing_fields:
             raise ValueError(
                 f"Missing capture configuration field(s): {', '.join(missing_fields)}"
             )
 
         schema_version = _require_integer(raw, "schema_version", minimum=1)
-        if schema_version != CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSION:
+        if schema_version not in SUPPORTED_CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSIONS:
             raise ValueError(
                 f"Unsupported capture configuration schema version: {schema_version}; "
-                f"expected {CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSION}"
+                "expected one of "
+                f"{SUPPORTED_CAPTURE_LAUNCH_CONFIG_SCHEMA_VERSIONS}"
+            )
+        if schema_version == 3 and actual_fields & _VERSION_4_FIELDS:
+            raise ValueError(
+                "Schema-v3 capture configuration cannot contain schema-v4 fields: "
+                + ", ".join(sorted(actual_fields & _VERSION_4_FIELDS))
             )
 
         string_values = {
@@ -326,6 +608,56 @@ class CaptureLaunchConfig:
             _require_object(raw, "excavator_only_capture"),
             base_dir=base_dir,
         )
+        front_teeth_only_capture = FrontTeethOnlyCaptureConfig.load(
+            _require_object(raw, "front_teeth_only_capture"),
+            base_dir=base_dir,
+        )
+        if schema_version == 3 and front_teeth_only_capture.enabled:
+            raise ValueError(
+                "front_teeth_only_capture requires schema_version 4 so that "
+                "variant transition and semantic validation rules are explicit"
+            )
+        variant_transition = (
+            VariantTransitionConfig.load(_require_object(raw, "variant_transition"))
+            if schema_version >= 4
+            else VariantTransitionConfig.default()
+        )
+        variant_validation = (
+            VariantValidationConfig.load(_require_object(raw, "variant_validation"))
+            if schema_version >= 4
+            else VariantValidationConfig.default()
+        )
+        if front_teeth_only_capture.enabled:
+            if not variant_validation.enabled:
+                raise ValueError(
+                    "front_teeth_only_capture requires variant_validation.enabled=true"
+                )
+            if not variant_validation.full_scene.required_any_labels:
+                raise ValueError(
+                    "front_teeth_only_capture requires non-empty "
+                    "variant_validation.full_scene.required_any_labels"
+                )
+            if (
+                variant_validation.front_teeth_only.allowed_labels is None
+                or not variant_validation.front_teeth_only.allowed_labels
+            ):
+                raise ValueError(
+                    "front_teeth_only_capture requires non-empty "
+                    "variant_validation.front_teeth_only.allowed_labels"
+                )
+            if not variant_validation.front_teeth_only.required_any_labels:
+                raise ValueError(
+                    "front_teeth_only_capture requires non-empty "
+                    "variant_validation.front_teeth_only.required_any_labels"
+                )
+            if (
+                excavator_only_capture.enabled
+                and not variant_validation.excavator_only.required_any_labels
+            ):
+                raise ValueError(
+                    "front_teeth_only_capture with excavator_only_capture requires "
+                    "non-empty variant_validation.excavator_only.required_any_labels"
+                )
 
         return cls(
             source_path=source_path,
@@ -342,6 +674,9 @@ class CaptureLaunchConfig:
             output=resolved_paths["output"],
             image_output_folders=image_output_folders,
             excavator_only_capture=excavator_only_capture,
+            front_teeth_only_capture=front_teeth_only_capture,
+            variant_transition=variant_transition,
+            variant_validation=variant_validation,
             overwrite=_require_bool(raw, "overwrite"),
             frames=_require_integer(raw, "frames", minimum=1),
             width=_require_integer(raw, "width", minimum=1),
