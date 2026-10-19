@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "files": 113,
+  "version": "0.2.0",
+  "date": "2026-10-16",
+  "mismatches": [],
+  "asset_checks": [
+    {
+      "scene": true,
+      "asset": true
+    }
+  ]
+}

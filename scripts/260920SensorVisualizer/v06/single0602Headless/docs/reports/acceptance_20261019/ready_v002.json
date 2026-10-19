@@ -1,0 +1,18 @@
+{
+  "state": "ready",
+  "version": "0.2.0",
+  "web_pid": 2801237,
+  "gui_pid": 2801238,
+  "replaced_owned_web_pids": [
+    347699
+  ],
+  "gui_log": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless/reports/interactive_v002_20261016T014852Z.log",
+  "started_utc": "20261016T014852Z",
+  "web_smoke_passed": true,
+  "simulation_state": "paused",
+  "keyboard_enabled": false,
+  "recording": false,
+  "binding_ready": true,
+  "session_id": "03cd539614474d44b1f00797c83278a6",
+  "implementation_version": "0.2.0"
+}

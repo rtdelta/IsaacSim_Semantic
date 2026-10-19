@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "session": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/20261015_170357_346430_a29c9837",
+  "groups": 3,
+  "topics": 32,
+  "messages": 92,
+  "lidars": 13,
+  "cameras": 4,
+  "image_shapes": {
+    "front": [
+      1920,
+      1080
+    ],
+    "back": [
+      1920,
+      1080
+    ],
+    "left": [
+      1920,
+      1080
+    ],
+    "right": [
+      1920,
+      1080
+    ]
+  },
+  "tf_edges": [
+    19
+  ],
+  "source_times": [
+    0.0,
+    0.1,
+    0.2
+  ],
+  "native_times_ns": [
+    133333333,
+    233333333,
+    333333333
+  ],
+  "point_count_ranges": {
+    "/lidar/MyAiry_back/points": [
+      29815,
+      29887
+    ],
+    "/lidar/MyAiry_backleft/points": [
+      53812,
+      53841
+    ],
+    "/lidar/MyAiry_backright/points": [
+      67880,
+      67930
+    ],
+    "/lidar/MyAiry_front/points": [
+      36915,
+      37043
+    ],
+    "/lidar/MyAiry_left/points": [
+      33187,
+      33237
+    ],
+    "/lidar/MyAiry_right/points": [
+      33166,
+      33279
+    ],
+    "/lidar/MyAiry_up/points": [
+      63922,
+      63972
+    ],
+    "/lidar/MyNZ3_back/points": [
+      29226,
+      29347
+    ],
+    "/lidar/MyNZ3_backleft/points": [
+      27112,
+      27149
+    ],
+    "/lidar/MyNZ3_backright/points": [
+      29178,
+      29221
+    ],
+    "/lidar/MyNZ3_front/points": [
+      32809,
+      32887
+    ],
+    "/lidar/MyNZ3_left/points": [
+      32670,
+      32698
+    ],
+    "/lidar/MyNZ3_right/points": [
+      30719,
+      30732
+    ]
+  },
+  "mcap_bytes": 41916461,
+  "root_sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79",
+  "root_unchanged": true,
+  "calibration_validated": true,
+  "frame_contract_version": "s0602_track_equivalent_v1",
+  "swing_zero_validated_every_group": true,
+  "tf_matrix_max_abs_error": 2.6645352591003757e-15,
+  "writer_digests_match": true,
+  "source_root_max_error_m": 0.0,
+  "source_quaternion_max_error": 1.172447226021875e-16,
+  "source_joint_max_error_rad": 0.0,
+  "timings": {
+    "encode_total_s": 0.8212471026927233,
+    "write_total_s": 0.09160046838223934,
+    "preview_errors": []
+  }
+}

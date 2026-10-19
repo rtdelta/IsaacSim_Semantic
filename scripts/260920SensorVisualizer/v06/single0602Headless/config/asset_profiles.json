@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "id": "scene18_mesh_contract_v1",
+      "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+      "scene_sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79",
+      "asset": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/Excavator_Mesh_Contract.usda",
+      "asset_sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c",
+      "asset_origin_version": "scene18_contract_base_link_raw_reconstruction_v1",
+      "swing_zero_mapping": {
+        "joint_name": "swing",
+        "native_zero_rad": 0.0,
+        "engineering_zero_rad": 0.0,
+        "angle_source": "assumed_zero",
+        "tolerance_rad": 1e-05,
+        "declared_angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets",
+        "evidence": "Pinned asset: swing joint angleZero customData; Z axis, identity localRot0/localRot1, targetPosition=0; track-to-cab localPos0=(0,0,0.6) retained"
+      }
+    }
+  ]
+}

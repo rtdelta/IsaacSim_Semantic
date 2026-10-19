@@ -1,0 +1,49 @@
+{
+  "state": "passed",
+  "observations": [
+    {
+      "action": "pause",
+      "groups": 2,
+      "stable_wall_s": 0.6
+    },
+    {
+      "action": "resume",
+      "groups": 3
+    }
+  ],
+  "source_gui_exited": true,
+  "task": {
+    "task_id": "45b90b5bb0ac",
+    "pid": 305843,
+    "mode": "offline",
+    "directory": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/tasks/45b90b5bb0ac",
+    "state": "starting"
+  },
+  "terminal": {
+    "task_id": "45b90b5bb0ac",
+    "pid": 305843,
+    "groups": 3,
+    "exit_code": 0,
+    "running": false,
+    "exit_code_known": true,
+    "mode": "offline",
+    "created": "2026-10-15T17:03:40.734637",
+    "state": "finished",
+    "session": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/20261015_170357_346430_a29c9837",
+    "updated_ns": 13023725819720849,
+    "source_time_s": 0.2,
+    "attempt_id": 0,
+    "written": 3,
+    "wall_groups_per_s": 0.15481904496456644,
+    "wall_elapsed_s": 19.37746096216142,
+    "skipped_source_grids": 0,
+    "source_lag_sim_s": null,
+    "capture_complete": true,
+    "record_drain_complete": true,
+    "wall_s": 19.74032524600625,
+    "stopped": true,
+    "resources_cleaned": true,
+    "process_exited": true,
+    "resource_lock_released": true
+  }
+}

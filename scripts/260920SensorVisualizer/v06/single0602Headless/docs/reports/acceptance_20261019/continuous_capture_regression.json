@@ -1,0 +1,301 @@
+{
+  "state": "passed",
+  "cases": [
+    {
+      "label": "legacy_clock",
+      "source": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/trajectories/20261015_163638_403178_3dcefb",
+      "time_base": "prescribed_control_simulation_seconds",
+      "state": "passed",
+      "task_id": "d324d33c607d",
+      "groups": 3,
+      "task": {
+        "task_id": "d324d33c607d",
+        "pid": 553110,
+        "groups": 3,
+        "exit_code": 0,
+        "running": false,
+        "exit_code_known": true,
+        "mode": "offline",
+        "created": "2026-10-15T18:45:39.377055",
+        "state": "finished",
+        "planned_groups": 3,
+        "session": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/20261015_184556_861319_ef252644",
+        "updated_ns": 13029843665747508,
+        "source_time_s": 0.2,
+        "attempt_id": 0,
+        "written": 3,
+        "wall_groups_per_s": 0.1658335091176767,
+        "wall_elapsed_s": 18.09043308533728,
+        "skipped_source_grids": 0,
+        "source_lag_sim_s": null,
+        "capture_phase_finished": true,
+        "capture_complete": true,
+        "record_drain_complete": true,
+        "wall_s": 18.937862476333976,
+        "stopped": false,
+        "resources_cleaned": true,
+        "process_exited": true,
+        "resource_lock_released": true
+      },
+      "validation": {
+        "passed": true,
+        "session": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/20261015_184556_861319_ef252644",
+        "groups": 3,
+        "topics": 32,
+        "messages": 92,
+        "lidars": 13,
+        "cameras": 4,
+        "image_shapes": {
+          "front": [
+            1920,
+            1080
+          ],
+          "back": [
+            1920,
+            1080
+          ],
+          "left": [
+            1920,
+            1080
+          ],
+          "right": [
+            1920,
+            1080
+          ]
+        },
+        "tf_edges": [
+          19
+        ],
+        "source_times": [
+          0.0,
+          0.1,
+          0.2
+        ],
+        "native_times_ns": [
+          133333333,
+          233333333,
+          333333333
+        ],
+        "point_count_ranges": {
+          "/lidar/MyAiry_back/points": [
+            17784,
+            29858
+          ],
+          "/lidar/MyAiry_backleft/points": [
+            48955,
+            53812
+          ],
+          "/lidar/MyAiry_backright/points": [
+            59272,
+            67880
+          ],
+          "/lidar/MyAiry_front/points": [
+            37043,
+            56578
+          ],
+          "/lidar/MyAiry_left/points": [
+            33237,
+            47633
+          ],
+          "/lidar/MyAiry_right/points": [
+            21546,
+            33172
+          ],
+          "/lidar/MyAiry_up/points": [
+            62571,
+            63922
+          ],
+          "/lidar/MyNZ3_back/points": [
+            23703,
+            29275
+          ],
+          "/lidar/MyNZ3_backleft/points": [
+            24680,
+            27149
+          ],
+          "/lidar/MyNZ3_backright/points": [
+            22692,
+            29178
+          ],
+          "/lidar/MyNZ3_front/points": [
+            32887,
+            35759
+          ],
+          "/lidar/MyNZ3_left/points": [
+            32698,
+            33680
+          ],
+          "/lidar/MyNZ3_right/points": [
+            26030,
+            30732
+          ]
+        },
+        "mcap_bytes": 42168365,
+        "root_sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79",
+        "root_unchanged": true,
+        "calibration_validated": true,
+        "frame_contract_version": "s0602_track_equivalent_v1",
+        "swing_zero_validated_every_group": true,
+        "tf_matrix_max_abs_error": 8.43769498715119e-15,
+        "writer_digests_match": true,
+        "source_root_max_error_m": 5.311234541061083e-08,
+        "source_quaternion_max_error": 2.885278528082484e-16,
+        "source_joint_max_error_rad": 0.0,
+        "timings": {
+          "encode_total_s": 0.8148170504719019,
+          "write_total_s": 0.10017353482544422,
+          "preview_errors": []
+        }
+      },
+      "validation_exit_code": 0
+    },
+    {
+      "label": "native_clock",
+      "source": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/validation/continuous_gui_ab19caaa/trajectories/20261015_185513_034158_eeb043",
+      "time_base": "native_simulation_seconds",
+      "state": "passed",
+      "task_id": "f5edc6d5f7e0",
+      "groups": 3,
+      "task": {
+        "task_id": "f5edc6d5f7e0",
+        "pid": 583783,
+        "groups": 3,
+        "exit_code": 0,
+        "running": false,
+        "exit_code_known": true,
+        "mode": "offline",
+        "created": "2026-10-15T18:56:52.129726",
+        "state": "finished",
+        "planned_groups": 3,
+        "session": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/20261015_185709_994825_f717d59a",
+        "updated_ns": 13030515468298966,
+        "source_time_s": 0.2,
+        "attempt_id": 0,
+        "written": 3,
+        "wall_groups_per_s": 0.16821944374307463,
+        "wall_elapsed_s": 17.833848057314754,
+        "skipped_source_grids": 0,
+        "source_lag_sim_s": null,
+        "capture_phase_finished": true,
+        "capture_complete": true,
+        "record_drain_complete": true,
+        "wall_s": 18.172358578070998,
+        "stopped": false,
+        "resources_cleaned": true,
+        "process_exited": true,
+        "resource_lock_released": true
+      },
+      "validation": {
+        "passed": true,
+        "session": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/20261015_185709_994825_f717d59a",
+        "groups": 3,
+        "topics": 32,
+        "messages": 92,
+        "lidars": 13,
+        "cameras": 4,
+        "image_shapes": {
+          "front": [
+            1920,
+            1080
+          ],
+          "back": [
+            1920,
+            1080
+          ],
+          "left": [
+            1920,
+            1080
+          ],
+          "right": [
+            1920,
+            1080
+          ]
+        },
+        "tf_edges": [
+          19
+        ],
+        "source_times": [
+          0.0,
+          0.1,
+          0.2
+        ],
+        "native_times_ns": [
+          133333333,
+          233333333,
+          333333333
+        ],
+        "point_count_ranges": {
+          "/lidar/MyAiry_back/points": [
+            29798,
+            29858
+          ],
+          "/lidar/MyAiry_backleft/points": [
+            53807,
+            53843
+          ],
+          "/lidar/MyAiry_backright/points": [
+            67880,
+            67972
+          ],
+          "/lidar/MyAiry_front/points": [
+            36920,
+            37043
+          ],
+          "/lidar/MyAiry_left/points": [
+            33159,
+            33267
+          ],
+          "/lidar/MyAiry_right/points": [
+            33162,
+            33262
+          ],
+          "/lidar/MyAiry_up/points": [
+            63922,
+            63962
+          ],
+          "/lidar/MyNZ3_back/points": [
+            29275,
+            29328
+          ],
+          "/lidar/MyNZ3_backleft/points": [
+            27112,
+            27196
+          ],
+          "/lidar/MyNZ3_backright/points": [
+            29178,
+            29237
+          ],
+          "/lidar/MyNZ3_front/points": [
+            32883,
+            32921
+          ],
+          "/lidar/MyNZ3_left/points": [
+            32689,
+            32721
+          ],
+          "/lidar/MyNZ3_right/points": [
+            30687,
+            30732
+          ]
+        },
+        "mcap_bytes": 42000006,
+        "root_sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79",
+        "root_unchanged": true,
+        "calibration_validated": true,
+        "frame_contract_version": "s0602_track_equivalent_v1",
+        "swing_zero_validated_every_group": true,
+        "tf_matrix_max_abs_error": 8.43769498715119e-15,
+        "writer_digests_match": true,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 1.172447226021875e-16,
+        "source_joint_max_error_rad": 0.0,
+        "timings": {
+          "encode_total_s": 0.8195451274514198,
+          "write_total_s": 0.08970394916832447,
+          "preview_errors": []
+        }
+      },
+      "validation_exit_code": 0
+    }
+  ]
+}

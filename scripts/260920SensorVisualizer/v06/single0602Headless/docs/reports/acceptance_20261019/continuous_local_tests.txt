@@ -1,0 +1,48 @@
+test_native_steps_ignore_wall_clock_and_duplicate_callback (test_continuous_interaction.ClockTests) ... ok
+test_new_and_legacy_time_bases_keep_original_time_scale (test_continuous_interaction.ClockTests) ... ok
+test_no_obsolete_rate_limit_and_invalid_rates_rejected (test_continuous_interaction.ClockTests) ... ok
+test_only_physics_callback_advances_motion_once (test_continuous_interaction.NativeStepTests) ... ok
+test_native_stop_drains_last_valid_state_without_tensor_read (test_continuous_interaction.StopTests) ... ok
+test_write_failure_cannot_be_reported_complete_on_normal_stop (test_continuous_interaction.StopTests) ... ok
+test_all_joint_pairs_and_clamps (test_contract_and_input.CoordinateTests) ... ok
+test_cancel_vertical_and_combination_order (test_contract_and_input.CoordinateTests) ... ok
+test_heading_tilt_and_horizontal_diagonal (test_contract_and_input.CoordinateTests) ... ok
+test_horizontal_degeneracy_recovers_and_retains_sign (test_contract_and_input.CoordinateTests) ... ok
+test_configuration_is_atomic_and_f8_uses_same_entry (test_contract_and_input.HandoffTests) ... ok
+test_epoch_sequence_source_handoff_and_browser_disconnect (test_contract_and_input.HandoffTests) ... ok
+test_focus_pause_and_text_input_require_fresh_press (test_contract_and_input.HandoffTests) ... ok
+test_twenty_toggles_do_not_restore_held_or_repeat_input (test_contract_and_input.HandoffTests) ... ok
+test_fixed_offline_keepalive_and_baseline_warmup (test_contract_and_input.PolicyTests) ... ok
+test_legacy_incomplete_and_wrong_zero_are_rejected (test_contract_and_input.TrajectoryTests) ... ok
+test_mount_boundary_and_quaternion_shortest_path (test_contract_and_input.TrajectoryTests) ... ok
+test_same_file_mixed_modes_events_hold_time_and_snapshot_independence (test_contract_and_input.TrajectoryTests) ... ok
+test_nested_wall_and_cpu_measurement_and_bounded_samples (test_hot_path.HotPathTests) ... ok
+test_snapshot_is_small_owned_generation_and_status_remains_complete (test_hot_path.HotPathTests) ... skipped 'Linux socket'
+test_caller_arrays_never_alias_the_cache (test_motion_update.CacheTests) ... ok
+test_only_unchanged_clock_and_exact_pose_can_reuse (test_motion_update.CacheTests) ... ok
+test_cancellation_waits_for_native_before_releasing_owner (test_scheduling.DriverTests) ... ok
+test_failed_persistent_ticket_disables_keepalive_products (test_scheduling.DriverTests) ... ok
+test_late_callback_after_step_return_is_retained_without_retry (test_scheduling.DriverTests) ... ok
+test_missing_callback_cannot_be_reassigned_to_next_request (test_scheduling.DriverTests) ... ok
+test_native_stop_drain_precedes_lidar_read_and_keeps_ticket_open (test_scheduling.DriverTests) ... ok
+test_persistent_barrier_waits_for_lidar_and_owns_both_buffers (test_scheduling.DriverTests) ... ok
+test_scene_change_rejected_and_products_disabled (test_scheduling.DriverTests) ... ok
+test_shared_warmup_primes_lidar_and_formal_capture_still_drains (test_scheduling.DriverTests) ... ok
+test_stale_source_is_rejected_and_not_relabelled (test_scheduling.DriverTests) ... ok
+test_warmup_never_enables_lidar_or_schedules_writer (test_scheduling.DriverTests) ... ok
+test_all_off_and_camera_only_warmup_deduplicates (test_scheduling.GateTests) ... ok
+test_identity_clock_and_pose_are_independent (test_scheduling.GateTests) ... ok
+test_owned_payload_pack_is_off_loop_and_ack_generation_protected (test_transport_analysis.TransportTests) ... ok
+test_stop_while_waiting_slot_never_reserves_or_advances (test_transport_analysis.TransportTests) ... ok
+test_trace_is_relative_and_truncated_log_is_reported (test_transport_analysis.TransportTests) ... ok
+test_zero_hit_lidar_packet_is_valid (test_transport_analysis.TransportTests) ... ok
+test_mode_and_web_motion_preserve_session_and_clock (test_web_and_lifecycle.LifecycleTests) ... ok
+test_stale_epoch_cannot_resume_after_web_motion (test_web_and_lifecycle.LifecycleTests) ... ok
+test_http_receipts_and_complete_zip_roundtrip (test_web_and_lifecycle.WebTests) ... ok
+test_independent_capture_does_not_block_gui_exit (test_web_and_lifecycle.WebTests) ... ok
+test_no_live_owner_query_before_rejecting_live_capture (test_web_and_lifecycle.WebTests) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 1.168s
+
+OK (skipped=1)

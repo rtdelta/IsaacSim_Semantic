@@ -1,0 +1,6 @@
+{
+  "pid": 264827,
+  "wait_channel_before": "os_acquire_rwlock_read",
+  "signal_sent": "SIGTERM",
+  "exists_after": false
+}
