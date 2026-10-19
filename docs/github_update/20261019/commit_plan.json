@@ -4641,6 +4641,23 @@
       ],
       "pathspec_file": "commit_groups/C12.paths.txt",
       "readiness": "Git blob hashes verified before commit"
+    },
+    {
+      "id": "C13",
+      "title": "Final execution record",
+      "commit_message": "docs(repo): record completed upload and draft review",
+      "depends_on": [
+        "C12"
+      ],
+      "files": [
+        "docs/github_update/20261019/UploadPlan.md",
+        "docs/github_update/20261019/upload_manifest.json",
+        "docs/github_update/20261019/commit_plan.json",
+        "docs/github_update/20261019/execution_status.json",
+        "docs/github_update/20261019/commit_groups/C13.paths.txt"
+      ],
+      "pathspec_file": "commit_groups/C13.paths.txt",
+      "readiness": "documentation only"
     }
   ]
 }

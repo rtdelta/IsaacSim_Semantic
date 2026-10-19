@@ -1,0 +1,5 @@
+:(literal)docs/github_update/20261019/UploadPlan.md
+:(literal)docs/github_update/20261019/upload_manifest.json
+:(literal)docs/github_update/20261019/commit_plan.json
+:(literal)docs/github_update/20261019/execution_status.json
+:(literal)docs/github_update/20261019/commit_groups/C13.paths.txt

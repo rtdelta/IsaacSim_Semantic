@@ -11,7 +11,7 @@
     "modified_tracked_sources": 13,
     "deferred_files": 0,
     "resolved_former_deferred_and_excluded_files": 180,
-    "review_artifacts_additional": 22
+    "review_artifacts_additional": 23
   },
   "records": [
     {
@@ -43663,7 +43663,8 @@
     "docs/github_update/20261019/commit_groups/C11.paths.txt",
     "docs/github_update/20261019/execution_status.json",
     "docs/github_update/20261019/byte_identity_validation.json",
-    "docs/github_update/20261019/commit_groups/C12.paths.txt"
+    "docs/github_update/20261019/commit_groups/C12.paths.txt",
+    "docs/github_update/20261019/commit_groups/C13.paths.txt"
   ],
   "self_reference_policy": "Review artifacts are explicitly assigned to C11 without self hashes.",
   "hash_scope": {
