@@ -1,0 +1,11 @@
+{
+  "name": "UndulatingGround",
+  "size_m": [40, 40],
+  "grid_step_m": 0.2,
+  "peak_to_valley_m": 0.9,
+  "seed": 20260922,
+  "center_world_m": [-1.8, 1.5, 0.0],
+  "startup_flat_ellipse_radii_m": [3.8, 2.5],
+  "material": "procedural earth colors; no external textures",
+  "ground_following": false
+}

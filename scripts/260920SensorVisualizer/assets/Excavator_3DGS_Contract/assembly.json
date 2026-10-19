@@ -1,0 +1,40 @@
+{
+  "version": "3dgs_contract_v1",
+  "asset_name": "Excavator_3DGS_Contract",
+  "length_unit": "m",
+  "up_axis": "Z",
+  "root_frame": "base_link",
+  "bind_angles_deg": {"swing": 0, "boom": 0, "arm": 0, "bucket": 0},
+  "reconstruction_to_base": {
+    "translation_m": [3.20352, -0.34217, 2.04934],
+    "rpy_deg": [-103.98993, -5.69811, 61.29154],
+    "rotation_order": "Rz(yaw) @ Ry(pitch) @ Rx(roll), column vectors",
+    "uniform_scale": 2.4
+  },
+  "parts": [
+    {"id": "track", "frame": "track_link", "ply": "track.ply", "count": 70566, "sha256": "5723492cae47866a7dc4dc06c6080aa8be04fe191afc4e8a986397908c752c8f"},
+    {"id": "cab", "frame": "swing_link", "ply": "cab.ply", "count": 185786, "sha256": "10c57f47a2f52202dd523b7541f4b93b319c822c8b6905f13a5c53bc6f4a0e77"},
+    {"id": "boom", "frame": "boom_link", "ply": "boom.ply", "count": 66794, "sha256": "3d9f1ed003515fa091dcc38022a0e4bcbaac754944f75c288ea665404c1613d6"},
+    {"id": "arm", "frame": "arm_link", "ply": "arm.ply", "count": 41716, "sha256": "c7bbb9b6b3e541fd7eb9deddb17474d4f1a58ee3829c50433ca82c8af458c99e"},
+    {"id": "bucket", "frame": "bucket_link", "ply": "bucket_without_teeth.ply", "count": 30141, "sha256": "e73264ca5923e73562327bf250eb8c699fa78053d81428e0a746b1373fcd6e3c"}
+  ],
+  "joints": [
+    {"name": "swing", "parent_frame": "base_link", "child_frame": "swing_link", "parent_body": "track_link", "xyz_m": [0, 0, 0.6], "axis": "Z"},
+    {"name": "boom", "parent_frame": "swing_link", "child_frame": "boom_link", "parent_body": "swing_link", "xyz_m": [-0.374, -0.270, 0.954], "axis": "Y"},
+    {"name": "arm", "parent_frame": "boom_link", "child_frame": "arm_link", "parent_body": "boom_link", "xyz_m": [4.550, -0.066, 3.198], "axis": "Y"},
+    {"name": "bucket", "parent_frame": "arm_link", "child_frame": "bucket_link", "parent_body": "arm_link", "xyz_m": [1.226, -0.093, -2.662], "axis": "Y"}
+  ],
+  "preview": {"ground_z_in_base_m": -0.39, "base_world_xyz_m": [0, 0, 0.39]},
+  "physics": {
+    "purpose": "Kinematic articulation and angle-control validation, not calibrated dynamics",
+    "placeholder_mass_kg": 1,
+    "placeholder_diagonal_inertia": [1, 1, 1],
+    "disable_gravity": true,
+    "collision_geometry": false,
+    "drive_stiffness": 100000,
+    "drive_damping": 1000,
+    "drive_max_force": 1000000
+  },
+  "platform_roll_pitch_deg": [0, 0],
+  "scope": "Five-part asset assembly. Platform roll/pitch are fixed at zero in this four-DOF release; ROS, sensors and capture are not installed."
+}

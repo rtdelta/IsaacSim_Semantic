@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "removed": [
+    "source_read_key",
+    "source_read_key.pub",
+    "assets_and_code.tar.gz",
+    "assets_and_code.tar.gz.part",
+    "staging (verified hard links only)"
+  ],
+  "transport_bytes_removed": 2337039706,
+  "private_transport_key_absent": true,
+  "active_owned_transfer_processes": [],
+  "final_files_preserved": 1663,
+  "free_bytes": 154839216128,
+  "time_utc": "2026-10-10T06:52:33Z"
+}

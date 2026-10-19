@@ -1,0 +1,88 @@
+{
+  "wall_capture_s": 392.7241513226181,
+  "group_wall_s": 11.55071033301818,
+  "render_share": 0.9569280579567708,
+  "sampled_simulation_span_s": 3.3,
+  "sample_span_real_time_factor": 0.008402844563763764,
+  "control_latencies": [
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "apply pitch",
+      "request_utc": "2026-10-08T08:51:26.405013+00:00",
+      "applied_utc": "2026-10-08T08:51:29.820688+00:00",
+      "latency_s": 3.4156751
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "apply pitch",
+      "request_utc": "2026-10-08T08:51:54.105061+00:00",
+      "applied_utc": "2026-10-08T08:51:54.134317+00:00",
+      "latency_s": 0.029256854
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "base velocity",
+      "request_utc": "2026-10-08T08:53:04.283191+00:00",
+      "applied_utc": "2026-10-08T08:53:13.525573+00:00",
+      "latency_s": 9.242381813
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "base pose",
+      "request_utc": "2026-10-08T08:53:27.149890+00:00",
+      "applied_utc": "2026-10-08T08:53:36.777399+00:00",
+      "latency_s": 9.627509209
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "apply roll",
+      "request_utc": "2026-10-08T08:53:58.658969+00:00",
+      "applied_utc": "2026-10-08T08:53:59.250065+00:00",
+      "latency_s": 0.591096552
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "base velocity",
+      "request_utc": "2026-10-08T08:54:10.894952+00:00",
+      "applied_utc": "2026-10-08T08:54:22.066864+00:00",
+      "latency_s": 11.171911502
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "apply bucket",
+      "request_utc": "2026-10-08T08:54:18.959177+00:00",
+      "applied_utc": "2026-10-08T08:54:22.070318+00:00",
+      "latency_s": 3.111141433
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "apply arm",
+      "request_utc": "2026-10-08T08:54:24.306144+00:00",
+      "applied_utc": "2026-10-08T08:54:33.541403+00:00",
+      "latency_s": 9.23525875
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "apply boom",
+      "request_utc": "2026-10-08T08:54:30.449778+00:00",
+      "applied_utc": "2026-10-08T08:54:33.543654+00:00",
+      "latency_s": 3.093877885
+    },
+    {
+      "capture_id": "fe6ddb80cb",
+      "control": "stop",
+      "request_utc": "2026-10-08T08:57:22.446995+00:00",
+      "applied_utc": "2026-10-08T08:57:24.802855+00:00",
+      "latency_s": 2.355861753
+    }
+  ],
+  "unmatched_control_requests": [
+    {
+      "capture_id": "b691d227f5",
+      "control": "apply boom",
+      "utc": "2026-10-08T08:45:11.587177+00:00",
+      "group_id": 2
+    }
+  ],
+  "method": "Pair by capture ID and control label in chronological FIFO; action applied events lack control ID. Latency begins at script receipt, not physical mouse click."
+}

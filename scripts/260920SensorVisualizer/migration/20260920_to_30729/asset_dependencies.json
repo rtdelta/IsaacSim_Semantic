@@ -1,0 +1,637 @@
+{
+  "entrypoints": [
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/Combine_Scene_02.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_04.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_06.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_07.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_08.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_09.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_10.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+    "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_12_myairy.usda",
+    "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+    "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract_preview.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/camera_set/fish_eye_camera/fish_eye_camera.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/MyAiry.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/config/MyAiry_scan.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/config/NZ3_scan.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/geometry/NZ3_housing.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+    "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0_config/MyOS0_config.usda"
+  ],
+  "layers_checked": 54,
+  "dependencies": [
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "reference": "./MyOS0_config/MyOS0_config.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0_config/MyOS0_config.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "reference": "./config/NZ3_scan.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/config/NZ3_scan.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "reference": "./geometry/NZ3_housing.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/geometry/NZ3_housing.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/MyAiry.usda",
+      "reference": "./config/MyAiry_scan.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/config/MyAiry_scan.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract_preview.usda",
+      "reference": "./Excavator_3DGS_Contract.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+      "reference": "./geometry/arm.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/arm.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+      "reference": "./geometry/boom.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/boom.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+      "reference": "./geometry/bucket.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/bucket.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+      "reference": "./geometry/cab.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/cab.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+      "reference": "./geometry/track.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/track.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_12_myairy.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_12_myairy.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_12_myairy.usda",
+      "reference": "../sensor_set/lidar_set/MyAiry/MyAiry.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/MyAiry.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_12_myairy.usda",
+      "reference": "../sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/boom.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/boom.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/bucket_without_teeth.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/bucket_without_teeth.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/operator_cab.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/operator_cab.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/small_arm.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/small_arm.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_01_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_01_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_02_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_02_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_02_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_02_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_03_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_03_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_03_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_03_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_04_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_04_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_04_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_04_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_05_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_05_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/tooth_05_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_05_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./3dgs_usd/track.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/track.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./Excavator_Fangshan_05_data/overlay/gs_opacity_overlay.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/overlay/gs_opacity_overlay.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./Excavator_Fangshan_05_data/overlay/urdf_overlay.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/overlay/urdf_overlay.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./Excavator_Fangshan_05_data/urdf_reference_meshes.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/urdf_reference_meshes.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "reference": "./waji_mesh_corrected.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_corrected.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/overlay/urdf_overlay.usdc",
+      "reference": "../urdf_reference_meshes.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/urdf_reference_meshes.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "reference": "./SubUSDs/changjing4.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz[SubUSDs/changjing4.usd]"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "reference": "./SubUSDs/textures/langan.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz[SubUSDs/textures/langan.usdz]"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_origin03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+      "reference": "../sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+      "reference": "../sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+      "reference": "../sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+      "reference": "../sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/boom.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/boom.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/bucket_without_teeth.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/bucket_without_teeth.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/operator_cab.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/operator_cab.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/small_arm.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/small_arm.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_01_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_01_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_02_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_02_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_02_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_02_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_03_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_03_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_03_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_03_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_04_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_04_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_04_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_04_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_05_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_05_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/tooth_05_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_05_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./3dgs_usd/track.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/track.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./Excavator_Fangshan_05_data/overlay/gs_opacity_overlay.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/overlay/gs_opacity_overlay.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./Excavator_Fangshan_05_data/overlay/urdf_overlay.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/overlay/urdf_overlay.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./Excavator_Fangshan_05_data/urdf_reference_meshes.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/urdf_reference_meshes.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "reference": "./waji_mesh_corrected.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_corrected.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_10.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_10.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_10.usda",
+      "reference": "../sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_10.usda",
+      "reference": "../sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_09.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_09.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_09.usda",
+      "reference": "../sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_09.usda",
+      "reference": "../sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/boom.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/boom.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/bucket_without_teeth.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/bucket_without_teeth.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/operator_cab.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/operator_cab.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/small_arm.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/small_arm.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_01_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_01_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_02_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_02_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_02_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_02_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_03_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_03_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_03_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_03_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_04_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_04_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_04_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_04_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_05_back.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_05_back.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/tooth_05_front.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_05_front.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./3dgs_usd/track.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/track.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./waji_mesh_3dgs_with_joints_v2.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_with_joints_v2.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "reference": "./waji_mesh_corrected.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_corrected.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_with_joints_v2.usda",
+      "reference": "./waji_mesh_3dgs_aligned.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_aligned.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_aligned.usda",
+      "reference": "./3dgs_usd/boom.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/boom.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_aligned.usda",
+      "reference": "./3dgs_usd/bucket_only_full_teeth.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/bucket_only_full_teeth.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_aligned.usda",
+      "reference": "./3dgs_usd/operator_cab.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/operator_cab.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_aligned.usda",
+      "reference": "./3dgs_usd/small_arm.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/small_arm.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_aligned.usda",
+      "reference": "./3dgs_usd/track.usd",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/track.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_3dgs_aligned.usda",
+      "reference": "./waji_mesh_corrected.usdc",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_corrected.usdc"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_08.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_08.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_08.usda",
+      "reference": "../sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_08.usda",
+      "reference": "../sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_07.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_07.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_07.usda",
+      "reference": "../sensor_set/lidar_set/NZ3/MyNZ3.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_07.usda",
+      "reference": "../sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_06.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_06.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_06.usda",
+      "reference": "../sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_05.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_04.usda",
+      "reference": "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_04.usda",
+      "reference": "../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda",
+      "resolved": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_03.usda"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/Combine_Scene_02.usda",
+      "reference": "./Environment/environment.usdz",
+      "resolved": ""
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/Combine_Scene_02.usda",
+      "reference": "./Fangshan_Excavator_01.usda",
+      "resolved": ""
+    }
+  ],
+  "missing": [
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/Combine_Scene_02.usda",
+      "reference": "./Environment/environment.usdz",
+      "resolved": ""
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/Combine_Scene_02.usda",
+      "reference": "./Fangshan_Excavator_01.usda",
+      "resolved": ""
+    }
+  ],
+  "external": [
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/Rotator360_90/MyOS0.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Sensors/Ouster/OS0/OS0.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_12_myairy.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Environments/Grid/default_environment.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Environments/Grid/default_environment.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Environments/Grid/default_environment.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_10.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Environments/Grid/default_environment.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_09.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Environments/Grid/default_environment.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_08.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Environments/Grid/default_environment.usd"
+    },
+    {
+      "layer": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_07.usda",
+      "reference": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Environments/Grid/default_environment.usd"
+    }
+  ],
+  "failures": [],
+  "elapsed_seconds": 0.35,
+  "scope": "USD composition references only; no GUI, rendering or simulation test"
+}

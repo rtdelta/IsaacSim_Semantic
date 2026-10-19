@@ -1,0 +1,17 @@
+{
+  "project": "Sensor Visualizer v04",
+  "version": "4.0.0",
+  "created": "2026-10-09",
+  "basis": "User-selected v03 baseline; copied source, independent package, native performance experiments",
+  "runtime_project_package": "sensor_visualizer_v04",
+  "older_project_runtime_dependencies": [],
+  "original_preservation_evidence": "../backups/20261009_before_v04/manifest.json and reports/isolation_check.json",
+  "native_validation": "See docs/deployment_and_native_test.md; experiments are not equivalent to approved performance gains",
+  "external_runtime": [
+    "Installed Isaac Sim / Kit / RTX / Replicator / USD",
+    "ROS 2 Jazzy and MCAP plugin",
+    "NumPy",
+    "Pillow"
+  ],
+  "external_downloads_or_installs_this_task": false
+}

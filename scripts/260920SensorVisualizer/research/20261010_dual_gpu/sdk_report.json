@@ -1,0 +1,318 @@
+{
+  "pcie": {
+    "exit_code": 0,
+    "stdout": "0, 00000000:34:00.0, 1, 4, 16, 16\n1, 00000000:35:00.0, 1, 4, 16, 16\n",
+    "stderr": ""
+  },
+  "profiler_candidates": [],
+  "sdk": [
+    {
+      "extension": "/root/isaacsim/exts/isaacsim.core.rendering_manager",
+      "api_hits": [
+        {
+          "path": "/root/isaacsim/exts/isaacsim.core.rendering_manager/isaacsim/core/rendering_manager/impl/rendering_manager.py",
+          "hits": [
+            [
+              99,
+              "def render(cls) -> None:"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "extension": "/root/isaacsim/exts/isaacsim.core.throttling",
+      "api_hits": [
+        {
+          "path": "/root/isaacsim/exts/isaacsim.core.throttling/isaacsim/core/throttling/extension.py",
+          "hits": [
+            [
+              28,
+              "ASYNC_TOGGLE_SETTING = \"/exts/isaacsim.core.throttling/enable_async\""
+            ]
+          ]
+        },
+        {
+          "path": "/root/isaacsim/exts/isaacsim.core.throttling/config/extension.toml",
+          "hits": [
+            [
+              27,
+              "exts.\"isaacsim.core.throttling\".enable_async = false"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "extension": "/root/isaacsim/exts/isaacsim.simulation_app",
+      "api_hits": [
+        {
+          "path": "/root/isaacsim/exts/isaacsim.simulation_app/isaacsim/simulation_app/simulation_app.py",
+          "hits": [
+            [
+              475,
+              "args.append(f\"--/plugins/carb.tasking.plugin/threadCount={num_threads}\")"
+            ],
+            [
+              476,
+              "args.append(f\"--/plugins/omni.tbb.globalcontrol/maxThreadCount={num_threads}\")"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "extension": "/root/isaacsim/extscache/omni.replicator.core-1.13.27+110.1.1.lx64.r.cp312",
+      "api_hits": [
+        {
+          "path": "/root/isaacsim/extscache/omni.replicator.core-1.13.27+110.1.1.lx64.r.cp312/omni/replicator/core/scripts/writers.py",
+          "hits": [
+            [
+              577,
+              "def get_data(self) -> Dict:"
+            ],
+            [
+              1196,
+              "do_array_copy=annotator._do_array_copy,"
+            ]
+          ]
+        },
+        {
+          "path": "/root/isaacsim/extscache/omni.replicator.core-1.13.27+110.1.1.lx64.r.cp312/omni/replicator/core/scripts/orchestrator.py",
+          "hits": [
+            [
+              1565,
+              "rt_subframes: int = -1, pause_timeline: bool = True, delta_time: float = None, wait_for_render: bool = True"
+            ],
+            [
+              1582,
+              "wait_for_render: If ``True``, wait for a render to complete. Set to ``True`` whenever it is necessary for the"
+            ],
+            [
+              1602,
+              "wait_for_render = False"
+            ],
+            [
+              1690,
+              "if wait_for_render and _orchestrator._sim_times_to_write and _needs_multitick_render_flush:"
+            ],
+            [
+              1695,
+              "if wait_for_render and not has_renderer:"
+            ],
+            [
+              1697,
+              "elif wait_for_render:"
+            ],
+            [
+              1746,
+              "rt_subframes: int = -1, pause_timeline: bool = True, delta_time: float = None, wait_for_render: bool = True"
+            ],
+            [
+              1764,
+              "wait_for_render: If ``True``, wait for a render to complete. Set to ``True`` whenever it is necessary for the"
+            ],
+            [
+              1788,
+              "wait_for_render = False"
+            ],
+            [
+              1867,
+              "if wait_for_render and _orchestrator._sim_times_to_write and _needs_multitick_render_flush:"
+            ],
+            [
+              1872,
+              "if wait_for_render and not has_renderer:"
+            ],
+            [
+              1874,
+              "elif wait_for_render:"
+            ],
+            [
+              1976,
+              "\"\"\"Register optional waiters called after each step's capture, before wait_for_render."
+            ]
+          ]
+        },
+        {
+          "path": "/root/isaacsim/extscache/omni.replicator.core-1.13.27+110.1.1.lx64.r.cp312/omni/replicator/core/scripts/annotators.py",
+          "hits": [
+            [
+              406,
+              "``['cpu', 'cuda', 'cuda:<device_index>']``. Defaults to ``cpu``."
+            ],
+            [
+              409,
+              "do_array_copy: If ``True``, retrieve a copy of the data array. This is recommended for workflows using"
+            ],
+            [
+              433,
+              "do_array_copy: bool = True,"
+            ],
+            [
+              442,
+              "self._do_array_copy = do_array_copy"
+            ],
+            [
+              529,
+              "f\"Invalid device `{device}` specified. Device must be one of ['cpu', 'cuda', 'cuda:<device_index>']\""
+            ],
+            [
+              1526,
+              "if not node.get_attribute_exists(\"outputs:__do_array_copy\"):"
+            ],
+            [
+              1531,
+              "\"__do_array_copy\", og.Type(og.BaseDataType.BOOL), og.AttributePortType.ATTRIBUTE_PORT_TYPE_OUTPUT"
+            ],
+            [
+              1533,
+              "node.get_attribute(\"outputs:__do_array_copy\").set(self._do_array_copy)"
+            ],
+            [
+              1683,
+              "def get_data(self, device: str = None, do_array_copy: bool = False, use_legacy_structure: bool = True) -> Any:"
+            ],
+            [
+              1690,
+              "device: Device to hold data in. Select from ``['cpu', 'cuda', 'cuda:<device_index>']``. If ``cpu`` is"
+            ],
+            [
+              1694,
+              "do_array_copy: If ``True``, return a copy of the data. This is necessary if the data is expected to persist,"
+            ],
+            [
+              1729,
+              "do_copy=do_array_copy,"
+            ],
+            [
+              1922,
+              "# Optional factory hook: ``(name, init_params, render_product_idxs, device, do_array_copy) -> Annotator | None``."
+            ],
+            [
+              1934,
+              "factory(name, init_params, render_product_idxs, device, do_array_copy) -> Annotator | None"
+            ],
+            [
+              2206,
+              "do_array_copy: bool = True,"
+            ],
+            [
+              2215,
+              "`['cpu', 'cuda', 'cuda:<device_index>']`. Defaults to ``cpu``"
+            ],
+            [
+              2216,
+              "do_array_copy: If ``True``, retrieve a copy of the data array. This is recommended for workflows using"
+            ],
+            [
+              2221,
+              "result = cls._annotator_factory(name, init_params, render_product_idxs, device, do_array_copy)"
+            ]
+          ]
+        },
+        {
+          "path": "/root/isaacsim/extscache/omni.replicator.core-1.13.27+110.1.1.lx64.r.cp312/omni/replicator/core/scripts/utils/annotator_utils.py",
+          "hits": [
+            [
+              75,
+              "\"__do_array_copy\","
+            ],
+            [
+              449,
+              "def get_data(cls, annotator_id: int, node_params: Dict, annotator_params: Tuple, target_device: str, **kwargs):"
+            ],
+            [
+              470,
+              "do_copy = kwargs.get(\"do_copy\") if kwargs.get(\"do_copy\") else params.get(\"do_array_copy\")"
+            ],
+            [
+              620,
+              "f\"Invalid device `{target_device}` specified. Device must be one of ['cpu', 'cuda', 'cuda:<device_index>']\""
+            ],
+            [
+              633,
+              "\"do_array_copy\": node_params[\"__do_array_copy\"].get(),"
+            ],
+            [
+              863,
+              "f\"Invalid device `{device}` specified. Device must be one of ['cpu', 'cuda', 'cuda:<device_index>']\""
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "cuda_driver_read_only": {
+    "cuInit": 0,
+    "devices": [
+      {
+        "cuda_ordinal": 0,
+        "name": "NVIDIA L40",
+        "pci_bus": "0000:34:00.0",
+        "attributes": {
+          "ASYNC_ENGINE_COUNT": {
+            "value": 2,
+            "code": 0
+          },
+          "CONCURRENT_KERNELS": {
+            "value": 1,
+            "code": 0
+          },
+          "CAN_MAP_HOST_MEMORY": {
+            "value": 1,
+            "code": 0
+          },
+          "UNIFIED_ADDRESSING": {
+            "value": 1,
+            "code": 0
+          },
+          "HOST_NATIVE_ATOMIC_SUPPORTED": {
+            "value": 0,
+            "code": 0
+          }
+        },
+        "peer_access": {
+          "1": {
+            "value": 1,
+            "code": 0
+          }
+        }
+      },
+      {
+        "cuda_ordinal": 1,
+        "name": "NVIDIA L40",
+        "pci_bus": "0000:35:00.0",
+        "attributes": {
+          "ASYNC_ENGINE_COUNT": {
+            "value": 2,
+            "code": 0
+          },
+          "CONCURRENT_KERNELS": {
+            "value": 1,
+            "code": 0
+          },
+          "CAN_MAP_HOST_MEMORY": {
+            "value": 1,
+            "code": 0
+          },
+          "UNIFIED_ADDRESSING": {
+            "value": 1,
+            "code": 0
+          },
+          "HOST_NATIVE_ATOMIC_SUPPORTED": {
+            "value": 0,
+            "code": 0
+          }
+        },
+        "peer_access": {
+          "0": {
+            "value": 1,
+            "code": 0
+          }
+        }
+      }
+    ]
+  },
+  "notes": "No CUDA contexts, buffers, kernels, Isaac application or project processes created."
+}

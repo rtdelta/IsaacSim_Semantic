@@ -1,0 +1,58 @@
+{
+  "files": 4529,
+  "bytes": 8903002518,
+  "by_root": {
+    "IsaacSim_Asset": {
+      "files": 576,
+      "bytes": 4291151492
+    },
+    "260910NV3Lidar": {
+      "files": 50,
+      "bytes": 7014495
+    },
+    "Example_Rotary_90deg.usda": {
+      "files": 1,
+      "bytes": 1734
+    },
+    "Test0": {
+      "files": 137,
+      "bytes": 501557224
+    },
+    "Test1": {
+      "files": 163,
+      "bytes": 1754197353
+    },
+    "blender": {
+      "files": 123,
+      "bytes": 1936292759
+    },
+    "camera": {
+      "files": 1,
+      "bytes": 16281
+    },
+    "diagnostics": {
+      "files": 1583,
+      "bytes": 32004930
+    },
+    "excavator_keyboard_control.py": {
+      "files": 1,
+      "bytes": 6618
+    },
+    "lidar_capture_to_disk.py": {
+      "files": 1,
+      "bytes": 22429
+    },
+    "sample_common_scene.ply": {
+      "files": 1,
+      "bytes": 1800242
+    },
+    "semantic": {
+      "files": 1891,
+      "bytes": 342872418
+    },
+    "usd_ply_combined.usd": {
+      "files": 1,
+      "bytes": 36064543
+    }
+  }
+}

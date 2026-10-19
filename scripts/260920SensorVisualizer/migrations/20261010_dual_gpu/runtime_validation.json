@@ -1,0 +1,50 @@
+{
+  "exit_code": 0,
+  "stderr": "",
+  "probe": {
+    "imports": {
+      "numpy": {
+        "ok": true,
+        "file": "/usr/lib/python3/dist-packages/numpy/__init__.py",
+        "version": "1.26.4"
+      },
+      "PIL": {
+        "ok": true,
+        "file": "/usr/lib/python3/dist-packages/PIL/__init__.py",
+        "version": "10.2.0"
+      },
+      "rosbag2_py": {
+        "ok": true,
+        "file": "/opt/ros/jazzy/lib/python3.12/site-packages/rosbag2_py/__init__.py",
+        "version": null
+      },
+      "rclpy": {
+        "ok": true,
+        "file": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py",
+        "version": null
+      },
+      "sensor_msgs.msg": {
+        "ok": true,
+        "file": "/opt/ros/jazzy/lib/python3.12/site-packages/sensor_msgs/msg/__init__.py",
+        "version": null
+      },
+      "tf2_msgs.msg": {
+        "ok": true,
+        "file": "/opt/ros/jazzy/lib/python3.12/site-packages/tf2_msgs/msg/__init__.py",
+        "version": null
+      },
+      "rosgraph_msgs.msg": {
+        "ok": true,
+        "file": "/opt/ros/jazzy/lib/python3.12/site-packages/rosgraph_msgs/msg/__init__.py",
+        "version": null
+      }
+    },
+    "bag_storage_plugins": [
+      "sqlite3",
+      "mcap"
+    ]
+  },
+  "isaac_version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+  "kit_exists": true,
+  "ros_setup_exists": true
+}

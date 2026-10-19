@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "files": 6,
+  "new_files": [
+    "docs/20261010_dual_gpu_v07_optimization_plan.md",
+    "research/20261010_dual_gpu/hardware_report.json",
+    "research/20261010_dual_gpu/sdk_report.json",
+    "research/20261010_dual_gpu/sdk_code_details.json",
+    "research/20261010_dual_gpu/device_path_report.json",
+    "research/20261010_dual_gpu/findings_and_plan.json"
+  ],
+  "document": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/docs/20261010_dual_gpu_v07_optimization_plan.md",
+  "document_sha256": "ecbcdfeb553b72f253f17592db24fca98d91c90fe7283d3c899efe2bcfd165ca",
+  "original_code_modified": false,
+  "runtime_started": false,
+  "audit_operation_id": "20261010T075504Z_854b3b4ba31f"
+}

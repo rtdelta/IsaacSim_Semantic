@@ -1,0 +1,388 @@
+{
+  "version": "3dgs_contract_v1",
+  "matrix_convention": "Column vectors; Gf USD matrices are transposed",
+  "default_prim": "/Excavator",
+  "base_frame_prim": "/Excavator",
+  "articulation_root": "/Excavator/track_link",
+  "source_config_sha256": "55b210befcc37af8af9abcce93282d3836140127721e19e3f9198fa2098987e7",
+  "total_gaussians": 395003,
+  "parts": {
+    "track_link": {
+      "body_path": "/Excavator/track_link",
+      "geometry_path": "/Excavator/track_link/Visuals/Splat",
+      "part_id": "track",
+      "bind_base_from_link": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "link_from_raw": [
+        [
+          1.1471508209952654,
+          0.6199494079352975,
+          -2.014871639953911,
+          3.20352
+        ],
+        [
+          2.094579558347602,
+          -0.07590455015254771,
+          1.16917704947476,
+          -0.34217
+        ],
+        [
+          0.23828862256149497,
+          -2.3173047341398183,
+          -0.5773363850398934,
+          2.04934
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent_frame": "base_link"
+    },
+    "swing_link": {
+      "body_path": "/Excavator/swing_link",
+      "geometry_path": "/Excavator/swing_link/Visuals/Splat",
+      "part_id": "cab",
+      "bind_base_from_link": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "link_from_raw": [
+        [
+          1.1471508209952654,
+          0.6199494079352975,
+          -2.014871639953911,
+          3.20352
+        ],
+        [
+          2.094579558347602,
+          -0.07590455015254771,
+          1.16917704947476,
+          -0.34217
+        ],
+        [
+          0.23828862256149497,
+          -2.3173047341398183,
+          -0.5773363850398934,
+          1.4493399999999999
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent_frame": "base_link"
+    },
+    "boom_link": {
+      "body_path": "/Excavator/boom_link",
+      "geometry_path": "/Excavator/boom_link/Visuals/Splat",
+      "part_id": "boom",
+      "bind_base_from_link": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.374
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.27
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5539999999999998
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "link_from_raw": [
+        [
+          1.1471508209952654,
+          0.6199494079352975,
+          -2.014871639953911,
+          3.5775200000000003
+        ],
+        [
+          2.094579558347602,
+          -0.07590455015254771,
+          1.16917704947476,
+          -0.07216999999999996
+        ],
+        [
+          0.23828862256149497,
+          -2.3173047341398183,
+          -0.5773363850398934,
+          0.4953400000000001
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent_frame": "swing_link"
+    },
+    "arm_link": {
+      "body_path": "/Excavator/arm_link",
+      "geometry_path": "/Excavator/arm_link/Visuals/Splat",
+      "part_id": "arm",
+      "bind_base_from_link": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          4.176
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.336
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.752
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "link_from_raw": [
+        [
+          1.1471508209952654,
+          0.6199494079352975,
+          -2.014871639953911,
+          -0.97248
+        ],
+        [
+          2.094579558347602,
+          -0.07590455015254771,
+          1.16917704947476,
+          -0.006169999999999953
+        ],
+        [
+          0.23828862256149497,
+          -2.3173047341398183,
+          -0.5773363850398934,
+          -2.70266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent_frame": "boom_link"
+    },
+    "bucket_link": {
+      "body_path": "/Excavator/bucket_link",
+      "geometry_path": "/Excavator/bucket_link/Visuals/Splat",
+      "part_id": "bucket",
+      "bind_base_from_link": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          5.402
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.42900000000000005
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.09
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "link_from_raw": [
+        [
+          1.1471508209952654,
+          0.6199494079352975,
+          -2.014871639953911,
+          -2.19848
+        ],
+        [
+          2.094579558347602,
+          -0.07590455015254771,
+          1.16917704947476,
+          0.08683000000000007
+        ],
+        [
+          0.23828862256149497,
+          -2.3173047341398183,
+          -0.5773363850398934,
+          -0.04065999999999992
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent_frame": "arm_link"
+    }
+  },
+  "raw_to_base": [
+    [
+      1.1471508209952654,
+      0.6199494079352975,
+      -2.014871639953911,
+      3.20352
+    ],
+    [
+      2.094579558347602,
+      -0.07590455015254771,
+      1.16917704947476,
+      -0.34217
+    ],
+    [
+      0.23828862256149497,
+      -2.3173047341398183,
+      -0.5773363850398934,
+      2.04934
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "joints": [
+    {
+      "name": "swing",
+      "parent_frame": "base_link",
+      "child_frame": "swing_link",
+      "parent_body": "track_link",
+      "xyz_m": [
+        0,
+        0,
+        0.6
+      ],
+      "axis": "Z"
+    },
+    {
+      "name": "boom",
+      "parent_frame": "swing_link",
+      "child_frame": "boom_link",
+      "parent_body": "swing_link",
+      "xyz_m": [
+        -0.374,
+        -0.27,
+        0.954
+      ],
+      "axis": "Y"
+    },
+    {
+      "name": "arm",
+      "parent_frame": "boom_link",
+      "child_frame": "arm_link",
+      "parent_body": "boom_link",
+      "xyz_m": [
+        4.55,
+        -0.066,
+        3.198
+      ],
+      "axis": "Y"
+    },
+    {
+      "name": "bucket",
+      "parent_frame": "arm_link",
+      "child_frame": "bucket_link",
+      "parent_body": "arm_link",
+      "xyz_m": [
+        1.226,
+        -0.093,
+        -2.662
+      ],
+      "axis": "Y"
+    }
+  ],
+  "physical_layout": "Flat sibling rigid bodies; joint relationships establish connectivity. ROS semantic parentFrame is metadata, not a publisher.",
+  "files": {
+    "Excavator_3DGS_Contract.usda": "3aa1487562696b353c4bacf48caea993a804ff4adf0d92cf663e1caf94618d0b",
+    "Excavator_3DGS_Contract_preview.usda": "1be6ad64a0b56c409d192c3153a9f8d8e350b2562bb9e85f686fdfaec28a9d60",
+    "assembly.json": "55b210befcc37af8af9abcce93282d3836140127721e19e3f9198fa2098987e7",
+    "geometry/arm.usdc": "d6dc545a99ce379758cd26f90d65b96116b37ed8f5c4ba895936bbffd76428a7",
+    "geometry/boom.usdc": "de6d14b713d839e2d4e537c4f27ac6decad88ee6d98eefffea8f75986c1ee5f8",
+    "geometry/bucket.usdc": "88d19a8a216d84078179c377966dc17f2366ddc04566aa6091af5beac63c05c2",
+    "geometry/cab.usdc": "105856995082999c5cc92f64c06916379bcaadf757a7cc0c39e031312c3da075",
+    "geometry/track.usdc": "8b9a0c6ee70d60474cca1947c0da30ef9ae7419c4db4fcd0fa02e097eee87f45"
+  }
+}
