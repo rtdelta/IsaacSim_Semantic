@@ -1,0 +1,11 @@
+{
+  "capture": {
+    "backend": "persistent_gated",
+    "resource_policy": "gated"
+  },
+  "scheduling": {
+    "cooperative_yield_ms": 0,
+    "yield_only_with_owner": true,
+    "cpu_nice": 0
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260922CloudInstanceOps/reports/IMPLEMENTATION_VALIDATION.md",
+      "destination": "scripts/260922CloudInstanceOps/docs/reports/IMPLEMENTATION_VALIDATION.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 4828,
+      "original_sha256": "7ea94efe1f6d52d1d3d28642f99b00f0198d6be03674cf2c7ee7a8c01abbd2bb",
+      "copied_sha256": "7ea94efe1f6d52d1d3d28642f99b00f0198d6be03674cf2c7ee7a8c01abbd2bb",
+      "copy_verified": true,
+      "current_sha256": "7ea94efe1f6d52d1d3d28642f99b00f0198d6be03674cf2c7ee7a8c01abbd2bb",
+      "reference_edits": false
+    }
+  ]
+}
