@@ -1,0 +1,8 @@
+[
+ ["static_on", ["--script", "motion_case.py", "--motion", "static"]],
+ ["sensor_on_raw", ["--script", "motion_case.py", "--motion", "sensor"]],
+ ["sensor_off_raw", ["--script", "motion_case.py", "--motion", "sensor", "--bvh", "0"]],
+ ["target_on_raw", ["--script", "motion_case.py", "--motion", "target"]],
+ ["sensor_on_comp", ["--script", "motion_case.py", "--motion", "sensor", "--compensated", "1"]],
+ ["sensor_on_world", ["--script", "motion_case.py", "--motion", "sensor", "--compensated", "1", "--reference", "WORLD"]]
+]

@@ -1,0 +1,5 @@
+[
+ ["sensor_configured", ["--script", "motion_case.py", "--motion", "sensor", "--driver", "configured"]],
+ ["sensor_zero", ["--script", "motion_case.py", "--motion", "sensor", "--driver", "configured", "--zero-delay"]],
+ ["target_zero", ["--script", "motion_case.py", "--motion", "target", "--driver", "configured", "--zero-delay"]]
+]

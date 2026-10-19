@@ -1,0 +1,67 @@
+{
+  "status": "planned_not_run",
+  "purpose": "Identify which active render path requests the unsupported Gaussian acceleration-structure mode.",
+  "settings": {
+    "/rtx/hydra/supportMultiTickRate": false,
+    "/rtx/rendering/perSensorTickTlas": false
+  },
+  "cases": [
+    {
+      "name": "A1_A2_off",
+      "geometry": "mesh",
+      "output": "camera_only",
+      "motion_bvh": false,
+      "cold_start": true
+    },
+    {
+      "name": "A1_A2_on",
+      "geometry": "mesh",
+      "output": "camera_only",
+      "motion_bvh": true,
+      "cold_start": true
+    },
+    {
+      "name": "A3_A4_off",
+      "geometry": "gaussian_with_mesh_control",
+      "output": "camera_only",
+      "motion_bvh": false,
+      "cold_start": true
+    },
+    {
+      "name": "A3_A4_on",
+      "geometry": "gaussian_with_mesh_control",
+      "output": "camera_only",
+      "motion_bvh": true,
+      "cold_start": true
+    },
+    {
+      "name": "B1_B2_off",
+      "geometry": "mesh",
+      "output": "lidar_only",
+      "motion_bvh": false,
+      "cold_start": true
+    },
+    {
+      "name": "B1_B2_on",
+      "geometry": "mesh",
+      "output": "lidar_only",
+      "motion_bvh": true,
+      "cold_start": true
+    },
+    {
+      "name": "B3_B4_off",
+      "geometry": "gaussian_with_mesh_control",
+      "output": "lidar_only",
+      "motion_bvh": false,
+      "cold_start": true
+    },
+    {
+      "name": "B3_B4_on",
+      "geometry": "gaussian_with_mesh_control",
+      "output": "lidar_only",
+      "motion_bvh": true,
+      "cold_start": true
+    }
+  ]
+}
+

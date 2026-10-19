@@ -1,0 +1,5 @@
+[
+  ["gs_off_v2", ["--geometry", "gaussian", "--bvh", "0", "--multi", "0"]],
+  ["gs_on_single_v2", ["--geometry", "gaussian", "--bvh", "1", "--multi", "0"]],
+  ["gs_on_multi_v2", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1"]]
+]

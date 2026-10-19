@@ -1,0 +1,26 @@
+[
+  {
+    "name": "camera_A",
+    "group": "A",
+    "output": "camera",
+    "geometry": "gaussian",
+    "bvh": 0,
+    "intervene": 0
+  },
+  {
+    "name": "camera_B",
+    "group": "B",
+    "output": "camera",
+    "geometry": "gaussian",
+    "bvh": 1,
+    "intervene": 0
+  },
+  {
+    "name": "camera_C",
+    "group": "C",
+    "output": "camera",
+    "geometry": "gaussian",
+    "bvh": 1,
+    "intervene": 1
+  }
+]

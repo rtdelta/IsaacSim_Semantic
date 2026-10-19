@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260918_bvh_local_mode_0147/evidence/REPORT.md",
+      "destination": "scripts/260918_bvh_local_mode_0147/docs/reports/evidence/REPORT.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 11996,
+      "original_sha256": "177959525b4ee95c05ae81a0bf427cc1cc79a9cc4da97c3d913bc24f987590b6",
+      "copied_sha256": "177959525b4ee95c05ae81a0bf427cc1cc79a9cc4da97c3d913bc24f987590b6",
+      "copy_verified": true,
+      "current_sha256": "177959525b4ee95c05ae81a0bf427cc1cc79a9cc4da97c3d913bc24f987590b6",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260918_bvh_local_mode_0147/evidence/static_comparison.png",
+      "destination": "scripts/260918_bvh_local_mode_0147/docs/reports/evidence/static_comparison.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 574465,
+      "original_sha256": "e64fcb10cb711fd2b9b88ce2184233c9fbeef0f16273f29b7a04ff5c8ab2de34",
+      "copied_sha256": "e64fcb10cb711fd2b9b88ce2184233c9fbeef0f16273f29b7a04ff5c8ab2de34",
+      "copy_verified": true,
+      "current_sha256": "e64fcb10cb711fd2b9b88ce2184233c9fbeef0f16273f29b7a04ff5c8ab2de34",
+      "reference_edits": false
+    }
+  ]
+}

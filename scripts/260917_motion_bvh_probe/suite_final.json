@@ -1,0 +1,4 @@
+[
+  ["full_source_mesh_bvh_v4", ["--geometry", "full", "--source", "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda", "--exclude-gaussians", "--bvh", "1", "--multi", "1", "--frames", "90", "--timeout", "120"]],
+  ["export_overlays_v2", ["--script", "export_isolation.py", "--timeout", "90"]]
+]

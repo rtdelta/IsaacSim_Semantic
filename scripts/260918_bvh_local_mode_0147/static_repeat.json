@@ -1,0 +1,150 @@
+[
+  {
+    "name": "lidar_A_r2",
+    "script": "probe_static_v3.py",
+    "intervene": 0,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--warmup",
+      "60",
+      "--frames",
+      "120",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ]
+  },
+  {
+    "name": "lidar_C_r2",
+    "script": "probe_static_v3.py",
+    "intervene": 1,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--warmup",
+      "60",
+      "--frames",
+      "120",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ]
+  },
+  {
+    "name": "camera_A_r2",
+    "script": "probe_static_v3.py",
+    "intervene": 0,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "0",
+      "--warmup",
+      "60",
+      "--frames",
+      "120"
+    ]
+  },
+  {
+    "name": "camera_C_r2",
+    "script": "probe_static_v3.py",
+    "intervene": 1,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "1",
+      "--warmup",
+      "60",
+      "--frames",
+      "120"
+    ]
+  },
+  {
+    "name": "lidar_A_r3",
+    "script": "probe_static_v3.py",
+    "intervene": 0,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--warmup",
+      "60",
+      "--frames",
+      "120",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ]
+  },
+  {
+    "name": "lidar_C_r3",
+    "script": "probe_static_v3.py",
+    "intervene": 1,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--warmup",
+      "60",
+      "--frames",
+      "120",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ]
+  },
+  {
+    "name": "camera_A_r3",
+    "script": "probe_static_v3.py",
+    "intervene": 0,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "0",
+      "--warmup",
+      "60",
+      "--frames",
+      "120"
+    ]
+  },
+  {
+    "name": "camera_C_r3",
+    "script": "probe_static_v3.py",
+    "intervene": 1,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "1",
+      "--warmup",
+      "60",
+      "--frames",
+      "120"
+    ]
+  }
+]

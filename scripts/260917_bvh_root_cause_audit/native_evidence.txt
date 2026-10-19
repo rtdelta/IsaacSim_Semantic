@@ -1,0 +1,228 @@
+Remote read-only static inspection, 2026-09-17.
+These are excerpts from installed binaries, not recovered C++ source.
+
+BINARY /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so size 5100880 sha256 3fc6bb790d164decaf40aa52c5c76a6401e67e210f395e40cea9ea20ac6c57f0
+STRINGS Gaussians do not support motion BVH [{"offset": "0x3d6b10", "text": "Gaussians do not support motion BVH"}]
+STRINGS motion BVH [{"offset": "0x3d6b29", "text": "Gaussians do not support motion BVH"}]
+STRINGS Motion BVH [{"offset": "0x3ded83", "text": "Scene partitioning being used with Motion BVH. This combination is not yet fully supported"}]
+STRINGS Gaussian [{"offset": "0x3d62b4", "text": "eGaussians"}, {"offset": "0x3d62bf", "text": "eGaussiansParticleField"}, {"offset": "0x3d6694", "text": "PreprocessedGaussians::releaseGpuResources"}, {"offset": "0x3d66e8", "text": "../../../source/plugins/rtx.scenedb/PreprocessedGaussians.cpp"}, {"offset": "0x3d676c", "text": "PreprocessedGaussians::internalInitialize"}, {"offset": "0x3d67c8", "text": "Gaussians \"%s\": Max gaussian count has to be less than 2^24 for every prim. Skip loading the excessive gaussians... Please break the asset into separate prims."}, {"offset": "0x3d6891", "text": "rtx::RtxResult rtx::scenedb::PreprocessedGaussians::createInstanceBuffer(omni::span<carb::graphics::RaytracingInstanceDesc>)"}, {"offset": "0x3d68f4", "text": "PreprocessedGaussians::createInstanceBuffer"}, {"offset": "0x3d6941", "text": "Failed to obtain IBuffer for PreprocessedGaussian instance list buffer"}, {"offset": "0x3d696c", "text": "PreprocessedGaussians::updateGpuResources"}, {"offset": "0x3d69a1", "text": "Failed to update Gaussian GeometryGroup"}, {"offset": "0x3d6a2d", "text": "Failed to create PreprocessedGaussians: Ray query is not supported on device %d"}, {"offset": "0x3d6a7f", "text": "void rtx::scenedb::PreprocessedGaussians::buildTlas(carb::graphics::CommandList*, uint32_t, rtx::scenedb::AccelStructMode, bool) const"}, {"offset": "0x3d6af4", "text": "PreprocessedGaussians::buildTlas"}]
+ELF 
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: c69f93567740418057f0739d469eec000d59d9fe
+
+BINARY /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.rtxsensor.plugin.so size 1082168 sha256 0199a0c85b567a0b7901669cdfead4f5929df8e1cb4231333d4bbf1835215e32
+STRINGS Gaussians do not support motion BVH []
+STRINGS motion BVH [{"offset": "0xd85ca", "text": "Multi-tick is enabled but motion BVH is not active. This is not supported."}]
+STRINGS Motion BVH []
+STRINGS Gaussian []
+ELF 
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: ce09915c28842496763b4397a91c628fc94e6dcf
+
+BINARY /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so size 5465696 sha256 269dd1419c9fe3e6e367e6a218a1d80726184587bd279c12854ba928ba636f02
+STRINGS Gaussians do not support motion BVH []
+STRINGS motion BVH []
+STRINGS Motion BVH []
+STRINGS Gaussian [{"offset": "0x475af8", "text": "Gaussian geometry requires geometry streaming to be enabled. Enable geometry streaming in settings to load gaussian geometry."}, {"offset": "0x48ab3b", "text": "gatherGaussianInstances"}]
+ELF 
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: bfe62578b077b0cf42d963595c0b059540e7e5f7
+
+BINARY /root/isaacsim/extscache/omni.sensors.nv.lidar-3.0.0+f9bf0dda.lx64.r.cp312/bin/model_plugins/librtx.sensors.lidar.core.plugin.so size 9559856 sha256 e59a5734f0006f6d4ebf9e4670e23b930000bf1a42356e30c5be1fc1befeeec8
+STRINGS Gaussians do not support motion BVH []
+STRINGS motion BVH [{"offset": "0x112172", "text": "To enable motion BVH set the following app setting:"}]
+STRINGS Motion BVH []
+STRINGS Gaussian []
+ELF 
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: a80a44c8dda2e67ab7ef9c577f8991a298557904
+
+
+
+SECTIONS
+  [ 3] .dynsym           DYNSYM          00000000000012b8 0012b8 004ae8 18   A  4   1  8
+  [12] .text             PROGBITS        000000000002c420 02c420 395e62 00  AX  0   0 16
+  [14] .rodata           PROGBITS        00000000003c3000 3c3000 0378c1 00   A  0   0 64
+SYMBOLS
+00000000002a4ab3 T processMotionConstantsKernel(TransformUpdateChunkGpu const*, unsigned int, void const**, unsigned int, void const**, unsigned int, void const**, unsigned int, bool, unsigned int)
+00000000002a480c T __device_stub__Z28processMotionConstantsKernelPK23TransformUpdateChunkGpujPPKvjS4_jS4_jbj(TransformUpdateChunkGpu const*, unsigned int, void const**, unsigned int, void const**, unsigned int, void const**, unsigned int, bool, unsigned int)
+
+STRING_CONTEXT
+0x3d6a00 r from cache
+0x3d6a10 Failed to create PreprocessedGaussians: Ray query is not supported on device %d
+0x3d6a60 void rtx::scenedb::PreprocessedGaussians::buildTlas(carb::graphics::CommandList*, uint32_t, rtx::scenedb::AccelStructMode, bool) const
+0x3d6ae8 PreprocessedGaussians::buildTlas
+0x3d6b10 Gaussians do not support motion BVH
+0x3d6b38 Gaussians do not support refit
+0x3d6b58 Skip building TLAS for gaussians %s, because gaussian count is 0
+0x3d6b99 releaseGpuResources
+0x3d6bad Gaussian GeometryGroup
+0x3d6bc4 InstanceList
+0x3d6bd1 createInstanceBuffer
+0x3d6be6 initializeGpuResources
+0x3d6bfd retrieveFromUjitsoDataStore
+0x3d6c19 SceneDb data retrieval
+0x3d6c30 Gaussian TLAS: 
+0x3d6c40 Failed to create TLAS for %s
+0x3d6c5d buildTlas
+0x3d6c67 Gaussian TLAS build
+0x3d6c80 ../../../source/plugins/rtx.scenedb/BvhHelpers.h
+0x3d6cb8 getResourceFromAccelStructDesc() failed for %s initialization.
+0x3d6cf8 bool rtx::scenedb::allocScratchBuffer(rtx::scenedb::Context&, uint64_t, uint32_t, rtx::resourcemanager::RpResource*&)
+0x3d6d70 Unable to allocate scratch buffer of size %lu
+0x3d6da0 allocScratchBuffer() failed for for %s initialization.
+0x3d6dd8 [MBVH]: Creating acceleration structure %s for context %d/device %d, with motion raytracing %s
+0x3d6e37 ENABLED
+0x3d6e3f DISABLED
+0x3d6e48 createTlasOnAllDevices
+0x3d6e5f Scene::allocScratchBuffer
+0x3d6e80 N3rtx7scenedb21PreprocessedGaussiansE
+
+
+Guard function disassembly (objdump nearest-export labels intentionally removed):
+  184990:	endbr64
+  184994:	push   %r15
+  184996:	lea    0x2569e0(%rip),%rax        # 3db37d
+  18499d:	mov    %ecx,%r15d
+  1849a0:	mov    $0x62,%r9d
+  1849a6:	push   %r14
+  1849a8:	lea    0x2520b1(%rip),%rcx        # 3d6a60
+  1849af:	push   %r13
+  1849b1:	push   %r12
+  1849b3:	mov    %rsi,%r12
+  1849b6:	lea    0x25212b(%rip),%rsi        # 3d6ae8
+  1849bd:	push   %rbp
+  1849be:	mov    %edx,%ebp
+  1849c0:	push   %rbx
+  1849c1:	mov    %rdi,%rbx
+  1849c4:	sub    $0x138,%rsp
+  1849cb:	mov    %r8d,(%rsp)
+  1849cf:	lea    0xc0(%rsp),%r13
+  1849d7:	lea    0x40(%rsp),%r14
+  1849dc:	sub    $0x8,%rsp
+  1849e0:	mov    %r14,%rdi
+  1849e3:	lea    0x251cce(%rip),%r8        # 3d66b8
+  1849ea:	mov    %fs:0x28,%rdx
+  1849f3:	mov    %rdx,0x130(%rsp)
+  1849fb:	xor    %edx,%edx
+  1849fd:	mov    %rax,0xc8(%rsp)
+  184a05:	mov    %r13,%rdx
+  184a08:	movq   $0x0,0x48(%rsp)
+  184a11:	movq   $0x0,0x50(%rsp)
+  184a1a:	movq   $0x0,0x58(%rsp)
+  184a23:	movq   $0x0,0x60(%rsp)
+  184a2c:	push   $0x0
+  184a2e:	call   1827d0
+  184a33:	pop    %rsi
+  184a34:	pop    %rdi
+  184a35:	test   %r15d,%r15d
+  184a38:	je     184a80
+  184a3a:	lea    0x358aff(%rip),%rbp        # 4dd540
+  184a41:	cmpl   $0x1,0x8(%rbp)
+  184a45:	jle    184e10
+  184a4b:	cmpb   $0x0,0x55(%rsp)
+  184a50:	jne    184d80
+  184a56:	mov    0x128(%rsp),%rax
+  184a5e:	sub    %fs:0x28,%rax
+  184a67:	jne    185087
+  184a6d:	add    $0x138,%rsp
+  184a74:	pop    %rbx
+  184a75:	pop    %rbp
+  184a76:	pop    %r12
+  184a78:	pop    %r13
+  184a7a:	pop    %r14
+  184a7c:	pop    %r15
+  184a7e:	ret
+  184a7f:	nop
+  184a80:	cmpb   $0x0,(%rsp)
+  184a84:	jne    184d40
+  184a8a:	mov    0x50(%rbx),%rax
+  184a8e:	mov    0x978(%rbx),%rdi
+  184a95:	mov    %ebp,%esi
+  184a97:	mov    0x8(%rax),%r15
+  184a9b:	mov    (%rax),%rax
+  184a9e:	mov    %rax,(%rsp)
+  184aa2:	call   *0x198(%r15)
+  184aa9:	mov    %eax,0x10(%rsp)
+  184aad:	cmp    $0x20,%eax
+  184ab0:	je     184b66
+  184ab6:	vpxor  %xmm0,%xmm0,%xmm0
+  184aba:	mov    0x978(%rbx),%rdi
+  184ac1:	mov    %ebp,%esi
+  184ac3:	movq   $0x0,0x90(%rsp)
+  184acf:	vmovdqa %xmm0,0x80(%rsp)
+  184ad8:	call   *0xa0(%r15)
+  184adf:	mov    %rax,0x80(%rsp)
+  184ae7:	xor    %ecx,%ecx
+  184ae9:	mov    %r13,%rsi
+  184aec:	mov    %r12,%rdi
+  184aef:	lea    0x80(%rsp),%rax
+  184af7:	mov    0x10(%rsp),%edx
+  184afb:	vpxor  %xmm0,%xmm0,%xmm0
+  184aff:	movl   $0x20,0x8c(%rsp)
+  184b0a:	mov    %rax,0xc0(%rsp)
+  184b12:	mov    (%rsp),%rax
+  184b16:	mov    %edx,0x88(%rsp)
+  184b1d:	xor    %edx,%edx
+  184b1f:	movq   $0x0,0xf0(%rsp)
+  184b2b:	movq   $0x1,0xc8(%rsp)
+  184b37:	vmovdqa %xmm0,0xd0(%rsp)
+  184b40:	vmovdqa %xmm0,0xe0(%rsp)
+  184b49:	call   *0x2f8(%rax)
+  184b4f:	mov    0x978(%rbx),%rdi
+  184b56:	mov    0x8c(%rsp),%esi
+  184b5d:	mov    %ebp,%edx
+  184b5f:	call   *0x1a0(%r15)
+  184b66:	cmpq   $0x0,0x960(%rbx)
+  184b6e:	je     184e60
+  184b74:	mov    %ebp,%eax
+  184b76:	lea    (%rbx,%rax,8),%rbx
+  184b7a:	cmpq   $0x0,0xa00(%rbx)
+  184b82:	je     184a4b
+  184b88:	cmpq   $0x0,0xc00(%rbx)
+  184b90:	je     184a4b
+  184b96:	mov    (%rsp),%rax
+  184b9a:	lea    0x2520c6(%rip),%rsi        # 3d6c67
+  184ba1:	mov    %r12,%rdi
+  184ba4:	call   *0x3a8(%rax)
+  184baa:	mov    $0xd,%ecx
+  184baf:	xor    %eax,%eax
+  184bb1:	mov    %r13,%rdi
+  184bb4:	mov    %ebp,%esi
+  184bb6:	rep stos %rax,%es:(%rdi)
+  184bb9:	mov    0xa00(%rbx),%rdi
+  184bc0:	call   *0xd0(%r15)
+  184bc7:	mov    %rax,0xc8(%rsp)
+  184bcf:	rex.W
+
+
+Error emission branch (nearest-export labels removed):
+  184e10:	mov    $0x1,%edi
+  184e15:	call   1e2b60 >::_M_realloc_insert<int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int&&)@@Base+0x10560>
+  184e1a:	mov    %rax,%r12
+  184e1d:	test   %rax,%rax
+  184e20:	je     184a4b >::_M_default_append(unsigned long)@@Base+0x12dbb>
+  184e26:	call   1e0e60 >::_M_realloc_insert<int>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int&&)@@Base+0xe860>
+  184e2b:	mov    %rax,%rcx
+  184e2e:	lea    0x251cdb(%rip),%rax        # 3d6b10, std::allocator<char> >@@Base+0x930>
+  184e35:	push   %rax
+  184e36:	push   $0x66
+  184e38:	mov    0x0(%rbp),%rsi
+  184e3c:	mov    $0x1,%edx
+  184e41:	mov    %r12,%rdi
+  184e44:	xor    %eax,%eax
+  184e46:	lea    0x251e10(%rip),%r9        # 3d6c5d, std::allocator<char> >@@Base+0xa7d>
+  184e4d:	lea    0x251864(%rip),%r8        # 3d66b8, std::allocator<char> >@@Base+0x4d8>
+  184e54:	call   45770
+  184e59:	pop    %rdx
+  184e5a:	pop    %rcx
+  184e5b:	jmp    184a4b >::_M_default_append(unsigned long)@@Base+0x12dbb>
+

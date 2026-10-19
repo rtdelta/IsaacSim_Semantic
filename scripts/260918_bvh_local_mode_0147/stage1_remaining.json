@@ -1,0 +1,74 @@
+[
+  {
+    "name": "lidar_A",
+    "group": "A",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 0,
+    "intervene": 0
+  },
+  {
+    "name": "lidar_B",
+    "group": "B",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 1,
+    "intervene": 0
+  },
+  {
+    "name": "lidar_C",
+    "group": "C",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 1,
+    "intervene": 1
+  },
+  {
+    "name": "camera_D",
+    "group": "D",
+    "output": "camera",
+    "geometry": "gaussian",
+    "bvh": 0,
+    "intervene": 1
+  },
+  {
+    "name": "camera_E",
+    "group": "E",
+    "output": "camera",
+    "geometry": "mesh",
+    "bvh": 1,
+    "intervene": 0
+  },
+  {
+    "name": "camera_F",
+    "group": "F",
+    "output": "camera",
+    "geometry": "mesh",
+    "bvh": 1,
+    "intervene": 1
+  },
+  {
+    "name": "lidar_D",
+    "group": "D",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 0,
+    "intervene": 1
+  },
+  {
+    "name": "lidar_E",
+    "group": "E",
+    "output": "lidar",
+    "geometry": "mesh",
+    "bvh": 1,
+    "intervene": 0
+  },
+  {
+    "name": "lidar_F",
+    "group": "F",
+    "output": "lidar",
+    "geometry": "mesh",
+    "bvh": 1,
+    "intervene": 1
+  }
+]

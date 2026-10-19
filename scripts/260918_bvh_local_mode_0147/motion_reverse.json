@@ -1,0 +1,52 @@
+[
+  {
+    "name": "motion_gaussian_reverse_0",
+    "script": "probe_motion_v1.py",
+    "intervene": 0,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--motion",
+      "gaussian",
+      "--speed",
+      "-2",
+      "--warmup",
+      "30",
+      "--frames",
+      "60",
+      "--multi",
+      "0",
+      "--per-sensor",
+      "0"
+    ]
+  },
+  {
+    "name": "motion_gaussian_reverse_1",
+    "script": "probe_motion_v1.py",
+    "intervene": 1,
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--motion",
+      "gaussian",
+      "--speed",
+      "-2",
+      "--warmup",
+      "30",
+      "--frames",
+      "60",
+      "--multi",
+      "0",
+      "--per-sensor",
+      "0"
+    ]
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "name": "v3_camera_mesh_off",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "mesh",
+      "--output",
+      "camera",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "v3_camera_mesh_on",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "mesh",
+      "--output",
+      "camera",
+      "--bvh",
+      "1"
+    ]
+  },
+  {
+    "name": "v3_camera_gaussian_off",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "v3_camera_gaussian_on",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "1"
+    ]
+  },
+  {
+    "name": "v3_lidar_mesh_off",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "v3_lidar_mesh_on",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1"
+    ]
+  },
+  {
+    "name": "v3_lidar_gaussian_off",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "v3_lidar_gaussian_on",
+    "args": [
+      "--script",
+      "probe_v3.py",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1"
+    ]
+  }
+]

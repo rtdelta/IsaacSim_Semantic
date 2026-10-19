@@ -1,0 +1,5 @@
+[
+ ["fixed_sensor_physics", ["--script", "motion_case.py", "--motion", "sensor", "--driver", "physics", "--zero-delay", "--pattern", "fixed"]],
+ ["fixed_target_physics", ["--script", "motion_case.py", "--motion", "target", "--driver", "physics", "--zero-delay", "--pattern", "fixed"]],
+ ["sensor_rotary_physics", ["--script", "motion_case.py", "--motion", "sensor", "--driver", "physics", "--zero-delay"]]
+]

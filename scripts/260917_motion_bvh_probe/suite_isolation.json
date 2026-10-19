@@ -1,0 +1,9 @@
+[
+  ["gs_off_multi_rgb", ["--geometry", "gaussian", "--bvh", "0", "--multi", "1", "--capture"]],
+  ["gs_on_multi_rgb", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1", "--capture"]],
+  ["gs_hidden_on", ["--geometry", "gaussian", "--gaussian-state", "hidden", "--bvh", "1", "--multi", "1"]],
+  ["gs_inactive_on", ["--geometry", "gaussian", "--gaussian-state", "inactive", "--bvh", "1", "--multi", "1"]],
+  ["gs_mask0", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1", "--engines", "0", "--capture"]],
+  ["gs_mask1", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1", "--engines", "1", "--capture"]],
+  ["mesh_moving_on", ["--bvh", "1", "--multi", "1", "--moving", "sensor"]]
+]

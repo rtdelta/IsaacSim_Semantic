@@ -1,0 +1,408 @@
+
+/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000185110
+  185110:	endbr64
+  185114:	push   %r15
+  185116:	mov    %rdi,%r15
+  185119:	push   %r14
+  18511b:	push   %r13
+  18511d:	push   %r12
+  18511f:	push   %rbp
+  185120:	push   %rbx
+  185121:	mov    %rsi,%rbx
+  185124:	sub    $0x208,%rsp
+  18512b:	mov    0x48(%rsi),%r12d
+  18512f:	mov    0x2d848(%rdi),%r13
+  185136:	mov    %rdx,0x28(%rsp)
+  18513b:	mov    %rcx,0x88(%rsp)
+  185143:	mov    %fs:0x28,%rax
+  18514c:	mov    %rax,0x1f8(%rsp)
+  185154:	xor    %eax,%eax
+  185156:	lea    0x170(%rsp),%rax
+  18515e:	mov    %rax,0x60(%rsp)
+  185163:	vmovq  %rax,%xmm6
+  185168:	lea    0x358d91(%rip),%rax        # 4ddf00
+  18516f:	vpinsrq $0x1,%rax,%xmm6,%xmm5
+  185175:	mov    0x8(%rdi),%rax
+  185179:	vmovdqa %xmm5,0x10(%rsp)
+  18517f:	mov    %rax,0x8(%rsp)
+  185184:	mov    0x10(%rdi),%rax
+  185188:	mov    %rax,0x58(%rsp)
+  18518d:	movzbl 0x358de4(%rip),%eax        # 4ddf78
+  185194:	test   %al,%al
+  185196:	je     185250
+  18519c:	mov    0x36c062(%rip),%eax        # 4f1204
+  1851a2:	mov    0x358e5f(%rip),%rcx        # 4de008
+  1851a9:	xor    %edx,%edx
+  1851ab:	and    $0x7fffffff,%eax
+  1851b0:	divq   0x10(%rcx)
+  1851b4:	cmp    0x58(%rcx),%rax
+  1851b8:	jae    185c60
+  1851be:	mov    0x60(%rcx),%rcx
+  1851c2:	mov    (%rcx,%rax,8),%rax
+  1851c6:	test   %rax,%rax
+  1851c9:	je     1851cf
+  1851cb:	mov    (%rax,%rdx,8),%rax
+  1851cf:	lea    0x20(%rax),%r14
+  1851d3:	movzbl 0x358d0e(%rip),%eax        # 4ddee8
+  1851da:	test   %al,%al
+  1851dc:	je     1852a0
+  1851e2:	lea    0x240077(%rip),%rax        # 3c5260
+  1851e9:	mov    %rax,0x170(%rsp)
+  1851f1:	mov    0x2405d8(%rip),%rax        # 3c57d0
+  1851f8:	mov    %rax,0x178(%rsp)
+  185200:	mov    0x358d09(%rip),%rax        # 4ddf10
+  185207:	test   %rax,%rax
+  18520a:	je     185c90
+  185210:	mov    0x358d02(%rip),%ecx        # 4ddf18
+  185216:	cmp    %ecx,0x178(%rsp)
+  18521d:	je     185348
+  185223:	vmovdqa 0x10(%rsp),%xmm7
+  185229:	lea    0x1b0(%rsp),%rdi
+  185231:	lea    0x23e8f0(%rip),%rsi        # 3c3b28
+  185238:	xor    %eax,%eax
+  18523a:	vmovdqa %xmm7,0x1b0(%rsp)
+  185243:	call   537e0
+  185248:	call   2c3a0
+  18524d:	nopl   (%rax)
+  185250:	lea    0x358d21(%rip),%rbp        # 4ddf78
+  185257:	mov    %rbp,%rdi
+  18525a:	call   2b6c0
+  18525f:	test   %eax,%eax
+  185261:	je     18519c
+  185267:	lea    0x358d12(%rip),%r14        # 4ddf80
+  18526e:	mov    %r14,%rdi
+  185271:	call   51da0
+  185276:	lea    0x356f83(%rip),%rdx        # 4dc200
+  18527d:	mov    %r14,%rsi
+  185280:	lea    -0x139587(%rip),%rdi        # 4bd00
+  185287:	call   2add0
+  18528c:	mov    %rbp,%rdi
+  18528f:	call   2ba30
+  185294:	jmp    18519c
+  185299:	nopl   0x0(%rax)
+  1852a0:	lea    0x358c41(%rip),%rbp        # 4ddee8
+  1852a7:	mov    %rbp,%rdi
+  1852aa:	call   2b6c0
+  1852af:	test   %eax,%eax
+  1852b1:	je     1851e2
+  1852b7:	lea    0x351f2a(%rip),%rax        # 4d71e8
+  1852be:	mov    %rax,0x358c3b(%rip)        # 4ddf00
+  1852c5:	mov    0x368d64(%rip),%rax        # 4ee030
+  1852cc:	mov    %rax,0x358c35(%rip)        # 4ddf08
+  1852d3:	mov    0x358c2e(%rip),%rax        # 4ddf08
+  1852da:	lea    0x358c1f(%rip),%rdx        # 4ddf00
+  1852e1:	lock cmpxchg %rdx,0x368d46(%rip)        # 4ee030
+  1852ea:	jne    1852cc
+  1852ec:	lea    0x34afbd(%rip),%rax        # 4d02b0
+  1852f3:	lea    0x356f06(%rip),%rdx        # 4dc200
+  1852fa:	movq   $0x0,0x358c0b(%rip)        # 4ddf10
+  185305:	lea    0x358bf4(%rip),%rsi        # 4ddf00
+  18530c:	lea    -0x137e23(%rip),%rdi        # 4d4f0
+  185313:	mov    %rax,0x358be6(%rip)        # 4ddf00
+  18531a:	movq   $0x0,0x358bf3(%rip)        # 4ddf18
+  185325:	movl   $0x0,0x358bf1(%rip)        # 4ddf20
+  18532f:	call   2add0
+  185334:	mov    %rbp,%rdi
+  185337:	call   2ba30
+  18533c:	jmp    1851e2
+  185341:	nopl   0x0(%rax)
+  185348:	mov    0x358bce(%rip),%edx        # 4ddf1c
+  18534e:	cmp    %edx,0x17c(%rsp)
+  185355:	jne    185223
+  18535b:	mov    %r13,%rcx
+  18535e:	xor    %edx,%edx
+  185360:	lea    0x36be9d(%rip),%rdi        # 4f1204
+  185367:	mov    %r14,%rsi
+  18536a:	call   *(%rax)
+  18536c:	mov    0x58(%r15),%rdx
+  185370:	mov    %rax,0x130(%rsp)
+  185378:	vpxor  %xmm0,%xmm0,%xmm0
+  18537c:	vmovdqa %xmm0,0x110(%rsp)
+  185385:	mov    0x5240(%r15),%eax
+  18538c:	vmovdqa %xmm0,0x120(%rsp)
+  185395:	mov    0x38(%rdx),%edx
+  185398:	movl   $0xf,0x118(%rsp)
+  1853a3:	mov    %edx,0x128(%rsp)
+  1853aa:	mov    %eax,0x24(%rsp)
+  1853ae:	test   %eax,%eax
+  1853b0:	je     1856a8
+  1853b6:	xor    %eax,%eax
+  1853b8:	tzcnt  0x24(%rsp),%eax
+  1853be:	mov    0x28(%rsp),%rdx
+  1853c3:	mov    %eax,0x10(%rsp)
+  1853c7:	movslq %r12d,%rax
+  1853ca:	mov    0x10(%rsp),%r14d
+  1853cf:	shl    $0x7,%rax
+  1853d3:	add    %rax,%rdx
+  1853d6:	mov    %rax,0x98(%rsp)
+  1853de:	cmp    $0x1,%r12d
+  1853e2:	lea    0x251a56(%rip),%rax        # 3d6e3f
+  1853e9:	mov    %rdx,0x68(%rsp)
+  1853ee:	lea    0x251a42(%rip),%rdx        # 3d6e37
+  1853f5:	cmove  %rdx,%rax
+  1853f9:	mov    %rax,0xa8(%rsp)
+  185401:	lea    0x1b0(%rsp),%rax
+  185409:	mov    %rax,0x78(%rsp)
+  18540e:	lea    0x110(%rsp),%rax
+  185416:	mov    %rax,0x80(%rsp)
+  18541e:	vmovdqu (%rbx),%xmm1
+  185422:	vmovdqu 0x10(%rbx),%xmm2
+  185427:	mov    %r14d,%esi
+  18542a:	vmovdqu 0x20(%rbx),%xmm3
+  18542f:	vmovdqu 0x30(%rbx),%xmm4
+  185434:	mov    0x8(%rsp),%r12
+  185439:	mov    0x40(%rbx),%rdi
+  18543d:	vmovdqa %xmm1,0x1b0(%rsp)
+  185446:	vmovdqa %xmm2,0x1c0(%rsp)
+  18544f:	vmovdqa %xmm3,0x1d0(%rsp)
+  185458:	vmovdqa %xmm4,0x1e0(%rsp)
+  185461:	call   *0xa0(%r12)
+  185469:	mov    %r14d,%esi
+  18546c:	mov    %r14d,%ecx
+  18546f:	mov    %rax,0x1b8(%rsp)
+  185477:	mov    0x58(%r15),%rax
+  18547b:	lea    0x0(,%rsi,8),%r13
+  185483:	mov    %rsi,0x90(%rsp)
+  18548b:	mov    (%rax),%rdx
+  18548e:	imul   $0x228,%rsi,%rax
+  185495:	add    0x20(%rdx),%rax
+  185499:	mov    (%rax),%rbp
+  18549c:	mov    $0x1,%eax
+  1854a1:	shl    %cl,%eax
+  1854a3:	mov    %eax,0x28(%rsp)
+  1854a7:	mov    %eax,0x120(%rsp)
+  1854ae:	mov    0x68(%rsp),%rax
+  1854b3:	add    %r13,%rax
+  1854b6:	mov    (%rax),%rdi
+  1854b9:	mov    %rax,0x38(%rsp)
+  1854be:	test   %rdi,%rdi
+  1854c1:	je     1854cb
+  1854c3:	call   *0x100(%r12)
+  1854cb:	mov    0x8(%rsp),%rax
+  1854d0:	mov    0x58(%rsp),%rdi
+  1854d5:	mov    0x80(%rsp),%rdx
+  1854dd:	mov    0x78(%rsp),%rsi
+  1854e2:	call   *0xc8(%rax)
+  1854e8:	mov    %rax,%rdi
+  1854eb:	mov    0x38(%rsp),%rax
+  1854f0:	mov    %rdi,(%rax)
+  1854f3:	test   %rdi,%rdi
+  1854f6:	je     185c70
+  1854fc:	mov    0x8(%rsp),%rax
+  185501:	mov    0x10(%rsp),%esi
+  185505:	lea    0x140(%rsp),%r12
+  18550d:	call   *0xd0(%rax)
+  185513:	mov    0x60(%rsp),%rdi
+  185518:	mov    %rbp,%rsi
+  18551b:	movzbl 0x114(%rsp),%ecx
+  185523:	mov    %rax,%rdx
+  185526:	mov    (%r15),%rax
+  185529:	call   *0x420(%rax)
+  18552f:	lea    0x2517c2(%rip),%rcx        # 3d6cf8
+  185536:	mov    %r12,%rdx
+  185539:	mov    0x188(%rsp),%rax
+  185541:	movq   $0x0,0xd0(%rsp)
+  18554d:	mov    $0x21,%r9d
+  185553:	lea    0x251726(%rip),%r8        # 3d6c80
+  18555a:	lea    0x2518fe(%rip),%rsi        # 3d6e5f
+  185561:	mov    %rax,0x40(%rsp)
+  185566:	lea    0x255e10(%rip),%rax        # 3db37d
+  18556d:	mov    %rax,0x140(%rsp)
+  185575:	lea    0xd0(%rsp),%rax
+  18557d:	sub    $0x8,%rsp
+  185581:	mov    %rax,0x78(%rsp)
+  185586:	mov    %rax,%rdi
+  185589:	movq   $0x0,0xe0(%rsp)
+  185595:	movq   $0x0,0xe8(%rsp)
+  1855a1:	movq   $0x0,0xf0(%rsp)
+  1855ad:	push   $0x0
+  1855af:	call   1827d0
+  1855b4:	mov    0x8(%r15),%rax
+  1855b8:	mov    %rax,0x40(%rsp)
+  1855bd:	mov    0x10(%r15),%rax
+  1855c1:	mov    %rax,0x58(%rsp)
+  1855c6:	mov    0x2d848(%r15),%rax
+  1855cd:	mov    %rax,0x60(%rsp)
+  1855d2:	movzbl 0x35899f(%rip),%eax        # 4ddf78
+  1855d9:	pop    %rdx
+  1855da:	pop    %rcx
+  1855db:	test   %al,%al
+  1855dd:	je     1856d8
+  1855e3:	mov    0x36bc17(%rip),%eax        # 4f1200
+  1855e9:	mov    0x358a18(%rip),%rcx        # 4de008
+  1855f0:	xor    %edx,%edx
+  1855f2:	xor    %r14d,%r14d
+  1855f5:	and    $0x7fffffff,%eax
+  1855fa:	divq   0x10(%rcx)
+  1855fe:	cmp    0x58(%rcx),%rax
+  185602:	jae    185615
+  185604:	mov    0x60(%rcx),%rcx
+  185608:	mov    (%rcx,%rax,8),%r14
+  18560c:	test   %r14,%r14
+  18560f:	je     185615
+  185611:	mov    (%r14,%rdx,8),%r14
+  185615:	movzbl 0x3588cc(%rip),%eax        # 4ddee8
+  18561c:	add    $0x20,%r14
+  185620:	test   %al,%al
+  185622:	je     185728
+  185628:	lea    0x23fc31(%rip),%rax        # 3c5260
+  18562f:	mov    %rax,0xc0(%rsp)
+  185637:	mov    0x240192(%rip),%rax        # 3c57d0
+  18563e:	mov    %rax,0xc8(%rsp)
+  185646:	mov    0x3588c3(%rip),%rbp        # 4ddf10
+  18564d:	test   %rbp,%rbp
+  185650:	je     185b48
+  185656:	mov    0x3588bc(%rip),%eax        # 4ddf18
+  18565c:	cmp    %eax,0xc8(%rsp)
+  185663:	je     1857d0
+  185669:	lea    0xc0(%rsp),%rax
+  185671:	lea    0x23e4b0(%rip),%rsi        # 3c3b28
+  185678:	mov    %r12,%rdi
+  18567b:	vmovq  %rax,%xmm0
+  185680:	lea    0x358879(%rip),%rax        # 4ddf00
+  185687:	vpinsrq $0x1,%rax,%xmm0,%xmm0
+  18568d:	xor    %eax,%eax
+  18568f:	vmovdqa %xmm0,0x140(%rsp)
+  185698:	call   537e0
+  18569d:	call   2c3a0
+  1856a2:	nopw   0x0(%rax,%rax,1)
+  1856a8:	xor    %eax,%eax
+  1856aa:	mov    0x1f8(%rsp),%rdx
+  1856b2:	sub    %fs:0x28,%rdx
+  1856bb:	jne    185d65
+  1856c1:	add    $0x208,%rsp
+  1856c8:	pop    %rbx
+  1856c9:	pop    %rbp
+  1856ca:	pop    %r12
+  1856cc:	pop    %r13
+  1856ce:	pop    %r14
+  1856d0:	pop    %r15
+  1856d2:	ret
+  1856d3:	nopl   0x0(%rax,%rax,1)
+  1856d8:	lea    0x358899(%rip),%rdi        # 4ddf78
+  1856df:	call   2b6c0
+  1856e4:	test   %eax,%eax
+  1856e6:	je     1855e3
+  1856ec:	lea    0x35888d(%rip),%r14        # 4ddf80
+  1856f3:	mov    %r14,%rdi
+  1856f6:	call   51da0
+  1856fb:	lea    0x356afe(%rip),%rdx        # 4dc200
+  185702:	mov    %r14,%rsi
+  185705:	lea    -0x139a0c(%rip),%rdi        # 4bd00
+  18570c:	call   2add0
+  185711:	lea    0x358860(%rip),%rdi        # 4ddf78
+  185718:	call   2ba30
+  18571d:	jmp    1855e3
+  185722:	nopw   0x0(%rax,%rax,1)
+  185728:	lea    0x3587b9(%rip),%rbp        # 4ddee8
+  18572f:	mov    %rbp,%rdi
+  185732:	call   2b6c0
+  185737:	test   %eax,%eax
+  185739:	je     185628
+  18573f:	lea    0x3587ba(%rip),%rax        # 4ddf00
+  185746:	lea    0x351a9b(%rip),%rcx        # 4d71e8
+  18574d:	mov    %rcx,(%rax)
+  185750:	mov    0x3688d9(%rip),%rax        # 4ee030
+  185757:	mov    %rax,0x3587aa(%rip)        # 4ddf08
+  18575e:	mov    0x3587a3(%rip),%rax        # 4ddf08
+  185765:	lea    0x358794(%rip),%rcx        # 4ddf00
+  18576c:	lock cmpxchg %rcx,0x3688bb(%rip)        # 4ee030
+  185775:	jne    185757
+  185777:	lea    0x358782(%rip),%rax        # 4ddf00
+  18577e:	lea    0x34ab2b(%rip),%rdx        # 4d02b0
+  185785:	movq   $0x0,0x358780(%rip)        # 4ddf10
+  185790:	mov    %rdx,(%rax)
+  185793:	mov    %rax,%rsi
+  185796:	lea    0x356a63(%rip),%rdx        # 4dc200
+  18579d:	lea    -0x1382b4(%rip),%rdi        # 4d4f0
+  1857a4:	movq   $0x0,0x358769(%rip)        # 4ddf18
+  1857af:	movl   $0x0,0x358767(%rip)        # 4ddf20
+  1857b9:	call   2add0
+  1857be:	mov    %rbp,%rdi
+  1857c1:	call   2ba30
+  1857c6:	jmp    185628
+  1857cb:	nopl   0x0(%rax,%rax,1)
+  1857d0:	mov    0x358746(%rip),%eax        # 4ddf1c
+  1857d6:	cmp    %eax,0xcc(%rsp)
+  1857dd:	jne    185669
+  1857e3:	mov    0x50(%rsp),%rcx
+  1857e8:	xor    %edx,%edx
+  1857ea:	mov    %r14,%rsi
+  1857ed:	lea    0x36ba0c(%rip),%rdi        # 4f1200
+  1857f4:	call   *0x0(%rbp)
+  1857f7:	mov    %rax,%rbp
+  1857fa:	add    0x98(%rsp),%r13
+  185802:	add    0x88(%rsp),%r13
+  18580a:	mov    0x0(%r13),%rdi
+  18580e:	test   %rdi,%rdi
+  185811:	je     185826
+  185813:	mov    0x30(%rsp),%rax
+  185818:	call   *0x100(%rax)
+  18581e:	movq   $0x0,0x0(%r13)
+  185826:	mov    0x28(%rsp),%eax
+  18582a:	vpxor  %xmm0,%xmm0,%xmm0
+  18582e:	mov    0x48(%rsp),%rdi
+  185833:	mov    %r12,%rdx
+  185836:	vmovdqa %xmm0,0x150(%rsp)
+  18583f:	lea    0xf0(%rsp),%rsi
+  185847:	mov    %eax,0x150(%rsp)
+  18584e:	mov    0x58(%r15),%rax
+  185852:	vmovdqa %xmm0,0x140(%rsp)
+  18585b:	movl   $0x200,0xf0(%rsp)
+  185866:	mov    0x38(%rax),%eax
+  185869:	movl   $0xb,0x148(%rsp)
+  185874:	mov    %eax,0x158(%rsp)
+  18587b:	mov    0x40(%rsp),%rax
+  185880:	mov    %rbp,0x160(%rsp)
+  185888:	mov    %rax,0xf8(%rsp)
+  185890:	lea    0x23f58c(%rip),%rax        # 3c4e23
+  185897:	mov    %rax,0x100(%rsp)
+  18589f:	mov    0x30(%rsp),%rax
+  1858a4:	movq   $0x0,0x108(%rsp)
+  1858b0:	call   *0x78(%rax)
+  1858b3:	mov    %rax,0x0(%r13)
+  1858b7:	mov    %rax,%rbp
+  1858ba:	test   %rax,%rax
+  1858bd:	je     185978
+  1858c3:	cmpb   $0x0,0xe5(%rsp)
+  1858cb:	jne    185999
+  1858d1:	cmpb   $0x0,0x4c(%rbx)
+  1858d5:	je     185950
+  1858d7:	movabs $0xffff00000004,%rdx
+  1858e1:	mov    0x58(%rsp),%r12
+  1858e6:	mov    0x8(%rsp),%rbp
+  1858eb:	movabs $0xffffffff00000000,%rax
+  1858f5:	and    0xa0(%rsp),%rax
+  1858fd:	or     %rdx,%rax
+  185900:	mov    %r12,%rdi
+  185903:	mov    0x10(%rsp),%edx
+  185907:	mov    %rax,0xa0(%rsp)
+  18590f:	mov    %rax,%rcx
+  185912:	mov    %rax,%r14
+  185915:	mov    0x38(%rsp),%rax
+  18591a:	mov    (%rax),%rsi
+  18591d:	call   *0x3d8(%rbp)
+  185923:	mov    0x0(%r13),%rsi
+  185927:	test   %rsi,%rsi
+  18592a:	je     18593c
+  18592c:	mov    0x10(%rsp),%edx
+  185930:	mov    %r14,%rcx
+  185933:	mov    %r12,%rdi
+  185936:	call   *0x3d8(%rbp)
+  18593c:	lea    0x357bfd(%rip),%r12        # 4dd540
+  185943:	mov    0x8(%r12),%eax
+  185948:	test   %eax,%eax
+  18594a:	js     185a30
+  185950:	mov    0x28(%rsp),%eax
+  185954:	not    %eax
+  185956:	and    %eax,0x24(%rsp)
+  18595a:	mov    0x24(%rsp),%eax
+  18595e:	.byte 0xf
+  18595f:	.byte 0x84
+
+

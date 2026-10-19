@@ -1,0 +1,6 @@
+[
+  ["full_original_bvh_v2", ["--geometry", "full", "--source", "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda", "--bvh", "1", "--multi", "1", "--frames", "90", "--timeout", "180"]],
+  ["full_mesh_bvh_v2", ["--geometry", "full", "--source", "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda", "--exclude-gaussians", "--bvh", "1", "--multi", "1", "--frames", "90", "--timeout", "180"]],
+  ["gs_mask_string0", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1", "--engines", "0", "--capture", "--frames", "60"]],
+  ["gs_mask_string1", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1", "--engines", "1", "--capture", "--frames", "60"]]
+]
