@@ -7,5 +7,4 @@ Isaac Sim adapters are loaded lazily by their process-specific entry points.
 from .core.models import ProjectDefinition
 
 __all__ = ["ProjectDefinition"]
-__version__ = "0.1.0"
-
+__version__ = "0.2.1"

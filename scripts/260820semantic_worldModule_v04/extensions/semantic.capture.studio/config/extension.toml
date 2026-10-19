@@ -1,5 +1,5 @@
 [package]
-version = "0.1.0"
+version = "0.2.1"
 category = "Synthetic Data"
 title = "Semantic Capture Studio"
 description = "Project editor and same-host job launcher for Semantic World Module v04."
@@ -10,6 +10,7 @@ writeTarget.kit = true
 [dependencies]
 "omni.kit.menu.utils" = {}
 "omni.kit.viewport.utility" = {}
+"omni.kit.window.filepicker" = {}
 "omni.usd" = {}
 
 [[python.module]]

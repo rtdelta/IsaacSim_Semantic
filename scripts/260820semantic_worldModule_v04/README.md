@@ -14,6 +14,14 @@ Studio 不是完整 Isaac Sim GUI 的插件，正式采集也不依赖 Studio �
 - 严格、带版本的纯 Python Project/Job/Status/Ledger 模型；新项目使用 Schema v2，并兼容迁移 v1 项目与 JobSpec。
 - 可复用 `.swproject` 项目目录、内容摘要、不可变任务快照和原子保存。
 - 独立 Kit Studio，支持 Stage 搜索和选择、相机发现、传感器/变体/模态配置及任务控制。
+- v04.4 任务式 Studio：Project、Sensors、Variants、Capture Outputs、Render、Review 六步导航，并把低频参数收进 Advanced。
+- 云电脑文件/目录选择器、最近项目、打开项目后自动加载 USD 和自动发现兼容传感器。
+- Sensor 插件自动识别和一键启用；专用鱼眼插件优先于通用针孔回退，Sensor ID 自动生成。
+- 从标准 Stage/Viewport 当前选择创建 Isolate Variant，自动生成 ID、保护传感器和可选保留全部灯光，并支持 Session Layer 预览。
+- Sensor × Variant 采集矩阵；RGB、Depth NPY、Depth Color、Semantic ID、Semantic Color 五种输出完全独立勾选，能力不兼容项直接禁用。
+- 输出批量预设、Capability 驱动的更多输出，以及明确的 Sensor × Variant 启用开关。
+- Render Preset；新项目默认 `Path Tracing 正式质量`，旧项目保留既有配置，Realtime 只作为显式快速验证选项。
+- Review 页面集中显示绑定、真实输出、渲染参数、帧数、Preflight、Job 控制、日志和失败报告。
 - USD Camera 参数自动读取；项目只需要以 `prim_path` 指向相机，可对个别参数显式覆盖。
 - 所有传感器覆盖只写匿名 USD Session Layer，不修改源 USD；任务输出保存 Stage 原值、配置值、来源和 Runtime 有效值。
 - 多个针孔相机只需增加配置实例，无需修改 Coordinator。
@@ -71,17 +79,20 @@ cd /root/gpufree-data/semantic/scripts/260820semantic_worldModule_v04
 ./scripts/launch_studio.sh
 ```
 
-在 Studio 中：
+在 v04.4 Studio 中：
 
-1. 新建或打开 `.swproject`。
-2. 填写 USD 路径并打开 Stage。
-3. 在 Sensor Catalog 选择 `pinhole_camera`、`fisheye_camera` 或 `rtx_lidar`，发现兼容 Prim 后添加。
-4. 查看 Stage 参数、插件 Schema 和 Effective Config；只填写确实需要覆盖的字段。
-5. 可选地在 Rig Editor 中把多个传感器组成同步组。
-6. 配置 Full Scene/Include Paths、Render、Capture、Motion 和 Semantic Profile。
-7. 在 Modality Matrix 中配置每个“传感器 × 变体”的输出。
-8. 点击 `Preflight`，确认 Capability、阻断项和预计输出空间后保存。
-9. 选择 `Run headless & exit`。Studio 会提交独立进程后退出。
+1. 打开已有项目：在 `Project & Stage` 点击 `Open Existing…`，选择 `.swproject` 文件夹或其中的 `project.json`；项目和 USD Stage 会自动加载。
+2. 创建新项目：填写 Project ID，点击 `Choose New Parent…` 选择父目录，Studio 自动生成 `<project_id>.swproject`；再点击 `Choose USD…`、`Create New Project` 和 `Save Project`。空 USD、缺失 USD、非 `.swproject` 目录和覆盖已有项目都会被提前阻止。
+3. 在 `Sensors` 勾选自动发现的 USD 相机或 LiDAR；插件和 Sensor ID 由系统确定。
+4. 在 `Variants` 从标准 Stage 树或 Viewport 当前选择创建 Isolate Variant，可保留灯光并直接预览。
+5. 在 `Capture Outputs` 选择 Sensor，为每个 Variant 勾选是否启用，并独立选择 RGB、Depth NPY、Depth Color、Semantic ID 和 Semantic Color。
+6. 在 `Render & Frames` 使用默认 `Path Tracing 正式质量` 或显式选择快速验证预设，再设置帧数和 Segment 大小。
+7. 在 `Review & Run` 查看完整摘要、执行 `Validate` 和 `Preflight`。
+8. 选择 `Run Headless & Exit`。Studio 会提交独立进程后退出。
+
+不要继续使用缺少 USD 路径的旧测试草稿 `example.swproject`；云端现有的有效项目是 `/root/gpufree-data/semantic/projects/my_capture.swproject`。
+
+Rigs、Sensor Overrides、Motion、Semantic Mapping、Execution Policy 和 Plugin Catalog 位于 `Advanced`。
 
 不使用 UI 时，可通过 CLI 管理任务：
 
@@ -143,6 +154,10 @@ print(status.state, status.pid)
 - `set_render_profile`、`set_capture_schedule`、`set_execution_policy`、`set_motion_spec`、`set_semantic_profile`
 - `set_sensor_overrides`、`set_modalities`
 - `sensor_plugin_catalog`、`discover_sensors`、`add_sensor_from_stage`、`effective_sensor_preview`
+- `discover_sensor_candidates`、`set_stage_sensor_selected`
+- `capture_matrix`、`set_binding_enabled`、`set_modality_enabled`、`apply_modality_preset`
+- `create_isolate_variant`、`duplicate_variant`、`capture_plan_summary`
+- `render_presets`、`apply_render_preset`、`current_render_preset_id`
 - `add_rig`、`delete_rig`、`clear_sensor_overrides`
 - `preflight_summary`、`list_jobs`、`list_segments`、`read_failure_report`
 
@@ -165,14 +180,14 @@ python -m unittest discover -s tests -v
 python -m compileall -q src extensions scripts tests
 ```
 
-当前结果：72/72 通过。Kit、USD、GPU、鱼眼、RTX LiDAR、Realtime/Path Tracing 和 Schema v2 验证结果见 `docs/Validation/2026-08-25_v04.3异构传感器与多模态验证报告.md`。
+当前结果：79/79 通过。Kit、USD、GPU、鱼眼、RTX LiDAR、Realtime/Path Tracing、Schema v2 和 v04.4 Studio 工作流验证结果见 `docs/Validation/`。
 
 ## 重要说明
 
 - 本目录是源码真相；云电脑用于部署和集成验证。
 - 可执行代码不导入、不调用任何旧版本项目文件。
 - `Run + monitor` 会保留 Studio，适合短调试；正式长任务推荐退出 Studio。
-- 可见 UI 的人工视觉验收尚未完成，自动化 extension/window 启动测试已通过。
+- v04.4 已自动验证 7 个页面、文件/目录选择器、真实 USD 发现和 Path Tracing 数据输出；可见 UI 的逐项人工视觉验收仍建议由使用者完成。
 - 输出损坏时 Runtime 会明确失败，不会在已有 ledger 后静默覆盖文件。
 - `scripts/validate_dataset.py` 可在任务完成后独立复核所有 capture group 与产物头信息。
 

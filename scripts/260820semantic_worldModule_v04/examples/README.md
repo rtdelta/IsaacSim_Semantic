@@ -38,3 +38,16 @@ v04.3 的针孔 + 原生鱼眼 + RTX LiDAR 示例由以下脚本生成：
   --output-root /data/output --job-id job-v043-mixed \
   --renderer RayTracedLighting --frame-count 3 --segment-frames 2
 ```
+
+v04.4 的任务式 Studio 配置链路和默认 Path Tracing 正式质量可用以下脚本生成一帧真实烟雾任务：
+
+```bash
+./scripts/launch_isaac_python.sh scripts/create_v044_ux_smoke_job.py \
+  --workspace /data/projects \
+  --stage /data/scene.usda \
+  --camera /World/Excavator/BoomCamera \
+  --excavator /World/Excavator \
+  --light /World/KeyLight \
+  --output-root /data/output \
+  --job-id job-v044-ui-smoke
+```

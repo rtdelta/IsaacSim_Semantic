@@ -12,6 +12,16 @@ from helpers import make_project
 
 
 class ModelsAndRepositoryTests(unittest.TestCase):
+    def test_repository_refuses_project_that_cannot_be_loaded_again(self) -> None:
+        project = make_project()
+        project.stage.usd_path = ""
+
+        with tempfile.TemporaryDirectory() as temp:
+            destination = Path(temp) / "invalid.swproject"
+            with self.assertRaises(SchemaError):
+                ProjectRepository().save(destination, project)
+            self.assertFalse(destination.exists())
+
     def test_strict_schema_rejects_unknown_field(self) -> None:
         data = make_project().to_dict()
         data["sensors"][0]["prim_pth"] = "/typo"
