@@ -1,0 +1,570 @@
+[
+  {
+    "name": "Dummy_LockJoint_Origin",
+    "type": "fixed",
+    "parent": {
+      "link": "TF_Origin"
+    },
+    "child": {
+      "link": "RB_TrackFrame"
+    },
+    "origin": null,
+    "axis": null,
+    "limit": null
+  },
+  {
+    "name": "Dummy_LockJoint_RB_TrackFrame_base",
+    "type": "fixed",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "base_link"
+    },
+    "origin": null,
+    "axis": null,
+    "limit": null
+  },
+  {
+    "name": "Hinge_Slew",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_UpperStructure"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0 0 1"
+    },
+    "axis": {
+      "xyz": "0 0 1"
+    },
+    "limit": {
+      "effort": "70000",
+      "velocity": "1.256637061"
+    }
+  },
+  {
+    "name": "Hinge_Boom",
+    "type": "revolute",
+    "parent": {
+      "link": "RB_UpperStructure"
+    },
+    "child": {
+      "link": "RB_Boom"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.18 0 0.83"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": {
+      "effort": "2009946.205",
+      "lower": "-0.443",
+      "upper": "1.127",
+      "velocity": "0.648409027"
+    }
+  },
+  {
+    "name": "Hinge_Arm",
+    "type": "revolute",
+    "parent": {
+      "link": "RB_Boom"
+    },
+    "child": {
+      "link": "RB_Arm"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "4.71397 0 3.19445"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": {
+      "effort": "300268.1523",
+      "lower": "-1.40",
+      "upper": "0.648",
+      "velocity": "0.59757376"
+    }
+  },
+  {
+    "name": "Hinge_Bucket",
+    "type": "revolute",
+    "parent": {
+      "link": "RB_Arm"
+    },
+    "child": {
+      "link": "RB_Bucket"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-0.0006 0 -2.9"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": {
+      "effort": "253122.1717",
+      "lower": "-1.236",
+      "upper": "1.77",
+      "velocity": "0.706018147"
+    }
+  },
+  {
+    "name": "Hinge_Sprocket_L",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Sprocket_L"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-1.6872 1.1 0.38945"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": {
+      "effort": "38437",
+      "velocity": "4.074104494"
+    }
+  },
+  {
+    "name": "Hinge_Idler_L",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Idler_L"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "1.6872 1.1 0.38945"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L1",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L1"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.55 1.1 0.71245"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L2",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L2"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-0.55 1.1 0.71245"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L3",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L3"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "1.225 1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L4",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L4"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.825 1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L5",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L5"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.425 1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L6",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L6"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.025 1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L7",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L7"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-0.375 1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L8",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L8"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-0.775 1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_L9",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_L9"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-1.175 1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Sprocket_R",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Sprocket_R"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-1.6872 -1.1 0.38945"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": {
+      "effort": "38437",
+      "velocity": "4.074104494"
+    }
+  },
+  {
+    "name": "Hinge_Idler_R",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Idler_R"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "1.6872 -1.1 0.38945"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R1",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R1"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.55 -1.1 0.71245"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R2",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R2"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-0.55 -1.1 0.71245"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R3",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R3"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "1.225 -1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R4",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R4"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.825 -1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R5",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R5"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.425 -1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R6",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R6"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "0.025 -1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R7",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R7"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-0.375 -1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R8",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R8"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-0.775 -1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Hinge_Roller_R9",
+    "type": "continuous",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "RB_Roller_R9"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "-1.175 -1.1 0.18295"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  },
+  {
+    "name": "Dummy_LockJoint_CrawlerBelt_L",
+    "type": "fixed",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "Dummy_RB_CrawlerBelt_L"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "1.6872 1.09461 0.38945"
+    },
+    "axis": null,
+    "limit": null
+  },
+  {
+    "name": "Dummy_LockJoint_CrawlerBelt_R",
+    "type": "fixed",
+    "parent": {
+      "link": "RB_TrackFrame"
+    },
+    "child": {
+      "link": "Dummy_RB_CrawlerBelt_R"
+    },
+    "origin": {
+      "rpy": "0 0 0",
+      "xyz": "1.6872 -1.09461 0.38945"
+    },
+    "axis": null,
+    "limit": null
+  },
+  {
+    "name": "Dummy_LockJoint_RB_UpperStructure_RB_LidarBase",
+    "type": "fixed",
+    "parent": {
+      "link": "RB_UpperStructure"
+    },
+    "child": {
+      "link": "TF_LidarBase"
+    },
+    "origin": {
+      "rpy": "0 0.7853981633974483 0",
+      "xyz": "1.17928 0.9 2.10413"
+    },
+    "axis": {
+      "xyz": "0 1 0"
+    },
+    "limit": null
+  }
+]

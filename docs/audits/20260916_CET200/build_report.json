@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "isaac_version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+  "source": {
+    "url": "https://github.com/vmc-motion/cet200",
+    "commit": "8ce4c1428d615079c480185eeef77c54f00d5c6a",
+    "license": "Apache-2.0",
+    "urdf_sha256": "4db63aa80e19a21c938b75f11067bf5e8844d11bfaa78548bff5375361e6e962",
+    "links": 32,
+    "joints": 31,
+    "collision_elements": 23
+  },
+  "import_config": {
+    "urdf_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/prepared/cet200_description/urdf/cet200.urdf",
+    "usd_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized",
+    "merge_fixed_joints": true,
+    "merge_mesh": false,
+    "debug_mode": false,
+    "collision_from_visuals": false,
+    "collision_type": "Convex Hull",
+    "allow_self_collision": false,
+    "ros_package_paths": [
+      {
+        "name": "cet200_description",
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/prepared/cet200_description"
+      }
+    ],
+    "robot_type": "Default",
+    "fix_base": true,
+    "link_density": null,
+    "joint_drive_type": null,
+    "joint_target_type": null,
+    "override_joint_stiffness": null,
+    "override_joint_damping": null,
+    "run_asset_transformer": true,
+    "run_multi_physics_conversion": true
+  },
+  "imported_asset": "usd/imported_normalized/cet200/cet200.usda",
+  "revolute_joints": [
+    "/CET200/Physics/Hinge_Slew",
+    "/CET200/Physics/Hinge_Boom",
+    "/CET200/Physics/Hinge_Arm",
+    "/CET200/Physics/Hinge_Bucket",
+    "/CET200/Physics/Hinge_Sprocket_L",
+    "/CET200/Physics/Hinge_Idler_L",
+    "/CET200/Physics/Hinge_Roller_L1",
+    "/CET200/Physics/Hinge_Roller_L2",
+    "/CET200/Physics/Hinge_Roller_L3",
+    "/CET200/Physics/Hinge_Roller_L4",
+    "/CET200/Physics/Hinge_Roller_L5",
+    "/CET200/Physics/Hinge_Roller_L6",
+    "/CET200/Physics/Hinge_Roller_L7",
+    "/CET200/Physics/Hinge_Roller_L8",
+    "/CET200/Physics/Hinge_Roller_L9",
+    "/CET200/Physics/Hinge_Sprocket_R",
+    "/CET200/Physics/Hinge_Idler_R",
+    "/CET200/Physics/Hinge_Roller_R1",
+    "/CET200/Physics/Hinge_Roller_R2",
+    "/CET200/Physics/Hinge_Roller_R3",
+    "/CET200/Physics/Hinge_Roller_R4",
+    "/CET200/Physics/Hinge_Roller_R5",
+    "/CET200/Physics/Hinge_Roller_R6",
+    "/CET200/Physics/Hinge_Roller_R7",
+    "/CET200/Physics/Hinge_Roller_R8",
+    "/CET200/Physics/Hinge_Roller_R9"
+  ],
+  "main_joints": {
+    "Hinge_Slew": {
+      "path": "/CET200/Physics/Hinge_Slew",
+      "axis": "Z",
+      "lower_deg": -Infinity,
+      "upper_deg": Infinity,
+      "body0": [
+        "/CET200/Geometry/TF_Origin"
+      ],
+      "body1": [
+        "/CET200/Geometry/TF_Origin/RB_UpperStructure"
+      ]
+    },
+    "Hinge_Boom": {
+      "path": "/CET200/Physics/Hinge_Boom",
+      "axis": "Y",
+      "lower_deg": -25.382030487060547,
+      "upper_deg": 64.57234191894531,
+      "body0": [
+        "/CET200/Geometry/TF_Origin/RB_UpperStructure"
+      ],
+      "body1": [
+        "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom"
+      ]
+    },
+    "Hinge_Arm": {
+      "path": "/CET200/Physics/Hinge_Arm",
+      "axis": "Y",
+      "lower_deg": -80.2140884399414,
+      "upper_deg": 37.12766647338867,
+      "body0": [
+        "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom"
+      ],
+      "body1": [
+        "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom/RB_Arm"
+      ]
+    },
+    "Hinge_Bucket": {
+      "path": "/CET200/Physics/Hinge_Bucket",
+      "axis": "Y",
+      "lower_deg": -70.81758117675781,
+      "upper_deg": 101.41352844238281,
+      "body0": [
+        "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom/RB_Arm"
+      ],
+      "body1": [
+        "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom/RB_Arm/RB_Bucket"
+      ]
+    }
+  },
+  "bounds_m": {
+    "min": [
+      -2.8849520683288574,
+      -1.5599995888703642,
+      -0.027594706125983394
+    ],
+    "max": [
+      5.5314283244323725,
+      1.6900030181769006,
+      5.797930804013096
+    ],
+    "size": [
+      8.41638039276123,
+      3.2500026070472647,
+      5.825525510139079
+    ]
+  },
+  "geometry_scale": [
+    1,
+    1,
+    1
+  ],
+  "mesh_count": 477,
+  "rigid_body_count": 27,
+  "dependencies": {
+    "layers": [
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/CET200.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/cet200.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/Physics/mujoco.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/Physics/physics.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/Physics/physx.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/base.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/geometries.usd",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/instances.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/materials.usda",
+      "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/robot.usda"
+    ],
+    "assets": [],
+    "unresolved": []
+  },
+  "payload_composition_passed": true,
+  "asset_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/CET200.usda",
+  "preview_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/CET200_preview.usda"
+}

@@ -1,0 +1,16 @@
+{
+  "asset_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_04.usda",
+  "render_variants": [
+    "3dgs",
+    "urdf_reference",
+    "source_mesh"
+  ],
+  "payload_instances_tested": 2,
+  "fk_states_tested": 29,
+  "fk_max_matrix_element_error": 5.171556973770919e-07,
+  "physics_drive_checks": 8,
+  "physics_passed": true,
+  "physics_max_angle_error_rad": 8.02661418219941e-07,
+  "original_files_unchanged": true,
+  "no_startup_script_required": true
+}

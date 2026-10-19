@@ -1,0 +1,173 @@
+{
+  "spec_version": "excavator_asset_interface/1.0",
+  "authoring_status": "draft",
+  "asset_id": null,
+  "asset_version": null,
+  "entry_usd": "Excavator.usda",
+  "default_prim": "/Excavator",
+  "dependency_mode": null,
+  "topology_profile": "five_body_four_joint_v1",
+  "runtime_profile": "prescribed_motion",
+  "units": {
+    "length": "m",
+    "mass": "kg",
+    "time": "s",
+    "manifest_angle": "rad",
+    "manifest_angular_velocity": "rad/s",
+    "usd_revolute_limit_angle": "deg",
+    "usd_angular_drive_position": "deg",
+    "usd_angular_drive_velocity": "deg/s"
+  },
+  "conventions": {
+    "handedness": "right",
+    "up_axis": "Z",
+    "base_axes": {"x": "track_forward", "y": "left", "z": "up"},
+    "quaternion_order": "xyzw",
+    "transform_definition": "T_A_from_B maps column-vector coordinates in B into A",
+    "prim_paths_relative_to": "/Excavator",
+    "matrix_convention": "column_vectors",
+    "euler_definition_if_used": "Rz(yaw)*Ry(pitch)*Rx(roll)"
+  },
+  "base_origin": {
+    "origin_policy": "ground_projected_swing_axis_v1",
+    "origin_revision": null,
+    "datum_definition": null,
+    "nominal_support_plane_definition": null,
+    "source_frame_id": null,
+    "T_asset_from_source": {"translation_m": null, "quaternion_xyzw": null},
+    "evidence_file": null
+  },
+  "articulation": {
+    "root_prim": "track_prim",
+    "base_body_prim": "track_prim",
+    "base_constraint_in_asset": "free",
+    "rigid_bodies_kinematic_enabled": false,
+    "default_drive_policy": "absent",
+    "joint_order": ["swing", "boom", "arm", "bucket"]
+  },
+  "bodies": {
+    "track": {"prim": "track_prim", "frame_definition": null},
+    "cab": {"prim": "cab_prim", "frame_definition": null},
+    "boom": {"prim": "boom_prim", "frame_definition": null},
+    "arm": {"prim": "arm_prim", "frame_definition": null},
+    "bucket": {"prim": "bucket_prim", "frame_definition": null}
+  },
+  "joint_convention_revision": null,
+  "joints": [
+    {
+      "role": "swing",
+      "prim": "Joints/swing",
+      "usd_type": "PhysicsRevoluteJoint",
+      "parent_body_role": "track",
+      "child_body_role": "cab",
+      "enabled": true,
+      "exclude_from_articulation": false,
+      "axis_in_joint_frame": "+Z",
+      "T_parent_from_joint0": {"translation_m": null, "quaternion_xyzw": null},
+      "T_child_from_joint1": {"translation_m": null, "quaternion_xyzw": null},
+      "zero_definition": null,
+      "positive_direction_evidence": null,
+      "home_q_rad": null,
+      "physical_limits": {"kind": "unknown", "lower_rad": null, "upper_rad": null, "source": null},
+      "operating_limits_rad": null,
+      "operating_speed_cap_rad_s": null,
+      "parameter_source": null
+    },
+    {
+      "role": "boom",
+      "prim": "Joints/boom",
+      "usd_type": "PhysicsRevoluteJoint",
+      "parent_body_role": "cab",
+      "child_body_role": "boom",
+      "enabled": true,
+      "exclude_from_articulation": false,
+      "axis_in_joint_frame": "+Z",
+      "T_parent_from_joint0": {"translation_m": null, "quaternion_xyzw": null},
+      "T_child_from_joint1": {"translation_m": null, "quaternion_xyzw": null},
+      "zero_definition": null,
+      "positive_direction_evidence": null,
+      "home_q_rad": null,
+      "physical_limits": {"kind": "unknown", "lower_rad": null, "upper_rad": null, "source": null},
+      "operating_limits_rad": null,
+      "operating_speed_cap_rad_s": null,
+      "parameter_source": null
+    },
+    {
+      "role": "arm",
+      "prim": "Joints/arm",
+      "usd_type": "PhysicsRevoluteJoint",
+      "parent_body_role": "boom",
+      "child_body_role": "arm",
+      "enabled": true,
+      "exclude_from_articulation": false,
+      "axis_in_joint_frame": "+Z",
+      "T_parent_from_joint0": {"translation_m": null, "quaternion_xyzw": null},
+      "T_child_from_joint1": {"translation_m": null, "quaternion_xyzw": null},
+      "zero_definition": null,
+      "positive_direction_evidence": null,
+      "home_q_rad": null,
+      "physical_limits": {"kind": "unknown", "lower_rad": null, "upper_rad": null, "source": null},
+      "operating_limits_rad": null,
+      "operating_speed_cap_rad_s": null,
+      "parameter_source": null
+    },
+    {
+      "role": "bucket",
+      "prim": "Joints/bucket",
+      "usd_type": "PhysicsRevoluteJoint",
+      "parent_body_role": "arm",
+      "child_body_role": "bucket",
+      "enabled": true,
+      "exclude_from_articulation": false,
+      "axis_in_joint_frame": "+Z",
+      "T_parent_from_joint0": {"translation_m": null, "quaternion_xyzw": null},
+      "T_child_from_joint1": {"translation_m": null, "quaternion_xyzw": null},
+      "zero_definition": null,
+      "positive_direction_evidence": null,
+      "home_q_rad": null,
+      "physical_limits": {"kind": "unknown", "lower_rad": null, "upper_rad": null, "source": null},
+      "operating_limits_rad": null,
+      "operating_speed_cap_rad_s": null,
+      "parameter_source": null
+    }
+  ],
+  "geometry": {
+    "default_visualization_variant": null,
+    "available_variants": [],
+    "registration_records": [],
+    "dimension_evidence": null,
+    "debug_overlay_default_active": false,
+    "cylinder_linkage_model": null
+  },
+  "dynamics": {
+    "calibration_status": "not_declared",
+    "body_properties_evidence": null,
+    "collision_profile": null,
+    "gravity_policy": null,
+    "declared_limitations": []
+  },
+  "sensor_mount_revision": null,
+  "sensor_mounts": [],
+  "semantic_mapping_file": null,
+  "ros_publication": {
+    "embedded_publishers": false,
+    "frame_convention_version": null,
+    "frame_definitions_file": null,
+    "time_contract_file": null,
+    "instance_namespace_policy": null
+  },
+  "runtime_requirements": {
+    "isaac_build": null,
+    "required_extensions": [],
+    "renderer_compatibility_profile": null
+  },
+  "consumer_compatibility": [
+    {"consumer": "LidarVisualizer", "version_or_digest": null, "adapter_file": null, "status": "not_tested", "evidence_file": null},
+    {"consumer": "JointPositionRecorder", "version_or_digest": null, "adapter_file": null, "status": "not_tested", "evidence_file": null},
+    {"consumer": "SemanticWorldModule", "version_or_digest": null, "adapter_file": null, "status": "not_tested", "evidence_file": null}
+  ],
+  "dependencies": [],
+  "profile_deviations": [],
+  "unresolved": ["复制模板后填写所有适用的必填项，并用验收证据替换 not_tested。未知值不能作为默认参数运行。"],
+  "validation_report": null
+}

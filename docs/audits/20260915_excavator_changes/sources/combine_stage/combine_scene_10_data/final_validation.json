@@ -1,0 +1,82 @@
+{
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_10.usda",
+  "scene_sha256": "6dc22b10c1e3baebc4aa3aaf97b013db87651e49c23de0a7ad6fdd665fcce747",
+  "unchanged_input_file_count": 73,
+  "changed_input_files": [],
+  "payload": "SdfPayloadListOp(Prepended Items: [SdfPayload(../excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda, , SdfLayerOffset(0, 1))])",
+  "visualization": "3dgs",
+  "geometry_scales": {
+    "track_prim": [
+      2.4,
+      2.4,
+      2.4
+    ],
+    "cab_prim": [
+      2.4,
+      2.4,
+      2.4
+    ],
+    "boom_prim": [
+      2.4,
+      2.4,
+      2.4
+    ],
+    "arm_prim": [
+      2.4,
+      2.4,
+      2.4
+    ],
+    "bucket_prim": [
+      2.4,
+      2.4,
+      2.4
+    ]
+  },
+  "sensor_graph_node_count": 15,
+  "sensor_count": 14,
+  "persistent_product_count": 14,
+  "structural_passed": true,
+  "runtime_passed": true,
+  "physics_passed": true,
+  "distance_passed": true,
+  "scan_rates_hz": {
+    "MyOS0_left": 10.0,
+    "MyOS0_front": 10.0,
+    "MyOS0_right": 10.0,
+    "MyNZ3_front": 10.0,
+    "MyNZ3_left": 10.0,
+    "MyNZ3_right": 10.0,
+    "MyOS0_backleft": 10.0,
+    "MyNZ3_backleft": 10.0,
+    "MyOS0_backright": 10.0,
+    "MyNZ3_backright": 10.0,
+    "MyOS0_up": 10.0,
+    "MyOS0_back": 10.0,
+    "MyNZ3_back": 10.0
+  },
+  "initial_pose_error_deg": 7.62939453125e-06,
+  "max_joint_error_rad": 1.0746374528025626e-06,
+  "max_sensor_follow_matrix_error": 9.724090510365713e-06,
+  "known_distance_test": {
+    "front_face_sensor_x_m": 5.0,
+    "valid_face_points": 1622,
+    "median_abs_x_error_m": 4.76837158203125e-07,
+    "max_abs_x_error_m": 1.430511474609375e-06
+  },
+  "gs_only_ray_test": {
+    "up_total_valid_points": 75659,
+    "below_up_within_radius_075m": 5641,
+    "elevated_hits_over_05m": 4647,
+    "z_percentiles_m": [
+      -0.01829958921259589,
+      0.9619851016443377,
+      0.9981150531213885,
+      2.343869199697316,
+      2.619979848806203
+    ]
+  },
+  "editor_authoring_layer": "./combine_scene_10.usda",
+  "passed": true,
+  "reopen_passed": true,
+  "delivered_capture_helper_passed": true
+}

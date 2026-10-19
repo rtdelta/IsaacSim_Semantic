@@ -1,0 +1,264 @@
+{
+  "version": "05",
+  "length_unit": "m",
+  "angle_unit": "rad",
+  "source_geometry_uniform_scale": 2.4,
+  "reference": "All original 03 GS/Mesh parts uniformly scaled by 2.4; URDF zero rotations, axes, signs and topology retained; joint translations derived from scaled source pins, NOT original URDF dimensions.",
+  "base_origin_policy": "XY origin lies on the source swing pivot axis; original source XYZ orientation retained. Z uses the 04 track visual-bounds center height as datum (not the ground and not a surveyed datum).",
+  "joint_order": [
+    "swing",
+    "boom",
+    "arm",
+    "bucket"
+  ],
+  "joints": [
+    {
+      "name": "swing",
+      "type": "continuous",
+      "parent": "base_link",
+      "child": "swing_link",
+      "origin_xyz_m": [
+        0.0,
+        0.0,
+        0.5259037017822266
+      ],
+      "origin_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "T_parent_from_joint": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          1.0,
+          0.5259037017822266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "zero_pivot_in_base_m": [
+        0.0,
+        0.0,
+        0.5259037017822266
+      ],
+      "zero_axis_in_base": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "reference_urdf_origin_xyz_m": [
+        0.0,
+        0.0,
+        0.6
+      ]
+    },
+    {
+      "name": "boom",
+      "type": "continuous",
+      "parent": "swing_link",
+      "child": "boom_link",
+      "origin_xyz_m": [
+        0.18700368851423263,
+        -0.5466944128274918,
+        0.9818231105804442
+      ],
+      "origin_rpy_rad": [
+        1.5707,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "T_parent_from_joint": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.18700368851423263
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          -0.5466944128274918
+        ],
+        [
+          -0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          0.9818231105804442
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "zero_pivot_in_base_m": [
+        0.18700368851423263,
+        -0.5466944128274918,
+        1.5077268123626708
+      ],
+      "zero_axis_in_base": [
+        0.0,
+        -0.9999999953605743,
+        9.632679474766714e-05
+      ],
+      "reference_urdf_origin_xyz_m": [
+        0.53,
+        0.0,
+        0.77
+      ]
+    },
+    {
+      "name": "arm",
+      "type": "continuous",
+      "parent": "boom_link",
+      "child": "arm_link",
+      "origin_xyz_m": [
+        5.750906244465445,
+        0.0,
+        0.0
+      ],
+      "origin_rpy_rad": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "T_parent_from_joint": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          5.750906244465445
+        ],
+        [
+          -0.0,
+          1.0,
+          -0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "zero_pivot_in_base_m": [
+        5.937909932979678,
+        -0.5466944128274918,
+        1.5077268123626708
+      ],
+      "zero_axis_in_base": [
+        0.0,
+        -0.9999999953605743,
+        9.632679474766714e-05
+      ],
+      "reference_urdf_origin_xyz_m": [
+        5.715,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "bucket",
+      "type": "continuous",
+      "parent": "arm_link",
+      "child": "bucket_link",
+      "origin_xyz_m": [
+        2.921875885760609,
+        0.0,
+        0.0
+      ],
+      "origin_rpy_rad": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "T_parent_from_joint": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          2.921875885760609
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "zero_pivot_in_base_m": [
+        8.859785818740287,
+        -0.5466944128274918,
+        1.5077268123626708
+      ],
+      "zero_axis_in_base": [
+        0.0,
+        -0.9999999953605743,
+        9.632679474766714e-05
+      ],
+      "reference_urdf_origin_xyz_m": [
+        2.95,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

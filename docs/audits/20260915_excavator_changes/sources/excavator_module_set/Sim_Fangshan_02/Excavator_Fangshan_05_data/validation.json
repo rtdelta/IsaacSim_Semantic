@@ -1,0 +1,1021 @@
+{
+  "uniform_scale": 2.4,
+  "uniform_scale_checks": [
+    {
+      "path": "/Excavator/track_prim/Visuals/GS",
+      "world_singular_values": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/track_prim/Visuals/Mesh",
+      "world_singular_values": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/cab_prim/Visuals/GS",
+      "world_singular_values": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/cab_prim/Visuals/Mesh",
+      "world_singular_values": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/boom_prim/Visuals/GS",
+      "world_singular_values": [
+        2.4000000000000004,
+        2.4,
+        2.4
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/boom_prim/Visuals/Mesh",
+      "world_singular_values": [
+        2.4000000000000004,
+        2.4,
+        2.4
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/arm_prim/Visuals/GS",
+      "world_singular_values": [
+        2.400000000000001,
+        2.4000000000000004,
+        2.4000000000000004
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/arm_prim/Visuals/Mesh",
+      "world_singular_values": [
+        2.400000000000001,
+        2.4000000000000004,
+        2.4000000000000004
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/bucket_prim/Visuals/GS",
+      "world_singular_values": [
+        2.4000000000000012,
+        2.4000000000000004,
+        2.4000000000000004
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    },
+    {
+      "path": "/Excavator/bucket_prim/Visuals/Mesh",
+      "world_singular_values": [
+        2.4000000000000012,
+        2.4000000000000004,
+        2.4000000000000004
+      ],
+      "authored_scale": [
+        2.4,
+        2.4,
+        2.4
+      ]
+    }
+  ],
+  "full_gaussian_dimensions": [
+    {
+      "link": "base_link",
+      "gaussian_count": 70566,
+      "bounds_link_m": [
+        [
+          -2.188783599436283,
+          -1.5845812350511552,
+          -0.5052807092666626
+        ],
+        [
+          2.3051055416464803,
+          1.652865645289421,
+          0.7152807474136352
+        ]
+      ],
+      "span_link_m": [
+        4.4938891410827635,
+        3.2374468803405763,
+        1.2205614566802978
+      ]
+    },
+    {
+      "link": "swing_link",
+      "gaussian_count": 185786,
+      "bounds_link_m": [
+        [
+          -3.091558362543583,
+          -1.4775156050920486,
+          0.015631234645843484
+        ],
+        [
+          1.93051066249609,
+          1.6567600697278975,
+          3.8556738853454586
+        ]
+      ],
+      "span_link_m": [
+        5.022069025039674,
+        3.1342756748199463,
+        3.840042650699615
+      ]
+    },
+    {
+      "link": "boom_link",
+      "gaussian_count": 66794,
+      "bounds_link_m": [
+        [
+          -0.09034134833975427,
+          -0.8583411924325487,
+          -0.8434729016506757
+        ],
+        [
+          6.1328128704978875,
+          1.4725462151937425,
+          0.30290989608639407
+        ]
+      ],
+      "span_link_m": [
+        6.223154218837641,
+        2.330887407626291,
+        1.1463827977370697
+      ]
+    },
+    {
+      "link": "arm_link",
+      "gaussian_count": 41716,
+      "bounds_link_m": [
+        [
+          -0.8864642491332768,
+          -0.13956397536562104,
+          -0.4435824877967529
+        ],
+        [
+          3.0057679378225712,
+          0.8158718184470519,
+          0.5662464033229885
+        ]
+      ],
+      "span_link_m": [
+        3.892232186955848,
+        0.955435793812673,
+        1.0098288911197413
+      ]
+    },
+    {
+      "link": "bucket_link",
+      "gaussian_count": 32885,
+      "bounds_link_m": [
+        [
+          -0.15710131704903896,
+          -0.11260839011877888,
+          -0.6057055592536917
+        ],
+        [
+          1.513762762266837,
+          0.9116537930577877,
+          0.5459016680717476
+        ]
+      ],
+      "span_link_m": [
+        1.670864079315876,
+        1.0242621831765666,
+        1.1516072273254392
+      ]
+    }
+  ],
+  "anchor_checks": [
+    {
+      "joint": "swing",
+      "geometry_pin_separation_m": 0.0,
+      "joint_frame_separation_m": 0.0,
+      "geometry_to_joint_error_m": 0.0,
+      "pivot_base_m": [
+        0.0,
+        0.0,
+        0.5259037017822266
+      ]
+    },
+    {
+      "joint": "boom",
+      "geometry_pin_separation_m": 4.449557262054371e-16,
+      "joint_frame_separation_m": 2.8154914940923785e-08,
+      "geometry_to_joint_error_m": 2.8154914940923785e-08,
+      "pivot_base_m": [
+        0.18700368851423263,
+        -0.5466944128274918,
+        1.5077268123626708
+      ]
+    },
+    {
+      "joint": "arm",
+      "geometry_pin_separation_m": 1.4390135079995448e-15,
+      "joint_frame_separation_m": 2.229722992908023e-07,
+      "geometry_to_joint_error_m": 2.229722992908023e-07,
+      "pivot_base_m": [
+        5.937909932979678,
+        -0.5466944128274926,
+        1.5077268123626701
+      ]
+    },
+    {
+      "joint": "bucket",
+      "geometry_pin_separation_m": 1.9891280697202825e-15,
+      "joint_frame_separation_m": 6.791370843473032e-08,
+      "geometry_to_joint_error_m": 6.791371021108718e-08,
+      "pivot_base_m": [
+        8.859785818740285,
+        -0.5466944128274926,
+        1.5077268123626721
+      ]
+    }
+  ],
+  "passed": true,
+  "asset": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+  "preview_scene": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_preview.usda",
+  "default_prim": "/Excavator",
+  "visualization_default": "3dgs",
+  "visualization_variants": [
+    "3dgs",
+    "source_mesh",
+    "urdf_reference"
+  ],
+  "body_count": 5,
+  "joint_count": 4,
+  "gaussian_part_count": 15,
+  "max_zero_transform_error": 6.217248937900877e-15,
+  "max_axis_error": 7.328923549031607e-08,
+  "payload_instances_tested": 2,
+  "fk_reference_policy": "05 scaled-source joint translations with URDF angular rules",
+  "fk_reference_states_tested": 29,
+  "fk_max_matrix_element_error": 5.622649934533541e-07,
+  "payload_joint_targets_remap_correctly": true,
+  "composition_errors": [],
+  "original_files_checked": 48,
+  "original_files_unchanged": true,
+  "source_original_hashes": {
+    "Excavator_Fangshan_04.usda": "9da0d20ba2a1c7ffc5a71f437235263456931263f86d6ffe638f6ac424bb8c1c",
+    "waji_mesh_corrected.usdc": "53098b1b4954c5fa88298569950941389e9a7c718584d23a85e379af477e28a0",
+    "Excavator_Fangshan_03.usda": "dc81e1ce2153975e7cbcfc3bf63e68d403b1332197b81cccaf9b7ac16c8218a6",
+    "waji_mesh_3dgs_with_joints_v2.usda": "583f8a2ddf5f7748d35a707a80d8ef5b48db079bf0b35a84c272ab732539ec97",
+    "Excavator_Fangshan_04_preview.usda": "d24cd5e8f716077d04534027196b2898b5ea71e52693cbdc7b96867c93792752",
+    "waji_mesh_3dgs_with_joints_control_only_v1.usda": "25ad5acc72108c067b7141160fd14f8bb5bca14200c560e7b28dd9731acc604d",
+    "Excavator_Fangshan_01.usda": "644558c05ebd8fd39c050ca5afde7dd42135b601f4a3ef5dc86c92b113bbbd2a",
+    "waji_mesh_3dgs_aligned.usda": "36a3c6c92b1274e4d9489ab921bec170ba2b8d81b3fae4c9b4b7899f6940668d",
+    "README.md": "de6e654854362c3bf223024fea5aaf6a87f6a8b53d871d712f7328ed9c1c84c4",
+    "Excavator_Fangshan_02.usda": "cce78a164adb894c3a8eab1f08c64a04a0eee68683a2eed23db9cdca625cfbd8",
+    "Excavator_Fangshan_04_README.md": "ce405cd8c4c9a013bb393536a4e41d4cbc6f0ed6038ded80192a4de5ff08c0ad",
+    "3dgs_ply/small_arm.ply": "f83a0cc3e518fb1c29ba6a864452e82b1cb6f13ad630d3bc5cff8dd870a93f42",
+    "3dgs_ply/operator_cab.ply": "92d07b6a555569d26f4ea8ede1b14c38f4d8b59fe7ded74191f09803d7a533c0",
+    "3dgs_ply/bucket_only_full_teeth.ply": "c8d4ff9741c3c31289a84a807875b3ae28f2bc9e7f12c9ebafd131e77c7a271e",
+    "3dgs_ply/track.ply": "c9bf238210c973b1c0c8b0ac974cabc7e491dcc7bebf9d784cfa2e743a406344",
+    "3dgs_ply/boom.ply": "4356bae58c59e39e1b27a44029826a889950f4fecf44b8ddf134072dc3892881",
+    "3dgs_usd/tooth_03_back.usd": "ba1b79186ac01010d19e326cf512e771caa0a957fd4f0fa1c22511d96003844a",
+    "3dgs_usd/tooth_04_front.usd": "cdb40a27221437b4c2d5cb144fa269cd1ce04833c5a92f7ae04c1c22a95e348d",
+    "3dgs_usd/tooth_04_back.usd": "30fae35d945a871829f5c644bf14b0ad0afd46f7c490180dd3ee1c4f29d36d1c",
+    "3dgs_usd/tooth_02_front.usd": "06c192c8e7824d96515002dcda793084d3ea8830fa7d9ce3b4ee6dfadfe57c83",
+    "3dgs_usd/tooth_05_front.usd": "e7012340c1962e375e5c424a12a88df4fd5f8c28c81cabe61cf38f13b5921d5e",
+    "3dgs_usd/small_arm.usd": "4c947067c3128279f65be6fd3ca4ab1e7a859bd3a9ec90fcbb21d4e6056b69a1",
+    "3dgs_usd/tooth_05_back.usd": "c1d917126261f819ca97bc1b29f612791ebc504bc7e069c2f3168d2686a4953d",
+    "3dgs_usd/tooth_02_back.usd": "840920cd11147f6262ca90f332eabab1796d576fece251b91c0d5db735a63838",
+    "3dgs_usd/boom.usd": "6bd97d747f455878877503e7d86508673ae390ede744216134697a224f2dc256",
+    "3dgs_usd/track.usd": "def23d557868b218d88dbc2654497ba330c28638d5c66b4b9491c9b1a3a5b98c",
+    "3dgs_usd/tooth_01_back.usd": "a2aae32917c41b9bc0354e469ffcbcc60553c944a732db979036ef510060134d",
+    "3dgs_usd/tooth_01_front.usd": "adf7e4af7414dca8ccc2357b61e7e25e6dd807e8a84b32cc08e6fb8459daf6c7",
+    "3dgs_usd/bucket_only_full_teeth.usd": "25a1fc83e11aeb46edd4f1bc192c1665ff069d0f118626f3e5c53272bcb0ef53",
+    "3dgs_usd/operator_cab.usd": "d8d23f6b9c1f1b0a87a8399fab87edea5027ff9ee9d3510e2cdc2cd70c6ace23",
+    "3dgs_usd/bucket_without_teeth.usd": "be0a58acb10ceca7505af2eff0b733c583d1099ffdb8e441d619e6026b5cf38c",
+    "3dgs_usd/tooth_03_front.usd": "ecf7887b4ab8ceedb5bca60d78ccffa44ba41bb4cf069ffac8e789b5a0e4255d",
+    "Excavator_Fangshan_04_data/runtime_validation.json": "7b5a3db24935b831e89c1b8ccb03747eaa40663e25259403ca8a57a605abaffc",
+    "Excavator_Fangshan_04_data/physics_validate.py": "5ec31cdfaa6458be1ce26d72a1a8fa8a9c07e99ac4c02e05136e98ff7aa95ae5",
+    "Excavator_Fangshan_04_data/final_validation.json": "fadb2404335189e0782e578e674b034fc32e46305f1a6756f3df31208b7d4485",
+    "Excavator_Fangshan_04_data/validation.json": "d2c0c8b1879baf6d1d098837fbbfa96e00e0606241c49b0b9649191785ddc845",
+    "Excavator_Fangshan_04_data/render_validation.log": "a70b0a86aaab74dfa41bef035cae98fb4b43d5756c14d7c1cb4958bc904df375",
+    "Excavator_Fangshan_04_data/render_validation_retry.log": "60631f251dbc94207e27e8cb98c9ac1e68ddc53879a722420bfb3bae1e37da4b",
+    "Excavator_Fangshan_04_data/physics_validation.json": "3c0a570927e8b7f26a9a49c95d09b1f4f48e69fc73ae254e1ab814463f7a09c2",
+    "Excavator_Fangshan_04_data/urdf_reference_meshes.usdc": "d6c68e10c34511f1d556f5a65e168466315df6d8aac81e9a8a83fc889babc2ea",
+    "Excavator_Fangshan_04_data/render_validation_scene.log": "e9cb3cf4b9bcf332fbd0272bbf4616d77566518b93e6ee64149ededed68bcaf7",
+    "Excavator_Fangshan_04_data/preview_urdf_reference.png": "756bfa05cef1f4d9523608117e816bfb38dbe997f58ba62f35dc84fb7a291dd3",
+    "Excavator_Fangshan_04_data/render_validate.py": "7ce85e7c09c49fc9982260e475c2df3c64337ab7a584ad0d52e4481854bab6ba",
+    "Excavator_Fangshan_04_data/build_config.json": "3cd2453b53888a26d5b8076e3152a6001e4907050e4a4aed1280e077452c441e",
+    "Excavator_Fangshan_04_data/preview_3dgs.png": "166d553cc785e1fae76ec2e68cd2e2f59a6d2248b5083e36a74fc4167568ca03",
+    "Excavator_Fangshan_04_data/render_validation_final.log": "15a792f577a8d58bb8a37f6269074cc90d8d5fe068ed80670b0bcb4d80ed4f44",
+    "Excavator_Fangshan_04_data/preview_source_mesh.png": "b7d1d9d3c5e6eb992ef44ec8a75815d9bd0de1700daee656b1ac5d03031d97f4",
+    "Excavator_Fangshan_04_data/physics_validation.log": "94bcef11c3d32c1832a14670367cafdca0baec41ee775a903472871cfdda84d3"
+  },
+  "no_runtime_scripts_required": true,
+  "dynamics": "placeholder, with pose-preview drives; not calibrated",
+  "visual_dimension_policy": "All original 03 GS/Mesh parts uniformly scaled by 2.4; URDF zero rotations, axes, signs and topology retained; joint translations derived from scaled source pins, NOT original URDF dimensions.",
+  "registration": [
+    {
+      "urdf_link": "base_link",
+      "body_name": "track_prim",
+      "source_part": "track",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          2.4,
+          0.0,
+          0.0,
+          0.05816097110509872
+        ],
+        [
+          0.0,
+          2.4,
+          0.0,
+          0.034142205119133
+        ],
+        [
+          0.0,
+          0.0,
+          2.4,
+          0.10500001907348633
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "registration_method": "Uniform 2.4 similarity transform; source hinge points anchor the assembly; previous 04 zero-direction registration retained.",
+      "target_mesh_bounds_link_m": [
+        [
+          -2.069999933242798,
+          -1.7200000286102295,
+          -0.38999998569488525
+        ],
+        [
+          2.069999933242798,
+          1.7200000286102295,
+          0.6000000238418579
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -2.188783599436283,
+          -1.5845812350511552,
+          -0.5052807092666626
+        ],
+        [
+          2.3051055416464803,
+          1.652865645289421,
+          0.7152807474136352
+        ]
+      ],
+      "reference_mesh_sha256": "48f25473ee35c222726548669b8c8192f87e6aa34263c94a500840253db03490",
+      "registration_rotation_source_to_link": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "reference_urdf_T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "urdf_link": "swing_link",
+      "body_name": "cab_prim",
+      "source_part": "operator_cab",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5259037017822266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          2.4,
+          0.0,
+          0.0,
+          0.05816097110509872
+        ],
+        [
+          0.0,
+          2.4,
+          0.0,
+          0.034142205119133
+        ],
+        [
+          0.0,
+          0.0,
+          2.4,
+          -0.42090368270874023
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "registration_method": "Uniform 2.4 similarity transform; source hinge points anchor the assembly; previous 04 zero-direction registration retained.",
+      "target_mesh_bounds_link_m": [
+        [
+          -2.5999968450616224,
+          -1.2216706198679141,
+          -2.244231444193594e-06
+        ],
+        [
+          1.0519416668281591,
+          1.2237448890915805,
+          1.639998626598025
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -3.091558362543583,
+          -1.4775156050920486,
+          0.015631234645843484
+        ],
+        [
+          1.93051066249609,
+          1.6567600697278975,
+          3.8556738853454586
+        ]
+      ],
+      "reference_mesh_sha256": "00a759f20fcefb8951aacdb21d461b920024b4c02c2a5d3223615319ccc07d73",
+      "registration_rotation_source_to_link": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "reference_urdf_T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "urdf_link": "boom_link",
+      "body_name": "boom_prim",
+      "source_part": "boom",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.18700368851423263
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          -0.5466944128274918
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.5077268123626708
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          2.0302844792722405,
+          0.049593753438625314,
+          1.278860974792067,
+          -0.8444475231821711
+        ],
+        [
+          -1.2791341013452457,
+          0.0,
+          2.030718087469477,
+          -1.118223148900997
+        ],
+        [
+          0.041962888388882506,
+          -2.399487541042851,
+          0.026432108848772364,
+          -0.5984141116666923
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "registration_method": "Uniform 2.4 similarity transform; source hinge points anchor the assembly; previous 04 zero-direction registration retained.",
+      "target_mesh_bounds_link_m": [
+        [
+          -0.14329887675092978,
+          -0.2034449924192374,
+          -0.16251795196602692
+        ],
+        [
+          5.933052450022024,
+          1.3643133914641536,
+          0.16155710026861062
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -0.09034134833975427,
+          -0.8513280345047352,
+          -0.8434729016506759
+        ],
+        [
+          6.1328128704978875,
+          1.4648989300242785,
+          0.3029098960863933
+        ]
+      ],
+      "reference_mesh_sha256": "55d222921adea694038eecd5caa63fba33e0a2350349c23b54a7fba2a789e6f7",
+      "registration_rotation_source_to_link": [
+        [
+          0.8459518663634336,
+          0.02066406393276055,
+          0.5328587394966946
+        ],
+        [
+          -0.5329725422271857,
+          0.0,
+          0.8461325364456154
+        ],
+        [
+          0.017484536828701044,
+          -0.9997864754345213,
+          0.011013378686988486
+        ]
+      ],
+      "reference_urdf_T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.53
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.37
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "urdf_link": "arm_link",
+      "body_name": "arm_prim",
+      "source_part": "small_arm",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          5.937909932979678
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          -0.5466944128274918
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.5077268123626708
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          0.9050193613403633,
+          0.054301702184101526,
+          -2.222159148382264,
+          2.2634519768831796
+        ],
+        [
+          2.222728153733046,
+          0.0,
+          0.905251100304487,
+          -6.309926012181417
+        ],
+        [
+          0.0204819481877352,
+          -2.3993856140978904,
+          -0.050290800933429046,
+          -0.41089250339161243
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "registration_method": "Uniform 2.4 similarity transform; source hinge points anchor the assembly; previous 04 zero-direction registration retained.",
+      "target_mesh_bounds_link_m": [
+        [
+          -0.6865071101931655,
+          -0.08500000089406967,
+          -0.08005754735965215
+        ],
+        [
+          3.0344484383160264,
+          0.822033703327179,
+          0.0802723312950849
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -0.8864642491332755,
+          -0.1360211518010086,
+          -0.44358248779675413
+        ],
+        [
+          3.0011500543309015,
+          0.7660041149722767,
+          0.5662464033229876
+        ]
+      ],
+      "reference_mesh_sha256": "bd09705d07b52794a4650aa7900a68e98f3a6da401be7f94ba5a54766ded6551",
+      "registration_rotation_source_to_link": [
+        [
+          0.3770914005584847,
+          0.022625709243375636,
+          -0.9258996451592766
+        ],
+        [
+          0.9261367307221025,
+          0.0,
+          0.3771879584602029
+        ],
+        [
+          0.008534145078223,
+          -0.999744005874121,
+          -0.02095450038892877
+        ]
+      ],
+      "reference_urdf_T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          6.245
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.37
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "urdf_link": "bucket_link",
+      "body_name": "bucket_prim",
+      "source_part": "bucket_only_full_teeth",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          8.859785818740287
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          -0.5466944128274918
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.5077268123626708
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          0.6730160139638477,
+          0.0,
+          -2.3037034194852892,
+          -0.01826710319653646
+        ],
+        [
+          2.3037034194852892,
+          0.0,
+          0.6730160139638477,
+          -6.34511295295238
+        ],
+        [
+          0.0,
+          -2.3999999999999995,
+          0.0,
+          -0.39589000940322866
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.4,
+        2.4,
+        2.4
+      ],
+      "registration_method": "Uniform 2.4 similarity transform; source hinge points anchor the assembly; previous 04 zero-direction registration retained.",
+      "target_mesh_bounds_link_m": [
+        [
+          -0.062127374842187666,
+          -0.062484927669698355,
+          -0.4750982273658881
+        ],
+        [
+          1.2093005665594345,
+          0.7834568127590482,
+          0.47499047771077396
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -0.15710131704903896,
+          -0.11260839011877888,
+          -0.6057055592536925
+        ],
+        [
+          1.5118233443988989,
+          0.9093920189264555,
+          0.5459016680717468
+        ]
+      ],
+      "reference_mesh_sha256": "f9e2615f6f678306e05f11f7f73740cfdd852bd112eaa3e5aa24e0db031ad5c9",
+      "registration_rotation_source_to_link": [
+        [
+          0.2804233391516032,
+          0.0,
+          -0.9598764247855371
+        ],
+        [
+          0.9598764247855371,
+          0.0,
+          0.2804233391516032
+        ],
+        [
+          0.0,
+          -0.9999999999999999,
+          0.0
+        ]
+      ],
+      "reference_urdf_T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          9.195
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.37
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ]
+}

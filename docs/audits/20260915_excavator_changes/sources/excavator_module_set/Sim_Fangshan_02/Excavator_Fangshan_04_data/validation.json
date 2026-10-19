@@ -1,0 +1,499 @@
+{
+  "asset": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_04.usda",
+  "preview_scene": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_04_preview.usda",
+  "default_prim": "/Excavator",
+  "visualization_default": "3dgs",
+  "visualization_variants": [
+    "3dgs",
+    "source_mesh",
+    "urdf_reference"
+  ],
+  "body_count": 5,
+  "joint_count": 4,
+  "gaussian_part_count": 15,
+  "max_zero_transform_error": 3.552713678800501e-15,
+  "max_axis_error": 7.328923549031607e-08,
+  "payload_instances_tested": 2,
+  "fk_reference_states_tested": 29,
+  "fk_max_matrix_element_error": 5.171556973770919e-07,
+  "payload_joint_targets_remap_correctly": true,
+  "composition_errors": [],
+  "original_files_checked": 29,
+  "original_files_unchanged": true,
+  "source_original_hashes": {
+    "waji_mesh_corrected.usdc": "53098b1b4954c5fa88298569950941389e9a7c718584d23a85e379af477e28a0",
+    "Excavator_Fangshan_03.usda": "dc81e1ce2153975e7cbcfc3bf63e68d403b1332197b81cccaf9b7ac16c8218a6",
+    "waji_mesh_3dgs_with_joints_v2.usda": "583f8a2ddf5f7748d35a707a80d8ef5b48db079bf0b35a84c272ab732539ec97",
+    "waji_mesh_3dgs_with_joints_control_only_v1.usda": "25ad5acc72108c067b7141160fd14f8bb5bca14200c560e7b28dd9731acc604d",
+    "Excavator_Fangshan_01.usda": "644558c05ebd8fd39c050ca5afde7dd42135b601f4a3ef5dc86c92b113bbbd2a",
+    "waji_mesh_3dgs_aligned.usda": "36a3c6c92b1274e4d9489ab921bec170ba2b8d81b3fae4c9b4b7899f6940668d",
+    "README.md": "de6e654854362c3bf223024fea5aaf6a87f6a8b53d871d712f7328ed9c1c84c4",
+    "Excavator_Fangshan_02.usda": "cce78a164adb894c3a8eab1f08c64a04a0eee68683a2eed23db9cdca625cfbd8",
+    "3dgs_ply/small_arm.ply": "f83a0cc3e518fb1c29ba6a864452e82b1cb6f13ad630d3bc5cff8dd870a93f42",
+    "3dgs_ply/operator_cab.ply": "92d07b6a555569d26f4ea8ede1b14c38f4d8b59fe7ded74191f09803d7a533c0",
+    "3dgs_ply/bucket_only_full_teeth.ply": "c8d4ff9741c3c31289a84a807875b3ae28f2bc9e7f12c9ebafd131e77c7a271e",
+    "3dgs_ply/track.ply": "c9bf238210c973b1c0c8b0ac974cabc7e491dcc7bebf9d784cfa2e743a406344",
+    "3dgs_ply/boom.ply": "4356bae58c59e39e1b27a44029826a889950f4fecf44b8ddf134072dc3892881",
+    "3dgs_usd/tooth_03_back.usd": "ba1b79186ac01010d19e326cf512e771caa0a957fd4f0fa1c22511d96003844a",
+    "3dgs_usd/tooth_04_front.usd": "cdb40a27221437b4c2d5cb144fa269cd1ce04833c5a92f7ae04c1c22a95e348d",
+    "3dgs_usd/tooth_04_back.usd": "30fae35d945a871829f5c644bf14b0ad0afd46f7c490180dd3ee1c4f29d36d1c",
+    "3dgs_usd/tooth_02_front.usd": "06c192c8e7824d96515002dcda793084d3ea8830fa7d9ce3b4ee6dfadfe57c83",
+    "3dgs_usd/tooth_05_front.usd": "e7012340c1962e375e5c424a12a88df4fd5f8c28c81cabe61cf38f13b5921d5e",
+    "3dgs_usd/small_arm.usd": "4c947067c3128279f65be6fd3ca4ab1e7a859bd3a9ec90fcbb21d4e6056b69a1",
+    "3dgs_usd/tooth_05_back.usd": "c1d917126261f819ca97bc1b29f612791ebc504bc7e069c2f3168d2686a4953d",
+    "3dgs_usd/tooth_02_back.usd": "840920cd11147f6262ca90f332eabab1796d576fece251b91c0d5db735a63838",
+    "3dgs_usd/boom.usd": "6bd97d747f455878877503e7d86508673ae390ede744216134697a224f2dc256",
+    "3dgs_usd/track.usd": "def23d557868b218d88dbc2654497ba330c28638d5c66b4b9491c9b1a3a5b98c",
+    "3dgs_usd/tooth_01_back.usd": "a2aae32917c41b9bc0354e469ffcbcc60553c944a732db979036ef510060134d",
+    "3dgs_usd/tooth_01_front.usd": "adf7e4af7414dca8ccc2357b61e7e25e6dd807e8a84b32cc08e6fb8459daf6c7",
+    "3dgs_usd/bucket_only_full_teeth.usd": "25a1fc83e11aeb46edd4f1bc192c1665ff069d0f118626f3e5c53272bcb0ef53",
+    "3dgs_usd/operator_cab.usd": "d8d23f6b9c1f1b0a87a8399fab87edea5027ff9ee9d3510e2cdc2cd70c6ace23",
+    "3dgs_usd/bucket_without_teeth.usd": "be0a58acb10ceca7505af2eff0b733c583d1099ffdb8e441d619e6026b5cf38c",
+    "3dgs_usd/tooth_03_front.usd": "ecf7887b4ab8ceedb5bca60d78ccffa44ba41bb4cf069ffac8e789b5a0e4255d"
+  },
+  "no_runtime_scripts_required": true,
+  "dynamics": "placeholder, with pose-preview drives; not calibrated",
+  "visual_dimension_policy": "Exact URDF joint frames and kinematic dimensions; scan appearance registered by per-part scale, not identical CAD surfaces.",
+  "registration": [
+    {
+      "urdf_link": "base_link",
+      "body_name": "track_prim",
+      "source_part": "track",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          2.2110024007337743,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.550157714544672,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.9466451360429369,
+          0.10500001907348633
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.2110024007337743,
+        2.550157714544672,
+        1.9466451360429369
+      ],
+      "registration_method": "GS center XYZ bounds matched to URDF base mesh",
+      "target_mesh_bounds_link_m": [
+        [
+          -2.069999933242798,
+          -1.7200000286102295,
+          -0.38999998569488525
+        ],
+        [
+          2.069999933242798,
+          1.7200000286102295,
+          0.6000000238418579
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -2.069999933242798,
+          -1.7200000286102295,
+          -0.38999998569488525
+        ],
+        [
+          2.069999933242798,
+          1.7200000286102295,
+          0.6000000238418579
+        ]
+      ],
+      "reference_mesh_sha256": "48f25473ee35c222726548669b8c8192f87e6aa34263c94a500840253db03490"
+    },
+    {
+      "urdf_link": "swing_link",
+      "body_name": "cab_prim",
+      "source_part": "operator_cab",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          1.7452273923029638,
+          0.0,
+          0.0,
+          0.042293383306483114
+        ],
+        [
+          0.0,
+          1.8725210640062608,
+          0.0,
+          0.026638332607166217
+        ],
+        [
+          0.0,
+          0.0,
+          1.0249891597619698,
+          -0.179759046700146
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        1.7452273923029638,
+        1.8725210640062608,
+        1.0249891597619698
+      ],
+      "registration_method": "Swing pin anchored at link origin; GS center XYZ extents matched to URDF platform mesh",
+      "target_mesh_bounds_link_m": [
+        [
+          -2.5999968450616224,
+          -1.2216706198679141,
+          -2.244231444193594e-06
+        ],
+        [
+          1.0519416668281591,
+          1.2237448890915805,
+          1.639998626598025
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -2.248113474672649,
+          -1.152782955388674,
+          0.006675769194035536
+        ],
+        [
+          1.4038250372171326,
+          1.2926325535708207,
+          1.646676640023505
+        ]
+      ],
+      "reference_mesh_sha256": "00a759f20fcefb8951aacdb21d461b920024b4c02c2a5d3223615319ccc07d73"
+    },
+    {
+      "urdf_link": "boom_link",
+      "body_name": "boom_prim",
+      "source_part": "boom",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.53
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.37
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          2.0176082352598637,
+          0.049284110860702925,
+          1.2708763037078545,
+          -0.839175147331009
+        ],
+        [
+          -0.8657930514607114,
+          0.0,
+          1.3745092150679163,
+          -0.756879072556045
+        ],
+        [
+          0.011862638966135652,
+          -0.6783197128697452,
+          0.0074721873642439275,
+          -0.16916782498755442
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.3850154074759957,
+        1.624460892192936,
+        0.6784645817247507
+      ],
+      "registration_method": "Exact two pin centers; longitudinal scale from URDF joint spacing; GS center cross-section extents scaled to reference STL",
+      "target_mesh_bounds_link_m": [
+        [
+          -0.14329887675092978,
+          -0.2034449924192374,
+          -0.16251795196602692
+        ],
+        [
+          5.933052450022024,
+          1.3643133914641536,
+          0.16155710026861062
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -0.08977729488436259,
+          -0.5762287910335087,
+          -0.23844437058941148
+        ],
+        [
+          6.094522161376896,
+          0.991529592849882,
+          0.08563068164522605
+        ]
+      ],
+      "reference_mesh_sha256": "55d222921adea694038eecd5caa63fba33e0a2350349c23b54a7fba2a789e6f7"
+    },
+    {
+      "urdf_link": "arm_link",
+      "body_name": "arm_prim",
+      "source_part": "small_arm",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          6.245
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.37
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          0.9137305006571422,
+          0.054824375745652056,
+          -2.2435482354587477,
+          2.2852385223978153
+        ],
+        [
+          2.2350697092657654,
+          0.0,
+          0.9102774489862634,
+          -6.344961471716089
+        ],
+        [
+          0.003251905641074402,
+          -0.38094889910276997,
+          -0.0079846378748042,
+          -0.06523713649732245
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        2.423100869719854,
+        2.4133258460908866,
+        0.38104644475431415
+      ],
+      "registration_method": "Exact two pin centers; longitudinal scale from URDF joint spacing; GS center cross-section extents scaled to reference STL",
+      "target_mesh_bounds_link_m": [
+        [
+          -0.6865071101931655,
+          -0.08500000089406967,
+          -0.08005754735965215
+        ],
+        [
+          3.0344484383160264,
+          0.822033703327179,
+          0.0802723312950849
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -0.8949967887709995,
+          -0.13677640052351148,
+          -0.07042730413759463
+        ],
+        [
+          3.030037211170415,
+          0.7702573036977372,
+          0.08990257451714244
+        ]
+      ],
+      "reference_mesh_sha256": "bd09705d07b52794a4650aa7900a68e98f3a6da401be7f94ba5a54766ded6551"
+    },
+    {
+      "urdf_link": "bucket_link",
+      "body_name": "bucket_prim",
+      "source_part": "bucket_only_full_teeth",
+      "T_base_from_link_zero": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          9.195
+        ],
+        [
+          0.0,
+          9.632679474766714e-05,
+          -0.9999999953605743,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999953605743,
+          9.632679474766714e-05,
+          1.37
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_link_from_source_geometry": [
+        [
+          0.512720187394195,
+          0.0,
+          -1.7550180447899315,
+          -0.013916329447965392
+        ],
+        [
+          1.9068474560901907,
+          0.0,
+          0.5570764288840864,
+          -5.25204867545209
+        ],
+        [
+          0.0,
+          -1.9800265559983412,
+          0.0,
+          -0.3266136382803442
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "registration_scale_xyz": [
+        1.828379153266579,
+        1.9865551511135748,
+        1.9800265559983412
+      ],
+      "registration_method": "Hinge anchored at link origin; hinge-to-distal-edge direction aligned; GS center XYZ extents matched to reference STL; visual registration approximation",
+      "target_mesh_bounds_link_m": [
+        [
+          -0.062127374842187666,
+          -0.062484927669698355,
+          -0.4750982273658881
+        ],
+        [
+          1.2093005665594345,
+          0.7834568127590482,
+          0.47499047771077396
+        ]
+      ],
+      "registered_gs_center_bounds_link_m": [
+        [
+          -0.1196836554346612,
+          -0.09320949060377792,
+          -0.49971378851589093
+        ],
+        [
+          1.1517442859669609,
+          0.7527322498249687,
+          0.450374916560771
+        ]
+      ],
+      "reference_mesh_sha256": "f9e2615f6f678306e05f11f7f73740cfdd852bd112eaa3e5aa24e0db031ad5c9"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "track_geometry_transform": "diag(2.4,2.4,2.4,1)",
+  "joint_attributes_preserved_except_swing_parent_position": true,
+  "two_payload_instances_remap_joint_targets": true
+}

@@ -1,0 +1,17 @@
+{
+  "mount_id": "lidar_rear_left",
+  "sensor_instance_id": null,
+  "parent_body_role": "cab",
+  "mount_prim": "cab_prim/Sensors/lidar_rear_left",
+  "sensor_prim": "cab_prim/Sensors/lidar_rear_left/sensor",
+  "T_parent_from_mount": {"translation_m": null, "quaternion_xyzw": null},
+  "T_mount_from_sensor": {"translation_m": [0, 0, 0], "quaternion_xyzw": [0, 0, 0, 1]},
+  "sensor_model": {"model_id": null, "version": null, "asset_path": null, "sha256_manifest": null},
+  "output_coordinate_frame": "sensor",
+  "emission_definition_file": null,
+  "scan_timestamp_semantics": null,
+  "housing_prim": null,
+  "housing_raycast_policy": null,
+  "calibration_source": null,
+  "validation_evidence": null
+}

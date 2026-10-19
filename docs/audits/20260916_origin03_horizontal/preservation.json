@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "original_files_checked": 38,
+  "new_asset_and_scene_hashes_verified": true,
+  "deployed_files_checked": 26,
+  "backups": [
+    "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/backups/origin03_horizontal_20260916_111145_973160",
+    "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/backups/origin03_horizontal_20260916_111321_808524",
+    "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/backups/origin03_horizontal_20260916_112615_889351",
+    "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/backups/origin03_horizontal_20260916_112717_580056",
+    "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/backups/origin03_horizontal_20260916_114231_574463"
+  ]
+}

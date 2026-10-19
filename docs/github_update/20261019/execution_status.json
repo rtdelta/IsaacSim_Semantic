@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "snapshot_phase": "C01_to_C10_committed_before_documentation_commit",
+  "branch": "codex/repository-update-20261019",
+  "base_commit": "0abf2e33e4ef0efee834727c4baf84f65a2250ee",
+  "local_commits": [
+    {
+      "group": "C01",
+      "sha": "1728de12cfbfaf5e5aaeb2a9d9c077c67be8181e",
+      "parent": "0abf2e33e4ef0efee834727c4baf84f65a2250ee",
+      "files": 1,
+      "message": "chore(repo): exclude capture data and generated runtime artifacts",
+      "whitespace_check_exit_code": 0,
+      "whitespace_output_lines": 0
+    },
+    {
+      "group": "C02",
+      "sha": "c63b45960d71a773f2444f2f7cf2cb31ef153a76",
+      "parent": "1728de12cfbfaf5e5aaeb2a9d9c077c67be8181e",
+      "files": 22,
+      "message": "feat(studio): split v04.4 task UI and improve project workflow",
+      "whitespace_check_exit_code": 0,
+      "whitespace_output_lines": 0
+    },
+    {
+      "group": "C03",
+      "sha": "cb4b7b0c522efc39dad129cfbda15c1ef7b148a2",
+      "parent": "c63b45960d71a773f2444f2f7cf2cb31ef153a76",
+      "files": 155,
+      "message": "feat(assets): add excavator and lidar reconstruction tools",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 12
+    },
+    {
+      "group": "C04",
+      "sha": "2e6997999f93e89404009edafce27f0e2575cd1f",
+      "parent": "cb4b7b0c522efc39dad129cfbda15c1ef7b148a2",
+      "files": 505,
+      "message": "test(bvh): preserve motion experiments and reproducible source snapshots",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 161
+    },
+    {
+      "group": "C05",
+      "sha": "ee6c240810538b58541afd524faf857efa73cd74",
+      "parent": "2e6997999f93e89404009edafce27f0e2575cd1f",
+      "files": 519,
+      "message": "feat(sensors): add visualizer foundation and capture versions v02 to v04",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 10602
+    },
+    {
+      "group": "C06",
+      "sha": "a0433a9a0b0c77912ff615a89e911834d0c85424",
+      "parent": "ee6c240810538b58541afd524faf857efa73cd74",
+      "files": 466,
+      "message": "feat(capture): add interaction and scheduling pipelines v05 to v07",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 4
+    },
+    {
+      "group": "C07",
+      "sha": "3f9d042ec562221d75a7df1480f74e30b4971eb2",
+      "parent": "a0433a9a0b0c77912ff615a89e911834d0c85424",
+      "files": 351,
+      "message": "test(capture): add native capture baselines and comparison reports",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 2220
+    },
+    {
+      "group": "C08",
+      "sha": "d16a4973e92f89a61f67a2333da1f31676b2c8e3",
+      "parent": "3f9d042ec562221d75a7df1480f74e30b4971eb2",
+      "files": 849,
+      "message": "feat(continuous): add continuous RT capture and timing repro cases",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 2
+    },
+    {
+      "group": "C09",
+      "sha": "c2ceb0273ea120542c7fe34cdad3f4e9f5519c41",
+      "parent": "d16a4973e92f89a61f67a2333da1f31676b2c8e3",
+      "files": 141,
+      "message": "feat(headless): add continuous recording and full trajectory capture",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 2
+    },
+    {
+      "group": "C10",
+      "sha": "40d4c7e8cd71d53f513b59b2d78308467f8865eb",
+      "parent": "c2ceb0273ea120542c7fe34cdad3f4e9f5519c41",
+      "files": 155,
+      "message": "feat(tools): add cloud operations and trajectory viewer",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 5
+    }
+  ],
+  "remote_main_verified": true,
+  "note": "C01-C10 commit identities are recorded before C11. For the documentation commit itself use git log; no self-referential commit SHA.",
+  "documentation_commit": "this commit; resolve with git log",
+  "remote_synchronization": "will be attempted after this snapshot"
+}

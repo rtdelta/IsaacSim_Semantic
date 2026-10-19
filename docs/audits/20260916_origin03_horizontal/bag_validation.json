@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "session": "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/validation/results/origin03_horizontal/captures/20260916_113027_822638_f1356e",
+  "counts": {
+    "/clock": 115,
+    "/tf": 1886,
+    "/excavator/root_pose": 114,
+    "/joint_states": 114
+  },
+  "edges": [
+    [
+      "swing_coordinate",
+      "MyNZ3_back"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_backleft"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_backright"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_front"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_left"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_right"
+    ],
+    [
+      "swing_coordinate",
+      "MyOS0_back"
+    ],
+    [
+      "swing_coordinate",
+      "MyOS0_backleft"
+    ],
+    [
+      "swing_coordinate",
+      "MyOS0_backright"
+    ],
+    [
+      "swing_coordinate",
+      "MyOS0_front"
+    ],
+    [
+      "swing_coordinate",
+      "MyOS0_left"
+    ],
+    [
+      "swing_coordinate",
+      "MyOS0_right"
+    ],
+    [
+      "swing_coordinate",
+      "MyOS0_up"
+    ],
+    [
+      "swing_horizontal_coordinate",
+      "swing_coordinate"
+    ],
+    [
+      "world",
+      "swing_horizontal_coordinate"
+    ]
+  ],
+  "complete_tf_timestamps": 61,
+  "root_pose_comparisons": 57,
+  "tilted_samples": 27,
+  "max_world_root_matrix_error": 2.8206976310229948e-08,
+  "max_sensor_mount_matrix_change": 7.152557373046875e-07,
+  "timestamp_matching": "exact or +/-1 ns for native TF double-to-nanoseconds conversion",
+  "scope": "TF and state only; no pointcloud rendering in this QA run"
+}

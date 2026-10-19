@@ -1,0 +1,65 @@
+{
+  "original_visual_bounds_m": [
+    [
+      -2.884952,
+      -1.559999552581964,
+      -0.0260002490888116
+    ],
+    [
+      5.5314283,
+      1.6900030365654601,
+      5.7979307725689555
+    ]
+  ],
+  "usd_visual_bounds_m": [
+    [
+      -2.8849520683288574,
+      -1.5599995767525476,
+      -0.026000268973734322
+    ],
+    [
+      5.5314283244323725,
+      1.6900030144136688,
+      5.797930787303037
+    ]
+  ],
+  "max_bounds_difference_m": 6.832885723895288e-08,
+  "original_vertex_count": 300505,
+  "usd_vertex_count": 300505,
+  "joints": {
+    "Hinge_Slew": {
+      "anchor_error_m": 0.0,
+      "axis_world": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "Hinge_Boom": {
+      "anchor_error_m": 1.8157418094532876e-08,
+      "axis_world": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "Hinge_Arm": {
+      "anchor_error_m": 2.0895567600221806e-07,
+      "axis_world": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    "Hinge_Bucket": {
+      "anchor_error_m": 9.536743598740208e-08,
+      "axis_world": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  },
+  "upstream_unmodified": true,
+  "passed": true
+}

@@ -1,0 +1,32 @@
+{
+  "project": "/root/gpufree-data/semantic/scripts/260907LidarVisualizer",
+  "backup": "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/backups/origin03_horizontal_20260916_114231_574463",
+  "files": {
+    "lidar_visualizer/articulation_motion.py": "f960a5380d5152ebb9c6452b900cc395acafdfb9e3fa0b91afa5e60d29a53b2c",
+    "lidar_visualizer/cloud_rate.py": "ad96ee090d0458b50aebdf3af2ab42687976fce8ba5d9670de1a4b7e6a288f5b",
+    "lidar_visualizer/config.py": "4ba8772c8348710c65d30fd4214d6e7082578d267c78a4fbb1a13716246889fc",
+    "lidar_visualizer/discovery.py": "c63bb61c356e9a4953bce4cbc3a5d7b9bed5771eddd3593c503670b00a6b666e",
+    "lidar_visualizer/frame_overlay.py": "503d95409f992430aea735aebe6cb83fe2c625e19e6209f2de1dc37901741d8a",
+    "lidar_visualizer/joint_control.py": "67147580d8b888e41ec591e1606e4f65bd20eb2466287c55f99d4fee51975d6c",
+    "lidar_visualizer/joint_panel.py": "98ad514f0c5a1ee7fa343e3aa5560f9cdc55a9d3403eeb42bd4bc3a257aa44e7",
+    "lidar_visualizer/motion_profile.py": "c2d9fca143d6a1acf39ba05ad0ffb9f04d7fbd34175061df9e2ee14c86541a43",
+    "lidar_visualizer/pose_panel.py": "ae9881f12b179b0bf360f5c9bf7f506c55090d72de49a9d75a058aef72b84829",
+    "lidar_visualizer/recording.py": "20833e45725ab69491c4275d2480562e403d1053a64ac78ab558e63763424844",
+    "lidar_visualizer/reference_frames.py": "cce650d2524353a214939786d3f99b97ca3f21c9de76e0fd46cb5614647abcd9",
+    "lidar_visualizer/render_lease.py": "8d753e0dcfca1958545dab832b8c18a7f18301327680893da95ca3456205a668",
+    "lidar_visualizer/robot_discovery.py": "287c9bf7734b847096f68fd3065f721ae02dc092013816a659ac53941dde6f57",
+    "lidar_visualizer/runtime.py": "8737fe00fef21a367b74acacc40bd589e840ffcf89c896ca648134f88b4b47d9",
+    "lidar_visualizer/sensor_pose.py": "7a6a4c39da358f7cd12c9f5b131b72715bed58c2e1fbf48818c7f9c25dd3420c",
+    "lidar_visualizer/session.py": "b46a621651abad197c9872398c396ad11008de4290102767e3cb56e7d557cf66",
+    "lidar_visualizer/simulation_pacing.py": "0fa6c4a8acdbca86ece875384ab56ccaef8c9e7ab4f5bbc60efa6232cef21b02",
+    "lidar_visualizer/state_publication.py": "ef10ad606e15d4bf13b98599f2d395f8cca937e96348582b4bf7c2bc61170a29",
+    "lidar_visualizer/__init__.py": "bfb2297f5b26a1b76f0be0dc96611c01deaccab29012b7c43c10862ebb8f10d8",
+    "config/sensors.json": "0368ce4c1c994796092946b8f025f6ec3e09df05adfa6919207163118dd70554",
+    "run_in_isaac.py": "41c4f2b072b720791acec417c6694c1f4227c6f1eddc42924070c7ccf0199cd3",
+    "README.md": "857085e88b4667696566aeb774fb08a8e83f1c69d34db394915bba9e9248e9d7",
+    "ORIGIN03_HORIZONTAL.md": "a0877e648656a92f38e1b15b32c14cb0a2300dbfed1ab6d01d1e1deb524eb524",
+    "validation/test_reference_frames.py": "5d89901492e65609e09688cccf911f489ed4b5fe451ff3225fc726360c597d58",
+    "validation/validate_horizontal_isaac.py": "1f6de850dca1c04e68509a98908cf0d746fa73fe9a27a0d644004e6f30aab558",
+    "validation/verify_horizontal_bag.py": "1589953290183cdcab38b6b7a42d31e80079d80aaf2870c2f15904116e001d24"
+  }
+}
