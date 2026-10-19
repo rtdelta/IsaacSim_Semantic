@@ -1,0 +1,12 @@
+[
+  {
+    "path": "bag/bag_0.mcap",
+    "bytes": 9237321877,
+    "sha256": "9a60c1b20ba0de8fce20447a14f85be59a5f87c95a0e403344c850c8dd1a8bdd"
+  },
+  {
+    "path": "bag/metadata.yaml",
+    "bytes": 19242,
+    "sha256": "6130b4f738702479b323c23f3b094d2945e3f0b0a0273b70d7dd32b6bee5970d"
+  }
+]

@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/NC-004_report.md",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/NC-004_report.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 49672,
+      "original_sha256": "9d58bf2c7ecf2698dbf9cc26d67c0cd0b55fd166abafb103931ed9eb72e4c563",
+      "copied_sha256": "9d58bf2c7ecf2698dbf9cc26d67c0cd0b55fd166abafb103931ed9eb72e4c563",
+      "copy_verified": true,
+      "current_sha256": "f6316b071181d8c01d4620463a63c618913f7dadaf14175a6bf983f3c8b50638",
+      "reference_edits": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/contact_round_01.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/contact_round_01.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 5629722,
+      "original_sha256": "fccc3669c2f1a06e6f561e7ac2cc7b4e2f540a9f25f8fe4942a6d2a71f7524fa",
+      "copied_sha256": "fccc3669c2f1a06e6f561e7ac2cc7b4e2f540a9f25f8fe4942a6d2a71f7524fa",
+      "copy_verified": true,
+      "current_sha256": "fccc3669c2f1a06e6f561e7ac2cc7b4e2f540a9f25f8fe4942a6d2a71f7524fa",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/contact_round_02.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/contact_round_02.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 5631312,
+      "original_sha256": "e4a33e35b7a9e4543034649a501b42a1b27865ac8eba8a991e864bf88622f59b",
+      "copied_sha256": "e4a33e35b7a9e4543034649a501b42a1b27865ac8eba8a991e864bf88622f59b",
+      "copy_verified": true,
+      "current_sha256": "e4a33e35b7a9e4543034649a501b42a1b27865ac8eba8a991e864bf88622f59b",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/contact_round_03.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/contact_round_03.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 5626109,
+      "original_sha256": "56d7fecd102b0a3beb92e5e36a3b4bdcf238215dfc4b8f6b94d8bdc2ec5c20a8",
+      "copied_sha256": "56d7fecd102b0a3beb92e5e36a3b4bdcf238215dfc4b8f6b94d8bdc2ec5c20a8",
+      "copy_verified": true,
+      "current_sha256": "56d7fecd102b0a3beb92e5e36a3b4bdcf238215dfc4b8f6b94d8bdc2ec5c20a8",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/crop_front_ground_round_01.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/crop_front_ground_round_01.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 1375853,
+      "original_sha256": "35f9f5beddcd0808bfc17c65e3a5c010a2da44274af5de0b7a43ff323dc1e984",
+      "copied_sha256": "35f9f5beddcd0808bfc17c65e3a5c010a2da44274af5de0b7a43ff323dc1e984",
+      "copy_verified": true,
+      "current_sha256": "35f9f5beddcd0808bfc17c65e3a5c010a2da44274af5de0b7a43ff323dc1e984",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/crop_front_ground_round_02.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/crop_front_ground_round_02.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 1372735,
+      "original_sha256": "4e75c248caf89185c445f97aa2d0b08a202d6d7f33f9151f1fd92c3ff0488acd",
+      "copied_sha256": "4e75c248caf89185c445f97aa2d0b08a202d6d7f33f9151f1fd92c3ff0488acd",
+      "copy_verified": true,
+      "current_sha256": "4e75c248caf89185c445f97aa2d0b08a202d6d7f33f9151f1fd92c3ff0488acd",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/crop_front_ground_round_03.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/crop_front_ground_round_03.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 1370234,
+      "original_sha256": "499f2df8ef57e30a785537824d1909fcf455eccf40df395bf6f5b3885b06b05c",
+      "copied_sha256": "499f2df8ef57e30a785537824d1909fcf455eccf40df395bf6f5b3885b06b05c",
+      "copy_verified": true,
+      "current_sha256": "499f2df8ef57e30a785537824d1909fcf455eccf40df395bf6f5b3885b06b05c",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/crop_front_machine_round_01.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/crop_front_machine_round_01.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 1118336,
+      "original_sha256": "f3ad1efe762201ceb999c55d5001da67a1bc5d958aff20551f9bd642755d8d6b",
+      "copied_sha256": "f3ad1efe762201ceb999c55d5001da67a1bc5d958aff20551f9bd642755d8d6b",
+      "copy_verified": true,
+      "current_sha256": "f3ad1efe762201ceb999c55d5001da67a1bc5d958aff20551f9bd642755d8d6b",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/crop_front_machine_round_02.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/crop_front_machine_round_02.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 1120370,
+      "original_sha256": "39c6ea508a1dd779f628c6815761dadef663744f78102ab2a63f204166ce09f7",
+      "copied_sha256": "39c6ea508a1dd779f628c6815761dadef663744f78102ab2a63f204166ce09f7",
+      "copy_verified": true,
+      "current_sha256": "39c6ea508a1dd779f628c6815761dadef663744f78102ab2a63f204166ce09f7",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/crop_front_machine_round_03.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/crop_front_machine_round_03.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 1120729,
+      "original_sha256": "7c9608eea12dd9b5a9f302e484cd96ff34b13c203d0eb010b069a76d69191d11",
+      "copied_sha256": "7c9608eea12dd9b5a9f302e484cd96ff34b13c203d0eb010b069a76d69191d11",
+      "copy_verified": true,
+      "current_sha256": "7c9608eea12dd9b5a9f302e484cd96ff34b13c203d0eb010b069a76d69191d11",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/resources_round_01.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/resources_round_01.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 686293,
+      "original_sha256": "2dd9bed7c7d2f608da9678f874e55ec7e355d25f7d9e810f2db90ebfe7d98a77",
+      "copied_sha256": "2dd9bed7c7d2f608da9678f874e55ec7e355d25f7d9e810f2db90ebfe7d98a77",
+      "copy_verified": true,
+      "current_sha256": "2dd9bed7c7d2f608da9678f874e55ec7e355d25f7d9e810f2db90ebfe7d98a77",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/resources_round_02.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/resources_round_02.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 698502,
+      "original_sha256": "6b2a09a5bbeec44bb16e45e7ea7163ddb26581520e5a5e1f7114f645665d5ee3",
+      "copied_sha256": "6b2a09a5bbeec44bb16e45e7ea7163ddb26581520e5a5e1f7114f645665d5ee3",
+      "copy_verified": true,
+      "current_sha256": "6b2a09a5bbeec44bb16e45e7ea7163ddb26581520e5a5e1f7114f645665d5ee3",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/capture_comparison_004/results/comparison_20261012_070140/analysis/resources_round_03.png",
+      "destination": "scripts/260920SensorVisualizer/capture_comparison_004/docs/reports/results/comparison_20261012_070140/analysis/resources_round_03.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 695176,
+      "original_sha256": "00a55a8c3f412994bcd0da7286dc259f2d9a6c1ebf3fb5247ee0b40412c48eed",
+      "copied_sha256": "00a55a8c3f412994bcd0da7286dc259f2d9a6c1ebf3fb5247ee0b40412c48eed",
+      "copy_verified": true,
+      "current_sha256": "00a55a8c3f412994bcd0da7286dc259f2d9a6c1ebf3fb5247ee0b40412c48eed",
+      "reference_edits": false
+    }
+  ]
+}

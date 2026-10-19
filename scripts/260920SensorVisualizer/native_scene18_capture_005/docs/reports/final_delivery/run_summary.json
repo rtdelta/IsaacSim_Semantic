@@ -1,0 +1,92 @@
+{
+  "ok": true,
+  "groups": 300,
+  "messages": 7500,
+  "data_directory": "/root/gpufree-data/semantic/output/native_scene18_capture_005/capture_20261012_111643/delivery_300",
+  "source_capture": "/root/gpufree-data/semantic/output/native_scene18_capture_005/capture_20261012_111643/production/capture",
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+  "logical_time_s": [
+    0.0,
+    29.900000000000002
+  ],
+  "native_time_s": [
+    0.36666666666666664,
+    30.266666666666666
+  ],
+  "native_minus_logical_s": 0.36666666666666664,
+  "last_world_x_offset_m": 2.99,
+  "root_start_xyz": [
+    -0.5734957041467448,
+    1.4685478977484074,
+    0.5559421923906651
+  ],
+  "root_end_xyz": [
+    2.4165042958532554,
+    1.4685478977484074,
+    0.5559421923906651
+  ],
+  "root_delta_rpy_min_max_deg": [
+    -15.0,
+    15.0
+  ],
+  "group_seconds": {
+    "mean": 3.0088351138333334,
+    "median": 2.9875889695,
+    "max": 4.599603855,
+    "total": 902.65053415
+  },
+  "engine_and_recorder_wall_s": 944.4572067242116,
+  "root_pose_max_abs_error": 1.1584413250886882e-07,
+  "joint_pose_max_abs_error_rad": 1.2954287031963219e-08,
+  "render_frozen_pose_max_abs_error": 0.0,
+  "render_frozen_time_max_abs_error_s": 0.0,
+  "camera_render_pose_max_abs_error": 2.6645352591003757e-15,
+  "lidar_render_pose_max_abs_error": 5.870900537940926e-07,
+  "usd_unchanged": true,
+  "dependencies_unchanged": true,
+  "warning_lines": 158922,
+  "error_lines": 0,
+  "source_mcap_bytes": 18461045496,
+  "delivery_mcap_bytes": 9237321877,
+  "delivery_files": [
+    {
+      "path": "bag/bag_0.mcap",
+      "bytes": 9237321877,
+      "sha256": "9a60c1b20ba0de8fce20447a14f85be59a5f87c95a0e403344c850c8dd1a8bdd"
+    },
+    {
+      "path": "bag/metadata.yaml",
+      "bytes": 19242,
+      "sha256": "6130b4f738702479b323c23f3b094d2945e3f0b0a0273b70d7dd32b6bee5970d"
+    }
+  ],
+  "counts": {
+    "/camera/fisheye_right/camera_info": 300,
+    "/camera/fisheye_back/camera_info": 300,
+    "/camera/fisheye_front/camera_info": 300,
+    "/camera/fisheye_left/camera_info": 300,
+    "/lidar/MyNZ3_right/points": 300,
+    "/lidar/MyNZ3_backright/points": 300,
+    "/lidar/MyNZ3_front/points": 300,
+    "/lidar/MyNZ3_left/points": 300,
+    "/lidar/MyAiry_front/points": 300,
+    "/lidar/MyAiry_backright/points": 300,
+    "/lidar/MyNZ3_backleft/points": 300,
+    "/lidar/MyAiry_back/points": 300,
+    "/lidar/MyNZ3_back/points": 300,
+    "/lidar/MyAiry_left/points": 300,
+    "/lidar/MyAiry_right/points": 300,
+    "/lidar/MyAiry_up/points": 300,
+    "/tf": 600,
+    "/lidar/MyAiry_backleft/points": 300,
+    "/clock": 300,
+    "/joint_states": 300,
+    "/camera/fisheye_right/image_raw": 300,
+    "/camera/fisheye_front/image_raw": 300,
+    "/camera/fisheye_left/image_raw": 300,
+    "/camera/fisheye_back/image_raw": 300
+  },
+  "gpu_busy_mean_percent": 43.859234234234236,
+  "gpu_busy_max_percent": 57.0,
+  "gpu_memory_peak_mib": 7366.0
+}

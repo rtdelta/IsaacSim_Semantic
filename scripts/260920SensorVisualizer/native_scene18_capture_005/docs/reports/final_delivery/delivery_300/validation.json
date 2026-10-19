@@ -1,0 +1,1233 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "Per-group frozen equivalence is checked separately by validate_groups.py; native extra messages remain in the bag."
+  ],
+  "topics": {
+    "/camera/fisheye_right/camera_info": {
+      "type": "sensor_msgs/msg/CameraInfo",
+      "messages": 300,
+      "bytes": 110400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_right_optical"
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/camera/fisheye_back/camera_info": {
+      "type": "sensor_msgs/msg/CameraInfo",
+      "messages": 300,
+      "bytes": 110400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_back_optical"
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/camera/fisheye_front/camera_info": {
+      "type": "sensor_msgs/msg/CameraInfo",
+      "messages": 300,
+      "bytes": 110400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_front_optical"
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/camera/fisheye_left/camera_info": {
+      "type": "sensor_msgs/msg/CameraInfo",
+      "messages": 300,
+      "bytes": 110400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_left_optical"
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/lidar/MyNZ3_right/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 100141644,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyNZ3_right"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 25198,
+        "max": 28871,
+        "mean": 27807.373333333333
+      }
+    },
+    "/lidar/MyNZ3_backright/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 110016648,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyNZ3_backright"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 29083,
+        "max": 31343,
+        "mean": 30550.096666666668
+      }
+    },
+    "/lidar/MyNZ3_front/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 118259712,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyNZ3_front"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 27048,
+        "max": 35235,
+        "mean": 32840.17
+      }
+    },
+    "/lidar/MyNZ3_left/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 88514424,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyNZ3_left"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 20860,
+        "max": 27901,
+        "mean": 24577.59
+      }
+    },
+    "/lidar/MyAiry_front/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 138620400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyAiry_front"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 24354,
+        "max": 48752,
+        "mean": 38495.583333333336
+      }
+    },
+    "/lidar/MyAiry_backright/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 242441280,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyAiry_backright"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 64770,
+        "max": 68766,
+        "mean": 67334.38333333333
+      }
+    },
+    "/lidar/MyNZ3_backleft/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 101203884,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyNZ3_backleft"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 23331,
+        "max": 33438,
+        "mean": 28102.106666666667
+      }
+    },
+    "/lidar/MyAiry_back/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 108571296,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyAiry_back"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 19916,
+        "max": 50563,
+        "mean": 30148.943333333333
+      }
+    },
+    "/lidar/MyNZ3_back/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 96467340,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyNZ3_back"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 22673,
+        "max": 30565,
+        "mean": 26786.733333333334
+      }
+    },
+    "/lidar/MyAiry_left/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 114643200,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyAiry_left"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 21664,
+        "max": 49119,
+        "mean": 31835.583333333332
+      }
+    },
+    "/lidar/MyAiry_right/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 131276592,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyAiry_right"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 24267,
+        "max": 47821,
+        "mean": 36455.636666666665
+      }
+    },
+    "/lidar/MyAiry_up/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 230420292,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyAiry_up"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 63565,
+        "max": 65052,
+        "mean": 63995.886666666665
+      }
+    },
+    "/tf": {
+      "type": "tf2_msgs/msg/TFMessage",
+      "messages": 600,
+      "bytes": 597600,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": []
+    },
+    "/lidar/MyAiry_backleft/points": {
+      "type": "sensor_msgs/msg/PointCloud2",
+      "messages": 300,
+      "bytes": 189652296,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "MyAiry_backleft"
+      ],
+      "point_fields": [
+        {
+          "name": "x",
+          "offset": 0,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "y",
+          "offset": 4,
+          "datatype": 7,
+          "count": 1
+        },
+        {
+          "name": "z",
+          "offset": 8,
+          "datatype": 7,
+          "count": 1
+        }
+      ],
+      "nonfinite_xyz": 0,
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0,
+      "points": {
+        "min": 46752,
+        "max": 56933,
+        "mean": 52671.11
+      }
+    },
+    "/clock": {
+      "type": "rosgraph_msgs/msg/Clock",
+      "messages": 300,
+      "bytes": 3600,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": []
+    },
+    "/joint_states": {
+      "type": "sensor_msgs/msg/JointState",
+      "messages": 300,
+      "bytes": 56400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        ""
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/camera/fisheye_right/image_raw": {
+      "type": "sensor_msgs/msg/Image",
+      "messages": 300,
+      "bytes": 1866260400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_right_optical"
+      ],
+      "image_encoding": "rgb8",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/camera/fisheye_front/image_raw": {
+      "type": "sensor_msgs/msg/Image",
+      "messages": 300,
+      "bytes": 1866260400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_front_optical"
+      ],
+      "image_encoding": "rgb8",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/camera/fisheye_left/image_raw": {
+      "type": "sensor_msgs/msg/Image",
+      "messages": 300,
+      "bytes": 1866260400,
+      "bag_first_ns": 366666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_left_optical"
+      ],
+      "image_encoding": "rgb8",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    },
+    "/camera/fisheye_back/image_raw": {
+      "type": "sensor_msgs/msg/Image",
+      "messages": 300,
+      "bytes": 1866260400,
+      "bag_first_ns": 466666666,
+      "bag_last_ns": 30266666666,
+      "frames": [
+        "fisheye_back_optical"
+      ],
+      "image_encoding": "rgb8",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "header_first_ns": 366666666,
+      "header_last_ns": 30266666666,
+      "duplicate_stamps": 0,
+      "backward_stamps": 0,
+      "effective_sim_hz": 10.0,
+      "stamps_absent_from_clock": 0
+    }
+  },
+  "expected_topics": [
+    "/camera/fisheye_back/camera_info",
+    "/camera/fisheye_back/image_raw",
+    "/camera/fisheye_front/camera_info",
+    "/camera/fisheye_front/image_raw",
+    "/camera/fisheye_left/camera_info",
+    "/camera/fisheye_left/image_raw",
+    "/camera/fisheye_right/camera_info",
+    "/camera/fisheye_right/image_raw",
+    "/clock",
+    "/joint_states",
+    "/lidar/MyAiry_back/points",
+    "/lidar/MyAiry_backleft/points",
+    "/lidar/MyAiry_backright/points",
+    "/lidar/MyAiry_front/points",
+    "/lidar/MyAiry_left/points",
+    "/lidar/MyAiry_right/points",
+    "/lidar/MyAiry_up/points",
+    "/lidar/MyNZ3_back/points",
+    "/lidar/MyNZ3_backleft/points",
+    "/lidar/MyNZ3_backright/points",
+    "/lidar/MyNZ3_front/points",
+    "/lidar/MyNZ3_left/points",
+    "/lidar/MyNZ3_right/points",
+    "/tf"
+  ],
+  "tf_edges": [
+    [
+      "swing_coordinate",
+      "MyAiry_back"
+    ],
+    [
+      "swing_coordinate",
+      "MyAiry_backleft"
+    ],
+    [
+      "swing_coordinate",
+      "MyAiry_backright"
+    ],
+    [
+      "swing_coordinate",
+      "MyAiry_front"
+    ],
+    [
+      "swing_coordinate",
+      "MyAiry_left"
+    ],
+    [
+      "swing_coordinate",
+      "MyAiry_right"
+    ],
+    [
+      "swing_coordinate",
+      "MyAiry_up"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_back"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_backleft"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_backright"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_front"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_left"
+    ],
+    [
+      "swing_coordinate",
+      "MyNZ3_right"
+    ],
+    [
+      "swing_coordinate",
+      "fisheye_back_optical"
+    ],
+    [
+      "swing_coordinate",
+      "fisheye_front_optical"
+    ],
+    [
+      "swing_coordinate",
+      "fisheye_left_optical"
+    ],
+    [
+      "swing_coordinate",
+      "fisheye_right_optical"
+    ],
+    [
+      "world",
+      "swing_coordinate"
+    ]
+  ],
+  "camera_calibration": {
+    "/camera/fisheye_right/camera_info": {
+      "width": 1920,
+      "height": 1080,
+      "model": "equidistant",
+      "k": [
+        578.7734375,
+        0.0,
+        959.1826782226562,
+        0.0,
+        578.7734375,
+        539.4185791015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "d": [
+        0.0208106841892004,
+        0.0018665815005078912,
+        -0.0011759225744754076,
+        0.0003198367194272578
+      ]
+    },
+    "/camera/fisheye_back/camera_info": {
+      "width": 1920,
+      "height": 1080,
+      "model": "equidistant",
+      "k": [
+        578.7734375,
+        0.0,
+        959.1826782226562,
+        0.0,
+        578.7734375,
+        539.4185791015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "d": [
+        0.0208106841892004,
+        0.0018665815005078912,
+        -0.0011759225744754076,
+        0.0003198367194272578
+      ]
+    },
+    "/camera/fisheye_front/camera_info": {
+      "width": 1920,
+      "height": 1080,
+      "model": "equidistant",
+      "k": [
+        578.7734375,
+        0.0,
+        959.1826782226562,
+        0.0,
+        578.7734375,
+        539.4185791015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "d": [
+        0.0208106841892004,
+        0.0018665815005078912,
+        -0.0011759225744754076,
+        0.0003198367194272578
+      ]
+    },
+    "/camera/fisheye_left/camera_info": {
+      "width": 1920,
+      "height": 1080,
+      "model": "equidistant",
+      "k": [
+        578.7734375,
+        0.0,
+        959.1826782226562,
+        0.0,
+        578.7734375,
+        539.4185791015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "d": [
+        0.0208106841892004,
+        0.0018665815005078912,
+        -0.0011759225744754076,
+        0.0003198367194272578
+      ]
+    }
+  },
+  "tf_final_comparison": {
+    "swing_coordinate": {
+      "translation_error_m": 8.95090418262362e-16,
+      "rotation_error_rad": 0.00029483712601673106,
+      "translation_min": [
+        -0.5734956860542297,
+        1.4685479402542114,
+        0.555942177772522
+      ],
+      "translation_max": [
+        2.416504383087158,
+        1.4685479402542114,
+        0.555942177772522
+      ]
+    },
+    "fisheye_back_optical": {
+      "translation_error_m": 1.1552912120371438e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -3.792092800140381,
+        0.5385745763778687,
+        1.9962266683578491
+      ],
+      "translation_max": [
+        -3.792091131210327,
+        0.5385750532150269,
+        1.996227741241455
+      ]
+    },
+    "fisheye_front_optical": {
+      "translation_error_m": 3.2906707421594247e-07,
+      "rotation_error_rad": 0.000535462951616549,
+      "translation_min": [
+        0.6698985695838928,
+        0.8995130062103271,
+        2.837238311767578
+      ],
+      "translation_max": [
+        0.6698991060256958,
+        0.8995136022567749,
+        2.8372397422790527
+      ]
+    },
+    "fisheye_left_optical": {
+      "translation_error_m": 1.707614051704793e-07,
+      "rotation_error_rad": 0.0007563131692993796,
+      "translation_min": [
+        -1.9130945205688477,
+        1.8897048234939575,
+        1.5793893337249756
+      ],
+      "translation_max": [
+        -1.9130935668945312,
+        1.889705777168274,
+        1.579390287399292
+      ]
+    },
+    "fisheye_right_optical": {
+      "translation_error_m": 9.773005794001781e-08,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -1.761239767074585,
+        -1.0976369380950928,
+        1.60464346408844
+      ],
+      "translation_max": [
+        -1.7612390518188477,
+        -1.097636342048645,
+        1.6046441793441772
+      ]
+    },
+    "MyAiry_back": {
+      "translation_error_m": 1.1552912086401179e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -3.792092800140381,
+        0.5385745763778687,
+        1.9962266683578491
+      ],
+      "translation_max": [
+        -3.792091131210327,
+        0.5385750532150269,
+        1.996227741241455
+      ]
+    },
+    "MyAiry_backleft": {
+      "translation_error_m": 2.2103890930836508e-07,
+      "rotation_error_rad": 0.0005116438053949135,
+      "translation_min": [
+        -3.0517425537109375,
+        1.714664340019226,
+        1.9690632820129395
+      ],
+      "translation_max": [
+        -3.051741361618042,
+        1.7146652936935425,
+        1.969064474105835
+      ]
+    },
+    "MyAiry_backright": {
+      "translation_error_m": 1.9937902951984696e-07,
+      "rotation_error_rad": 0.0005116438053949135,
+      "translation_min": [
+        -3.339664936065674,
+        -0.7845019102096558,
+        2.0680971145629883
+      ],
+      "translation_max": [
+        -3.339663505554199,
+        -0.7845013737678528,
+        2.0680980682373047
+      ]
+    },
+    "MyAiry_front": {
+      "translation_error_m": 3.290670738512185e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        0.6698985695838928,
+        0.8995130062103271,
+        2.837238311767578
+      ],
+      "translation_max": [
+        0.6698991060256958,
+        0.8995136022567749,
+        2.8372397422790527
+      ]
+    },
+    "MyAiry_left": {
+      "translation_error_m": 1.707614055216811e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -1.9130945205688477,
+        1.8897048234939575,
+        1.5793893337249756
+      ],
+      "translation_max": [
+        -1.9130935668945312,
+        1.889705777168274,
+        1.579390287399292
+      ]
+    },
+    "MyAiry_right": {
+      "translation_error_m": 9.773005752471627e-08,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -1.761239767074585,
+        -1.0976369380950928,
+        1.60464346408844
+      ],
+      "translation_max": [
+        -1.7612390518188477,
+        -1.097636342048645,
+        1.6046441793441772
+      ]
+    },
+    "MyAiry_up": {
+      "translation_error_m": 7.455623772449956e-07,
+      "rotation_error_rad": 0.0005116438053949135,
+      "translation_min": [
+        -2.1182384490966797,
+        -0.7482389807701111,
+        8.5040922164917
+      ],
+      "translation_max": [
+        -2.118237018585205,
+        -0.7482376098632812,
+        8.504095077514648
+      ]
+    },
+    "MyNZ3_back": {
+      "translation_error_m": 1.23318391548647e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -3.8437106609344482,
+        0.5770633816719055,
+        1.992900013923645
+      ],
+      "translation_max": [
+        -3.8437089920043945,
+        0.577063798904419,
+        1.9929012060165405
+      ]
+    },
+    "MyNZ3_backleft": {
+      "translation_error_m": 5.457447842912495e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -3.0517423152923584,
+        1.7146741151809692,
+        1.9690630435943604
+      ],
+      "translation_max": [
+        -3.051741123199463,
+        1.7146753072738647,
+        1.9690639972686768
+      ]
+    },
+    "MyNZ3_backright": {
+      "translation_error_m": 2.6473836370042496e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -3.339665174484253,
+        -0.784507691860199,
+        2.0680971145629883
+      ],
+      "translation_max": [
+        -3.3396637439727783,
+        -0.7845070958137512,
+        2.068098545074463
+      ]
+    },
+    "MyNZ3_front": {
+      "translation_error_m": 1.3994036245357072e-07,
+      "rotation_error_rad": 0.0003309797209880866,
+      "translation_min": [
+        0.8183640837669373,
+        0.8926434516906738,
+        2.8423092365264893
+      ],
+      "translation_max": [
+        0.8183647394180298,
+        0.892643928527832,
+        2.8423104286193848
+      ]
+    },
+    "MyNZ3_left": {
+      "translation_error_m": 2.7521991655712413e-07,
+      "rotation_error_rad": 0.0,
+      "translation_min": [
+        -1.913094401359558,
+        1.8897043466567993,
+        1.5793895721435547
+      ],
+      "translation_max": [
+        -1.9130936861038208,
+        1.8897055387496948,
+        1.5793904066085815
+      ]
+    },
+    "MyNZ3_right": {
+      "translation_error_m": 2.2745190600051298e-07,
+      "rotation_error_rad": 0.0006290107192117106,
+      "translation_min": [
+        -1.7623282670974731,
+        -1.1239529848098755,
+        1.6011240482330322
+      ],
+      "translation_max": [
+        -1.7623275518417358,
+        -1.1239523887634277,
+        1.6011247634887695
+      ]
+    }
+  },
+  "measurement_topic_counts": {
+    "/camera/fisheye_right/camera_info": 300,
+    "/camera/fisheye_back/camera_info": 300,
+    "/camera/fisheye_front/camera_info": 300,
+    "/camera/fisheye_left/camera_info": 300,
+    "/lidar/MyNZ3_right/points": 300,
+    "/lidar/MyNZ3_backright/points": 300,
+    "/lidar/MyNZ3_front/points": 300,
+    "/lidar/MyNZ3_left/points": 300,
+    "/lidar/MyAiry_front/points": 300,
+    "/lidar/MyAiry_backright/points": 300,
+    "/lidar/MyNZ3_backleft/points": 300,
+    "/lidar/MyAiry_back/points": 300,
+    "/lidar/MyNZ3_back/points": 300,
+    "/lidar/MyAiry_left/points": 300,
+    "/lidar/MyAiry_right/points": 300,
+    "/lidar/MyAiry_up/points": 300,
+    "/lidar/MyAiry_backleft/points": 300,
+    "/joint_states": 300,
+    "/camera/fisheye_right/image_raw": 300,
+    "/camera/fisheye_front/image_raw": 300,
+    "/camera/fisheye_left/image_raw": 300,
+    "/camera/fisheye_back/image_raw": 300
+  },
+  "all_sensor_common_stamps": 300,
+  "joint_ranges_rad": {
+    "swing": [
+      0.0,
+      0.0
+    ],
+    "boom": [
+      -0.2618,
+      0.2618
+    ],
+    "arm": [
+      -0.2618,
+      0.2618
+    ],
+    "bucket": [
+      -0.2618,
+      0.2618
+    ]
+  },
+  "mcap_files": [
+    {
+      "name": "bag_0.mcap",
+      "bytes": 9237321877
+    }
+  ],
+  "limits": [
+    "Standard streaming topics are independent, not custom synchronized groups.",
+    "Camera info and sensor headers are checked; bag receive timestamps need not equal sensor acquisition timestamps.",
+    "Finite XYZ and TF connectivity do not prove identical old-project pose or 3DGS physical alignment."
+  ]
+}

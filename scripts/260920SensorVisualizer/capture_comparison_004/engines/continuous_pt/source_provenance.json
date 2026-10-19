@@ -1,0 +1,14 @@
+{
+  "source": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260920SensorVisualizer\\native_capture_continuous_pt_003",
+  "independent_copy": true,
+  "changes": [
+    "static comparison case matrix",
+    "continuous PT static targets and no extra RGB PNG export"
+  ],
+  "source_manifest": {
+    "run.py": "81d9d1f717d93d2f37775df37f0b096be78256e8df18a75fbb44eba4ee12e263",
+    "kit_entry.py": "01d8f4acfaffa88a0828086bcf6f3eb9496abab8f09ea7f2ba531c0596de87f9",
+    "experiment.py": "7245d5c2091c34b1cba76c965467ebb6800154cca9395ff7f905a675da29076a",
+    "continuous.py": "a80696a64164a0594cf00fd8e1de8bd977fbece9ee2764c0c750c59679da613e"
+  }
+}
