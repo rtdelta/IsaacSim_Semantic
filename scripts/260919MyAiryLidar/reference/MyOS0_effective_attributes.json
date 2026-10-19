@@ -1,0 +1,262 @@
+{
+  "omni:sensor:Core:accumulateOutputs": {
+    "type": "bool",
+    "value": "True"
+  },
+  "omni:sensor:Core:aspectRatio": {
+    "type": "float",
+    "value": "1.0"
+  },
+  "omni:sensor:Core:avgPowerW": {
+    "type": "float",
+    "value": "0.0020000000949949026"
+  },
+  "omni:sensor:Core:azimuthErrorMean": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:azimuthErrorStd": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:beamWaistHorM": {
+    "type": "float",
+    "value": "0.0020000000949949026"
+  },
+  "omni:sensor:Core:beamWaistVerM": {
+    "type": "float",
+    "value": "0.0020000000949949026"
+  },
+  "omni:sensor:Core:bitDepthResolution": {
+    "type": "float",
+    "value": "65536.0"
+  },
+  "omni:sensor:Core:calibrationGain": {
+    "type": "float",
+    "value": "40.0"
+  },
+  "omni:sensor:Core:customFrameOfReferenceTrafo": {
+    "type": "float[]",
+    "value": "[0, 0, 0, 0, 0, 0]"
+  },
+  "omni:sensor:Core:divergenceHorDeg": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:divergenceVerDeg": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:effectiveApertureSizeM": {
+    "type": "float",
+    "value": "0.009999999776482582"
+  },
+  "omni:sensor:Core:elementsCoordsType": {
+    "type": "token",
+    "value": "SPHERICAL"
+  },
+  "omni:sensor:Core:elevationErrorMean": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:elevationErrorStd": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:farRangeM": {
+    "type": "float",
+    "value": "60.0"
+  },
+  "omni:sensor:Core:focusDistM": {
+    "type": "float",
+    "value": "0.15000000596046448"
+  },
+  "omni:sensor:Core:instantLidar": {
+    "type": "bool",
+    "value": "False"
+  },
+  "omni:sensor:Core:intensityMappingDecoding": {
+    "type": "float[]",
+    "value": "[]"
+  },
+  "omni:sensor:Core:intensityMappingEncoding": {
+    "type": "float[]",
+    "value": "[]"
+  },
+  "omni:sensor:Core:intensityMappingType": {
+    "type": "token",
+    "value": "LINEAR"
+  },
+  "omni:sensor:Core:intensityProcessing": {
+    "type": "token",
+    "value": "NORMALIZATION"
+  },
+  "omni:sensor:Core:intensityScalePercent": {
+    "type": "float",
+    "value": "255.0"
+  },
+  "omni:sensor:Core:maxAzimuthROI": {
+    "type": "float",
+    "value": "400.0"
+  },
+  "omni:sensor:Core:maxReturns": {
+    "type": "uint",
+    "value": "2"
+  },
+  "omni:sensor:Core:minAzimuthROI": {
+    "type": "float",
+    "value": "400.0"
+  },
+  "omni:sensor:Core:minDistBetweenEchosM": {
+    "type": "float",
+    "value": "0.4000000059604645"
+  },
+  "omni:sensor:Core:minReflectance": {
+    "type": "float",
+    "value": "0.10000000149011612"
+  },
+  "omni:sensor:Core:minReflectionRangeM": {
+    "type": "float",
+    "value": "200.0"
+  },
+  "omni:sensor:Core:Msquared": {
+    "type": "float",
+    "value": "1.399999976158142"
+  },
+  "omni:sensor:Core:nearRangeM": {
+    "type": "float",
+    "value": "0.10000000149011612"
+  },
+  "omni:sensor:Core:numberOfChannels": {
+    "type": "uint",
+    "value": "96"
+  },
+  "omni:sensor:Core:numberOfEmitters": {
+    "type": "uint",
+    "value": "96"
+  },
+  "omni:sensor:Core:numLines": {
+    "type": "uint",
+    "value": "0"
+  },
+  "omni:sensor:Core:numRaysPerLine": {
+    "type": "uint[]",
+    "value": "[]"
+  },
+  "omni:sensor:Core:originErrorMean": {
+    "type": "float[]",
+    "value": "[0, 0, 0]"
+  },
+  "omni:sensor:Core:originErrorStd": {
+    "type": "float[]",
+    "value": "[0, 0, 0]"
+  },
+  "omni:sensor:Core:outputFrameOfReference": {
+    "type": "token",
+    "value": "SENSOR"
+  },
+  "omni:sensor:Core:outputMotionCompensationState": {
+    "type": "token",
+    "value": "NONCOMPENSATED"
+  },
+  "omni:sensor:Core:patternFiringRateHz": {
+    "type": "uint",
+    "value": "8920"
+  },
+  "omni:sensor:Core:peakPowerW": {
+    "type": "float",
+    "value": "10.0"
+  },
+  "omni:sensor:Core:pixelPitch": {
+    "type": "float",
+    "value": "40.0"
+  },
+  "omni:sensor:Core:pulseTimeNs": {
+    "type": "uint",
+    "value": "6"
+  },
+  "omni:sensor:Core:quantumEfficiency": {
+    "type": "float",
+    "value": "0.8999999761581421"
+  },
+  "omni:sensor:Core:rangeAccuracyM": {
+    "type": "float",
+    "value": "0.014999999664723873"
+  },
+  "omni:sensor:Core:rangeCount": {
+    "type": "uint",
+    "value": "0"
+  },
+  "omni:sensor:Core:rangeOffsetM": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:rangeResolutionM": {
+    "type": "float",
+    "value": "0.0010000000474974513"
+  },
+  "omni:sensor:Core:rangesMaxM": {
+    "type": "float[]",
+    "value": "[]"
+  },
+  "omni:sensor:Core:rangesMinM": {
+    "type": "float[]",
+    "value": "[]"
+  },
+  "omni:sensor:Core:rayType": {
+    "type": "token",
+    "value": "IDEALIZED"
+  },
+  "omni:sensor:Core:reflectionPowerFraction": {
+    "type": "float",
+    "value": "0.5"
+  },
+  "omni:sensor:Core:reportRateBaseHz": {
+    "type": "uint",
+    "value": "8920"
+  },
+  "omni:sensor:Core:rotationDirection": {
+    "type": "token",
+    "value": "CW"
+  },
+  "omni:sensor:Core:scanRateBaseHz": {
+    "type": "uint",
+    "value": "10"
+  },
+  "omni:sensor:Core:scanType": {
+    "type": "token",
+    "value": "ROTARY"
+  },
+  "omni:sensor:Core:skipDroppingInvalidPoints": {
+    "type": "bool",
+    "value": "False"
+  },
+  "omni:sensor:Core:startAzimuthOffsetDeg": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:stateResolutionStep": {
+    "type": "uint",
+    "value": "1"
+  },
+  "omni:sensor:Core:tiledSubSampling": {
+    "type": "uint",
+    "value": "0"
+  },
+  "omni:sensor:Core:transmissionPowerFraction": {
+    "type": "float",
+    "value": "1.0"
+  },
+  "omni:sensor:Core:validEndAzimuthDeg": {
+    "type": "float",
+    "value": "360.0"
+  },
+  "omni:sensor:Core:validStartAzimuthDeg": {
+    "type": "float",
+    "value": "0.0"
+  },
+  "omni:sensor:Core:waveLengthNm": {
+    "type": "float",
+    "value": "903.0"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "entry": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda",
+  "utc": "20260910T081315299074Z",
+  "sha256": {
+    "config/NZ3_scan.usda": "c7b92b73354e8f948e3987ac73f42682a8ea267df38a2bde977eed4d941499bc",
+    "geometry/NZ3_housing.usda": "463869e1facbe1ab64d52439c00712d203373c3a2146b41dbe3d18f72557990f",
+    "README.md": "f3380fee8b91f5ba1cdee44324feef932ab406308353b8982396033a89a371de",
+    "MyNZ3.usda": "32523204ec7fcd059e63e90a1393a2263a05498f161b6bab7ea56e121ba5ddee"
+  },
+  "backed_up_files": [
+    "config/NZ3_scan.usda",
+    "README.md",
+    "MyNZ3.usda"
+  ],
+  "full_acceptance": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260910NV3Lidar\\reports\\reference_asset\\20260910T081315299074Z\\full\\validation.json",
+  "reopened_acceptance": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260910NV3Lidar\\reports\\reference_asset\\20260910T081315299074Z\\reopened\\validation.json",
+  "relocated_acceptance": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260910NV3Lidar\\reports\\reference_asset\\20260910T081315299074Z\\relocated\\validation.json",
+  "deployed_acceptance": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260910NV3Lidar\\reports\\reference_asset\\20260910T081315299074Z\\deployed\\validation.json",
+  "remote_work": "/root/gpufree-data/260910NV3Lidar/reference_acceptance/20260910T081315299074Z",
+  "direct_reference_without_nz3_loader": true,
+  "mesh": "Blender NZ3 visual housing, 71x100x86 mm",
+  "housing_comparison": {
+    "points": 46080,
+    "max_point_difference_m": 2.86102294921875e-06,
+    "scan_configuration_sha256": "c7b92b73354e8f948e3987ac73f42682a8ea267df38a2bde977eed4d941499bc"
+  },
+  "housing_acceptance": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260910NV3Lidar\\reports\\reference_asset\\20260910T081315299074Z\\housing_smoke\\validation.json",
+  "negative_control": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260910NV3Lidar\\reports\\reference_asset\\20260910T081315299074Z\\occlusion_control\\validation.json",
+  "isaac_preview": "D:\\learning\\IntelligentDepartment\\CodesSet\\Self\\260707IsaacSIm\\scripts\\260910NV3Lidar\\reports\\reference_asset\\20260910T081315299074Z\\housing_smoke\\housing_isaac.png",
+  "range_offset_m": 0.08
+}

@@ -1,0 +1,75 @@
+{
+  "length_unit": "m",
+  "up_axis": "Z",
+  "root_frame": "base_link",
+  "bind_angles_deg": {
+    "swing": 0,
+    "boom": 0,
+    "arm": 0,
+    "bucket": 0
+  },
+  "reconstruction_to_base": {
+    "translation_m": [
+      3.20352,
+      -0.34217,
+      2.04934
+    ],
+    "rpy_deg": [
+      -103.98993,
+      -5.69811,
+      61.29154
+    ],
+    "rotation_order": "Rz(yaw) @ Ry(pitch) @ Rx(roll), column vectors",
+    "uniform_scale": 2.4
+  },
+  "joints": [
+    {
+      "name": "swing",
+      "parent_frame": "base_link",
+      "child_frame": "swing_link",
+      "parent_body": "track_link",
+      "xyz_m": [
+        0,
+        0,
+        0.6
+      ],
+      "axis": "Z"
+    },
+    {
+      "name": "boom",
+      "parent_frame": "swing_link",
+      "child_frame": "boom_link",
+      "parent_body": "swing_link",
+      "xyz_m": [
+        -0.374,
+        -0.27,
+        0.954
+      ],
+      "axis": "Y"
+    },
+    {
+      "name": "arm",
+      "parent_frame": "boom_link",
+      "child_frame": "arm_link",
+      "parent_body": "boom_link",
+      "xyz_m": [
+        4.55,
+        -0.066,
+        3.198
+      ],
+      "axis": "Y"
+    },
+    {
+      "name": "bucket",
+      "parent_frame": "arm_link",
+      "child_frame": "bucket_link",
+      "parent_body": "arm_link",
+      "xyz_m": [
+        1.226,
+        -0.093,
+        -2.662
+      ],
+      "axis": "Y"
+    }
+  ]
+}

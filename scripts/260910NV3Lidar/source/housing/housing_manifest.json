@@ -1,0 +1,42 @@
+{
+  "version": "1.2",
+  "blender_version": "5.1.1",
+  "dimensions_xyz_m": [
+    0.0860000029206276,
+    0.07100000232458115,
+    0.10000000149011612
+  ],
+  "dimensions_whd_mm": [
+    71,
+    100,
+    86
+  ],
+  "bounds_min_m": [
+    -0.0430000014603138,
+    -0.03550000116229057,
+    -0.05000000074505806
+  ],
+  "bounds_max_m": [
+    0.0430000014603138,
+    0.03550000116229057,
+    0.05000000074505806
+  ],
+  "max_vertex_radius_m": 0.07187882049140398,
+  "range_offset_m": 0.08,
+  "near_range_m": 0.2,
+  "mesh_count": 7,
+  "triangle_count": 1076,
+  "origin": "Optical origin approximated at housing bounding-box centre; not mechanically calibrated",
+  "axes": "+X forward, +Y left, +Z up",
+  "mesh_names": [
+    "Body",
+    "Base",
+    "Top_cap",
+    "Front_window",
+    "Left_window",
+    "Right_window",
+    "Rear_cover"
+  ],
+  "scope": "Simple visual housing; approximate silhouette/panels, no rigid body or collider",
+  "source": "NZ3&5_Specification V4.0_20260521.pdf: cover appearance and page 2 overall dimensions"
+}

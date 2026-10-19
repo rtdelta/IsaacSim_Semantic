@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "wrappers": [
+    {
+      "original_wrapper": "scripts/260916_CET200_Deploy/finalize_remote.py",
+      "original_sha256": "c3eb39e3a7d9d9eac3cd98b6cc3bf47c6b2b3737ea6f6e872bd890b4bfef68a5",
+      "local_archive": "_local/archive/20261019_github/scripts/260916_CET200_Deploy/finalize_remote.py",
+      "decoded_without_execution": true,
+      "decoded_files": [
+        {
+          "path": "repro/deployment_sources/finalize_remote/README_部署说明.md",
+          "sha256": "a7dd60ea3a08021a0fbc1541a523cff4b37ffc95069e9ae93fabc82520843904",
+          "bytes": 6128,
+          "same_as_current_root_file": true
+        },
+        {
+          "path": "repro/deployment_sources/finalize_remote/tools/audit_geometry_remote.py",
+          "sha256": "971c393188a4e7652b600a0d47087fb87fb7c7f6014d5aba35fd2a3e40512bf7",
+          "bytes": 5361,
+          "same_as_current_root_file": true
+        },
+        {
+          "path": "repro/deployment_sources/finalize_remote/tools/build_cet200.py",
+          "sha256": "420f8d1d2b5b543f6cea64106ed94893d140d739ed376e4c5f20d9f80fdb0b2b",
+          "bytes": 9098,
+          "same_as_current_root_file": true
+        },
+        {
+          "path": "repro/deployment_sources/finalize_remote/tools/launch_job_remote.py",
+          "sha256": "dac32a5503d7cc3577ab33237dcaa132a42151c9ec55c2db4dd27aea8d69b2d6",
+          "bytes": 1054,
+          "same_as_current_root_file": true
+        },
+        {
+          "path": "repro/deployment_sources/finalize_remote/tools/prepare_compatible_meshes.py",
+          "sha256": "58cd174820dcf58a2d6e4365be1b04ecfeb1fe80e53a64db2ca36be9e3e190be",
+          "bytes": 3088,
+          "same_as_current_root_file": true
+        },
+        {
+          "path": "repro/deployment_sources/finalize_remote/tools/validate_cet200.py",
+          "sha256": "fdf98cfa8c5bba14629c494f0152dcf9120d0040aead67955185093a2d715e5e",
+          "bytes": 4608,
+          "same_as_current_root_file": true
+        }
+      ]
+    },
+    {
+      "original_wrapper": "scripts/260916_CET200_Deploy/upload_build_remote.py",
+      "original_sha256": "68debfe796950f1436d95c67cdbd54cd09c7b0d713fed33acc42ddd22372433a",
+      "local_archive": "_local/archive/20261019_github/scripts/260916_CET200_Deploy/upload_build_remote.py",
+      "decoded_without_execution": true,
+      "decoded_files": [
+        {
+          "path": "repro/deployment_sources/upload_build_remote/tools/build_cet200.py",
+          "sha256": "420f8d1d2b5b543f6cea64106ed94893d140d739ed376e4c5f20d9f80fdb0b2b",
+          "bytes": 9098,
+          "same_as_current_root_file": true
+        }
+      ]
+    },
+    {
+      "original_wrapper": "scripts/260916_CET200_Deploy/upload_validate_remote.py",
+      "original_sha256": "e1500eb343ef67c71ed180b7108f3279b6c394a1b76b57aff0d8357d253fff60",
+      "local_archive": "_local/archive/20261019_github/scripts/260916_CET200_Deploy/upload_validate_remote.py",
+      "decoded_without_execution": true,
+      "decoded_files": [
+        {
+          "path": "repro/deployment_sources/upload_validate_remote/tools/validate_cet200.py",
+          "sha256": "fdf98cfa8c5bba14629c494f0152dcf9120d0040aead67955185093a2d715e5e",
+          "bytes": 4608,
+          "same_as_current_root_file": true
+        }
+      ]
+    }
+  ]
+}

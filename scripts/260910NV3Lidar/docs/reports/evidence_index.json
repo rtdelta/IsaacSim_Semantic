@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260910NV3Lidar/reports/housing_acceptance.md",
+      "destination": "scripts/260910NV3Lidar/docs/reports/housing_acceptance.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 2248,
+      "original_sha256": "7c4b71c6f9491e86e7f3fc2def2daf7a8dec5a87b358b73b9716d411a12cf96e",
+      "copied_sha256": "7c4b71c6f9491e86e7f3fc2def2daf7a8dec5a87b358b73b9716d411a12cf96e",
+      "copy_verified": true,
+      "current_sha256": "7c4b71c6f9491e86e7f3fc2def2daf7a8dec5a87b358b73b9716d411a12cf96e",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260910NV3Lidar/reports/reference_asset/latest.json",
+      "destination": "scripts/260910NV3Lidar/docs/reports/reference_asset/latest.json",
+      "kind": "acceptance_summary",
+      "action": "copy",
+      "bytes": 2468,
+      "original_sha256": "8167909c9b67b576246ea34c7648763cb72abd64dbb9f170ab81da7fd3a22480",
+      "copied_sha256": "8167909c9b67b576246ea34c7648763cb72abd64dbb9f170ab81da7fd3a22480",
+      "copy_verified": true,
+      "current_sha256": "8167909c9b67b576246ea34c7648763cb72abd64dbb9f170ab81da7fd3a22480",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260910NV3Lidar/reports/housing_preview_isaac.png",
+      "destination": "scripts/260910NV3Lidar/docs/reports/housing_preview_isaac.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 583469,
+      "original_sha256": "ddac696dbb71510881ef9f6f9a92825051ebe890e1acd4f295104940848eecee",
+      "copied_sha256": "ddac696dbb71510881ef9f6f9a92825051ebe890e1acd4f295104940848eecee",
+      "copy_verified": true,
+      "current_sha256": "ddac696dbb71510881ef9f6f9a92825051ebe890e1acd4f295104940848eecee",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260910NV3Lidar/reports/calibration_overview.png",
+      "destination": "scripts/260910NV3Lidar/docs/reports/calibration_overview.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 886439,
+      "original_sha256": "b33e92c58a8c7db84a85355d57fe00e955a7c6f7a75e5890d5621977ae5c30dc",
+      "copy_verified": true,
+      "copied_sha256": "b33e92c58a8c7db84a85355d57fe00e955a7c6f7a75e5890d5621977ae5c30dc",
+      "current_sha256": "b33e92c58a8c7db84a85355d57fe00e955a7c6f7a75e5890d5621977ae5c30dc",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260910NV3Lidar/reports/isaacsim/render_validation.png",
+      "destination": "scripts/260910NV3Lidar/docs/reports/isaacsim/render_validation.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 770317,
+      "original_sha256": "98abe0850e32387a820cdab94cb12f11e2e19d57897b5861fb1fcdeff7e10a77",
+      "copy_verified": true,
+      "copied_sha256": "98abe0850e32387a820cdab94cb12f11e2e19d57897b5861fb1fcdeff7e10a77",
+      "current_sha256": "98abe0850e32387a820cdab94cb12f11e2e19d57897b5861fb1fcdeff7e10a77",
+      "reference_edits": false
+    }
+  ]
+}
