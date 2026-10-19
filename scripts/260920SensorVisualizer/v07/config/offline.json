@@ -1,0 +1,6 @@
+{
+  "schema_version": 3,
+  "mode": "offline",
+  "groups": 100,
+  "sample_hz": 10
+}
