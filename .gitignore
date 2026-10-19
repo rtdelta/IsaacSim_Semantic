@@ -20,6 +20,92 @@ output*/
 remote_output*/
 *.log
 
+# Local archives and temporary working files (keep their originals off Git)
+/_local/
+/tmp/
+
+# Profiling captures; small summaries belong in docs/reports instead
+*.nsys-rep
+*.qdrep
+*.qdstrm
+*.ncu-rep
+
+# Confirmed runtime report directories. Do not use **/reports/: docs/reports
+# contains curated reports, summaries and figures intended for version control.
+/scripts/*/reports/
+/scripts/260920SensorVisualizer/capture_comparison_004/reports/
+/scripts/260920SensorVisualizer/lidar_equivalence_006/reports/
+/scripts/260920SensorVisualizer/native_capture_baseline/reports/
+/scripts/260920SensorVisualizer/native_capture_quality_002/reports/
+/scripts/260920SensorVisualizer/native_capture_continuous_pt_003/reports/
+/scripts/260920SensorVisualizer/native_scene18_capture_005/reports/
+/scripts/260920SensorVisualizer/single06_lab/reports/
+/scripts/260920SensorVisualizer/v02/reports/
+/scripts/260920SensorVisualizer/v03/reports/
+/scripts/260920SensorVisualizer/v04/reports/
+/scripts/260920SensorVisualizer/v05/reports/
+/scripts/260920SensorVisualizer/v06/reports/
+/scripts/260920SensorVisualizer/v06/single0601ContinuousRt/reports/
+/scripts/260920SensorVisualizer/v06/single0602Headless/reports/
+/scripts/260920SensorVisualizer/v07/reports/
+
+# Per-run experimental output; similarly named Python source packages stay visible
+/scripts/260920SensorVisualizer/capture_comparison_004/results/
+/scripts/260920SensorVisualizer/lidar_equivalence_006/results/
+/scripts/260917_motion_bvh_probe/results/
+/scripts/260917_motion_truth/cases/
+/scripts/260917_motion_truth/geometry/
+/scripts/260917_motion_truth/case_inventory.json
+/scripts/260917_motion_truth/motion_analysis.json
+/scripts/260917_motion_truth/source_usda_before.json
+/scripts/260917_motion_truth/evidence_archive_index.txt
+/scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/instant_lidar_timing/results/
+/scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/instant_lidar_timing/verified_results/
+
+# Evidence trees mix reusable scripts with raw observations: exclude data only
+/scripts/260917_bvh_causality_083739/evidence/**/*.json
+/scripts/260917_bvh_causality_083739/evidence/**/*.jsonl
+/scripts/260917_bvh_causality_083739/evidence/**/*.txt
+/scripts/260918_bvh_local_mode_0147/evidence/**/*.json
+/scripts/260918_bvh_local_mode_0147/evidence/**/*.jsonl
+/scripts/260918_bvh_local_mode_0147/evidence/**/*.txt
+/scripts/260917_motion_bvh_probe/evidence/**/*.json
+/scripts/260917_motion_bvh_probe/evidence/**/*.jsonl
+/scripts/260917_motion_bvh_probe/evidence/**/*.txt
+/scripts/260920SensorVisualizer/diagnostics/**/*.json
+/scripts/260920SensorVisualizer/diagnostics/**/*.jsonl
+/scripts/260920SensorVisualizer/diagnostics/**/*.txt
+/scripts/260920SensorVisualizer/diagnostics/**/attempts/
+/scripts/260920SensorVisualizer/diagnostics/**/before/
+/scripts/260920SensorVisualizer/v04/docs/evidence/
+/scripts/260920SensorVisualizer/mesh_scene18/evidence/
+/scripts/260920SensorVisualizer/mesh_scene18/deployed/
+/scripts/260920SensorVisualizer/mesh_scene18/handoff/evidence/
+
+# Regenerable deployment packages and backups; existing runtime paths are retained
+/scripts/260920SensorVisualizer/backups/
+/scripts/260920SensorVisualizer/native_scene18_capture_005/backups/
+/scripts/260920SensorVisualizer/v03/generated/
+/scripts/260920SensorVisualizer/v04/generated/
+/scripts/260922CloudInstanceOps/backups/
+/scripts/260910NV3Lidar/assets/**/*.bak
+/scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_generated.py
+/scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_[0-9]*.py
+/scripts/260920SensorVisualizer/mesh_scene18/operations/finalize_handoff_batch_*.py
+/scripts/260920SensorVisualizer/mesh_scene18/operations/finalize_handoff_remote.py
+/scripts/260920SensorVisualizer/mesh_scene18/operations/save_handoff_package_*.py
+/scripts/260920SensorVisualizer/research/20261010_dual_gpu/publish_plan_payload.py
+
+# Historical transfer inventories / per-file verification streams
+/scripts/260920SensorVisualizer/migration/20260920_to_30729/source_inventory.json
+/scripts/260920SensorVisualizer/migration/20260920_to_30729/excluded.json
+/scripts/260920SensorVisualizer/migration/20260920_to_30729/selection.json
+/scripts/260920SensorVisualizer/migration/20260920_to_30729/verified.jsonl
+/scripts/260920SensorVisualizer/migration/20260920_to_30729/source_known_hosts
+/scripts/260920SensorVisualizer/migrations/20261010_dual_gpu/migration_manifest.json
+/docs/audits/20260916_CET200/comparison_raw.json
+/docs/audits/20260920_3dgs_mcap_alignment/remote_geometry_samples.json
+
 # Input images and visual assets
 *.png
 *.jpg
@@ -35,6 +121,12 @@ remote_output*/
 *.ico
 *.heic
 *.avif
+
+# Curated report figures are explicitly separated from capture images
+!/scripts/**/docs/reports/**/*.png
+!/scripts/**/docs/reports/**/*.jpg
+!/scripts/**/docs/reports/**/*.jpeg
+!/scripts/**/docs/reports/**/*.svg
 
 # 3D assets, point clouds, and scene files
 *.ply
@@ -86,3 +178,35 @@ remote_output*/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Local profiles, installed dependency copies and reviewed upload exclusions (2026-10-19)
+/scripts/260922CloudInstanceOps/config.json
+/scripts/260920SensorVisualizer/migrations/20261010_dual_gpu/targets.json
+/scripts/260917_motion_truth/vendor/
+/scripts/260920SensorVisualizer/v02/generated/
+/scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_*.py
+/scripts/260916_CET200_Deploy/finalize_remote.py
+/scripts/260916_CET200_Deploy/upload_build_remote.py
+/scripts/260916_CET200_Deploy/upload_validate_remote.py
+/scripts/260916_origin03_horizontal/deploy_remote.py
+/scripts/260920SensorVisualizer/mesh_scene18/alignment_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/build_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/build_handoff_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/build_handoff_audit_retry.json
+/scripts/260920SensorVisualizer/mesh_scene18/capture_status_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/copy_scene_context_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/deploy_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/extract_handoff_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/extract_handoff_audit_final.json
+/scripts/260920SensorVisualizer/mesh_scene18/extract_handoff_audit_retry.json
+/scripts/260920SensorVisualizer/mesh_scene18/final_verification_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/finalize_handoff_batch_0_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/finalize_handoff_batch_1_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/finalize_handoff_batch_2_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/save_handoff_package_0_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/save_handoff_package_1_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/save_handoff_package_2_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/start_capture_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/validation_audit.json
+/scripts/260920SensorVisualizer/mesh_scene18/verify_handoff_audit_final.json
+/scripts/260920SensorVisualizer/native_capture_quality_002/probe_audit.json
