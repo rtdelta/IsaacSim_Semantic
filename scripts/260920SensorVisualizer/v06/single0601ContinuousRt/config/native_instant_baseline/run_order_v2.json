@@ -1,0 +1,49 @@
+{
+  "experiment_id": "native005_20261015_v1",
+  "qualification": [
+    "config/native_instant_baseline/specs/M_E_S0_r01_q02.json",
+    "config/native_instant_baseline/specs/P_E_S0_r01_q02.json",
+    "config/native_instant_baseline/specs/M_E_S5_r01_q02.json",
+    "config/native_instant_baseline/specs/P_E_S5_r01_q02.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r01_q02.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r01_q02.json"
+  ],
+  "main": [
+    "config/native_instant_baseline/specs/M_E_S0_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_S0_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_S0_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_S0_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_S0_r03_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_S0_r03_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r03_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r03_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R3N_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R3N_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R3N_r03_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r03_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R6P_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R6P_r01_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R6P_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R6P_r02_main_v2.json",
+    "config/native_instant_baseline/specs/M_E_R6P_r03_main_v2.json",
+    "config/native_instant_baseline/specs/P_E_R6P_r03_main_v2.json"
+  ],
+  "batches": [
+    "native005_q_static_v2",
+    "native005_q_rotation_v2",
+    "native005_main_01_v2",
+    "native005_main_02_v2",
+    "native005_main_03_v2",
+    "native005_main_04_v2",
+    "native005_main_05_v2",
+    "native005_main_06_v2"
+  ],
+  "D_status": "pending installed-default reconnaissance; no D sample may precede separate frozen declaration",
+  "supersedes_unrun_order": "run_order_v1.json; q01 failure and its raw data preserved"
+}

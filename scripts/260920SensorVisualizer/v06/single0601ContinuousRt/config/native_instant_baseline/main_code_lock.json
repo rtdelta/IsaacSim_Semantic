@@ -1,0 +1,1006 @@
+{
+  "created_utc": "2026-10-15T03:52:18.971313+00:00",
+  "qualification_comparison_sha256": "8e0f21d3d6cab135b66ae36b4ed52be08a2b4abd58ce935228f9b922d3ffc4be",
+  "files": [
+    {
+      "path": "../sensor_visualizer_v06/__init__.py",
+      "sha256": "50d1d1ba9d344177aa097d59c5f21ef509ec2103ba7be7f723a5c581b86d95b6"
+    },
+    {
+      "path": "../sensor_visualizer_v06/analysis.py",
+      "sha256": "55350f84c1f244f808a749c806fd53dd120bf0ba7af9289777c1c0eaa55b4719"
+    },
+    {
+      "path": "../sensor_visualizer_v06/buffers.py",
+      "sha256": "a934cc39e481fa55c3f4303b77f33f84f5d242b6273682e5773313fc323775ba"
+    },
+    {
+      "path": "../sensor_visualizer_v06/capture_supervisor.py",
+      "sha256": "cdd0fc2ceac056437e74045362e9bfa8e148502d86ded4571f2aeb12ab90f5f8"
+    },
+    {
+      "path": "../sensor_visualizer_v06/contracts.py",
+      "sha256": "154a7cddcda4f15d4fda459a3b36d324760de38e5de203569ea0e87a8c2c047e"
+    },
+    {
+      "path": "../sensor_visualizer_v06/control_ipc.py",
+      "sha256": "5583e6351f93b57a1a9555f3ef4502a9902e67f014f65f27d0fd4baf063a3646"
+    },
+    {
+      "path": "../sensor_visualizer_v06/coordinator.py",
+      "sha256": "d8c66c21aa22760eda4a855f750415e3a0f576a7ee226699738185b58e5e3b1b"
+    },
+    {
+      "path": "../sensor_visualizer_v06/diagnostics.py",
+      "sha256": "814a781240b8315de9a9a841b0b64f73cb5189f7fd5b65e24577ebfa528a8a4b"
+    },
+    {
+      "path": "../sensor_visualizer_v06/gating.py",
+      "sha256": "042ee536266e141f01c61ced820054bd1ac6f26dc0d91c6c22373e4659834169"
+    },
+    {
+      "path": "../sensor_visualizer_v06/geometry.py",
+      "sha256": "0ed99e571f83b2572a6dd85af17e89e61ee6bcc83c192b70325cb8ba11b46b99"
+    },
+    {
+      "path": "../sensor_visualizer_v06/gpu_config.py",
+      "sha256": "ff90b85cfc50f024ecca17930f3e58647439c2485f368a857e0a993f308a7715"
+    },
+    {
+      "path": "../sensor_visualizer_v06/hot_path_metrics.py",
+      "sha256": "387453b0de9f2d0f022d76ca41e60bd0c9c1fcaea5b04bb71c43cfd973d1079d"
+    },
+    {
+      "path": "../sensor_visualizer_v06/interaction_log.py",
+      "sha256": "b08bdbd6f73d5cc844869c19d846fefd1aaaed6b356067480023b217b19c6f5a"
+    },
+    {
+      "path": "../sensor_visualizer_v06/interactive_runtime.py",
+      "sha256": "a48d67d641c6b5a6d406ed1880c279359c29a55f72005d10bf39680ab62f573c"
+    },
+    {
+      "path": "../sensor_visualizer_v06/internal_scheduling.py",
+      "sha256": "df797845ac06937579568bcd56d603dd136319fd0032010badd4798ae7e530fb"
+    },
+    {
+      "path": "../sensor_visualizer_v06/keyboard_control.py",
+      "sha256": "d5e3ab15a94ce721afb13a7fc7af495a536755de4f438913881e79f38c8b5e06"
+    },
+    {
+      "path": "../sensor_visualizer_v06/lighting.py",
+      "sha256": "785cefb1d7cec7ce12fe080cd9fee5d0e26c616eeab1035348cb82bff5e0d29c"
+    },
+    {
+      "path": "../sensor_visualizer_v06/messages.py",
+      "sha256": "869b8dd3898838519e2319abbfa29106db43d27beaf5be7326e46b41d8bfa970"
+    },
+    {
+      "path": "../sensor_visualizer_v06/native_keyboard.py",
+      "sha256": "73b60032403d68035159bbd4d7118f823aa139f952fb82c548465fcb0259c1f3"
+    },
+    {
+      "path": "../sensor_visualizer_v06/native_trace.py",
+      "sha256": "dc745d4780cea7e5c5019b48bcab7d0fd042a5c37569d1428bde027decaf32b6"
+    },
+    {
+      "path": "../sensor_visualizer_v06/pipeline.py",
+      "sha256": "7b891e4be436ece09be3bc4895e207ae90d0ddf4e44d76a14e903dde5a2d6ed4"
+    },
+    {
+      "path": "../sensor_visualizer_v06/record_worker.py",
+      "sha256": "090c5cc36f04c624d15103281f6b9bd44469c6e463b8981c331cd30316c63ac7"
+    },
+    {
+      "path": "../sensor_visualizer_v06/replay_capture.py",
+      "sha256": "60ed2003b60e268063b6342022035bbbf4d6895505454d1fa4cb2e9204dbca19"
+    },
+    {
+      "path": "../sensor_visualizer_v06/resources.py",
+      "sha256": "667b045f1a57245bb3ca0f1e23f125f2cbc11c22eb130f7c4e9317854090bbb6"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/__init__.py",
+      "sha256": "82c2b5f339563e10018192e7eaf263647d765934ae5224ad3a8958c372ffb52a"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/articulation_motion.py",
+      "sha256": "9c321215ddcc0c3bc953f81dbc68f27100e8b5a4365401236a00d36ab26612db"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/base_control.py",
+      "sha256": "d43a2500b4ee7572adce39bbd483c056929f7277415a861a9b543960762590e2"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/discovery.py",
+      "sha256": "458c1e775096390bd949ee4356acb5a2fc3900efebc50593d352d2eb3fbf92fc"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/joint_control.py",
+      "sha256": "29124ead3a5db1d5f58b9bc4bc877bcb6f0dfd78f810eeef09cb70e6179e5980"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/motion_profile.py",
+      "sha256": "42d6690d593273880be2b3ee253fbf15bfbc5efe823f242e979e1d7c936044e3"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/motion_update.py",
+      "sha256": "6ef0b1be28464f69455949cbb2ac2ea3627ce040e76f6905ff5f74c5390d909e"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/performance.py",
+      "sha256": "b78ddebf83ffc3dc5ddfa774d03d820954049e48c60044adfb4225a9f7335d91"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/reference_frames.py",
+      "sha256": "c22c9c1f11e85f989a1e35bf0ce8f73e4dc253748ffd15c39e4e43e77c47937f"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/render_lease.py",
+      "sha256": "fda083a53be164d46c4011e895b5ec3240f90e46728029e42af04464fa547643"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/robot_discovery.py",
+      "sha256": "deec282989ef5be0cfd875205cecac3de2b7230c45cb97811a3de4ed7b76a1bb"
+    },
+    {
+      "path": "../sensor_visualizer_v06/robot/sensor_pose.py",
+      "sha256": "168f9352b722511ffbe628d5b0a55f79238f9998b9c45ffc97a41f011bd7b97e"
+    },
+    {
+      "path": "../sensor_visualizer_v06/scene.py",
+      "sha256": "51e710bdbbfae56a62865d51f64d80048d112692441b2c9110ab7926dec95c35"
+    },
+    {
+      "path": "../sensor_visualizer_v06/sensors.py",
+      "sha256": "f6f6a4e46378bea40520f5c159a669f121b0f78e82bf3ac33becc1efd250f3e8"
+    },
+    {
+      "path": "../sensor_visualizer_v06/tickets.py",
+      "sha256": "e40a0fe71935ca7c568654ef5e42b4c4bfa40d284b3d35cc04fb6587d6068c4c"
+    },
+    {
+      "path": "../sensor_visualizer_v06/trajectory.py",
+      "sha256": "7b448ef31347ade422163e26556134b93e87e85a1eb06364b23b2eae1b24dce6"
+    },
+    {
+      "path": "../sensor_visualizer_v06/ui.py",
+      "sha256": "9f80a86fc564e060507cd5202c76118e0bc8d8b533d70cc0d2a518590ebb3fed"
+    },
+    {
+      "path": "../sensor_visualizer_v06/web_asgi.py",
+      "sha256": "92fd352ee12be3634e8220603bf77a3548e610bac2b1597f64a4cb2891db8b5d"
+    },
+    {
+      "path": "../sensor_visualizer_v06/web_service.py",
+      "sha256": "0fe2f53328552aa253c32e427b75203e8f076a99e911ecde1023415be5817654"
+    },
+    {
+      "path": "config/mixed_pair.json",
+      "sha256": "664be83b81d9db5e7a460ce8d8d2703275d3bbf07e461039b78fa1c53b8cd609"
+    },
+    {
+      "path": "config/native_instant_baseline/analysis_rules_v4.json",
+      "sha256": "f16a3ba1687f079171092d25e603777c56e07efe6e2ffd6b1433420a3da9ac2f"
+    },
+    {
+      "path": "config/native_instant_baseline/effective_D.json",
+      "sha256": "59f1532ca289bf6efa07078e26e3af5480f4815ab6cc818b899fe982e096c9d9"
+    },
+    {
+      "path": "config/native_instant_baseline/effective_E.json",
+      "sha256": "66cac92a144b3cf3b02684bcd76681fb0a71b896aa1596b7adf00ffd3e75544b"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_d_main_01_v4.json",
+      "sha256": "c912cc8b9b37895c0002ed8431d94bab44c9d2adb8c7051e09f35ddd4f22235c"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_d_main_02_v4.json",
+      "sha256": "9db7e8f40bcccf56ddfa922c6677ec13cc4ad3ea5eec1004d0323f599d6cb6ae"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_d_qualification_01_v4.json",
+      "sha256": "c438b6278a47557a955dd0829070999e9e0542860e51f469921b1c56429a609b"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_01_v4.json",
+      "sha256": "e38202a902400d230edbfc4d3c7c564758e152dc75f939b564139111b835598f"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_02_v4.json",
+      "sha256": "31bdfd99aab87cb003329920caffab4536de75db2630bd3d201692c672cf79ba"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_03_v4.json",
+      "sha256": "4ce13f0b081ea5c8a78e40d3f56d23e3c2f129bfa74c6fea807c88231aed0eca"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_04_v4.json",
+      "sha256": "531251e7c0774dc5b8092b5aa8b7aab2d4430c7c9dc4f105484c8b391d43e075"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_05_v4.json",
+      "sha256": "38a5d4fef11fae344356fa2e143d07e10bc6374d66421938a8c49bc6b1847653"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_06_v4.json",
+      "sha256": "133cf56f23999210f6ec3dd0171ff7f403e9cc2869d43a01772d004496bffb4b"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_q_rotation_v4.json",
+      "sha256": "d93b5b6f58d69c1661ffe82e048d7e5c96bfc216d4e9c095241964759a426fef"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_q_static_v4.json",
+      "sha256": "1e94d9247305169fc7e7e3939d27a36af40c2e399e3bf23f74a25da9218b43ec"
+    },
+    {
+      "path": "config/native_instant_baseline/run_order.json",
+      "sha256": "70dd5533ec55c02ee7cad2fa43768de4f0bd17806c3e1bf4497b502b8d1d6006"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r01_main_v4.json",
+      "sha256": "69db1182cc82cabf526e5fc869713e740c76b4c60c2629fb65798affb4a77929"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r01_q04.json",
+      "sha256": "fa099a744643045ac75a16d8cdeee7f0184a6e76b27481dbddf16b7dc543e7d2"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r02_main_v4.json",
+      "sha256": "ef49923a17674cbbcfaf5f2e705354796fee5d4d88ceca97f7bfb07cf0cb4aae"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r03_main_v4.json",
+      "sha256": "2de4099e5870347faf93c9f64d376c8a4bc4e56ed0e3e602418c6ed9bf64dde6"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r01_main_v4.json",
+      "sha256": "f2cd2e7432b48cf634bb53ac99047e946f62a7e9b978f3f534f572d8482be57a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r01_q04.json",
+      "sha256": "98503ff22deb57b2a60534ea2016f2b351fbd879309e2faf5f7f3b1c5dd29729"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r02_main_v4.json",
+      "sha256": "6c907c6540e1dce0f287f791fa19e666f565251575d53e2db121067cf786a76d"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r03_main_v4.json",
+      "sha256": "d62e0e81c1ef926b573b1a16fac7f1772517f2488d85ea364a8ffa4b32a9d2c5"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S5_r01_q04.json",
+      "sha256": "3fcdc0622caef7985886cdee49e16b57e40f0c35f42ff93abe8865f1ac113273"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3N_r01_main_v4.json",
+      "sha256": "9c770524b5045694393003826e4daebfe16f503a8df650f65969fcac6b095196"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3N_r02_main_v4.json",
+      "sha256": "25672f108e61c281c7d185f4ea29d6992d1792a0805dd7372749a8235f50ecf9"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3N_r03_main_v4.json",
+      "sha256": "646771536ac5e793061ec3b714824266d9c1755c82d1d41512238e3eec375bc0"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r01_main_v4.json",
+      "sha256": "dddb933d778432cd78e84f742203786cad3373b3114bc261892750afeee68f93"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r01_q04.json",
+      "sha256": "636efbaceec8a0d6f14c3d161e4b18a8f4847adfa6ee813aaa4588f5b8433206"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r02_main_v4.json",
+      "sha256": "03ff2806ca8859ffb41b4c384a3b346bc26c7feb0916b46f05fece5dd9c7a48d"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r03_main_v4.json",
+      "sha256": "e74be047e4247f55862405a539eba8a44e100dea603b24af9f66d3730dd86aa0"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R6P_r01_main_v4.json",
+      "sha256": "d9f23d13434fa8ae9eeb9c17efeb19c3d6770b5f7cbebf816fb91988a9e3b9b5"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R6P_r02_main_v4.json",
+      "sha256": "aa1b27dd418a5c95be5b8253dcbb602348a6d1684347e3a9f39de4aa8e42dcec"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R6P_r03_main_v4.json",
+      "sha256": "c2e96df7db028a4cda4c27831897f603a90a0bb144cd0876e76312eaefafba3a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r01_main_v4.json",
+      "sha256": "bb2ced8b30299df7752a894dce73745ff15a25d9ef235646dc859fd30a3fb751"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r01_q04.json",
+      "sha256": "6866128b9ed103f77050bd1f595bb46c4cae6e58521e627a26d1accf92f11d6a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r02_main_v4.json",
+      "sha256": "cfa52cecf4f190c3b6a441741628ec18a23b81cd23e6af58339f254c4a4d76ac"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r03_main_v4.json",
+      "sha256": "90f87e312e0ae0d6131e3b273262b57f60b7d581b86b0de420d2be1cc4f65bf1"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S5_r01_q04.json",
+      "sha256": "bd6fe3c3ee50a09e5725a17a6defb61087b91e7879e118564feb04462b888a67"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3N_r01_main_v4.json",
+      "sha256": "39f4ba597b28b189922281b1a4f4db9fc48abf8e3273022466c60683ee1ec372"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3N_r02_main_v4.json",
+      "sha256": "34c5d1a0f7a8e0e28d35ca967a45d60d55f3406f5f159e66ee71e9f23958a21f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3N_r03_main_v4.json",
+      "sha256": "72750e9c776951414c81821b9587583f465fd33cc7b034b93ec3ea06c9f818ec"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r01_main_v4.json",
+      "sha256": "79f799c5ca9e731a2b984dde2def24bfceb02fc4fe088f11c80531ef8b5b0de3"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r01_q04.json",
+      "sha256": "f88b07db3d101bd7f313a5d3c4cec7e77edf38759b095580293a6ab02580473f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r02_main_v4.json",
+      "sha256": "ebf88a2be1aff6dd8d6ee81f9fc4bb8990aa20f30876c82f2304478332e03ec0"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r03_main_v4.json",
+      "sha256": "604c342ef9da426f68861829eda6f457bc56ec116e28fe3c1e8c75728cc7c795"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R6P_r01_main_v4.json",
+      "sha256": "775557cdeae64088a2f574b11269d90e81d7f0c48483ba595deacc09dd58fd93"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R6P_r02_main_v4.json",
+      "sha256": "fd3a14626c82f8e70d863422dbaea9d42628c91f4b7fef30840f04157e18e7f4"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R6P_r03_main_v4.json",
+      "sha256": "9fa514d4e659b447d6e98dd2876919a575a619d9b6d2066fd5ecfb020284a81a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r01_main_v4.json",
+      "sha256": "be714401e4b333fbe501ab50b860170c64ad2e0de8486914531a49584c9c0528"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r01_q04.json",
+      "sha256": "2205fa16661a7d75e210cd86243761e2b6797214f96588f85e6750896a68ca5f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r02_main_v4.json",
+      "sha256": "1fa0d149a537477278808be7835df648a74434dbc595ecf073439067242b824f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r03_main_v4.json",
+      "sha256": "3499f5cb52a25b3651ad9c09a89faf42f7bbd6731a06e91400ac8383259e038f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S5_r01_q04.json",
+      "sha256": "3a369900515001309e69ce7573bf8aa0801d6ad87d785c4a80918be9ec0d7c3a"
+    },
+    {
+      "path": "run_capture.py",
+      "sha256": "533b48fc4636e062b0a2c39b7ac0ccfb79eafa3dd5b6851097e54b900568b41b"
+    },
+    {
+      "path": "single0601_continuous_rt/__init__.py",
+      "sha256": "c17d91c345733613aa47cac98ba14b84ed9783085e4324a84e2860749bade768"
+    },
+    {
+      "path": "single0601_continuous_rt/barrier_driver.py",
+      "sha256": "98b42eb0776801f6bbc4ab97dd0ea6c2bc5636727369fc885fa9d0ddecbfa75e"
+    },
+    {
+      "path": "single0601_continuous_rt/buffer_pool.py",
+      "sha256": "5504b0e41ca89e279aa88f1f4025c0cf3fd55610f84bdb59bb78c5a2e307865e"
+    },
+    {
+      "path": "single0601_continuous_rt/capabilities.py",
+      "sha256": "87a01056e0dcab14090d94dabd04b7981c625ae5e492b5b43bec9b7726c10b8b"
+    },
+    {
+      "path": "single0601_continuous_rt/common.py",
+      "sha256": "cb5b13f371e7f6a26c3af0a7681d5478a364e2632c09105be6465567d7c906a1"
+    },
+    {
+      "path": "single0601_continuous_rt/config.py",
+      "sha256": "1b45d2af1a3010dbddc808ba35cf04a5e341ee69097ab7a6479398eb860f3187"
+    },
+    {
+      "path": "single0601_continuous_rt/diagnostics.py",
+      "sha256": "3fa76f7e561ac43df4116b24c715fd0b9515aab4ca493fa57cb1ba63a5f058f4"
+    },
+    {
+      "path": "single0601_continuous_rt/engine_owner.py",
+      "sha256": "09bcca5992ae4e59f20d3f9af6559f8c0a3eff929c594577314406c493e00ffc"
+    },
+    {
+      "path": "single0601_continuous_rt/geometry.py",
+      "sha256": "5a2cecc673b1977418defea65384cb0e99ccee6109cb3b963263d1d6d2599a6f"
+    },
+    {
+      "path": "single0601_continuous_rt/geometry_diagnostics.py",
+      "sha256": "76c464a2755058bb75d81bbd1a68c03db3ed573600c3bc72f5aa7ca36b843911"
+    },
+    {
+      "path": "single0601_continuous_rt/messages.py",
+      "sha256": "07e996ef8e276b3101c64ca2d4f95d2d2095c317de1d3221f08f45cdcbfeabad"
+    },
+    {
+      "path": "single0601_continuous_rt/motion_controller.py",
+      "sha256": "7c4f266c4c52ed6bb2f7ff96f7259171419eda47a428a9aa0544ef733861fb02"
+    },
+    {
+      "path": "single0601_continuous_rt/native_event.py",
+      "sha256": "e9d0546824cbd4fbcd1c18990398d1d2d1931b4d21c5373d196321c8bbd7db15"
+    },
+    {
+      "path": "single0601_continuous_rt/native_header.py",
+      "sha256": "8d824bb72caa23275d63b20203800950a3a90e787baaf924f65a200053d195b5"
+    },
+    {
+      "path": "single0601_continuous_rt/native_probe_owner.py",
+      "sha256": "51c7f2ea50fbc10627833edf5a5f8b2a18a2e43e9d32336d92f49f9cdd4705c6"
+    },
+    {
+      "path": "single0601_continuous_rt/publish.py",
+      "sha256": "5c762c13cd53a47cb619db1f9a932b90dd6aee6a26c335561277730881719cdc"
+    },
+    {
+      "path": "single0601_continuous_rt/record_pipeline.py",
+      "sha256": "9e531e29c9f9bf9c1aac8e3831934c050a75bae3bb6fd963f63ecedfe21d860e"
+    },
+    {
+      "path": "single0601_continuous_rt/record_worker.py",
+      "sha256": "968406a5b4a16b1aeca238c9f947aeae5115320278a27bf89aee8afb84bbf2f8"
+    },
+    {
+      "path": "single0601_continuous_rt/recording.py",
+      "sha256": "469f0ca77f9c5449175ddc5ecbec32a2d9462e9db9277e90b8dd44473a8eadef"
+    },
+    {
+      "path": "single0601_continuous_rt/render_pose_rig.py",
+      "sha256": "4f7509091d0a898609a30acce6afd33cb0631af264f57523371a68e89056bbe9"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/__init__.py",
+      "sha256": "8c9ea96d06775e4f2ce54848bb0dc0ed413472c01cd1e528af5cd2656930e628"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/articulation_motion.py",
+      "sha256": "4bb6a2d8ebeaf07958efc8db1bf70dbbe676420ab176bc48e22b2cba3465ba4d"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/base_control.py",
+      "sha256": "5ada65e4b45e335e50d9ea8287a00bdbee2608a530042a237eef2436c6218ddc"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/discovery.py",
+      "sha256": "c63bb61c356e9a4953bce4cbc3a5d7b9bed5771eddd3593c503670b00a6b666e"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/joint_control.py",
+      "sha256": "67147580d8b888e41ec591e1606e4f65bd20eb2466287c55f99d4fee51975d6c"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/motion_profile.py",
+      "sha256": "c2d9fca143d6a1acf39ba05ad0ffb9f04d7fbd34175061df9e2ee14c86541a43"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/motion_update.py",
+      "sha256": "6ef0b1be28464f69455949cbb2ac2ea3627ce040e76f6905ff5f74c5390d909e"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/performance.py",
+      "sha256": "33700389355ec90199f4e7a0ccf559c55083a8a9b0b1416535ae941171e2b660"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/reference_frames.py",
+      "sha256": "cce650d2524353a214939786d3f99b97ca3f21c9de76e0fd46cb5614647abcd9"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/render_lease.py",
+      "sha256": "8d753e0dcfca1958545dab832b8c18a7f18301327680893da95ca3456205a668"
+    },
+    {
+      "path": "single0601_continuous_rt/robot/robot_discovery.py",
+      "sha256": "287c9bf7734b847096f68fd3065f721ae02dc092013816a659ac53941dde6f57"
+    },
+    {
+      "path": "single0601_continuous_rt/sensor_backend.py",
+      "sha256": "db0fffe618211c3f89bce45dd5c5a563e81b35ad695bf4338ecd8f84202f39e2"
+    },
+    {
+      "path": "single0601_continuous_rt/sensor_registry.py",
+      "sha256": "412ec76140ad7a4969fbca0bbaa11a222f46945ef7987e118297a69580c8adf2"
+    },
+    {
+      "path": "single0601_continuous_rt/state_ledger.py",
+      "sha256": "85a9d1029647389fe9fef12c70927ba47dfea94ffec39ef48f7f52da7d96fe97"
+    },
+    {
+      "path": "single0601_continuous_rt/state_trace.py",
+      "sha256": "fb687c1787b24b0f7c7ece4a62fb9d2333b75b280550cd7a2e9467accf3d86ed"
+    },
+    {
+      "path": "single0601_continuous_rt/time_joiner.py",
+      "sha256": "8faa0157913e30e1ad5d3bd3dbb1b924ffc4d491f6eff362e3714186f9d6db2d"
+    },
+    {
+      "path": "single0601_continuous_rt/ui.py",
+      "sha256": "3d80f31126022ba84a974d33eaa613dcdbbddebfed729778da9cb8ef098393a3"
+    },
+    {
+      "path": "single0601_continuous_rt/validation.py",
+      "sha256": "69c4baea6a877957ea1d112964a4462cb1d6e19f04b2e8942abdcc677f9b24ca"
+    },
+    {
+      "path": "tools/clock_state/__init__.py",
+      "sha256": "8b45a89467fc8b95748c300a0318703b38096784b89093b4360e40b22c7cfc68"
+    },
+    {
+      "path": "tools/clock_state/analyze.py",
+      "sha256": "20d4266f30bd82d06c8afd4d1205c45c294211ad161fb2a312310a681935e128"
+    },
+    {
+      "path": "tools/clock_state/benchmark_analysis_remote.py",
+      "sha256": "c733a8072daf661a8271ea551ce6115d131d1eb4e758224424a24b07f0a182a7"
+    },
+    {
+      "path": "tools/clock_state/branch_analysis.py",
+      "sha256": "d9624335be7a8dcfa003c1ecb2f72c063c385b7ed7593ee12d1cc3dfccaba8a0"
+    },
+    {
+      "path": "tools/clock_state/build_branch_configs.py",
+      "sha256": "bb4bdc99f0d4f0dfe3278e3807aea6aac541a80571fdeefa5c1158db4fcabadc"
+    },
+    {
+      "path": "tools/clock_state/candidates.py",
+      "sha256": "0b4df8f7c195dbe76f924c183591d87d5e5bb3f1b58bba1541d32b6ff7cd8b0d"
+    },
+    {
+      "path": "tools/clock_state/check_analysis_decisions_remote.py",
+      "sha256": "4c68b05fe56e3733c001910741555d142c2bf3ac33edb000e49ecc56db869703"
+    },
+    {
+      "path": "tools/clock_state/clock_observation_remote.py",
+      "sha256": "8e1ff3dc782ec76b48c04d26a463815d1dd3f8c7618eb1b6db943c354e7ede45"
+    },
+    {
+      "path": "tools/clock_state/common.py",
+      "sha256": "5cac9bea0938a354e0afbbcdec194ce592a4e63a00749e9d5a0d393f798cdc63"
+    },
+    {
+      "path": "tools/clock_state/compare_bridge.py",
+      "sha256": "20e0427cbd794f3224f1a724fe06f17cfc42e8dba3677d88322a88eeacb04178"
+    },
+    {
+      "path": "tools/clock_state/compare_local_readback.py",
+      "sha256": "0f4f9a59fcfd68aeeb6131dcfee8c752f46ef8bd5d55b829336484fd27aa3b3f"
+    },
+    {
+      "path": "tools/clock_state/compare_motion_remote.py",
+      "sha256": "a4e002a653becf829e30b5c7f8742d57dca92a2b35ca414db77ed43241234532"
+    },
+    {
+      "path": "tools/clock_state/compare_observer.py",
+      "sha256": "18be1482fe7c8a7a84bb1620042dd9b1f3fae208e214594158627598e044a0d8"
+    },
+    {
+      "path": "tools/clock_state/coordinator.py",
+      "sha256": "6a11f5e1c646318b7df68ce4e86c3c4f77755506b169d13e13de823afee3ba1b"
+    },
+    {
+      "path": "tools/clock_state/finish_bridge_remote.py",
+      "sha256": "738926e9343263f3b345cc10c1695a6b3f26956fc7b5604b677714c5c7c4b28d"
+    },
+    {
+      "path": "tools/clock_state/finish_qualification_remote.py",
+      "sha256": "d812229bd23d28053d6def0e795d2f538e7991a85b07f86976efb445d56e4ea4"
+    },
+    {
+      "path": "tools/clock_state/finish_t0_remote.py",
+      "sha256": "f90f65e26b2af77ac3c254325b175be31e8a64bb87692c45d55228b76b0ee900"
+    },
+    {
+      "path": "tools/clock_state/generate_specs.py",
+      "sha256": "f6392adfe213f4531def7848fbe561f69e436718f70d7df2045a8773c37fbee9"
+    },
+    {
+      "path": "tools/clock_state/h5_models.py",
+      "sha256": "e32d734327eb9c6ec8a9b9d8d6afcbe1aefef260898f04f96073c1db73c531e0"
+    },
+    {
+      "path": "tools/clock_state/inspect_branch_phases_remote.py",
+      "sha256": "dba1aeaefa6af49ea74bdd24430f8c4d65d8130df94cb799a3debbdbc994146a"
+    },
+    {
+      "path": "tools/clock_state/inspect_cleanup_remote.py",
+      "sha256": "2926b12ed68ce8e9c3f4e24ee95c46db50e04963248a8b9565d1cbf7dfd8fb00"
+    },
+    {
+      "path": "tools/clock_state/inspect_timing_interfaces_remote.py",
+      "sha256": "d990299d7bc654cbf8ad6e3abc542e86801d04b551fcb3124cda6dae1140c2e9"
+    },
+    {
+      "path": "tools/clock_state/lifecycle_probe_remote.py",
+      "sha256": "8c33e92f18ccfe86f65ed47efd1751b3458bc84ed63bd1e8da7916d5245b0e39"
+    },
+    {
+      "path": "tools/clock_state/metadata_size_remote.py",
+      "sha256": "b92c4e1c0f77382083930349387a4eafacf08f3e7f8a34c531aadf51869f27ff"
+    },
+    {
+      "path": "tools/clock_state/pack_evidence_remote.py",
+      "sha256": "d7f2e16280c4a421b89139f398bb154bb1b440524ef9a6abaa386ec86b9ac956"
+    },
+    {
+      "path": "tools/clock_state/phase_analysis.py",
+      "sha256": "e327808510f8271c42ff903d14dbd1fb5f66e6ed77922ad95227bbec5e73419a"
+    },
+    {
+      "path": "tools/clock_state/plot_delivery_local.py",
+      "sha256": "d65e49564f74f4e7a326445774a569662a3bfd8b5fca80a8dfd4487d8884921f"
+    },
+    {
+      "path": "tools/clock_state/prepare_start_d_remote.py",
+      "sha256": "7289fc4df186994771227d9be8e83634867a621c2d793a1a8857a10a8ad27f9a"
+    },
+    {
+      "path": "tools/clock_state/progress_remote.py",
+      "sha256": "2d5ed24fe7d9b8c81b11368e4b3990b6d4c5d1857fa0892385de78981b23e0cd"
+    },
+    {
+      "path": "tools/clock_state/raw_tap.py",
+      "sha256": "b172975986c7c0277d2b2038e2de168d9b0ef7da021f730d68dca971e295d98b"
+    },
+    {
+      "path": "tools/clock_state/read_rotation_components_remote.py",
+      "sha256": "f94267ac0bf639b5824ab60579557ded0e56db28748d69f4cdafad19ed664067"
+    },
+    {
+      "path": "tools/clock_state/read_timing_contract_remote.py",
+      "sha256": "db481b88385c83988b71a3b6d9683bd35621883700dba9c0149e9be6c41224cf"
+    },
+    {
+      "path": "tools/clock_state/recheck_lifecycle_gate_remote.py",
+      "sha256": "2ede8a326637319435063c3daf09dca949dade5df1f4837e45f183aa33965dca"
+    },
+    {
+      "path": "tools/clock_state/recheck_provenance_gate_remote.py",
+      "sha256": "f151e8d3ce0c65c19de0accff35f8f7760f116eeb65b8fd37718267e92d934bb"
+    },
+    {
+      "path": "tools/clock_state/register_h5_remote.py",
+      "sha256": "ab3c9741bd72c34c70603b4769bcdabf5fc93ba443fbc6549130ebedd3b58525"
+    },
+    {
+      "path": "tools/clock_state/run_branch_analysis_remote.py",
+      "sha256": "347887ccecd81eb1506439ee62f9f80291df357fd17ddcc9b749d03fbcda52fa"
+    },
+    {
+      "path": "tools/clock_state/run_continuous.py",
+      "sha256": "ebeaa9abb03326503d78d6844ddd96c02a019a95cab9b9a6b1c30ca4eb21f110"
+    },
+    {
+      "path": "tools/clock_state/run_h5_completed_remote.py",
+      "sha256": "1faed7062b6549b46e04a18d4ffa2a602231d1570dfebc8e24f0ddb6027bf457"
+    },
+    {
+      "path": "tools/clock_state/run_lifecycle_probe.py",
+      "sha256": "b0f4e2675215d7a6a20763709e68b974608cb671b7d4f9b1daf4b422aea73f19"
+    },
+    {
+      "path": "tools/clock_state/start_branches_qualification_remote.py",
+      "sha256": "5ca5e5b9cb3e962e2e682e1264b9773784e4d0b0bb0cb3c525c6d18e7b6eb0cb"
+    },
+    {
+      "path": "tools/clock_state/start_bridge_remote.py",
+      "sha256": "1bf3d1758f405e943b3d61b7f28222a9da1858ecd0e1f59bc7bd59b9e53b598e"
+    },
+    {
+      "path": "tools/clock_state/start_lifecycle_fix_remote.py",
+      "sha256": "9064107dce291fa954c470551f09003bbfe1e1c1c50eba1f77799bd87ddd89db"
+    },
+    {
+      "path": "tools/clock_state/start_qualification_remote.py",
+      "sha256": "020863fea6fb7f44cb1199f38baeed2a1764e6f921a51b5fc9f187973c04abd6"
+    },
+    {
+      "path": "tools/clock_state/start_t0_remote.py",
+      "sha256": "c3e874d4d0dd48e4df71b41f6b4b99e792cb42cb4abaf69bfaa2213366d5ed1b"
+    },
+    {
+      "path": "tools/clock_state/start_t2_final_remote.py",
+      "sha256": "e09b56e9dbb3c2c6347680a8ced4290962717ba5711faf756aaf124a3d92a195"
+    },
+    {
+      "path": "tools/clock_state/start_t2_first_remote.py",
+      "sha256": "e9701a256b7afa2e2080780f2af8ad89b06a91bb3d4ff853523c676cda47a0f9"
+    },
+    {
+      "path": "tools/clock_state/start_t2_qualification_remote.py",
+      "sha256": "d6df9cd8132ab929149904a2a7b8fd60d697c3b61c4fcf139ba50cfef4a47cf3"
+    },
+    {
+      "path": "tools/clock_state/start_t4_qualification_remote.py",
+      "sha256": "58d412bfbce4805fef265df245a51b7a5aa8e2a9082c40d1d68900d19372591b"
+    },
+    {
+      "path": "tools/clock_state/start_t4_remote.py",
+      "sha256": "38d33616e32f6735e30f3b9189e430e5d29c753b63c8e86638cca5c1a367965d"
+    },
+    {
+      "path": "tools/clock_state/start_t5_remote.py",
+      "sha256": "023473c223c417f96b4f8aea70719fad5e232547e616a6a5832bef03fa2eb7f1"
+    },
+    {
+      "path": "tools/clock_state/start_t6_r01_remote.py",
+      "sha256": "47baf2f8645f603e665ba47a85849ad03d95b635afaafb06932d6f244f41ab91"
+    },
+    {
+      "path": "tools/clock_state/start_t6_r02_remote.py",
+      "sha256": "bea23170f46f14ec98fdabea1a4c9b2b7fa68fc980fc8b913d34e133faa327db"
+    },
+    {
+      "path": "tools/clock_state/start_t6_r03_remote.py",
+      "sha256": "18e1148516b2430792f31d8e818ad3cc12304ca379f6a8eb3eaf83b96bc99c80"
+    },
+    {
+      "path": "tools/clock_state/status_remote.py",
+      "sha256": "400022cd30bbb93b95f7cc64fea4a4c1a559a5809f4e93e0c435f3588454e121"
+    },
+    {
+      "path": "tools/clock_state/storage_status_remote.py",
+      "sha256": "d09a2afd3172f0ef39c71bd0fc1c26f3b98feaf3d5c5f956bb91fbd26ac65739"
+    },
+    {
+      "path": "tools/clock_state/summarize_all_remote.py",
+      "sha256": "1258565800c201d53ae68d01150e5b8403e9e9797e5e12d950db8a40141d9437"
+    },
+    {
+      "path": "tools/clock_state/summarize_frequency_remote.py",
+      "sha256": "a6b213b32b58ca9be231374fd3a347bfecdb515f06f4b9410d0645cc89923e38"
+    },
+    {
+      "path": "tools/clock_state/test_contracts.py",
+      "sha256": "d210a1cf031172db833827d6ddfc5ff9bc654363cd5696d27e828a73690c5db4"
+    },
+    {
+      "path": "tools/clock_state/verify_delivery_local.py",
+      "sha256": "2bce7f7975fc0545c0fa95f5329be8653444e7fa79e9239dc38fce57a0235ad7"
+    },
+    {
+      "path": "tools/clock_state/verify_lifecycle_fix_remote.py",
+      "sha256": "fd8fe722525b3cccbdc6f3999f96aeb9c1f95ca8a2a38379c3d34560449c2fca"
+    },
+    {
+      "path": "tools/experiments/__init__.py",
+      "sha256": "075c6bcb218a51909afa74fc9f0a1fdae1135a6209a8001aba1aa7245e2485bb"
+    },
+    {
+      "path": "tools/experiments/analyze_mechanism_relations.py",
+      "sha256": "0a515d2c4907e0ea5fdecf2ac643216e591636bc52605e9df9545f58b931d729"
+    },
+    {
+      "path": "tools/experiments/build_paired_figures.py",
+      "sha256": "4030189be68488d930f7f46c75c38e88c54fa95d9114b6c7ffdaf9451fa3a97e"
+    },
+    {
+      "path": "tools/experiments/clock_preflight_remote.py",
+      "sha256": "89547837db866b0367566b2a408cdc28777c99837cf51dc31a7551a7c8d02bfe"
+    },
+    {
+      "path": "tools/experiments/collect_final_analysis_remote.py",
+      "sha256": "58248c8717be011001f8f00f9daa14fe845619dc5e5be2dca489907d8c204949"
+    },
+    {
+      "path": "tools/experiments/compare_paired_outputs.py",
+      "sha256": "69de497abbcff9307a6b5b04ad8aa38f42a7ce410830fc0e28e5e7cf54666a70"
+    },
+    {
+      "path": "tools/experiments/decode_gmo.py",
+      "sha256": "4c2d4ba03d689672925c9c6fdd7ad1e8b9e046a497265654929f731f7f2cf68a"
+    },
+    {
+      "path": "tools/experiments/export_pair_trajectory.py",
+      "sha256": "ee28f25a80721617a4fa5847af696304258a6709a22e1bdd6b1cbeede83ecdec"
+    },
+    {
+      "path": "tools/experiments/final_preservation_remote.py",
+      "sha256": "e302a8d494a9dca523da974de1e4ef7e635dd3b68a66404febee88324f98542c"
+    },
+    {
+      "path": "tools/experiments/finish_e1_analysis_remote.py",
+      "sha256": "0f6ee1f409a4257daa556584ba8792380ffd1c0e1cd4421eb0c81afad795cf20"
+    },
+    {
+      "path": "tools/experiments/generate_specs.py",
+      "sha256": "ac28c9931dc7b230d029616023d91c205d1afef91fae8e1954712a29751d1fa6"
+    },
+    {
+      "path": "tools/experiments/inspect_room_failure_remote.py",
+      "sha256": "0ddb9ea20d1877eb9ea7f58a2f8d4d98aebb163d0e616f7589cab0a76bee46db"
+    },
+    {
+      "path": "tools/experiments/pack_case_evidence_remote.py",
+      "sha256": "c3b8b7683bfc271c2c7323596424c2bfaf1e25c3eb6be907303fd8d08c051f4d"
+    },
+    {
+      "path": "tools/experiments/paired_status_remote.py",
+      "sha256": "b636f482aa4d3cb4cd4fc64fa4853c04b8afb0708123577c6223bd4c5dc0d164"
+    },
+    {
+      "path": "tools/experiments/plot_e0_comparison.py",
+      "sha256": "3670bcd7fa46d52e941ce10f7df1c049e200776f4a62a28e026ebc6465379ce3"
+    },
+    {
+      "path": "tools/experiments/read_gmo_layout_remote.py",
+      "sha256": "1e0c080f60e4216846cdfa25db35e8c9c0e34bdcad7ed15c4902e3ec22db95c6"
+    },
+    {
+      "path": "tools/experiments/run_continuous_experiment.py",
+      "sha256": "7bb312b88aec18e851d137cf85598a2d372af36b0a6f521976261698c6bec3c1"
+    },
+    {
+      "path": "tools/experiments/run_room_frozen_reference.py",
+      "sha256": "97c383050775e536259fe7f191161489496b354673416de764152bac905443f0"
+    },
+    {
+      "path": "tools/experiments/run_v06_frozen_reference.py",
+      "sha256": "b62a888c3d27c513a3d9665052a54d58e1feac9e2e78ff789e8ed21f1b518936"
+    },
+    {
+      "path": "tools/experiments/start_batch_remote.py",
+      "sha256": "f214bdc50656bd59a72d8cba29c72725134049f9960074de25a53feade61fda1"
+    },
+    {
+      "path": "tools/experiments/start_e0_remote.py",
+      "sha256": "ee2b230431f16573aa0a30f94669dfafddb9306bbe175e005e426ef16a6feca3"
+    },
+    {
+      "path": "tools/experiments/start_lighting_remote.py",
+      "sha256": "438b22d6eab3162fa1df36c430a16d1e8022cb8232788a0092ba3ee95f023f27"
+    },
+    {
+      "path": "tools/experiments/start_paired_remote.py",
+      "sha256": "1ae659a52f2528d27744d1f955fc20d4aefa77e2da435e85b41f50f17ddfe76d"
+    },
+    {
+      "path": "tools/experiments/start_room_batch_remote.py",
+      "sha256": "649adddf0c2dee751a5f998979aa04802c301948269a53f8ecdd24525c78f4aa"
+    },
+    {
+      "path": "tools/experiments/start_room_e0_remote.py",
+      "sha256": "009b40fe7fd68046b991a60be2e6d9e9a9fbb8ae0117ba6172c6807b66b66b41"
+    },
+    {
+      "path": "tools/experiments/storage.py",
+      "sha256": "5f135ece61cc1e0dff502d621c377d9641304b74eeba829633fcef7d7957b54f"
+    },
+    {
+      "path": "tools/experiments/summarize_e1_local.py",
+      "sha256": "55043f8200a2ac5d2d8560c2adc228f8d9deca5805aabd7b97bfed1d7039eed9"
+    },
+    {
+      "path": "tools/experiments/test_experiment_analysis.py",
+      "sha256": "39baa1b623143bb396571d7ec6cf60559a95590ea49c0575aa511ae854721af1"
+    },
+    {
+      "path": "tools/native_instant_baseline/analyze_independent.py",
+      "sha256": "ed4395d3c8496e0cb0ac9bb7d1f43bcdf9f597e442c6d0b2e96fa0f13f403d8e"
+    },
+    {
+      "path": "tools/native_instant_baseline/brief_status_remote.py",
+      "sha256": "4200eec0d1ab7a3939c44a5a051d926a56d8bc6f0882b0c17698a22d9c6c3751"
+    },
+    {
+      "path": "tools/native_instant_baseline/compare_remote.py",
+      "sha256": "8cac219bd2ba403c423e9b53bea2b77724db62c8fb9f17d56921ba8d19717c1b"
+    },
+    {
+      "path": "tools/native_instant_baseline/compare_runs.py",
+      "sha256": "a473729fa5a06091706daa618a681589a1f08c033928f525ee3beccc0491bdad"
+    },
+    {
+      "path": "tools/native_instant_baseline/coordinator.py",
+      "sha256": "810b24f46942d1f49c958ae95d3b6ed9830943119502f597d8024752427f968f"
+    },
+    {
+      "path": "tools/native_instant_baseline/execute_declared.py",
+      "sha256": "0d8e30ed1d0399e9fdc2a634efdef742d3756d74830244d35b6370a481041056"
+    },
+    {
+      "path": "tools/native_instant_baseline/freeze_main_remote.py",
+      "sha256": "65db1bd3e1e7cd8c5a70bfccbf505e7007d84edd4ceceff09fba45036a7f0320"
+    },
+    {
+      "path": "tools/native_instant_baseline/generate_specs.py",
+      "sha256": "4b792651ed307cef2f8a8f7dc5c32a2aa0ee263e588266adaca1fd70d596e47b"
+    },
+    {
+      "path": "tools/native_instant_baseline/inspect_equivalence_remote.py",
+      "sha256": "7d4d8b4ca73cc9af471a39ee138cbbf99ae48476cfcb5f6b1eec2261f31c4d6f"
+    },
+    {
+      "path": "tools/native_instant_baseline/inspect_packet_remote.py",
+      "sha256": "702a672b9cd84ef96b7d6e1a33a2bbfc3c95c6ac910d212b2012df5c4e5813eb"
+    },
+    {
+      "path": "tools/native_instant_baseline/inspect_results_remote.py",
+      "sha256": "67b0c123964578c7959dc63f728ff40f45bf5cbc1d9f760451c914ef13dfcf00"
+    },
+    {
+      "path": "tools/native_instant_baseline/installed_contract_remote.py",
+      "sha256": "b1dd2bf1b513044f2820907c378f8e467f517190bf312ef19d826284137fd6fc"
+    },
+    {
+      "path": "tools/native_instant_baseline/io.py",
+      "sha256": "3f0e9af3c825fcc96c8c6d12c3cb8a0d3fd568cdf3ccee17d47c36181cb1fc25"
+    },
+    {
+      "path": "tools/native_instant_baseline/math_independent.py",
+      "sha256": "ec9fecd1e21f4a6caad3228ffafa26e0c08f2008fd1da3c1c1906c6fa6907a8a"
+    },
+    {
+      "path": "tools/native_instant_baseline/probe_effective.py",
+      "sha256": "7c204b61fb8e156c56551e1be6c6c4ae338e8719307305b81de3f6788bd4d31c"
+    },
+    {
+      "path": "tools/native_instant_baseline/probe_remote.py",
+      "sha256": "97d063882e8b930dc5a6a890ea2a055223daf3ac670303598aaa98ce88095f4a"
+    },
+    {
+      "path": "tools/native_instant_baseline/revise_qualification_v2.py",
+      "sha256": "96310c702618af01bc791158c86f817dd60132e52c615fa10037e78f39002a9f"
+    },
+    {
+      "path": "tools/native_instant_baseline/revise_qualification_v3.py",
+      "sha256": "118320787ec4fa8b0ebd59f22bafcb021891a5194c7b6436943f79a5417ecd40"
+    },
+    {
+      "path": "tools/native_instant_baseline/revise_qualification_v4.py",
+      "sha256": "dcb01615efff4e8a891b3bbfe65f1a6ee036d29bd17a4ac07186a4e9c87237ea"
+    },
+    {
+      "path": "tools/native_instant_baseline/run_minimal.py",
+      "sha256": "624502afbe192f2aaf6369656f585fd28d655fb001da647b755a8fd416667635"
+    },
+    {
+      "path": "tools/native_instant_baseline/runtime.py",
+      "sha256": "3167732e655133b0182a7e08552d1b6d6e2e52404bf7c00a62a5192e280950ea"
+    },
+    {
+      "path": "tools/native_instant_baseline/start_next_remote.py",
+      "sha256": "5104dc2166fcfe13c94a41df321cef628202fd3b1d4ef7ac111e806bee3e7633"
+    },
+    {
+      "path": "tools/native_instant_baseline/start_sequence_remote.py",
+      "sha256": "8e55790a0746cee062a1697b7c70d9df6ba18479f22e927adcf0a9debd71063a"
+    },
+    {
+      "path": "tools/native_instant_baseline/status_remote.py",
+      "sha256": "2514eb25985817c8d307850776c316add79e6cb90d672ed9adbaba303879b614"
+    },
+    {
+      "path": "tools/native_instant_baseline/test_controls.py",
+      "sha256": "e49ba8103b966eb4bc96e167841c2fd7758fc997d92458b5c065d1e2a2dd2b07"
+    }
+  ]
+}

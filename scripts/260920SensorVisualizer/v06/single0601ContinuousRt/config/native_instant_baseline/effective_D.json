@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-10-15T03:45:15.863474+00:00",
+  "requested_settings": {
+    "/rtx/rendermode": "RealTimePathTracing",
+    "/rtx/post/dlss/execMode": 2,
+    "/rtx/post/aa/op": 3,
+    "/rtx-transient/dlssg/enabled": false,
+    "/rtx/post/motionblur/enabled": false,
+    "/rtx/hydra/supportMultiTickRate": true,
+    "/rtx/rendering/perSensorTickTlas": true,
+    "/app/asyncRendering": false,
+    "/renderer/raytracingMotion/enabled": true,
+    "/rtx/scenedb/maxHistoryTransformCount": 8
+  },
+  "observed": {
+    "sensor_attributes_sha256": "b5f0fced60befd97d568b10c7577bdce7972afc883a089cf349fcae0891e19bb",
+    "environment": {
+      "isaac_sim": "6.0.1-rc.7+release.42383.32955d8d.gl",
+      "kit": "110.1.2+production.326809.f9bf0dda.gl",
+      "extensions": {
+        "omni.replicator.core": "1.13.27",
+        "omni.sensors.nv.common": "3.0.0",
+        "omni.sensors.nv.lidar": "3.0.0",
+        "isaacsim.core.simulation_manager": "1.15.6",
+        "isaacsim.core.rendering_manager": "0.4.3",
+        "isaacsim.sensors.experimental.rtx": "1.4.6",
+        "usdrt.scenegraph": "7.6.3"
+      },
+      "gpu": "GPU-98e8b2c0-e87d-4770-07ca-72683e12547c, NVIDIA L40, 580.126.09, 46068",
+      "python": "3.12.13",
+      "startup": "isaacsim.exp.full.kit GUI DISPLAY=:20; registry disabled; same native launch arguments",
+      "native_api_availability": {
+        "Lidar": true,
+        "LidarSensor": true,
+        "parse_generic_model_output_data": true
+      }
+    },
+    "effective": {
+      "settings": {
+        "/app/settings/fabricDefaultSimPeriodNumerator": 1,
+        "/app/settings/fabricDefaultSimPeriodDenominator": 60,
+        "/app/runLoops/main/rateLimitEnabled": true,
+        "/app/runLoops/main/rateLimitFrequency": 60.0,
+        "/app/player/useFixedTimeStepping": true,
+        "/app/player/useFastMode": true,
+        "/app/asyncRendering": false,
+        "/rtx/hydra/supportMultiTickRate": true,
+        "/renderer/raytracingMotion/enabled": true,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": null,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/rendering/perSensorTickTlas": true,
+        "/rtx/scenedb/maxHistoryTransformCount": 8,
+        "/rtx/rendermode": "RealTimePathTracing",
+        "/rtx/post/dlss/execMode": 2,
+        "/rtx/post/aa/op": 3,
+        "/rtx-transient/dlssg/enabled": false,
+        "/rtx/post/motionblur/enabled": false,
+        "/app/sensors/nv/lidar/outputBufferOnGPU": false,
+        "/rtx/rtxsensor/useHydraTimeAlways": true
+      },
+      "stage_tcps": 60.0,
+      "timeline_tcps": 60.0,
+      "target_framerate": 60.0,
+      "loop_manual_mode": true,
+      "loop_manual_step_size": 0.016666666666666666,
+      "auto_update": {
+        "unavailable": "installed Timeline has no get_auto_update; actual progression checked"
+      },
+      "play_every_frame": true
+    },
+    "topology": {
+      "product_count": 1,
+      "resolution": [
+        300,
+        300
+      ],
+      "annotators_in_attach_order": [
+        "IsaacExtractRTXSensorPointCloud",
+        "GenericModelOutput",
+        "IsaacReadSimulationTime",
+        "ReferenceTime"
+      ],
+      "device": "cpu",
+      "do_array_copy": true,
+      "render_vars": [
+        {
+          "name": "GenericModelOutput",
+          "attributes": {
+            "channels": [
+              "BASIC"
+            ],
+            "dataType": "color3f",
+            "sourceName": "GenericModelOutput",
+            "sourceType": "raw"
+          }
+        }
+      ],
+      "sensor_channels": [
+        "BASIC"
+      ],
+      "initialization": {
+        "initial_physics_updates": 6,
+        "static_updates": 24
+      }
+    },
+    "scene": {
+      "walls": [
+        {
+          "axis": 0,
+          "coordinate_m": 10.0,
+          "center_m": [
+            10.01,
+            0.0,
+            0.0
+          ],
+          "halfsize_m": [
+            0.01,
+            20.0,
+            20.0
+          ]
+        },
+        {
+          "axis": 0,
+          "coordinate_m": -7.0,
+          "center_m": [
+            -7.01,
+            0.0,
+            0.0
+          ],
+          "halfsize_m": [
+            0.01,
+            20.0,
+            20.0
+          ]
+        },
+        {
+          "axis": 1,
+          "coordinate_m": 8.0,
+          "center_m": [
+            0.0,
+            8.01,
+            0.0
+          ],
+          "halfsize_m": [
+            20.0,
+            0.01,
+            20.0
+          ]
+        },
+        {
+          "axis": 1,
+          "coordinate_m": -11.0,
+          "center_m": [
+            0.0,
+            -11.01,
+            0.0
+          ],
+          "halfsize_m": [
+            20.0,
+            0.01,
+            20.0
+          ]
+        },
+        {
+          "axis": 2,
+          "coordinate_m": 6.0,
+          "center_m": [
+            0.0,
+            0.0,
+            6.01
+          ],
+          "halfsize_m": [
+            20.0,
+            20.0,
+            0.01
+          ]
+        },
+        {
+          "axis": 2,
+          "coordinate_m": -4.0,
+          "center_m": [
+            0.0,
+            0.0,
+            -4.01
+          ],
+          "halfsize_m": [
+            20.0,
+            20.0,
+            0.01
+          ]
+        }
+      ],
+      "dependencies": [
+        {
+          "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_13_3dgs_contract.usda",
+          "sha256": "38f4550499b9ee63e1139bdff0c02391d71ef3079ff345331348797a427985f0",
+          "bytes": 53701
+        },
+        {
+          "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_15_surround_fisheye.usda",
+          "sha256": "a4973d82ae29434b559742c5c4ce81c6b3d40cc7eeba47f4d731aca44ee92a09",
+          "bytes": 8859
+        },
+        {
+          "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+          "sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79",
+          "bytes": 383900
+        },
+        {
+          "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/Excavator_Mesh_Contract.usda",
+          "sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c",
+          "bytes": 14186
+        },
+        {
+          "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/MyAiry.usda",
+          "sha256": "323a39996bd88beb5cae711380117820377ade802c434d1f84c925f4516de04c",
+          "bytes": 1014
+        },
+        {
+          "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/config/MyAiry_scan.usda",
+          "sha256": "febc024f6e8987937448fe14af6ea6aabf458941790ad5880478c68ed5db59fc",
+          "bytes": 5207064
+        }
+      ]
+    }
+  },
+  "probe": "reports\\native005_effective_E_probe_r03_20261015.json",
+  "probe_sha256": "e952640dcb1ee21835957a1a22ef20679e1cb63e42d25a6af48a8fff102d796c",
+  "lifecycle": "Timeline running, after fixed 24 warmup updates; pause changes loop_manual_mode, so paused snapshots are separate evidence",
+  "intervention": {
+    "setting": "/rtx/scenedb/maxHistoryTransformCount",
+    "E": 64,
+    "D": 8,
+    "reason": "Restore installed startup default measured without launch override; retain Motion BVH, Multi-Tick and per-sensor TLAS to preserve output semantics.",
+    "evidence": "reports\\native005_effective_E_probe_r03_20261015.json",
+    "evidence_sha256": "e952640dcb1ee21835957a1a22ef20679e1cb63e42d25a6af48a8fff102d796c"
+  },
+  "observed_note": "Expected effective fingerprint, to be verified in every D capture; only default history=8 has been observed at startup."
+}

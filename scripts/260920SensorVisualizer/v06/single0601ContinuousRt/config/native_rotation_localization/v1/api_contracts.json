@@ -1,0 +1,30 @@
+{
+  "official_classes": "isaacsim.sensors.experimental.rtx.Lidar and LidarSensor",
+  "reference_codes": {
+    "SENSOR": 0,
+    "WORLD": 1
+  },
+  "coordinate_codes": {
+    "CARTESIAN": 0,
+    "SPHERICAL": 1
+  },
+  "spherical_order": [
+    "azimuth_deg",
+    "elevation_deg",
+    "distance_m"
+  ],
+  "normalization": "right-handed Cartesian; identity model transform qualified separately; WORLD never reapplies sensor pose",
+  "api_poll_identity": [
+    "epoch",
+    "product",
+    "frameId",
+    "timestampNs"
+  ],
+  "api_time_proof": "same-identity same-product Writer declared bytes, then Writer source/ref unique exact physical step",
+  "topology_scope": "A1/A3 official API plus official product and additional GMO annotator; bridge if results differ",
+  "direct_consumption_evidence": "unavailable in inspected public Python/headers; frameStart/end are output metadata",
+  "sources": [
+    "reports/native007_contracts_20261015.json",
+    "reports/native007_capabilities_20261015.json"
+  ]
+}

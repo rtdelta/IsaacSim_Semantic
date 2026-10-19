@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "batch_id": "clock_20261014_lifecycle_fix",
+  "specs": [
+    "config/clock_state/lifecycle_120_r01.json",
+    "config/clock_state/lifecycle_60_r01.json"
+  ],
+  "planned_order": [
+    "config/clock_state/lifecycle_120_r01.json",
+    "config/clock_state/lifecycle_60_r01.json"
+  ],
+  "max_pairs": 2,
+  "disk_budget_bytes": 8589934592,
+  "free_reserve_bytes": 8589934592,
+  "stop_on_failed_run_qualification": true,
+  "reason": "Native 120/60 Hz C/F regression after isolated commit-only teardown reproduction."
+}

@@ -1,0 +1,21 @@
+{
+  "capture_complete": true,
+  "measurement_qualified": true,
+  "bug_confirmed": false,
+  "formal_continuous_acceptance": false,
+  "cleanup_ok": true,
+  "targets": 20,
+  "native_events": 26,
+  "static_warmup_max_p95_m": 2.5332143582801336e-06,
+  "median_target_p95_m": {
+    "current": 0.007645561508073051,
+    "half": 2.486715104943471e-06,
+    "previous": 0.00764745203195627
+  },
+  "targets_with_p95_le_10um": {
+    "current": 0,
+    "half": 20,
+    "previous": 0
+  },
+  "interpretation": "Fixed geometric hypotheses only. SDK measurement-time semantics are unconfirmed."
+}

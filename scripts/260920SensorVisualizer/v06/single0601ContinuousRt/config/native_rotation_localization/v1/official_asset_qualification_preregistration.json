@@ -1,0 +1,17 @@
+{
+  "asset_sha256": "0812faf5c310f40316d5a11ab0c6786e19e18ac12cea10edc2e7ee44fc56c8c6",
+  "asset_prim": "/Example_Rotary",
+  "variants": [],
+  "external_dependencies": [],
+  "download_operation": "20261015T062502Z_67b9502583f1",
+  "transfer_operation": "20261015T062755Z_bb4e3a8a6414",
+  "source_specific_parameters_preserved": {
+    "azimuthErrorStd": 0.015,
+    "fireTimeNs_max": 24500,
+    "rangeResolutionM": 0.004,
+    "reportRateBaseHz_authored_legacy_name": 36000
+  },
+  "nominal_rotary_model": "clockwise azimuth = emitter azimuth + start offset + 360*scanRate*(tickId/patternFiringRate + fireTimeNs*1e-9); validate actual installed patternFiringRate, retain noise and emitter timings",
+  "qualification_policy": "S0/S5 numeric threshold unchanged; failure blocks dynamic branch, not other assets; no stochastic-noise fitting",
+  "resource_estimate": "At 3600 ticks*128 emitters and 1 return, owned GMO about 32 MiB/event; short 18 events with API dual copies roughly 1.3 GiB, within 2 GiB. Actual sizes decide main-round resource qualification."
+}

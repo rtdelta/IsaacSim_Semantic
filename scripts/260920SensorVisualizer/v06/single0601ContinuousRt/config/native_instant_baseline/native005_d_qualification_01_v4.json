@@ -1,0 +1,12 @@
+{
+  "batch_id": "native005_d_qualification_01_v4",
+  "experiment_id": "native005_20261015_v1",
+  "phase": "D_qualification",
+  "specs": [
+    "config/native_instant_baseline/specs/M_D_S0_r01_q04.json",
+    "config/native_instant_baseline/specs/M_D_S5_r01_q04.json",
+    "config/native_instant_baseline/specs/M_D_R3P_r01_q04.json"
+  ],
+  "free_reserve_bytes": 8589934592,
+  "previous_batch": "native005_main_06_v4"
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "M4_native_delay",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": false,
+      "diagnostics": {
+        "receipt_fault": {
+          "kind": "delay",
+          "group_id": 1,
+          "sensor_id": "camera/front",
+          "delay_s": 2
+        }
+      }
+    },
+    {
+      "name": "M4_native_out_of_order",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": false,
+      "diagnostics": {
+        "receipt_fault": {
+          "kind": "out_of_order",
+          "group_id": 1,
+          "sensor_id": "camera/front",
+          "delay_s": 2
+        }
+      }
+    },
+    {
+      "name": "M4_native_duplicate",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": false,
+      "diagnostics": {
+        "receipt_fault": {
+          "kind": "duplicate",
+          "group_id": 1,
+          "sensor_id": "camera/front",
+          "delay_s": 2
+        }
+      }
+    },
+    {
+      "name": "M4_native_conflicting_duplicate",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": true,
+      "diagnostics": {
+        "receipt_fault": {
+          "kind": "conflicting_duplicate",
+          "group_id": 1,
+          "sensor_id": "camera/front",
+          "delay_s": 2
+        }
+      }
+    },
+    {
+      "name": "M4_native_old_frame",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": true,
+      "diagnostics": {
+        "receipt_fault": {
+          "kind": "old_frame",
+          "group_id": 1,
+          "sensor_id": "camera/front",
+          "delay_s": 2
+        }
+      }
+    },
+    {
+      "name": "M4_native_old_epoch",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": true,
+      "diagnostics": {
+        "receipt_fault": {
+          "kind": "old_epoch",
+          "group_id": 1,
+          "sensor_id": "camera/front",
+          "delay_s": 2
+        }
+      }
+    },
+    {
+      "name": "M4_native_old_release_ack",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": true,
+      "diagnostics": {
+        "ack_fault": {
+          "kind": "release",
+          "group_id": 1
+        }
+      }
+    },
+    {
+      "name": "M4_native_old_written_ack",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 5,
+      "expected_failure": true,
+      "diagnostics": {
+        "ack_fault": {
+          "kind": "written",
+          "group_id": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "batch_id": "native005_q_static_v2",
+  "experiment_id": "native005_20261015_v1",
+  "phase": "qualification",
+  "specs": [
+    "config/native_instant_baseline/specs/M_E_S0_r01_q02.json",
+    "config/native_instant_baseline/specs/P_E_S0_r01_q02.json",
+    "config/native_instant_baseline/specs/M_E_S5_r01_q02.json",
+    "config/native_instant_baseline/specs/P_E_S5_r01_q02.json"
+  ],
+  "free_reserve_bytes": 8589934592,
+  "previous_batch": null,
+  "budget_rule": "maximum four runs; qualification observed bytes/event estimate plus 8 GiB reserve; per-run uncompressed hard bound 2 GiB",
+  "revision_reason": "ABI buffer allocation can exceed serialized GMO header size; all original bytes retained; field bounds and final cursor must match declared span. All numeric thresholds unchanged."
+}

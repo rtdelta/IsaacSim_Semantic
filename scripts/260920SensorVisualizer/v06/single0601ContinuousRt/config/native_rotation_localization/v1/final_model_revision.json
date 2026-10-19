@@ -1,0 +1,9 @@
+{
+  "revision": "pre-main-final",
+  "source": "A2 S0/S5 static-only diagnostic; no dynamic fit",
+  "rotary_model": "emitter azimuth + scan-direction * 360 * scanRate * tickId / patternFiringRate + start offset",
+  "fireTimeNs": "preserved as firing-time metadata; adding fireTimeNs to nominal angular offset rejected by static results",
+  "noise": "source azimuthErrorStd 0.015 deg preserved; no stochastic fitting or noise removal",
+  "historical_q02_analysis": "retained; all executed q02 runs replayed under analysis_final before release",
+  "gates": "unchanged; static model requires distance/direction/absolute geometry pass"
+}

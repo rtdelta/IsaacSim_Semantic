@@ -1,0 +1,98 @@
+{
+  "version": "native007-final-main-lock",
+  "files": [
+    {
+      "path": "config/native_rotation_localization/v1/analysis_rules.json",
+      "sha256": "5f2924e50a80295a51cc48b4a97f14f9d7fd3a3d0cbecd0f496638142591bb28"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/main_m02_sequence.json",
+      "sha256": "238636a6bc5a545c4e7994554e37fec20d6d1f45930cb1f1caee050ad2dfc0d5"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/A0_R6P_r01_m02.json",
+      "sha256": "28aa5c1e59323b06f11a24637cee9371f93356328a261e9c0750ac832a9dc43c"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/A0_R6P_r02_m02.json",
+      "sha256": "63e0f0891a9a720d14455bf2b9da4818aee1166a94e2fb3ff2439dd1a4dbd996"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/A0_R6P_r03_m02.json",
+      "sha256": "0cff048c2aabe57381866bea7c079a226755577b74b4e071cba8246ec73119fd"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/A3_R6P_r01_m02.json",
+      "sha256": "91433b3a73b5aed49643392cfceb65b8eae0402bb2de4dbf11e23219e6ff8e94"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/A3_R6P_r02_m02.json",
+      "sha256": "72b15b7a492efb45cbe0e62f029b8a241206fbb6e87c2cf85097e65b0056afa9"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/A3_R6P_r03_m02.json",
+      "sha256": "229824615672ccb724cab03ae3416169f82e1867c899525001150595fc9da801"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/B1_R6P_r01_m02.json",
+      "sha256": "f6e793b610c24b5bd4e86e87e62c698aee516e1cd8092e23f0b67e47c5eb17cc"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/B1_R6P_r02_m02.json",
+      "sha256": "9b604ad2a643da8bbfc853d38784c7ed44cc10a6d7abbbe926d9f53a52da6cc8"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/B1_R6P_r03_m02.json",
+      "sha256": "737527088137a08bc000e4b15bc768728453cf30c150c2fb8c54732292a66871"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/B2_R6P_r01_m02.json",
+      "sha256": "43c29a71cca18a5be1380c0bd83fd316ed14e523f5a891976e66c4ddb36787e3"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/B2_R6P_r02_m02.json",
+      "sha256": "25a020e087a6f3e209d9492500c43c2489885223b26c04b351fadc94a27b0de6"
+    },
+    {
+      "path": "config/native_rotation_localization/v1/specs/B2_R6P_r03_m02.json",
+      "sha256": "7d367ebff2997fbb3d36fe62004007aec40c86b7b8d31e074f6450f4edc0e5dd"
+    },
+    {
+      "path": "tools/native_rotation_localization/analyze_independent.py",
+      "sha256": "18c24ffd849d85ea420577f90a599f3ad324523a47a83f4cef33457cd4580a0b"
+    },
+    {
+      "path": "tools/native_rotation_localization/coordinator.py",
+      "sha256": "b61050b7f90d3cc3dac407386093f94d453fa6ad96a3dbfff2ecf6353a6f7b59"
+    },
+    {
+      "path": "tools/native_rotation_localization/io.py",
+      "sha256": "878a0b0966f6783fc49d02907b321f8d7019ae5107fd2eeedc5c5c97be63452b"
+    },
+    {
+      "path": "tools/native_rotation_localization/math_independent.py",
+      "sha256": "f9b74345288ebaec0fff06ebccb16bbba9f0acbd44be99716403da6c7b4d0370"
+    },
+    {
+      "path": "tools/native_rotation_localization/normalizer.py",
+      "sha256": "dae90310963ebdbab4cea62bcb0fc25fa21e5f553cedcfa457951e444fe8b454"
+    },
+    {
+      "path": "tools/native_rotation_localization/official_crosscheck.py",
+      "sha256": "a7401c602ac13b951fcb3a045d2ab86e1dc3695e101f07715268ca98b77af6e7"
+    },
+    {
+      "path": "tools/native_rotation_localization/ray_model.py",
+      "sha256": "eb5f2c159a3653cde68359deedfd2461cc9e1620f73735bea4cf89e0f2dbe84c"
+    },
+    {
+      "path": "tools/native_rotation_localization/run_layers.py",
+      "sha256": "e841f25c1e085b6a303afa8cc9e992379e4dc6f1a797d7c97be526364e74d9db"
+    },
+    {
+      "path": "tools/native_rotation_localization/runtime.py",
+      "sha256": "8ee29d569dca0ae5688f1123f1455f710e7948f7fcaac548d2b2aedac5f84c1a"
+    }
+  ],
+  "formal_continuous_acceptance": false
+}

@@ -1,0 +1,14 @@
+{
+  "batch_id": "native005_main_02_v1",
+  "experiment_id": "native005_20261015_v1",
+  "phase": "main",
+  "specs": [
+    "config/native_instant_baseline/specs/M_E_S0_r03_main_v1.json",
+    "config/native_instant_baseline/specs/P_E_S0_r03_main_v1.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r01_main_v1.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r01_main_v1.json"
+  ],
+  "free_reserve_bytes": 8589934592,
+  "previous_batch": "native005_main_01_v1",
+  "budget_rule": "maximum four runs; qualification observed bytes/event estimate plus 8 GiB reserve; per-run uncompressed hard bound 2 GiB"
+}

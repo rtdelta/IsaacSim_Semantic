@@ -1,0 +1,8 @@
+{
+  "specs": [
+    "config/experiments/e1_scene18_r01.json",
+    "config/experiments/e1_scene18_r02.json",
+    "config/experiments/e1_scene18_r03.json"
+  ],
+  "continue_after_failed_case": false
+}

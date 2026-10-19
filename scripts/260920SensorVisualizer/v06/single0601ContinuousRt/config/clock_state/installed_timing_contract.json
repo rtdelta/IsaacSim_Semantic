@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "inspected_utc": "2026-10-14",
+  "sdk": "6.0.1-rc.7",
+  "external_simulation_time_unit": "seconds",
+  "basis": "Installed test compares float ExternalSimulationTime omni:time to SimulationManager.get_simulation_time; TimeData and binding declare seconds",
+  "time_sample_storage_contains_transform_history": false,
+  "time_mapping_independence": "multitick source/reference may share ExternalSimulationTime; matching clocks is not independent geometric truth",
+  "declarations": [
+    {
+      "path": "/root/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_simulation_manager.py",
+      "sha256": "f523d37710d7500e61b80056ee692bfdd428da2c791578e8d47176f66cc0672d",
+      "start_line": 1030
+    },
+    {
+      "path": "/root/isaacsim/exts/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/TimeSampleStorage.h",
+      "sha256": "f8d693f8f03c9534bef780a00901e097d796d538921b489e3db4093ff04371ba",
+      "start_line": 35
+    },
+    {
+      "path": "/root/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/bindings/_simulation_manager.pyi",
+      "sha256": "4aca57f910c6d3b854a58a70064d4ca28d27ca481a92c923bd024ad9a0350e7d",
+      "start_line": 125
+    }
+  ]
+}

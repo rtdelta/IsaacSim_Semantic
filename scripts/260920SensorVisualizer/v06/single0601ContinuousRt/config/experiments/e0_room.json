@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "experiment_id": "paired_20261014_e0_room",
+  "repeat": "r03",
+  "scene": "room",
+  "block": "room_mixed_short_e0",
+  "targets": 12,
+  "physics_hz": 60,
+  "stride": 6,
+  "speed_m_s": 0.3,
+  "yaw_rate_deg_s": 3.0,
+  "init_timeout_s": 180,
+  "wall_timeout_s": 300,
+  "frozen_timeout_s": 600,
+  "queue_bytes": 268435456,
+  "disk_bytes": 1073741824,
+  "full_gmo_all": true,
+  "scope": "E0 known-room frozen reference qualification, distinct from original v06 scene18",
+  "input_thresholds": {
+    "position_m": 1e-05,
+    "rotation_rad": 1e-06,
+    "joint_rad": 1e-06
+  },
+  "planned_gmo_full_indices": [
+    0,
+    6,
+    11
+  ],
+  "comparison_quantiles": "nearest_rank",
+  "initial_pose": "original scene authored pose; actual C root, joints, mounts and sensor matrices replayed exactly"
+}

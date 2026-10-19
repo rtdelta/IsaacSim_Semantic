@@ -1,0 +1,15 @@
+{
+  "batch_id": "native005_main_04_v3",
+  "experiment_id": "native005_20261015_v1",
+  "phase": "main",
+  "specs": [
+    "config/native_instant_baseline/specs/M_E_R3N_r01_main_v3.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r01_main_v3.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r02_main_v3.json",
+    "config/native_instant_baseline/specs/M_E_R3N_r02_main_v3.json"
+  ],
+  "free_reserve_bytes": 8589934592,
+  "previous_batch": "native005_main_03_v3",
+  "budget_rule": "maximum four runs; qualification observed bytes/event estimate plus 8 GiB reserve; per-run uncompressed hard bound 2 GiB",
+  "revision_reason": "Read effective configuration after the fixed 24-update warmup, matching E probe lifecycle; preserve before-warmup snapshot. Enforce unique time association for every raw event, including warmup/drain. Account P baseline trace bytes and use current initialization RSS. All numeric thresholds and requested settings unchanged."
+}
