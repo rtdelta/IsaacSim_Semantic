@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "snapshot_phase": "C01_to_C10_committed_before_documentation_commit",
+  "snapshot_phase": "initial_11_commits_completed_before_byte_identity_fix",
   "branch": "codex/repository-update-20261019",
   "base_commit": "0abf2e33e4ef0efee834727c4baf84f65a2250ee",
   "local_commits": [
@@ -93,10 +93,20 @@
       "message": "feat(tools): add cloud operations and trajectory viewer",
       "whitespace_check_exit_code": 2,
       "whitespace_output_lines": 5
+    },
+    {
+      "group": "C11",
+      "sha": "6ba14f0edfdf7f4d40cdbda861af26e6a0cf5107",
+      "parent": "40d4c7e8cd71d53f513b59b2d78308467f8865eb",
+      "files": 84,
+      "message": "docs(repo): document asset contracts layout and upload review",
+      "whitespace_check_exit_code": 2,
+      "whitespace_output_lines": 3
     }
   ],
   "remote_main_verified": true,
   "note": "C01-C10 commit identities are recorded before C11. For the documentation commit itself use git log; no self-referential commit SHA.",
-  "documentation_commit": "this commit; resolve with git log",
-  "remote_synchronization": "will be attempted after this snapshot"
+  "documentation_commit": "included in local_commits",
+  "remote_synchronization": "will be attempted after this snapshot",
+  "byte_identity_fix": "this commit; resolve with git log"
 }

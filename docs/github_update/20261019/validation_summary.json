@@ -224,5 +224,16 @@
   "installed_cloud_skill_changed": false,
   "cloud_instance_operations": false,
   "native_capture_rerun": false,
-  "test_dependency_source": "Existing trimesh 4.12.2 copy placed in ignored isolated site-packages; no network install."
+  "test_dependency_source": "Existing trimesh 4.12.2 copy placed in ignored isolated site-packages; no network install.",
+  "git_blob_identity_check": {
+    "passed": true,
+    "scope": "staged Git blob bytes before identity-fix commit",
+    "source_blob_hashes_recorded": 3229,
+    "headless_manifest_files_verified": 140,
+    "recovered_source_files_verified": 34,
+    "remaining_policy_normalization": [
+      ".gitignore"
+    ],
+    "note": "Only .gitignore uses normal LF policy; both its worktree and Git hashes are recorded. No hashed delivery is changed by Git EOL conversion."
+  }
 }

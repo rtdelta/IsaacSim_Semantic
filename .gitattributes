@@ -16,3 +16,19 @@
 *.ini text eol=lf
 *.cfg text eol=lf
 *.csv text eol=lf
+
+# Preserve bytes of versioned deliveries and audit snapshots whose SHA-256 was
+# recorded before import. Keep ordinary text diffs; disable only EOL conversion.
+/docs/audits/** -text
+/docs/repository_layout/** -text
+/scripts/260910NV3Lidar/** -text
+/scripts/260916_CET200_Deploy/** -text
+/scripts/260916_origin03_horizontal/** -text
+/scripts/260917_bvh_causality_083739/** -text
+/scripts/260917_motion_bvh_probe/** -text
+/scripts/260917_motion_truth/** -text
+/scripts/260918_bvh_local_mode_0147/** -text
+/scripts/260919MyAiryLidar/** -text
+/scripts/260920SensorVisualizer/** -text
+/scripts/260922CloudInstanceOps/** -text
+/scripts/261013Rviz2Viewer/** -text
