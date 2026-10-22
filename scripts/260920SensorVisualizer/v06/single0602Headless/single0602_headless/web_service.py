@@ -44,7 +44,7 @@ class WebService:
         return {'engine':engine,'tasks':self.supervisor.status(),'trajectories':trajectories,'transport':'stdlib_http_polling',
                 'dependencies_downloaded':False}
     def command(self,m):
-        if m.get('action') not in {'keys','keyboard','play','pause','motion','hold','mount','save_mounts','reset_mounts','record_start','record_stop','reset','stop','exit','reinitialize','close'}:
+        if m.get('action') not in {'select_sensors','keys','keyboard','play','pause','motion','hold','mount','save_mounts','reset_mounts','record_start','record_stop','reset','stop','exit','reinitialize','close'}:
             raise ValueError('Unsupported control action')
         return request(self.socket,m)
     def import_trajectory(self,data):

@@ -1,10 +1,14 @@
 """Record current delivered hashes without changing original source-snapshot hashes."""
 import hashlib
 import json
+from datetime import datetime
 from pathlib import Path
 from project_files import delivery_files
+import sys
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
+from single0602_headless import __version__
 source_path=ROOT/'source_provenance.json'
 source=json.loads(source_path.read_text(encoding='utf-8'))
 for row in source['files']:
@@ -15,7 +19,7 @@ source_path.write_text(json.dumps(source,ensure_ascii=False,indent=2)+'\n',encod
 files={}
 for path in delivery_files(ROOT):
     files[path.relative_to(ROOT).as_posix()]=hashlib.sha256(path.read_bytes()).hexdigest()
-manifest={'schema_version':1,'project':'single0602Headless','date':'2026-10-19','version':'0.3.0',
+manifest={'schema_version':1,'project':'single0602Headless','date':datetime.now().date().isoformat(),'version':__version__,
           'scope':'Delivered project source/config/docs and curated docs/reports; excluding runtime reports and caches',
           'files':dict(sorted(files.items()))}
 (ROOT/'project_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

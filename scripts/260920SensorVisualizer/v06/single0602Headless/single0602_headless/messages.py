@@ -78,7 +78,9 @@ def build_messages(bundle, registry, clouds, pngs,diagnostics=None):
             point_step=12, row_step=len(points)*12, is_dense=bool(np.isfinite(points).all()), data=points.tobytes())
         header(message, stamp, lidar['frame_id'])
         add(lidar['topic'], message)
-        transforms.append(transform('swing_coordinate', lidar['frame_id'], np.asarray(bundle['lidars'][sid]['to_world'])@root_inverse, stamp))
+        fixed=lidar.get('binding',{}).get('category')=='world_static'
+        local=np.asarray(bundle['lidars'][sid]['to_world'])
+        transforms.append(transform('world' if fixed else 'swing_coordinate', lidar['frame_id'], local if fixed else local@root_inverse, stamp))
     for camera in registry['cameras']:
         cid = camera['id']; optical_frame = 'camera_'+cid+'_optical'
         row = bundle['cameras'][cid]
@@ -86,9 +88,10 @@ def build_messages(bundle, registry, clouds, pngs,diagnostics=None):
         image = CompressedImage(format='rgb8; png compressed rgb8', data=pngs[cid])
         header(image, stamp, optical_frame)
         add(f'/camera/{cid}/image_raw/compressed', image)
-        info = CameraInfo(width=calibration['width'], height=calibration['height'], distortion_model='equidistant')
+        fisheye=calibration['model']=='opencv_fisheye'
+        info = CameraInfo(width=calibration['width'], height=calibration['height'], distortion_model='equidistant' if fisheye else calibration['distortion_model'])
         info.k = [v['fx'],0.,v['cx'],0.,v['fy'],v['cy'],0.,0.,1.]
-        info.d = [v[f'k{i}'] for i in range(1,5)]
+        info.d = [v[f'k{i}'] for i in range(1,5)] if fisheye else list(calibration['distortion'])
         info.r = [1.,0.,0.,0.,1.,0.,0.,0.,1.]
         info.p = [v['fx'],0.,v['cx'],0.,0.,v['fy'],v['cy'],0.,0.,0.,1.,0.]
         header(info, stamp, optical_frame)
@@ -96,7 +99,8 @@ def build_messages(bundle, registry, clouds, pngs,diagnostics=None):
         optical = OPTICAL_TO_USD@np.asarray(row['to_world'])
         pose = PoseStamped(); header(pose, stamp, 'world'); pose_fields(pose.pose, optical)
         add(f'/camera/{cid}/pose', pose)
-        transforms.append(transform('swing_coordinate', optical_frame, optical@root_inverse, stamp))
+        fixed=camera.get('binding',{}).get('category')=='world_static'
+        transforms.append(transform('world' if fixed else 'swing_coordinate', optical_frame, optical if fixed else optical@root_inverse, stamp))
     add('/tf', TFMessage(transforms=transforms))
     joints = JointState(name=state['names'], position=state['positions'], velocity=[], effort=[])
     header(joints, stamp, '')

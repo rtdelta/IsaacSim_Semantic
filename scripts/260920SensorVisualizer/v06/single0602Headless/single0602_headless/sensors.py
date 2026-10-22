@@ -285,7 +285,7 @@ class SensorDrivers:
                     rendered = np.asarray(cloud['info']['transform']).reshape(4,4)
                     error = float(np.abs(rendered-authored).max())
                     if error > 2e-3:
-                        raise SampleError('render_pose_mismatch',f'{sid}: LiDAR pose difference {error}',sid)
+                        raise SampleError('render_pose_mismatch',f'{sid}: LiDAR pose difference {error}; authored={authored.tolist()}; rendered={rendered.tolist()}',sid)
                     if not np.isfinite(points).all(): raise RuntimeError('Non-finite XYZ '+sid)
                     packed = np.asarray(points,dtype='<f4',order='C')
                     arrays['lidar/'+sid] = packed

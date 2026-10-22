@@ -28,8 +28,8 @@ def mount_for_sensor(prim):
         if (parent and not parent.IsPseudoRoot() and UsdGeom.Xformable(parent)
                 and not parent.HasAPI(UsdPhysics.RigidBodyAPI)
                 and (parent.HasAuthoredPayloads() or parent.HasAuthoredReferences())):
-            lidars = [p for p in Usd.PrimRange(parent) if p.GetTypeName() == "OmniLidar"]
-            if len(lidars) == 1:
+            sensors = [p for p in Usd.PrimRange(parent) if p.GetTypeName() in ("OmniLidar","Camera")]
+            if len(sensors) == 1:
                 return parent
     return prim
 
@@ -80,7 +80,16 @@ class SensorPoses:
                         entry["rotation_op"] = op.GetName()
                 if matrix_only:entry['rotation_op']=ops[0].GetName()
                 self.entries[sensor["id"]] = entry
+                binding=sensor.get('binding',{})
+                if binding.get('category')=='robot_root':
+                    anchor=stage.GetPrimAtPath(binding['motion_anchor'])
+                    cache=UsdGeom.XformCache()
+                    entry['virtual_anchor']=binding['motion_anchor']
+                    entry['reference']=binding['motion_anchor']
+                    entry['virtual_transform']=cache.GetLocalToWorldTransform(prim)*cache.GetLocalToWorldTransform(anchor).GetInverse()
+                    if prim.IsInstanceProxy():entry['reason']='Instance proxy cannot follow a virtual root mount'
                 entry["initial"] = self.read(sensor["id"])
+            self.update_virtual_mounts()
             self.log("session_started", poses=self.snapshot())
         except Exception:
             self.close()
@@ -89,23 +98,27 @@ class SensorPoses:
     def read(self, sid):
         entry = self.entries[sid]
         prim = self.stage.GetPrimAtPath(entry["mount_path"])
-        ops = UsdGeom.Xformable(prim).GetOrderedXformOps()
-        translation, angles, q = Gf.Vec3d(0), [0.0, 0.0, 0.0], Gf.Quatd(1)
-        for op in ops:
-            value = op.Get()
-            if op.GetOpType() == UsdGeom.XformOp.TypeTranslate:
-                translation = Gf.Vec3d(value)
-            elif op.GetOpType() == UsdGeom.XformOp.TypeOrient:
-                q = Gf.Quatd(value)
-                angles = list(map(float, Gf.Rotation(q).Decompose(*AXES)))
-            elif op.GetOpType() == UsdGeom.XformOp.TypeRotateXYZ:
-                angles = list(map(float, value))
-                q = op.GetOpTransform(Usd.TimeCode.Default()).ExtractRotationQuat()
-            elif op.GetOpType()==UsdGeom.XformOp.TypeTransform:
-                transform=Gf.Transform(value);translation=transform.GetTranslation();q=transform.GetRotation().GetQuat()
-                angles=list(map(float,Gf.Rotation(q).Decompose(*AXES)))
-        return {"position_m": list(translation * self.units), "rotation_deg": angles,
-                "quaternion_wxyz": quaternion_values(q)}
+        matrix=entry.get('virtual_transform')
+        if matrix is None:matrix=UsdGeom.Xformable(prim).GetLocalTransformation()
+        transform=Gf.Transform(matrix)
+        q=transform.GetRotation().GetQuat()
+        angles=list(map(float,Gf.Rotation(q).Decompose(*AXES)))
+        return {"position_m":list(transform.GetTranslation()*self.units),"rotation_deg":angles,
+                "quaternion_wxyz":quaternion_values(q)}
+
+    def update_virtual_mounts(self):
+        cache=UsdGeom.XformCache()
+        with Usd.EditContext(self.stage,self.layer):
+            for entry in self.entries.values():
+                if 'virtual_anchor' not in entry or entry['reason']:continue
+                prim=self.stage.GetPrimAtPath(entry['mount_path']);xf=UsdGeom.Xformable(prim)
+                world=entry['virtual_transform']*cache.GetLocalToWorldTransform(self.stage.GetPrimAtPath(entry['virtual_anchor']))
+                local=world if xf.GetResetXformStack() else world*cache.GetLocalToWorldTransform(prim.GetParent()).GetInverse()
+                op=entry.get('virtual_op')
+                if op is None:
+                    op=xf.AddTransformOp(opSuffix='single0602_root_mount')
+                    xf.SetXformOpOrder([op],xf.GetResetXformStack());entry['virtual_op']=op
+                op.Set(local)
 
     def snapshot(self):
         return [{**{k: e[k] for k in ("id", "prim_path", "mount_path", "parent_path", "reference", "rotation_op")},
@@ -133,6 +146,13 @@ class SensorPoses:
                  requested={"position_m": list(position), "rotation_deg": list(angles)}, recording=recording)
         prim = self.stage.GetPrimAtPath(entry["mount_path"])
         xf = UsdGeom.Xformable(prim)
+        if 'virtual_anchor' in entry:
+            value=Gf.Transform(entry['virtual_transform'])
+            value.SetTranslation(Gf.Vec3d(*[float(v)/self.units for v in position]))
+            value.SetRotation(Gf.Rotation(kit_quaternion(angles)))
+            entry['virtual_transform']=value.GetMatrix();self.update_virtual_mounts();self.revision+=1
+            self.log('adjusted',sensor=sid,before=old,after=self.read(sid),recording=recording)
+            return True
         with Usd.EditContext(self.stage, self.layer):
             ops = xf.GetOrderedXformOps()
             if len(ops)==1 and ops[0].GetOpType()==UsdGeom.XformOp.TypeTransform:
@@ -170,6 +190,14 @@ class SensorPoses:
             return
         before = self.snapshot()
         self.layer.Clear()
+        for entry in self.entries.values():
+            if 'virtual_anchor' in entry:
+                entry.pop('virtual_op',None)
+                initial=entry['initial'];value=Gf.Transform(entry['virtual_transform'])
+                value.SetTranslation(Gf.Vec3d(*[float(v)/self.units for v in initial['position_m']]))
+                value.SetRotation(Gf.Rotation(kit_quaternion(initial['rotation_deg'])))
+                entry['virtual_transform']=value.GetMatrix()
+        self.update_virtual_mounts()
         self.revision += 1
         self.log("reset", reason=reason, before=before, after=self.snapshot())
 

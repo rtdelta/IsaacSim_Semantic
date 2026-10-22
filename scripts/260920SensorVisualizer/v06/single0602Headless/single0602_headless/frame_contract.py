@@ -1,4 +1,4 @@
-"""Versioned track-equivalent contract and explicitly pinned asset zero profiles."""
+"""Versioned track-equivalent contract and declared motion/zero interfaces."""
 from copy import deepcopy
 import hashlib
 import json
@@ -20,15 +20,18 @@ def file_sha256(path):
     return digest.hexdigest()
 
 
-def resolve_profile(project, scene):
-    profiles = json.loads((Path(project) / 'config/asset_profiles.json').read_text(encoding='utf-8'))['profiles']
-    matches = [p for p in profiles if p['scene'] == str(scene)]
+def resolve_profile(project, scene, profile_id=None):
+    document = json.loads((Path(project) / 'config/asset_profiles.json').read_text(encoding='utf-8'))
+    profiles = document['profiles']
+    if profile_id is None and len(profiles)>1:
+        profile_id=document.get('default_profile_id')
+    matches = [p for p in profiles if profile_id is None or p['id'] == profile_id]
     if len(matches) != 1:
-        raise ValueError('No declared cab-track zero mapping for this scene; add a verified asset profile')
+        raise ValueError('Select one declared excavator interface using asset_profile_id')
     profile = deepcopy(matches[0])
-    for path, expected in [(scene, profile['scene_sha256']), (profile['asset'], profile['asset_sha256'])]:
-        if file_sha256(path) != expected:
-            raise ValueError('Asset profile hash mismatch: ' + str(path))
+    # Historical hashes document the baseline; composed interfaces decide admission.
+    profile['identity_policy'] = 'compatible_interface'
+    profile['actual_scene'] = str(scene)
     zero = profile['swing_zero_mapping']
     if not math.isfinite(zero['native_zero_rad']) or zero['engineering_zero_rad'] != 0 or zero['angle_source'] != 'assumed_zero':
         raise ValueError('Invalid declared swing zero mapping')

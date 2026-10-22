@@ -17,6 +17,7 @@ from .trajectory import Trajectory
 from .offline_job import verify_replay_identity
 from .frame_contract import CONTRACT
 from .capture_plan import source_time_valid,verify_plan
+from .scene_replay import place_state
 
 class ReplayCapture:
     def __init__(self,project,job):
@@ -36,7 +37,7 @@ class ReplayCapture:
         elapsed=group/self.job['sample_hz']
         self.source_available_time=self.trajectory.duration
         if not source_time_valid(group,self.trajectory.duration,self.job['sample_hz']):return None
-        return self.trajectory.sample(elapsed)
+        return place_state(self.trajectory.sample(elapsed),self.spec.get('placement'))
     async def run(self):
         if self.job.get('scheduling',{}).get('cpu_nice',0):os.nice(self.job['scheduling']['cpu_nice'])
         self.diag.start_resources();code=1;self.last_time=-1.;self.live_origin=None;self.feed_offset=0;self.feed_rows=[];self.source_available_time=None;self.skipped_grids=0
@@ -45,12 +46,25 @@ class ReplayCapture:
             if self.job.get('capture_plan'):
                 verify_plan(self.job['capture_plan'],self.trajectory.duration,self.job['groups'],self.job['sample_hz'],self.job['physics_hz'])
             expected=metadata.get('asset_manifest',{}).get('root_sha256')
-            if expected and hashlib.sha256(Path(self.job['scene']).read_bytes()).hexdigest()!=expected:
+            if self.spec.get('scene_policy','original')=='original' and expected and hashlib.sha256(Path(self.job['scene']).read_bytes()).hexdigest()!=expected:
                 raise ValueError('Scene changed since trajectory/source initialization')
             self.scene=SceneStepper(self.project,self.job,self.diag);self.diag.attach_kit(self.scene.app)
+            if self.spec.get('sensor_policy','recorded')=='recorded':
+                from .scene_replay import replay_registry
+                self.scene.recorded_registry=replay_registry(metadata,self.project)
+            self.scene.source_states=self.trajectory.states
+            self.scene.preflight=lambda scene:verify_replay_identity(metadata,scene)
             self.scene.on_phase=lambda name,values:self.publish(state=name,**values)
             await self.scene.initialize();self.scene.capture_id=uuid.uuid4().hex
-            verify_replay_identity(metadata,self.scene)
+            validation=verify_replay_identity(metadata,self.scene)
+            replay_identity={'scene_policy':self.spec.get('scene_policy','original'),
+                'sensor_policy':self.spec.get('sensor_policy','recorded'),
+                'source_scene':metadata.get('scene'),'source_asset_manifest':metadata.get('asset_manifest'),
+                'source_trajectory_file_hashes':metadata.get('source_file_hashes',metadata.get('file_hashes')),
+                'target_scene':self.job['scene'],'target_asset_manifest':self.scene.asset_manifest,
+                'placement':self.spec.get('placement'),'validation':validation}
+            self.job['replay_identity']=replay_identity
+            write_json(self.session/'replay_identity.json',replay_identity)
             self.scene.epoch_ns=round(self.scene.native_time()*1e9)
             self.scene.drivers.resource_policy=self.job['capture']['resource_policy']
             for name,value in [('job_spec.json',self.job),('sensor_registry.json',self.scene.registry),('render_profile.json',self.scene.render_actual),
@@ -80,6 +94,7 @@ class ReplayCapture:
                 bundle['trajectory']={'swing_zero_readback':readback['swing_zero_readback'],'snapshot_id':state['snapshot_id'],'source_session_id':state.get('session_id'),
                     'trajectory_time_s':state['t_sim_s'],'native_epoch_ns':self.scene.epoch_ns,'time_quantization_error_s':error,
                     'source_state_revision':state['state_revision'],'source_mount_revision':state['mount_revision'],'mode':self.spec['mode']}
+                bundle['trajectory'].update(scene_policy=self.spec.get('scene_policy','original'),placement=self.spec.get('placement'))
                 await self.pipeline.submit(slot,arrays,bundle);del arrays,bundle
                 self.groups+=1;self.last_time=state['t_sim_s'];elapsed=time.monotonic()-started
                 self.publish(state='capture_boundary',groups=self.groups,written=self.pipeline.written,

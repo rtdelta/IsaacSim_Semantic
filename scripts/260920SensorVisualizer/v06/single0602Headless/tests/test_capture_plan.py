@@ -146,7 +146,7 @@ class ReplayPlanTests(unittest.TestCase):
             async def finish():
                 if scenario=='write_mismatch':pipeline.written=0
             pipeline.finish=finish
-            with patch('single0602_headless.replay_capture.SceneStepper',return_value=scene),patch('single0602_headless.replay_capture.RecordPipeline',return_value=pipeline),patch('single0602_headless.replay_capture.verify_replay_identity'),patch('single0602_headless.replay_capture.RunDiagnostics'):
+            with patch('single0602_headless.replay_capture.SceneStepper',return_value=scene),patch('single0602_headless.replay_capture.RecordPipeline',return_value=pipeline),patch('single0602_headless.replay_capture.verify_replay_identity',return_value={'verified':True}),patch('single0602_headless.replay_capture.RunDiagnostics'):
                 replay=ReplayCapture(ROOT,job)
                 paused=[False]
                 def control():

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "profiles": [
     {
       "id": "scene18_mesh_contract_v1",
@@ -16,7 +16,130 @@
         "tolerance_rad": 1e-05,
         "declared_angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets",
         "evidence": "Pinned asset: swing joint angleZero customData; Z axis, identity localRot0/localRot1, targetPosition=0; track-to-cab localPos0=(0,0,0.6) retained"
+      },
+      "motion_interface_joints": {
+        "swing": {
+          "name": "swing",
+          "path": "Joints/swing",
+          "axis": "Z",
+          "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets",
+          "body0": "track_link",
+          "body1": "swing_link",
+          "local_pos0": [
+            0,
+            0,
+            0.6
+          ],
+          "local_pos1": [
+            0,
+            0,
+            0
+          ],
+          "local_rot0_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "local_rot1_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "boom": {
+          "name": "boom",
+          "path": "Joints/boom",
+          "axis": "Y",
+          "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets",
+          "body0": "swing_link",
+          "body1": "boom_link",
+          "local_pos0": [
+            -0.374,
+            -0.27,
+            0.954
+          ],
+          "local_pos1": [
+            0,
+            0,
+            0
+          ],
+          "local_rot0_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "local_rot1_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "arm": {
+          "name": "arm",
+          "path": "Joints/arm",
+          "axis": "Y",
+          "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets",
+          "body0": "boom_link",
+          "body1": "arm_link",
+          "local_pos0": [
+            4.55,
+            -0.066,
+            3.198
+          ],
+          "local_pos1": [
+            0,
+            0,
+            0
+          ],
+          "local_rot0_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "local_rot1_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "bucket": {
+          "name": "bucket",
+          "path": "Joints/bucket",
+          "axis": "Y",
+          "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets",
+          "body0": "arm_link",
+          "body1": "bucket_link",
+          "local_pos0": [
+            1.226,
+            -0.093,
+            -2.662
+          ],
+          "local_pos1": [
+            0,
+            0,
+            0
+          ],
+          "local_rot0_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "local_rot1_wxyz": [
+            1,
+            0,
+            0,
+            0
+          ]
+        }
       }
     }
-  ]
+  ],
+  "default_profile_id": "scene18_mesh_contract_v1"
 }

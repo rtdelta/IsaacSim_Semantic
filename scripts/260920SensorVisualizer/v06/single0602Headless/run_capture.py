@@ -53,27 +53,59 @@ def launch_spec(job_path, gui=False, entry=None, extra=(), interactive_clock=Fal
 def launch():
     parser = argparse.ArgumentParser()
     parser.add_argument('--trajectory',help='Launch independent offline capture from a completed trajectory')
-    parser.add_argument('--output',default='/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless')
+    parser.add_argument('--output',default=None,help='Output root; omitted preserves explicit job configuration')
+    parser.add_argument('--scene',help='Complete absolute USD Stage path for interactive recording')
     scope = parser.add_mutually_exclusive_group()
     scope.add_argument('--groups',type=int,help='Maximum capture groups (legacy default: 100)')
     scope.add_argument('--all-trajectory',action='store_true',help='Capture every valid sample grid in the completed trajectory')
     parser.add_argument('--sample-hz',type=float,default=10)
-    parser.add_argument('--job', default=str(Path(__file__).parent/'config/offline.json'))
+    parser.add_argument('--scene-policy',choices=('original','environment'),default='original')
+    parser.add_argument('--sensor-policy',choices=('recorded','target_scene'),default='recorded')
+    parser.add_argument('--target-scene',help='Absolute target USD path for environment capture')
+    parser.add_argument('--background-dome',help='Target DomeLight prim; omitted selects zero/one visible DomeLight')
+    parser.add_argument('--placement',type=float,nargs=4,metavar=('X_M','Y_M','Z_M','YAW_DEG'),
+                        help='Active world yaw then translation; environment policy only')
+    parser.add_argument('--asset-profile-id',help='Explicit declared excavator interface profile')
+    parser.add_argument('--job', default=None)
     parser.add_argument('--gui', action='store_true', help='Open the v06 GUI without starting a job')
     parser.add_argument('--entry', help='Task-owned headless experiment entry (advanced)')
     parser.add_argument('--interactive',action='store_true',help='Start the independent interactive owner and viewport')
     parser.add_argument('--headless-owner',action='store_true',help='Owner integration tests without a window')
     parser.add_argument('--gpu',help='Explicit renderer GPU UUID or index; validated with nvidia-smi')
     args, extra = parser.parse_known_args()
+    from single0602_headless.contracts import DEFAULT
+    if any(v.startswith('--scene') or v.startswith('--sensor-policy') for v in extra):
+        parser.error('Unknown scene/sensor option: '+str(extra))
     if args.trajectory:
+        if args.scene is not None:parser.error('--scene is for interactive recording; use --scene-policy environment --target-scene')
+        if args.interactive or args.headless_owner or args.gui:parser.error('--trajectory cannot be combined with interactive/GUI modes')
         import json
         from single0602_headless.capture_supervisor import CaptureSupervisor
         payload={'mode':'offline','trajectory':args.trajectory,'sample_hz':args.sample_hz,'gpu':args.gpu,
+                 'scene_policy':args.scene_policy,'sensor_policy':args.sensor_policy,'target_scene':args.target_scene,'background_dome':args.background_dome,
+                 'asset_profile_id':args.asset_profile_id,
                  'capture_scope':'full_trajectory' if args.all_trajectory else 'group_limit'}
+        if args.placement:payload['placement']={'translation_m':args.placement[:3],'yaw_deg':args.placement[3]}
         if not args.all_trajectory:payload['groups']=args.groups if args.groups is not None else 100
-        result=CaptureSupervisor(Path(__file__).parent,args.output,Path(args.output)/'runtime/engine.sock').start(payload)
+        output=args.output or DEFAULT['output_directory']
+        result=CaptureSupervisor(Path(__file__).parent,output,Path(output)/'runtime/engine.sock').start(payload)
         print(json.dumps(result,indent=2));return
     if args.all_trajectory:parser.error('--all-trajectory requires --trajectory')
+    interactive=args.interactive or args.headless_owner
+    if args.target_scene or args.placement or args.scene_policy!='original' or args.sensor_policy!='recorded':
+        parser.error('Scene replay options require --trajectory')
+    if not interactive and (args.scene is not None or args.background_dome is not None or args.asset_profile_id is not None):
+        parser.error('--scene/--background-dome/--asset-profile-id require --interactive or --trajectory')
+    if interactive:
+        if args.entry:parser.error('--entry cannot override the interactive owner entry')
+        from single0602_headless.launch_config import resolve_interactive_job,snapshot_launch
+        job,information=resolve_interactive_job(Path(__file__).parent,job_path=args.job,scene=args.scene,
+            output=args.output,background_dome=args.background_dome,asset_profile_id=args.asset_profile_id)
+        args.job,job=snapshot_launch(job,information)
+        print('S0602 scene: '+job['scene']+'\nS0602 output: '+job['output_directory']+
+              '\nS0602 socket: '+str(Path(job['output_directory'])/'runtime/engine.sock')+
+              '\nS0602 job: '+str(args.job),flush=True)
+    elif args.job is None:args.job=str(Path(__file__).parent/'config/offline.json')
     if not (args.gui or args.interactive or args.headless_owner):
         from single0602_headless.contracts import load_job
         if not load_job(args.job).get('replay'):

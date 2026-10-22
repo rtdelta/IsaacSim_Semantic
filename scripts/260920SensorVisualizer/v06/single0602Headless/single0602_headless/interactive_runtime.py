@@ -76,10 +76,13 @@ class InteractiveRuntime:
             self.metadata={'implementation_version':__version__,'scene':self.scene.stage.GetRootLayer().realPath,'asset_manifest':self.scene.asset_manifest,
                 'render':self.job['render'],'joint_names':list(self.scene.motion.controller.states),
                 'root_frame':self.scene.config['root_frame'],'physics_hz':self.job['physics_hz'],'sample_hz':self.job['sample_hz'],
-                'joint_definitions':self.scene.motion.config['joints'],'initial_mounts':self.scene.poses.snapshot(),
+                'joint_definitions':self.scene.motion.config['joints'],'initial_mounts':self.scene.snapshot_mounts(),
                 'mount_revisions':{},'session_id':self.session_id,'native_preview_epoch_s':self.scene.native_time()}
             self.metadata.update(self.scene.motion.frame_metadata())
             self.metadata['robot_binding']=self.scene.config['robot_binding']
+            self.metadata['scene_interface']=deepcopy(self.scene.scene_interface)
+            self.metadata.update(sensor_registry=deepcopy(self.scene.registry),sensors_selection=deepcopy(self.job['sensors']),
+                asset_profile_id=self.scene.asset_profile['id'],launch=deepcopy(self.job.get('launch',{})))
             self.metadata.update(time_base=NATIVE_TIME_BASE,time_basis_version=2,
                 native_clock_origin_s=self.clock.origin,interaction_target_rate=1.,
                 motion_model='discrete_positions_zero_physical_velocity')
@@ -94,6 +97,11 @@ class InteractiveRuntime:
             self.publish();self.event('interactive_ready',sensor_products=0)
         except Exception as exc:
             self.failed=True;self.error=str(exc);self.busy=False;self.lifecycle='failed';self.publish()
+            from .launch_config import write_binding
+            write_binding(self.job,{'state':'failed','scene':self.job['scene'],'error':str(exc)})
+            if self.scene and not self.scene.closed:
+                try:await self.scene.close()
+                except Exception as cleanup:self.log.append({'event':'initialization_cleanup_failed','error':str(cleanup)})
             raise
     def _subscribe_keyboard(self):
         import omni.appwindow,carb.input
@@ -193,7 +201,7 @@ class InteractiveRuntime:
         self.clock.bind(native);self.time_s=0.;self.capture_state=None
         self.keyboard.horizontal.reset();self.binding_pending=False
         self.metadata=dict(self.metadata,native_clock_origin_s=native,
-            native_preview_epoch_s=native,initial_mounts=self.scene.poses.snapshot(),
+            native_preview_epoch_s=native,initial_mounts=self.scene.snapshot_mounts(),
             **self.scene.motion.frame_metadata())
         self._commit('direct');self.lifecycle='running' if self.playing else 'paused'
         if self.playing:
@@ -260,9 +268,10 @@ class InteractiveRuntime:
         except Exception as exc:self._fail(exc)
         finally:self.stats['max_step_ms']=max(self.stats['max_step_ms'],(time.monotonic()-started)*1000)
     def _read_state(self):
+        self.scene.poses.update_virtual_mounts()
         snap=self.scene.motion.snapshot(self.scene.native_time());names={j['name'] for j in self.scene.motion.config['joints']}
         if not hasattr(self,'cached_mounts') or self.cached_mount_revision!=self.scene.poses.revision:
-            self.cached_mounts=self.scene.poses.snapshot();self.cached_mount_revision=self.scene.poses.revision
+            self.cached_mounts=self.scene.snapshot_mounts();self.cached_mount_revision=self.scene.poses.revision
         return {'schema_version':1,'snapshot_id':uuid.uuid4().hex,'session_id':self.session_id,'t_sim_s':self.time_s,
             'native_preview_time_s':self.scene.native_time(),'state_revision':self.revision,'mount_revision':self.scene.poses.revision,
             'position_world_m':list(snap['root_position']),'quaternion_xyzw':list(snap['root_xyzw']),
@@ -302,6 +311,7 @@ class InteractiveRuntime:
                 'input_epoch':self.keyboard.input_epoch,'clear_reason':self.keyboard.reason,
                 'error':self.last_input_error,'last_apply_ms':self.keyboard.last_apply_ms,'pressed':sorted(pressed),
                 'log_dropped':self.log.dropped,'log_error':self.log.error},
+            'binding_report':getattr(self.scene,'binding_report',{}),
             'metadata':self.metadata,'recording':self.recorder is not None,'trajectory_path':str(self.recorder.directory) if self.recorder else self.last_trajectory,
             'joint_controls':{k:asdict(v) for k,v in self.scene.motion.controller.states.items()},
             'tilt_controls':{k:asdict(v) for k,v in self.scene.motion.base_controller.tilt.states.items()},
@@ -327,6 +337,15 @@ class InteractiveRuntime:
         elif a=='mount':self._require_binding();self.scene.poses.apply(p['id'],p['position_m'],p['rotation_deg']);self._commit('direct')
         elif a=='save_mounts':return {'path':str(self.scene.poses.save())}
         elif a=='reset_mounts':self._require_binding();self.scene.poses.reset('web');self._commit('direct')
+        elif a=='select_sensors':
+            self._require_binding()
+            if self.recorder or self.drains:raise ValueError('End trajectory and wait for drain before changing sensors')
+            if set(p)-{'camera_ids','lidar_ids','imu_ids'}:raise ValueError('Unexpected sensor selection fields')
+            self.scene.select_sensors(p);self.cached_mount_revision=-1
+            self.metadata=dict(self.metadata,sensor_registry=deepcopy(self.scene.registry),
+                sensors_selection=deepcopy(self.job['sensors']),scene_interface=deepcopy(self.scene.scene_interface),
+                initial_mounts=self.scene.snapshot_mounts())
+            self._commit('direct');self.publish()
         elif a=='record_start':
             self._require_binding()
             if self.recorder or self.drains:raise ValueError('Trajectory is already recording or draining')

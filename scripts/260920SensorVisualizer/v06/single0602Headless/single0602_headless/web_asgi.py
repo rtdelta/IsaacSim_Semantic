@@ -28,6 +28,13 @@ def build_app(service):
         s=await asyncio.to_thread(service.status);s['transport']='asgi_websocket';return s
     @app.get('/api/export')
     async def export(path:str):return Response(await asyncio.to_thread(service.export,path),media_type='application/zip')
+    @app.get('/api/capture_plan')
+    async def capture_plan(request:Request):
+        try:
+            payload=dict(request.query_params)
+            if 'groups' in payload:payload['groups']=int(payload['groups'])
+            return await asyncio.to_thread(service.supervisor.preview,payload)
+        except (ValueError,KeyError,OSError) as exc:raise HTTPException(400,str(exc))
     @app.post('/api/{action}')
     async def command(action:str,request:Request):
         authorize(request)

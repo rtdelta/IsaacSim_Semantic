@@ -14,5 +14,8 @@
   "scheduling": {
     "cooperative_yield_ms": 0,
     "yield_only_with_owner": false
+  },
+  "render": {
+    "background_dome": "/environment_Fangshan_02/DomeLight"
   }
 }

@@ -1,11 +1,15 @@
 # 报告与验收证据
 
+- [0.5.0 单参数场景与全场景传感器](acceptance_20261022/scene_binding_summary.json)：test 原生录制、31 组正式采集回读、初始资产负例及官方 IMU 独立探针。
+- [0.4.0 场景编辑与跨环境采集](acceptance_20261019/scene_replay_summary.json)：7 个原生用例符合预期，4 次成功采集共 14 组；含摆放变换、源场景缺失与旧轨迹兼容。
+
 本目录保存结论报告、精选验收摘要和必要配图。完整采集、逐帧状态、性能追踪与部署流水保留在原运行目录，不随代码上传。
 
-原路径、SHA-256 和迁移方式见 [证据索引](evidence_index.json)。索引中的旧路径表示历史证据位置，不表示已经重新执行实验。
+原路径、SHA-256 和历史迁移方式见 [证据索引](evidence_index.json)；新接收端摘要在自身的 `provenance` 中登记来源哈希。索引中的旧路径表示历史证据位置，不表示已经重新执行实验。
 
 | 文件 | 类型 |
 | --- | --- |
+| [acceptance_20261019/capture_migration_summary.json](acceptance_20261019/capture_migration_summary.json) | 新 capture 单卡的全量资产、GUI、短采与回读验收摘要 |
 | [acceptance_20261019/capture_lifecycle.json](acceptance_20261019/capture_lifecycle.json) | acceptance_summary |
 | [acceptance_20261019/continuous_capture_regression.json](acceptance_20261019/continuous_capture_regression.json) | acceptance_summary |
 | [acceptance_20261019/continuous_gui.json](acceptance_20261019/continuous_gui.json) | acceptance_summary |

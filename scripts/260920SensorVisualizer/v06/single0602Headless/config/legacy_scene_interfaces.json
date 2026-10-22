@@ -1,0 +1,1134 @@
+{
+  "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79": {
+    "asset_sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c",
+    "used_layers": [
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_13_3dgs_contract.usda",
+        "bytes": 53701,
+        "sha256": "38f4550499b9ee63e1139bdff0c02391d71ef3079ff345331348797a427985f0"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_15_surround_fisheye.usda",
+        "bytes": 8859,
+        "sha256": "a4973d82ae29434b559742c5c4ce81c6b3d40cc7eeba47f4d731aca44ee92a09"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+        "bytes": 383900,
+        "sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/NvidiaGrid_6_0/default_environment.usd",
+        "bytes": 17624,
+        "sha256": "78e9a1e72a8838a13d0f65c49cd487ab92e89233cd128b057730b5b5b4ca2164"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/UndulatingGround_20260922/terrain.usdc",
+        "bytes": 3413035,
+        "sha256": "9a0dd0a3b3f9a0f8fcc4a0b070a9611be6d3efb3aba72bfeaed363d74586cdf1"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+        "bytes": 346223469,
+        "sha256": "b75c558c5024d80e95b8b41358b6bb8828d53f740eb5f8d7e4ace24a267a164e"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/Excavator_Mesh_Contract.usda",
+        "bytes": 14186,
+        "sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/arm_link.usdc",
+        "bytes": 2924544,
+        "sha256": "b0bccbb60fc31e8e0c6acc5cfc73700fe245e61668ebb01b9ff3f3e32748fbd1"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/boom_link.usdc",
+        "bytes": 7162895,
+        "sha256": "aecae49a382971ee31a345c74ce440c87f73923494e87fa2bad2e482bc48ee60"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/bucket_link.usdc",
+        "bytes": 2261024,
+        "sha256": "5ec52bc689ce3f55c60a722822942ebd73c6928ef80ade83e8b48b4ad040f526"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/swing_link.usdc",
+        "bytes": 14694190,
+        "sha256": "bf4d45a4e4ef614dc39ed771374dfc8b013d7acdb431ea2147239ae9526a5007"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/track_link.usdc",
+        "bytes": 12789441,
+        "sha256": "79f7c07929c318bd231a8025e7ad551b2f00013f7b77b2e5ba688bc93bd03f32"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/camera_set/fish_eye_camera/fish_eye_camera.usda",
+        "bytes": 12362,
+        "sha256": "6734ada88db53b8c9310372ffd2c25df309fa63207f57029fa14e80c2c716b48"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/MyAiry.usda",
+        "bytes": 1014,
+        "sha256": "323a39996bd88beb5cae711380117820377ade802c434d1f84c925f4516de04c"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/config/MyAiry_scan.usda",
+        "bytes": 5207064,
+        "sha256": "febc024f6e8987937448fe14af6ea6aabf458941790ad5880478c68ed5db59fc"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda",
+        "bytes": 1396,
+        "sha256": "33e6bb85a70e1b1a93204ed8af46018ca9777589ed75615704bb0cdda2610505"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/config/NZ3_scan.usda",
+        "bytes": 1901998,
+        "sha256": "c7b92b73354e8f948e3987ac73f42682a8ea267df38a2bde977eed4d941499bc"
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/geometry/NZ3_housing.usda",
+        "bytes": 113747,
+        "sha256": "463869e1facbe1ab64d52439c00712d203373c3a2146b41dbe3d18f72557990f"
+      }
+    ],
+    "interface": {
+      "schema_version": 1,
+      "up_axis": "Z",
+      "metres_per_unit": 1.0,
+      "motion": {
+        "joints": {
+          "swing": {
+            "name": "swing",
+            "path": "Joints/swing",
+            "body0": "track_link",
+            "body1": "swing_link",
+            "axis": "Z",
+            "local_pos0": [
+              0.0,
+              0.0,
+              0.6000000238418579
+            ],
+            "local_pos1": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot0_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot1_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets"
+          },
+          "boom": {
+            "name": "boom",
+            "path": "Joints/boom",
+            "body0": "swing_link",
+            "body1": "boom_link",
+            "axis": "Y",
+            "local_pos0": [
+              -0.37400001287460327,
+              -0.27000001072883606,
+              0.9539999961853027
+            ],
+            "local_pos1": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot0_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot1_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets"
+          },
+          "arm": {
+            "name": "arm",
+            "path": "Joints/arm",
+            "body0": "boom_link",
+            "body1": "arm_link",
+            "axis": "Y",
+            "local_pos0": [
+              4.550000190734863,
+              -0.06599999964237213,
+              3.197999954223633
+            ],
+            "local_pos1": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot0_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot1_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets"
+          },
+          "bucket": {
+            "name": "bucket",
+            "path": "Joints/bucket",
+            "body0": "arm_link",
+            "body1": "bucket_link",
+            "axis": "Y",
+            "local_pos0": [
+              1.2259999513626099,
+              -0.09300000220537186,
+              -2.6619999408721924
+            ],
+            "local_pos1": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot0_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "local_rot1_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets"
+          }
+        },
+        "body_scales": {
+          "arm_link": [
+            1.0,
+            1.0,
+            0.9999999999999999
+          ],
+          "boom_link": [
+            1.0,
+            1.0,
+            0.9999999999999999
+          ],
+          "bucket_link": [
+            1.0,
+            1.0,
+            0.9999999999999999
+          ],
+          "swing_link": [
+            1.0,
+            1.0,
+            0.9999999999999999
+          ],
+          "track_link": [
+            1.0,
+            1.0,
+            0.9999999999999999
+          ]
+        }
+      },
+      "sensors": {
+        "MyAiry_back": {
+          "prim": "swing_link/MyAiry_back/sensor",
+          "mount": "swing_link/MyAiry_back",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0000000000000002,
+            1.0,
+            1.0
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "60.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.10000000149011612",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyAiry_backleft": {
+          "prim": "swing_link/MyAiry_backleft/sensor",
+          "mount": "swing_link/MyAiry_backleft",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            1.0000000000000004,
+            1.0000000000000004
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "60.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.10000000149011612",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyAiry_backright": {
+          "prim": "swing_link/MyAiry_backright/sensor",
+          "mount": "swing_link/MyAiry_backright",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            1.0000000000000004,
+            1.0000000000000004
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "60.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.10000000149011612",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyAiry_front": {
+          "prim": "swing_link/MyAiry_front/sensor",
+          "mount": "swing_link/MyAiry_front",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            1.0,
+            0.9999999999999999
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "60.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.10000000149011612",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyAiry_left": {
+          "prim": "swing_link/MyAiry_left/sensor",
+          "mount": "swing_link/MyAiry_left",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            0.9999999999999999,
+            1.0
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "60.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.10000000149011612",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyAiry_right": {
+          "prim": "swing_link/MyAiry_right/sensor",
+          "mount": "swing_link/MyAiry_right",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "60.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.10000000149011612",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyAiry_up": {
+          "prim": "swing_link/MyAiry_up/sensor",
+          "mount": "swing_link/MyAiry_up",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            1.0000000000000004,
+            1.0000000000000004
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "60.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.10000000149011612",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyNZ3_back": {
+          "prim": "swing_link/MyNZ3_back/sensor",
+          "mount": "swing_link/MyNZ3_back",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0000000000000009,
+            1.0000000000000009,
+            1.0000000000000002
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "115.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.20000000298023224",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyNZ3_backleft": {
+          "prim": "swing_link/MyNZ3_backleft/sensor",
+          "mount": "swing_link/MyNZ3_backleft",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0000000000000009,
+            1.0000000000000009,
+            1.0000000000000002
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "115.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.20000000298023224",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyNZ3_backright": {
+          "prim": "swing_link/MyNZ3_backright/sensor",
+          "mount": "swing_link/MyNZ3_backright",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0000000000000009,
+            1.0000000000000009,
+            1.0000000000000002
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "115.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.20000000298023224",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyNZ3_front": {
+          "prim": "swing_link/MyNZ3_front/sensor",
+          "mount": "swing_link/MyNZ3_front",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "115.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.20000000298023224",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyNZ3_left": {
+          "prim": "swing_link/MyNZ3_left/sensor",
+          "mount": "swing_link/MyNZ3_left",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0000000000000002,
+            1.0,
+            1.0
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "115.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.20000000298023224",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "MyNZ3_right": {
+          "prim": "swing_link/MyNZ3_right/sensor",
+          "mount": "swing_link/MyNZ3_right",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            0.9999999999999999,
+            0.9999999999999999,
+            1.0
+          ],
+          "type": "OmniLidar",
+          "configuration": {
+            "omni:sensor:Core:farRangeM": "115.0",
+            "omni:sensor:Core:instantLidar": "True",
+            "omni:sensor:Core:nearRangeM": "0.20000000298023224",
+            "omni:sensor:Core:scanRateBaseHz": "10",
+            "omni:sensor:Core:scanType": "SOLID_STATE",
+            "omni:sensor:tickRate": "10.0"
+          }
+        },
+        "camera_front": {
+          "prim": "swing_link/FisheyeFront",
+          "mount": "swing_link/FisheyeFront",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "type": "Camera",
+          "configuration": {
+            "model": "opencv_fisheye",
+            "width": 1920,
+            "height": 1080,
+            "intrinsics": {
+              "fx": 578.7734375,
+              "fy": 578.7734375,
+              "cx": 959.1826782226562,
+              "cy": 539.4185791015625,
+              "k1": 0.0208106841892004,
+              "k2": 0.0018665815005078912,
+              "k3": -0.0011759225744754076,
+              "k4": 0.0003198367194272578
+            },
+            "exposure": {
+              "exposure:fStop": 5.0,
+              "exposure:iso": 100.0,
+              "exposure:responsivity": 1.1026709079742432,
+              "exposure:time": 0.019999999552965164
+            },
+            "camera_usd_axes": "X right, Y up, -Z forward",
+            "camera_optical_axes": "X right, Y down, Z forward"
+          }
+        },
+        "camera_back": {
+          "prim": "swing_link/FisheyeRear",
+          "mount": "swing_link/FisheyeRear",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "type": "Camera",
+          "configuration": {
+            "model": "opencv_fisheye",
+            "width": 1920,
+            "height": 1080,
+            "intrinsics": {
+              "fx": 578.7734375,
+              "fy": 578.7734375,
+              "cx": 959.1826782226562,
+              "cy": 539.4185791015625,
+              "k1": 0.0208106841892004,
+              "k2": 0.0018665815005078912,
+              "k3": -0.0011759225744754076,
+              "k4": 0.0003198367194272578
+            },
+            "exposure": {
+              "exposure:fStop": 5.0,
+              "exposure:iso": 100.0,
+              "exposure:responsivity": 1.1026709079742432,
+              "exposure:time": 0.019999999552965164
+            },
+            "camera_usd_axes": "X right, Y up, -Z forward",
+            "camera_optical_axes": "X right, Y down, Z forward"
+          }
+        },
+        "camera_left": {
+          "prim": "swing_link/FisheyeLeft",
+          "mount": "swing_link/FisheyeLeft",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "type": "Camera",
+          "configuration": {
+            "model": "opencv_fisheye",
+            "width": 1920,
+            "height": 1080,
+            "intrinsics": {
+              "fx": 578.7734375,
+              "fy": 578.7734375,
+              "cx": 959.1826782226562,
+              "cy": 539.4185791015625,
+              "k1": 0.0208106841892004,
+              "k2": 0.0018665815005078912,
+              "k3": -0.0011759225744754076,
+              "k4": 0.0003198367194272578
+            },
+            "exposure": {
+              "exposure:fStop": 5.0,
+              "exposure:iso": 100.0,
+              "exposure:responsivity": 1.1026709079742432,
+              "exposure:time": 0.019999999552965164
+            },
+            "camera_usd_axes": "X right, Y up, -Z forward",
+            "camera_optical_axes": "X right, Y down, Z forward"
+          }
+        },
+        "camera_right": {
+          "prim": "swing_link/FisheyeRight",
+          "mount": "swing_link/FisheyeRight",
+          "parent": "swing_link",
+          "body": "swing_link",
+          "parent_in_body": [
+            [
+              1.0000000000000002,
+              -2.3852447794681098e-18,
+              0.0,
+              0.0
+            ],
+            [
+              4.119968255444917e-18,
+              1.0000000000000002,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0
+            ],
+            [
+              0.0,
+              -2.220446049250313e-16,
+              2.220446049250313e-16,
+              1.0
+            ]
+          ],
+          "mount_scale": [
+            1.0,
+            0.9999999999999999,
+            0.9999999999999999
+          ],
+          "type": "Camera",
+          "configuration": {
+            "model": "opencv_fisheye",
+            "width": 1920,
+            "height": 1080,
+            "intrinsics": {
+              "fx": 578.7734375,
+              "fy": 578.7734375,
+              "cx": 959.1826782226562,
+              "cy": 539.4185791015625,
+              "k1": 0.0208106841892004,
+              "k2": 0.0018665815005078912,
+              "k3": -0.0011759225744754076,
+              "k4": 0.0003198367194272578
+            },
+            "exposure": {
+              "exposure:fStop": 5.0,
+              "exposure:iso": 100.0,
+              "exposure:responsivity": 1.1026709079742432,
+              "exposure:time": 0.019999999552965164
+            },
+            "camera_usd_axes": "X right, Y up, -Z forward",
+            "camera_optical_axes": "X right, Y down, Z forward"
+          }
+        }
+      },
+      "zero": {
+        "joint_name": "swing",
+        "native_zero_rad": 0.0,
+        "engineering_zero_rad": 0.0,
+        "angle_source": "assumed_zero"
+      },
+      "root_in_reference": [
+        [
+          0.9999999999999998,
+          2.3852447794681086e-18,
+          -0.0,
+          0.0
+        ],
+        [
+          -4.1199682554449145e-18,
+          0.9999999999999998,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999999999998,
+          0.0
+        ],
+        [
+          -1.1102230246251563e-16,
+          4.440892098500625e-16,
+          -5.5511151231257815e-17,
+          1.0
+        ]
+      ]
+    },
+    "evidence": {
+      "measured_native": "scene_replay_native_20261019",
+      "matched_migration_USD_layers": 18,
+      "scope": "All 18 composed USD layers matched the verified 20261019 migration manifest; interface measured in native Isaac before trajectory capture."
+    }
+  }
+}

@@ -12,6 +12,7 @@ from .contracts import DEFAULT,load_job,write_json,merge
 from .capture_plan import make_plan,request_options
 from .trajectory import Trajectory
 from .offline_job import snapshot_trajectory
+from .scene_replay import scene_selection,recorded_interface
 
 class CaptureSupervisor:
     def __init__(self,project,output,socket_path):
@@ -22,7 +23,8 @@ class CaptureSupervisor:
                 info=json.loads(p.read_text())
                 if info.get('project')!=str(self.project.resolve()):continue
                 self.tasks[p.parent.name]={'process':None,'pid':info['pid'],'start_ticks':info['start_ticks'],
-                    'directory':p.parent,'mode':info['mode'],'created':info['created'],'capture_plan':info.get('capture_plan')}
+                    'directory':p.parent,'mode':info['mode'],'created':info['created'],'capture_plan':info.get('capture_plan'),
+                    'scene_selection':info.get('scene_selection')}
             except (OSError,ValueError,KeyError):continue
     @staticmethod
     def start_ticks(pid):
@@ -54,7 +56,10 @@ class CaptureSupervisor:
         return path,Trajectory.load(path)
     def preview(self,payload):
         path,trajectory=self._source(payload)
-        return {'trajectory':str(path),'capture_plan':make_plan(trajectory.duration,payload,DEFAULT['physics_hz'])}
+        selection=scene_selection(payload,trajectory.metadata,check_files=payload.get('scene_policy')=='environment')
+        if selection['scene_policy']=='environment':recorded_interface(trajectory.metadata,self.project)
+        return {'trajectory':str(path),'capture_plan':make_plan(trajectory.duration,payload,DEFAULT['physics_hz']),
+                'scene_selection':selection,'interface_check':'performed in Headless before capture products and writer start'}
     def start(self,payload):
         with self.lock:
             if any(self.alive(x) for x in self.tasks.values()):raise ValueError('One active capture per supervisor; finish or stop it first')
@@ -64,26 +69,37 @@ class CaptureSupervisor:
                 from .gpu_config import resolve_gpu
                 requested_device=resolve_gpu(payload['gpu'])
             mode='offline';source,trajectory=self._source(payload);metadata=trajectory.metadata
+            selection=scene_selection(payload,metadata,check_files=payload.get('scene_policy')=='environment')
+            if selection['scene_policy']=='environment':recorded_interface(metadata,self.project)
             plan=make_plan(trajectory.duration,payload,DEFAULT['physics_hz'])
             token=uuid.uuid4().hex[:12];directory=self.output/'tasks'/token;path=str(directory/'trajectory')
             policy_path=self.project/'config/capture_policy.json'
             policy=json.loads(policy_path.read_text()) if policy_path.exists() else {}
             if set(policy)-{'capture','scheduling','diagnostics','pipeline'}:raise ValueError('Unsupported capture policy field')
-            job=load_job(overrides=merge(policy,{'scene':metadata['scene'],'groups':plan['planned_groups'],'capture_plan':plan,
+            sensors=(metadata.get('sensors_selection',{}) if selection['sensor_policy']=='recorded' else payload.get('sensors',{}))
+            job=load_job(overrides=merge(policy,{'scene':selection['target_scene'],'groups':plan['planned_groups'],'capture_plan':plan,
                 'sample_hz':plan['sample_hz'],'mode':'offline',
+                'sensors':sensors,
                 'output_directory':str(self.output),'preview':{'enabled':bool(payload.get('ros_preview',False))},
-                'render':metadata.get('render',{}),
+                'render':selection['render'],
                 'replay':{'mode':mode,'trajectory':path,'control_path':str(directory/'control.json'),
+                          'scene_policy':selection['scene_policy'],'sensor_policy':selection['sensor_policy'],'placement':selection['placement'],
                           'status_path':str(directory/'status.json')}}))
+            profile_id=(payload.get('asset_profile_id') or metadata.get('asset_profile_id') or
+                        metadata.get('asset_manifest',{}).get('asset_profile',{}).get('id'))
+            if profile_id:job['asset_profile_id']=profile_id
             job['device_assignment']={'role':'formal_capture','requested':requested_device,
                 'binding_scope':'Kit renderer/activeGpu and physics/cudaDevice; actual RTX/CUDA execution requires native/device evidence'}
             # Revalidate and plan from the exact private source the child will read.
             directory.mkdir(parents=True)
             try:
                 trajectory=snapshot_trajectory(source,directory/'trajectory')
+                selection=scene_selection(payload,trajectory.metadata,check_files=payload.get('scene_policy')=='environment')
+                if selection['scene_policy']=='environment':recorded_interface(trajectory.metadata,self.project)
                 plan=make_plan(trajectory.duration,payload,job['physics_hz'])
-                job.update(groups=plan['planned_groups'],capture_plan=plan,scene=trajectory.metadata['scene'],
-                           render=trajectory.metadata.get('render',job['render']))
+                job.update(groups=plan['planned_groups'],capture_plan=plan,scene=selection['target_scene'],
+                           render=merge(DEFAULT['render'],selection['render']))
+                job['replay'].update(scene_policy=selection['scene_policy'],placement=selection['placement'])
                 job=load_job(overrides=job)
                 jobpath=directory/'job.json';write_json(jobpath,job);write_json(directory/'control.json',{'action':'run'})
             except Exception as exc:
@@ -107,9 +123,9 @@ class CaptureSupervisor:
                 raise
             finally:capture_lock.close()
             created=datetime.now().isoformat();ticks=self.start_ticks(process.pid)
-            self.tasks[token]={'process':process,'pid':process.pid,'start_ticks':ticks,'directory':directory,'mode':mode,'created':created,'capture_plan':plan}
-            write_json(directory/'task.json',{'project':str(self.project.resolve()),'pid':process.pid,'start_ticks':ticks,'mode':mode,'created':created,'capture_plan':plan})
-            return {'task_id':token,'pid':process.pid,'mode':mode,'directory':str(directory),'state':'starting','capture_plan':plan}
+            self.tasks[token]={'process':process,'pid':process.pid,'start_ticks':ticks,'directory':directory,'mode':mode,'created':created,'capture_plan':plan,'scene_selection':selection}
+            write_json(directory/'task.json',{'project':str(self.project.resolve()),'pid':process.pid,'start_ticks':ticks,'mode':mode,'created':created,'capture_plan':plan,'scene_selection':selection})
+            return {'task_id':token,'pid':process.pid,'mode':mode,'directory':str(directory),'state':'starting','capture_plan':plan,'scene_selection':selection}
     def control(self,token,action):
         if action not in ('run','pause','stop'):raise ValueError('Invalid task action')
         with self.lock:
@@ -126,6 +142,7 @@ class CaptureSupervisor:
                     'running':running,'exit_code_known':x['process'] is not None,'mode':x['mode'],'created':x['created']}
                 if x.get('capture_plan'):
                     row.update(capture_plan=x['capture_plan'],planned_groups=x['capture_plan']['planned_groups'],written=0)
+                if x.get('scene_selection'):row['scene_selection']=x['scene_selection']
                 p=x['directory']/'status.json'
                 if p.exists():
                     try:row.update(json.loads(p.read_text()))

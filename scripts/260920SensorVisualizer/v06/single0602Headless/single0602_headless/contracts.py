@@ -14,10 +14,10 @@ DEFAULT = {
     'interactive': {'motion_cache':True,'lightweight_publish':True,'command_budget_ms':2,
                     'diagnostics_enabled':False,'trace_sample_every':30,'async_rendering':True},
     'scheduling': {'cooperative_yield_ms':0,'yield_only_with_owner':False,'cpu_nice':0},
-    'sensors': {'lidar_ids': None, 'camera_ids': None},
+    'sensors': {'lidar_ids': None, 'camera_ids': None, 'imu_ids': None, 'camera_resolution': [1920, 1080]},
     'render': {'mode': 'RealTimePathTracing', 'dlss_mode': 2, 'aa_mode': 3,
                'warmup_subframes': 4, 'camera_subframes': 16, 'capture_subframes': 2,
-               'background_dome': '/environment_Fangshan_02/DomeLight'},
+               'background_dome': None},
     'pipeline': {'slots': 3, 'slot_bytes': 67108864, 'encoder_workers': 4,
                  'png_compress_level': 1, 'segment_groups': 100, 'timeout_s': 120},
     'preview': {'enabled': False, 'wall_hz': 5, 'ros_domain_id': 0},
@@ -55,6 +55,13 @@ def load_job(path=None, overrides=None):
                     job['groups'],job['sample_hz'],job['physics_hz'])
     if not isinstance(job['scene'], str) or not job['scene'].startswith('/'):
         raise ValueError('scene must be an absolute Linux asset path')
+    for key in ('lidar_ids','camera_ids','imu_ids'):
+        ids=job['sensors'][key]
+        if ids is not None and (not isinstance(ids,list) or any(not isinstance(v,str) or not v for v in ids) or len(set(ids))!=len(ids)):
+            raise ValueError('sensors.'+key+' must be null or a unique list of IDs')
+    resolution=job['sensors']['camera_resolution']
+    if not isinstance(resolution,list) or len(resolution)!=2 or any(type(v) is not int or not 1<=v<=16384 for v in resolution):
+        raise ValueError('Invalid sensors.camera_resolution')
     if isinstance(job['max_real_time_factor'], bool) or not math.isfinite(float(job['max_real_time_factor'])) or float(job['max_real_time_factor']) <= 0:
         raise ValueError('max_real_time_factor must be finite and positive')
     p = job['pipeline']
@@ -105,6 +112,18 @@ def load_job(path=None, overrides=None):
         raise ValueError('single0602 fixes formal capture to persistent_gated keepalive')
     if job.get('replay', {}).get('mode', 'offline') != 'offline':
         raise ValueError('single0602 only accepts completed offline trajectories')
+    if 'replay' in job:
+        from .scene_replay import placement_options
+        replay=job['replay']
+        if replay.get('scene_policy','original') not in ('original','environment'):
+            raise ValueError('Invalid replay scene_policy')
+        if replay.get('sensor_policy','recorded') not in ('recorded','target_scene'):
+            raise ValueError('Invalid replay sensor_policy')
+        if replay.get('sensor_policy','recorded')=='target_scene' and replay.get('scene_policy','original')!='environment':
+            raise ValueError('Target scene sensors require environment scene policy')
+        replay['placement']=placement_options(replay.get('placement'))
+        if replay.get('scene_policy','original')=='original' and (any(replay['placement']['translation_m']) or replay['placement']['yaw_deg']):
+            raise ValueError('Original scene reproduction does not accept placement')
     if schedule['cooperative_yield_ms'] != 0 or schedule['yield_only_with_owner']:
         raise ValueError('Independent headless capture does not query an interactive owner')
     if job['render']['camera_subframes'] < 16 or job['render']['capture_subframes'] < 2:

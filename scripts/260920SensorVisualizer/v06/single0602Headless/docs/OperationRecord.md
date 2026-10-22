@@ -1,5 +1,13 @@
 # 云端操作记录
 
+## 005 单参数场景与全场景设备实施
+
+- 时间：2026-10-22，北京时间；远端审计使用 UTC。授权来自用户“现在开始执行实现”，后续明确仅连接 test，暂不连接 capture。
+- 使用 cloud-instance-ops 已登记目标和审计包装器。开发验证在项目 `reports/binding_validation_20261022/` 独立副本，输出在 `/root/gpufree-data/semantic/output/s06binding` 与 `s06cli`；未安装依赖或修改系统、驱动、源资产。
+- 验收范围、正式短采和 IMU 独立探针见 [005 摘要](reports/acceptance_20261022/scene_binding_summary.json)。失败尝试留在验证目录 `reports/attempts/`；默认多 DomeLight、夹具根重命名及未知旧轨迹基线问题均保留真实诊断，没有放宽运行阈值。
+- test 部署前确认旧交付 manifest 无漂移；分批上传到专用 staging，逐文件校验，覆盖前备份。源码回退使用 `reports/deployment_backups/feature005_20261022/`，不包含或覆盖用户轨迹、采集数据和源 USD。未执行回退演练。
+- 记录原始来源哈希与本次交付哈希，不提交原始 MCAP、逐帧样本或日志；本轮不执行 Git 提交或推送，也不更新 capture 项目。
+
 ## 003 完整轨迹采集实施
 
 - 时间：2026-10-19，北京时间；工具审计使用 UTC。授权来自用户“现在开始执行实现”，依据已制定的 003 方案。

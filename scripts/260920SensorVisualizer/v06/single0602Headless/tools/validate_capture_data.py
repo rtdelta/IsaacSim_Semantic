@@ -11,6 +11,7 @@ p=Path(sys.argv[1]);registry=json.loads((p/'sensor_registry.json').read_text())
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from single0602_headless.trajectory import Trajectory
 from single0602_headless.frame_contract import CONTRACT,verify_swing
+from single0602_headless.scene_replay import place_state
 job=json.loads((p/'job_spec.json').read_text());source=None
 if job['replay']['mode'] in ('offline','live_complete'):source=Trajectory.load(job['replay']['trajectory'])
 report=json.loads((p/'writer_report.json').read_text());assert report['state']=='finished',report
@@ -52,9 +53,10 @@ while r.has_next():
         assert any(hi-lo>2 for lo,hi in image.getextrema()),'Uniform image frame'
     if topic.endswith('/camera_info'):
         cid=topic.split('/')[2];cal=cameras[cid]['calibration'];v=cal['intrinsics']
-        assert m.distortion_model=='equidistant' and len(m.d)==4
+        fisheye=cal['model']=='opencv_fisheye'
+        assert m.distortion_model==('equidistant' if fisheye else cal['distortion_model']) and len(m.d)==(4 if fisheye else len(cal['distortion']))
         assert [m.width,m.height]==[cal['width'],cal['height']]
-        assert np.allclose(m.d,[v['k1'],v['k2'],v['k3'],v['k4']],rtol=0,atol=1e-12)
+        assert np.allclose(m.d,[v['k1'],v['k2'],v['k3'],v['k4']] if fisheye else cal['distortion'],rtol=0,atol=1e-12)
         assert np.allclose(m.k,[v['fx'],0,v['cx'],0,v['fy'],v['cy'],0,0,1],rtol=0,atol=1e-12)
     if hasattr(m,'point_step'):
         assert m.point_step==12 and m.row_step==m.width*12 and len(m.data)==m.row_step
@@ -87,15 +89,31 @@ for frame in frames:
     transform_errors.append(float(np.max(np.abs(world('swing_coordinate')-pose_matrix(roots[t])))))
     for sensor in registry['lidars']:
         expected=np.asarray(frame['lidars'][sensor['id']]['to_world'],dtype=float).T
+        if sensor.get('binding',{}).get('category')=='world_static':assert transforms[sensor['frame_id']][0]=='world'
         transform_errors.append(float(np.max(np.abs(world(sensor['frame_id'])-expected))))
     for cid in cameras:
         expected=np.asarray(frame['cameras'][cid]['to_world'],dtype=float).T@np.diag([1,-1,-1,1])
+        if cameras[cid].get('binding',{}).get('category')=='world_static':assert transforms['camera_'+cid+'_optical'][0]=='world'
         transform_errors.append(float(np.max(np.abs(world('camera_'+cid+'_optical')-expected))))
         transform_errors.append(float(np.max(np.abs(camera_poses[t,cid]-expected))))
 assert max(transform_errors)<2e-5,'TF / source sensor matrix mismatch'
+fixed_errors=[];root_mount_errors=[]
+for kind in ('cameras','lidars'):
+    for device in registry[kind]:
+        category=device.get('binding',{}).get('category')
+        if category not in ('world_static','robot_root'):continue
+        matrices=[]
+        for frame in frames:
+            value=np.asarray(frame[kind][device['id']]['to_world'])
+            if category=='robot_root':value=value@np.linalg.inv(pose_matrix(roots[frame['simulation_time_ns']]).T)
+            matrices.append(value)
+        differences=[float(np.max(np.abs(v-matrices[0]))) for v in matrices]
+        (fixed_errors if category=='world_static' else root_mount_errors).extend(differences)
+assert max(fixed_errors,default=0)<2e-5,'World fixed sensor moved with excavator'
+assert max(root_mount_errors,default=0)<2e-5,'Root-mounted sensor did not follow the excavator'
 if source:
     for frame in frames:
-        t=frame['simulation_time_ns'];expected=source.sample(frame['trajectory']['trajectory_time_s']);actual=roots[t]
+        t=frame['simulation_time_ns'];expected=place_state(source.sample(frame['trajectory']['trajectory_time_s']),job['replay'].get('placement'));actual=roots[t]
         root_errors.append(max(abs(getattr(actual.position,n)-v) for n,v in zip('xyz',expected['position_world_m'])))
         a=[getattr(actual.orientation,n) for n in 'xyzw'];b=expected['quaternion_xyzw']
         quat_errors.append(min(math.sqrt(sum((x-y)**2 for x,y in zip(a,b))),math.sqrt(sum((x+y)**2 for x,y in zip(a,b)))))
@@ -110,7 +128,8 @@ out={'passed':True,'session':str(p),'groups':len(frames),'topics':len(types),'me
      'root_sha256':assets['root_sha256'],'root_unchanged':True,'calibration_validated':True,
      'frame_contract_version':CONTRACT['frame_contract_version'],'swing_zero_validated_every_group':True,
      'tf_matrix_max_abs_error':max(transform_errors),
-     'writer_digests_match':True,
+     'writer_digests_match':True,'world_fixed_max_error':max(fixed_errors,default=0),
+     'root_mount_max_error':max(root_mount_errors,default=0),
      'source_root_max_error_m':max(root_errors) if root_errors else None,
      'source_quaternion_max_error':max(quat_errors) if quat_errors else None,
      'source_joint_max_error_rad':max(joint_errors) if joint_errors else None,

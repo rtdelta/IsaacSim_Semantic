@@ -8,13 +8,13 @@ def select_dome(stage,layer,selected_path,backend,diagnostics):
              'texture':str(p.GetAttribute('inputs:texture:file').Get())} for p in domes]
     if selected_path is None:
         if backend=='persistent_gated' and len(visible)>1:
-            raise ValueError('Multiple visible DomeLights: select render.background_dome or use compatibility backend')
+            raise ValueError('Multiple visible DomeLights: select a visible target render.background_dome')
         return {'policy':'preserve_authored','before':before,'disabled':[]}
     selected=stage.GetPrimAtPath(selected_path)
     if not selected or selected.GetTypeName()!='DomeLight':
         raise ValueError('Configured render.background_dome is missing: '+selected_path)
     if UsdGeom.Imageable(selected).ComputeVisibility()==UsdGeom.Tokens.invisible:
-        raise ValueError('Selected DomeLight is hidden; choose a visible light or use compatibility with background_dome=null')
+        raise ValueError('Selected DomeLight is hidden; choose a visible DomeLight')
     disabled=[]
     with Usd.EditContext(stage,layer):
         for prim in domes:

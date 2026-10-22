@@ -1,16 +1,22 @@
 # 实现与方案对照
 
-更新：2026-10-19，北京时间。版本 0.3.0。初始设计依据为本目录 `CoordinateFrames.md` 和 `ImpPlan/001_single0602Headless_实现方案.md`，当前交互规则以 002 修订为准，采集范围规则以 003 修订为准。
+更新：2026-10-22，北京时间。版本 0.5.0。初始设计依据为本目录 `CoordinateFrames.md` 和 `ImpPlan/001_single0602Headless_实现方案.md`，当前交互规则以 002 修订为准，采集范围规则以 003 修订为准。
 
 当前设计依据：[002 连续交互改进方案](ImpPlan/002_连续交互改进方案.md)。已实现原生 Timeline 连续交互、逐仿真步位置设置及物理速度清零、Stop 结束文件和重新绑定；其他对象记录保留在 TODO。1× 为交互目标，实际倍率和验收范围见 [验证记录](Testing.md)。
 
 [003 完整轨迹采集改进方案](ImpPlan/003_完整轨迹采集改进方案.md) 已实现“完整轨迹／指定最多组数”、自动采集计划、只读预览、快照计划核验及完成范围展示。网页默认完整轨迹；旧 API 和 CLI 未提供新范围选项时保持最多 100 组的历史默认。具体测试及真实数据回读范围见 [验证记录](Testing.md)。
 
+[005 单参数场景加载与全场景传感器发现](ImpPlan/005_单参数场景加载与自动绑定_实现方案.md) 实现于
+`launch_config.py`、`sensor_catalog.py`、`scene.py` 及重放、消息和网页模块。
+新增运行配置快照、全 Stage 设备候选与选择、普通/原生 OpenCV 相机标定、车外固定设备 world TF、根附属设备跟随。
+新版 `scene_interface=2`、`sensor_registry=3` 保留旧轨迹读取；跨环境可显式使用目标传感器配置，旧默认仍恢复来源设备。
+`imu_interface.py` 仅提供原生物理域探针与导出映射预留，不参与正式冻结采集。实际证据以 Testing 为准。
+
 | 要求 | 实现位置 | 行为 |
 | --- | --- | --- |
 | 独立包、端口、输出和 IPC | `single0602_headless/`、`run_web.py`、`config/` | 包内导入自包含，网页 17877；使用独立输出，源码移植来源及哈希另存 |
 | 完整坐标契约 | `frame_contract.py`、`robot/articulation_motion.py` | 写入版本、原点、固定偏移、工程假设、零位映射和启动读回；snapshot 验证每次 swing |
-| 已声明零位 | `config/asset_profiles.json`、`scene.py` | 按 scene18 mesh contract 的原生重建 bind 零位设置 swing=0；核验声明及固定文件哈希 |
+| 已声明零位 | `config/asset_profiles.json`、`scene.py` | 按 scene18 mesh contract 的原生重建 bind 零位设置 swing=0；核验声明及组合机械接口，文件哈希仅记录身份 |
 | 当前 H 系键控 | `keyboard_control.py`、`robot/reference_frames.py` | 每步先按起始姿态计算水平投影和平移，再转向；保留退化迟滞和四元数连续性 |
 | 原生焦点及重复事件 | `native_keyboard.py`、`interactive_runtime.py` | 应用、视口焦点和输入阻塞一起检查；KEY_PRESS 才能新增按键，失焦后 KEY_REPEAT 无法恢复 |
 | 混合控制交接 | `interactive_runtime.py`、`keyboard_control.py` | 模式配置完整校验后提交，清键、epoch、实际读回建立基准；网页显式运动使旧输入失效 |

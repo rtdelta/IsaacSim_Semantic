@@ -30,6 +30,20 @@ def snapshot_trajectory(source, destination):
 def verify_replay_identity(metadata, scene):
     """Compare recorded asset identity and reference offset to the loaded native state."""
     validate_metadata(metadata, require_complete=True)
+    from .scene_replay import recorded_interface,compare_interface,comparable_interfaces
+    policy=scene.job.get('replay',{}).get('scene_policy','original')
+    if policy=='environment' or metadata.get('scene_interface'):
+        sensor_policy=scene.job.get('replay',{}).get('sensor_policy','recorded')
+        expected,actual=comparable_interfaces(recorded_interface(metadata,scene.project),scene.scene_interface,sensor_policy)
+        compare_interface(expected,actual)
+        # Check every source row before creating capture products or the writer.
+        for state in getattr(scene,'source_states',[]):
+            for name,angle in state['joints_deg'].items():
+                control=scene.motion.controller.states.get(name)
+                if control is None or not control.minimum-1e-4<=angle<=control.maximum+1e-4:
+                    raise ValueError('Trajectory exceeds target joint limit: '+name)
+        if policy=='environment':
+            return {'verified':True,'policy':policy,'scope':'motion_and_sensor_interface'}
     current = scene.motion.frame_metadata()
     for key in ('asset_origin_version', 'swing_zero_mapping', 'root_in_reference_row_matrix'):
         if metadata[key] != current[key]:
@@ -39,3 +53,4 @@ def verify_replay_identity(metadata, scene):
     for layer in metadata['asset_manifest'].get('used_layers', []):
         if file_sha256(layer['path']) != layer['sha256']:
             raise ValueError('Recorded USD dependency changed: ' + layer['path'])
+    return {'verified':True,'policy':'original','scope':'recorded_USD_layers_and_motion_reference'}

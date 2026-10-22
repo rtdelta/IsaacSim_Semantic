@@ -66,6 +66,8 @@ class SceneStepper:
         while self.context.get_stage_loading_status()[2]:
             if time.monotonic()>deadline: raise TimeoutError('Assets did not finish USD loading')
             await self.app.next_update_async()
+        composition_errors=self.stage.GetCompositionErrors()
+        if composition_errors:raise ValueError('USD composition failed: '+str(composition_errors[:5]))
         self.timeline.stop()
         await self.app.next_update_async()
         # Opening a new USD stage resets Replicator's capture-on-play setting.
@@ -75,6 +77,7 @@ class SceneStepper:
         self.diag.event('capture_on_play_disabled',after_stage_load=True,
                         actual=settings.get('/omni/replicator/captureOnPlay'))
         if abs(UsdGeom.GetStageMetersPerUnit(self.stage)-1) > 1e-9: raise ValueError('Expected metre stage')
+        if UsdGeom.GetStageUpAxis(self.stage)!=UsdGeom.Tokens.z:raise ValueError('Expected Z-up stage')
         self.original_edit_target = self.stage.GetEditTarget()
         self.layer = Sdf.Layer.CreateAnonymous('Single0602Headless.usda')
         self.stage.GetSessionLayer().subLayerPaths.insert(0,self.layer.identifier)
@@ -82,46 +85,37 @@ class SceneStepper:
         from .lighting import select_dome
         self.lighting=select_dome(self.stage,self.layer,self.job['render']['background_dome'],
                                   self.job['capture']['backend'],self.diag)
-        self.asset_profile = resolve_profile(self.project, self.stage.GetRootLayer().realPath)
+        self.asset_profile = resolve_profile(self.project, self.stage.GetRootLayer().realPath,self.job.get('asset_profile_id'))
         cfg = json.loads((self.project/'config/robot_sensors.json').read_text())
         robots = [r for r in discover_robots(self.stage) if r['auto_eligible']]
         if len(robots)!=1: raise RuntimeError('Expected one supported excavator')
         self.config = cfg = bind_config(cfg,robots[0])
+        from .scene_replay import motion_interface, compare_interface
+        self.motion_interface = motion_interface(self.stage,robots[0])
+        expected=self.asset_profile.get('motion_interface_joints')
+        if not expected:raise ValueError('Asset profile requires a verified motion_interface_joints declaration')
+        compare_interface(expected,self.motion_interface['joints'],'excavator.joints')
         cfg['robot_motion'].update(control_mode='scripted', reference_frame=cfg['root_frame'], horizontal_frame=cfg['horizontal_frame'])
         cfg['robot_motion'].update(swing_zero_mapping=self.asset_profile['swing_zero_mapping'], asset_origin_version=self.asset_profile['asset_origin_version'])
         joint = self.stage.GetPrimAtPath(robots[0]['joints']['swing']['path'])
         if joint.GetCustomData().get('angleZero') != self.asset_profile['swing_zero_mapping']['declared_angle_zero']:
             raise ValueError('Asset swing zero declaration differs from pinned profile')
-        all_lidars = discover_sensors(self.stage, robot_path=cfg['robot_motion']['robot_prim'])
-        chosen = self.job['sensors']['lidar_ids']
-        lidars = all_lidars if chosen is None else [s for s in all_lidars if s['id'] in chosen]
-        if chosen is not None and set(chosen)!=set(s['id'] for s in lidars): raise ValueError('Unknown LiDAR ID')
-        for lidar in lidars:
-            prim = self.stage.GetPrimAtPath(lidar['prim_path'])
-            if not prim.GetAttribute('omni:sensor:Core:instantLidar').Get(): raise ValueError('Only Instant LiDAR supported: '+lidar['id'])
-            lidar['parameters'] = {a.GetName():str(a.Get()) for a in prim.GetAttributes() if any(k in a.GetName() for k in ('instantLidar','scanType','scanRateBaseHz','tickRate','nearRange','farRange'))}
-        cameras = []
-        chosen_cameras = self.job['sensors']['camera_ids']
-        all_cameras = []
-        for item in cfg['cameras']:
-            path = item['prim_path']
-            if item['id']=='back' and not self.stage.GetPrimAtPath(path): path = path.replace('FisheyeBack','FisheyeRear')
-            prim = self.stage.GetPrimAtPath(path)
-            if not prim or not prim.IsA(UsdGeom.Camera): raise ValueError('Missing camera '+path)
-            all_cameras.append(path)
-            if chosen_cameras is not None and item['id'] not in chosen_cameras: continue
-            if prim.GetAttribute('omni:lensdistortion:model').Get()!='opencvFisheye': raise ValueError('Expected calibrated fisheye')
-            width,height = map(int,prim.GetAttribute('omni:lensdistortion:opencvFisheye:imageSize').Get())
-            intrinsics = {n:float(prim.GetAttribute('omni:lensdistortion:opencvFisheye:'+n).Get()) for n in ('fx','fy','cx','cy','k1','k2','k3','k4')}
-            cameras.append({'id':item['id'],'prim_path':path,'calibration':{'model':'opencv_fisheye','width':width,'height':height,
-                'intrinsics':intrinsics,'exposure':{a.GetName():a.Get() for a in prim.GetAttributes() if a.GetName().startswith('exposure:')},
-                'camera_usd_axes':'X right, Y up, -Z forward','camera_optical_axes':'X right, Y down, Z forward'}})
-        if chosen_cameras is not None and set(chosen_cameras)!=set(c['id'] for c in cameras): raise ValueError('Unknown camera ID')
-        if not cameras or not lidars: raise ValueError('Select at least one camera and one Instant LiDAR')
-        self.registry = {'schema_version':2,'lidars':lidars,'cameras':cameras,
-                         'world_frame':'world','root_frame':'swing_coordinate','horizontal_frame':'swing_horizontal_coordinate'}
+        from .sensor_catalog import discover_sensor_candidates
+        self.sensor_candidates,self.registry=discover_sensor_candidates(self.stage,robots[0],cfg,self.job['sensors'],
+            getattr(self,'recorded_registry',None))
+        lidars,cameras=self.registry['lidars'],self.registry['cameras']
+        if sensor_products and not (lidars or cameras):
+            raise ValueError('No selected capture-ready sensors. IMU is reserved; select at least one supported camera or Instant LiDAR')
+        camera_bytes=sum(c['calibration']['width']*c['calibration']['height']*4+64 for c in cameras)
+        if sensor_products and camera_bytes>self.job['pipeline']['slot_bytes']:
+            raise ValueError('Selected camera payload alone requires at least '+str(camera_bytes)+
+                             ' slot_bytes; increase pipeline.slot_bytes or select fewer sensors')
         self.registry.update(CONTRACT)
-        self.lease = RenderLease(self.stage,self.layer,[s['prim_path'] for s in all_lidars]+all_cameras)
+        for camera in cameras:
+            cal=camera['calibration']
+            if 'vertical_aperture' in cal:
+                self.stage.GetPrimAtPath(camera['prim_path']).GetAttribute('verticalAperture').Set(cal['vertical_aperture'])
+        self.lease = RenderLease(self.stage,self.layer,[s['prim_path'] for s in self.sensor_candidates if s['kind']!='imus'])
         self.motion = ArticulationMotion(self.stage,self.layer,cfg['robot_motion'],lambda message: print('[S0602 motion] '+message,flush=True))
         self.motion.performance=self.diag
         self.motion.cache_enabled=bool(not sensor_products and self.job['interactive']['motion_cache'])
@@ -132,10 +126,17 @@ class SceneStepper:
         self.timeline.pause(); self.timeline.commit()
         self.motion.tick(self.native_time())
         if not self.motion.ready: raise RuntimeError('Articulation did not initialize')
-        mounts=lidars+[dict(c,id='camera_'+c['id']) for c in cameras]
+        # The interactive editor owns all valid mounts; state snapshots contain only selected devices.
+        available=[r for r in self.sensor_candidates if r['capturable']] if not sensor_products else lidars+cameras
+        mounts=[dict(r,id=r['mount_id']) for r in available]
         self.poses = SensorPoses(self.stage,mounts,self.job['output_directory'],self.native_time)
         for sid,row in self.job['mount_poses'].items(): self.poses.apply(sid,row['position_m'],row['rotation_deg'])
         self.apply_commands(self.job['motion'])
+        from .scene_replay import describe_interface
+        self.scene_interface=describe_interface(self)
+        self.update_binding_report()
+        validation=getattr(self,'preflight',None)
+        if validation:validation(self)
         if not sensor_products:
             # Interactive context has articulation + viewport, no formal products.
             from omni.kit.loop import _loop as omni_loop
@@ -195,6 +196,41 @@ class SceneStepper:
         self.rendered_pose_revision=self.poses.revision
         self.diag.set_manifest(asset_manifest=self.asset_manifest,render_actual=self.render_actual)
         self.phase('idle')
+
+    def active_mount_ids(self):
+        return {s['mount_id'] for kind in ('lidars','cameras') for s in self.registry[kind]}
+
+    def snapshot_mounts(self):
+        ids=self.active_mount_ids()
+        return [row for row in self.poses.snapshot() if row['id'] in ids]
+
+    def update_binding_report(self):
+        from .launch_config import write_binding
+        for candidate in self.sensor_candidates:
+            entry=self.poses.entries.get(candidate['mount_id'])
+            candidate['mount_editable']=entry is not None and entry['reason'] is None
+            if entry and entry['reason']:candidate['mount_edit_issue']=entry['reason']
+        self.binding_report={'state':'ready','scene':self.stage.GetRootLayer().realPath,
+            'robot_root':self.config['robot_motion']['robot_prim'],'asset_profile_id':self.asset_profile['id'],
+            'robot_binding':self.config['robot_binding'],'sensor_candidates':self.sensor_candidates,
+            'selected_sensors':{k:[r['id'] for r in self.registry[k]] for k in ('cameras','lidars','imus')},
+            'capture_ready':bool(self.registry['cameras'] or self.registry['lidars']),
+            'camera_payload_bytes':sum(c['calibration']['width']*c['calibration']['height']*4+64 for c in self.registry['cameras']),
+            'slot_bytes':self.job['pipeline']['slot_bytes'],
+            'lighting':self.lighting,'output_directory':self.job['output_directory']}
+        write_binding(self.job,self.binding_report)
+
+    def select_sensors(self,selection):
+        if self.drivers is not None:raise ValueError('Cannot change sensors after capture products are created')
+        from .sensor_catalog import select_candidates
+        from .scene_replay import describe_interface
+        from .contracts import load_job
+        values=dict(self.job['sensors'],**selection)
+        load_job(overrides={'sensors':values})
+        registry=select_candidates(self.sensor_candidates,values)
+        self.registry.update(registry);self.job['sensors']=values
+        self.scene_interface=describe_interface(self)
+        self.update_binding_report()
 
     def build_asset_manifest(self):
         source = Path(self.stage.GetRootLayer().realPath)
@@ -337,8 +373,9 @@ class SceneStepper:
             s=motion.controller.states[name]
             if not s.minimum-1e-4<=angle<=s.maximum+1e-4:raise ValueError('Snapshot exceeds joint limit: '+name)
         # Validate mappings before authoring the captured state.
-        if {r['id'] for r in state['mounts']}!=set(self.poses.entries):raise ValueError('Snapshot sensor mapping differs')
-        for row in state['mounts']:
+        apply_mounts=self.job.get('replay',{}).get('sensor_policy','recorded')=='recorded'
+        if apply_mounts and {r['id'] for r in state['mounts']}!=self.active_mount_ids():raise ValueError('Snapshot sensor mapping differs')
+        for row in (state['mounts'] if apply_mounts else []):
             current=self.poses.read(row['id'])
             if any(abs(a-b)>1e-7 for a,b in zip(current['position_m']+current['rotation_deg'],row['position_m']+row['rotation_deg'])):
                 self.poses.apply(row['id'],row['position_m'],row['rotation_deg'])
@@ -347,6 +384,7 @@ class SceneStepper:
         q=state['quaternion_xyzw']; reference=motion._root_matrix(state['position_world_m'],[q[3],*q[:3]])
         root=motion.reference_in_root.GetInverse()*reference; rq=root.ExtractRotationQuat().GetNormalized()
         motion._apply(root.ExtractTranslation(),motion._command_angles(),[rq.GetReal(),*rq.GetImaginary()])
+        self.poses.update_virtual_mounts()
         import math
         x,y,z,w=q;c=motion.base_controller;c.x,c.y,c.z=state['position_world_m']
         c.heading=math.atan2(2*(w*z+x*y),1-2*(y*y+z*z));c.speed=c.yaw_rate=0

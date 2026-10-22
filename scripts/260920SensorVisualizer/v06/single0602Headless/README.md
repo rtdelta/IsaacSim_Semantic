@@ -1,13 +1,32 @@
 # single0602Headless
 
-更新日期：2026-10-19（北京时间）。独立运行包：`single0602_headless`，版本 0.3.0。
+更新日期：2026-10-22（北京时间）。独立运行包：`single0602_headless`，版本 0.5.0。
+
+
+
+0.5.0 新增 `--interactive --scene /绝对路径/scene.usda`，无需复制 job 即可切换兼容场景。
+机械接口与传感器分开核验：挖机可无传感器，程序扫描整个 Stage，支持车载和环境固定设备，允许仅相机或仅雷达采集。
+默认选择全部可采集候选，包含场景中的 overview Camera；网页可在录制前调整选择。零设备允许机械轨迹录制，不能创建空采集任务。
+普通透视/OpenCV pinhole 与 OpenCV fisheye 分别输出正确标定，环境固定设备以 world 为 TF 父参考。
+IMU 预留类型和物理域接口，官方原生资产探针独立验证；正式冻结采集尚未启用 IMU。
+具体范围见 [005 方案](docs/ImpPlan/005_单参数场景加载与自动绑定_实现方案.md)，实际验证结果见 [验证记录](docs/Testing.md)。
+
+0.4.0 场景编辑与跨环境采集：取消场景整文件哈希白名单，新启动按组合 Stage 的运动接口核验。
+网页可选择“原场景复现”或“更换环境采集”，后者显式指定目标场景和可选平移/绕 Z 旋转，
+不修改原轨迹。原场景复现仍校验已记录 USD 身份。
+操作与边界见 [场景编辑与跨环境采集方案](docs/ImpPlan/004_场景编辑与跨环境轨迹采集_实现方案.md)。
 
 保留网页配置，在 Isaac GUI 中通过网页或键盘录制完整状态轨迹，结束并排空后，用独立 Headless Isaac 进程沿轨迹采集。正式链路固定为 `offline / persistent_gated / keepalive`。工程上将 cab 相对 track 的角度假定为 0°；启动和每组状态核验原生 DOF，不能将这个假定标记为真实设备实测值。
 
 - [坐标系与键盘运动契约](docs/CoordinateFrames.md)
+- [交付对接说明](docs/handoff/DeliveryHandoff.md)：交付范围、环境、原点与零位、数据接口和接收验收。
+- [操作指南](docs/handoff/OperationGuide.md)：启动、录制、短采、完整轨迹采集、回读和排错。
+- [换场景核验与操作](docs/handoff/SceneSwitchGuide.md)：初始资产核验、统一挖机接口、新配置及整套重启步骤。
+- [综合交付方案](docs/DeliveryPlan.md)：发行套件、模型制作、RViz 和 3DGS 等扩展交付设计及完成范围。
 - [single0602Headless 实现方案](docs/ImpPlan/001_single0602Headless_实现方案.md)
 - [连续交互改进方案（002）](docs/ImpPlan/002_连续交互改进方案.md)
 - [完整轨迹采集改进方案（003）](docs/ImpPlan/003_完整轨迹采集改进方案.md)
+- [单参数场景加载、机械绑定与全场景传感器发现方案（005）](docs/ImpPlan/005_单参数场景加载与自动绑定_实现方案.md)
 
 002 已将 GUI 改为原生 Timeline 连续播放，以 1× 为交互目标，继续逐仿真步设置位置并清零物理速度，原生 Stop 结束当前录制。实际倍率显示在网页中，性能与验证范围见 [验证记录](docs/Testing.md)。
 
@@ -26,7 +45,9 @@ cd /root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Head
 
 ```bash
 cd /root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless
-/usr/bin/python3 run_capture.py --interactive --job config/interactive.json
+/usr/bin/python3 run_capture.py --interactive
+# 更换场景时只替换下面的 USD 路径：
+# /usr/bin/python3 run_capture.py --interactive --scene /root/gpufree-data/IsaacSim_Asset/combine_stage/new_scene.usda
 ```
 
 在远端浏览器打开 `http://127.0.0.1:17877`。网页服务仅监听回环地址，使用现有系统 Python 标准库；无需下载或安装网页依赖。启动器默认使用现有 `/root/isaacsim`，其他安装位置通过 `ISAACSIM_PATH` 指定。若使用 Script Editor，运行本目录 `run_in_isaac.py`；两种交互入口二选一。
@@ -69,12 +90,12 @@ Isaac 面板 Stop 或网页 **Stop Simulation** 会结束当前轨迹并排空�
 ## 文件和兼容约束
 
 - 本地代码全部位于本目录。云端部署路径同上；输出独立保存在 `/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless`，IPC 为其下 `runtime/engine.sock`。
-- 默认场景为 scene18。`config/asset_profiles.json` 固定场景和 mesh contract 资产哈希、原点版本、swing 原生零位及声明。未知资产或哈希不符时拒绝启动；变更资产前必须建立经过核验的 profile。
+- 默认场景为 scene18。`config/asset_profiles.json` 定义运动接口、原点与 swing 原生零位；历史整文件哈希只记录基线。编辑环境或更换路径无需登记哈希，组合 Stage 的关节框架和传感器接口仍须兼容。
 - 轨迹保存完整位置、四元数、工作关节和安装 revision；控制事件另存 `control_events.jsonl`。后台队列有界，过载显式失败。direct 和安装 revision 边界不做连续插值。
 - 新轨迹采用 `native_simulation_seconds`，旧完整轨迹保留 `prescribed_control_simulation_seconds` 的原始时间含义。导入和重放分别验证时间版本，不重新乘倍率。位置变化率仅用于计算离散位置增量，不下发物理速度或加速度命令。
 - GUI 默认允许异步视口渲染；可通过任务的 `interactive.async_rendering=false` 关闭。正式 Headless 采集继续同步冻结状态。其他对象的运动记录和重放尚未实现，已进入 002 方案 TODO。
 - 缺少本版坐标契约、原点、关节映射、swing 零位核验或完整标记的旧轨迹会被拒绝。没有证据时应重新录制；不通过补版本字符串或禁用资产哈希来迁移。
-- 正式配置保留至少 16 个相机预热子帧和 2 个采集子帧。四相机默认 1920×1080；13 路雷达沿用原生输出轴向。数据编码为 PNG、ROS2 CDR，统一写入 MCAP。
+- 正式配置保留至少 16 个相机预热子帧和 2 个采集子帧。相机尺寸取有效标定或 `sensors.camera_resolution`（普通透视默认 1920×1080）；设备数量由实际 registry 决定。雷达沿用原生输出轴向。数据编码为 PNG、ROS2 CDR，统一写入 MCAP。
 - 只在本项目匿名 USD 会话层设置运行状态。源 USD、旧 v06、single0601 和系统 Python/驱动均不作为本版修改目标。
 
 ## 验证与维护
