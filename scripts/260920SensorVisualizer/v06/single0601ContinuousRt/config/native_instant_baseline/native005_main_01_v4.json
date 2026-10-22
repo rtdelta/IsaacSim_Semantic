@@ -1,0 +1,15 @@
+{
+  "batch_id": "native005_main_01_v4",
+  "experiment_id": "native005_20261015_v1",
+  "phase": "main",
+  "specs": [
+    "config/native_instant_baseline/specs/M_E_S0_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_S0_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_S0_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_S0_r02_main_v4.json"
+  ],
+  "free_reserve_bytes": 8589934592,
+  "previous_batch": "native005_q_rotation_v4",
+  "budget_rule": "maximum four runs; qualification observed bytes/event estimate plus 8 GiB reserve; per-run uncompressed hard bound 2 GiB",
+  "revision_reason": "Correct reference E to fresh running-state probe, retain paused probe. Same requested values, capture/analyzer code and all numeric thresholds as q03; fresh q04 qualification."
+}

@@ -1,0 +1,8 @@
+{"schema_version":1,"cases":[
+{"name":"new_credit_mixed_smoke","config":"config/mixed_pair.json","motion":"moving","groups":10},
+{"name":"M2_full_barrier_retry","config":"config/strict_scene18.json","motion":"moving","groups":100,"group_timeout_wall_s":15},
+{"name":"known_geometry_fast_motion","config":"config/mixed_pair.json","motion":"moving","groups":24,"diagnostics":{"geometry":true}},
+{"name":"M4_slow_worker","config":"config/mixed_pair.json","motion":"moving","groups":5,"diagnostics":{"worker_fault":{"kind":"slow_worker","delay_s":2}}},
+{"name":"M4_missing_route","config":"config/mixed_pair.json","motion":"moving","groups":5,"expected_failure":true,"diagnostics":{"drop_sensor":{"sensor_id":"camera/front","group_id":1}}},
+{"name":"M4_disk_full","config":"config/mixed_pair.json","motion":"moving","groups":5,"expected_failure":true,"diagnostics":{"worker_fault":{"kind":"disk_full","group_id":1}}}
+]}

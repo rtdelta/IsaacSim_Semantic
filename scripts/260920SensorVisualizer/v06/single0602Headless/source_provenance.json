@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "source": "v06 snapshot; runtime is self contained",
+  "files": [
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/analysis.py",
+      "source_sha256": "55350f84c1f244f808a749c806fd53dd120bf0ba7af9289777c1c0eaa55b4719",
+      "destination": "single0602_headless/analysis.py",
+      "delivered_sha256": "55350f84c1f244f808a749c806fd53dd120bf0ba7af9289777c1c0eaa55b4719",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/buffers.py",
+      "source_sha256": "a934cc39e481fa55c3f4303b77f33f84f5d242b6273682e5773313fc323775ba",
+      "destination": "single0602_headless/buffers.py",
+      "delivered_sha256": "a934cc39e481fa55c3f4303b77f33f84f5d242b6273682e5773313fc323775ba",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/capture_supervisor.py",
+      "source_sha256": "cdd0fc2ceac056437e74045362e9bfa8e148502d86ded4571f2aeb12ab90f5f8",
+      "destination": "single0602_headless/capture_supervisor.py",
+      "delivered_sha256": "80170f1038aac8668970bf40e3661015478b5b4a3a8ede03bf1dc1a06470874b",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/contracts.py",
+      "source_sha256": "154a7cddcda4f15d4fda459a3b36d324760de38e5de203569ea0e87a8c2c047e",
+      "destination": "single0602_headless/contracts.py",
+      "delivered_sha256": "d1474481304606f58c9219537e7c7265bb0cb35870b312ba8676668cb2d84538",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/control_ipc.py",
+      "source_sha256": "5583e6351f93b57a1a9555f3ef4502a9902e67f014f65f27d0fd4baf063a3646",
+      "destination": "single0602_headless/control_ipc.py",
+      "delivered_sha256": "a27f52c70aeb3f26ff487ce741dead486cbb1ab629877c7c8a6c88f6d9c4d322",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/coordinator.py",
+      "source_sha256": "d8c66c21aa22760eda4a855f750415e3a0f576a7ee226699738185b58e5e3b1b",
+      "destination": "single0602_headless/coordinator.py",
+      "delivered_sha256": "9cbf7c3cb7219d69c7358095f1d1c968015489e834cd70fb18cb1190633552b3",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/diagnostics.py",
+      "source_sha256": "814a781240b8315de9a9a841b0b64f73cb5189f7fd5b65e24577ebfa528a8a4b",
+      "destination": "single0602_headless/diagnostics.py",
+      "delivered_sha256": "982d6e6ae1cbc96d339a5004854596aa81475395e06b6bc8392c0e99c4c05d5c",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/gating.py",
+      "source_sha256": "042ee536266e141f01c61ced820054bd1ac6f26dc0d91c6c22373e4659834169",
+      "destination": "single0602_headless/gating.py",
+      "delivered_sha256": "042ee536266e141f01c61ced820054bd1ac6f26dc0d91c6c22373e4659834169",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/geometry.py",
+      "source_sha256": "0ed99e571f83b2572a6dd85af17e89e61ee6bcc83c192b70325cb8ba11b46b99",
+      "destination": "single0602_headless/geometry.py",
+      "delivered_sha256": "0ed99e571f83b2572a6dd85af17e89e61ee6bcc83c192b70325cb8ba11b46b99",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/gpu_config.py",
+      "source_sha256": "ff90b85cfc50f024ecca17930f3e58647439c2485f368a857e0a993f308a7715",
+      "destination": "single0602_headless/gpu_config.py",
+      "delivered_sha256": "ff90b85cfc50f024ecca17930f3e58647439c2485f368a857e0a993f308a7715",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/hot_path_metrics.py",
+      "source_sha256": "387453b0de9f2d0f022d76ca41e60bd0c9c1fcaea5b04bb71c43cfd973d1079d",
+      "destination": "single0602_headless/hot_path_metrics.py",
+      "delivered_sha256": "142a9dc1c3676ef60ded9b501192d1cb2d2c48325c78ede5a63393315ab44d83",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/interaction_log.py",
+      "source_sha256": "b08bdbd6f73d5cc844869c19d846fefd1aaaed6b356067480023b217b19c6f5a",
+      "destination": "single0602_headless/interaction_log.py",
+      "delivered_sha256": "5bcdc8cc1a1822a2f188c9d7eaa41842be96c3b12fb2206ed71db10e2f0a24f1",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/interactive_runtime.py",
+      "source_sha256": "a48d67d641c6b5a6d406ed1880c279359c29a55f72005d10bf39680ab62f573c",
+      "destination": "single0602_headless/interactive_runtime.py",
+      "delivered_sha256": "ece48c34a8966fb88b788547d02d9e049cde9be830f8579d75a92d8242d438be",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/internal_scheduling.py",
+      "source_sha256": "df797845ac06937579568bcd56d603dd136319fd0032010badd4798ae7e530fb",
+      "destination": "single0602_headless/internal_scheduling.py",
+      "delivered_sha256": "33bca5a3a944b63b85ef9bfd05ff6f87729d9da175794ed594a5a532ec047aef",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/keyboard_control.py",
+      "source_sha256": "d5e3ab15a94ce721afb13a7fc7af495a536755de4f438913881e79f38c8b5e06",
+      "destination": "single0602_headless/keyboard_control.py",
+      "delivered_sha256": "ca69103000002d23562dbffab154a181577f7641d9df76082ce2b800300ea1b2",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/lighting.py",
+      "source_sha256": "785cefb1d7cec7ce12fe080cd9fee5d0e26c616eeab1035348cb82bff5e0d29c",
+      "destination": "single0602_headless/lighting.py",
+      "delivered_sha256": "f374e7c12d933984d00c4f9595d2c02b9c415a4f1e6780dc7d814c6defc74ad3",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/messages.py",
+      "source_sha256": "869b8dd3898838519e2319abbfa29106db43d27beaf5be7326e46b41d8bfa970",
+      "destination": "single0602_headless/messages.py",
+      "delivered_sha256": "c40a6e7fb6221639f77775aec9aa40f5e35932c6e6257b3e44abeb0c8d7add3d",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/native_keyboard.py",
+      "source_sha256": "73b60032403d68035159bbd4d7118f823aa139f952fb82c548465fcb0259c1f3",
+      "destination": "single0602_headless/native_keyboard.py",
+      "delivered_sha256": "1a845f0e3b5929108910b15974bf9e5818aa849b3ec3c831804f06a8fb875786",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/native_trace.py",
+      "source_sha256": "dc745d4780cea7e5c5019b48bcab7d0fd042a5c37569d1428bde027decaf32b6",
+      "destination": "single0602_headless/native_trace.py",
+      "delivered_sha256": "dc745d4780cea7e5c5019b48bcab7d0fd042a5c37569d1428bde027decaf32b6",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/pipeline.py",
+      "source_sha256": "7b891e4be436ece09be3bc4895e207ae90d0ddf4e44d76a14e903dde5a2d6ed4",
+      "destination": "single0602_headless/pipeline.py",
+      "delivered_sha256": "785df65a0b283195c09cb24810582ccdfe874c7683a138825240409a13016d7a",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/record_worker.py",
+      "source_sha256": "090c5cc36f04c624d15103281f6b9bd44469c6e463b8981c331cd30316c63ac7",
+      "destination": "single0602_headless/record_worker.py",
+      "delivered_sha256": "7f66900eff0427b2f6089dba03c7da66c38a103b1e33404f51be97bcb568e20a",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/replay_capture.py",
+      "source_sha256": "60ed2003b60e268063b6342022035bbbf4d6895505454d1fa4cb2e9204dbca19",
+      "destination": "single0602_headless/replay_capture.py",
+      "delivered_sha256": "d0056ca4b5220d8c969f4a86ce32e1e82694ca065a2dbcbabf69c9fc443761fe",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/resources.py",
+      "source_sha256": "667b045f1a57245bb3ca0f1e23f125f2cbc11c22eb130f7c4e9317854090bbb6",
+      "destination": "single0602_headless/resources.py",
+      "delivered_sha256": "f521c3cfee554cbf7588f8e1aed9f310660919c77f63801a812046cae0c1ef73",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/scene.py",
+      "source_sha256": "51e710bdbbfae56a62865d51f64d80048d112692441b2c9110ab7926dec95c35",
+      "destination": "single0602_headless/scene.py",
+      "delivered_sha256": "65b08c8c9723fbe071e62d4a52baae671f6a1d403a74e14f7c7cda9e0227ea35",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/sensors.py",
+      "source_sha256": "f6f6a4e46378bea40520f5c159a669f121b0f78e82bf3ac33becc1efd250f3e8",
+      "destination": "single0602_headless/sensors.py",
+      "delivered_sha256": "533c626e28ed22e95616cb4ded9d03facabb0e90c988139fd454862aced82dcc",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/tickets.py",
+      "source_sha256": "e40a0fe71935ca7c568654ef5e42b4c4bfa40d284b3d35cc04fb6587d6068c4c",
+      "destination": "single0602_headless/tickets.py",
+      "delivered_sha256": "e40a0fe71935ca7c568654ef5e42b4c4bfa40d284b3d35cc04fb6587d6068c4c",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/trajectory.py",
+      "source_sha256": "7b448ef31347ade422163e26556134b93e87e85a1eb06364b23b2eae1b24dce6",
+      "destination": "single0602_headless/trajectory.py",
+      "delivered_sha256": "6fbe5265b4739e96b5e9088b033e9f469b62d80556314e8e75651f9d4facfed2",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/ui.py",
+      "source_sha256": "9f80a86fc564e060507cd5202c76118e0bc8d8b533d70cc0d2a518590ebb3fed",
+      "destination": "single0602_headless/ui.py",
+      "delivered_sha256": "57a47e6e4b0d1eb5543dbfc7b515ea9b3abc9127c844e47e81770c363aee6fc1",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/web_asgi.py",
+      "source_sha256": "92fd352ee12be3634e8220603bf77a3548e610bac2b1597f64a4cb2891db8b5d",
+      "destination": "single0602_headless/web_asgi.py",
+      "delivered_sha256": "1de59ac515489ea36ef231fb4e329402a0ee668a6addf1f9ebbc912f2f569954",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/web_service.py",
+      "source_sha256": "0fe2f53328552aa253c32e427b75203e8f076a99e911ecde1023415be5817654",
+      "destination": "single0602_headless/web_service.py",
+      "delivered_sha256": "e2202df9e04c48739fddc994b2e956ca53ddaa51c41175000a604a5975f78c45",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/__init__.py",
+      "source_sha256": "50d1d1ba9d344177aa097d59c5f21ef509ec2103ba7be7f723a5c581b86d95b6",
+      "destination": "single0602_headless/__init__.py",
+      "delivered_sha256": "602ea32e69f60ab950050d86ff8c831fb5ad7a3a271db546d531ec1344c99742",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/articulation_motion.py",
+      "source_sha256": "9c321215ddcc0c3bc953f81dbc68f27100e8b5a4365401236a00d36ab26612db",
+      "destination": "single0602_headless/robot/articulation_motion.py",
+      "delivered_sha256": "b4d6e6262d0d6d45947aec4bbe33b0cd73f2e83b73287b6428cc6396e354920d",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/base_control.py",
+      "source_sha256": "d43a2500b4ee7572adce39bbd483c056929f7277415a861a9b543960762590e2",
+      "destination": "single0602_headless/robot/base_control.py",
+      "delivered_sha256": "d43a2500b4ee7572adce39bbd483c056929f7277415a861a9b543960762590e2",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/discovery.py",
+      "source_sha256": "458c1e775096390bd949ee4356acb5a2fc3900efebc50593d352d2eb3fbf92fc",
+      "destination": "single0602_headless/robot/discovery.py",
+      "delivered_sha256": "458c1e775096390bd949ee4356acb5a2fc3900efebc50593d352d2eb3fbf92fc",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/joint_control.py",
+      "source_sha256": "29124ead3a5db1d5f58b9bc4bc877bcb6f0dfd78f810eeef09cb70e6179e5980",
+      "destination": "single0602_headless/robot/joint_control.py",
+      "delivered_sha256": "29124ead3a5db1d5f58b9bc4bc877bcb6f0dfd78f810eeef09cb70e6179e5980",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/motion_profile.py",
+      "source_sha256": "42d6690d593273880be2b3ee253fbf15bfbc5efe823f242e979e1d7c936044e3",
+      "destination": "single0602_headless/robot/motion_profile.py",
+      "delivered_sha256": "42d6690d593273880be2b3ee253fbf15bfbc5efe823f242e979e1d7c936044e3",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/motion_update.py",
+      "source_sha256": "6ef0b1be28464f69455949cbb2ac2ea3627ce040e76f6905ff5f74c5390d909e",
+      "destination": "single0602_headless/robot/motion_update.py",
+      "delivered_sha256": "659b44fd85ffedce7e354737866801a0985c6104b6c4d6cd53e9b942b4e6b271",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/performance.py",
+      "source_sha256": "b78ddebf83ffc3dc5ddfa774d03d820954049e48c60044adfb4225a9f7335d91",
+      "destination": "single0602_headless/robot/performance.py",
+      "delivered_sha256": "b78ddebf83ffc3dc5ddfa774d03d820954049e48c60044adfb4225a9f7335d91",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/reference_frames.py",
+      "source_sha256": "c22c9c1f11e85f989a1e35bf0ce8f73e4dc253748ffd15c39e4e43e77c47937f",
+      "destination": "single0602_headless/robot/reference_frames.py",
+      "delivered_sha256": "c22c9c1f11e85f989a1e35bf0ce8f73e4dc253748ffd15c39e4e43e77c47937f",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/render_lease.py",
+      "source_sha256": "fda083a53be164d46c4011e895b5ec3240f90e46728029e42af04464fa547643",
+      "destination": "single0602_headless/robot/render_lease.py",
+      "delivered_sha256": "fda083a53be164d46c4011e895b5ec3240f90e46728029e42af04464fa547643",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/robot_discovery.py",
+      "source_sha256": "deec282989ef5be0cfd875205cecac3de2b7230c45cb97811a3de4ed7b76a1bb",
+      "destination": "single0602_headless/robot/robot_discovery.py",
+      "delivered_sha256": "deec282989ef5be0cfd875205cecac3de2b7230c45cb97811a3de4ed7b76a1bb",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/sensor_pose.py",
+      "source_sha256": "168f9352b722511ffbe628d5b0a55f79238f9998b9c45ffc97a41f011bd7b97e",
+      "destination": "single0602_headless/robot/sensor_pose.py",
+      "delivered_sha256": "b94f4b2dfd26791620f339f4e03ea979d8e04bfa17cf58383c7305bd59edc776",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/__init__.py",
+      "source_sha256": "82c2b5f339563e10018192e7eaf263647d765934ae5224ad3a8958c372ffb52a",
+      "destination": "single0602_headless/robot/__init__.py",
+      "delivered_sha256": "82c2b5f339563e10018192e7eaf263647d765934ae5224ad3a8958c372ffb52a",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/web/static/app.js",
+      "source_sha256": "a361aa896aa3657d504ba5f18f196ee0644eb6f82e446822175f3e08dc2f723f",
+      "destination": "web/static/app.js",
+      "delivered_sha256": "49ec2767e01afb68e4baced62dde987d4008185ff2eeed64bf7351ffee1a68ff",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/web/static/index.html",
+      "source_sha256": "5bd674e8ef6bf969b710b0e662d6c077b28b0fc10fc0254391b9ffe6dbd8987e",
+      "destination": "web/static/index.html",
+      "delivered_sha256": "fad2593a19db44f7bf2521a264ed75b256b133bd0796c280a5de049fb0bd4018",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/web/static/style.css",
+      "source_sha256": "d8c367e8ac8f0877d9d5ae8c1ad9fcf86fc5d069079e34a93722808f58635da5",
+      "destination": "web/static/style.css",
+      "delivered_sha256": "f8da639c753f9eebf9d646e925d93314ff707b11281f05ee681728ab07b99522",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/run_capture.py",
+      "source_sha256": "4be29862318f0b44e1d44986e92ec5bf8e0e737c70fb63993965d16f22c30d5f",
+      "destination": "run_capture.py",
+      "delivered_sha256": "91d6ab69be7ca17d3ce45782b12a262178719d6e3cfdd01f547c06c31b13eafd",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/run_web.py",
+      "source_sha256": "99fcf578002a0e97fbfcc74d93b5972085e465a62c608edb4f5386f95a67c78b",
+      "destination": "run_web.py",
+      "delivered_sha256": "e7b65020c425b34b25def086881b87ebb5645d9ae217968d9153958ba041f3d0",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/kit_interactive_entry.py",
+      "source_sha256": "45961f1eef8ea88c49df473d65795b4788a670960f726f24112d708e8c4d3c8a",
+      "destination": "kit_interactive_entry.py",
+      "delivered_sha256": "e94cb4bc904195ae5277f32ab5515dda02ed78a63f186a960da430464a2b9487",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/kit_replay_entry.py",
+      "source_sha256": "df79c992fdd90076b8f103e979a808489e3aba15c59975281899741a57017c3c",
+      "destination": "kit_replay_entry.py",
+      "delivered_sha256": "47913a47656a66a92458addf2a594e9f4d50c96d86ebff8c6033130276f89f39",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/run_in_isaac.py",
+      "source_sha256": "17cb44daad7c893564eced308b07ab50c66d916609b9bec958980eafad1bfcd3",
+      "destination": "run_in_isaac.py",
+      "delivered_sha256": "c78da89217ece2b944b5228c2f99418241b105d15513d8c3100779747abb5918",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/config/robot_sensors.json",
+      "source_sha256": "344577f6f602e17173f1c550d27e6d5c80fa9b170a71e50f7cf96c19264db8d3",
+      "destination": "config/robot_sensors.json",
+      "delivered_sha256": "17fe7fce618633e3ac6e30f1bfc609645c349203b9d3510ccc5ad4e91eb51fd9",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/config/interactive.json",
+      "source_sha256": "d03b0a6b3e6557dbbcf5bb2f020394347dacc34fe194426471a1b96d20d299a7",
+      "destination": "config/interactive.json",
+      "delivered_sha256": "79c3f59bdee4f4314368633106585256e616d64d8a26acf49d3f7f0f136930c7",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/config/offline.json",
+      "source_sha256": "00d715f2462441de10dd459115f4c649f7770eec3f34aa31cce5e45f59f38053",
+      "destination": "config/offline.json",
+      "delivered_sha256": "08c796d0936037a44c693b5ce717caf82d8c62a76de63d4d978bf691efdc03cd",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/config/capture_policy.json",
+      "source_sha256": "e50cc4dbf4e645c590ea8995bce509f9b70887eb954d223cc7d576880a66c5b2",
+      "destination": "config/capture_policy.json",
+      "delivered_sha256": "1db0a345d0792b7ecef94bd1827eab48dd947f780806e563f358740c9a7cab4a",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/tools/validate_capture_data.py",
+      "source_sha256": "66e0ed90e6435bb6f84cf0585ee9c6d505863a71227d327496977921370ba732",
+      "destination": "tools/validate_capture_data.py",
+      "delivered_sha256": "947c2dbf15fdc671e478516e360f032d5780763ae0db7b8a56666490f57e2ee1",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/tests/test_motion_update.py",
+      "source_sha256": "020b188480ab1cf68579afe47bbd0230da8fefbae0ea40b6b2a4b61207607b18",
+      "destination": "tests/test_motion_update.py",
+      "delivered_sha256": "1d683661300061c7019da556a27c82ffff57eac90d60f04b2ae24ff521f0fc4c",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/tests/test_hot_path.py",
+      "source_sha256": "bf6c38362a9634b9fb1e35d0338b9a0f24e3beec71a8bf176cb341b70a775bbb",
+      "destination": "tests/test_hot_path.py",
+      "delivered_sha256": "be374991d3af38eb1d532c4da1f7d739ad4ee8e2b4b6fbb6e9596f7ffa5c3634",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/tests/test_scheduling.py",
+      "source_sha256": "4021f8dd3e453f558036e11e4fdb571e104fd9f83aadbd456eb46faed17f5515",
+      "destination": "tests/test_scheduling.py",
+      "delivered_sha256": "39a5ac445ae4961620933fe7e777b93692ed2bc622c9dc2949bdaf22ae95b244",
+      "source_still_matches_snapshot": true
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/v06/tests/test_transport_analysis.py",
+      "source_sha256": "89b74ddebf7df49e07fca952fa829d2f870ff0231e1ed1e59c9778a2033b8c7f",
+      "destination": "tests/test_transport_analysis.py",
+      "delivered_sha256": "576b89dbfc1d4e445729aebc1a9d45518e73e090b2b47e911233fbd6485cc274",
+      "source_still_matches_snapshot": true
+    }
+  ]
+}

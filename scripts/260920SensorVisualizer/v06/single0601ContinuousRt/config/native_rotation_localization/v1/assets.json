@@ -1,0 +1,18 @@
+{
+  "MyAiry": {
+    "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+    "prim": "/World/Excavator/swing_link/MyAiry_front/sensor",
+    "sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79"
+  },
+  "official_example_usd": {
+    "status": "blocked_missing_local_official_USD",
+    "searched_roots": [
+      "/root/isaacsim/exts",
+      "/root/isaacsim/extscache",
+      "/root/gpufree-data/IsaacSim_Asset"
+    ],
+    "found_legacy_json": "Example_Rotary.json and Example_Rotary_2D.json; not substituted for official USD asset",
+    "required_asset": "Isaac/Sensors/NVIDIA/Example_Rotary.usda",
+    "network_asset_loading": false
+  }
+}

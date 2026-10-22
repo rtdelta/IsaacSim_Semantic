@@ -1,0 +1,347 @@
+[
+  {
+    "link": "track_prim",
+    "views": [
+      {
+        "view": "x",
+        "pattern_rays": 1681,
+        "mesh_returns": 132,
+        "gaussian_returns": 118,
+        "both": 105,
+        "mesh_only": 27,
+        "gaussian_only": 13,
+        "paired_direction_max_degrees": 1.7161838246306816e-06,
+        "absolute_depth_difference": {
+          "n": 105,
+          "median_m": 0.4030895233154297,
+          "p95_m": 2.7412592887878415,
+          "max_m": 5.392125606536865
+        },
+        "signed_median_gs_minus_mesh_m": -0.3900623321533203
+      },
+      {
+        "view": "y",
+        "pattern_rays": 1681,
+        "mesh_returns": 202,
+        "gaussian_returns": 164,
+        "both": 157,
+        "mesh_only": 45,
+        "gaussian_only": 7,
+        "paired_direction_max_degrees": 2.343089744906483e-06,
+        "absolute_depth_difference": {
+          "n": 157,
+          "median_m": 0.6122503280639648,
+          "p95_m": 5.092574787139893,
+          "max_m": 8.928085565567017
+        },
+        "signed_median_gs_minus_mesh_m": -0.5724916458129883
+      },
+      {
+        "view": "z",
+        "pattern_rays": 1681,
+        "mesh_returns": 403,
+        "gaussian_returns": 359,
+        "both": 347,
+        "mesh_only": 56,
+        "gaussian_only": 12,
+        "paired_direction_max_degrees": 1.8927686170104277e-06,
+        "absolute_depth_difference": {
+          "n": 347,
+          "median_m": 0.2611560821533203,
+          "p95_m": 4.001120901107786,
+          "max_m": 9.670976281166077
+        },
+        "signed_median_gs_minus_mesh_m": -0.18420982360839844
+      }
+    ],
+    "pooled_absolute_depth_difference": {
+      "n": 609,
+      "median_m": 0.3557577133178711,
+      "p95_m": 4.025740718841555,
+      "max_m": 9.670976281166077
+    },
+    "coverage": {
+      "mesh_returns": 737,
+      "gaussian_returns": 641,
+      "both": 609,
+      "mesh_only": 128,
+      "gaussian_only": 32
+    }
+  },
+  {
+    "link": "cab_prim",
+    "views": [
+      {
+        "view": "x",
+        "pattern_rays": 1681,
+        "mesh_returns": 190,
+        "gaussian_returns": 190,
+        "both": 171,
+        "mesh_only": 19,
+        "gaussian_only": 19,
+        "paired_direction_max_degrees": 1.0021337439998953e-06,
+        "absolute_depth_difference": {
+          "n": 171,
+          "median_m": 0.22646141052246094,
+          "p95_m": 2.881114959716797,
+          "max_m": 5.005866050720215
+        },
+        "signed_median_gs_minus_mesh_m": -0.14361190795898438
+      },
+      {
+        "view": "y",
+        "pattern_rays": 1681,
+        "mesh_returns": 251,
+        "gaussian_returns": 244,
+        "both": 227,
+        "mesh_only": 24,
+        "gaussian_only": 17,
+        "paired_direction_max_degrees": 1.9741444006971322e-06,
+        "absolute_depth_difference": {
+          "n": 227,
+          "median_m": 0.32596397399902344,
+          "p95_m": 3.225970268249507,
+          "max_m": 9.905879974365234
+        },
+        "signed_median_gs_minus_mesh_m": -0.30434703826904297
+      },
+      {
+        "view": "z",
+        "pattern_rays": 1681,
+        "mesh_returns": 342,
+        "gaussian_returns": 325,
+        "both": 309,
+        "mesh_only": 33,
+        "gaussian_only": 16,
+        "paired_direction_max_degrees": 1.418078437192896e-06,
+        "absolute_depth_difference": {
+          "n": 309,
+          "median_m": 0.25659656524658203,
+          "p95_m": 2.39434185028076,
+          "max_m": 6.987372875213623
+        },
+        "signed_median_gs_minus_mesh_m": -0.21828842163085938
+      }
+    ],
+    "pooled_absolute_depth_difference": {
+      "n": 707,
+      "median_m": 0.2845773696899414,
+      "p95_m": 2.965303421020504,
+      "max_m": 9.905879974365234
+    },
+    "coverage": {
+      "mesh_returns": 783,
+      "gaussian_returns": 759,
+      "both": 707,
+      "mesh_only": 76,
+      "gaussian_only": 52
+    }
+  },
+  {
+    "link": "boom_prim",
+    "views": [
+      {
+        "view": "x",
+        "pattern_rays": 1681,
+        "mesh_returns": 52,
+        "gaussian_returns": 53,
+        "both": 46,
+        "mesh_only": 6,
+        "gaussian_only": 7,
+        "paired_direction_max_degrees": 8.535514590656644e-07,
+        "absolute_depth_difference": {
+          "n": 46,
+          "median_m": 0.2363581657409668,
+          "p95_m": 1.8534963130950928,
+          "max_m": 4.135438919067383
+        },
+        "signed_median_gs_minus_mesh_m": -0.2225017547607422
+      },
+      {
+        "view": "y",
+        "pattern_rays": 1681,
+        "mesh_returns": 90,
+        "gaussian_returns": 92,
+        "both": 84,
+        "mesh_only": 6,
+        "gaussian_only": 8,
+        "paired_direction_max_degrees": 9.778866531314089e-07,
+        "absolute_depth_difference": {
+          "n": 84,
+          "median_m": 0.24102020263671875,
+          "p95_m": 3.0173902988433783,
+          "max_m": 8.519129276275635
+        },
+        "signed_median_gs_minus_mesh_m": -0.24102020263671875
+      },
+      {
+        "view": "z",
+        "pattern_rays": 1681,
+        "mesh_returns": 50,
+        "gaussian_returns": 44,
+        "both": 42,
+        "mesh_only": 8,
+        "gaussian_only": 2,
+        "paired_direction_max_degrees": 8.486269952262826e-07,
+        "absolute_depth_difference": {
+          "n": 42,
+          "median_m": 0.26154136657714844,
+          "p95_m": 4.0983458042144685,
+          "max_m": 8.26170539855957
+        },
+        "signed_median_gs_minus_mesh_m": -0.21817398071289062
+      }
+    ],
+    "pooled_absolute_depth_difference": {
+      "n": 172,
+      "median_m": 0.23944664001464844,
+      "p95_m": 3.117936706542968,
+      "max_m": 8.519129276275635
+    },
+    "coverage": {
+      "mesh_returns": 192,
+      "gaussian_returns": 189,
+      "both": 172,
+      "mesh_only": 20,
+      "gaussian_only": 17
+    }
+  },
+  {
+    "link": "arm_prim",
+    "views": [
+      {
+        "view": "x",
+        "pattern_rays": 1681,
+        "mesh_returns": 94,
+        "gaussian_returns": 86,
+        "both": 84,
+        "mesh_only": 10,
+        "gaussian_only": 2,
+        "paired_direction_max_degrees": 1.4116688239748691e-06,
+        "absolute_depth_difference": {
+          "n": 84,
+          "median_m": 0.19690656661987305,
+          "p95_m": 2.0388200283050524,
+          "max_m": 3.8843812942504883
+        },
+        "signed_median_gs_minus_mesh_m": -0.19690656661987305
+      },
+      {
+        "view": "y",
+        "pattern_rays": 1681,
+        "mesh_returns": 162,
+        "gaussian_returns": 160,
+        "both": 151,
+        "mesh_only": 11,
+        "gaussian_only": 9,
+        "paired_direction_max_degrees": 2.248626150795907e-06,
+        "absolute_depth_difference": {
+          "n": 151,
+          "median_m": 0.21044445037841797,
+          "p95_m": 2.5854554176330566,
+          "max_m": 8.032991856336594
+        },
+        "signed_median_gs_minus_mesh_m": -0.2056589126586914
+      },
+      {
+        "view": "z",
+        "pattern_rays": 1681,
+        "mesh_returns": 49,
+        "gaussian_returns": 42,
+        "both": 38,
+        "mesh_only": 11,
+        "gaussian_only": 4,
+        "paired_direction_max_degrees": 5.186728998270687e-07,
+        "absolute_depth_difference": {
+          "n": 38,
+          "median_m": 0.18359136581420898,
+          "p95_m": 1.9703779220581048,
+          "max_m": 2.5523228645324707
+        },
+        "signed_median_gs_minus_mesh_m": -0.11242032051086426
+      }
+    ],
+    "pooled_absolute_depth_difference": {
+      "n": 273,
+      "median_m": 0.19955968856811523,
+      "p95_m": 2.3602280616760245,
+      "max_m": 8.032991856336594
+    },
+    "coverage": {
+      "mesh_returns": 305,
+      "gaussian_returns": 288,
+      "both": 273,
+      "mesh_only": 32,
+      "gaussian_only": 15
+    }
+  },
+  {
+    "link": "bucket_prim",
+    "views": [
+      {
+        "view": "x",
+        "pattern_rays": 1681,
+        "mesh_returns": 321,
+        "gaussian_returns": 312,
+        "both": 303,
+        "mesh_only": 18,
+        "gaussian_only": 9,
+        "paired_direction_max_degrees": 2.1065695018782437e-06,
+        "absolute_depth_difference": {
+          "n": 303,
+          "median_m": 0.1390070915222168,
+          "p95_m": 1.306839346885681,
+          "max_m": 2.055654525756836
+        },
+        "signed_median_gs_minus_mesh_m": -0.12833738327026367
+      },
+      {
+        "view": "y",
+        "pattern_rays": 1681,
+        "mesh_returns": 227,
+        "gaussian_returns": 217,
+        "both": 212,
+        "mesh_only": 15,
+        "gaussian_only": 5,
+        "paired_direction_max_degrees": 1.6371137998934863e-06,
+        "absolute_depth_difference": {
+          "n": 212,
+          "median_m": 0.16102170944213867,
+          "p95_m": 1.8018911361694332,
+          "max_m": 3.8086551427841187
+        },
+        "signed_median_gs_minus_mesh_m": -0.15677666664123535
+      },
+      {
+        "view": "z",
+        "pattern_rays": 1681,
+        "mesh_returns": 256,
+        "gaussian_returns": 229,
+        "both": 226,
+        "mesh_only": 30,
+        "gaussian_only": 3,
+        "paired_direction_max_degrees": 1.7358089803818329e-06,
+        "absolute_depth_difference": {
+          "n": 226,
+          "median_m": 0.27494752407073975,
+          "p95_m": 2.3127094507217407,
+          "max_m": 3.5527592301368713
+        },
+        "signed_median_gs_minus_mesh_m": -0.2730938196182251
+      }
+    ],
+    "pooled_absolute_depth_difference": {
+      "n": 741,
+      "median_m": 0.1778278350830078,
+      "p95_m": 1.7411162853240967,
+      "max_m": 3.8086551427841187
+    },
+    "coverage": {
+      "mesh_returns": 804,
+      "gaussian_returns": 758,
+      "both": 741,
+      "mesh_only": 63,
+      "gaussian_only": 17
+    }
+  }
+]

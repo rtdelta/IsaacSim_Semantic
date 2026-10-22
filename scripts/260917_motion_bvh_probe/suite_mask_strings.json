@@ -1,0 +1,4 @@
+[
+  ["gs_mask_string0", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1", "--engines", "0", "--capture", "--frames", "60"]],
+  ["gs_mask_string1", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1", "--engines", "1", "--capture", "--frames", "60"]]
+]

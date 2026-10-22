@@ -1,0 +1,6 @@
+{
+  "schema_version": 2,
+  "mode": "offline",
+  "groups": 100,
+  "render": {"camera_subframes": 1}
+}

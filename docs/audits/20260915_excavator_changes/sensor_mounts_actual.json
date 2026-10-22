@@ -1,0 +1,1122 @@
+[
+  {
+    "name": "Camera",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/boom_prim/Camera",
+      "10": "/Excavator_Fangshan_05/boom_prim/Camera",
+      "11": "/Excavator_Fangshan_05/boom_prim/Camera"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          0.6173082403699847,
+          -0.09118596316435855,
+          0.4979591991771176
+        ],
+        "xformOp:orient": [
+          0.010070457426195667,
+          -0.7661006234636325,
+          -0.01481056383115795,
+          0.6424710637957668
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          1.0411621488599554,
+          -0.8966284176088837,
+          -0.3405483805887414
+        ],
+        "xformOp:orient": [
+          0.5867092482407066,
+          0.41257043734868526,
+          -0.37637322813415186,
+          -0.5864308018842608
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          1.0411621488599554,
+          -0.8966284176088837,
+          -0.3405483805887414
+        ],
+        "xformOp:orient": [
+          0.5867092482407066,
+          0.41257043734868526,
+          -0.37637322813415186,
+          -0.5864308018842608
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyOS0_left",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyOS0_left",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyOS0_left",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyOS0_left"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -0.58,
+          0.66543,
+          0.6858
+        ],
+        "xformOp:orient": [
+          -0.7071067690849304,
+          0.0,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -1.3338390288949014,
+          1.6311742051191327,
+          1.2250163172912596
+        ],
+        "xformOp:orient": [
+          0.7071067690849304,
+          0.0,
+          0.0,
+          -0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -1.3338390288949014,
+          1.6311742051191327,
+          1.2250163172912596
+        ],
+        "xformOp:orient": [
+          0.7071067690849304,
+          0.0,
+          0.0,
+          -0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyOS0_front",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyOS0_front",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyOS0_front",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyOS0_front"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          0.531397584248355,
+          0.28304708059532535,
+          1.1567494789377903
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.7071067690849304,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          1.3335151733011508,
+          0.7134551985479138,
+          2.3552950667419563
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.7071067690849304,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          1.3335151733011508,
+          0.7134551985479138,
+          2.3552950667419563
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.7071067690849304,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyOS0_right",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyOS0_right",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyOS0_right",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyOS0_right"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -0.45897372991817864,
+          -0.5742271451804657,
+          0.6404213255394343
+        ],
+        "xformOp:orient": [
+          0.7071067690849304,
+          0.0,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -1.0433759806985299,
+          -1.3440029433139846,
+          1.116107498585902
+        ],
+        "xformOp:orient": [
+          0.7071067690849304,
+          0.0,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -1.0433759806985299,
+          -1.3440029433139846,
+          1.116107498585902
+        ],
+        "xformOp:orient": [
+          0.7071067690849304,
+          0.0,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyNZ3_front",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyNZ3_front",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyNZ3_front",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyNZ3_front"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          0.5933604651536937,
+          0.2830470731447223,
+          1.1567500000000086
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.4226182699203491,
+          0.0,
+          0.9063078165054321
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          1.4822260874739634,
+          0.7134551806664666,
+          2.3552963172912804
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.42261821031570435,
+          0.0,
+          0.9063078165054321
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          1.4822260874739634,
+          0.7134551806664666,
+          2.3552963172912804
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.42261821031570435,
+          0.0,
+          0.9063078165054321
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyNZ3_left",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyNZ3_left",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyNZ3_left",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyNZ3_left"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -0.58,
+          0.6654298216405428,
+          0.6858000905872502
+        ],
+        "xformOp:orient": [
+          -0.29883623123168945,
+          0.29883623123168945,
+          0.6408563852310181,
+          0.6408563852310181
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -1.3338390288949014,
+          1.631173777056436,
+          1.2250165347006603
+        ],
+        "xformOp:orient": [
+          -0.29883623123168945,
+          0.29883623123168945,
+          0.6408563852310181,
+          0.6408563852310181
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -1.3338390288949014,
+          1.631173777056436,
+          1.2250165347006603
+        ],
+        "xformOp:orient": [
+          -0.29883623123168945,
+          0.29883623123168945,
+          0.6408563852310181,
+          0.6408563852310181
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyNZ3_right",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyNZ3_right",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyNZ3_right",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyNZ3_right"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -0.4589699996878185,
+          -0.5851306058888864,
+          0.6384971542656533
+        ],
+        "xformOp:orient": [
+          0.29883623123168945,
+          0.29883623123168945,
+          -0.6408563852310181,
+          0.6408563852310181
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -1.0433670281456655,
+          -1.3701712490141944,
+          1.1114894875288277
+        ],
+        "xformOp:orient": [
+          -0.29883623123168945,
+          -0.29883623123168945,
+          0.6408563852310181,
+          -0.6408563852310181
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -1.0433670281456655,
+          -1.3701712490141944,
+          1.1114894875288277
+        ],
+        "xformOp:orient": [
+          -0.29883623123168945,
+          -0.29883623123168945,
+          0.6408563852310181,
+          -0.6408563852310181
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyOS0_backleft",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyOS0_backleft",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyOS0_backleft",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyOS0_backleft"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -1.0447499663543933,
+          0.5632858697410941,
+          0.86
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.0,
+          1.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -2.4492389481454455,
+          1.3860282924977587,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.0,
+          1.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -2.4492389481454455,
+          1.3860282924977587,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.0,
+          1.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyNZ3_backleft",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyNZ3_backleft",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backleft",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backleft"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -1.04475,
+          0.56329,
+          0.86
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -2.5877905403635593e-17,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -2.4492390288949015,
+          1.3860382051191331,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -2.5877905403635593e-17,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -2.4492390288949015,
+          1.3860382051191331,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -2.5877905403635593e-17,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyOS0_backright",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyOS0_backright",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyOS0_backright",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyOS0_backright"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -1.11501,
+          -0.48337760181256284,
+          0.86
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.0,
+          1.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -2.617863028894901,
+          -1.125964039231018,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.0,
+          1.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -2.617863028894901,
+          -1.125964039231018,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.0,
+          1.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyNZ3_backright",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyNZ3_backright",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backright",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backright"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -1.1150099999999998,
+          -0.4833799999999999,
+          0.86
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -2.5877905403635593e-17,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -2.617863028894901,
+          -1.125969794880867,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -2.5877905403635593e-17,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -2.617863028894901,
+          -1.125969794880867,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -2.5877905403635593e-17,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyOS0_up",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyOS0_up",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyOS0_up",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyOS0_up"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -1.1807208058471677,
+          -1.300093821681328,
+          8.03211418882543
+        ],
+        "xformOp:orient": [
+          1.0,
+          0.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -1.1807208058471677,
+          -1.300093821681328,
+          8.03211418882543
+        ],
+        "xformOp:orient": [
+          1.0,
+          0.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -1.1807208058471677,
+          -1.300093821681328,
+          8.03211418882543
+        ],
+        "xformOp:orient": [
+          1.0,
+          0.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyOS0_back",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyOS0_back",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyOS0_back",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyOS0_back"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -1.3296975495044032,
+          0.059074533993223266,
+          0.86
+        ],
+        "xformOp:orient": [
+          0.0,
+          -0.7071067690849304,
+          0.0,
+          0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -3.133113147705469,
+          0.17592108670286882,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.7071067690849304,
+          0.0,
+          -0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -3.133113147705469,
+          0.17592108670286882,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          0.0,
+          0.7071067690849304,
+          0.0,
+          -0.7071067690849304
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  },
+  {
+    "name": "MyNZ3_back",
+    "path_by_stage": {
+      "08": "/Excavator_Fangshan_03/cab_prim/MyNZ3_back",
+      "10": "/Excavator_Fangshan_05/cab_prim/MyNZ3_back",
+      "11": "/Excavator_Fangshan_05/cab_prim/MyNZ3_back"
+    },
+    "authored_mount_pose_by_stage": {
+      "08": {
+        "xformOp:translate": [
+          -1.351957607575355,
+          0.07411339374106385,
+          0.86
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -1.650082120535645e-16,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "10": {
+        "xformOp:translate": [
+          -3.1865372870757533,
+          0.2120143500976862,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -1.650082120535645e-16,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      },
+      "11": {
+        "xformOp:translate": [
+          -3.1865372870757533,
+          0.2120143500976862,
+          1.6430963172912598
+        ],
+        "xformOp:orient": [
+          -0.4226182699203491,
+          -1.650082120535645e-16,
+          0.9063078165054321,
+          6.123234262925839e-17
+        ],
+        "xformOp:scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    "stage10_equals_stage11": true
+  }
+]

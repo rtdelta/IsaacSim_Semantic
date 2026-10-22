@@ -1,0 +1,151 @@
+{
+  "operation": "20261010T131708Z_f3f43cccb10d",
+  "source": "Read-only live probe; project code/configuration unchanged",
+  "superseded_fields": [
+    "pcie_paths",
+    "commands.lspci_0000:34:00.0",
+    "commands.lspci_0000:35:00.0"
+  ],
+  "data": {
+    "utc": "2026-10-10T13:17:10Z",
+    "intent": "read; no installation, profiler enablement or benchmark",
+    "tools": {
+      "nvidia-smi": "/usr/bin/nvidia-smi",
+      "dcgmi": null,
+      "nv-hostengine": null,
+      "dcgm-exporter": null,
+      "nsys": null,
+      "ncu": "/usr/local/cuda/bin/ncu",
+      "lspci": "/usr/bin/lspci"
+    },
+    "commands": {
+      "gpu_inventory": {
+        "exit_code": 0,
+        "stdout": "0, NVIDIA L40, GPU-1d72b62f-1c0c-3cc7-eb73-1cd242c43a21, 00000000:9B:00.0, 580.126.09, 4, 1, 16, 16, 2490, 210, 300.00\n1, NVIDIA L40, GPU-59a5b61d-6a73-4059-d13d-f6d04a2bcdfb, 00000000:9E:00.0, 580.126.09, 4, 1, 16, 16, 2490, 210, 300.00\n",
+        "stderr": ""
+      },
+      "pci_topology": {
+        "exit_code": 0,
+        "stdout": "\t\u001b[4mGPU0\tGPU1\tNIC0\tCPU Affinity\tNUMA Affinity\tGPU NUMA ID\u001b[0m\nGPU0\t X \tPIX\tSYS\t32-63,96-127\t1\t\tN/A\nGPU1\tPIX\t X \tSYS\t32-63,96-127\t1\t\tN/A\nNIC0\tSYS\tSYS\t X \t\t\t\t\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n\nNIC Legend:\n\n  NIC0: mlx5_0\n\n",
+        "stderr": ""
+      },
+      "pcie_sample": {
+        "exit_code": 0,
+        "stdout": "# gpu  rxpci  txpci \n# Idx   MB/s   MB/s \n    0      0      0 \n    1      0      0 \n",
+        "stderr": ""
+      },
+      "lspci_0000:34:00.0": {
+        "exit_code": 0,
+        "stdout": "\t\tLnkCap:\tPort #0, Speed 16GT/s, Width x16, ASPM not supported\n\t\tLnkSta:\tSpeed 2.5GT/s (downgraded), Width x16\n\t\tLnkCap2: Supported Link Speeds: 2.5-16GT/s, Crosslink- Retimer+ 2Retimers+ DRS-\n\t\tLnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete+ EqualizationPhase1+",
+        "stderr": "lspci: Unable to load libkmod resources: error -2\n"
+      },
+      "lspci_0000:35:00.0": {
+        "exit_code": 0,
+        "stdout": "\t\tLnkCap:\tPort #0, Speed 16GT/s, Width x16, ASPM not supported\n\t\tLnkSta:\tSpeed 16GT/s, Width x16\n\t\tLnkCap2: Supported Link Speeds: 2.5-16GT/s, Crosslink- Retimer+ 2Retimers+ DRS-\n\t\tLnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete+ EqualizationPhase1+",
+        "stderr": "lspci: Unable to load libkmod resources: error -2\n"
+      }
+    },
+    "cuda": [
+      {
+        "cuda_ordinal": 0,
+        "name": "NVIDIA L40",
+        "pci_bus_id": "0000:9B:00.0",
+        "multiprocessor_count": 142,
+        "compute_capability_major": 8,
+        "compute_capability_minor": 9,
+        "async_engine_count": 2
+      },
+      {
+        "cuda_ordinal": 1,
+        "name": "NVIDIA L40",
+        "pci_bus_id": "0000:9E:00.0",
+        "multiprocessor_count": 142,
+        "compute_capability_major": 8,
+        "compute_capability_minor": 9,
+        "async_engine_count": 2
+      }
+    ],
+    "pcie_paths": [
+      {
+        "endpoint": "0000:34:00.0",
+        "chain": [
+          {
+            "address": "0000:34:00.0",
+            "current_link_speed": "2.5 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          },
+          {
+            "address": "0000:32:01.0",
+            "current_link_speed": "2.5 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          },
+          {
+            "address": "0000:31:00.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          },
+          {
+            "address": "0000:30:02.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          }
+        ]
+      },
+      {
+        "endpoint": "0000:35:00.0",
+        "chain": [
+          {
+            "address": "0000:35:00.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          },
+          {
+            "address": "0000:32:02.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          },
+          {
+            "address": "0000:31:00.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          },
+          {
+            "address": "0000:30:02.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "0"
+          }
+        ]
+      }
+    ],
+    "known_tool_paths": {
+      "/opt/nvidia/nsight-systems": false,
+      "/opt/nvidia/nsight-compute": true,
+      "/usr/local/cuda/extras/CUPTI": true,
+      "/usr/lib/x86_64-linux-gnu/libdcgm.so": false
+    }
+  }
+}

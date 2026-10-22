@@ -1,0 +1,19 @@
+{
+  "rounds": 3,
+  "groups": 6,
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_16_terrain_fisheye.usda",
+  "scene_sha256": "ab2a2ef736030adba3420450f916420e705952a04fec163c05b545655fc7f0ae",
+  "source_trajectory": "/root/gpufree-data/semantic/output/sensor_visualizer/v06/benchmarks/1791604257379431843_v05/input_trajectory",
+  "pose": "static; first source root pose and mounts; all controlled joints zero; cab-track initial",
+  "minimum_free_gib": 25,
+  "configurations": [
+    {"id":"01_v06_gated","family":"v06","policy":"gated"},
+    {"id":"02_v06_keepalive","family":"v06","policy":"keepalive"},
+    {"id":"03_native_continuous_rt","family":"native","engine":"continuous_rt","renderer":"RealTimePathTracing","continuous":true,"bypass":false},
+    {"id":"04_native_frozen_rt_diagnostic","family":"native","engine":"frozen","renderer":"RealTimePathTracing","continuous":false,"bypass":true},
+    {"id":"05_native_frozen_rt_default","family":"native","engine":"frozen","renderer":"RealTimePathTracing","continuous":false,"bypass":false},
+    {"id":"06_native_frozen_pt_diagnostic","family":"native","engine":"frozen","renderer":"PathTracing","continuous":false,"bypass":true},
+    {"id":"07_native_frozen_pt_default","family":"native","engine":"frozen","renderer":"PathTracing","continuous":false,"bypass":false},
+    {"id":"08_native_continuous_pt","family":"native","engine":"continuous_pt","renderer":"PathTracing","continuous":true,"bypass":false}
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "asset": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05.usda",
+  "preview": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_preview.usda",
+  "uniform_scale_xyz": [
+    2.4,
+    2.4,
+    2.4
+  ],
+  "gaussian_parts": 15,
+  "gaussian_count": 397747,
+  "joint_pin_distances_m": {
+    "boom": 5.750906244465444,
+    "arm": 2.921875885760609
+  },
+  "payload_instance_checks": 2,
+  "pose_states_checked": 29,
+  "physics_joint_checks": 8,
+  "physics_max_error_rad": 1.083561642190034e-06,
+  "renders": [
+    "3dgs",
+    "source_mesh",
+    "urdf_reference",
+    "3dgs_pose",
+    "source_mesh_pose"
+  ],
+  "manual_visual_review": "Zero and folded renders inspected: complete robot in frame; scan shapes preserved. Hydraulic rods remain rigidly grouped scan geometry, not an articulated hydraulic mechanism.",
+  "original_files_checked": 48,
+  "all_original_files_unchanged": true,
+  "source03_sha256": "dc81e1ce2153975e7cbcfc3bf63e68d403b1332197b81cccaf9b7ac16c8218a6",
+  "source04_sha256": "9da0d20ba2a1c7ffc5a71f437235263456931263f86d6ffe638f6ac424bb8c1c",
+  "default_zero_pose_retained": true,
+  "qa_process_exited": true,
+  "no_runtime_script_dependency": true,
+  "hashes": {
+    "Excavator_Fangshan_05.usda": "2588447b27194306f20b25c28a54b470e22162c158db29345c55b06256ab3280",
+    "Excavator_Fangshan_05_preview.usda": "e5d41c4ee50c6fe2475d5d30a24b774d6e4dc424de9ea8f41ae47ac866644d2f",
+    "Excavator_Fangshan_05_README.md": "28c0bd83488a6d3d6f6fb9f35841b15ed3638e88afdab9c320fc7a22652b379e",
+    "Excavator_Fangshan_05_data/build_config.json": "f9ba8304ba5990a84d10ee323723790fc26f242fe1d66173679b87e418c4d57e",
+    "Excavator_Fangshan_05_data/kinematics_05.json": "3904f9628fc78679bddcc039dbf1fb137852cd52151498554c8daa1fbcf23abc",
+    "Excavator_Fangshan_05_data/overlay/urdf_overlay.usdc": "0e2faf743d1817af65391e7b955997083eb5ac0df85d23c987eeb6925623a1a5",
+    "Excavator_Fangshan_05_data/overlay/gs_opacity_overlay.usdc": "59e76d1afc0b25c423a1b6590d49747eedb666edcab95ee3441f0f65b758e6b0"
+  },
+  "current_default_visualization": "overlay_urdf",
+  "overlay_update": {
+    "passed": true,
+    "static_original_urdf_zero_reference": true,
+    "comparison_frame": "coincident base_link, no alignment offset or scaling",
+    "validation": "overlay/final_validation.json",
+    "backup": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_05_data/overlay/backup_20260914T082819Z",
+    "kinematics_and_physics_unchanged": true,
+    "scan_scale_unchanged": true
+  }
+}

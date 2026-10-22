@@ -1,0 +1,14 @@
+{
+  "state": "complete",
+  "pid": 11022,
+  "started_at": 1789895285.158489,
+  "updated_at": 1789895773.0946717,
+  "total_files": 4529,
+  "total_bytes": 8903002518,
+  "verified_files": 4529,
+  "verified_bytes": 8903002518,
+  "current_file": null,
+  "current_bytes": 0,
+  "elapsed_seconds": 487.94,
+  "errors": []
+}

@@ -1,0 +1,1 @@
+{"status": "failed", "error_type": "PolicyError", "error": "Script exceeds 256 KiB; transfer project code separately", "audit_write_failed": false, "audit_log": "C:\\Users\\15452\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\CloudInstanceOps\\audit\\20261012\\20261012T103425Z_7219baf2c297.jsonl"}

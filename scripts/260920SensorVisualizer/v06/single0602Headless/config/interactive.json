@@ -1,0 +1,21 @@
+{
+  "schema_version": 3,
+  "mode": "interactive",
+  "groups": 100,
+  "preview": {
+    "enabled": true
+  },
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+  "output_directory": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless",
+  "capture": {
+    "backend": "persistent_gated",
+    "resource_policy": "keepalive"
+  },
+  "scheduling": {
+    "cooperative_yield_ms": 0,
+    "yield_only_with_owner": false
+  },
+  "render": {
+    "background_dome": "/environment_Fangshan_02/DomeLight"
+  }
+}

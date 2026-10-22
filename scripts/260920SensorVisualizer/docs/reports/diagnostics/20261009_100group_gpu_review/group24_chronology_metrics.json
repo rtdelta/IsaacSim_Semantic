@@ -1,0 +1,85 @@
+{
+  "group_id": 24,
+  "selection": "51st-ranked group by pipeline duration among 100; near median",
+  "begin_bj": "10:15:59.251",
+  "next_group_begin_bj": "10:16:10.258",
+  "group_written_bj": "10:16:10.604",
+  "next_boundary_s": 11.007308959960938,
+  "through_mcap_s": 11.35345196723938,
+  "resources": [
+    {
+      "phase": "warmup",
+      "name": "render_wait",
+      "begin": "10:15:59.705",
+      "end": "10:16:01.922",
+      "duration_s": 2.216743353,
+      "gpu_samples": 2,
+      "cpu_samples": 2,
+      "gpu_mean_percent": 62.5,
+      "main_percent": 80.10576679813111,
+      "isaac_cores": 2.490897989238851
+    },
+    {
+      "phase": "warmup",
+      "name": "replicator_stop_drain",
+      "begin": "10:16:01.922",
+      "end": "10:16:02.329",
+      "duration_s": 0.406741667,
+      "gpu_samples": 1,
+      "cpu_samples": 0,
+      "gpu_mean_percent": 100.0,
+      "main_percent": null,
+      "isaac_cores": null
+    },
+    {
+      "phase": "capture",
+      "name": "render_wait",
+      "begin": "10:16:02.669",
+      "end": "10:16:09.199",
+      "duration_s": 6.529250225,
+      "gpu_samples": 7,
+      "cpu_samples": 6,
+      "gpu_mean_percent": 27.571428571428573,
+      "main_percent": 95.58067579096203,
+      "isaac_cores": 1.5922329731528948
+    },
+    {
+      "phase": "capture",
+      "name": "replicator_stop_drain",
+      "begin": "10:16:09.200",
+      "end": "10:16:10.054",
+      "duration_s": 0.853177323,
+      "gpu_samples": 0,
+      "cpu_samples": 1,
+      "gpu_mean_percent": null,
+      "main_percent": 99.50930524515122,
+      "isaac_cores": 2.391817332859481
+    },
+    {
+      "phase": "capture",
+      "name": "readback_validation",
+      "begin": "10:16:10.055",
+      "end": "10:16:10.088",
+      "duration_s": 0.032718187,
+      "gpu_samples": 0,
+      "cpu_samples": 0,
+      "gpu_mean_percent": null,
+      "main_percent": null,
+      "isaac_cores": null
+    }
+  ],
+  "gate_cost_s": {
+    "camera_warmup": 0.033011765,
+    "camera_warmup_complete": 0.205284101,
+    "formal_capture": 0.132204283,
+    "owned_payload_or_failed": 0.12485912800000001
+  },
+  "gate_total_s": 0.49535927700000004,
+  "simulation_time_ns": 2533333333,
+  "point_count": 580635,
+  "limitations": "1Hz GPU samples and ~1Hz CPU interval averages, no independent utilization attribution for millisecond operations; whole-card GPU utilization, not SM occupancy",
+  "operations": [
+    "20261009T030417Z_491868abfcc4",
+    "20261009T030517Z_c3562cd69c81"
+  ]
+}

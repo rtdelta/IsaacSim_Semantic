@@ -1,0 +1,5 @@
+# Validated on Python 3.9.18; these packages run the offline geometry analysis.
+numpy==1.26.4
+scipy==1.11.4
+trimesh==4.12.2
+rtree==1.0.1

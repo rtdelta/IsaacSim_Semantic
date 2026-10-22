@@ -1,0 +1,36 @@
+{
+  "id": "extension_coded_m01",
+  "runs": [
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_CODED_r01_code01.json",
+      "condition": "A0",
+      "profile": "CODED",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "T4",
+      "capability": "C0_static_qualified"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_CODED_r02_code01.json",
+      "condition": "A0",
+      "profile": "CODED",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "T4",
+      "capability": "C0_static_qualified"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_CODED_r03_code01.json",
+      "condition": "A0",
+      "profile": "CODED",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "T4",
+      "capability": "C0_static_qualified"
+    }
+  ],
+  "requires_lock": true,
+  "max_batch_runs": 4,
+  "reserve_bytes": 8589934592,
+  "trigger": "Reported-endpoint and constant-speed candidates remain observational predictions; actual consumption unavailable. Fixed nonuniform C0 input tests predictions without fitting; no change to sensor/render settings."
+}

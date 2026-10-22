@@ -1,0 +1,50 @@
+[
+  {
+    "name": "lidar_A_r1",
+    "group": "A",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 0,
+    "intervene": 0
+  },
+  {
+    "name": "lidar_B_r1",
+    "group": "B",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 1,
+    "intervene": 0
+  },
+  {
+    "name": "lidar_C_r1",
+    "group": "C",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 1,
+    "intervene": 1
+  },
+  {
+    "name": "lidar_D_r1",
+    "group": "D",
+    "output": "lidar",
+    "geometry": "gaussian",
+    "bvh": 0,
+    "intervene": 1
+  },
+  {
+    "name": "lidar_E_r1",
+    "group": "E",
+    "output": "lidar",
+    "geometry": "mesh",
+    "bvh": 1,
+    "intervene": 0
+  },
+  {
+    "name": "lidar_F_r1",
+    "group": "F",
+    "output": "lidar",
+    "geometry": "mesh",
+    "bvh": 1,
+    "intervene": 1
+  }
+]

@@ -1,0 +1,22 @@
+84:     async def initialize(self, show_ui=True):
+85:         # RTX allocates many exported buffers per sensor. A low desktop shell
+86:         # limit can crash Kit while rebuilding thirteen scan pipelines.
+87:         import os
+88:         if os.name == 'posix':
+89:             import resource
+90:             soft, hard = resource.getrlimit(resource.RLIMIT_NOFILE)
+91:             resource.setrlimit(resource.RLIMIT_NOFILE, (min(max(soft, 65536), hard), hard))
+92:         if self.config.get("robot_motion", {}).get("enabled", False):
+93:             settings = carb.settings.get_settings()
+94:             if any(settings.get_as_bool(path) for path in (
+95:                     "/renderer/raytracingMotion/enabled", "/rtx/hydra/supportMultiTickRate",
+96:                     "/rtx/rendering/perSensorTickTlas")):
+97:                 raise RuntimeError("For this 3DGS scene, restart Isaac using this project's launch_isaac.py, then run the entry again.")
+98:         manager = self.app.get_extension_manager()
+99:         for ext in ("isaacsim.core.nodes", "isaacsim.sensors.rtx.nodes",
+100:                     "isaacsim.ros2.bridge", "isaacsim.ros2.nodes",
+101:                     "isaacsim.core.experimental.prims", "omni.graph.scriptnode"):
+102:             manager.set_extension_enabled_immediate(ext, True)
+103:             if not manager.is_extension_enabled(ext):
+104:                 raise RuntimeError(f"Could not enable extension: {ext}")
+

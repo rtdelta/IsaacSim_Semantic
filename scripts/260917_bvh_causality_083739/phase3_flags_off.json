@@ -1,0 +1,128 @@
+[
+  {
+    "name": "motion_off_flags_10_mesh",
+    "args": [
+      "--script",
+      "probe_v5.py",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "0",
+      "--frames",
+      "120",
+      "--warmup",
+      "60"
+    ]
+  },
+  {
+    "name": "motion_off_flags_10_gaussian",
+    "args": [
+      "--script",
+      "probe_v5.py",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "0",
+      "--frames",
+      "120",
+      "--warmup",
+      "60"
+    ]
+  },
+  {
+    "name": "motion_off_flags_01_mesh",
+    "args": [
+      "--script",
+      "probe_v5.py",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--multi",
+      "0",
+      "--per-sensor",
+      "1",
+      "--frames",
+      "120",
+      "--warmup",
+      "60"
+    ]
+  },
+  {
+    "name": "motion_off_flags_01_gaussian",
+    "args": [
+      "--script",
+      "probe_v5.py",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--multi",
+      "0",
+      "--per-sensor",
+      "1",
+      "--frames",
+      "120",
+      "--warmup",
+      "60"
+    ]
+  },
+  {
+    "name": "motion_off_flags_11_mesh",
+    "args": [
+      "--script",
+      "probe_v5.py",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "1",
+      "--frames",
+      "120",
+      "--warmup",
+      "60"
+    ]
+  },
+  {
+    "name": "motion_off_flags_11_gaussian",
+    "args": [
+      "--script",
+      "probe_v5.py",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "1",
+      "--frames",
+      "120",
+      "--warmup",
+      "60"
+    ]
+  }
+]

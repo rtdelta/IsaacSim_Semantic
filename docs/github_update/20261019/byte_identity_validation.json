@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "scope": "staged Git blob bytes before identity-fix commit",
+  "source_blob_hashes_recorded": 3229,
+  "headless_manifest_files_verified": 140,
+  "recovered_source_files_verified": 34,
+  "remaining_policy_normalization": [
+    ".gitignore"
+  ],
+  "note": "Only .gitignore uses normal LF policy; both its worktree and Git hashes are recorded. No hashed delivery is changed by Git EOL conversion."
+}

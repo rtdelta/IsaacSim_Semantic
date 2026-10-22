@@ -1,0 +1,37 @@
+{
+  "captures": [
+    {
+      "variant": "3dgs",
+      "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_04_data/preview_3dgs.png",
+      "shape": [
+        900,
+        1440,
+        4
+      ],
+      "pixel_std": 26.02246541561605
+    },
+    {
+      "variant": "urdf_reference",
+      "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_04_data/preview_urdf_reference.png",
+      "shape": [
+        900,
+        1440,
+        4
+      ],
+      "pixel_std": 23.86909360101166
+    },
+    {
+      "variant": "source_mesh",
+      "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_04_data/preview_source_mesh.png",
+      "shape": [
+        900,
+        1440,
+        4
+      ],
+      "pixel_std": 23.189542802146935
+    }
+  ],
+  "composition_errors": [],
+  "physics_check_error": "Traceback (most recent call last):\n  File \"/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/Excavator_Fangshan_04_data/render_validate.py\", line 47, in main\n    sim=tensors.create_simulation_view('numpy');sim.set_subspace_roots('/')\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/isaacsim/extscache/omni.physics.tensors-110.1.13+110.1.2.lx64.r.cp312.u7f4/omni/physics/tensors/api.py\", line 39, in create_simulation_view\n    raise Exception(f\"Failed to create simulation view with backend '{backend}'\")\nException: Failed to create simulation view with backend 'physx'\n",
+  "saved_any_asset_layer": false
+}

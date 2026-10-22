@@ -1,0 +1,12 @@
+{
+  "status": "awaiting_explicit_download_authorization",
+  "purpose": "007 A2/A3 official USD asset cross-check",
+  "source": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/Sensors/NVIDIA/Example_Rotary.usda",
+  "source_basis": "Installed isaacsim.storage.native default asset root and installed SUPPORTED_LIDAR_CONFIGS entry",
+  "local_destination_relative": "assets/native_rotation_localization/official/Example_Rotary.usda",
+  "remote_destination": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0601ContinuousRt/assets/native_rotation_localization/official/Example_Rotary.usda",
+  "maximum_file_bytes": 8388608,
+  "validation": "TLS and final URL verification; record observed SHA-256 and compare local/remote bytes; no upstream published hash currently available",
+  "use": "Read-only USD sensor asset in independent diagnostic stage; no SDK installation, package build, or external script execution",
+  "additional_dependencies": "Not authorized by this single-file batch; inspect USD references before loading and block unlisted external references"
+}

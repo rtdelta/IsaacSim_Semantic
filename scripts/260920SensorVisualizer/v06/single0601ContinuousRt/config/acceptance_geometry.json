@@ -1,0 +1,6 @@
+{"schema_version":1,"cases":[
+{"name":"M1_camera_static","config":"config/single_camera.json","motion":"static","groups":200},
+{"name":"M1_camera_moving","config":"config/single_camera.json","motion":"moving","groups":200},
+{"name":"known_geometry_noiseless_static","config":"config/mixed_pair.json","motion":"static","groups":24,"diagnostics":{"geometry":true,"noiseless_plane":true,"geometry_motion":{"speed_m_s":0,"yaw_rate_deg_s":0}}},
+{"name":"known_geometry_noiseless_fast","config":"config/mixed_pair.json","motion":"moving","groups":24,"diagnostics":{"geometry":true,"noiseless_plane":true}}
+]}

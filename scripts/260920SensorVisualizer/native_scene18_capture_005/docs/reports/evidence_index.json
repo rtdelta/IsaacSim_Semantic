@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260920SensorVisualizer/native_scene18_capture_005/reports/final_delivery/CaptureReport.md",
+      "destination": "scripts/260920SensorVisualizer/native_scene18_capture_005/docs/reports/final_delivery/CaptureReport.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 4072,
+      "original_sha256": "e922683338489cf9a7cb5649e218da9e2316796faaf8871dff9c045ea95eae05",
+      "copied_sha256": "e922683338489cf9a7cb5649e218da9e2316796faaf8871dff9c045ea95eae05",
+      "copy_verified": true,
+      "current_sha256": "e922683338489cf9a7cb5649e218da9e2316796faaf8871dff9c045ea95eae05",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/native_scene18_capture_005/reports/final_delivery/run_summary.json",
+      "destination": "scripts/260920SensorVisualizer/native_scene18_capture_005/docs/reports/final_delivery/run_summary.json",
+      "kind": "acceptance_summary",
+      "action": "copy",
+      "bytes": 2953,
+      "original_sha256": "cd21e3e54c939fb42b447fd3d23f94f647d147167f3b736dff2992def81eee03",
+      "copied_sha256": "cd21e3e54c939fb42b447fd3d23f94f647d147167f3b736dff2992def81eee03",
+      "copy_verified": true,
+      "current_sha256": "cd21e3e54c939fb42b447fd3d23f94f647d147167f3b736dff2992def81eee03",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/native_scene18_capture_005/reports/final_delivery/delivery_300/validation.json",
+      "destination": "scripts/260920SensorVisualizer/native_scene18_capture_005/docs/reports/final_delivery/delivery_300/validation.json",
+      "kind": "acceptance_summary",
+      "action": "copy",
+      "bytes": 29346,
+      "original_sha256": "edb3315083d83929765a0e48c2a7a2d1afff30d3245c7c26365496b508ae8b8b",
+      "copied_sha256": "edb3315083d83929765a0e48c2a7a2d1afff30d3245c7c26365496b508ae8b8b",
+      "copy_verified": true,
+      "current_sha256": "edb3315083d83929765a0e48c2a7a2d1afff30d3245c7c26365496b508ae8b8b",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260920SensorVisualizer/native_scene18_capture_005/reports/final_delivery/delivery_300/files_sha256.json",
+      "destination": "scripts/260920SensorVisualizer/native_scene18_capture_005/docs/reports/final_delivery/delivery_300/files_sha256.json",
+      "kind": "acceptance_summary",
+      "action": "copy",
+      "bytes": 290,
+      "original_sha256": "2e696a7646c91b574b10c2993b67ee38400b7396f7daad12a8fd25aa6d82562e",
+      "copied_sha256": "2e696a7646c91b574b10c2993b67ee38400b7396f7daad12a8fd25aa6d82562e",
+      "copy_verified": true,
+      "current_sha256": "2e696a7646c91b574b10c2993b67ee38400b7396f7daad12a8fd25aa6d82562e",
+      "reference_edits": false
+    }
+  ]
+}

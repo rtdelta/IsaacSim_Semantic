@@ -1,0 +1,1 @@
+{"schema_version":1,"cases":[{"name":"barrier_mixed_smoke","config":"config/mixed_pair.json","motion":"moving","groups":10}]}

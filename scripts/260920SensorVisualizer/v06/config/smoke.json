@@ -1,0 +1,13 @@
+{
+  "schema_version": 3,
+  "mode": "offline",
+  "groups": 3,
+  "sensors": {
+    "camera_ids": [
+      "front"
+    ]
+  },
+  "pipeline": {
+    "segment_groups": 2
+  }
+}

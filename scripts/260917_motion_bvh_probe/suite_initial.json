@@ -1,0 +1,6 @@
+[
+  ["mesh_on_multi", ["--bvh", "1", "--multi", "1"]],
+  ["gaussian_off", ["--geometry", "gaussian", "--bvh", "0", "--multi", "0"]],
+  ["gaussian_on_single", ["--geometry", "gaussian", "--bvh", "1", "--multi", "0"]],
+  ["gaussian_on_multi", ["--geometry", "gaussian", "--bvh", "1", "--multi", "1"]]
+]

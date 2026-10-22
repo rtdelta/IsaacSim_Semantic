@@ -1,0 +1,113 @@
+{
+  "operation": "20261010T131821Z_3fe627813625",
+  "source": "Read-only live probe; project code/configuration unchanged",
+  "superseded_fields": [],
+  "data": {
+    "inventory": {
+      "exit_code": 0,
+      "stdout": "0, 00000000:9B:00.0\n1, 00000000:9E:00.0\n",
+      "stderr": ""
+    },
+    "endpoints": [
+      {
+        "gpu_index": 0,
+        "address": "0000:9b:00.0",
+        "chain": [
+          {
+            "address": "0000:9b:00.0",
+            "current_link_speed": "2.5 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          },
+          {
+            "address": "0000:99:01.0",
+            "current_link_speed": "2.5 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          },
+          {
+            "address": "0000:98:00.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          },
+          {
+            "address": "0000:97:02.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          }
+        ],
+        "lspci": {
+          "exit_code": 0,
+          "stdout": "\t\tLnkCap:\tPort #0, Speed 16GT/s, Width x16, ASPM not supported\n\t\tLnkSta:\tSpeed 2.5GT/s (downgraded), Width x16\n\t\tLnkCap2: Supported Link Speeds: 2.5-16GT/s, Crosslink- Retimer+ 2Retimers+ DRS-",
+          "stderr": "lspci: Unable to load libkmod resources: error -2\n"
+        }
+      },
+      {
+        "gpu_index": 1,
+        "address": "0000:9e:00.0",
+        "chain": [
+          {
+            "address": "0000:9e:00.0",
+            "current_link_speed": "2.5 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          },
+          {
+            "address": "0000:99:04.0",
+            "current_link_speed": "2.5 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          },
+          {
+            "address": "0000:98:00.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          },
+          {
+            "address": "0000:97:02.0",
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "16",
+            "max_link_speed": "16.0 GT/s PCIe",
+            "max_link_width": "16",
+            "numa_node": "1"
+          }
+        ],
+        "lspci": {
+          "exit_code": 0,
+          "stdout": "\t\tLnkCap:\tPort #0, Speed 16GT/s, Width x16, ASPM not supported\n\t\tLnkSta:\tSpeed 2.5GT/s (downgraded), Width x16\n\t\tLnkCap2: Supported Link Speeds: 2.5-16GT/s, Crosslink- Retimer+ 2Retimers+ DRS-",
+          "stderr": "lspci: Unable to load libkmod resources: error -2\n"
+        }
+      }
+    ],
+    "ncu": {
+      "exit_code": 0,
+      "stdout": "NVIDIA (R) Nsight Compute Command Line Profiler\nCopyright (c) 2018-2025 NVIDIA Corporation\nVersion 2025.1.1.0 (build 35528883) (public-release)\n",
+      "stderr": ""
+    },
+    "counter_permission_setting": [
+      "RmProfilingAdminOnly: 1"
+    ],
+    "processes": {
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  }
+}

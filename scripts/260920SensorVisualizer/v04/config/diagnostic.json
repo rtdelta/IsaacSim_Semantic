@@ -1,0 +1,13 @@
+{
+  "schema_version": 3,
+  "mode": "offline",
+  "groups": 10,
+  "diagnostics": {
+    "level": "diagnostic",
+    "detail_group_range": [
+      0,
+      9
+    ],
+    "export_trace_on_stop": true
+  }
+}

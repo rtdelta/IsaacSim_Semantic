@@ -1,0 +1,3835 @@
+[
+  {
+    "case": "camera_mesh_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/camera_mesh_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "camera",
+        "--bvh",
+        "0"
+      ],
+      "started_at": 1789634571.7788079,
+      "pid": 2278877,
+      "exit_code": -15,
+      "timed_out": false,
+      "finished_at": 1789634649.9066985,
+      "duration": 78.12789058685303
+    },
+    "status": "no_result"
+  },
+  {
+    "case": "debug_camera_gaussian_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_camera_gaussian_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "camera",
+        "--bvh",
+        "0",
+        "--frames",
+        "60",
+        "--warmup",
+        "30"
+      ],
+      "started_at": 1789635187.8714597,
+      "pid": 2328265,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635212.5301645,
+      "duration": 24.65870475769043
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_camera_gaussian_off",
+      "geometry": "gaussian",
+      "output": "camera",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 60,
+      "warmup": 30,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 30,
+        "file": "rgb_0030.png",
+        "mean": 192.7220627170139
+      },
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 195.199599609375
+      },
+      {
+        "frame": 89,
+        "file": "rgb_0089.png",
+        "mean": 196.00024739583333
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    },
+    "native_trace": [
+      {
+        "event": "scenedb_loaded",
+        "pid": 2328288,
+        "path": "/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so",
+        "base": "0x7f4fbb66c000",
+        "entry_offset": "0x184990"
+      },
+      {
+        "event": "gaussian_build_tlas",
+        "object": "0x7f3db9b71770",
+        "mode": 0,
+        "device": 0,
+        "bool_arg": 0,
+        "thread": "(2328288, 2328288, 0)",
+        "thread_name": "python3",
+        "backtrace": "#0  0x00007f4fbb7f0990 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so\n#1  0x00007f4fbb857a3e in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so\n#2  0x00007f52e67a0f2b in ?? () from /root/isaacsim/extscache/omni.gpu_foundation-0.0.0+f9bf0dda.lx64.r.cp312/bin/deps/libgpu.foundation.plugin.so\n#3  0x00007f4fbc244937 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#4  0x00007f4fbc25907b in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#5  0x00007f4fbc25a5b1 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#6  0x00007f4fbc29793d in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#7  0x00007f4fbc29a11a in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#8  0x00007f4fbc2c4c5f in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#9  0x00007f4fceb2da43 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#10 0x00007f4fceb309d5 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#11 0x00007f4fceb366a3 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#12 0x00007f4fceb36d0c in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#13 0x00007f514eb13d23 in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n#14 0x00007f514eb2994a in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n#15 0x00007f514eb2ab2d in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n"
+      }
+    ]
+  },
+  {
+    "case": "debug_camera_gaussian_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_camera_gaussian_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "camera",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635290.9499757,
+      "pid": 2336064,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635318.8701432,
+      "duration": 27.920167446136475
+    },
+    "status": "python_error",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_camera_gaussian_on",
+      "geometry": "gaussian",
+      "output": "camera",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": "Traceback (most recent call last):\n  File \"/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py\", line 215, in <module>\n    rgb_product=rep.create.render_product(\"/World/DiagnosticCamera\",(640,480),name=\"OnlyCamera\")\n                ^^^^^^^^^^\nAttributeError: module 'omni.replicator.core' has no attribute 'create'\n",
+    "isolation": null,
+    "images": [],
+    "engines": [],
+    "settings": {},
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 0,
+    "gaussian_errors": [],
+    "other_errors": [
+      "2026-09-17T08:54:56Z [5,498ms] [Error] [omni.ext._impl._internal] Failed to import python module omni.kit.widget.filebrowser from /root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda. Error: [Errno 2] No such file or directory: '--out'. Traceback:",
+      "2026-09-17T08:54:56Z [5,498ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.filebrowser' in '/root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda' failed to load.",
+      "2026-09-17T08:54:56Z [5,498ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.filebrowser-2.13.4] Failed to startup python extension.",
+      "2026-09-17T08:54:57Z [5,628ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.widget.search_delegate. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:54:57Z [5,628ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.search_delegate' in '/root/isaacsim/extscache/omni.kit.widget.search_delegate-1.0.9+f9bf0dda' failed to load.",
+      "2026-09-17T08:54:57Z [5,628ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.search_delegate-1.0.9] Failed to startup python extension.",
+      "2026-09-17T08:54:57Z [5,751ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.window.filepicker. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:54:57Z [5,751ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.window.filepicker' in '/root/isaacsim/extscache/omni.kit.window.filepicker-2.15.5+f9bf0dda' failed to load."
+    ],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    },
+    "native_trace": [
+      {
+        "event": "scenedb_loaded",
+        "pid": 2336087,
+        "path": "/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so",
+        "base": "0x7f33d0960000",
+        "entry_offset": "0x184990"
+      }
+    ]
+  },
+  {
+    "case": "debug_camera_gaussian_on_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_camera_gaussian_on_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "camera",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635421.3811545,
+      "pid": 2346959,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635448.1455524,
+      "duration": 26.764397859573364
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_camera_gaussian_on_r1",
+      "geometry": "gaussian",
+      "output": "camera",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 202.13437825520833
+      },
+      {
+        "frame": 120,
+        "file": "rgb_0120.png",
+        "mean": 203.34397352430557
+      },
+      {
+        "frame": 179,
+        "file": "rgb_0179.png",
+        "mean": 203.5249956597222
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T08:57:22Z [20,275ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    },
+    "native_trace": [
+      {
+        "event": "scenedb_loaded",
+        "pid": 2346981,
+        "path": "/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so",
+        "base": "0x7f788bad7000",
+        "entry_offset": "0x184990"
+      },
+      {
+        "event": "gaussian_build_tlas",
+        "object": "0x7f7bf66aaec0",
+        "mode": 1,
+        "device": 0,
+        "bool_arg": 0,
+        "thread": "(2346981, 2346981, 0)",
+        "thread_name": "python3",
+        "backtrace": "#0  0x00007f788bc5b990 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so\n#1  0x00007f788bcc2a3e in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so\n#2  0x00007f7bbc306f2b in ?? () from /root/isaacsim/extscache/omni.gpu_foundation-0.0.0+f9bf0dda.lx64.r.cp312/bin/deps/libgpu.foundation.plugin.so\n#3  0x00007f788c644937 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#4  0x00007f788c65907b in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#5  0x00007f788c65a5b1 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#6  0x00007f788c69793d in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#7  0x00007f788c69a11a in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#8  0x00007f788c6c4c5f in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#9  0x00007f789ef57a43 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#10 0x00007f789ef5a9d5 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#11 0x00007f789ef606a3 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#12 0x00007f789ef60d0c in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#13 0x00007f7a1ef1ed23 in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n#14 0x00007f7a1ef3494a in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n#15 0x00007f7a1ef35b2d in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n"
+      }
+    ]
+  },
+  {
+    "case": "debug_lidar_gaussian_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_lidar_gaussian_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635318.914717,
+      "pid": 2338344,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635347.0889091,
+      "duration": 28.174192190170288
+    },
+    "status": "python_error",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_lidar_gaussian_on",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": "Traceback (most recent call last):\n  File \"/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py\", line 178, in <module>\n    from isaacsim.sensors.experimental.rtx import parse_generic_model_output_data\nImportError: cannot import name 'parse_generic_model_output_data' from 'isaacsim.sensors.experimental.rtx' (unknown location)\n",
+    "isolation": null,
+    "images": [],
+    "engines": [],
+    "settings": {},
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 0,
+    "gaussian_errors": [],
+    "other_errors": [
+      "2026-09-17T08:55:24Z [5,436ms] [Error] [omni.ext._impl._internal] Failed to import python module omni.kit.widget.filebrowser from /root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda. Error: [Errno 2] No such file or directory: '--out'. Traceback:",
+      "2026-09-17T08:55:24Z [5,436ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.filebrowser' in '/root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda' failed to load.",
+      "2026-09-17T08:55:24Z [5,436ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.filebrowser-2.13.4] Failed to startup python extension.",
+      "2026-09-17T08:55:24Z [5,554ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.widget.search_delegate. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:55:24Z [5,554ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.search_delegate' in '/root/isaacsim/extscache/omni.kit.widget.search_delegate-1.0.9+f9bf0dda' failed to load.",
+      "2026-09-17T08:55:24Z [5,554ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.search_delegate-1.0.9] Failed to startup python extension.",
+      "2026-09-17T08:55:25Z [5,684ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.window.filepicker. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:55:25Z [5,684ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.window.filepicker' in '/root/isaacsim/extscache/omni.kit.window.filepicker-2.15.5+f9bf0dda' failed to load."
+    ],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    },
+    "native_trace": [
+      {
+        "event": "scenedb_loaded",
+        "pid": 2338366,
+        "path": "/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so",
+        "base": "0x7f462b799000",
+        "entry_offset": "0x184990"
+      }
+    ]
+  },
+  {
+    "case": "debug_lidar_gaussian_on_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_lidar_gaussian_on_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635448.1920753,
+      "pid": 2349379,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635475.2101414,
+      "duration": 27.01806616783142
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/debug_lidar_gaussian_on_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T08:57:49Z [20,861ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    },
+    "native_trace": [
+      {
+        "event": "scenedb_loaded",
+        "pid": 2349401,
+        "path": "/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so",
+        "base": "0x7fba2bbaa000",
+        "entry_offset": "0x184990"
+      },
+      {
+        "event": "gaussian_build_tlas",
+        "object": "0x7fbd8bc550a0",
+        "mode": 1,
+        "device": 0,
+        "bool_arg": 0,
+        "thread": "(2349401, 2349401, 0)",
+        "thread_name": "python3",
+        "backtrace": "#0  0x00007fba2bd2e990 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so\n#1  0x00007fba2bd95a3e in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so\n#2  0x00007fbd5c306f2b in ?? () from /root/isaacsim/extscache/omni.gpu_foundation-0.0.0+f9bf0dda.lx64.r.cp312/bin/deps/libgpu.foundation.plugin.so\n#3  0x00007fba2c644937 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#4  0x00007fba2c65907b in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#5  0x00007fba2c65a5b1 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#6  0x00007fba2c69793d in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#7  0x00007fba2c69a11a in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#8  0x00007fba2c6c4c5f in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/libcarb.scenerenderer-rtx.plugin.so\n#9  0x00007fba3ef57a43 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#10 0x00007fba3ef5a9d5 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#11 0x00007fba3ef606a3 in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#12 0x00007fba3ef60d0c in ?? () from /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.hydra.so\n#13 0x00007fbbbef86d23 in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n#14 0x00007fbbbef9c94a in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n#15 0x00007fbbbef9db2d in ?? () from /root/isaacsim/extscache/omni.usd.core-1.8.3+f9bf0dda.lx64.r/bin/libomni.usd.so\n"
+      }
+    ]
+  },
+  {
+    "case": "flags_01_gaussian_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_01_gaussian_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--multi",
+        "0",
+        "--per-sensor",
+        "1"
+      ],
+      "started_at": 1789635729.1856663,
+      "pid": 2376563,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635747.3869526,
+      "duration": 18.20128631591797
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_01_gaussian_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 1,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T09:02:22Z [12,976ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "flags_01_mesh_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_01_mesh_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--multi",
+        "0",
+        "--per-sensor",
+        "1"
+      ],
+      "started_at": 1789635710.4934754,
+      "pid": 2374725,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635729.141613,
+      "duration": 18.64813756942749
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_01_mesh_r1",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 1,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "flags_10_gaussian_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_10_gaussian_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--per-sensor",
+        "0"
+      ],
+      "started_at": 1789635691.9514143,
+      "pid": 2372886,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635710.4495552,
+      "duration": 18.498140811920166
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_10_gaussian_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 1,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T09:01:44Z [12,717ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "flags_10_mesh_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_10_mesh_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--per-sensor",
+        "0"
+      ],
+      "started_at": 1789635673.5640059,
+      "pid": 2371070,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635691.9094427,
+      "duration": 18.345436811447144
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_10_mesh_r1",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 1,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "flags_11_gaussian_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_11_gaussian_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--per-sensor",
+        "1"
+      ],
+      "started_at": 1789635766.621115,
+      "pid": 2380295,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635785.1176622,
+      "duration": 18.49654722213745
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_11_gaussian_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 1,
+      "per_sensor": 1,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T09:02:59Z [12,792ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "flags_11_mesh_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_11_mesh_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--per-sensor",
+        "1"
+      ],
+      "started_at": 1789635747.4288452,
+      "pid": 2378420,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635766.578267,
+      "duration": 19.14942193031311
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/flags_11_mesh_r1",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 1,
+      "per_sensor": 1,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "motion_off_flags_01_mesh",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/motion_off_flags_01_mesh",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--multi",
+        "0",
+        "--per-sensor",
+        "1",
+        "--frames",
+        "120",
+        "--warmup",
+        "60"
+      ],
+      "started_at": 1789635836.299431,
+      "pid": 2386810
+    },
+    "status": "no_result"
+  },
+  {
+    "case": "motion_off_flags_10_gaussian",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/motion_off_flags_10_gaussian",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--multi",
+        "1",
+        "--per-sensor",
+        "0",
+        "--frames",
+        "120",
+        "--warmup",
+        "60"
+      ],
+      "started_at": 1789635817.9571772,
+      "pid": 2384996,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635836.2558873,
+      "duration": 18.298710107803345
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/motion_off_flags_10_gaussian",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 1,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T09:03:50Z [12,545ms] [Warning] [rtx.rtxsensor.plugin] Multi-tick is enabled but motion BVH is not active. This is not supported.",
+      "2026-09-17T09:03:50Z [12,545ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        799,
+        800
+      ],
+      "near_hits_min": 9,
+      "near_hits_max": 14,
+      "complete": 20,
+      "range_min": 0.5337879061698914
+    }
+  },
+  {
+    "case": "motion_off_flags_10_mesh",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/motion_off_flags_10_mesh",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--multi",
+        "1",
+        "--per-sensor",
+        "0",
+        "--frames",
+        "120",
+        "--warmup",
+        "60"
+      ],
+      "started_at": 1789635798.111784,
+      "pid": 2383076,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635817.911207,
+      "duration": 19.79942297935486
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/motion_off_flags_10_mesh",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 1,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T09:03:31Z [13,311ms] [Warning] [rtx.rtxsensor.plugin] Multi-tick is enabled but motion BVH is not active. This is not supported.",
+      "2026-09-17T09:03:31Z [13,311ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "nz3_instant_gaussian_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_gaussian_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635389.498507,
+      "pid": 2344254,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635410.5626552,
+      "duration": 21.06414818763733
+    },
+    "status": "python_error",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_gaussian_off",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 1,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": "Traceback (most recent call last):\n  File \"/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py\", line 178, in <module>\n    from isaacsim.sensors.experimental.rtx import parse_generic_model_output_data\nImportError: cannot import name 'parse_generic_model_output_data' from 'isaacsim.sensors.experimental.rtx' (unknown location)\n",
+    "isolation": null,
+    "images": [],
+    "engines": [],
+    "settings": {},
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 0,
+    "gaussian_errors": [],
+    "other_errors": [
+      "2026-09-17T08:56:33Z [3,478ms] [Error] [omni.ext._impl._internal] Failed to import python module omni.kit.widget.filebrowser from /root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda. Error: [Errno 2] No such file or directory: '--out'. Traceback:",
+      "2026-09-17T08:56:33Z [3,478ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.filebrowser' in '/root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda' failed to load.",
+      "2026-09-17T08:56:33Z [3,478ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.filebrowser-2.13.4] Failed to startup python extension.",
+      "2026-09-17T08:56:33Z [3,590ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.widget.search_delegate. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:56:33Z [3,590ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.search_delegate' in '/root/isaacsim/extscache/omni.kit.widget.search_delegate-1.0.9+f9bf0dda' failed to load.",
+      "2026-09-17T08:56:33Z [3,590ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.search_delegate-1.0.9] Failed to startup python extension.",
+      "2026-09-17T08:56:33Z [3,701ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.window.filepicker. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:56:33Z [3,701ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.window.filepicker' in '/root/isaacsim/extscache/omni.kit.window.filepicker-2.15.5+f9bf0dda' failed to load."
+    ],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "nz3_instant_gaussian_off_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_gaussian_off_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635517.3148239,
+      "pid": 2355845,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635537.9707775,
+      "duration": 20.655953645706177
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_gaussian_off_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 1,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T08:58:51Z [13,470ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 120,
+      "counts": [
+        46053,
+        46054,
+        46055,
+        46056,
+        46057,
+        46058,
+        46059,
+        46060,
+        46061,
+        46062,
+        46063,
+        46064,
+        46065,
+        46066,
+        46067,
+        46068,
+        46069,
+        46070,
+        46071
+      ],
+      "near_hits_min": 658,
+      "near_hits_max": 715,
+      "complete": 120,
+      "range_min": 0.40009185671806335
+    }
+  },
+  {
+    "case": "nz3_instant_gaussian_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_gaussian_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635410.6081016,
+      "pid": 2346040,
+      "exit_code": -15,
+      "timed_out": false,
+      "finished_at": 1789635418.6880834,
+      "duration": 8.079981803894043
+    },
+    "status": "no_result"
+  },
+  {
+    "case": "nz3_instant_gaussian_on_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_gaussian_on_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635538.020719,
+      "pid": 2357839,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635558.8294501,
+      "duration": 20.808731079101562
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_gaussian_on_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 1,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T08:59:12Z [13,792ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 120,
+      "counts": [
+        46076,
+        46078,
+        46079,
+        46080
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 120,
+      "range_min": 10.000046730041504
+    }
+  },
+  {
+    "case": "nz3_instant_mesh_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635347.1366978,
+      "pid": 2340652,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635368.497084,
+      "duration": 21.36038613319397
+    },
+    "status": "python_error",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_off",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 1,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": "Traceback (most recent call last):\n  File \"/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py\", line 178, in <module>\n    from isaacsim.sensors.experimental.rtx import parse_generic_model_output_data\nImportError: cannot import name 'parse_generic_model_output_data' from 'isaacsim.sensors.experimental.rtx' (unknown location)\n",
+    "isolation": null,
+    "images": [],
+    "engines": [],
+    "settings": {},
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 0,
+    "gaussian_errors": [],
+    "other_errors": [
+      "2026-09-17T08:55:50Z [3,534ms] [Error] [omni.ext._impl._internal] Failed to import python module omni.kit.widget.filebrowser from /root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda. Error: [Errno 2] No such file or directory: '--out'. Traceback:",
+      "2026-09-17T08:55:50Z [3,534ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.filebrowser' in '/root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda' failed to load.",
+      "2026-09-17T08:55:50Z [3,534ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.filebrowser-2.13.4] Failed to startup python extension.",
+      "2026-09-17T08:55:51Z [3,660ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.widget.search_delegate. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:55:51Z [3,660ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.search_delegate' in '/root/isaacsim/extscache/omni.kit.widget.search_delegate-1.0.9+f9bf0dda' failed to load.",
+      "2026-09-17T08:55:51Z [3,660ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.search_delegate-1.0.9] Failed to startup python extension.",
+      "2026-09-17T08:55:51Z [3,779ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.window.filepicker. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:55:51Z [3,779ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.window.filepicker' in '/root/isaacsim/extscache/omni.kit.window.filepicker-2.15.5+f9bf0dda' failed to load."
+    ],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "nz3_instant_mesh_off_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_off_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635475.257163,
+      "pid": 2351812,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635495.7627037,
+      "duration": 20.50554060935974
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_off_r1",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 1,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T08:58:08Z [13,144ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 120,
+      "counts": [
+        46076,
+        46078,
+        46079,
+        46080
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 120,
+      "range_min": 10.000046730041504
+    }
+  },
+  {
+    "case": "nz3_instant_mesh_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635368.5423205,
+      "pid": 2342481,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635389.452813,
+      "duration": 20.910492420196533
+    },
+    "status": "python_error",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_on",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 1,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": "Traceback (most recent call last):\n  File \"/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v4.py\", line 178, in <module>\n    from isaacsim.sensors.experimental.rtx import parse_generic_model_output_data\nImportError: cannot import name 'parse_generic_model_output_data' from 'isaacsim.sensors.experimental.rtx' (unknown location)\n",
+    "isolation": null,
+    "images": [],
+    "engines": [],
+    "settings": {},
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 0,
+    "gaussian_errors": [],
+    "other_errors": [
+      "2026-09-17T08:56:12Z [3,487ms] [Error] [omni.ext._impl._internal] Failed to import python module omni.kit.widget.filebrowser from /root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda. Error: [Errno 2] No such file or directory: '--out'. Traceback:",
+      "2026-09-17T08:56:12Z [3,487ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.filebrowser' in '/root/isaacsim/extscache/omni.kit.widget.filebrowser-2.13.4+f9bf0dda' failed to load.",
+      "2026-09-17T08:56:12Z [3,487ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.filebrowser-2.13.4] Failed to startup python extension.",
+      "2026-09-17T08:56:12Z [3,599ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.widget.search_delegate. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:56:12Z [3,599ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.widget.search_delegate' in '/root/isaacsim/extscache/omni.kit.widget.search_delegate-1.0.9+f9bf0dda' failed to load.",
+      "2026-09-17T08:56:12Z [3,599ms] [Error] [omni.ext.plugin] [ext: omni.kit.widget.search_delegate-1.0.9] Failed to startup python extension.",
+      "2026-09-17T08:56:12Z [3,730ms] [Error] [omni.ext._impl.custom_importer] Failed to import python module omni.kit.window.filepicker. Error: cannot import name 'FileBrowserModel' from 'omni.kit.widget.filebrowser' (unknown location). Traceback:",
+      "2026-09-17T08:56:12Z [3,730ms] [Error] [carb.scripting-python.plugin] Exception: Extension python module: 'omni.kit.window.filepicker' in '/root/isaacsim/extscache/omni.kit.window.filepicker-2.15.5+f9bf0dda' failed to load."
+    ],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "nz3_instant_mesh_on_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_on_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--native-nz3",
+        "--instant",
+        "1"
+      ],
+      "started_at": 1789635495.8093386,
+      "pid": 2353810,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635517.2659216,
+      "duration": 21.45658302307129
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_instant_mesh_on_r1",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 1,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 120,
+      "counts": [
+        46076,
+        46078,
+        46079,
+        46080
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 120,
+      "range_min": 10.000046730041504
+    }
+  },
+  {
+    "case": "nz3_timed_gaussian_off_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_timed_gaussian_off_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0",
+        "--native-nz3",
+        "--instant",
+        "0"
+      ],
+      "started_at": 1789635558.8746254,
+      "pid": 2359836,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635578.5322835,
+      "duration": 19.657658100128174
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_timed_gaussian_off_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T08:59:32Z [13,422ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 120,
+      "counts": [
+        1
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 120,
+      "range_min": 14.945011138916016
+    }
+  },
+  {
+    "case": "nz3_timed_gaussian_on_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_timed_gaussian_on_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1",
+        "--native-nz3",
+        "--instant",
+        "0"
+      ],
+      "started_at": 1789635578.5801613,
+      "pid": 2361744,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635598.2326279,
+      "duration": 19.652466535568237
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/nz3_timed_gaussian_on_r1",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": true,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T08:59:52Z [13,384ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 120,
+      "counts": [
+        1
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 120,
+      "range_min": 14.945011138916016
+    }
+  },
+  {
+    "case": "seed_camera_mesh_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v2.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/seed_camera_mesh_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "camera",
+        "--bvh",
+        "0",
+        "--frames",
+        "90",
+        "--warmup",
+        "30"
+      ],
+      "started_at": 1789634885.5877414,
+      "pid": 2302123,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789634903.9874353,
+      "duration": 18.399693965911865
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/seed_camera_mesh_off",
+      "geometry": "mesh",
+      "output": "camera",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 90,
+      "warmup": 30,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 30,
+        "file": "rgb_0030.png",
+        "mean": 0.0688986545138889
+      },
+      {
+        "frame": 75,
+        "file": "rgb_0075.png",
+        "mean": 0.07369791666666667
+      },
+      {
+        "frame": 119,
+        "file": "rgb_0119.png",
+        "mean": 0.07376193576388888
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "synthetic_camera_off_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_camera_off_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "synthetic",
+        "--output",
+        "camera",
+        "--bvh",
+        "0"
+      ],
+      "started_at": 1789635598.2787466,
+      "pid": 2363666,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635617.7335746,
+      "duration": 19.454828023910522
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_camera_off_r1",
+      "geometry": "synthetic",
+      "output": "camera",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 197.67200086805556
+      },
+      {
+        "frame": 120,
+        "file": "rgb_0120.png",
+        "mean": 198.97128146701388
+      },
+      {
+        "frame": 179,
+        "file": "rgb_0179.png",
+        "mean": 199.1682367621528
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "synthetic_camera_on_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_camera_on_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "synthetic",
+        "--output",
+        "camera",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635617.7849476,
+      "pid": 2365565,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635637.2860167,
+      "duration": 19.50106906890869
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_camera_on_r1",
+      "geometry": "synthetic",
+      "output": "camera",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 202.178212890625
+      },
+      {
+        "frame": 120,
+        "file": "rgb_0120.png",
+        "mean": 203.39887044270833
+      },
+      {
+        "frame": 179,
+        "file": "rgb_0179.png",
+        "mean": 203.60712022569444
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T09:00:31Z [13,430ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "synthetic_lidar_off_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_lidar_off_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "synthetic",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0"
+      ],
+      "started_at": 1789635637.3287284,
+      "pid": 2367458,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635655.4302425,
+      "duration": 18.101514101028442
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_lidar_off_r1",
+      "geometry": "synthetic",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T09:00:50Z [12,884ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "synthetic_lidar_on_r1",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v5.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_lidar_on_r1",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--frames",
+        "120",
+        "--warmup",
+        "60",
+        "--geometry",
+        "synthetic",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635655.4744709,
+      "pid": 2369273,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635673.519684,
+      "duration": 18.045213222503662
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/synthetic_lidar_on_r1",
+      "geometry": "synthetic",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 120,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T09:01:08Z [12,689ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 20,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 20,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "v2_camera_mesh_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v2.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v2_camera_mesh_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "camera",
+        "--bvh",
+        "0",
+        "--frames",
+        "90",
+        "--warmup",
+        "30"
+      ],
+      "started_at": 1789634684.2079751,
+      "pid": 2287358,
+      "timed_out": true,
+      "exit_code": -15,
+      "finished_at": 1789634864.2119277,
+      "duration": 180.00395250320435
+    },
+    "status": "no_result"
+  },
+  {
+    "case": "v3_camera_gaussian_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_gaussian_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "camera",
+        "--bvh",
+        "0"
+      ],
+      "started_at": 1789635037.0398104,
+      "pid": 2314387,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635056.8951285,
+      "duration": 19.855318069458008
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_gaussian_off",
+      "geometry": "gaussian",
+      "output": "camera",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 195.2017068142361
+      },
+      {
+        "frame": 150,
+        "file": "rgb_0150.png",
+        "mean": 196.8004372829861
+      },
+      {
+        "frame": 239,
+        "file": "rgb_0239.png",
+        "mean": 197.37044053819446
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "v3_camera_gaussian_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_gaussian_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "camera",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635056.9411404,
+      "pid": 2316311,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635077.4962168,
+      "duration": 20.555076360702515
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_gaussian_on",
+      "geometry": "gaussian",
+      "output": "camera",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 202.22497504340276
+      },
+      {
+        "frame": 150,
+        "file": "rgb_0150.png",
+        "mean": 203.45522135416667
+      },
+      {
+        "frame": 239,
+        "file": "rgb_0239.png",
+        "mean": 203.92826822916666
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T08:51:10Z [13,324ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "v3_camera_mesh_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_mesh_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "camera",
+        "--bvh",
+        "0"
+      ],
+      "started_at": 1789634997.0308528,
+      "pid": 2310528,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635016.7852597,
+      "duration": 19.754406929016113
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_mesh_off",
+      "geometry": "mesh",
+      "output": "camera",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 205.28039171006944
+      },
+      {
+        "frame": 150,
+        "file": "rgb_0150.png",
+        "mean": 205.83987630208333
+      },
+      {
+        "frame": 239,
+        "file": "rgb_0239.png",
+        "mean": 205.88890082465278
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "v3_camera_mesh_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_mesh_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "camera",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635016.8401272,
+      "pid": 2312450,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635036.9935381,
+      "duration": 20.15341091156006
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_camera_mesh_on",
+      "geometry": "mesh",
+      "output": "camera",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 0,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [
+      {
+        "frame": 60,
+        "file": "rgb_0060.png",
+        "mean": 205.28472005208334
+      },
+      {
+        "frame": 150,
+        "file": "rgb_0150.png",
+        "mean": 205.8244216579861
+      },
+      {
+        "frame": 239,
+        "file": "rgb_0239.png",
+        "mean": 205.89035047743056
+      }
+    ],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 0,
+      "counts": [],
+      "near_hits_min": null,
+      "near_hits_max": null,
+      "complete": 0,
+      "range_min": null
+    }
+  },
+  {
+    "case": "v3_lidar_gaussian_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_gaussian_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0"
+      ],
+      "started_at": 1789635122.2029524,
+      "pid": 2322564,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635141.3062208,
+      "duration": 19.10326838493347
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_gaussian_off",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T08:52:14Z [12,571ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 30,
+      "counts": [
+        798,
+        799,
+        800
+      ],
+      "near_hits_min": 10,
+      "near_hits_max": 16,
+      "complete": 30,
+      "range_min": 1.0122911930084229
+    }
+  },
+  {
+    "case": "v3_lidar_gaussian_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_gaussian_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "gaussian",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635141.352244,
+      "pid": 2324436,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635161.6058097,
+      "duration": 20.253565788269043
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_gaussian_on",
+      "geometry": "gaussian",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [
+      {
+        "path": "/World/Asset",
+        "type": "ParticleField3DGaussianSplat",
+        "schemas": [
+          "ParticleFieldPositionAttributeAPI",
+          "ParticleFieldPositionBaseAPI",
+          "ParticleFieldOrientationAttributeAPI",
+          "ParticleFieldScaleAttributeAPI",
+          "ParticleFieldOpacityAttributeAPI",
+          "ParticleFieldKernelGaussianEllipsoidAPI",
+          "ParticleFieldKernelBaseAPI",
+          "ParticleFieldSphericalHarmonicsAttributeAPI",
+          "ParticleFieldRadianceBaseAPI"
+        ]
+      }
+    ],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [
+      "2026-09-17T08:52:34Z [13,097ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+    ],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 30,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 30,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "v3_lidar_mesh_off",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_mesh_off",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "0"
+      ],
+      "started_at": 1789635077.5417001,
+      "pid": 2318333,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635102.1591475,
+      "duration": 24.61744737625122
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_mesh_off",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 0,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 0,
+        "flags_repr": "EngineCreationFlags.NONE",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [
+      "2026-09-17T08:51:35Z [17,903ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+    ],
+    "lidar": {
+      "samples": 30,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 30,
+      "range_min": 10.0
+    }
+  },
+  {
+    "case": "v3_lidar_mesh_on",
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/probe_v3.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_mesh_on",
+        "--portable-root",
+        "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/runtime_seed/portable",
+        "--geometry",
+        "mesh",
+        "--output",
+        "lidar",
+        "--bvh",
+        "1"
+      ],
+      "started_at": 1789635102.203025,
+      "pid": 2320622,
+      "exit_code": 0,
+      "timed_out": false,
+      "finished_at": 1789635122.1579065,
+      "duration": 19.95488142967224
+    },
+    "status": "collected",
+    "args": {
+      "out": "/root/gpufree-data/diagnostics/bvh_causality_20260917_083739/cases/v3_lidar_mesh_on",
+      "geometry": "mesh",
+      "output": "lidar",
+      "bvh": 1,
+      "multi": 0,
+      "per_sensor": 0,
+      "instant": 0,
+      "native_nz3": false,
+      "frames": 180,
+      "warmup": 60,
+      "engines": "all",
+      "renderer": "RealTimePathTracing",
+      "motion": "none",
+      "source": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/3dgs_usd/tooth_01_front.usd"
+    },
+    "error": null,
+    "isolation": {
+      "expected_lidars": 1,
+      "expected_render_products": 1,
+      "verified": true
+    },
+    "images": [],
+    "engines": [
+      {
+        "uid": 1024,
+        "engine_type_name": "rtx",
+        "thread_name": "",
+        "creation_index": 0,
+        "device_mask": 1,
+        "flags": 1,
+        "flags_repr": "EngineCreationFlags.MOTION_RAYTRACING_ENABLED",
+        "tickrate_in_hz": 0
+      }
+    ],
+    "settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": false,
+      "/rtx/rendering/perSensorTickTlas": false,
+      "/app/useFabricSceneDelegate": true,
+      "/rtx/rendermode": "RealTimePathTracing"
+    },
+    "gaussians": [],
+    "active_lidars": [
+      "/World/Sensor"
+    ],
+    "render_product_count": 1,
+    "gaussian_errors": [],
+    "other_errors": [],
+    "motion_warnings": [],
+    "lidar": {
+      "samples": 30,
+      "counts": [
+        800
+      ],
+      "near_hits_min": 0,
+      "near_hits_max": 0,
+      "complete": 30,
+      "range_min": 10.0
+    }
+  }
+]

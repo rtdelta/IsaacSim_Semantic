@@ -1,0 +1,90 @@
+[
+  {
+    "moving_case": "motion_gaussian_sensor_0",
+    "frozen_case": "freeze_sensor_400000000_0",
+    "moving_frame": 30,
+    "timestampNs": 400000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.401,
+    "frozen_x": 0.8686669743061067,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  },
+  {
+    "moving_case": "motion_gaussian_sensor_0",
+    "frozen_case": "freeze_sensor_800000000_0",
+    "moving_frame": 54,
+    "timestampNs": 800000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.801,
+    "frozen_x": 1.6686663866043074,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  },
+  {
+    "moving_case": "motion_gaussian_sensor_1",
+    "frozen_case": "freeze_sensor_400000000_1",
+    "moving_frame": 30,
+    "timestampNs": 400000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.401,
+    "frozen_x": 0.8686669743061067,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  },
+  {
+    "moving_case": "motion_gaussian_sensor_1",
+    "frozen_case": "freeze_sensor_800000000_1",
+    "moving_frame": 54,
+    "timestampNs": 800000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.801,
+    "frozen_x": 1.6686663866043074,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  },
+  {
+    "moving_case": "motion_gaussian_gaussian_0",
+    "frozen_case": "freeze_gaussian_400000000_0",
+    "moving_frame": 30,
+    "timestampNs": 400000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.401,
+    "frozen_x": 0.8686669743061067,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  },
+  {
+    "moving_case": "motion_gaussian_gaussian_0",
+    "frozen_case": "freeze_gaussian_800000000_0",
+    "moving_frame": 54,
+    "timestampNs": 800000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.801,
+    "frozen_x": 1.6686663866043074,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  },
+  {
+    "moving_case": "motion_gaussian_gaussian_1",
+    "frozen_case": "freeze_gaussian_400000000_1",
+    "moving_frame": 30,
+    "timestampNs": 400000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.401,
+    "frozen_x": 0.8686669743061067,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  },
+  {
+    "moving_case": "motion_gaussian_gaussian_1",
+    "frozen_case": "freeze_gaussian_800000000_1",
+    "moving_frame": 54,
+    "timestampNs": 800000000,
+    "tickId": 1,
+    "timeOffsetNs": 1000000,
+    "query_time_s": 0.801,
+    "frozen_x": 1.6686663866043074,
+    "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "reviewed_inventory": "reports/native007_direct_evidence_contracts.json",
+  "files_examined": 68,
+  "live_history_samples": "unavailable in reviewed installed public interfaces",
+  "live_ray_query_time_and_endpoints": "unavailable in reviewed installed public interfaces",
+  "live_per_ray_origin_direction": "unavailable in reviewed installed public interfaces",
+  "interpolation_factor_binding": {
+    "exists": true,
+    "type": "omni.sensors.nv.lidar.Transformation.interpolationFactor",
+    "ownership": "caller-constructible Transformation input to ILidarPCConverter.setTransformation",
+    "limitation": "No reviewed binding obtains this object from the live render sensor model; reading a newly constructed object would not reveal the actual consumed weight"
+  },
+  "clock_time_storage": "SimulationManager TimeSampleStorage supports clock mapping interpolation and 31 samples; not sensor transform history or actual GPU query evidence",
+  "packet_dumpers": "SimpleGMODumper and TranscoderLidar expose output packet dumps; not earlier emitted-ray or transform-consumption state",
+  "gmo_frames": "Observable frameStart/frameEnd poses and times are output metadata; matching an inferred output transform is E2, not E4",
+  "runtime_probe_added": false,
+  "evidence_level_reached_by_inventory": "static contract availability only"
+}

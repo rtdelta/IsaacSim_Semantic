@@ -1,0 +1,90 @@
+[
+  {
+    "name": "camera_mesh_off",
+    "args": [
+      "--geometry",
+      "mesh",
+      "--output",
+      "camera",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "camera_mesh_on",
+    "args": [
+      "--geometry",
+      "mesh",
+      "--output",
+      "camera",
+      "--bvh",
+      "1"
+    ]
+  },
+  {
+    "name": "camera_gaussian_off",
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "camera_gaussian_on",
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "1"
+    ]
+  },
+  {
+    "name": "lidar_mesh_off",
+    "args": [
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "lidar_mesh_on",
+    "args": [
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1"
+    ]
+  },
+  {
+    "name": "lidar_gaussian_off",
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0"
+    ]
+  },
+  {
+    "name": "lidar_gaussian_on",
+    "args": [
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1"
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+[
+ ["fixed_sensor_zero", ["--script", "motion_case.py", "--motion", "sensor", "--driver", "configured", "--zero-delay", "--pattern", "fixed"]],
+ ["fixed_sensor_off", ["--script", "motion_case.py", "--motion", "sensor", "--driver", "configured", "--zero-delay", "--pattern", "fixed", "--bvh", "0"]],
+ ["fixed_target_zero", ["--script", "motion_case.py", "--motion", "target", "--driver", "configured", "--zero-delay", "--pattern", "fixed"]],
+ ["fixed_sensor_world", ["--script", "motion_case.py", "--motion", "sensor", "--driver", "configured", "--zero-delay", "--pattern", "fixed", "--reference", "WORLD", "--compensated", "1"]]
+]

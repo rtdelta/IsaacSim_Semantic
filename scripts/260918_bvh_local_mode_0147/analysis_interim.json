@@ -1,0 +1,812 @@
+{
+  "cases": [
+    {
+      "case": "lidar_A_r1",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 658.0,
+        "p50": 691.0,
+        "p95": 707.05,
+        "max": 715.0
+      },
+      "finite": 5527595,
+      "valid": 5527595,
+      "total": 5527595,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(0, 0)": 1
+      }
+    },
+    {
+      "case": "lidar_A_r2",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 658.0,
+        "p50": 691.0,
+        "p95": 707.05,
+        "max": 715.0
+      },
+      "finite": 5527595,
+      "valid": 5527595,
+      "total": 5527595,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(0, 0)": 1
+      }
+    },
+    {
+      "case": "lidar_A_r3",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 658.0,
+        "p50": 691.0,
+        "p95": 707.05,
+        "max": 715.0
+      },
+      "finite": 5527595,
+      "valid": 5527595,
+      "total": 5527595,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(0, 0)": 1
+      }
+    },
+    {
+      "case": "lidar_B_r1",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "finite": 5529570,
+      "valid": 5529570,
+      "total": 5529570,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(1, 1)": 1
+      }
+    },
+    {
+      "case": "lidar_C_r1",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 667.0,
+        "p50": 689.0,
+        "p95": 710.0,
+        "max": 731.0
+      },
+      "finite": 5527587,
+      "valid": 5527587,
+      "total": 5527587,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(1, 0)": 1
+      }
+    },
+    {
+      "case": "lidar_C_r2",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 667.0,
+        "p50": 689.0,
+        "p95": 710.0,
+        "max": 731.0
+      },
+      "finite": 5527587,
+      "valid": 5527587,
+      "total": 5527587,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(1, 0)": 1
+      }
+    },
+    {
+      "case": "lidar_C_r3",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 667.0,
+        "p50": 689.0,
+        "p95": 710.0,
+        "max": 731.0
+      },
+      "finite": 5527587,
+      "valid": 5527587,
+      "total": 5527587,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(1, 0)": 1
+      }
+    },
+    {
+      "case": "lidar_D_r1",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 658.0,
+        "p50": 691.0,
+        "p95": 707.05,
+        "max": 715.0
+      },
+      "finite": 5527595,
+      "valid": 5527595,
+      "total": 5527595,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(0, 0)": 1
+      }
+    },
+    {
+      "case": "lidar_E_r1",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "finite": 5529570,
+      "valid": 5529570,
+      "total": 5529570,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {}
+    },
+    {
+      "case": "lidar_F_r1",
+      "status": "collected",
+      "error": null,
+      "measured": 120,
+      "near_hits": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "finite": 5529570,
+      "valid": 5529570,
+      "total": 5529570,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {}
+    },
+    {
+      "case": "motion_gaussian_none_0",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 11.0,
+        "p50": 14.0,
+        "p95": 15.099999999999998,
+        "max": 16.0
+      },
+      "finite": 7998,
+      "valid": 7998,
+      "total": 7998,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(0, 0)": 1
+      }
+    },
+    {
+      "case": "motion_gaussian_none_1",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 10.0,
+        "p50": 12.5,
+        "p95": 13.549999999999999,
+        "max": 14.0
+      },
+      "finite": 7995,
+      "valid": 7995,
+      "total": 7995,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(1, 0)": 1
+      }
+    },
+    {
+      "case": "motion_gaussian_sensor_0",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 17.0,
+        "p50": 30.0,
+        "p95": 92.09999999999998,
+        "max": 102.0
+      },
+      "finite": 7982,
+      "valid": 7982,
+      "total": 7982,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(0, 0)": 1
+      }
+    },
+    {
+      "case": "motion_gaussian_sensor_1",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 15.0,
+        "p50": 30.5,
+        "p95": 93.79999999999998,
+        "max": 101.0
+      },
+      "finite": 7983,
+      "valid": 7983,
+      "total": 7983,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "init_call": 1,
+        "init_return": 1,
+        "build_entry": 1,
+        "normal_build_call": 1,
+        "normal_build_return": 1,
+        "callback_return": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {
+        "(1, 0)": 1
+      }
+    },
+    {
+      "case": "motion_mesh_none_0",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "finite": 8000,
+      "valid": 8000,
+      "total": 8000,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {},
+      "analytic_xyz_error_m": {
+        "min": NaN,
+        "p50": NaN,
+        "p95": NaN,
+        "max": NaN
+      },
+      "direction_vector_error": {
+        "min": 0.0,
+        "p50": 1.4521118526181103e-07,
+        "p95": 3.405148201041401e-07,
+        "max": 4.952459428424742e-07
+      },
+      "gmo_frame_pose_minus_velocity_times_timestamp_m": null
+    },
+    {
+      "case": "motion_mesh_none_1",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "finite": 8000,
+      "valid": 8000,
+      "total": 8000,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {},
+      "analytic_xyz_error_m": {
+        "min": NaN,
+        "p50": NaN,
+        "p95": NaN,
+        "max": NaN
+      },
+      "direction_vector_error": {
+        "min": 0.0,
+        "p50": 1.4521118526181103e-07,
+        "p95": 3.405148201041401e-07,
+        "max": 4.952459428424742e-07
+      },
+      "gmo_frame_pose_minus_velocity_times_timestamp_m": null
+    },
+    {
+      "case": "motion_mesh_sensor_0",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 0.0,
+        "p50": 2.5,
+        "p95": 96.99999999999997,
+        "max": 106.0
+      },
+      "finite": 8000,
+      "valid": 8000,
+      "total": 8000,
+      "engine_flags": [
+        0
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {},
+      "analytic_xyz_error_m": {
+        "min": NaN,
+        "p50": NaN,
+        "p95": NaN,
+        "max": NaN
+      },
+      "direction_vector_error": {
+        "min": 0.0,
+        "p50": 1.4362816696606195e-07,
+        "p95": 3.3652620522048173e-07,
+        "max": 4.952459428424742e-07
+      },
+      "gmo_frame_pose_minus_velocity_times_timestamp_m": {
+        "min": 0.06666536331176731,
+        "p50": 0.0833328290140074,
+        "p95": 0.10000011351812742,
+        "max": 0.1000002947162475
+      }
+    },
+    {
+      "case": "motion_mesh_sensor_1",
+      "status": "collected",
+      "error": null,
+      "measured": 10,
+      "near_hits": {
+        "min": 0.0,
+        "p50": 2.5,
+        "p95": 96.99999999999997,
+        "max": 106.0
+      },
+      "finite": 8000,
+      "valid": 8000,
+      "total": 8000,
+      "engine_flags": [
+        1
+      ],
+      "native_counts": {
+        "scenedb_loaded": 1,
+        "trace_summary": 1
+      },
+      "effective_modes": {},
+      "analytic_xyz_error_m": {
+        "min": NaN,
+        "p50": NaN,
+        "p95": NaN,
+        "max": NaN
+      },
+      "direction_vector_error": {
+        "min": 0.0,
+        "p50": 1.4390901196444493e-07,
+        "p95": 3.3583926209676763e-07,
+        "max": 5.020556606723389e-07
+      },
+      "gmo_frame_pose_minus_velocity_times_timestamp_m": {
+        "min": 0.06666536331176731,
+        "p50": 0.06666617824191279,
+        "p95": 0.06666696233903809,
+        "max": 0.06666699317205804
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "a": "lidar_A_r1",
+      "b": "lidar_A_r2",
+      "counts": {
+        "scans": 120,
+        "common": 5527595,
+        "only_a": 0,
+        "only_b": 0,
+        "near_both": 82845,
+        "near_a_only": 0,
+        "near_b_only": 0
+      },
+      "xyz_and_keys_bit_exact": true,
+      "common_near_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_signed_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_far_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_abs_scalar_difference": null
+    },
+    {
+      "a": "lidar_A_r2",
+      "b": "lidar_A_r3",
+      "counts": {
+        "scans": 120,
+        "common": 5527595,
+        "only_a": 0,
+        "only_b": 0,
+        "near_both": 82845,
+        "near_a_only": 0,
+        "near_b_only": 0
+      },
+      "xyz_and_keys_bit_exact": true,
+      "common_near_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_signed_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_far_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_abs_scalar_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "a": "lidar_C_r1",
+      "b": "lidar_C_r2",
+      "counts": {
+        "scans": 120,
+        "common": 5527587,
+        "only_a": 0,
+        "only_b": 0,
+        "near_both": 82734,
+        "near_a_only": 0,
+        "near_b_only": 0
+      },
+      "xyz_and_keys_bit_exact": true,
+      "common_near_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_signed_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_far_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_abs_scalar_difference": null
+    },
+    {
+      "a": "lidar_C_r2",
+      "b": "lidar_C_r3",
+      "counts": {
+        "scans": 120,
+        "common": 5527587,
+        "only_a": 0,
+        "only_b": 0,
+        "near_both": 82734,
+        "near_a_only": 0,
+        "near_b_only": 0
+      },
+      "xyz_and_keys_bit_exact": true,
+      "common_near_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_signed_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_far_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_abs_scalar_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "a": "lidar_A_r2",
+      "b": "lidar_C_r2",
+      "counts": {
+        "scans": 120,
+        "common": 5526235,
+        "only_a": 1360,
+        "only_b": 1352,
+        "near_both": 74109,
+        "near_a_only": 7832,
+        "near_b_only": 7745
+      },
+      "xyz_and_keys_bit_exact": false,
+      "common_near_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.41293907165527344,
+        "p95": 2.778582286834717,
+        "max": 7.217720031738281
+      },
+      "common_near_signed_range_difference_m": {
+        "min": -7.217720031738281,
+        "p50": 0.0,
+        "p95": 2.167227268218994,
+        "max": 7.217719078063965
+      },
+      "common_far_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 1.9893150329589844
+      },
+      "common_near_abs_scalar_difference": {
+        "min": 0.0,
+        "p50": 0.0002799122594296932,
+        "p95": 0.0017391879577189674,
+        "max": 0.0056318435817956924
+      }
+    },
+    {
+      "a": "lidar_E_r1",
+      "b": "lidar_F_r1",
+      "counts": {
+        "scans": 120,
+        "common": 5529570,
+        "only_a": 0,
+        "only_b": 0,
+        "near_both": 0,
+        "near_a_only": 0,
+        "near_b_only": 0
+      },
+      "xyz_and_keys_bit_exact": true,
+      "common_near_abs_range_difference_m": null,
+      "common_near_signed_range_difference_m": null,
+      "common_far_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_abs_scalar_difference": null
+    },
+    {
+      "a": "lidar_A_r1",
+      "b": "lidar_D_r1",
+      "counts": {
+        "scans": 120,
+        "common": 5527595,
+        "only_a": 0,
+        "only_b": 0,
+        "near_both": 82845,
+        "near_a_only": 0,
+        "near_b_only": 0
+      },
+      "xyz_and_keys_bit_exact": true,
+      "common_near_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_signed_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_far_abs_range_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "common_near_abs_scalar_difference": null
+    }
+  ]
+}

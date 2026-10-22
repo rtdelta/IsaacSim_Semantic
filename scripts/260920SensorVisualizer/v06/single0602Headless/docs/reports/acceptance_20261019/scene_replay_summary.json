@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "implementation_version": "0.4.0",
+  "state": "passed",
+  "evidence_sha256": "15750bb3c2fbfd0d1966d7b0b3e7a25cd85a3084ee7f40db3976b92f3a348e69",
+  "logic_tests": {
+    "windows": {
+      "tests": 62,
+      "passed": 57,
+      "skipped": 5
+    },
+    "linux": {
+      "tests": 62,
+      "passed": 61,
+      "skipped": 1,
+      "skip": "Optional FastAPI is not installed"
+    }
+  },
+  "web": {
+    "javascript_and_DOM_fixture": "passed",
+    "real_browser_visual_test": "not rerun"
+  },
+  "native_recording": "passed",
+  "cases": [
+    {
+      "name": "original_reproduction",
+      "passed": true,
+      "expected_success": true,
+      "task_id": "3585e36eb8e9",
+      "groups": 4,
+      "process_exited": true,
+      "resource_lock_released": true,
+      "validation": {
+        "passed": true,
+        "groups": 4,
+        "topics": 32,
+        "messages": 122,
+        "lidars": 13,
+        "cameras": 4,
+        "image_shapes": {
+          "front": [
+            1920,
+            1080
+          ],
+          "back": [
+            1920,
+            1080
+          ],
+          "left": [
+            1920,
+            1080
+          ],
+          "right": [
+            1920,
+            1080
+          ]
+        },
+        "source_times": [
+          0.0,
+          0.1,
+          0.2,
+          0.3
+        ],
+        "mcap_bytes": 55966773,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 3.410309289737284e-16,
+        "source_joint_max_error_rad": 0.0,
+        "tf_matrix_max_abs_error": 8.881784197001252e-15
+      }
+    },
+    {
+      "name": "original_rejects_saved_edit",
+      "passed": true,
+      "expected_success": false,
+      "task_id": "2b44faa6e5fd",
+      "groups": 0,
+      "process_exited": true,
+      "resource_lock_released": true,
+      "expected_error": "ValueError: Scene changed since trajectory/source initialization"
+    },
+    {
+      "name": "same_path_edited_environment",
+      "passed": true,
+      "expected_success": true,
+      "task_id": "a26ef8e83799",
+      "groups": 4,
+      "process_exited": true,
+      "resource_lock_released": true,
+      "validation": {
+        "passed": true,
+        "groups": 4,
+        "topics": 32,
+        "messages": 122,
+        "lidars": 13,
+        "cameras": 4,
+        "image_shapes": {
+          "front": [
+            1920,
+            1080
+          ],
+          "back": [
+            1920,
+            1080
+          ],
+          "left": [
+            1920,
+            1080
+          ],
+          "right": [
+            1920,
+            1080
+          ]
+        },
+        "source_times": [
+          0.0,
+          0.1,
+          0.2,
+          0.3
+        ],
+        "mcap_bytes": 55896350,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 3.410309289737284e-16,
+        "source_joint_max_error_rad": 0.0,
+        "tf_matrix_max_abs_error": 8.881784197001252e-15
+      }
+    },
+    {
+      "name": "new_environment_source_missing_with_placement",
+      "passed": true,
+      "expected_success": true,
+      "task_id": "558ecf05b908",
+      "groups": 4,
+      "process_exited": true,
+      "resource_lock_released": true,
+      "validation": {
+        "passed": true,
+        "groups": 4,
+        "topics": 32,
+        "messages": 122,
+        "lidars": 13,
+        "cameras": 4,
+        "image_shapes": {
+          "front": [
+            1920,
+            1080
+          ],
+          "back": [
+            1920,
+            1080
+          ],
+          "left": [
+            1920,
+            1080
+          ],
+          "right": [
+            1920,
+            1080
+          ]
+        },
+        "source_times": [
+          0.0,
+          0.1,
+          0.2,
+          0.3
+        ],
+        "mcap_bytes": 55878656,
+        "source_root_max_error_m": 5.3187656057218646e-08,
+        "source_quaternion_max_error": 5.670461684507461e-09,
+        "source_joint_max_error_rad": 0.0,
+        "tf_matrix_max_abs_error": 3.1086244689504383e-15
+      }
+    },
+    {
+      "name": "reject_changed_joint_axis",
+      "passed": true,
+      "expected_success": false,
+      "task_id": "240d5a2f5413",
+      "groups": 0,
+      "process_exited": true,
+      "resource_lock_released": true,
+      "expected_error": "ValueError: Incompatible excavator.joints.boom.axis: Y != X"
+    },
+    {
+      "name": "reject_changed_camera_calibration",
+      "passed": true,
+      "expected_success": false,
+      "task_id": "61f2e1be7198",
+      "groups": 0,
+      "process_exited": true,
+      "resource_lock_released": true,
+      "expected_error": "ValueError: Incompatible interface.sensors.camera_front.configuration.intrinsics.fx: 578.7734375 != 999.0"
+    },
+    {
+      "name": "legacy_trajectory_environment",
+      "passed": true,
+      "expected_success": true,
+      "task_id": "fbdbab08f309",
+      "groups": 2,
+      "process_exited": true,
+      "resource_lock_released": true,
+      "validation": {
+        "passed": true,
+        "groups": 2,
+        "topics": 32,
+        "messages": 62,
+        "lidars": 13,
+        "cameras": 4,
+        "image_shapes": {
+          "front": [
+            1920,
+            1080
+          ],
+          "back": [
+            1920,
+            1080
+          ],
+          "left": [
+            1920,
+            1080
+          ],
+          "right": [
+            1920,
+            1080
+          ]
+        },
+        "source_times": [
+          0.0,
+          0.1
+        ],
+        "mcap_bytes": 28053262,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 1.172447226021875e-16,
+        "source_joint_max_error_rad": 0.0,
+        "tf_matrix_max_abs_error": 1.7763568394002505e-15
+      }
+    }
+  ],
+  "capture_cleanup": {
+    "remaining_Kit_processes": []
+  },
+  "source_preservation": {
+    "recorded_trajectory_files_unchanged": true,
+    "original_scene18_sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79",
+    "scope": "original scene18 root and source trajectory files; no claim of a new full 600-file asset audit"
+  },
+  "limits": [
+    "Only static environment changes; other moving objects remain TODO.",
+    "Different kinematic zero or joint geometry needs a separate verified profile; no automatic trajectory retargeting.",
+    "Thin sublayer wrapper failed existing rendered-pose verification; accepted copies retained full root-layer settings.",
+    "No OS keyboard, browser visual or long-run performance reacceptance in this update."
+  ]
+}

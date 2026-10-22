@@ -1,0 +1,951 @@
+{
+  "DEPLOYMENT.json": {
+    "deployed_at_utc": "2026-09-16T09:18:56.001173+00:00",
+    "source": {
+      "url": "https://github.com/vmc-motion/cet200",
+      "commit": "8ce4c1428d615079c480185eeef77c54f00d5c6a",
+      "license": "Apache-2.0",
+      "urdf_sha256": "4db63aa80e19a21c938b75f11067bf5e8844d11bfaa78548bff5375361e6e962",
+      "links": 32,
+      "joints": 31,
+      "collision_elements": 23
+    },
+    "isaac_version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+    "asset": "usd/CET200.usda",
+    "preview": "usd/CET200_preview.usda",
+    "readme": "README_部署说明.md",
+    "geometry_scale": [
+      1,
+      1,
+      1
+    ],
+    "build_passed": true,
+    "geometry_audit_passed": true,
+    "native_physx_motion_passed": true,
+    "old_assets_modified": false
+  },
+  "reports/build_report.json": {
+    "passed": true,
+    "isaac_version": "6.0.1-rc.7+release.42383.32955d8d.gl",
+    "source": {
+      "url": "https://github.com/vmc-motion/cet200",
+      "commit": "8ce4c1428d615079c480185eeef77c54f00d5c6a",
+      "license": "Apache-2.0",
+      "urdf_sha256": "4db63aa80e19a21c938b75f11067bf5e8844d11bfaa78548bff5375361e6e962",
+      "links": 32,
+      "joints": 31,
+      "collision_elements": 23
+    },
+    "import_config": {
+      "urdf_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/prepared/cet200_description/urdf/cet200.urdf",
+      "usd_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized",
+      "merge_fixed_joints": true,
+      "merge_mesh": false,
+      "debug_mode": false,
+      "collision_from_visuals": false,
+      "collision_type": "Convex Hull",
+      "allow_self_collision": false,
+      "ros_package_paths": [
+        {
+          "name": "cet200_description",
+          "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/prepared/cet200_description"
+        }
+      ],
+      "robot_type": "Default",
+      "fix_base": true,
+      "link_density": null,
+      "joint_drive_type": null,
+      "joint_target_type": null,
+      "override_joint_stiffness": null,
+      "override_joint_damping": null,
+      "run_asset_transformer": true,
+      "run_multi_physics_conversion": true
+    },
+    "imported_asset": "usd/imported_normalized/cet200/cet200.usda",
+    "revolute_joints": [
+      "/CET200/Physics/Hinge_Slew",
+      "/CET200/Physics/Hinge_Boom",
+      "/CET200/Physics/Hinge_Arm",
+      "/CET200/Physics/Hinge_Bucket",
+      "/CET200/Physics/Hinge_Sprocket_L",
+      "/CET200/Physics/Hinge_Idler_L",
+      "/CET200/Physics/Hinge_Roller_L1",
+      "/CET200/Physics/Hinge_Roller_L2",
+      "/CET200/Physics/Hinge_Roller_L3",
+      "/CET200/Physics/Hinge_Roller_L4",
+      "/CET200/Physics/Hinge_Roller_L5",
+      "/CET200/Physics/Hinge_Roller_L6",
+      "/CET200/Physics/Hinge_Roller_L7",
+      "/CET200/Physics/Hinge_Roller_L8",
+      "/CET200/Physics/Hinge_Roller_L9",
+      "/CET200/Physics/Hinge_Sprocket_R",
+      "/CET200/Physics/Hinge_Idler_R",
+      "/CET200/Physics/Hinge_Roller_R1",
+      "/CET200/Physics/Hinge_Roller_R2",
+      "/CET200/Physics/Hinge_Roller_R3",
+      "/CET200/Physics/Hinge_Roller_R4",
+      "/CET200/Physics/Hinge_Roller_R5",
+      "/CET200/Physics/Hinge_Roller_R6",
+      "/CET200/Physics/Hinge_Roller_R7",
+      "/CET200/Physics/Hinge_Roller_R8",
+      "/CET200/Physics/Hinge_Roller_R9"
+    ],
+    "main_joints": {
+      "Hinge_Slew": {
+        "path": "/CET200/Physics/Hinge_Slew",
+        "axis": "Z",
+        "lower_deg": -Infinity,
+        "upper_deg": Infinity,
+        "body0": [
+          "/CET200/Geometry/TF_Origin"
+        ],
+        "body1": [
+          "/CET200/Geometry/TF_Origin/RB_UpperStructure"
+        ]
+      },
+      "Hinge_Boom": {
+        "path": "/CET200/Physics/Hinge_Boom",
+        "axis": "Y",
+        "lower_deg": -25.382030487060547,
+        "upper_deg": 64.57234191894531,
+        "body0": [
+          "/CET200/Geometry/TF_Origin/RB_UpperStructure"
+        ],
+        "body1": [
+          "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom"
+        ]
+      },
+      "Hinge_Arm": {
+        "path": "/CET200/Physics/Hinge_Arm",
+        "axis": "Y",
+        "lower_deg": -80.2140884399414,
+        "upper_deg": 37.12766647338867,
+        "body0": [
+          "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom"
+        ],
+        "body1": [
+          "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom/RB_Arm"
+        ]
+      },
+      "Hinge_Bucket": {
+        "path": "/CET200/Physics/Hinge_Bucket",
+        "axis": "Y",
+        "lower_deg": -70.81758117675781,
+        "upper_deg": 101.41352844238281,
+        "body0": [
+          "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom/RB_Arm"
+        ],
+        "body1": [
+          "/CET200/Geometry/TF_Origin/RB_UpperStructure/RB_Boom/RB_Arm/RB_Bucket"
+        ]
+      }
+    },
+    "bounds_m": {
+      "min": [
+        -2.8849520683288574,
+        -1.5599995888703642,
+        -0.027594706125983394
+      ],
+      "max": [
+        5.5314283244323725,
+        1.6900030181769006,
+        5.797930804013096
+      ],
+      "size": [
+        8.41638039276123,
+        3.2500026070472647,
+        5.825525510139079
+      ]
+    },
+    "geometry_scale": [
+      1,
+      1,
+      1
+    ],
+    "mesh_count": 477,
+    "rigid_body_count": 27,
+    "dependencies": {
+      "layers": [
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/CET200.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/cet200.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/Physics/mujoco.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/Physics/physics.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/Physics/physx.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/base.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/geometries.usd",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/instances.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/materials.usda",
+        "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/imported_normalized/cet200/payloads/robot.usda"
+      ],
+      "assets": [],
+      "unresolved": []
+    },
+    "payload_composition_passed": true,
+    "asset_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/CET200.usda",
+    "preview_path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/CET200/usd/CET200_preview.usda"
+  },
+  "reports/geometry_audit.json": {
+    "original_visual_bounds_m": [
+      [
+        -2.884952,
+        -1.559999552581964,
+        -0.0260002490888116
+      ],
+      [
+        5.5314283,
+        1.6900030365654601,
+        5.7979307725689555
+      ]
+    ],
+    "usd_visual_bounds_m": [
+      [
+        -2.8849520683288574,
+        -1.5599995767525476,
+        -0.026000268973734322
+      ],
+      [
+        5.5314283244323725,
+        1.6900030144136688,
+        5.797930787303037
+      ]
+    ],
+    "max_bounds_difference_m": 6.832885723895288e-08,
+    "original_vertex_count": 300505,
+    "usd_vertex_count": 300505,
+    "joints": {
+      "Hinge_Slew": {
+        "anchor_error_m": 0.0,
+        "axis_world": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "Hinge_Boom": {
+        "anchor_error_m": 1.8157418094532876e-08,
+        "axis_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "Hinge_Arm": {
+        "anchor_error_m": 2.0895567600221806e-07,
+        "axis_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "Hinge_Bucket": {
+        "anchor_error_m": 9.536743598740208e-08,
+        "axis_world": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    },
+    "upstream_unmodified": true,
+    "passed": true
+  },
+  "reports/validation_report.json": {
+    "passed": true,
+    "articulation_roots": [
+      "/World/CET200/Geometry"
+    ],
+    "screenshot": "reports/CET200_preview.png",
+    "initial": {
+      "Hinge_Slew": {
+        "angle_deg": 0.0,
+        "anchor_error_m": 2.1512150061843633e-07
+      },
+      "Hinge_Boom": {
+        "angle_deg": 0.0,
+        "anchor_error_m": 5.761651765198007e-07
+      },
+      "Hinge_Arm": {
+        "angle_deg": 0.0,
+        "anchor_error_m": 1.0214743872672739e-06
+      },
+      "Hinge_Bucket": {
+        "angle_deg": 0.0,
+        "anchor_error_m": 1.1537142544358362e-06
+      }
+    },
+    "motion_cases": [
+      {
+        "targets_deg": {
+          "Hinge_Slew": 10,
+          "Hinge_Boom": 8,
+          "Hinge_Arm": -12,
+          "Hinge_Bucket": 15
+        },
+        "actual": {
+          "Hinge_Slew": {
+            "angle_deg": 9.999030384065415,
+            "anchor_error_m": 2.679675324535634e-07
+          },
+          "Hinge_Boom": {
+            "angle_deg": 7.998976239947713,
+            "anchor_error_m": 4.608951536746861e-07
+          },
+          "Hinge_Arm": {
+            "angle_deg": -11.996775245761729,
+            "anchor_error_m": 1.7210276949601589e-06
+          },
+          "Hinge_Bucket": {
+            "angle_deg": 14.99432611352766,
+            "anchor_error_m": 8.887355432649048e-07
+          }
+        }
+      },
+      {
+        "targets_deg": {
+          "Hinge_Slew": -10,
+          "Hinge_Boom": -8,
+          "Hinge_Arm": 12,
+          "Hinge_Bucket": -15
+        },
+        "actual": {
+          "Hinge_Slew": {
+            "angle_deg": -9.999892474327932,
+            "anchor_error_m": 3.998471587782928e-07
+          },
+          "Hinge_Boom": {
+            "angle_deg": -7.999759619913647,
+            "anchor_error_m": 5.703677300384307e-07
+          },
+          "Hinge_Arm": {
+            "angle_deg": 11.997494188303724,
+            "anchor_error_m": 1.3691140425481883e-06
+          },
+          "Hinge_Bucket": {
+            "angle_deg": -14.992598537182959,
+            "anchor_error_m": 1.3787698550727183e-06
+          }
+        }
+      }
+    ]
+  },
+  "reports/dae_compatibility.json": {
+    "reason": "Single-level DAE node transforms avoid reversed nested-matrix accumulation in the bundled converter.",
+    "files": [
+      {
+        "file": "prepared/cet200_description/meshes/arm.dae",
+        "geometry_instances": 3
+      },
+      {
+        "file": "prepared/cet200_description/meshes/boom.dae",
+        "geometry_instances": 13
+      },
+      {
+        "file": "prepared/cet200_description/meshes/bucket.dae",
+        "geometry_instances": 15
+      },
+      {
+        "file": "prepared/cet200_description/meshes/collider_bucket.dae",
+        "geometry_instances": 37
+      },
+      {
+        "file": "prepared/cet200_description/meshes/crawler_belt.dae",
+        "geometry_instances": 188
+      },
+      {
+        "file": "prepared/cet200_description/meshes/idler.dae",
+        "geometry_instances": 1
+      },
+      {
+        "file": "prepared/cet200_description/meshes/roller.dae",
+        "geometry_instances": 1
+      },
+      {
+        "file": "prepared/cet200_description/meshes/sprocket.dae",
+        "geometry_instances": 1
+      },
+      {
+        "file": "prepared/cet200_description/meshes/track_frame.dae",
+        "geometry_instances": 2
+      },
+      {
+        "file": "prepared/cet200_description/meshes/track_shoelink.dae",
+        "geometry_instances": 4
+      },
+      {
+        "file": "prepared/cet200_description/meshes/upper_structure.dae",
+        "geometry_instances": 45
+      }
+    ]
+  },
+  "reports/source_joints.json": [
+    {
+      "name": "Dummy_LockJoint_Origin",
+      "type": "fixed",
+      "parent": {
+        "link": "TF_Origin"
+      },
+      "child": {
+        "link": "RB_TrackFrame"
+      },
+      "origin": null,
+      "axis": null,
+      "limit": null
+    },
+    {
+      "name": "Dummy_LockJoint_RB_TrackFrame_base",
+      "type": "fixed",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "base_link"
+      },
+      "origin": null,
+      "axis": null,
+      "limit": null
+    },
+    {
+      "name": "Hinge_Slew",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_UpperStructure"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0 0 1"
+      },
+      "axis": {
+        "xyz": "0 0 1"
+      },
+      "limit": {
+        "effort": "70000",
+        "velocity": "1.256637061"
+      }
+    },
+    {
+      "name": "Hinge_Boom",
+      "type": "revolute",
+      "parent": {
+        "link": "RB_UpperStructure"
+      },
+      "child": {
+        "link": "RB_Boom"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.18 0 0.83"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": {
+        "effort": "2009946.205",
+        "lower": "-0.443",
+        "upper": "1.127",
+        "velocity": "0.648409027"
+      }
+    },
+    {
+      "name": "Hinge_Arm",
+      "type": "revolute",
+      "parent": {
+        "link": "RB_Boom"
+      },
+      "child": {
+        "link": "RB_Arm"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "4.71397 0 3.19445"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": {
+        "effort": "300268.1523",
+        "lower": "-1.40",
+        "upper": "0.648",
+        "velocity": "0.59757376"
+      }
+    },
+    {
+      "name": "Hinge_Bucket",
+      "type": "revolute",
+      "parent": {
+        "link": "RB_Arm"
+      },
+      "child": {
+        "link": "RB_Bucket"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-0.0006 0 -2.9"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": {
+        "effort": "253122.1717",
+        "lower": "-1.236",
+        "upper": "1.77",
+        "velocity": "0.706018147"
+      }
+    },
+    {
+      "name": "Hinge_Sprocket_L",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Sprocket_L"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-1.6872 1.1 0.38945"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": {
+        "effort": "38437",
+        "velocity": "4.074104494"
+      }
+    },
+    {
+      "name": "Hinge_Idler_L",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Idler_L"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "1.6872 1.1 0.38945"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L1",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L1"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.55 1.1 0.71245"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L2",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L2"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-0.55 1.1 0.71245"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L3",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L3"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "1.225 1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L4",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L4"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.825 1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L5",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L5"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.425 1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L6",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L6"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.025 1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L7",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L7"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-0.375 1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L8",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L8"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-0.775 1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_L9",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_L9"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-1.175 1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Sprocket_R",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Sprocket_R"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-1.6872 -1.1 0.38945"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": {
+        "effort": "38437",
+        "velocity": "4.074104494"
+      }
+    },
+    {
+      "name": "Hinge_Idler_R",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Idler_R"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "1.6872 -1.1 0.38945"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R1",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R1"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.55 -1.1 0.71245"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R2",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R2"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-0.55 -1.1 0.71245"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R3",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R3"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "1.225 -1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R4",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R4"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.825 -1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R5",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R5"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.425 -1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R6",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R6"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "0.025 -1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R7",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R7"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-0.375 -1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R8",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R8"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-0.775 -1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Hinge_Roller_R9",
+      "type": "continuous",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "RB_Roller_R9"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "-1.175 -1.1 0.18295"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    },
+    {
+      "name": "Dummy_LockJoint_CrawlerBelt_L",
+      "type": "fixed",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "Dummy_RB_CrawlerBelt_L"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "1.6872 1.09461 0.38945"
+      },
+      "axis": null,
+      "limit": null
+    },
+    {
+      "name": "Dummy_LockJoint_CrawlerBelt_R",
+      "type": "fixed",
+      "parent": {
+        "link": "RB_TrackFrame"
+      },
+      "child": {
+        "link": "Dummy_RB_CrawlerBelt_R"
+      },
+      "origin": {
+        "rpy": "0 0 0",
+        "xyz": "1.6872 -1.09461 0.38945"
+      },
+      "axis": null,
+      "limit": null
+    },
+    {
+      "name": "Dummy_LockJoint_RB_UpperStructure_RB_LidarBase",
+      "type": "fixed",
+      "parent": {
+        "link": "RB_UpperStructure"
+      },
+      "child": {
+        "link": "TF_LidarBase"
+      },
+      "origin": {
+        "rpy": "0 0.7853981633974483 0",
+        "xyz": "1.17928 0.9 2.10413"
+      },
+      "axis": {
+        "xyz": "0 1 0"
+      },
+      "limit": null
+    }
+  ],
+  "gpu_after_validation": "670 MiB, 3 %"
+}

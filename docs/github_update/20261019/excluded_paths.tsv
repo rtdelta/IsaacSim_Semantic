@@ -1,0 +1,181 @@
+resolution	group	path	reason
+recovered_readable_source_and_archived_wrapper	C03	scripts/260916_CET200_Deploy/finalize_remote.py	部署包装器含内嵌源码；需先解出、核对版本并保存可读源码，避免丢失历史实现。
+recovered_readable_source_and_archived_wrapper	C03	scripts/260916_CET200_Deploy/upload_build_remote.py	部署包装器含内嵌源码；需先解出、核对版本并保存可读源码，避免丢失历史实现。
+recovered_readable_source_and_archived_wrapper	C03	scripts/260916_CET200_Deploy/upload_validate_remote.py	部署包装器含内嵌源码；需先解出、核对版本并保存可读源码，避免丢失历史实现。
+recovered_readable_source_and_archived_wrapper	C03	scripts/260916_origin03_horizontal/deploy_remote.py	部署包装器含内嵌源码；需先解出、核对版本并保存可读源码，避免丢失历史实现。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/bin/trimesh.exe	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/INSTALLER	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/METADATA	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/RECORD	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/REQUESTED	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/WHEEL	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/entry_points.txt	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/licenses/LICENSE.md	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh-4.12.2.dist-info/top_level.txt	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/__main__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/base.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/boolean.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/bounds.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/caching.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/collision.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/comparison.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/constants.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/convex.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/creation.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/curvature.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/decomposition.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exceptions.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/binvox.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/cascade.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/dae.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/export.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/gltf/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/gltf/extensions.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/load.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/misc.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/obj.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/off.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/ply.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/stl.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/threedxml.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/threemf.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/urdf.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/xaml.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/exchange/xyz.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/geometry.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/graph.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/grouping.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/inertia.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/interfaces/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/interfaces/blender.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/interfaces/generic.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/intersections.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/interval.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/iteration.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/nsphere.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/parent.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/arc.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/creation.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/curve.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/entities.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/exchange/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/exchange/dxf.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/exchange/export.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/exchange/load.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/exchange/misc.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/exchange/svg_io.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/intersections.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/packing.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/path.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/polygons.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/raster.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/repair.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/segments.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/simplify.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/traversal.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/path/util.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/permutate.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/points.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/poses.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/primitives.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/proximity.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/py.typed	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/ray/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/ray/ray_pyembree.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/ray/ray_triangle.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/ray/ray_util.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/registration.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/remesh.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/rendering.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/repair.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resolvers.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/color_map.json.gzip	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/creation.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/README.md	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/box.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/capsule.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/cylinder.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/extrusion.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/primitive.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/scenegraph.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/sphere.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/transform.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/trimesh.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/primitive/wkt.polygon.schema.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/schema/urdf.xsd	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/templates/blender_boolean.py.tmpl	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/templates/blender_unwrap.py.template	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/templates/dxf.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/templates/ply.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/resources/units_to_inches.json	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/sample.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/scene/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/scene/cameras.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/scene/lighting.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/scene/scene.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/scene/transforms.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/schemas.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/smoothing.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/transformations.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/triangles.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/typed.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/units.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/util.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/version.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/viewer/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/viewer/notebook.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/viewer/trackball.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/viewer/widget.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/viewer/windowed.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/visual/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/visual/base.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/visual/color.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/visual/gloss.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/visual/material.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/visual/objects.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/visual/texture.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/__init__.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/base.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/creation.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/encoding.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/morphology.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/ops.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/runlength.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+pinned_external_dependency_local_copy_preserved	C04	scripts/260917_motion_truth/vendor/trimesh/voxel/transforms.py	本地安装的 trimesh 4.12.2 副本；先补充固定版本依赖说明与分析回归，再决定分发方式。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_0.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_1.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_2.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_3.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_4.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_5.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_6.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/lidar_equivalence_006/operations/deploy_media_7.py	内嵌 PNG 分片的媒体传输脚本，属于打包后的图片数据。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/alignment_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/build_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/build_handoff_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/build_handoff_audit_retry.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/capture_status_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/copy_scene_context_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/deploy_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/extract_handoff_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/extract_handoff_audit_final.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/extract_handoff_audit_retry.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/final_verification_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/finalize_handoff_batch_0_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/finalize_handoff_batch_1_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/finalize_handoff_batch_2_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/save_handoff_package_0_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/save_handoff_package_1_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/save_handoff_package_2_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/start_capture_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/validation_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C03	scripts/260920SensorVisualizer/mesh_scene18/verify_handoff_audit_final.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+private_local_profile_preserved	C05	scripts/260920SensorVisualizer/migrations/20261010_dual_gpu/targets.json	包含当前实例绑定与本机凭据引用；先准备可填写模板及本地配置路径。未发现 password/token/private_key 明文字段。
+ignored_generated_or_raw_data	C07	scripts/260920SensorVisualizer/native_capture_quality_002/probe_audit.json	完整操作响应包，含 stdout/stderr 原始流水；结论或精选验收摘要另行保留。
+ignored_generated_or_raw_data	C05	scripts/260920SensorVisualizer/v02/generated/deploy.py	可再生成的部署包或其逐文件清单；保留生成工具。
+ignored_generated_or_raw_data	C05	scripts/260920SensorVisualizer/v02/generated/local_manifest.json	可再生成的部署包或其逐文件清单；保留生成工具。
+private_local_profile_preserved	C10	scripts/260922CloudInstanceOps/config.json	包含当前实例绑定与本机凭据引用；先准备可填写模板及本地配置路径。未发现 password/token/private_key 明文字段。

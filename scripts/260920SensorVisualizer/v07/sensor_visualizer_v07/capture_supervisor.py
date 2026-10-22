@@ -1,0 +1,233 @@
+"""Web-side ownership of capture children, independent from the interactive Kit."""
+from datetime import datetime
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import threading
+import time
+import uuid
+from .contracts import load_job,write_json,merge
+from .control_ipc import request
+from .trajectory import Trajectory
+
+class CaptureSupervisor:
+    def __init__(self,project,output,socket_path):
+        self.project,self.output,self.socket=Path(project),Path(output),str(socket_path)
+        self.tasks={};self.lock=threading.Lock()
+        self.worker_process=None
+        for p in (self.output/'tasks').glob('*/task.json'):
+            try:
+                info=json.loads(p.read_text())
+                if info.get('project')!=str(self.project.resolve()):continue
+                self.tasks[p.parent.name]={'process':None,'pid':info['pid'],'start_ticks':info['start_ticks'],
+                    'directory':p.parent,'mode':info['mode'],'created':info['created']}
+            except (OSError,ValueError,KeyError):continue
+    @staticmethod
+    def start_ticks(pid):
+        try:
+            fields=Path('/proc',str(pid),'stat').read_text().rsplit(')',1)[1].split()
+            return None if fields[0] in ('Z','X') else fields[19]
+        except (OSError,IndexError):return None
+    def alive(self,task):
+        try:
+            status=json.loads((task['directory']/'status.json').read_text())
+            if status.get('job_complete'):return False
+        except (OSError,ValueError):pass
+        if task['process'] is not None:return task['process'].poll() is None
+        if self.start_ticks(task['pid'])!=task['start_ticks']:return False
+        try:
+            raw=Path('/proc',str(task['pid']),'cmdline').read_bytes()
+            return any(str(self.project/name).encode() in raw for name in ('kit_replay_entry.py','kit_service_entry.py'))
+        except OSError:return False
+    def resource_busy(self):
+        """The inherited capture lease can outlive recovered argv visibility."""
+        if (self.output/'runtime/capture_pending.json').exists():return True
+        import fcntl
+        path=self.output/'runtime/capture.lock'
+        try:
+            with path.open('rb') as stream:
+                try:fcntl.flock(stream.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+                except BlockingIOError:return True
+        except FileNotFoundError:pass
+        return False
+    def start(self,payload):
+        with self.lock:
+            if any(self.alive(x) for x in self.tasks.values()):raise ValueError('One active capture per supervisor; finish or stop it first')
+            if self.resource_busy():raise ValueError('Previous capture resources are still releasing; wait for cleanup to finish')
+            requested_device=None
+            if payload.get('gpu'):
+                from .gpu_config import resolve_gpu
+                requested_device=resolve_gpu(payload['gpu'])
+            if requested_device is None:
+                from .gpu_config import resolve_gpu
+                requested_device=resolve_gpu(load_job()['runtime']['capture_gpu'])
+            mode=payload['mode'];metadata=None;path=payload.get('trajectory')
+            if mode not in ('offline','live_latest','live_complete'):raise ValueError('Unknown capture mode')
+            if mode=='offline':
+                p=Path(path).resolve()
+                if not p.is_relative_to(self.output.resolve()):raise ValueError('Trajectory outside project output')
+                trajectory=Trajectory.load(p);metadata=trajectory.metadata;path=str(p)
+                if not metadata.get('recording_complete'):raise ValueError('End trajectory recording before offline capture')
+            else:
+                state=request(self.socket,{'action':'status'})
+                if state.get('phase')!='interactive_ready':raise ValueError('Initialize interactive owner first')
+                metadata=state['metadata']
+                if mode=='live_complete':
+                    if not state['recording']:
+                        request(self.socket,{'action':'record_start'})
+                        deadline=time.monotonic()+5
+                        while time.monotonic()<deadline:
+                            state=request(self.socket,{'action':'status'})
+                            if state.get('recording'):break
+                            time.sleep(.05)
+                        if not state.get('recording'):raise TimeoutError('Trajectory did not start')
+                    path=state['trajectory_path']
+            token=uuid.uuid4().hex[:12];directory=self.output/'tasks'/token;directory.mkdir(parents=True)
+            policy_path=self.project/'config/capture_policy.json'
+            policy=json.loads(policy_path.read_text()) if policy_path.exists() else {}
+            if set(policy)-{'capture','scheduling','diagnostics','pipeline'}:raise ValueError('Unsupported capture policy field')
+            job=load_job(overrides=merge(policy,{'scene':metadata['scene'],'groups':int(payload.get('groups',100)),
+                'sample_hz':float(payload.get('sample_hz',10)),'mode':'offline',
+                'output_directory':str(self.output),'preview':{'enabled':bool(payload.get('ros_preview',True))},
+                'render':metadata.get('render',{}),
+                'replay':{'mode':mode,'trajectory':path,'socket':self.socket,'control_path':str(directory/'control.json'),
+                          'status_path':str(directory/'status.json'),'job_id':token}}))
+            if mode=='offline':job['groups']=min(job['groups'],int(trajectory.duration*job['sample_hz']+1e-7)+1)
+            job['device_assignment']={'role':'formal_capture','requested':requested_device,
+                'binding_scope':'Kit renderer/activeGpu and physics/cudaDevice; actual RTX/CUDA execution requires native/device evidence'}
+            jobpath=directory/'job.json';write_json(jobpath,job);write_json(directory/'control.json',{'action':'run'})
+            if job['runtime']['resident_capture']:
+                info=self.ensure_worker(requested_device,job)
+                from .contracts import publish_new_json
+                created=datetime.now().isoformat()
+                write_json(directory/'status.json',{'state':'waiting_worker','groups':0,'job_complete':False})
+                task_info={'project':str(self.project.resolve()),'pid':info['pid'],'start_ticks':info['start_ticks'],
+                           'mode':mode,'created':created,'resident':True,'job_id':token}
+                write_json(directory/'task.json',task_info)
+                try:publish_new_json(self.output/'runtime/capture_pending.json',{'job_path':str(jobpath),'job_id':token})
+                except FileExistsError:
+                    write_json(directory/'status.json',{'state':'failed','job_complete':True,
+                        'error':'Another supervisor submitted concurrently; this task was not admitted'})
+                    raise ValueError('Another supervisor submitted concurrently; finish its capture first')
+                self.tasks[token]={'process':None,'pid':info['pid'],'start_ticks':info['start_ticks'],
+                                   'directory':directory,'mode':mode,'created':created}
+                return {'task_id':token,'pid':info['pid'],'mode':mode,'directory':str(directory),
+                        'state':'waiting_worker','resident':True}
+            command=[sys.executable,str(self.project/'run_capture.py'),'--job',str(jobpath),'--entry',str(self.project/'kit_replay_entry.py')]
+            if requested_device:command+=['--gpu',requested_device['uuid']]
+            # An inherited advisory lock survives a web-service restart.
+            import fcntl
+            lockfile=self.output/'runtime/capture.lock';lockfile.parent.mkdir(parents=True,exist_ok=True)
+            capture_lock=lockfile.open('a')
+            try:
+                try:fcntl.flock(capture_lock.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+                except BlockingIOError:raise ValueError('Another owned capture is still active')
+                log=(directory/'kit.log').open('ab')
+                try:process=subprocess.Popen(command,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,
+                    start_new_session=True,pass_fds=(capture_lock.fileno(),))
+                finally:log.close()
+            finally:capture_lock.close()
+            created=datetime.now().isoformat();ticks=self.start_ticks(process.pid)
+            self.tasks[token]={'process':process,'pid':process.pid,'start_ticks':ticks,'directory':directory,'mode':mode,'created':created}
+            write_json(directory/'task.json',{'project':str(self.project.resolve()),'pid':process.pid,'start_ticks':ticks,'mode':mode,'created':created})
+            return {'task_id':token,'pid':process.pid,'mode':mode,'directory':str(directory),'state':'starting'}
+
+    def worker_status(self):
+        if self.worker_process is not None:self.worker_process.poll()
+        try:
+            state=request(self.output/'runtime/capture.sock',{'action':'status'},timeout=.2)
+            state['stale']=time.monotonic_ns()-state.get('heartbeat_ns',0)>3_000_000_000
+            return state
+        except (OSError,ValueError,EOFError,AttributeError):
+            path=self.output/'runtime/capture_launch.json'
+            try:
+                info=json.loads(path.read_text())
+                alive=self.start_ticks(info['pid'])==info['start_ticks']
+                phase='starting' if alive else 'not_running'
+                try:
+                    disk=json.loads((self.output/'runtime/capture_worker_status.json').read_text())
+                    if alive and disk.get('pid')==info['pid'] and disk.get('start_ticks')==info['start_ticks'] and disk.get('phase') in ('closing','closed'):
+                        phase='releasing_worker'
+                except (OSError,ValueError):pass
+                return {**info,'phase':phase,'stale':False}
+            except (OSError,ValueError,KeyError):return {'phase':'not_running','stale':False}
+
+    def ensure_worker(self,device=None,job=None):
+        """Launch is short and serialized; heavy loading stays in the worker."""
+        import fcntl
+        runtime=self.output/'runtime';runtime.mkdir(parents=True,exist_ok=True)
+        with (runtime/'capture_launcher.lock').open('a') as launch_lock:
+            fcntl.flock(launch_lock.fileno(),fcntl.LOCK_EX)
+            state=self.worker_status()
+            if state.get('phase') in ('closing','releasing_worker'):
+                raise ValueError('Capture service is closing; wait for its owned Kit process to exit')
+            if state.get('phase') not in ('not_running','closed'):
+                requested=state.get('requested_device') or (state.get('device') or {}).get('requested')
+                if device and requested and device['uuid']!=requested['uuid']:
+                    raise ValueError('Close the idle capture service before changing GPU')
+                if state.get('stale'):raise ValueError('Capture service heartbeat is stale; inspect its log before restarting')
+                return state
+            if (runtime/'capture_pending.json').exists():
+                raise ValueError('A pending job survived worker exit; use recover_pending after inspecting the worker log')
+            worker_job=load_job(overrides={'output_directory':str(self.output)})
+            if job:
+                for key in ('scene','sensors','render','physics_hz','capture','diagnostics','runtime'):
+                    worker_job[key]=job[key]
+            worker_job['output_directory']=str(self.output)
+            path=runtime/'capture_service_job.json';write_json(path,worker_job)
+            command=[sys.executable,str(self.project/'run_capture.py'),'--job',str(path),'--service']
+            if device:command+=['--gpu',device['uuid']]
+            with (runtime/'capture_service.log').open('ab') as log:
+                process=subprocess.Popen(command,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+            self.worker_process=process
+            info={'pid':process.pid,'start_ticks':self.start_ticks(process.pid),'project':str(self.project.resolve()),
+                  'requested_device':device,'created':datetime.now().isoformat(),'log':str(runtime/'capture_service.log')}
+            write_json(runtime/'capture_launch.json',info)
+            return info
+
+    def close_worker(self):
+        if self.resource_busy():raise ValueError('Stop and drain capture first')
+        return request(self.output/'runtime/capture.sock',{'action':'shutdown'})
+
+    def recover_pending(self):
+        """Explicit recovery only after proving the recorded worker exited."""
+        with self.lock:
+            state=self.worker_status()
+            if state['phase'] not in ('not_running','closed'):raise ValueError('Worker still exists; recovery refused')
+            path=self.output/'runtime/capture_pending.json'
+            if not path.exists():return {'state':'nothing_to_recover'}
+            pending=json.loads(path.read_text());jobpath=Path(pending['job_path']).resolve()
+            if not jobpath.is_relative_to(self.output.resolve()/'tasks'):raise ValueError('Unowned pending job')
+            write_json(jobpath.parent/'status.json',{'state':'failed','job_complete':True,
+                'error':'Worker exited before task completion; explicit recovery released submission',
+                'recovered_utc':datetime.now().isoformat()})
+            path.unlink();return {'state':'recovered','task_id':pending['job_id']}
+    def control(self,token,action):
+        if action not in ('run','pause','stop'):raise ValueError('Invalid task action')
+        with self.lock:
+            task=self.tasks[token]
+            if not self.alive(task):raise ValueError('Task already exited')
+            write_json(task['directory']/'control.json',{'action':action})
+        return {'state':'queued','action':action,'boundary':'next complete capture group'}
+    def status(self):
+        out=[]
+        with self.lock:
+            for token,x in self.tasks.items():
+                running=self.alive(x)
+                row={'task_id':token,'pid':x['pid'],'exit_code':x['process'].poll() if x['process'] else None,
+                    'running':running,'exit_code_known':x['process'] is not None,'mode':x['mode'],'created':x['created']}
+                p=x['directory']/'status.json'
+                if p.exists():
+                    try:row.update(json.loads(p.read_text()))
+                    except (OSError,json.JSONDecodeError):row['state']='status_updating'
+                else:row['state']='starting'
+                if not running and row.get('state') not in ('finished','failed'):row.update(state='failed',error='Capture process exited; see task kit.log')
+                out.append(row)
+            # Recovered argv-based liveness and inherited lock release are
+            # separate observations. Do not present the gap as capture-ready.
+            if out and not any(x['running'] for x in out) and self.resource_busy():
+                newest=max(out,key=lambda x:x['created'])
+                newest.update(cleanup_pending=True,state='releasing_resources')
+        return out

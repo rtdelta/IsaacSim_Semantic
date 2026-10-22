@@ -1,0 +1,8 @@
+{
+  "version": "header-endpoint-model-1",
+  "motivation": "q02 WORLD directions match previous physical step and GMO frameStart. R3P first target reports identical start/end quaternion, while R6P first target reports previous/current.",
+  "predictions": ["Reported frameStart pose", "Reported frameEnd pose", "Shortest-arc midpoint of reported frameStart/frameEnd yaw"],
+  "scope": "Zero-origin Z-only rotation, existing fixed wall range oracle; no fitted lag or pose correction. Metadata-based E2 inference, not E4 consumption evidence.",
+  "qualification": "Existing P95 radial residual <= 1e-5 m; header/source pose <= 1e-6 rad; report all targets and complete run denominators.",
+  "confirmation": "Evaluate frozen 100x3 runs and separately frozen coded sequence; q02 observations used for hypothesis generation only."
+}

@@ -1,0 +1,19 @@
+{
+  "baseline": "capture_comparison_004/engines/frozen",
+  "copied_before_adaptation": {
+    "continuous.py": "a80696a64164a0594cf00fd8e1de8bd977fbece9ee2764c0c750c59679da613e",
+    "experiment.py": "882a55779fc0c0832166f44a08f27b85418e055693e0e9e1efd1bc64246cf447",
+    "kit_entry.py": "01d8f4acfaffa88a0828086bcf6f3eb9496abab8f09ea7f2ba531c0596de87f9",
+    "run.py": "81d9d1f717d93d2f37775df37f0b096be78256e8df18a75fbb44eba4ee12e263",
+    "source_provenance.json": "207e258e8078f4da19c4efa4fd035cc54aa3afe8ab74f755cc8171487c0df546",
+    "config\\baseline.json": "3262838a2479b43b9a9e3afaf6aa2b196225c62f697ec79847e3519fb1ff713f",
+    "tools\\validate_bag.py": "834b947750299d0383eade677ff83aeb04e3f55ec1c498ba0a5c0748877845f7",
+    "tools\\validate_groups.py": "965ddf84f6d0bb2ad43a1704728aaf70032ebf1bf02c87c000780f24f8431c7f",
+    "tools\\__pycache__\\validate_bag.cpython-39.pyc": "68f7bc90f3aa09d5fd63dba3311f4dadcfbdbb779fb70fa115110660333ace6c",
+    "tools\\__pycache__\\validate_groups.cpython-39.pyc": "03f3fae506fbbd45e715966b357f3fe69b6302d7b22acdc120ecc41038a52326",
+    "__pycache__\\continuous.cpython-39.pyc": "962a49f4b9d0ba2ce85c6a798445a3203068dfae369e08d32568949b7ad63e76",
+    "__pycache__\\experiment.cpython-39.pyc": "93944a2d1f380e495a2f4320df2f10567d7514c1ab7f2a0475322ed2aa480614",
+    "__pycache__\\kit_entry.cpython-39.pyc": "f0e6443e1a252f18b8f0f851e55b500b551003149dbb5db185f973f88b5987e0",
+    "__pycache__\\run.cpython-39.pyc": "f8e40fdf3d37a237285b91b5262f22f372e8d901b66e9e03142bc3636c55f908"
+  }
+}

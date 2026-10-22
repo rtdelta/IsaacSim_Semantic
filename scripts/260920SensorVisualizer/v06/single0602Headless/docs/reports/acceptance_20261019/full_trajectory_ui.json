@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-19",
+  "surface": "local browser, derived fixture, owner disconnected",
+  "checks": {
+    "default_full": true,
+    "full_hides_groups": true,
+    "group_limit_2": true,
+    "invalid_7hz_disables_start": true,
+    "hz20_plans531": true,
+    "hz10_plans266": true,
+    "tail_explanation": true
+  },
+  "console_errors": [],
+  "screenshot": "full_trajectory_ui.png"
+}

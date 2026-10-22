@@ -1,0 +1,239 @@
+{
+  "schema_version": 2,
+  "created_utc": "2026-10-19T07:48:45.344918+00:00",
+  "private_profiles_preserved": 2,
+  "recovered_wrappers": 4,
+  "recovered_files": 34,
+  "current_test_suites": [
+    {
+      "project": "scripts/260910NV3Lidar",
+      "exit_code": 0,
+      "tests": 7,
+      "skipped": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 7 tests in 0.368s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/single06_lab",
+      "exit_code": 0,
+      "tests": 10,
+      "skipped": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 10 tests in 0.081s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v02",
+      "exit_code": 0,
+      "tests": 6,
+      "skipped": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 6 tests in 0.045s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v03",
+      "exit_code": 0,
+      "tests": 25,
+      "skipped": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 25 tests in 0.494s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v04",
+      "exit_code": 0,
+      "tests": 29,
+      "skipped": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 29 tests in 0.528s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v05",
+      "exit_code": 0,
+      "tests": 51,
+      "skipped": 1,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 51 tests in 1.516s",
+        "",
+        "OK (skipped=1)"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v06",
+      "exit_code": 0,
+      "tests": 60,
+      "skipped": 3,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 60 tests in 1.472s",
+        "",
+        "OK (skipped=3)"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v06/single0601ContinuousRt",
+      "exit_code": 0,
+      "tests": 15,
+      "skipped": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 15 tests in 0.047s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v06/single0602Headless",
+      "exit_code": 0,
+      "tests": 54,
+      "skipped": 3,
+      "tail": [
+        "",
+        "OK (skipped=3)",
+        "{}",
+        "{}",
+        "{}"
+      ]
+    },
+    {
+      "project": "scripts/260920SensorVisualizer/v07",
+      "exit_code": 0,
+      "tests": 74,
+      "skipped": 6,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 74 tests in 1.845s",
+        "",
+        "OK (skipped=6)"
+      ]
+    },
+    {
+      "project": "scripts/261013Rviz2Viewer",
+      "exit_code": 0,
+      "tests": 4,
+      "skipped": 0,
+      "tail": [
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 4 tests in 0.035s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "project": "scripts/260922CloudInstanceOps",
+      "exit_code": 0,
+      "tests": 16,
+      "skipped": 0
+    },
+    {
+      "project": "scripts/260917_motion_truth",
+      "exit_code": 0,
+      "tests": 5,
+      "skipped": 0
+    }
+  ],
+  "current_test_total": 356,
+  "current_test_skipped": 13,
+  "current_test_passed": 343,
+  "v04_recent_local_tests": {
+    "tests": 79,
+    "passed": 79,
+    "source": "previous review phase, source unchanged"
+  },
+  "candidate_python_syntax": {
+    "files": 2143,
+    "passed": 2143,
+    "errors": []
+  },
+  "headless_manifest_files": 140,
+  "credential_pattern_matches": [
+    {
+      "path": "scripts/260920SensorVisualizer/tools/sync_remote.py",
+      "line": 56,
+      "kind": "quoted_credential_assignment",
+      "classification": "reviewed_input_prompt"
+    },
+    {
+      "path": "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/issue_repro_ops/package_local.py",
+      "line": 63,
+      "kind": "quoted_credential_assignment",
+      "classification": "reviewed_filter_pattern"
+    },
+    {
+      "path": "scripts/260922CloudInstanceOps/tests/test_operations.py",
+      "line": 38,
+      "kind": "private_key_marker",
+      "classification": "test_fixture"
+    },
+    {
+      "path": "scripts/260922CloudInstanceOps/tests/test_operations.py",
+      "line": 35,
+      "kind": "quoted_credential_assignment",
+      "classification": "test_fixture"
+    },
+    {
+      "path": "scripts/260922CloudInstanceOps/tests/test_operations.py",
+      "line": 50,
+      "kind": "quoted_credential_assignment",
+      "classification": "test_fixture"
+    },
+    {
+      "path": "scripts/260922CloudInstanceOps/tests/test_operations.py",
+      "line": 58,
+      "kind": "quoted_credential_assignment",
+      "classification": "test_fixture"
+    },
+    {
+      "path": "scripts/260922CloudInstanceOps/tests/test_operations.py",
+      "line": 113,
+      "kind": "quoted_credential_assignment",
+      "classification": "test_fixture"
+    }
+  ],
+  "unresolved_credential_patterns": 0,
+  "global_python_environment_changed": false,
+  "installed_cloud_skill_changed": false,
+  "cloud_instance_operations": false,
+  "native_capture_rerun": false,
+  "test_dependency_source": "Existing trimesh 4.12.2 copy placed in ignored isolated site-packages; no network install.",
+  "git_blob_identity_check": {
+    "passed": true,
+    "scope": "staged Git blob bytes before identity-fix commit",
+    "source_blob_hashes_recorded": 3229,
+    "headless_manifest_files_verified": 140,
+    "recovered_source_files_verified": 34,
+    "remaining_policy_normalization": [
+      ".gitignore"
+    ],
+    "note": "Only .gitignore uses normal LF policy; both its worktree and Git hashes are recorded. No hashed delivery is changed by Git EOL conversion."
+  }
+}

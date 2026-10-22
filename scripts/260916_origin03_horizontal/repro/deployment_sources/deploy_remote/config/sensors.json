@@ -1,0 +1,30 @@
+{
+  "world_frame": "world",
+  "ros_domain_id": 0,
+  "ros_setup": "/opt/ros/jazzy/setup.bash",
+  "output_directory": "/root/gpufree-data/semantic/output/lidar_visualizer",
+  "auto_discover": true,
+  "root_frame": "swing_coordinate",
+  "horizontal_frame": "swing_horizontal_coordinate",
+  "robot_motion": {
+    "enabled": true,
+    "forward_speed_m_s": 0
+  },
+  "simulation_pacing": {
+    "simulation_hz": 60,
+    "max_real_time_factor": 0.1
+  },
+  "auto_bind_robot": true,
+  "control_mode": "scripted",
+  "joint_speeds_deg_s": {
+    "boom": 5,
+    "arm": 4,
+    "bucket": 3.3333333333333335
+  },
+  "state_publication": {
+    "enabled": true,
+    "rate_hz": 60,
+    "joint_topic": "/joint_states",
+    "root_pose_topic": "/excavator/root_pose"
+  }
+}

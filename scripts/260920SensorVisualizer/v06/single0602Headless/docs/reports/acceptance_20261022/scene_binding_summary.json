@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "version": "0.5.0",
+  "target": "isaac-test",
+  "capture_contacted_after_target_restriction": false,
+  "environment": {
+    "gpu": "NVIDIA L40",
+    "isaac": "6.0.1-rc.7",
+    "ros": "Jazzy"
+  },
+  "tests": {
+    "windows": {
+      "total": 80,
+      "passed": 75,
+      "skipped": 5
+    },
+    "linux": {
+      "total": 80,
+      "passed": 79,
+      "skipped": 1
+    },
+    "javascript_syntax": true,
+    "dom_fixture": true,
+    "browser_visual_tested": false
+  },
+  "native_recordings": [
+    {
+      "name": "baseline",
+      "trajectory": "/root/gpufree-data/semantic/output/s06binding/trajectories/20261022_121208_689055_76eadf",
+      "duration_s": 0.4,
+      "cameras": 7,
+      "lidars": 13
+    },
+    {
+      "name": "zero",
+      "trajectory": "/root/gpufree-data/semantic/output/s06binding/trajectories/20261022_121211_943680_5aaa01",
+      "duration_s": 0.35,
+      "cameras": 0,
+      "lidars": 0
+    },
+    {
+      "name": "camera_only",
+      "trajectory": "/root/gpufree-data/semantic/output/s06binding/trajectories/20261022_121214_468905_9c69eb",
+      "duration_s": 0.35,
+      "cameras": 1,
+      "lidars": 0
+    },
+    {
+      "name": "lidar_only",
+      "trajectory": "/root/gpufree-data/semantic/output/s06binding/trajectories/20261022_121217_591933_49fa53",
+      "duration_s": 0.3666666666666667,
+      "cameras": 0,
+      "lidars": 1
+    },
+    {
+      "name": "mixed",
+      "trajectory": "/root/gpufree-data/semantic/output/s06binding/trajectories/20261022_121221_895310_128c1d",
+      "duration_s": 0.4,
+      "cameras": 3,
+      "lidars": 2
+    },
+    {
+      "name": "renamed",
+      "trajectory": "/root/gpufree-data/semantic/output/s06binding/trajectories/20261022_121224_664662_514a8f",
+      "duration_s": 0.35,
+      "cameras": 1,
+      "lidars": 0
+    }
+  ],
+  "source_scene_sha256": "a5c834fa948f3dc41339138e42f311491355bb8f349bb003887095b3adf15258",
+  "source_scene_unchanged": true,
+  "capture_matrix": {
+    "passed": true,
+    "successful_tasks": 7,
+    "total_groups": 31,
+    "cases": [
+      {
+        "name": "baseline",
+        "passed": true,
+        "expected_error": null,
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121443_336309_97dd3410",
+        "groups": 5,
+        "cameras": 7,
+        "lidars": 13,
+        "messages": 197,
+        "mcap_bytes": 75150580,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 3.410309289737284e-16,
+        "source_joint_max_error_rad": 0.0,
+        "world_fixed_max_error": 0.0,
+        "root_mount_max_error": 0,
+        "writer_digests_match": true,
+        "calibration_validated": true,
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      },
+      {
+        "name": "camera_only",
+        "passed": true,
+        "expected_error": null,
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121616_740824_c4bb718f",
+        "groups": 4,
+        "cameras": 1,
+        "lidars": 0,
+        "messages": 34,
+        "mcap_bytes": 561224,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 3.410309289737284e-16,
+        "source_joint_max_error_rad": 0.0,
+        "world_fixed_max_error": 0.0,
+        "root_mount_max_error": 0,
+        "writer_digests_match": true,
+        "calibration_validated": true,
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      },
+      {
+        "name": "lidar_only",
+        "passed": true,
+        "expected_error": null,
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121641_831636_ebee7cd2",
+        "groups": 4,
+        "cameras": 0,
+        "lidars": 1,
+        "messages": 26,
+        "mcap_bytes": 409255,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 3.410309289737284e-16,
+        "source_joint_max_error_rad": 0.0,
+        "world_fixed_max_error": 0.0,
+        "root_mount_max_error": 0,
+        "writer_digests_match": true,
+        "calibration_validated": true,
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      },
+      {
+        "name": "mixed",
+        "passed": true,
+        "expected_error": null,
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121708_579717_4222567a",
+        "groups": 5,
+        "cameras": 3,
+        "lidars": 2,
+        "messages": 82,
+        "mcap_bytes": 14430773,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 3.410309289737284e-16,
+        "source_joint_max_error_rad": 0.0,
+        "world_fixed_max_error": 0.0,
+        "root_mount_max_error": 1.1998167792626191e-08,
+        "writer_digests_match": true,
+        "calibration_validated": true,
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      },
+      {
+        "name": "renamed",
+        "passed": true,
+        "expected_error": null,
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121746_089147_21a67415",
+        "groups": 4,
+        "cameras": 1,
+        "lidars": 0,
+        "messages": 34,
+        "mcap_bytes": 561671,
+        "source_root_max_error_m": 0.0,
+        "source_quaternion_max_error": 3.410309289737284e-16,
+        "source_joint_max_error_rad": 0.0,
+        "world_fixed_max_error": 0.0,
+        "root_mount_max_error": 0,
+        "writer_digests_match": true,
+        "calibration_validated": true,
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      },
+      {
+        "name": "zero_sensors_rejected_before_writer",
+        "passed": true,
+        "expected_error": "No selected capture-ready sensors",
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121816_183735_7185b117",
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      },
+      {
+        "name": "new_target_sensors_from_motion_only_trajectory",
+        "passed": true,
+        "expected_error": null,
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121835_571562_f8bcbcd8",
+        "groups": 4,
+        "cameras": 1,
+        "lidars": 0,
+        "messages": 34,
+        "mcap_bytes": 556137,
+        "source_root_max_error_m": 5.178924089577208e-08,
+        "source_quaternion_max_error": 5.670461684507461e-09,
+        "source_joint_max_error_rad": 0.0,
+        "world_fixed_max_error": 0.0,
+        "root_mount_max_error": 0,
+        "writer_digests_match": true,
+        "calibration_validated": true,
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      },
+      {
+        "name": "recorded_sensors_with_placement",
+        "passed": true,
+        "expected_error": null,
+        "session": "/root/gpufree-data/semantic/output/s06binding/20261022_121900_758519_b3082a5f",
+        "groups": 5,
+        "cameras": 3,
+        "lidars": 2,
+        "messages": 82,
+        "mcap_bytes": 13857318,
+        "source_root_max_error_m": 5.178924089577208e-08,
+        "source_quaternion_max_error": 8.204923043797428e-09,
+        "source_joint_max_error_rad": 0.0,
+        "world_fixed_max_error": 0.0,
+        "root_mount_max_error": 3.653364673283921e-09,
+        "writer_digests_match": true,
+        "calibration_validated": true,
+        "source_trajectory_unchanged": true,
+        "resources_released": true
+      }
+    ]
+  },
+  "initial_asset_negative_cases": [
+    {
+      "name": "bad_axis",
+      "passed": true,
+      "error": "Incompatible excavator.joints.boom.axis: Y != X",
+      "products_created": false
+    },
+    {
+      "name": "bad_camera",
+      "passed": true,
+      "error": "/Station/Observation: Invalid camera focal length/aperture",
+      "products_created": false
+    },
+    {
+      "name": "two_robots",
+      "passed": true,
+      "error": "Expected one supported excavator",
+      "products_created": false
+    },
+    {
+      "name": "no_robot",
+      "passed": true,
+      "error": "Expected one supported excavator",
+      "products_created": false
+    }
+  ],
+  "cli": {
+    "state": "passed",
+    "alive": false,
+    "scene": "/root/gpufree-data/semantic/output/s06binding/scene with spaces.usda",
+    "scene_unchanged": true,
+    "job": "/root/gpufree-data/semantic/output/s06cli/runtime/launches/20261022T043326Z_3302b4880a70/job.json",
+    "argv": [
+      "/usr/bin/python3",
+      "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless/reports/binding_validation_20261022/run_capture.py",
+      "--headless-owner",
+      "--scene",
+      "/root/gpufree-data/semantic/output/s06binding/scene with spaces.usda",
+      "--output",
+      "/root/gpufree-data/semantic/output/s06cli"
+    ]
+  },
+  "imu": {
+    "native": {
+      "passed": true,
+      "factory": "isaacsim.sensors.experimental.physics.IMU.create",
+      "fixture": "/root/gpufree-data/semantic/output/s06binding/official_imu_fixture.usda",
+      "api": "isaacsim.sensors.experimental.physics",
+      "samples": 301,
+      "duration_s": 5.000000189989805,
+      "gravity_last": [
+        0.0,
+        0.0,
+        9.8100004196167
+      ],
+      "without_gravity_last": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotated": {
+        "sensor_id": "official_imu",
+        "frame_id": "official_imu",
+        "is_valid": true,
+        "status": "valid",
+        "read_gravity": true,
+        "source_model": "native_physics_imu",
+        "orientation_xyzw": [
+          0.7071068286895752,
+          0.0,
+          0.0,
+          0.7071068286895752
+        ],
+        "sensor_time_s": 0.5333333611488342,
+        "physics_step": 32.0,
+        "linear_acceleration_m_s2": [
+          0.0,
+          9.8100004196167,
+          3.3578203328943346e-07
+        ],
+        "angular_velocity_rad_s": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "covariance_source": "unknown",
+        "sampling_domain": "physics",
+        "native_quaternion_order": "wxyz",
+        "api": "isaacsim.sensors.experimental.physics"
+      },
+      "motion_samples": 60,
+      "formal_capture_supported": false
+    },
+    "mcap_export": {
+      "passed": true,
+      "bag": "/root/gpufree-data/semantic/output/s06binding/imu_probe_export_619d33a167d1",
+      "samples": 60,
+      "source_time_preserved": true,
+      "read_gravity": true,
+      "source_model": "native_physics_imu",
+      "formal_synchronization_tested": false
+    },
+    "formal_capture_supported": false
+  },
+  "legacy": {
+    "version_1_normalization_unit_tested": true,
+    "unknown_identity_rejected_before_kit": true,
+    "test_available_legacy_native_compatibility_passed": false,
+    "reason": "The historical test trajectory has no scene_interface and its USD identities are outside the previously verified legacy baseline. The rejection rule was retained. No capture instance was contacted to fetch another trajectory."
+  },
+  "provenance": {
+    "scene_binding_native.json": {
+      "path": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless/reports/binding_validation_20261022/reports/scene_binding_native.json",
+      "sha256": "48ac4938dbc8854e00c2b5a350c77fcec10b7f971704eb24c32666784f37b9e7"
+    },
+    "scene_binding_matrix.json": {
+      "path": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless/reports/binding_validation_20261022/reports/scene_binding_matrix.json",
+      "sha256": "571071b669dfe850e87973aa9107c8b5c8813e10d6ed2c288d06ee304b279c70"
+    },
+    "scene_binding_negative.json": {
+      "path": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless/reports/binding_validation_20261022/reports/scene_binding_negative.json",
+      "sha256": "db618a04c453ca706e7788d5fa15276389e7537c9a9171c0b35fbda4f6393f0f"
+    },
+    "scene_binding_legacy.json": {
+      "path": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless/reports/binding_validation_20261022/reports/scene_binding_legacy.json",
+      "sha256": "9944552de765c9dcdb6d454d44f5151e484d5cf85ec830eb79c0b3130994076e"
+    }
+  },
+  "limits": [
+    "IMU is an independent native probe, not part of synchronized camera/LiDAR capture.",
+    "This round used headless owner and native capture; real GUI keyboard and browser visual checks were not repeated.",
+    "Native matrix was completed before the final deterministic frame-name collision edge fix; final logic and CLI checks include that fix.",
+    "Source scene has multiple DomeLights; positive disposable fixture copies explicitly selected one. Source USD was never edited."
+  ],
+  "deployment_verification": {
+    "state": "passed",
+    "target": "isaac-test",
+    "version": "0.5.0",
+    "verified_files": 162,
+    "cli_exit_code": 0,
+    "binding_ready": true,
+    "scene": "/root/gpufree-data/semantic/output/s06binding/scene with spaces.usda",
+    "socket_removed": true,
+    "http_page_and_status": true,
+    "source_asset_unchanged": true,
+    "source_scene_sha256": "a5c834fa948f3dc41339138e42f311491355bb8f349bb003887095b3adf15258",
+    "web_left_running": false,
+    "pre_final_evidence_manifest": "14eb99aa92b8ada82faefe618d56c936f01ba5adfebd1597655de2a88aa472e0",
+    "backup": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/v06/single0602Headless/reports/deployment_backups/feature005_20261022"
+  }
+}

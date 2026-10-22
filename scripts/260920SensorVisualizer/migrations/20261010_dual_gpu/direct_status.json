@@ -1,0 +1,12 @@
+{
+  "phase": "finished",
+  "elapsed_s": 40.50012017972767,
+  "passed": true,
+  "files": 1663,
+  "source_bytes": 2532507983,
+  "copied": 1663,
+  "preexisting_identical": 0,
+  "archive_sha256": "693288517fa655f7f1d136f560213734f01de2bcda7258d27092b6e030d2bdc3",
+  "all_file_sha256_match": true,
+  "same_root_paths": "/root/gpufree-data"
+}

@@ -1,0 +1,192 @@
+{
+  "source_files": [
+    {
+      "path": "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/launch_isaac.py",
+      "name": "launch_isaac.py",
+      "sha256": "ef04c06f9da38f4c7ca41bfc39a804536e7fe25de84eca373fe7ace4faf5b66a",
+      "text": "\"\"\"Launch the native Kit GUI without a shell script (system Python, Linux).\"\"\"\nimport os\nfrom pathlib import Path\nimport sys\nimport resource\n\n\ndef launch():\n    soft, hard = resource.getrlimit(resource.RLIMIT_NOFILE)\n    resource.setrlimit(resource.RLIMIT_NOFILE, (min(max(soft, 65536), hard), hard))\n    install = Path(os.environ.get('ISAACSIM_PATH', '/root/isaacsim')).resolve()\n    kit = install / 'kit/kit'\n    experience = install / 'apps/isaacsim.exp.full.kit'\n    if not kit.is_file() or not experience.is_file():\n        raise SystemExit('Set ISAACSIM_PATH to the Isaac Sim installation directory')\n    env = os.environ.copy()\n    for key in ('PYTHONHOME', 'PYTHONPATH', 'LD_PRELOAD', 'VIRTUAL_ENV', 'CONDA_PREFIX'):\n        env.pop(key, None)\n    env.update(RESOURCE_NAME='IsaacSim', ROS_DISTRO='jazzy',\n               RMW_IMPLEMENTATION='rmw_fastrtps_cpp', AMENT_PREFIX_PATH='/opt/ros/jazzy')\n    paths = [str(p) for pattern in (\n        'omni.sensors.nv.common-*/bin/checker_lib/bin', 'omni.sensors.nv.common-*/bin',\n        'omni.sensors.nv.lidar-*/bin/model_plugins') for p in (install/'extscache').glob(pattern)]\n    paths += [str(install/p) for p in ('exts/isaacsim.ros2.core/bin', 'kit/python/lib',\n        'kit', 'kit/kernel/plugins', 'exts/isaacsim.ros2.core/jazzy/lib', 'kit/plugins/rtx')]\n    paths.append('/opt/ros/jazzy/lib')\n    env['LD_LIBRARY_PATH'] = ':'.join(paths)\n    args = [str(kit), str(experience), '--allow-root', '--/renderer/multiGpu/enabled=false',\n        '--/app/asyncRendering=false', '--/exts/isaacsim.core.throttling/enable_async=false',\n        '--/app/renderer/skipWhileMinimized=false',\n        '--/renderer/raytracingMotion/enabled=false', '--/rtx/hydra/supportMultiTickRate=false',\n        '--/rtx/rendering/perSensorTickTlas=false', *sys.argv[1:]]\n    os.chdir(install)\n    os.execve(str(kit), args, env)\n\n\nif __name__ == '__main__':\n    launch()\n"
+    },
+    {
+      "path": "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/launch_isaac.sh",
+      "name": "launch_isaac.sh",
+      "sha256": "b65bc779ea60f831502446b7412f872c8331be477fd911c427f80a8fd175adea",
+      "text": "#!/usr/bin/env bash\n# Start the GUI with the cloned instance's required runtime libraries.\nset -eo pipefail\nsource /opt/ros/jazzy/setup.bash\nexport LD_LIBRARY_PATH=\"/root/isaacsim/kit/python/lib:/root/isaacsim/exts/isaacsim.ros2.core/bin:${LD_LIBRARY_PATH:-}\"\n# RTX model implementations are loaded by basename on this pre-release build.\nfor lib_dir in /root/isaacsim/extscache/omni.sensors.nv.lidar-*/bin/model_plugins \\\n               /root/isaacsim/extscache/omni.sensors.nv.common-*/bin/checker_lib/bin; do\n  if [[ -d \"$lib_dir\" ]]; then\n    export LD_LIBRARY_PATH=\"$lib_dir:$LD_LIBRARY_PATH\"\n  fi\ndone\n# This pre-release renderer cannot combine moving Gaussians with Motion BVH.\nexec /root/isaacsim/isaac-sim.sh --/renderer/raytracingMotion/enabled=false \\\n  --/rtx/hydra/supportMultiTickRate=false --/rtx/rendering/perSensorTickTlas=false \"$@\"\n"
+    },
+    {
+      "path": "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/lidar_visualizer/runtime.py",
+      "name": "lidar_visualizer__runtime.py",
+      "sha256": "8737fe00fef21a367b74acacc40bd589e840ffcf89c896ca648134f88b4b47d9",
+      "text": "84:     async def initialize(self, show_ui=True):\n85:         # RTX allocates many exported buffers per sensor. A low desktop shell\n86:         # limit can crash Kit while rebuilding thirteen scan pipelines.\n87:         import os\n88:         if os.name == 'posix':\n89:             import resource\n90:             soft, hard = resource.getrlimit(resource.RLIMIT_NOFILE)\n91:             resource.setrlimit(resource.RLIMIT_NOFILE, (min(max(soft, 65536), hard), hard))\n92:         if self.config.get(\"robot_motion\", {}).get(\"enabled\", False):\n93:             settings = carb.settings.get_settings()\n94:             if any(settings.get_as_bool(path) for path in (\n95:                     \"/renderer/raytracingMotion/enabled\", \"/rtx/hydra/supportMultiTickRate\",\n96:                     \"/rtx/rendering/perSensorTickTlas\")):\n97:                 raise RuntimeError(\"For this 3DGS scene, restart Isaac using this project's launch_isaac.py, then run the entry again.\")\n98:         manager = self.app.get_extension_manager()\n99:         for ext in (\"isaacsim.core.nodes\", \"isaacsim.sensors.rtx.nodes\",\n100:                     \"isaacsim.ros2.bridge\", \"isaacsim.ros2.nodes\",\n101:                     \"isaacsim.core.experimental.prims\", \"omni.graph.scriptnode\"):\n102:             manager.set_extension_enabled_immediate(ext, True)\n103:             if not manager.is_extension_enabled(ext):\n104:                 raise RuntimeError(f\"Could not enable extension: {ext}\")"
+    },
+    {
+      "path": "/root/gpufree-data/semantic/scripts/260907LidarVisualizer/config/sensors.json",
+      "name": "config__sensors.json",
+      "sha256": "0368ce4c1c994796092946b8f025f6ec3e09df05adfa6919207163118dd70554",
+      "text": "{\n  \"world_frame\": \"world\",\n  \"ros_domain_id\": 0,\n  \"ros_setup\": \"/opt/ros/jazzy/setup.bash\",\n  \"output_directory\": \"/root/gpufree-data/semantic/output/lidar_visualizer\",\n  \"auto_discover\": true,\n  \"root_frame\": \"swing_coordinate\",\n  \"horizontal_frame\": \"swing_horizontal_coordinate\",\n  \"robot_motion\": {\n    \"enabled\": true,\n    \"forward_speed_m_s\": 0\n  },\n  \"simulation_pacing\": {\n    \"simulation_hz\": 60,\n    \"max_real_time_factor\": 0.1\n  },\n  \"auto_bind_robot\": true,\n  \"control_mode\": \"scripted\",\n  \"joint_speeds_deg_s\": {\n    \"boom\": 5,\n    \"arm\": 4,\n    \"bucket\": 3.3333333333333335\n  },\n  \"state_publication\": {\n    \"enabled\": true,\n    \"rate_hz\": 60,\n    \"joint_topic\": \"/joint_states\",\n    \"root_pose_topic\": \"/excavator/root_pose\"\n  }\n}\n"
+    }
+  ],
+  "remote_NZ3": {
+    "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/config/NZ3_scan.usda",
+    "attributes": [
+      {
+        "line": 13,
+        "text": "    token omni:sensor:Core:scanType = \"SOLID_STATE\""
+      },
+      {
+        "line": 14,
+        "text": "    uint omni:sensor:Core:scanRateBaseHz = 10"
+      },
+      {
+        "line": 15,
+        "text": "    uint omni:sensor:Core:patternFiringRateHz = 10"
+      },
+      {
+        "line": 18,
+        "text": "    bool omni:sensor:Core:instantLidar = 1"
+      },
+      {
+        "line": 19,
+        "text": "    uint omni:sensor:Core:numberOfEmitters = 46080"
+      },
+      {
+        "line": 25,
+        "text": "    token omni:sensor:Core:outputFrameOfReference = \"SENSOR\""
+      },
+      {
+        "line": 26,
+        "text": "    token omni:sensor:Core:outputMotionCompensationState = \"NONCOMPENSATED\""
+      }
+    ],
+    "fireTimeNs": {
+      "count": 46080,
+      "unique": [
+        0
+      ]
+    }
+  },
+  "source_integrity": {
+    "checked": 93,
+    "changed": [],
+    "missing": []
+  },
+  "existing_cases": [
+    {
+      "case": "full_original_bvh_v3",
+      "settings": {
+        "/renderer/raytracingMotion/enabled": true,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/hydra/supportMultiTickRate": true,
+        "/rtx/rendering/perSensorTickTlas": true,
+        "/app/useFabricSceneDelegate": true
+      },
+      "diagnostics": [
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:44:58Z [23,240ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+      ],
+      "diagnostic_count": 42
+    },
+    {
+      "case": "gs_hidden_on",
+      "settings": {
+        "/renderer/raytracingMotion/enabled": true,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/hydra/supportMultiTickRate": true,
+        "/rtx/rendering/perSensorTickTlas": true,
+        "/app/useFabricSceneDelegate": true
+      },
+      "diagnostics": [],
+      "diagnostic_count": 0
+    },
+    {
+      "case": "gs_inactive_on",
+      "settings": {
+        "/renderer/raytracingMotion/enabled": true,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/hydra/supportMultiTickRate": true,
+        "/rtx/rendering/perSensorTickTlas": true,
+        "/app/useFabricSceneDelegate": true
+      },
+      "diagnostics": [],
+      "diagnostic_count": 0
+    },
+    {
+      "case": "gs_off_multi_rgb",
+      "settings": {
+        "/renderer/raytracingMotion/enabled": false,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/hydra/supportMultiTickRate": true,
+        "/rtx/rendering/perSensorTickTlas": true,
+        "/app/useFabricSceneDelegate": true
+      },
+      "diagnostics": [
+        "2026-09-17T03:37:21Z [11,830ms] [Warning] [rtx.sensors.lidar.core.plugin] MotionBVH for lidar model not enabled. This will result in an incorrect point cloud without motion effects!"
+      ],
+      "diagnostic_count": 1
+    },
+    {
+      "case": "gs_on_multi_rgb",
+      "settings": {
+        "/renderer/raytracingMotion/enabled": true,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/hydra/supportMultiTickRate": true,
+        "/rtx/rendering/perSensorTickTlas": true,
+        "/app/useFabricSceneDelegate": true
+      },
+      "diagnostics": [
+        "2026-09-17T03:37:41Z [12,375ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:37:44Z [15,153ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH",
+        "2026-09-17T03:37:47Z [17,969ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+      ],
+      "diagnostic_count": 3
+    },
+    {
+      "case": "gs_on_single_v2",
+      "settings": {
+        "/renderer/raytracingMotion/enabled": true,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/hydra/supportMultiTickRate": false,
+        "/rtx/rendering/perSensorTickTlas": false,
+        "/app/useFabricSceneDelegate": true
+      },
+      "diagnostics": [
+        "2026-09-17T03:35:50Z [12,653ms] [Error] [rtx.scenedb] Gaussians do not support motion BVH"
+      ],
+      "diagnostic_count": 1
+    },
+    {
+      "case": "mesh_on_multi",
+      "settings": {
+        "/renderer/raytracingMotion/enabled": true,
+        "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+        "/renderer/raytracingMotion/enabledForHydraEngines": null,
+        "/rtx/hydra/supportMultiTickRate": true,
+        "/rtx/rendering/perSensorTickTlas": true,
+        "/app/useFabricSceneDelegate": true
+      },
+      "diagnostics": [],
+      "diagnostic_count": 0
+    }
+  ],
+  "installed_debugger": "",
+  "active_isaac_processes": []
+}
+

@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-14T10:37:09.485349+00:00",
+  "enabled": [
+    "T5 PRE/POST",
+    "T6 HOLD2 WRITE/SKIP",
+    "T6 HOLD_ALT WRITE/SKIP"
+  ],
+  "shared_HOLD0": "T5_PRE; not counted twice as an independent repeat",
+  "not_run": {
+    "T3": "No initial-yaw/phase sweep in this bounded branch; internal history is unobservable.",
+    "T6 HOLD1/HOLD3": "Prospectively reduced to requested two practical patterns and both authoring controls to bound raw evidence/time budget.",
+    "T6 application trajectories": "Separate same-boundary trajectory qualification needed; this branch answers only mechanism/geometry.",
+    "T7": "Requires selected mode qualification including currently unavailable payload freshness; no automatic promotion."
+  },
+  "qualification_targets": 12,
+  "main_targets": 100,
+  "independent_repeats": 3,
+  "mandatory_keep_failed_conditions": true,
+  "retention": "Keep all previous and failed data; never delete to free space",
+  "files": [
+    {
+      "path": "config/clock_state/T5_PRE_qualification_r01.json",
+      "sha256": "fa1776ef2b55d0b90c28a56700c1343a45b4fc34055665f6bef425afcf7e9a72"
+    },
+    {
+      "path": "config/clock_state/T5_PRE_r01.json",
+      "sha256": "3cb4482a631aa8053490d9240714f9e1a7d80be1168502b33b1c06f821da22a1"
+    },
+    {
+      "path": "config/clock_state/T5_PRE_r02.json",
+      "sha256": "ae1b60eb4f09f07fa8a8216b25fa09cc861220ecc2a4d04de6fec5b9a4edd334"
+    },
+    {
+      "path": "config/clock_state/T5_PRE_r03.json",
+      "sha256": "89a5854a3a3e1a5c5003ee09244e3b0ff7e634266da6eabcc00278551d0add32"
+    },
+    {
+      "path": "config/clock_state/T5_POST_qualification_r01.json",
+      "sha256": "0a0a68c1a75514f9a7d5d8ab8760957c2d4bbaf509c0ef1e30758c84ecec7e89"
+    },
+    {
+      "path": "config/clock_state/T5_POST_r01.json",
+      "sha256": "13be8d185f22108221f0208d26bc465217e9a64cfcd03e51bbfdbd7d97aa3227"
+    },
+    {
+      "path": "config/clock_state/T5_POST_r02.json",
+      "sha256": "8dbb905668047ac3fc312f545ff9ec0d0ffd00793731b9aa59786028bcf29a65"
+    },
+    {
+      "path": "config/clock_state/T5_POST_r03.json",
+      "sha256": "cae34c85c65af1eb45a17912b5313c961dfaddd81f1c4469f224d8303b1700f2"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_WRITE_qualification_r01.json",
+      "sha256": "4ba7938e2911d877323e0f249b3de1a584bfb003fa964ff9b54e51f62e30f20c"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_WRITE_r01.json",
+      "sha256": "14a1c9f13cf9b90871bcaed3b230b465f0b735e538419bec07ef556efaf43acb"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_WRITE_r02.json",
+      "sha256": "6a8f8f09d7b36be345a599c053fde170016f96333cb7cdd3f6cdcffc46250df2"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_WRITE_r03.json",
+      "sha256": "3ba6e280d98ef440d2d234aeee4a11c8b73d4fb3ded0534e70cb28c68d39e8eb"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_SKIP_qualification_r01.json",
+      "sha256": "8de0602ec34c52c6c4abef262aeedf41e9dbbc7f822bc1dad233a484119a1afe"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_SKIP_r01.json",
+      "sha256": "be0a2a00259c9d60a3aab6d8d87689a10818cce14855fac7200520e22a1dda9a"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_SKIP_r02.json",
+      "sha256": "fd7a66cef275ad12173e6e1d4c143ed3ce96a8e472a9c1b80099b2f1e1de5ad7"
+    },
+    {
+      "path": "config/clock_state/T6_HOLD2_SKIP_r03.json",
+      "sha256": "5a01de3761001d6bae409039abfd98062a2e86cbfdbe3a2360647843aecc17f2"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_WRITE_qualification_r01.json",
+      "sha256": "388b9a071088df9435f7f6f82afdf038b75c40d84ce1f4e648017457447a6d4f"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_WRITE_r01.json",
+      "sha256": "9ece6a4cb9706e05b026ead62a844b231d6e1e3de2ea1751bebbd594fbb34d9c"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_WRITE_r02.json",
+      "sha256": "970a0260728bcd9ed63b51abe4989c052a68176c064e4d07026b5dceab387105"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_WRITE_r03.json",
+      "sha256": "d2683cf06ef33042f952b14e4ed3f9aef214dc4e9e9b2f37f62dc57ff6e8d46f"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_SKIP_qualification_r01.json",
+      "sha256": "1d87b9ace27eb01efc2aee87232efbd63d88108a8f1d829a39a62ff6abc9a830"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_SKIP_r01.json",
+      "sha256": "654b37e39c9181e793ac193fec9efa3f1cd9bd9feefc0de99fc893291b6e01a8"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_SKIP_r02.json",
+      "sha256": "8b1e7d8e771150ec7bb9b3cd5408d9459aed29c10db5c04994ecf93ee7635bf0"
+    },
+    {
+      "path": "config/clock_state/T6_ALT_SKIP_r03.json",
+      "sha256": "4554a32c9683e4885155b3fae9392386a025ec329c12635df287133fc65d069a"
+    },
+    {
+      "path": "config/clock_state/branches_qualification_batch.json",
+      "sha256": "9b633c6b30038f7a42e38cd683efd0363e0dcedd93b9f658bcb5b1327523f5aa"
+    },
+    {
+      "path": "config/clock_state/t5_batch.json",
+      "sha256": "b749483928764fa2ab303ff8c70e34813e4a0793b90cb0c8ffb95735073f6fa4"
+    },
+    {
+      "path": "config/clock_state/t6_r01_batch.json",
+      "sha256": "0ed4de4ef99839f6a459374237f345c042b7b13a278c0a6c3f61b8366f12a957"
+    },
+    {
+      "path": "config/clock_state/t6_r02_batch.json",
+      "sha256": "edb1b38f6a313b6d1046af7245546abac6b2b6b5e06ed7c62918c2e3e96ef100"
+    },
+    {
+      "path": "config/clock_state/t6_r03_batch.json",
+      "sha256": "5e4cd36016d53edbe14ea2c4732d81fe5c27e8ada35c7c3df2da9d7e081ef922"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+"""Reduce recorded native and depth evidence; no new benchmarks or SDK imports."""
+from pathlib import Path
+import json, shutil
+
+ROOT=Path(__file__).resolve().parents[1]
+R=ROOT/'reports'; E=ROOT/'docs/evidence'; E.mkdir(exist_ok=True)
+def load(name): return json.loads((R/name).read_text(encoding='utf-8'))
+
+old=load('analytic_baseline_depth.json'); new=load('analytic_depth.json')
+frozen=load('frozen_depth.json'); metrics=load('performance_metrics.json')
+geometric_max=max(v['surface_max_error_m'] for v in new['clouds'])
+old_coverage=min(v['points']/v['expected_rays'] for v in old['clouds'])
+new_coverage=min(v['points']/v['expected_rays'] for v in new['clouds'])
+resources=[]
+for key,label in [('final_baseline','v03'),('final_gated','v04 gated'),('final_throughput','v04 keepalive')]:
+    entries=metrics[key]['resources']
+    for phase in ('advancing','warmup','capture'):
+        def value(role,metric,field='mean'):
+            row=next((r for r in entries if r['phase']==phase and r['role']==role and r['metric']==metric),None)
+            return row[field] if row else None
+        cpu=value('isaac','main_thread_cpu_percent'); gpu=value('whole_gpu','utilization_percent')
+        if cpu is not None and gpu is not None:
+            resources.append(f'| {label} | {phase} | {cpu:.1f}% | {gpu:.1f}% |')
+
+text=f'''# 原生热点、数据差异与几何真值检查
+
+## 关键路径证据
+
+以下为独立原生追踪窗口，不与关闭追踪后的正式吞吐统计混用。
+
+| 区间 | 墙钟秒 | 主线程实际运行秒 | 记录到的GPU工作并集秒 | cudaFreeHost 次数/秒 | cudaHostAlloc 次数/秒 | vkAllocateMemory / vkGetMemoryFdKHR 次数 |
+|---|---:|---:|---:|---|---|---|
+| v03 重启生成的初始化 | 7.138 | 6.940 | 原追踪不完整 | 见原始trace | 见原始trace | 1166 / 1101 |
+| v04 保留资源，稳定预热 | 3.093 | 3.054 | 1.818 | 234 / 1.955 | 234 / 0.276 | 15 / 0 |
+| v04 保留资源，正式采集 | 0.719 | 0.713 | 0.377 | 52 / 0.426 | 52 / 0.061 | 0 / 0 |
+
+cudaFreeHost/cudaHostAlloc 是原生接口包含的墙钟耗时，可能与GPU执行重叠，也可能包含驱动等待或隐式GPU同步，不能全部归为纯CPU分配成本。主线程调度时间、API时间与GPU工作时间不能相加。调用计数与13路雷达高度相关，但不能仅凭234=13×18、52=13×4就断言内部每路的具体分配对象。闭源模块缺少充分符号，尚未证明锁页分配对应的是哪一种内部缓冲区。
+
+已确认两类开销：旧版反复停止/重启生成，会触发大量Vulkan资源分配和CUDA互操作准备；新版避免每组全局停止后，原生锁页内存的反复申请/释放仍占明显时间。Python XYZ复制、PNG线程或MCAP写盘不是这两个区间的主要耗时。普通Python线程无法并行化线程受限的Kit/RTX调用。
+
+### 下一步有证据支撑的方向
+
+1. 向RTX传感器原生路径核实锁页缓冲能否复用；优先制作独立原型和短追踪，保留同样的传感器、分辨率与数据检查。
+2. 如需GPU驻留GMO返回，必须替换当前依赖主机返回缓冲的annotator读取后端，并重新验证CUDA/Vulkan同步、生命周期及全部数据字段。不能直接打开开关。
+3. 在完成信号和位姿新鲜度可靠的前提下，研究降低传感器阶段切换导致的资源再建；不能把丢弃过渡数据说成零成本等待。
+
+[NVIDIA 6.0.1 文档](https://docs.isaacsim.omniverse.nvidia.com/6.0.1/sensors/isaacsim_sensors_rtx.html)明确说明 outputBufferOnGPU=true 会使当前annotator输出为空；本轮保留false，也未修改SDK、驱动或系统设置。现有资产已经使用BASIC GMO通道，不能再把“FULL降为BASIC”当成当前可得收益。
+
+## 资源采样
+
+| 版本 | 阶段 | 主线程相对一核平均占用 | 整卡GPU平均占用 |
+|---|---|---:|---:|
+{chr(10).join(resources)}
+
+1秒采样可跨越阶段边界；样本数和最大值见 evidence/performance_metrics.json，不能将这些均值解释为某个函数的精确利用率。keepalive在运动阶段执行不保存的中间渲染，所以这一阶段GPU负载变高；默认gated仍关闭运动阶段传感器。正式采集均先冻结运动与仿真时钟。
+
+## 点云差异的证据与边界
+
+- v03 两次相同运动与采集顺序的104路次点云位级一致。
+- v04改变预热/生成生命周期后，点数和返回距离变化。首组多数传感器95%以上方向可以与基线精确匹配，但返回距离不同；方向匹配在多回波条件下存在歧义，不把它当成完整逐射线比较。
+- 在同一冻结姿态与时钟下，两次v04预热/采集均通过来源检查：矩阵最大差 {frozen['pose_matrix_max_difference']}，来源仿真时钟差 {frozen['source_time_max_difference_s']} 秒；配置rangeAccuracyM=0的NZ3仍返回不同点云。渲染历史足以影响返回值。
+- 临时关闭3DGS后，多数距离差异明显减小，但没有全部归零。不能据此声称所有差异都来自3DGS；内部随机源、透明度、回波筛选和渲染帧种子的具体关系尚未完全拆开。
+
+这不等于已发现错组，也不等于逐点等价已经证明。原始XYZ保留；不对新版点云做拟合、补点或过滤来制造与旧版一致。若任务需要复现旧的渲染序列，请使用保留的v03或compatibility后端，并固定其他渲染条件。
+
+### 独立几何真值
+
+诊断进程在Session层停用全部旧几何，创建已知世界坐标边界的双面、不透明箱体。雷达在箱内，仍执行关节、整机平移和旋转；rangeAccuracyM在创建产品前临时设为0。这个改变内容的场景不用于性能收益验收。
+
+v04：4组、52路次点云，前2组gated、后2组keepalive。所有返回点的几何检查通过，最大表面误差 **{geometric_max:.9f} 米**，小于1毫米阈值。结合运动后的传感器位姿检查，未发现XYZ被配给错误的传感器变换或旧姿态。
+
+v03同样场景的2组、26路次几何检查也通过。要求“每个配置发射器都有有效回波”的额外断言在两版均失败：最低回波/发射器比例为v03 **{old_coverage:.4%}**、v04 **{new_coverage:.4%}**。该失败原样保留在报告中，没有改成整体passed。发射器数量不是有效回波数量的保证；具体缺失原因还需逐射线追踪，不能据此声称新版丢帧或全部回波均已证明。
+
+采集链路保存callback提供的完整数组，文件完整性另外检验。几何正确、完整组录制、每个发射器都有回波，是三种不同的断言。
+
+## 图像检查
+
+同一组、原始1920×1080图像的PSNR为：gated 32.49–34.38 dB，keepalive 30.62–33.91 dB。以下仅是缩略对照；原始PNG保留在各实验session/validation_images，性能测试未降低分辨率。
+
+![首组四路鱼眼对照](evidence/final_images_comparison.jpg)
+
+四路天空和主要几何对照已检查，初版黑天空问题修复。3DGS原素材本身的模糊和低细节在基线中也存在，不能把通过本次检查解释为素材质量或逐像素一致性的保证。
+
+## 证据
+
+- evidence/native_direct_analysis.json、native_final_analysis.json：原生栈、调度与API计数。
+- evidence/frozen_depth.json、mesh_comparison.json：冻结重复采集与3DGS隔离。
+- evidence/analytic_depth.json、analytic_baseline_depth.json：几何与全发射器覆盖分别记录，后者失败。
+- evidence/final_gated_comparison.json、final_throughput_comparison.json：原始MCAP全量解码、TF、时间、PNG和点云距离统计。
+- evidence/controls.json、controls_validation.json：原生面板流程和录制检查。
+
+诊断早期曾发生相机单独预热导致RTX矩阵错误、测试箱体未隔离全部基元、停用父prim后遍历失效子prim等实验错误，均保留日志，不计入成功吞吐测量。生产路径的源时间与矩阵检查未放宽。
+
+Vulkan individual追踪有时间戳数量溢出，记录到的GPU并集是下界。Nsight2025.1对CUDA13驱动有兼容警告并使用12.8库采集；不将这份不完整时间线用于证明GPU绝对空闲。
+'''
+(ROOT/'docs/native_hotspots_and_depth_checks.md').write_text(text,encoding='utf-8')
+selected=['performance_metrics.json','native_direct_analysis.json','native_final_analysis.json',
+    'frozen_depth.json','mesh_comparison.json','analytic_depth.json','analytic_baseline_depth.json',
+    'final_gated_comparison.json','final_throughput_comparison.json','controls.json',
+    'controls_validation.json','isolation_check.json','remote_isolation.json','native_timeline.png','portable_tests.txt']
+for name in selected: shutil.copyfile(R/name,E/name)
+print('Wrote hotspot/depth report and selected evidence')

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "passed": true,
+  "scope": "local repository layout and ignore rules",
+  "migration": {
+    "report": 34,
+    "acceptance_summary": 34,
+    "figure": 27,
+    "frozen_source": 81,
+    "local_archive": 120
+  },
+  "migration_records": 296,
+  "migration_copy_hashes_verified": 296,
+  "curated_files_visible_to_git": 176,
+  "relative_links_checked": 160,
+  "missing_relative_links": 0,
+  "ignored_relative_link_targets": 0,
+  "source_and_fixture_ignore_cases": 7,
+  "raw_output_ignore_cases": 9,
+  "existing_tracked_files_preserved_except_gitignore": 892,
+  "remaining_raw_files_size_and_mtime_unchanged": 16784,
+  "headless_local_tests": {
+    "total": 54,
+    "passed": 51,
+    "skipped": 3,
+    "failed": 0
+  },
+  "deployment_boundary_cases": 15,
+  "headless_manifest_files": 140,
+  "headless_deployment_files": 141,
+  "headless_original_source_hashes_preserved": 60,
+  "deployment_archive_sha256": "a46b5bbba5c5d54b69253c134a150c061f0464185474a4ece6365adf4230d514",
+  "untracked_candidates": 3353,
+  "untracked_candidate_bytes": 55711100,
+  "untracked_candidates_over_100_mib": 0,
+  "candidate_paths_over_260_characters": 0,
+  "remote_operations": false,
+  "commit_or_push": false,
+  "limitations": [
+    "No remote Isaac Sim or full sensor capture was rerun.",
+    "Historical reports preserve their original experiment scope.",
+    "Candidate statistics describe currently untracked files, not the full Git history."
+  ]
+}

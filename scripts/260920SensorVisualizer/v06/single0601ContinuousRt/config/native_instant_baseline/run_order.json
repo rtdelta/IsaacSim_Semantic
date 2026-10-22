@@ -1,0 +1,65 @@
+{
+  "experiment_id": "native005_20261015_v1",
+  "qualification": [
+    "config/native_instant_baseline/specs/M_E_S0_r01_q04.json",
+    "config/native_instant_baseline/specs/P_E_S0_r01_q04.json",
+    "config/native_instant_baseline/specs/M_E_S5_r01_q04.json",
+    "config/native_instant_baseline/specs/P_E_S5_r01_q04.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r01_q04.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r01_q04.json"
+  ],
+  "main": [
+    "config/native_instant_baseline/specs/M_E_S0_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_S0_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_S0_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_S0_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_S0_r03_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_S0_r03_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R3P_r03_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R3P_r03_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R3N_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R3N_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R3N_r03_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R3N_r03_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R6P_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R6P_r01_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R6P_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R6P_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_E_R6P_r03_main_v4.json",
+    "config/native_instant_baseline/specs/P_E_R6P_r03_main_v4.json"
+  ],
+  "batches": [
+    "native005_q_static_v4",
+    "native005_q_rotation_v4",
+    "native005_main_01_v4",
+    "native005_main_02_v4",
+    "native005_main_03_v4",
+    "native005_main_04_v4",
+    "native005_main_05_v4",
+    "native005_main_06_v4",
+    "native005_d_qualification_01_v4",
+    "native005_d_main_01_v4",
+    "native005_d_main_02_v4"
+  ],
+  "D_status": "Predeclared history 64->8 only; 3 short qualifications then S0/R3P 100x3, fixed order.",
+  "supersedes_unrun_order": "run_order_v3.json; all q01/q02/q03 evidence preserved",
+  "D_qualification": [
+    "config/native_instant_baseline/specs/M_D_S0_r01_q04.json",
+    "config/native_instant_baseline/specs/M_D_S5_r01_q04.json",
+    "config/native_instant_baseline/specs/M_D_R3P_r01_q04.json"
+  ],
+  "D_main": [
+    "config/native_instant_baseline/specs/M_D_S0_r01_main_v4.json",
+    "config/native_instant_baseline/specs/M_D_S0_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_D_S0_r03_main_v4.json",
+    "config/native_instant_baseline/specs/M_D_R3P_r01_main_v4.json",
+    "config/native_instant_baseline/specs/M_D_R3P_r02_main_v4.json",
+    "config/native_instant_baseline/specs/M_D_R3P_r03_main_v4.json"
+  ]
+}

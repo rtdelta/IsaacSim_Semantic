@@ -1,0 +1,10 @@
+{
+  "target": "isaac-dual",
+  "exit_code": 0,
+  "tests": 60,
+  "elapsed_s": 3.806,
+  "passed": true,
+  "operation_id": "20261010T064815Z_f85fd9ebd090",
+  "scope": "Existing v06 unit tests under destination system Python; no Kit GPU rendering",
+  "note": "test capture failure in stdout is the intentional exception-path unit test; unittest final result is OK"
+}

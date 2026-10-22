@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 import os
+import re
 import shutil
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -36,6 +37,41 @@ from semantic_world_v04.stage import StageIndex
 from semantic_world_v04.supervisor import SameHostSupervisor
 
 from .preflight import estimate_output
+from .render_presets import (
+    DEFAULT_RENDER_PRESET_ID,
+    matching_render_preset,
+    render_preset_catalog,
+    render_profile_for_preset,
+)
+
+
+_COMMON_MODALITY_ORDER = (
+    "rgb",
+    "depth_linear",
+    "depth_color",
+    "semantic_id",
+    "semantic_color",
+    "surface_normal",
+    "surface_normal_color",
+    "instance_id",
+    "instance_color",
+    "point_cloud",
+    "point_cloud_ply",
+)
+
+_MODALITY_PRESETS = {
+    "rgb_semantics": ("rgb", "semantic_id", "semantic_color"),
+    "depth_complete": ("depth_linear", "depth_color"),
+    "common_all": (
+        "rgb",
+        "depth_linear",
+        "depth_color",
+        "semantic_id",
+        "semantic_color",
+    ),
+    "semantic_only": ("semantic_id", "semantic_color"),
+    "none": (),
+}
 
 
 class StudioController:
@@ -69,7 +105,7 @@ class StudioController:
         usd_path: str,
         output_root: str = "output",
     ) -> ProjectDefinition:
-        self.project = ProjectDefinition(
+        candidate = ProjectDefinition(
             project_id=project_id,
             name=name,
             stage=StageReference(usd_path),
@@ -95,10 +131,13 @@ class StudioController:
                 ModalityDefinition("point_cloud", "point_cloud"),
                 ModalityDefinition("point_cloud_ply", "point_cloud_ply"),
             ],
-            render=RenderProfile(),
+            render=render_profile_for_preset(DEFAULT_RENDER_PRESET_ID),
             capture=CaptureSchedule(),
             output=OutputPolicy(root_dir=output_root),
         )
+        # Construct through the strict public schema so a project created in
+        # Studio is guaranteed to be loadable by ProjectRepository later.
+        self.project = ProjectDefinition.from_dict(candidate.to_dict())
         self.project_dir = None
         self.stage_index = None
         self.dirty = True
@@ -177,6 +216,90 @@ class StudioController:
             )
         return sorted(matches)
 
+    def discover_sensor_candidates(self) -> List[Dict[str, Any]]:
+        """Return one UI-facing candidate per compatible Stage Prim.
+
+        Generic Camera plugins intentionally overlap specialized camera
+        plugins. Existing project bindings win; otherwise specialized plugins
+        are preferred over the generic pinhole fallback.
+        """
+
+        if self.stage_index is None:
+            return []
+        project = self._require_project()
+        existing_by_path: Dict[str, List[SensorDefinition]] = {}
+        for sensor in project.sensors:
+            existing_by_path.setdefault(sensor.prim_path, []).append(sensor)
+
+        matches_by_path: Dict[str, List[str]] = {}
+        for plugin_id in self.registry.sensor_ids():
+            plugin = self.registry.sensor(plugin_id)
+            for prim in self.stage_index.iter_prims():
+                if plugin.matches_prim(prim):
+                    matches_by_path.setdefault(prim.path, []).append(plugin_id)
+
+        rows: List[Dict[str, Any]] = []
+        for prim_path in sorted(matches_by_path):
+            prim = self.stage_index.require(prim_path)
+            compatible = sorted(set(matches_by_path[prim_path]))
+            existing = existing_by_path.get(prim_path, [])
+            if existing:
+                recommended = existing[0].plugin
+            else:
+                recommended = sorted(
+                    compatible,
+                    key=lambda item: (item == "pinhole_camera", item),
+                )[0]
+            plugin = self.registry.sensor(recommended)
+            manifest = self.registry.manifest("sensor", recommended)
+            rows.append(
+                {
+                    "prim_path": prim_path,
+                    "prim_name": prim.name,
+                    "prim_type": prim.type_name,
+                    "plugin_id": recommended,
+                    "plugin_display_name": manifest.display_name,
+                    "compatible_plugin_ids": compatible,
+                    "sensor_ids": [item.sensor_id for item in existing],
+                    "configured": bool(existing),
+                    "enabled": any(item.enabled for item in existing),
+                    "supported_modalities": list(plugin.supported_modalities()),
+                }
+            )
+        return rows
+
+    def set_stage_sensor_selected(
+        self,
+        prim_path: str,
+        selected: bool,
+        *,
+        plugin_id: Optional[str] = None,
+    ) -> SensorDefinition:
+        """Add/enable or disable a discovered Stage sensor without deleting it."""
+
+        project = self._require_project()
+        existing = next(
+            (sensor for sensor in project.sensors if sensor.prim_path == prim_path),
+            None,
+        )
+        if existing is not None:
+            return self.set_sensor_enabled(existing.sensor_id, selected)
+        if not selected:
+            raise KeyError(f"Stage sensor is not configured: {prim_path}")
+        if plugin_id is None:
+            candidate = next(
+                (
+                    item
+                    for item in self.discover_sensor_candidates()
+                    if item["prim_path"] == prim_path
+                ),
+                None,
+            )
+            if candidate is None:
+                raise KeyError(f"no compatible sensor plugin for {prim_path}")
+            plugin_id = str(candidate["plugin_id"])
+        return self.add_sensor_from_stage(plugin_id, prim_path)
+
     def effective_sensor_preview(self, sensor_id: str) -> Dict[str, Any]:
         sensor = self._sensor(sensor_id)
         plugin = self.registry.sensor(sensor.plugin)
@@ -240,6 +363,50 @@ class StudioController:
         project.variants.append(variant)
         self.dirty = True
         return variant
+
+    def suggest_variant_id(self, include_paths: List[str]) -> str:
+        source = include_paths[0].rsplit("/", 1)[-1] if include_paths else "variant"
+        folded = re.sub(r"[^a-zA-Z0-9]+", "_", source).strip("_").lower()
+        base = (folded or "variant") + "_only"
+        return self._unique_variant_id(base)
+
+    def create_isolate_variant(
+        self,
+        include_paths: List[str],
+        *,
+        variant_id: Optional[str] = None,
+        preserve_lights: bool = True,
+    ) -> VariantDefinition:
+        if self.stage_index is None:
+            raise RuntimeError("a StageIndex is required to create a scene variant")
+        normalized = list(dict.fromkeys(str(path) for path in include_paths))
+        if not normalized:
+            raise ValueError("select at least one Stage Prim")
+        for path in normalized:
+            self.stage_index.require(path)
+        resolved_id = variant_id or self.suggest_variant_id(normalized)
+        variant = self.add_include_variant(resolved_id, normalized)
+        if preserve_lights:
+            variant.protected_paths = [
+                prim.path
+                for prim in self.stage_index.iter_prims()
+                if "light" in prim.type_name.casefold()
+            ]
+        self.dirty = True
+        return variant
+
+    def duplicate_variant(
+        self, variant_id: str, *, new_variant_id: Optional[str] = None
+    ) -> VariantDefinition:
+        project = self._require_project()
+        source = self._variant(variant_id)
+        duplicate = deepcopy(source)
+        duplicate.variant_id = new_variant_id or self._unique_variant_id(
+            f"{source.variant_id}_copy"
+        )
+        project.variants.append(duplicate)
+        self.dirty = True
+        return duplicate
 
     def set_sensor_enabled(self, sensor_id: str, enabled: bool) -> SensorDefinition:
         sensor = self._sensor(sensor_id)
@@ -395,6 +562,124 @@ class StudioController:
             )
         variant.modalities_by_sensor[sensor_id] = list(dict.fromkeys(modality_ids))
         self.dirty = True
+
+    def capture_matrix(self, sensor_id: str) -> Dict[str, Any]:
+        project = self._require_project()
+        sensor = self._sensor(sensor_id)
+        supported = set(self.registry.sensor(sensor.plugin).supported_modalities())
+        ordered_supported = [
+            item for item in _COMMON_MODALITY_ORDER if item in supported
+        ] + sorted(supported - set(_COMMON_MODALITY_ORDER))
+        return {
+            "sensor_id": sensor.sensor_id,
+            "sensor_enabled": sensor.enabled,
+            "plugin_id": sensor.plugin,
+            "supported_modalities": ordered_supported,
+            "rows": [
+                {
+                    "variant_id": variant.variant_id,
+                    "variant_enabled": variant.enabled,
+                    "binding_enabled": bool(
+                        variant.modalities_by_sensor.get(sensor_id, [])
+                    ),
+                    "selected_modalities": list(
+                        variant.modalities_by_sensor.get(sensor_id, [])
+                    ),
+                }
+                for variant in project.variants
+            ],
+        }
+
+    def set_binding_enabled(
+        self, variant_id: str, sensor_id: str, enabled: bool
+    ) -> None:
+        variant = self._variant(variant_id)
+        current = list(variant.modalities_by_sensor.get(sensor_id, []))
+        if not enabled:
+            self.set_modalities(variant_id, sensor_id, [])
+            return
+        if current:
+            return
+        sensor = self._sensor(sensor_id)
+        supported = set(self.registry.sensor(sensor.plugin).supported_modalities())
+        preferred = (
+            ["point_cloud"]
+            if "point_cloud" in supported and "rgb" not in supported
+            else ["rgb", "semantic_id", "semantic_color"]
+        )
+        defaults = [item for item in preferred if item in supported]
+        if not defaults and supported:
+            defaults = [sorted(supported)[0]]
+        self.set_modalities(variant_id, sensor_id, defaults)
+
+    def set_modality_enabled(
+        self,
+        variant_id: str,
+        sensor_id: str,
+        modality_id: str,
+        enabled: bool,
+    ) -> None:
+        variant = self._variant(variant_id)
+        selected = list(variant.modalities_by_sensor.get(sensor_id, []))
+        if enabled and modality_id not in selected:
+            selected.append(modality_id)
+        elif not enabled:
+            selected = [item for item in selected if item != modality_id]
+        self.set_modalities(variant_id, sensor_id, selected)
+
+    def apply_modality_preset(
+        self, variant_id: str, sensor_id: str, preset_id: str
+    ) -> List[str]:
+        if preset_id not in _MODALITY_PRESETS:
+            raise KeyError(f"unknown modality preset: {preset_id}")
+        sensor = self._sensor(sensor_id)
+        supported = set(self.registry.sensor(sensor.plugin).supported_modalities())
+        selected = [
+            item for item in _MODALITY_PRESETS[preset_id] if item in supported
+        ]
+        self.set_modalities(variant_id, sensor_id, selected)
+        return selected
+
+    def capture_plan_summary(self) -> Dict[str, Any]:
+        project = self._require_project()
+        rows = []
+        for sensor in project.sensors:
+            if not sensor.enabled:
+                continue
+            for variant in project.variants:
+                modalities = list(
+                    variant.modalities_by_sensor.get(sensor.sensor_id, [])
+                )
+                if not variant.enabled or not modalities:
+                    continue
+                rows.append(
+                    {
+                        "sensor_id": sensor.sensor_id,
+                        "variant_id": variant.variant_id,
+                        "modalities": modalities,
+                    }
+                )
+        return {
+            "enabled_sensors": len([item for item in project.sensors if item.enabled]),
+            "enabled_variants": len([item for item in project.variants if item.enabled]),
+            "enabled_bindings": len(rows),
+            "bindings": rows,
+        }
+
+    def render_presets(self) -> List[Dict[str, Any]]:
+        return render_preset_catalog()
+
+    def current_render_preset_id(self) -> str:
+        project = self._require_project()
+        return matching_render_preset(project.render) or "custom"
+
+    def apply_render_preset(self, preset_id: str) -> RenderProfile:
+        project = self._require_project()
+        updated = render_profile_for_preset(preset_id)
+        if project.render != updated:
+            project.render = updated
+            self.dirty = True
+        return project.render
 
     def set_render_profile(
         self,
@@ -908,6 +1193,18 @@ class StudioController:
             for character in base
         ).strip("_") or "camera"
         used = {sensor.sensor_id for sensor in project.sensors}
+        candidate = normalized
+        suffix = 2
+        while candidate in used:
+            candidate = f"{normalized}_{suffix}"
+            suffix += 1
+        return candidate
+
+    def _unique_variant_id(self, base: str) -> str:
+        project = self._require_project()
+        normalized = re.sub(r"[^a-zA-Z0-9._-]+", "_", base).strip("_")
+        normalized = normalized or "variant"
+        used = {variant.variant_id for variant in project.variants}
         candidate = normalized
         suffix = 2
         while candidate in used:

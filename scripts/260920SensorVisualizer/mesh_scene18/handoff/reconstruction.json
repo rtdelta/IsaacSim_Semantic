@@ -1,0 +1,848 @@
+{
+  "schema": "scene18_mesh_reconstruction_v1",
+  "matrix_convention": "Gf row vectors, translation last row, p_world = p_corrected @ C @ V_i @ B_i(t) @ W(t)",
+  "source_sha256": "53098b1b4954c5fa88298569950941389e9a7c718584d23a85e379af477e28a0",
+  "rig_template_sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c",
+  "parts": {
+    "track_link": {
+      "source_prim": "/root/track_mesh/track_mesh",
+      "vertices": 101771,
+      "faces": 200806,
+      "preserved_numeric_attributes": [
+        "extent",
+        "faceVertexCounts",
+        "faceVertexIndices",
+        "normals",
+        "points",
+        "primvars:Col",
+        "primvars:Group_boom",
+        "primvars:Group_bucket_only_full_teeth",
+        "primvars:Group_operator_cab",
+        "primvars:Group_small_arm",
+        "primvars:Group_track"
+      ],
+      "corrected_to_raw_row": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "visual_matrix_row": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          3.20352,
+          -0.34217,
+          2.04934,
+          1.0
+        ]
+      ],
+      "body_bind_matrix_row": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "swing_link": {
+      "source_prim": "/root/operator_cab_mesh/operator_cab_mesh",
+      "vertices": 116099,
+      "faces": 229912,
+      "preserved_numeric_attributes": [
+        "extent",
+        "faceVertexCounts",
+        "faceVertexIndices",
+        "normals",
+        "points",
+        "primvars:Col",
+        "primvars:Group_boom",
+        "primvars:Group_bucket_only_full_teeth",
+        "primvars:Group_operator_cab",
+        "primvars:Group_small_arm",
+        "primvars:Group_track"
+      ],
+      "corrected_to_raw_row": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "visual_matrix_row": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          3.20352,
+          -0.34217,
+          1.4493399999999999,
+          1.0
+        ]
+      ],
+      "body_bind_matrix_row": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.6,
+          1.0
+        ]
+      ]
+    },
+    "boom_link": {
+      "source_prim": "/root/boom_mesh/boom_mesh",
+      "vertices": 57635,
+      "faces": 114781,
+      "preserved_numeric_attributes": [
+        "extent",
+        "faceVertexCounts",
+        "faceVertexIndices",
+        "normals",
+        "points",
+        "primvars:Col",
+        "primvars:Group_boom",
+        "primvars:Group_bucket_only_full_teeth",
+        "primvars:Group_operator_cab",
+        "primvars:Group_small_arm",
+        "primvars:Group_track"
+      ],
+      "corrected_to_raw_row": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "visual_matrix_row": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          3.5775200000000003,
+          -0.07216999999999996,
+          0.4953400000000001,
+          1.0
+        ]
+      ],
+      "body_bind_matrix_row": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -0.374,
+          -0.27,
+          1.5539999999999998,
+          1.0
+        ]
+      ]
+    },
+    "arm_link": {
+      "source_prim": "/root/small_arm_mesh/small_arm_mesh",
+      "vertices": 23764,
+      "faces": 47013,
+      "preserved_numeric_attributes": [
+        "extent",
+        "faceVertexCounts",
+        "faceVertexIndices",
+        "normals",
+        "points",
+        "primvars:Col",
+        "primvars:Group_boom",
+        "primvars:Group_bucket_only_full_teeth",
+        "primvars:Group_operator_cab",
+        "primvars:Group_small_arm",
+        "primvars:Group_track"
+      ],
+      "corrected_to_raw_row": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "visual_matrix_row": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          -0.97248,
+          -0.006169999999999953,
+          -2.70266,
+          1.0
+        ]
+      ],
+      "body_bind_matrix_row": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          4.176,
+          -0.336,
+          4.752,
+          1.0
+        ]
+      ]
+    },
+    "bucket_link": {
+      "source_prim": "/root/bucket_only_full_teeth_mesh/bucket_only_full_teeth_mesh",
+      "vertices": 18406,
+      "faces": 36356,
+      "preserved_numeric_attributes": [
+        "extent",
+        "faceVertexCounts",
+        "faceVertexIndices",
+        "normals",
+        "points",
+        "primvars:Col",
+        "primvars:Group_boom",
+        "primvars:Group_bucket_only_full_teeth",
+        "primvars:Group_operator_cab",
+        "primvars:Group_small_arm",
+        "primvars:Group_track"
+      ],
+      "corrected_to_raw_row": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "visual_matrix_row": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          -2.19848,
+          0.08683000000000007,
+          -0.04065999999999992,
+          1.0
+        ]
+      ],
+      "body_bind_matrix_row": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          5.402,
+          -0.42900000000000005,
+          2.09,
+          1.0
+        ]
+      ]
+    }
+  },
+  "scene18_root_world_matrix_row": [
+    [
+      0.9983506095391216,
+      0.0476021189098555,
+      -0.0320951508511241,
+      0.0
+    ],
+    [
+      -0.04619421967419917,
+      0.9979950339063691,
+      0.04326668888321473,
+      0.0
+    ],
+    [
+      0.03409038723095214,
+      -0.041712714770403565,
+      0.9985478931553191,
+      0.0
+    ],
+    [
+      -0.5734957041467448,
+      1.4685478977484074,
+      0.5559421923906651,
+      1.0
+    ]
+  ],
+  "joints": {
+    "swing": {
+      "type": "PhysicsRevoluteJoint",
+      "attributes": {
+        "drive:angular:physics:damping": {
+          "type": "float",
+          "value": 1000.0
+        },
+        "drive:angular:physics:maxForce": {
+          "type": "float",
+          "value": 1000000.0
+        },
+        "drive:angular:physics:stiffness": {
+          "type": "float",
+          "value": 100000.0
+        },
+        "drive:angular:physics:targetPosition": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:targetVelocity": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:type": {
+          "type": "token",
+          "value": "force"
+        },
+        "physics:axis": {
+          "type": "token",
+          "value": "Z"
+        },
+        "physics:collisionEnabled": {
+          "type": "bool",
+          "value": false
+        },
+        "physics:jointEnabled": {
+          "type": "bool",
+          "value": true
+        },
+        "physics:localPos0": {
+          "type": "point3f",
+          "value": [
+            0.0,
+            0.0,
+            0.6000000238418579
+          ]
+        },
+        "physics:localPos1": {
+          "type": "point3f",
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot0": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot1": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "relationships": {
+        "physics:body0": [
+          "/Excavator/track_link"
+        ],
+        "physics:body1": [
+          "/Excavator/swing_link"
+        ]
+      }
+    },
+    "boom": {
+      "type": "PhysicsRevoluteJoint",
+      "attributes": {
+        "drive:angular:physics:damping": {
+          "type": "float",
+          "value": 1000.0
+        },
+        "drive:angular:physics:maxForce": {
+          "type": "float",
+          "value": 1000000.0
+        },
+        "drive:angular:physics:stiffness": {
+          "type": "float",
+          "value": 100000.0
+        },
+        "drive:angular:physics:targetPosition": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:targetVelocity": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:type": {
+          "type": "token",
+          "value": "force"
+        },
+        "physics:axis": {
+          "type": "token",
+          "value": "Y"
+        },
+        "physics:collisionEnabled": {
+          "type": "bool",
+          "value": false
+        },
+        "physics:jointEnabled": {
+          "type": "bool",
+          "value": true
+        },
+        "physics:localPos0": {
+          "type": "point3f",
+          "value": [
+            -0.37400001287460327,
+            -0.27000001072883606,
+            0.9539999961853027
+          ]
+        },
+        "physics:localPos1": {
+          "type": "point3f",
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot0": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot1": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "relationships": {
+        "physics:body0": [
+          "/Excavator/swing_link"
+        ],
+        "physics:body1": [
+          "/Excavator/boom_link"
+        ]
+      }
+    },
+    "arm": {
+      "type": "PhysicsRevoluteJoint",
+      "attributes": {
+        "drive:angular:physics:damping": {
+          "type": "float",
+          "value": 1000.0
+        },
+        "drive:angular:physics:maxForce": {
+          "type": "float",
+          "value": 1000000.0
+        },
+        "drive:angular:physics:stiffness": {
+          "type": "float",
+          "value": 100000.0
+        },
+        "drive:angular:physics:targetPosition": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:targetVelocity": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:type": {
+          "type": "token",
+          "value": "force"
+        },
+        "physics:axis": {
+          "type": "token",
+          "value": "Y"
+        },
+        "physics:collisionEnabled": {
+          "type": "bool",
+          "value": false
+        },
+        "physics:jointEnabled": {
+          "type": "bool",
+          "value": true
+        },
+        "physics:localPos0": {
+          "type": "point3f",
+          "value": [
+            4.550000190734863,
+            -0.06599999964237213,
+            3.197999954223633
+          ]
+        },
+        "physics:localPos1": {
+          "type": "point3f",
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot0": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot1": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "relationships": {
+        "physics:body0": [
+          "/Excavator/boom_link"
+        ],
+        "physics:body1": [
+          "/Excavator/arm_link"
+        ]
+      }
+    },
+    "bucket": {
+      "type": "PhysicsRevoluteJoint",
+      "attributes": {
+        "drive:angular:physics:damping": {
+          "type": "float",
+          "value": 1000.0
+        },
+        "drive:angular:physics:maxForce": {
+          "type": "float",
+          "value": 1000000.0
+        },
+        "drive:angular:physics:stiffness": {
+          "type": "float",
+          "value": 100000.0
+        },
+        "drive:angular:physics:targetPosition": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:targetVelocity": {
+          "type": "float",
+          "value": 0.0
+        },
+        "drive:angular:physics:type": {
+          "type": "token",
+          "value": "force"
+        },
+        "physics:axis": {
+          "type": "token",
+          "value": "Y"
+        },
+        "physics:collisionEnabled": {
+          "type": "bool",
+          "value": false
+        },
+        "physics:jointEnabled": {
+          "type": "bool",
+          "value": true
+        },
+        "physics:localPos0": {
+          "type": "point3f",
+          "value": [
+            1.2259999513626099,
+            -0.09300000220537186,
+            -2.6619999408721924
+          ]
+        },
+        "physics:localPos1": {
+          "type": "point3f",
+          "value": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot0": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "physics:localRot1": {
+          "type": "quatf",
+          "value": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "relationships": {
+        "physics:body0": [
+          "/Excavator/arm_link"
+        ],
+        "physics:body1": [
+          "/Excavator/bucket_link"
+        ]
+      }
+    }
+  }
+}

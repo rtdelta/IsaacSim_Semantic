@@ -1,0 +1,63 @@
+{
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+  "scene_sha256": "5f0d7a91568a7e44c796d1e62b75ea0c5ca838f890c45a115aa8d0ab1f29c437",
+  "source_files_checked": 74,
+  "changed_source_files": [],
+  "environment_scaling": {
+    "factor": 2.5,
+    "world_pivot_m": [
+      -1.183046737960458,
+      1.5663421562003612,
+      0.0
+    ],
+    "point_rule": "p11 = C + 2.5 * (p10 - C)",
+    "scaled_subtrees": [
+      "/environment_Fangshan_02",
+      "/FlatGrid/Environment",
+      "/FlatGrid/GroundPlane"
+    ],
+    "unchanged_subtrees": [
+      "/World/Cube",
+      "/Excavator_Fangshan_05",
+      "/Environment",
+      "/FlatGrid/SphereLight",
+      "/FlatGrid/Looks",
+      "/PhysicsScene",
+      "/Render",
+      "/World/Stage10SensorPipeline",
+      "/World/Stage10BaseAnchor"
+    ],
+    "overview_path": "/World/Stage10Overview",
+    "overview_position_before_m": [
+      13.000000000000002,
+      -17.0,
+      13.0
+    ],
+    "overview_position_after_m": [
+      34.27457010694069,
+      -44.84951323430054,
+      32.5
+    ],
+    "environment_root_translation_before_m": [
+      -0.16101561944578216,
+      0.724383536329932,
+      1.0948370997423924
+    ],
+    "environment_root_translation_after_m": [
+      1.3720310583262314,
+      -0.5385543934757115,
+      2.737092749355981
+    ],
+    "ground_group_translation_after_m": [
+      1.774570106940687,
+      -2.349513234300542,
+      0.0
+    ],
+    "grid_note": "Finite visual plane grows from 100 x 100 m to 250 x 250 m at Z=0; the infinite collision plane remains the same world plane. Grid material inputs are unchanged.",
+    "preserved_world_transform_paths": [
+      "/environment_Fangshan_02/DomeLight"
+    ],
+    "dome_light_policy": "Parent-space matrix compensation preserves the original world transform and all lighting inputs while the environment parent scales."
+  },
+  "passed": true
+}

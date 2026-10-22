@@ -1,0 +1,506 @@
+{
+  "controls": [
+    {
+      "moving_case": "motion_gaussian_sensor_1",
+      "frozen_case": "freeze_sensor_400000000_1_late_frame",
+      "moving_frame": 30,
+      "timestampNs": 400000000,
+      "tickId": 1,
+      "timeOffsetNs": 1000000,
+      "query_time_s": 0.401,
+      "frozen_x": 0.9020003076394401,
+      "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation",
+      "deliberate_pose_time_error_s": 0.016666666666666666,
+      "reference_frozen_case": "freeze_sensor_400000000_1",
+      "rays": [
+        {
+          "emitterId": 1,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 9.290532112121582,
+          "wrong_range": 9.256616592407227,
+          "xyz_difference_m": 0.03391493111848831,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 2,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 9.18433666229248,
+          "wrong_range": 9.150809288024902,
+          "xyz_difference_m": 0.03352726995944977,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 3,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 9.14938735961914,
+          "wrong_range": 9.115987777709961,
+          "xyz_difference_m": 0.033399686217308044,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 4,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 4.87354850769043,
+          "wrong_range": 4.87354850769043,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 5,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 3.0161149501800537,
+          "wrong_range": 3.0161149501800537,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 6,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 2.9636263847351074,
+          "wrong_range": 2.9636263847351074,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 7,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 3.3894033432006836,
+          "wrong_range": 3.3894033432006836,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        }
+      ],
+      "near_both": 4,
+      "near_mismatch": 0,
+      "near_xyz_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "moving_case": "motion_gaussian_sensor_1",
+      "frozen_case": "freeze_sensor_400000000_1_late_250ms",
+      "moving_frame": 30,
+      "timestampNs": 400000000,
+      "tickId": 1,
+      "timeOffsetNs": 1000000,
+      "query_time_s": 0.401,
+      "frozen_x": 1.3686669743061066,
+      "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation",
+      "deliberate_pose_time_error_s": 0.25,
+      "reference_frozen_case": "freeze_sensor_400000000_1",
+      "rays": [
+        {
+          "emitterId": 1,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 9.290532112121582,
+          "wrong_range": 8.781813621520996,
+          "xyz_difference_m": 0.5087180733680725,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 2,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 9.18433666229248,
+          "wrong_range": 1.9151860475540161,
+          "xyz_difference_m": 7.269150733947754,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 3,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 9.14938735961914,
+          "wrong_range": 8.648398399353027,
+          "xyz_difference_m": 0.500989556312561,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 4,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 4.87354850769043,
+          "wrong_range": 3.4377245903015137,
+          "xyz_difference_m": 1.4358240365982056,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 5,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 3.0161149501800537,
+          "wrong_range": 1.8299602270126343,
+          "xyz_difference_m": 1.1861547231674194,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 6,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 2.9636263847351074,
+          "wrong_range": 2.5308027267456055,
+          "xyz_difference_m": 0.43282386660575867,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 7,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 3.3894033432006836,
+          "wrong_range": 2.0330026149749756,
+          "xyz_difference_m": 1.3564006090164185,
+          "both_near_7m": true
+        }
+      ],
+      "near_both": 4,
+      "near_mismatch": 1,
+      "near_xyz_difference_m": {
+        "min": 0.43282386660575867,
+        "p50": 1.271277666091919,
+        "p95": 1.4239105224609374,
+        "max": 1.4358240365982056
+      }
+    },
+    {
+      "moving_case": "motion_gaussian_sensor_1",
+      "frozen_case": "freeze_sensor_800000000_1_late_frame",
+      "moving_frame": 54,
+      "timestampNs": 800000000,
+      "tickId": 1,
+      "timeOffsetNs": 1000000,
+      "query_time_s": 0.801,
+      "frozen_x": 1.7019997199376409,
+      "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation",
+      "deliberate_pose_time_error_s": 0.016666666666666666,
+      "reference_frozen_case": "freeze_sensor_800000000_1",
+      "rays": [
+        {
+          "emitterId": 1,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 8.476584434509277,
+          "wrong_range": 8.442670822143555,
+          "xyz_difference_m": 0.0339130163192749,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 2,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 1.4918546676635742,
+          "wrong_range": 1.4918546676635742,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 3,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 8.347805976867676,
+          "wrong_range": 8.314407348632812,
+          "xyz_difference_m": 0.03339872881770134,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 4,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 3.4377245903015137,
+          "wrong_range": 3.4377245903015137,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 5,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 2.064311981201172,
+          "wrong_range": 2.064311981201172,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 6,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 2.3037033081054688,
+          "wrong_range": 1.6217312812805176,
+          "xyz_difference_m": 0.6819720268249512,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 7,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 2.1997008323669434,
+          "wrong_range": 2.1997008323669434,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        }
+      ],
+      "near_both": 5,
+      "near_mismatch": 0,
+      "near_xyz_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.5455776214599608,
+        "max": 0.6819720268249512
+      }
+    },
+    {
+      "moving_case": "motion_gaussian_gaussian_1",
+      "frozen_case": "freeze_gaussian_400000000_1_late_frame",
+      "moving_frame": 30,
+      "timestampNs": 400000000,
+      "tickId": 1,
+      "timeOffsetNs": 1000000,
+      "query_time_s": 0.401,
+      "frozen_x": 0.9020003076394401,
+      "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation",
+      "deliberate_pose_time_error_s": 0.016666666666666666,
+      "reference_frozen_case": "freeze_gaussian_400000000_1",
+      "rays": [
+        {
+          "emitterId": 1,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.17434310913086,
+          "wrong_range": 10.17434310913086,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 2,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.058045387268066,
+          "wrong_range": 10.058045387268066,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 3,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.019771575927734,
+          "wrong_range": 10.019771575927734,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 4,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.033523559570312,
+          "wrong_range": 10.033523559570312,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 5,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 5.415741443634033,
+          "wrong_range": 5.415741443634033,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 6,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 5.11182975769043,
+          "wrong_range": 5.11182975769043,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 7,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.373230934143066,
+          "wrong_range": 10.373230934143066,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        }
+      ],
+      "near_both": 2,
+      "near_mismatch": 0,
+      "near_xyz_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "moving_case": "motion_gaussian_gaussian_1",
+      "frozen_case": "freeze_gaussian_400000000_1_late_250ms",
+      "moving_frame": 30,
+      "timestampNs": 400000000,
+      "tickId": 1,
+      "timeOffsetNs": 1000000,
+      "query_time_s": 0.401,
+      "frozen_x": 1.3686669743061066,
+      "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation",
+      "deliberate_pose_time_error_s": 0.25,
+      "reference_frozen_case": "freeze_gaussian_400000000_1",
+      "rays": [
+        {
+          "emitterId": 1,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.17434310913086,
+          "wrong_range": 10.17434310913086,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 2,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.058045387268066,
+          "wrong_range": 10.058045387268066,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 3,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.019771575927734,
+          "wrong_range": 10.019771575927734,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 4,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.033523559570312,
+          "wrong_range": 10.033523559570312,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 5,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 5.415741443634033,
+          "wrong_range": 5.415741443634033,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 6,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 5.11182975769043,
+          "wrong_range": 5.6602654457092285,
+          "xyz_difference_m": 0.5484354496002197,
+          "both_near_7m": true
+        },
+        {
+          "emitterId": 7,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.373230934143066,
+          "wrong_range": 10.373230934143066,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        }
+      ],
+      "near_both": 2,
+      "near_mismatch": 0,
+      "near_xyz_difference_m": {
+        "min": 0.0,
+        "p50": 0.27421772480010986,
+        "p95": 0.5210136771202087,
+        "max": 0.5484354496002197
+      }
+    },
+    {
+      "moving_case": "motion_gaussian_gaussian_1",
+      "frozen_case": "freeze_gaussian_800000000_1_late_frame",
+      "moving_frame": 54,
+      "timestampNs": 800000000,
+      "tickId": 1,
+      "timeOffsetNs": 1000000,
+      "query_time_s": 0.801,
+      "frozen_x": 1.7019997199376409,
+      "pose_source": "interpolated recorded USD world transform vs timeline time; no extrapolation",
+      "deliberate_pose_time_error_s": 0.016666666666666666,
+      "reference_frozen_case": "freeze_gaussian_800000000_1",
+      "rays": [
+        {
+          "emitterId": 1,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.17434310913086,
+          "wrong_range": 10.17434310913086,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 2,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.058045387268066,
+          "wrong_range": 10.058045387268066,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 3,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.019771575927734,
+          "wrong_range": 10.019771575927734,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 4,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.033523559570312,
+          "wrong_range": 10.033523559570312,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 6,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.17434310913086,
+          "wrong_range": 10.17434310913086,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        },
+        {
+          "emitterId": 7,
+          "reference_exists": true,
+          "wrong_exists": true,
+          "reference_range": 10.373230934143066,
+          "wrong_range": 10.373230934143066,
+          "xyz_difference_m": 0.0,
+          "both_near_7m": false
+        }
+      ],
+      "near_both": 0,
+      "near_mismatch": 0,
+      "near_xyz_difference_m": null
+    }
+  ]
+}

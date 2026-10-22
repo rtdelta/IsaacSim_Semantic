@@ -56,10 +56,15 @@ class ProjectRepository:
 
     def save(self, project_dir: Path, project: ProjectDefinition) -> None:
         project_dir = Path(project_dir)
-        project_dir.mkdir(parents=True, exist_ok=True)
-        self._backup_legacy_manifest(project_dir)
         project.schema_version = SCHEMA_VERSION
         project_data = project.to_dict()
+        # Saving and loading must enforce the same schema.  Without this
+        # round-trip validation an incomplete in-memory draft (for example an
+        # empty USD path) can be persisted but can never be opened again.
+        ProjectDefinition.from_dict(project_data)
+
+        project_dir.mkdir(parents=True, exist_ok=True)
+        self._backup_legacy_manifest(project_dir)
         revision = content_sha256(project_data)
         revisions_root = project_dir / self.revisions_dir_name
         revisions_root.mkdir(parents=True, exist_ok=True)

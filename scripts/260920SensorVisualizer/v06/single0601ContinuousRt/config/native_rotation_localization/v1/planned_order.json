@@ -1,0 +1,332 @@
+{
+  "runs": [
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_S0_r01_q01.json",
+      "condition": "A0",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_S5_r01_q01.json",
+      "condition": "A0",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r01_q01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A1_S0_r01_q01.json",
+      "condition": "A1",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A1_S5_r01_q01.json",
+      "condition": "A1",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A1_R6P_r01_q01.json",
+      "condition": "A1",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A2_S0_r01_q01.json",
+      "condition": "A2",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A2_S5_r01_q01.json",
+      "condition": "A2",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A2_R6P_r01_q01.json",
+      "condition": "A2",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_S0_r01_q01.json",
+      "condition": "A3",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_S5_r01_q01.json",
+      "condition": "A3",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R6P_r01_q01.json",
+      "condition": "A3",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_S0_r01_q01.json",
+      "condition": "B1",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_S5_r01_q01.json",
+      "condition": "B1",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R6P_r01_q01.json",
+      "condition": "B1",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_S0_r01_q01.json",
+      "condition": "B2",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_S5_r01_q01.json",
+      "condition": "B2",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R6P_r01_q01.json",
+      "condition": "B2",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R3P_r01_q01.json",
+      "condition": "A0",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q2",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A1_R3P_r01_q01.json",
+      "condition": "A1",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q2",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A2_R3P_r01_q01.json",
+      "condition": "A2",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q2",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R3P_r01_q01.json",
+      "condition": "A3",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q2",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R3P_r01_q01.json",
+      "condition": "B1",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q2",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R3P_r01_q01.json",
+      "condition": "B2",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "Q2",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r01_m01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R6P_r01_m01.json",
+      "condition": "A3",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R6P_r01_m01.json",
+      "condition": "B1",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R6P_r01_m01.json",
+      "condition": "B2",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R6P_r02_m01.json",
+      "condition": "B2",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R6P_r02_m01.json",
+      "condition": "B1",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R6P_r02_m01.json",
+      "condition": "A3",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r02_m01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R6P_r03_m01.json",
+      "condition": "A3",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r03_m01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R6P_r03_m01.json",
+      "condition": "B2",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R6P_r03_m01.json",
+      "condition": "B1",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    }
+  ],
+  "planned_runs": 36,
+  "planned_targets": 1488,
+  "blocked_runs": 11,
+  "B0": "reuse A0"
+}

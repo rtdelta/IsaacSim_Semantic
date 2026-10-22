@@ -1,0 +1,49 @@
+{
+  "reason": "Single-level DAE node transforms avoid reversed nested-matrix accumulation in the bundled converter.",
+  "files": [
+    {
+      "file": "prepared/cet200_description/meshes/arm.dae",
+      "geometry_instances": 3
+    },
+    {
+      "file": "prepared/cet200_description/meshes/boom.dae",
+      "geometry_instances": 13
+    },
+    {
+      "file": "prepared/cet200_description/meshes/bucket.dae",
+      "geometry_instances": 15
+    },
+    {
+      "file": "prepared/cet200_description/meshes/collider_bucket.dae",
+      "geometry_instances": 37
+    },
+    {
+      "file": "prepared/cet200_description/meshes/crawler_belt.dae",
+      "geometry_instances": 188
+    },
+    {
+      "file": "prepared/cet200_description/meshes/idler.dae",
+      "geometry_instances": 1
+    },
+    {
+      "file": "prepared/cet200_description/meshes/roller.dae",
+      "geometry_instances": 1
+    },
+    {
+      "file": "prepared/cet200_description/meshes/sprocket.dae",
+      "geometry_instances": 1
+    },
+    {
+      "file": "prepared/cet200_description/meshes/track_frame.dae",
+      "geometry_instances": 2
+    },
+    {
+      "file": "prepared/cet200_description/meshes/track_shoelink.dae",
+      "geometry_instances": 4
+    },
+    {
+      "file": "prepared/cet200_description/meshes/upper_structure.dae",
+      "geometry_instances": 45
+    }
+  ]
+}

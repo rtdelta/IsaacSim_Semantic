@@ -1,0 +1,321 @@
+{
+  "verified_files": 63,
+  "files": [
+    {
+      "path": "config/native_instant_baseline/analysis_rules_v4.json",
+      "size_bytes": 2717,
+      "sha256": "f16a3ba1687f079171092d25e603777c56e07efe6e2ffd6b1433420a3da9ac2f"
+    },
+    {
+      "path": "config/native_instant_baseline/effective_D.json",
+      "size_bytes": 7879,
+      "sha256": "59f1532ca289bf6efa07078e26e3af5480f4815ab6cc818b899fe982e096c9d9"
+    },
+    {
+      "path": "config/native_instant_baseline/effective_E.json",
+      "size_bytes": 7295,
+      "sha256": "66cac92a144b3cf3b02684bcd76681fb0a71b896aa1596b7adf00ffd3e75544b"
+    },
+    {
+      "path": "config/native_instant_baseline/effective_E_paused_probe_v1.json",
+      "size_bytes": 7153,
+      "sha256": "86f661c310ca08ef8746f8acf4ff78dab43f201dad8da51eb854014fb63d9621"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_d_main_01_v4.json",
+      "size_bytes": 432,
+      "sha256": "c912cc8b9b37895c0002ed8431d94bab44c9d2adb8c7051e09f35ddd4f22235c"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_d_main_02_v4.json",
+      "size_bytes": 426,
+      "sha256": "9db7e8f40bcccf56ddfa922c6677ec13cc4ad3ea5eec1004d0323f599d6cb6ae"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_d_qualification_01_v4.json",
+      "size_bytes": 428,
+      "sha256": "c438b6278a47557a955dd0829070999e9e0542860e51f469921b1c56429a609b"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_01_v4.json",
+      "size_bytes": 832,
+      "sha256": "e38202a902400d230edbfc4d3c7c564758e152dc75f939b564139111b835598f"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_02_v4.json",
+      "size_bytes": 831,
+      "sha256": "31bdfd99aab87cb003329920caffab4536de75db2630bd3d201692c672cf79ba"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_03_v4.json",
+      "size_bytes": 833,
+      "sha256": "4ce13f0b081ea5c8a78e40d3f56d23e3c2f129bfa74c6fea807c88231aed0eca"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_04_v4.json",
+      "size_bytes": 833,
+      "sha256": "531251e7c0774dc5b8092b5aa8b7aab2d4430c7c9dc4f105484c8b391d43e075"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_05_v4.json",
+      "size_bytes": 833,
+      "sha256": "38a5d4fef11fae344356fa2e143d07e10bc6374d66421938a8c49bc6b1847653"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_main_06_v4.json",
+      "size_bytes": 833,
+      "sha256": "133cf56f23999210f6ec3dd0171ff7f403e9cc2869d43a01772d004496bffb4b"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_q_rotation_v4.json",
+      "size_bytes": 698,
+      "sha256": "d93b5b6f58d69c1661ffe82e048d7e5c96bfc216d4e9c095241964759a426fef"
+    },
+    {
+      "path": "config/native_instant_baseline/native005_q_static_v4.json",
+      "size_bytes": 805,
+      "sha256": "1e94d9247305169fc7e7e3939d27a36af40c2e399e3bf23f74a25da9218b43ec"
+    },
+    {
+      "path": "config/native_instant_baseline/run_order.json",
+      "size_bytes": 3373,
+      "sha256": "70dd5533ec55c02ee7cad2fa43768de4f0bd17806c3e1bf4497b502b8d1d6006"
+    },
+    {
+      "path": "config/native_instant_baseline/run_order_v3.json",
+      "size_bytes": 2612,
+      "sha256": "47774b3704b2ed295af91ecc2ab8cc611a9b94e522e92c79407d106a328e070f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r01_main_v4.json",
+      "size_bytes": 2034,
+      "sha256": "69db1182cc82cabf526e5fc869713e740c76b4c60c2629fb65798affb4a77929"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r01_q04.json",
+      "size_bytes": 2025,
+      "sha256": "fa099a744643045ac75a16d8cdeee7f0184a6e76b27481dbddf16b7dc543e7d2"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r02_main_v4.json",
+      "size_bytes": 2034,
+      "sha256": "ef49923a17674cbbcfaf5f2e705354796fee5d4d88ceca97f7bfb07cf0cb4aae"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_R3P_r03_main_v4.json",
+      "size_bytes": 2034,
+      "sha256": "2de4099e5870347faf93c9f64d376c8a4bc4e56ed0e3e602418c6ed9bf64dde6"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r01_main_v4.json",
+      "size_bytes": 2030,
+      "sha256": "f2cd2e7432b48cf634bb53ac99047e946f62a7e9b978f3f534f572d8482be57a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r01_q04.json",
+      "size_bytes": 2021,
+      "sha256": "98503ff22deb57b2a60534ea2016f2b351fbd879309e2faf5f7f3b1c5dd29729"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r02_main_v4.json",
+      "size_bytes": 2030,
+      "sha256": "6c907c6540e1dce0f287f791fa19e666f565251575d53e2db121067cf786a76d"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S0_r03_main_v4.json",
+      "size_bytes": 2030,
+      "sha256": "d62e0e81c1ef926b573b1a16fac7f1772517f2488d85ea364a8ffa4b32a9d2c5"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_D_S5_r01_q04.json",
+      "size_bytes": 2021,
+      "sha256": "3fcdc0622caef7985886cdee49e16b57e40f0c35f42ff93abe8865f1ac113273"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3N_r01_main_v4.json",
+      "size_bytes": 1956,
+      "sha256": "9c770524b5045694393003826e4daebfe16f503a8df650f65969fcac6b095196"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3N_r02_main_v4.json",
+      "size_bytes": 1956,
+      "sha256": "25672f108e61c281c7d185f4ea29d6992d1792a0805dd7372749a8235f50ecf9"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3N_r03_main_v4.json",
+      "size_bytes": 1956,
+      "sha256": "646771536ac5e793061ec3b714824266d9c1755c82d1d41512238e3eec375bc0"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r01_main_v4.json",
+      "size_bytes": 1955,
+      "sha256": "dddb933d778432cd78e84f742203786cad3373b3114bc261892750afeee68f93"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r01_q04.json",
+      "size_bytes": 1946,
+      "sha256": "636efbaceec8a0d6f14c3d161e4b18a8f4847adfa6ee813aaa4588f5b8433206"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r02_main_v4.json",
+      "size_bytes": 1955,
+      "sha256": "03ff2806ca8859ffb41b4c384a3b346bc26c7feb0916b46f05fece5dd9c7a48d"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R3P_r03_main_v4.json",
+      "size_bytes": 1955,
+      "sha256": "e74be047e4247f55862405a539eba8a44e100dea603b24af9f66d3730dd86aa0"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R6P_r01_main_v4.json",
+      "size_bytes": 1955,
+      "sha256": "d9f23d13434fa8ae9eeb9c17efeb19c3d6770b5f7cbebf816fb91988a9e3b9b5"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R6P_r02_main_v4.json",
+      "size_bytes": 1955,
+      "sha256": "aa1b27dd418a5c95be5b8253dcbb602348a6d1684347e3a9f39de4aa8e42dcec"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_R6P_r03_main_v4.json",
+      "size_bytes": 1955,
+      "sha256": "c2e96df7db028a4cda4c27831897f603a90a0bb144cd0876e76312eaefafba3a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r01_main_v4.json",
+      "size_bytes": 1951,
+      "sha256": "bb2ced8b30299df7752a894dce73745ff15a25d9ef235646dc859fd30a3fb751"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r01_q04.json",
+      "size_bytes": 1942,
+      "sha256": "6866128b9ed103f77050bd1f595bb46c4cae6e58521e627a26d1accf92f11d6a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r02_main_v4.json",
+      "size_bytes": 1951,
+      "sha256": "cfa52cecf4f190c3b6a441741628ec18a23b81cd23e6af58339f254c4a4d76ac"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S0_r03_main_v4.json",
+      "size_bytes": 1951,
+      "sha256": "90f87e312e0ae0d6131e3b273262b57f60b7d581b86b0de420d2be1cc4f65bf1"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/M_E_S5_r01_q04.json",
+      "size_bytes": 1942,
+      "sha256": "bd6fe3c3ee50a09e5725a17a6defb61087b91e7879e118564feb04462b888a67"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3N_r01_main_v4.json",
+      "size_bytes": 1947,
+      "sha256": "39f4ba597b28b189922281b1a4f4db9fc48abf8e3273022466c60683ee1ec372"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3N_r02_main_v4.json",
+      "size_bytes": 1947,
+      "sha256": "34c5d1a0f7a8e0e28d35ca967a45d60d55f3406f5f159e66ee71e9f23958a21f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3N_r03_main_v4.json",
+      "size_bytes": 1947,
+      "sha256": "72750e9c776951414c81821b9587583f465fd33cc7b034b93ec3ea06c9f818ec"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r01_main_v4.json",
+      "size_bytes": 1946,
+      "sha256": "79f799c5ca9e731a2b984dde2def24bfceb02fc4fe088f11c80531ef8b5b0de3"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r01_q04.json",
+      "size_bytes": 1937,
+      "sha256": "f88b07db3d101bd7f313a5d3c4cec7e77edf38759b095580293a6ab02580473f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r02_main_v4.json",
+      "size_bytes": 1946,
+      "sha256": "ebf88a2be1aff6dd8d6ee81f9fc4bb8990aa20f30876c82f2304478332e03ec0"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R3P_r03_main_v4.json",
+      "size_bytes": 1946,
+      "sha256": "604c342ef9da426f68861829eda6f457bc56ec116e28fe3c1e8c75728cc7c795"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R6P_r01_main_v4.json",
+      "size_bytes": 1946,
+      "sha256": "775557cdeae64088a2f574b11269d90e81d7f0c48483ba595deacc09dd58fd93"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R6P_r02_main_v4.json",
+      "size_bytes": 1946,
+      "sha256": "fd3a14626c82f8e70d863422dbaea9d42628c91f4b7fef30840f04157e18e7f4"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_R6P_r03_main_v4.json",
+      "size_bytes": 1946,
+      "sha256": "9fa514d4e659b447d6e98dd2876919a575a619d9b6d2066fd5ecfb020284a81a"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r01_main_v4.json",
+      "size_bytes": 1942,
+      "sha256": "be714401e4b333fbe501ab50b860170c64ad2e0de8486914531a49584c9c0528"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r01_q04.json",
+      "size_bytes": 1933,
+      "sha256": "2205fa16661a7d75e210cd86243761e2b6797214f96588f85e6750896a68ca5f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r02_main_v4.json",
+      "size_bytes": 1942,
+      "sha256": "1fa0d149a537477278808be7835df648a74434dbc595ecf073439067242b824f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S0_r03_main_v4.json",
+      "size_bytes": 1942,
+      "sha256": "3499f5cb52a25b3651ad9c09a89faf42f7bbd6731a06e91400ac8383259e038f"
+    },
+    {
+      "path": "config/native_instant_baseline/specs/P_E_S5_r01_q04.json",
+      "size_bytes": 1933,
+      "sha256": "3a369900515001309e69ce7573bf8aa0801d6ad87d785c4a80918be9ec0d7c3a"
+    },
+    {
+      "path": "tools/native_instant_baseline/brief_status_remote.py",
+      "size_bytes": 1027,
+      "sha256": "4200eec0d1ab7a3939c44a5a051d926a56d8bc6f0882b0c17698a22d9c6c3751"
+    },
+    {
+      "path": "tools/native_instant_baseline/compare_runs.py",
+      "size_bytes": 6977,
+      "sha256": "a473729fa5a06091706daa618a681589a1f08c033928f525ee3beccc0491bdad"
+    },
+    {
+      "path": "tools/native_instant_baseline/coordinator.py",
+      "size_bytes": 8787,
+      "sha256": "810b24f46942d1f49c958ae95d3b6ed9830943119502f597d8024752427f968f"
+    },
+    {
+      "path": "tools/native_instant_baseline/execute_declared.py",
+      "size_bytes": 3555,
+      "sha256": "0d8e30ed1d0399e9fdc2a634efdef742d3756d74830244d35b6370a481041056"
+    },
+    {
+      "path": "tools/native_instant_baseline/freeze_main_remote.py",
+      "size_bytes": 1644,
+      "sha256": "65db1bd3e1e7cd8c5a70bfccbf505e7007d84edd4ceceff09fba45036a7f0320"
+    },
+    {
+      "path": "tools/native_instant_baseline/revise_qualification_v4.py",
+      "size_bytes": 5017,
+      "sha256": "dcb01615efff4e8a891b3bbfe65f1a6ee036d29bd17a4ac07186a4e9c87237ea"
+    },
+    {
+      "path": "tools/native_instant_baseline/start_sequence_remote.py",
+      "size_bytes": 257,
+      "sha256": "8e55790a0746cee062a1697b7c70d9df6ba18479f22e927adcf0a9debd71063a"
+    }
+  ],
+  "audit_log": "C:\\Users\\15452\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\CloudInstanceOps\\audit\\20261015\\20261015T034620Z_df9dcc0376c8.jsonl"
+}

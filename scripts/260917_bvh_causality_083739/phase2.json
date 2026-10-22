@@ -1,0 +1,372 @@
+[
+  {
+    "name": "debug_camera_gaussian_on",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "camera",
+      "--bvh",
+      "1",
+      "--timeout",
+      "240"
+    ],
+    "runner": "runner_debug.py"
+  },
+  {
+    "name": "debug_lidar_gaussian_on",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--timeout",
+      "240"
+    ],
+    "runner": "runner_debug.py"
+  },
+  {
+    "name": "nz3_instant_mesh_off",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "nz3_instant_mesh_on",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "nz3_instant_gaussian_off",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "nz3_instant_gaussian_on",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--native-nz3",
+      "--instant",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "nz3_timed_gaussian_off",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0",
+      "--native-nz3",
+      "--instant",
+      "0"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "nz3_timed_gaussian_on",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--native-nz3",
+      "--instant",
+      "0"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "synthetic_camera_off",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "synthetic",
+      "--output",
+      "camera",
+      "--bvh",
+      "0"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "synthetic_camera_on",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "synthetic",
+      "--output",
+      "camera",
+      "--bvh",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "synthetic_lidar_off",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "synthetic",
+      "--output",
+      "lidar",
+      "--bvh",
+      "0"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "synthetic_lidar_on",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "synthetic",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "flags_10_mesh",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "0"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "flags_10_gaussian",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "0"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "flags_01_mesh",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--multi",
+      "0",
+      "--per-sensor",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "flags_01_gaussian",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--multi",
+      "0",
+      "--per-sensor",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "flags_11_mesh",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "mesh",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  },
+  {
+    "name": "flags_11_gaussian",
+    "args": [
+      "--script",
+      "probe_v4.py",
+      "--frames",
+      "120",
+      "--warmup",
+      "60",
+      "--geometry",
+      "gaussian",
+      "--output",
+      "lidar",
+      "--bvh",
+      "1",
+      "--multi",
+      "1",
+      "--per-sensor",
+      "1"
+    ],
+    "runner": "runner_seed.py"
+  }
+]

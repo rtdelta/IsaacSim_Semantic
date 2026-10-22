@@ -1,0 +1,33 @@
+{
+  "config": {
+    "name": "UndulatingGround",
+    "size_m": [
+      40,
+      40
+    ],
+    "grid_step_m": 0.2,
+    "peak_to_valley_m": 0.9,
+    "seed": 20260922,
+    "center_world_m": [
+      -1.8,
+      1.5,
+      0.0
+    ],
+    "startup_flat_ellipse_radii_m": [
+      3.8,
+      2.5
+    ],
+    "material": "procedural earth colors; no external textures",
+    "ground_following": false
+  },
+  "blender_version": "5.1.1",
+  "vertices": 40401,
+  "triangles": 80000,
+  "min_height_m": -0.4404532866971491,
+  "max_height_m": 0.45954671330285096,
+  "external_downloads": [],
+  "sha256": {
+    "terrain.blend": "7cc02b441a9e6aff0856017f9c5568105d8b974802f84ffc991bb86e5ccbd6a3",
+    "terrain.usdc": "9a0dd0a3b3f9a0f8fcc4a0b070a9611be6d3efb3aba72bfeaed363d74586cdf1"
+  }
+}

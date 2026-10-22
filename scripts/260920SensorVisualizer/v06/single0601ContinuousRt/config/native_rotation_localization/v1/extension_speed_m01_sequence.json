@@ -1,0 +1,90 @@
+{
+  "id": "extension_speed_m01",
+  "runs": [
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R3P_r01_sm01.json",
+      "condition": "A0",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R3P_r01_sm01.json",
+      "condition": "B1",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R3P_r01_sm01.json",
+      "condition": "B2",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R3P_r02_sm01.json",
+      "condition": "B2",
+      "profile": "R3P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R3P_r02_sm01.json",
+      "condition": "B1",
+      "profile": "R3P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R3P_r02_sm01.json",
+      "condition": "A0",
+      "profile": "R3P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R3P_r03_sm01.json",
+      "condition": "A0",
+      "profile": "R3P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R3P_r03_sm01.json",
+      "condition": "B2",
+      "profile": "R3P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R3P_r03_sm01.json",
+      "condition": "B1",
+      "profile": "R3P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    }
+  ],
+  "max_batch_runs": 4,
+  "reserve_bytes": 8589934592,
+  "requires_lock": true,
+  "trigger": "R3P short sequence switches previous1/half (6/6) while R6P short is half only; full 100x3 for A0 and both output-mode controls, plus fixed common-orientation 50-target subsets. A1 short identical to A0; no API bridge trigger."
+}

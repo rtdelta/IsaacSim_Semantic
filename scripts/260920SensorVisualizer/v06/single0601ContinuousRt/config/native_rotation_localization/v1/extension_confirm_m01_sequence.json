@@ -1,0 +1,69 @@
+{
+  "id": "extension_confirm_m01",
+  "runs": [
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r01_cm01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "T3_confirmation",
+      "capability": "qualified_T3_short"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C2_R6P_r01_cm01.json",
+      "condition": "C2",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "T3_confirmation",
+      "capability": "qualified_T3_short"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C2_R6P_r02_cm01.json",
+      "condition": "C2",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "T3_confirmation",
+      "capability": "qualified_T3_short"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r02_cm01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "T3_confirmation",
+      "capability": "qualified_T3_short"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r03_cm01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "T3_confirmation",
+      "capability": "qualified_T3_short"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C2_R6P_r03_cm01.json",
+      "condition": "C2",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "T3_confirmation",
+      "capability": "qualified_T3_short"
+    }
+  ],
+  "requires_lock": true,
+  "max_batch_runs": 4,
+  "reserve_bytes": 8589934592,
+  "trigger": "T3 single-factor full-output changes; repeat all outputs and independent per-run metrics, no intersection filtering. Strict full valid-return-set pairing remains unqualified where sets differ. No engineering repair claim.",
+  "changed_conditions": [
+    "C2"
+  ],
+  "T3_summary_sha256": "c5f01f69a38e5269aeac463e93533e56d17b8b8e0db14a20fb3ebcdc76753b36",
+  "boundary_review_sha256": "42509c8ed9c0a787ce1b6275f1c39cf282908c0ccfcfaadd14b8fa1905314f65",
+  "strict_pair_gate_preserved": true
+}

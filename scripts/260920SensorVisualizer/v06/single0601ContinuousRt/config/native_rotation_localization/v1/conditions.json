@@ -1,0 +1,98 @@
+{
+  "A0": {
+    "condition": "A0",
+    "api": "native",
+    "asset": "MyAiry",
+    "sensor_overrides": {
+      "omni:sensor:tickRate": 10.0,
+      "omni:sensor:Core:rangeAccuracyM": 0.0,
+      "omni:sensor:Core:instantLidar": true,
+      "omni:sensor:Core:scanRateBaseHz": 10.0,
+      "omni:sensor:Core:outputFrameOfReference": "SENSOR",
+      "omni:sensor:Core:elementsCoordsType": "CARTESIAN",
+      "omni:sensor:Core:outputMotionCompensationState": "NONCOMPENSATED",
+      "omni:sensor:Core:accumulateOutputs": true
+    },
+    "capability": "qualification_pending"
+  },
+  "A1": {
+    "condition": "A1",
+    "api": "official",
+    "asset": "MyAiry",
+    "sensor_overrides": {
+      "omni:sensor:tickRate": 10.0,
+      "omni:sensor:Core:rangeAccuracyM": 0.0,
+      "omni:sensor:Core:instantLidar": true,
+      "omni:sensor:Core:scanRateBaseHz": 10.0,
+      "omni:sensor:Core:outputFrameOfReference": "SENSOR",
+      "omni:sensor:Core:elementsCoordsType": "CARTESIAN",
+      "omni:sensor:Core:outputMotionCompensationState": "NONCOMPENSATED",
+      "omni:sensor:Core:accumulateOutputs": true
+    },
+    "capability": "qualification_pending"
+  },
+  "A2": {
+    "condition": "A2",
+    "api": "native",
+    "asset": "official_example_usd",
+    "sensor_overrides": {
+      "omni:sensor:tickRate": 10.0,
+      "omni:sensor:Core:rangeAccuracyM": 0.0,
+      "omni:sensor:Core:instantLidar": true,
+      "omni:sensor:Core:scanRateBaseHz": 10.0,
+      "omni:sensor:Core:outputFrameOfReference": "SENSOR",
+      "omni:sensor:Core:elementsCoordsType": "CARTESIAN",
+      "omni:sensor:Core:outputMotionCompensationState": "NONCOMPENSATED",
+      "omni:sensor:Core:accumulateOutputs": true
+    },
+    "capability": "blocked_missing_local_official_USD"
+  },
+  "A3": {
+    "condition": "A3",
+    "api": "official",
+    "asset": "official_example_usd",
+    "sensor_overrides": {
+      "omni:sensor:tickRate": 10.0,
+      "omni:sensor:Core:rangeAccuracyM": 0.0,
+      "omni:sensor:Core:instantLidar": true,
+      "omni:sensor:Core:scanRateBaseHz": 10.0,
+      "omni:sensor:Core:outputFrameOfReference": "SENSOR",
+      "omni:sensor:Core:elementsCoordsType": "CARTESIAN",
+      "omni:sensor:Core:outputMotionCompensationState": "NONCOMPENSATED",
+      "omni:sensor:Core:accumulateOutputs": true
+    },
+    "capability": "blocked_missing_local_official_USD"
+  },
+  "B1": {
+    "condition": "B1",
+    "api": "native",
+    "asset": "MyAiry",
+    "sensor_overrides": {
+      "omni:sensor:tickRate": 10.0,
+      "omni:sensor:Core:rangeAccuracyM": 0.0,
+      "omni:sensor:Core:instantLidar": true,
+      "omni:sensor:Core:scanRateBaseHz": 10.0,
+      "omni:sensor:Core:outputFrameOfReference": "WORLD",
+      "omni:sensor:Core:elementsCoordsType": "CARTESIAN",
+      "omni:sensor:Core:outputMotionCompensationState": "NONCOMPENSATED",
+      "omni:sensor:Core:accumulateOutputs": true
+    },
+    "capability": "qualification_pending"
+  },
+  "B2": {
+    "condition": "B2",
+    "api": "native",
+    "asset": "MyAiry",
+    "sensor_overrides": {
+      "omni:sensor:tickRate": 10.0,
+      "omni:sensor:Core:rangeAccuracyM": 0.0,
+      "omni:sensor:Core:instantLidar": true,
+      "omni:sensor:Core:scanRateBaseHz": 10.0,
+      "omni:sensor:Core:outputFrameOfReference": "SENSOR",
+      "omni:sensor:Core:elementsCoordsType": "SPHERICAL",
+      "omni:sensor:Core:outputMotionCompensationState": "NONCOMPENSATED",
+      "omni:sensor:Core:accumulateOutputs": true
+    },
+    "capability": "qualification_pending"
+  }
+}

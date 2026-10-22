@@ -1,0 +1,124 @@
+{
+  "date_local": "2026-10-10",
+  "timezone": "Asia/Shanghai",
+  "target": "isaac-dual",
+  "baseline": "Sensor Visualizer v06",
+  "scope": "Read-only hardware/SDK inspection and official documentation research; no original code, configs or system services changed; no project rendering benchmark started.",
+  "facts": {
+    "gpus": 2,
+    "gpu_type": "NVIDIA L40",
+    "vram_each_mib": 46068,
+    "driver": "580.126.09",
+    "cpu_visible": 128,
+    "cpu_quota_equivalent": 28,
+    "cpu_period_us": 100000,
+    "memory_limit_gib": 240,
+    "gpu_numa_nodes": [
+      0,
+      0
+    ],
+    "gpu_pcie_topology": "PIX",
+    "peer_read_write": true,
+    "cuda_peer_access_both_directions": true,
+    "async_copy_engines_each": 2,
+    "pcie_max_generation": 4,
+    "pcie_width": 16,
+    "sample_condition": "idle; no Sensor Visualizer processes",
+    "v06_code_changed": false,
+    "nsight_at_tested_paths_available": false,
+    "weighted_camera_allocation_api_found_in_installed_sdk": false
+  },
+  "priorities": [
+    {
+      "priority": 1,
+      "direction": "Verify physical GPU isolation of interactive preview and formal capture, including SDK/CUDA data devices",
+      "mechanisms": [
+        "GPU UUID and PCI mapping",
+        "renderer device selection",
+        "explicit annotator buffer device",
+        "actual callback device and transfer evidence"
+      ],
+      "gain": "Expected responsiveness improvement, not yet measured on dual GPU"
+    },
+    {
+      "priority": 2,
+      "direction": "Bound and budget CPU worker pools for actual 28-core cgroup quota",
+      "mechanisms": [
+        "Carbonite tasking cap",
+        "TBB cap",
+        "PhysX thread budget",
+        "optional per-process affinity near NUMA0",
+        "quota and throttling delta telemetry"
+      ],
+      "gain": "Avoid oversubscription; exact best thread counts require controlled trials"
+    },
+    {
+      "priority": 3,
+      "direction": "Separate interactive asynchronous viewport rendering from synchronous frozen formal capture",
+      "mechanisms": [
+        "role-specific launch settings",
+        "asynchronous rendering handshake",
+        "pose generation and preview latency checks"
+      ],
+      "gain": "Potential control and viewport improvement without lowering quality; current owner loop and snapshot correctness must be validated"
+    },
+    {
+      "priority": 4,
+      "direction": "Persistent formal worker and persistent sensor resources across sessions",
+      "mechanisms": [
+        "one resident Kit on GPU1",
+        "stage revision keyed resource reuse",
+        "session state reset",
+        "safe draining and lease state machine",
+        "bounded recycle on leak/failure"
+      ],
+      "gain": "Avoid repeated engine/context/asset initialization; keepalive source evidence cannot substitute for destination benchmarks"
+    },
+    {
+      "priority": 5,
+      "direction": "Evaluate Fabric runtime pose path and pooled asynchronous D2H after new profiling",
+      "mechanisms": [
+        "PhysX tensors",
+        "Fabric/USDRT renderer pose path",
+        "immutable state TF generation",
+        "pinned host slots",
+        "CUDA stream/events",
+        "producer readiness and buffer lifetime"
+      ],
+      "gain": "Research track; do not bypass USD consumers or reuse live SDK buffers unsafely"
+    },
+    {
+      "priority": 6,
+      "direction": "Dual-GPU offline group sharding after interactive viewport exits",
+      "mechanisms": [
+        "complete sensor groups per worker",
+        "contiguous trajectory blocks",
+        "unified logical timestamps",
+        "temporal history warmup",
+        "single ordered MCAP writer"
+      ],
+      "gain": "Potential throughput gain with both GPUs; shared CPU/IO and warmup costs limit scaling"
+    }
+  ],
+  "experiment_plan": [
+    "Same dual host baseline: owner GPU0 and capture GPU0 vs capture GPU1; identical quality, asset hash, trajectory and sensor list",
+    "Add CPU worker caps only; then interactive async only; then resident worker/resource reuse only",
+    "Measure idle, continuous key control, job startup, steady capture, pause/stop drain, job end and repeated jobs separately",
+    "Record P95/P99/max command acknowledgement, owner frame intervals, >100ms and >500ms stalls, per-GPU utilization and memory, phase CPU time, cgroup throttling deltas, queue occupancy and worker startup/exit",
+    "Validate all 13 LiDAR and 4 images per group, frame/clock/pose agreement, trajectory correspondence, quality and repeated-session cleanup",
+    "End-to-end browser input to viewport display latency must be measured separately from engine command acknowledgement"
+  ],
+  "limits": [
+    "No dual-GPU speedup or interactive end-to-end latency measured in this research",
+    "P2P support does not mean existing SDK performs transfers on the intended devices",
+    "CUDA copy-engine capability does not establish RTX producer buffer lifetime or completed asynchronous transfers",
+    "Current installed Isaac is 6.0.1-rc.7; latest documentation APIs require local availability checks"
+  ],
+  "sources": [
+    "https://docs.isaacsim.omniverse.nvidia.com/6.0.1/reference_material/sim_performance_optimization_handbook.html",
+    "https://docs.isaacsim.omniverse.nvidia.com/6.0.1/sensors/isaacsim_sensors_multitick_rendering.html",
+    "https://images.nvidia.com/content/Solutions/data-center/vgpu-L40-datasheet.pdf?ncid=no-ncid",
+    "https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html",
+    "https://docs.nvidia.com/nsight-systems/UserGuide/index.html"
+  ]
+}

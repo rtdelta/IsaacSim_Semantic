@@ -1,0 +1,11 @@
+{
+  "binary": "/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so",
+  "sha256": "3fc6bb790d164decaf40aa52c5c76a6401e67e210f395e40cea9ea20ac6c57f0",
+  "rendergraph_node_name_reconstructed": "SceneDb: Build Gaussian bvh",
+  "registration_offset": "0x1f64ce",
+  "node_mode_store": "0x1f6530 -> node+0x8c",
+  "callback_offset": "0x1eb9e0",
+  "mode_load": "0x1eba23 -> ecx from node+0x8c",
+  "call_offset": "0x1eba39",
+  "build_tlas_entry": "0x184990"
+}

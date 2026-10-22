@@ -1,0 +1,7 @@
+{"schema_version":1,"cases":[
+{"name":"M1_camera_static","config":"config/single_camera.json","motion":"static","groups":200},
+{"name":"M1_camera_moving","config":"config/single_camera.json","motion":"moving","groups":200},
+{"name":"M2_lidar_moving","config":"config/single_lidar.json","motion":"moving","groups":200},
+{"name":"M2_mixed_moving","config":"config/mixed_pair.json","motion":"moving","groups":200},
+{"name":"M2_full_moving","config":"config/strict_scene18.json","motion":"moving","groups":100}
+]}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260917_motion_truth/REPORT.md",
+      "destination": "scripts/260917_motion_truth/docs/reports/motion_truth_20260917/REPORT.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 12253,
+      "original_sha256": "013e95249582521261bb8735bff15d52dd9229f3591e484eea0e34e70394882b",
+      "copied_sha256": "013e95249582521261bb8735bff15d52dd9229f3591e484eea0e34e70394882b",
+      "copy_verified": true,
+      "current_sha256": "013e95249582521261bb8735bff15d52dd9229f3591e484eea0e34e70394882b",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260917_motion_truth/DEPTH_REPORT.md",
+      "destination": "scripts/260917_motion_truth/docs/reports/motion_truth_20260917/DEPTH_REPORT.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 1992,
+      "original_sha256": "a8b4305c70a49aec5023afbff4bbe3d8982d1cff94d87b8ba8d9f1675f819b7b",
+      "copied_sha256": "a8b4305c70a49aec5023afbff4bbe3d8982d1cff94d87b8ba8d9f1675f819b7b",
+      "copy_verified": true,
+      "current_sha256": "a8b4305c70a49aec5023afbff4bbe3d8982d1cff94d87b8ba8d9f1675f819b7b",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260917_motion_truth/motion_geometry_results.png",
+      "destination": "scripts/260917_motion_truth/docs/reports/motion_truth_20260917/motion_geometry_results.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 167679,
+      "original_sha256": "cf35b4388d8fabac97efa60e08619399600be6b7f5dc238c057e27d35c44ce5d",
+      "copied_sha256": "cf35b4388d8fabac97efa60e08619399600be6b7f5dc238c057e27d35c44ce5d",
+      "copy_verified": true,
+      "current_sha256": "cf35b4388d8fabac97efa60e08619399600be6b7f5dc238c057e27d35c44ce5d",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260917_motion_truth/depth_comparison.png",
+      "destination": "scripts/260917_motion_truth/docs/reports/motion_truth_20260917/depth_comparison.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 194676,
+      "original_sha256": "fe2bdf943509019970561386011d75b8f775d29e65894aaa26f58dcf25adadc8",
+      "copied_sha256": "fe2bdf943509019970561386011d75b8f775d29e65894aaa26f58dcf25adadc8",
+      "copy_verified": true,
+      "current_sha256": "fe2bdf943509019970561386011d75b8f775d29e65894aaa26f58dcf25adadc8",
+      "reference_edits": false
+    }
+  ]
+}

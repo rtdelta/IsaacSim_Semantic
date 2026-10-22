@@ -1,0 +1,335 @@
+{
+  "note": "Invariants compare the same Gaussian and same mode, not a mesh approximation; statistical comparisons are descriptive, not equivalence tests.",
+  "comparisons": [
+    {
+      "a": "motion_gaussian_none_0",
+      "b": "motion_gaussian_both_0",
+      "lag": 0,
+      "selection": "near",
+      "threshold_m": 6,
+      "counts": {
+        "scans": 10,
+        "common": 7828,
+        "selected": 126,
+        "near_mismatch": 0
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "scalar_absolute_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "a_range": {
+        "min": 0.8723787069320679,
+        "p50": 3.2786073684692383,
+        "p95": 4.495289444923401,
+        "max": 5.696990013122559
+      },
+      "b_range": {
+        "min": 0.8723787069320679,
+        "p50": 3.2786073684692383,
+        "p95": 4.495289444923401,
+        "max": 5.696990013122559
+      },
+      "pooled_range_empirical_cdf_max_difference": 0.0
+    },
+    {
+      "a": "motion_gaussian_sensor_0",
+      "b": "motion_gaussian_reverse_0",
+      "lag": 0,
+      "selection": "near",
+      "threshold_m": 6,
+      "counts": {
+        "scans": 10,
+        "common": 7812,
+        "selected": 278,
+        "near_mismatch": 0
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "scalar_absolute_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "a_range": {
+        "min": 0.5163952708244324,
+        "p50": 1.644067645072937,
+        "p95": 3.3270322799682597,
+        "max": 5.575948715209961
+      },
+      "b_range": {
+        "min": 0.5163952708244324,
+        "p50": 1.644067645072937,
+        "p95": 3.3270322799682597,
+        "max": 5.575948715209961
+      },
+      "pooled_range_empirical_cdf_max_difference": 0.0
+    },
+    {
+      "a": "motion_mesh_sensor_0",
+      "b": "motion_gaussian_sensor_0",
+      "lag": 0,
+      "selection": "back_hemisphere",
+      "threshold_m": 6,
+      "counts": {
+        "scans": 10,
+        "common": 7812,
+        "selected": 3920,
+        "near_mismatch": 278
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "scalar_absolute_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.05086423456668854
+      },
+      "a_range": null,
+      "b_range": {
+        "min": 0.5163952708244324,
+        "p50": 1.644067645072937,
+        "p95": 3.3270322799682597,
+        "max": 5.575948715209961
+      }
+    },
+    {
+      "a": "motion_gaussian_none_1",
+      "b": "motion_gaussian_both_1",
+      "lag": 0,
+      "selection": "near",
+      "threshold_m": 6,
+      "counts": {
+        "scans": 10,
+        "common": 7825,
+        "selected": 117,
+        "near_mismatch": 0
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "scalar_absolute_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 9.685754776000968e-07,
+        "max": 1.0747462511062622e-05
+      },
+      "a_range": {
+        "min": 0.5337862968444824,
+        "p50": 3.278608798980713,
+        "p95": 4.458386421203612,
+        "max": 5.846848964691162
+      },
+      "b_range": {
+        "min": 0.5337862968444824,
+        "p50": 3.278608798980713,
+        "p95": 4.458386421203612,
+        "max": 5.846848964691162
+      },
+      "pooled_range_empirical_cdf_max_difference": 0.0
+    },
+    {
+      "a": "motion_gaussian_sensor_1",
+      "b": "motion_gaussian_reverse_1",
+      "lag": 0,
+      "selection": "near",
+      "threshold_m": 6,
+      "counts": {
+        "scans": 10,
+        "common": 7813,
+        "selected": 280,
+        "near_mismatch": 0
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "scalar_absolute_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 1.8993392586708093e-06,
+        "max": 2.7239322662353516e-05
+      },
+      "a_range": {
+        "min": 0.4378558397293091,
+        "p50": 1.6596408486366272,
+        "p95": 3.057859289646151,
+        "max": 5.022774696350098
+      },
+      "b_range": {
+        "min": 0.4378558397293091,
+        "p50": 1.6596408486366272,
+        "p95": 3.057859289646151,
+        "max": 5.022774696350098
+      },
+      "pooled_range_empirical_cdf_max_difference": 0.0
+    },
+    {
+      "a": "motion_mesh_sensor_1",
+      "b": "motion_gaussian_sensor_1",
+      "lag": 0,
+      "selection": "back_hemisphere",
+      "threshold_m": 6,
+      "counts": {
+        "scans": 10,
+        "common": 7813,
+        "selected": 3920,
+        "near_mismatch": 280
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "scalar_absolute_difference": {
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.05086423456668854
+      },
+      "a_range": null,
+      "b_range": {
+        "min": 0.4378558397293091,
+        "p50": 1.6596408486366272,
+        "p95": 3.057859289646151,
+        "max": 5.022774696350098
+      }
+    },
+    {
+      "a": "lidar_A_r2",
+      "b": "lidar_C_r2",
+      "lag": 0,
+      "selection": "near",
+      "threshold_m": 8,
+      "counts": {
+        "scans": 120,
+        "common": 5526235,
+        "selected": 74109,
+        "near_mismatch": 15577
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.412939190864563,
+        "p95": 2.778582143783569,
+        "max": 7.217720031738281
+      },
+      "scalar_absolute_difference": {
+        "min": 0.0,
+        "p50": 0.0002799122594296932,
+        "p95": 0.0017391879577189674,
+        "max": 0.0056318435817956924
+      },
+      "a_range": {
+        "min": 0.40009185671806335,
+        "p50": 3.474818468093872,
+        "p95": 4.94580078125,
+        "max": 7.968392372131348
+      },
+      "b_range": {
+        "min": 0.4000921845436096,
+        "p50": 3.4746713638305664,
+        "p95": 4.936715555191026,
+        "max": 7.968481063842773
+      },
+      "pooled_range_empirical_cdf_max_difference": 0.004537370331702539
+    },
+    {
+      "a": "lidar_A_r2",
+      "b": "lidar_A_r2",
+      "lag": 1,
+      "selection": "near",
+      "threshold_m": 8,
+      "counts": {
+        "scans": 119,
+        "common": 5479851,
+        "selected": 72332,
+        "near_mismatch": 17337
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.5399538576602936,
+        "p95": 2.8203554153442383,
+        "max": 6.926394462585449
+      },
+      "scalar_absolute_difference": {
+        "min": 1.7229467630386353e-08,
+        "p50": 0.0007612711051478982,
+        "p95": 0.0025489716907031823,
+        "max": 0.005425934214144945
+      },
+      "a_range": {
+        "min": 0.40009185671806335,
+        "p50": 3.474818229675293,
+        "p95": 4.950653791427577,
+        "max": 7.968392372131348
+      },
+      "b_range": {
+        "min": 0.40009185671806335,
+        "p50": 3.474818468093872,
+        "p95": 4.952768325805664,
+        "max": 7.968392372131348
+      },
+      "pooled_range_empirical_cdf_max_difference": 0.0005685048851463703
+    },
+    {
+      "a": "lidar_C_r2",
+      "b": "lidar_C_r2",
+      "lag": 1,
+      "selection": "near",
+      "threshold_m": 8,
+      "counts": {
+        "scans": 119,
+        "common": 5479817,
+        "selected": 72215,
+        "near_mismatch": 17360
+      },
+      "xyz_absolute_difference_m": {
+        "min": 0.0,
+        "p50": 0.53387451171875,
+        "p95": 2.837982845306397,
+        "max": 7.260315895080566
+      },
+      "scalar_absolute_difference": {
+        "min": 2.7939677238464355e-09,
+        "p50": 0.000766456825658679,
+        "p95": 0.0025421334197744737,
+        "max": 0.00564240850508213
+      },
+      "a_range": {
+        "min": 0.4000921845436096,
+        "p50": 3.4712636470794678,
+        "p95": 4.937767505645752,
+        "max": 7.968481063842773
+      },
+      "b_range": {
+        "min": 0.4000921845436096,
+        "p50": 3.474141836166382,
+        "p95": 4.946727752685547,
+        "max": 7.968481063842773
+      },
+      "pooled_range_empirical_cdf_max_difference": 0.0007798365454638745
+    }
+  ]
+}

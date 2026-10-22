@@ -1,0 +1,15 @@
+{
+  "schema_version": 3,
+  "mode": "interactive",
+  "interactive": {
+    "motion_cache": true,
+    "lightweight_publish": true,
+    "diagnostics_enabled": true,
+    "trace_sample_every": 30
+  },
+  "diagnostics": {
+    "level": "basic",
+    "resource_period_ms": 1000,
+    "native_profiler": "off"
+  }
+}

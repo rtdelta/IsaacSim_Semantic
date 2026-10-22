@@ -1,0 +1,103 @@
+{
+  "model": "NZ3",
+  "version": 1,
+  "scope": "Horizontal/vertical FOV and one bag-calibrated angular sampling pattern",
+  "bag_file": "2026-09-09-14-33-50.bag",
+  "bag_sha256": "a68b6381d9710158dade2d86daccd06caab24ec707a83e39fda1cba7dec27b2a",
+  "rows": 96,
+  "columns": 480,
+  "source_codes": {
+    "0": "measured",
+    "1": "horizontal_interpolation",
+    "2": "sector_edge_extension",
+    "3": "missing_ring_interpolation",
+    "4": "handbook"
+  },
+  "nominal_horizontal_fov_deg": 240,
+  "nominal_vertical_fov_deg": 80,
+  "bag_to_asset_rotation": [
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "rtx_mapping": {
+    "azimuth": "RTX clockwise angle = negative of calibration azimuth",
+    "emitter_id": "0..46079",
+    "channel_id": "authored configuration: 1..46080",
+    "ring": "emitterId // 480; column = emitterId % 480",
+    "gmo_channel_id": "observed Isaac Sim 6.0.1-rc.7 output: 0..46079"
+  },
+  "sampling": "Cell-centred 0.5 degree horizontal bin assignment. Ring ids assumed to correspond to rows 0..95.",
+  "fitting": "Median of per-frame cell medians; minimum 3 frames; MAD az<=0.15deg, el<=0.20deg.",
+  "filling": "Per-half-FOV horizontal interpolation; nearest correction at unobserved sector edges; interpolate missing rings to handbook edge-centre anchors.",
+  "geometry_acquisition": "Instantaneous full-frame pattern, all fireTimeNs=0. Actual temporal scan pattern is outside this version.",
+  "rejected_outside_nominal_fov": 539,
+  "validation": {
+    "passed": true,
+    "rays": 46080,
+    "shape": [
+      96,
+      480
+    ],
+    "azimuth_centres_deg": [
+      -119.88528442382812,
+      119.94027709960938
+    ],
+    "elevation_centres_deg": [
+      -39.58333206176758,
+      39.58333206176758
+    ],
+    "nominal_cell_coverage_deg": [
+      240.0,
+      80.0
+    ],
+    "unique_directions": 46080,
+    "sources": {
+      "measured": 30910,
+      "horizontal_interpolation": 6003,
+      "sector_edge_extension": 7247,
+      "missing_ring_interpolation": 960,
+      "handbook": 960
+    },
+    "holdout": {
+      "training_frames": 40,
+      "held_out_frames": 10,
+      "all_observed_cells": {
+        "count": 310367,
+        "mean_deg": 0.04530554637312889,
+        "p50_deg": 0.031524792313575745,
+        "p95_deg": 0.10228226631879807,
+        "p99_deg": 0.4165084177255714,
+        "max_deg": 0.546720564365387
+      },
+      "measured_training_cells": {
+        "count": 292404,
+        "mean_deg": 0.034484293311834335,
+        "p50_deg": 0.031253211200237274,
+        "p95_deg": 0.06999994814395905,
+        "p99_deg": 0.1100001186132431,
+        "max_deg": 0.5452401041984558
+      },
+      "handbook_on_same_measured_cells": {
+        "count": 292404,
+        "mean_deg": 3.244773656745425,
+        "p50_deg": 3.474156561580605,
+        "p95_deg": 5.668466311735637,
+        "p99_deg": 5.933559530847773,
+        "max_deg": 6.026633767630656
+      }
+    }
+  }
+}

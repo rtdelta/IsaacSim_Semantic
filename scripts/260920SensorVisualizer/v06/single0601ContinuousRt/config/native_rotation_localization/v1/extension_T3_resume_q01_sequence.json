@@ -1,0 +1,82 @@
+{
+  "id": "extension_T3_resume_q01",
+  "runs": [
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C1_S0_r01_cq01.json",
+      "condition": "C1",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "blocked_accumulation_false_changes_warmup_native_cadence; C1_S0_actual_failed_prefix_preserved"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C1_S5_r01_cq01.json",
+      "condition": "C1",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "blocked_accumulation_false_changes_warmup_native_cadence; C1_S0_actual_failed_prefix_preserved"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C1_R6P_r01_cq01.json",
+      "condition": "C1",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "blocked_accumulation_false_changes_warmup_native_cadence; C1_S0_actual_failed_prefix_preserved"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C1_R3P_r01_cq01.json",
+      "condition": "C1",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "blocked_accumulation_false_changes_warmup_native_cadence; C1_S0_actual_failed_prefix_preserved"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C2_S0_r01_cq01.json",
+      "condition": "C2",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C2_S5_r01_cq01.json",
+      "condition": "C2",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C2_R6P_r01_cq01.json",
+      "condition": "C2",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/C2_R3P_r01_cq01.json",
+      "condition": "C2",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    }
+  ],
+  "max_batch_runs": 4,
+  "reserve_bytes": 8589934592,
+  "requires_lock": true,
+  "trigger": "C0 frozen to qualified A0 because A3 static model fails. T2 output-direction difference is isolated but does not explain the common radial history candidate. Independent accumulation and Motion BVH interventions test that remaining radial mechanism; complete-scan semantics checked before causal interpretation.",
+  "revision_reason": "Do not rerun C1 or decimate outputs: first C1 warmup violates fixed stride contract. Record all C1 planned profiles blocked; continue predeclared independent C2 using unchanged specs and capture lock."
+}

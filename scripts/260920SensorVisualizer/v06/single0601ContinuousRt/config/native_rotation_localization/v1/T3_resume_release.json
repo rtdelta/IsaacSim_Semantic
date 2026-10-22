@@ -1,0 +1,7 @@
+{
+  "sequence": "extension_T3_resume_q01",
+  "original_sequence": "extension_T3_q01",
+  "C1_failure_path": "reports/native_rotation_localization/native007_20261015_v1/C1/S0/r01/cq01",
+  "reason": "fixed warmup native tick phase unqualified; complete prefix inspected independently",
+  "C2_specs_unchanged": true
+}

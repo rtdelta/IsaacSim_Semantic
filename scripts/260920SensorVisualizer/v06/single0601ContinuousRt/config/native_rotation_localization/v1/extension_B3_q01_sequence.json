@@ -1,0 +1,45 @@
+{
+  "id": "extension_B3_q01",
+  "runs": [
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B3_S0_r01_xq01.json",
+      "condition": "B3",
+      "profile": "S0",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B3_S5_r01_xq01.json",
+      "condition": "B3",
+      "profile": "S5",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B3_R6P_r01_xq01.json",
+      "condition": "B3",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B3_R3P_r01_xq01.json",
+      "condition": "B3",
+      "profile": "R3P",
+      "repeat": "r01",
+      "targets": 12,
+      "phase": "extension",
+      "capability": "qualification_pending"
+    }
+  ],
+  "max_batch_runs": 4,
+  "reserve_bytes": 8589934592,
+  "requires_lock": true,
+  "trigger": "Final q02 all 12 pairs qualified; WORLD output changes direction category at all 12 targets in each dynamic profile while radial history candidate is unchanged. Spherical normalization independently checked before this trigger."
+}

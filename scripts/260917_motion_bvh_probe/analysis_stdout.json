@@ -1,0 +1,651 @@
+{
+  "gs_off_multi_rgb": {
+    "status": "data_collected",
+    "buffers": 41,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/gs_off_multi_rgb",
+        "--geometry",
+        "gaussian",
+        "--bvh",
+        "0",
+        "--multi",
+        "1",
+        "--capture"
+      ],
+      "started_at": 1789616229.980603,
+      "pid": 959343,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 18.947230987250805,
+      "finished_at": 1789616248.9278412
+    },
+    "complete_buffers": 41,
+    "counts": [
+      798,
+      799,
+      800
+    ],
+    "gaussian_error_count": 0,
+    "motion_disabled_warning_count": 1,
+    "saved_points": 7993,
+    "saved_near_hits_lt8m": 129,
+    "geometry": {
+      "": 5,
+      "RenderProduct": 1,
+      "RenderSettings": 1,
+      "RenderVar": 1,
+      "Camera": 4,
+      "Xform": 1,
+      "Cube": 6,
+      "DomeLight": 1,
+      "ParticleField3DGaussianSplat": 1
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": false,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    }
+  },
+  "gs_on_multi_rgb": {
+    "status": "data_collected",
+    "buffers": 41,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/gs_on_multi_rgb",
+        "--geometry",
+        "gaussian",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--capture"
+      ],
+      "started_at": 1789616248.9724915,
+      "pid": 961229,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 19.499821247532964,
+      "finished_at": 1789616268.472325
+    },
+    "complete_buffers": 41,
+    "counts": [
+      800
+    ],
+    "gaussian_error_count": 3,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 8000,
+    "saved_near_hits_lt8m": 0,
+    "geometry": {
+      "": 5,
+      "RenderProduct": 1,
+      "RenderSettings": 1,
+      "RenderVar": 1,
+      "Camera": 4,
+      "Xform": 1,
+      "Cube": 6,
+      "DomeLight": 1,
+      "ParticleField3DGaussianSplat": 1
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    },
+    "static_chamber_max_surface_error_m": 5.7220458984375e-06
+  },
+  "gs_hidden_on": {
+    "status": "data_collected",
+    "buffers": 40,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/gs_hidden_on",
+        "--geometry",
+        "gaussian",
+        "--gaussian-state",
+        "hidden",
+        "--bvh",
+        "1",
+        "--multi",
+        "1"
+      ],
+      "started_at": 1789616268.516987,
+      "pid": 963156,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 18.99734890088439,
+      "finished_at": 1789616287.5143425
+    },
+    "complete_buffers": 40,
+    "counts": [
+      800
+    ],
+    "gaussian_error_count": 0,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 7200,
+    "saved_near_hits_lt8m": 0,
+    "geometry": {
+      "": 5,
+      "RenderProduct": 1,
+      "RenderSettings": 1,
+      "RenderVar": 1,
+      "Camera": 4,
+      "Xform": 1,
+      "Cube": 6,
+      "DomeLight": 1,
+      "ParticleField3DGaussianSplat": 1
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    },
+    "static_chamber_max_surface_error_m": 5.7220458984375e-06
+  },
+  "gs_inactive_on": {
+    "status": "data_collected",
+    "buffers": 40,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/gs_inactive_on",
+        "--geometry",
+        "gaussian",
+        "--gaussian-state",
+        "inactive",
+        "--bvh",
+        "1",
+        "--multi",
+        "1"
+      ],
+      "started_at": 1789616287.55671,
+      "pid": 965034,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 19.09842874854803,
+      "finished_at": 1789616306.6551445
+    },
+    "complete_buffers": 40,
+    "counts": [
+      800
+    ],
+    "gaussian_error_count": 0,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 7200,
+    "saved_near_hits_lt8m": 0,
+    "geometry": {
+      "": 5,
+      "RenderProduct": 1,
+      "RenderSettings": 1,
+      "RenderVar": 1,
+      "Camera": 4,
+      "Xform": 1,
+      "Cube": 6,
+      "DomeLight": 1
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    },
+    "static_chamber_max_surface_error_m": 5.7220458984375e-06
+  },
+  "mesh_moving_on": {
+    "status": "data_collected",
+    "buffers": 40,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/mesh_moving_on",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--moving",
+        "sensor"
+      ],
+      "started_at": 1789616345.6772978,
+      "pid": 970769,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 18.996582251042128,
+      "finished_at": 1789616364.6738865
+    },
+    "complete_buffers": 40,
+    "counts": [
+      800
+    ],
+    "gaussian_error_count": 0,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 7200,
+    "saved_near_hits_lt8m": 0,
+    "geometry": {
+      "": 5,
+      "RenderProduct": 1,
+      "RenderSettings": 1,
+      "RenderVar": 1,
+      "Camera": 4,
+      "Xform": 1,
+      "Cube": 6,
+      "DomeLight": 1
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    }
+  },
+  "gs_mask_string0": {
+    "status": "data_collected",
+    "buffers": 21,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/gs_mask_string0",
+        "--geometry",
+        "gaussian",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--engines",
+        "0",
+        "--capture",
+        "--frames",
+        "60"
+      ],
+      "started_at": 1789616608.1270993,
+      "pid": 994135,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 17.447652079164982,
+      "finished_at": 1789616625.574757
+    },
+    "complete_buffers": 21,
+    "counts": [
+      800
+    ],
+    "gaussian_error_count": 3,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 8000,
+    "saved_near_hits_lt8m": 0,
+    "geometry": {
+      "": 5,
+      "RenderProduct": 1,
+      "RenderSettings": 1,
+      "RenderVar": 1,
+      "Camera": 4,
+      "Xform": 1,
+      "Cube": 6,
+      "DomeLight": 1,
+      "SphereLight": 1,
+      "ParticleField3DGaussianSplat": 1
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": true,
+      "/renderer/raytracingMotion/enabledForHydraEngines": "0",
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    }
+  },
+  "gs_mask_string1": {
+    "status": "data_collected",
+    "buffers": 21,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/gs_mask_string1",
+        "--geometry",
+        "gaussian",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--engines",
+        "1",
+        "--capture",
+        "--frames",
+        "60"
+      ],
+      "started_at": 1789616625.6174998,
+      "pid": 995897,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 17.246720533818007,
+      "finished_at": 1789616642.8642287
+    },
+    "complete_buffers": 21,
+    "counts": [
+      799,
+      800
+    ],
+    "gaussian_error_count": 0,
+    "motion_disabled_warning_count": 1,
+    "saved_points": 7995,
+    "saved_near_hits_lt8m": 135,
+    "geometry": {
+      "": 5,
+      "RenderProduct": 1,
+      "RenderSettings": 1,
+      "RenderVar": 1,
+      "Camera": 4,
+      "Xform": 1,
+      "Cube": 6,
+      "DomeLight": 1,
+      "SphereLight": 1,
+      "ParticleField3DGaussianSplat": 1
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": true,
+      "/renderer/raytracingMotion/enabledForHydraEngines": "1",
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    }
+  },
+  "full_original_bvh_v3": {
+    "status": "starting",
+    "buffers": 15,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/full_original_bvh_v3",
+        "--geometry",
+        "full",
+        "--source",
+        "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--frames",
+        "90"
+      ],
+      "started_at": 1789616674.899677,
+      "pid": 999942,
+      "exit_code": 1,
+      "timed_out": false,
+      "wall_seconds": 91.95381236821413,
+      "finished_at": 1789616766.8534973
+    },
+    "complete_buffers": 15,
+    "counts": [
+      798,
+      799,
+      800
+    ],
+    "gaussian_error_count": 30,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 6398,
+    "saved_near_hits_lt8m": 326,
+    "geometry": {
+      "Xform": 203,
+      "Scope": 34,
+      "Cube": 7,
+      "PhysicsFixedJoint": 1,
+      "Camera": 6,
+      "": 4,
+      "DomeLight": 2,
+      "SphereLight": 2,
+      "DistantLight": 1,
+      "Mesh": 127,
+      "Material": 139,
+      "Shader": 265,
+      "PhysicsScene": 1,
+      "Plane": 1,
+      "ParticleField3DGaussianSplat": 15,
+      "PhysicsRevoluteJoint": 4,
+      "RenderVar": 2
+    },
+    "isolation": null,
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    }
+  },
+  "full_mesh_bvh_v3": {
+    "status": "data_collected",
+    "buffers": 31,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/full_mesh_bvh_v3",
+        "--geometry",
+        "full",
+        "--source",
+        "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+        "--exclude-gaussians",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--frames",
+        "90"
+      ],
+      "started_at": 1789616766.8962314,
+      "pid": 1006927,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 20.8010410759598,
+      "finished_at": 1789616787.6972816
+    },
+    "complete_buffers": 31,
+    "counts": [
+      798,
+      799,
+      800
+    ],
+    "gaussian_error_count": 0,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 7997,
+    "saved_near_hits_lt8m": 407,
+    "geometry": {
+      "Xform": 203,
+      "Scope": 34,
+      "Cube": 7,
+      "PhysicsFixedJoint": 1,
+      "Camera": 6,
+      "": 4,
+      "DomeLight": 2,
+      "SphereLight": 2,
+      "DistantLight": 1,
+      "Mesh": 127,
+      "Material": 139,
+      "Shader": 265,
+      "PhysicsScene": 1,
+      "Plane": 1,
+      "PhysicsRevoluteJoint": 4,
+      "RenderVar": 2
+    },
+    "isolation": {
+      "excluded_gaussians": [
+        "/Excavator_Fangshan_05/track_prim/Visuals/GS/track",
+        "/Excavator_Fangshan_05/cab_prim/Visuals/GS/operator_cab",
+        "/Excavator_Fangshan_05/boom_prim/Visuals/GS/boom",
+        "/Excavator_Fangshan_05/arm_prim/Visuals/GS/small_arm",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/bucket_without_teeth",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_01_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_01_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_02_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_02_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_03_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_03_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_04_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_04_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_05_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_05_back"
+      ],
+      "visualization_variants": [
+        {
+          "path": "/Excavator_Fangshan_05",
+          "choices": [
+            "3dgs",
+            "overlay_urdf",
+            "source_mesh",
+            "urdf_original",
+            "urdf_reference"
+          ]
+        }
+      ]
+    },
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    }
+  },
+  "full_source_mesh_bvh_v4": {
+    "status": "data_collected",
+    "buffers": 31,
+    "process": {
+      "command": [
+        "/root/isaacsim/python.sh",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/probe_case.py",
+        "--out",
+        "/root/gpufree-data/diagnostics/motion_bvh_20260917_032416/cases/full_source_mesh_bvh_v4",
+        "--geometry",
+        "full",
+        "--source",
+        "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda",
+        "--exclude-gaussians",
+        "--bvh",
+        "1",
+        "--multi",
+        "1",
+        "--frames",
+        "90"
+      ],
+      "started_at": 1789617013.5556414,
+      "pid": 1025506,
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_seconds": 21.20325694605708,
+      "finished_at": 1789617034.758906
+    },
+    "complete_buffers": 31,
+    "counts": [
+      784,
+      785,
+      786,
+      787,
+      788
+    ],
+    "gaussian_error_count": 0,
+    "motion_disabled_warning_count": 0,
+    "saved_points": 7858,
+    "saved_near_hits_lt8m": 1718,
+    "geometry": {
+      "Xform": 214,
+      "Scope": 34,
+      "Cube": 7,
+      "PhysicsFixedJoint": 1,
+      "Camera": 6,
+      "": 7,
+      "DomeLight": 2,
+      "SphereLight": 2,
+      "DistantLight": 1,
+      "Mesh": 142,
+      "Material": 142,
+      "Shader": 268,
+      "PhysicsScene": 1,
+      "Plane": 1,
+      "BasisCurves": 7,
+      "Sphere": 8,
+      "PhysicsRevoluteJoint": 4,
+      "RenderVar": 2
+    },
+    "isolation": {
+      "excluded_gaussians": [
+        "/Excavator_Fangshan_05/track_prim/Visuals/GS/track",
+        "/Excavator_Fangshan_05/cab_prim/Visuals/GS/operator_cab",
+        "/Excavator_Fangshan_05/boom_prim/Visuals/GS/boom",
+        "/Excavator_Fangshan_05/arm_prim/Visuals/GS/small_arm",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/bucket_without_teeth",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_01_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_01_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_02_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_02_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_03_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_03_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_04_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_04_back",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_05_front",
+        "/Excavator_Fangshan_05/bucket_prim/Visuals/GS/tooth_05_back"
+      ],
+      "visualization_variants": [
+        {
+          "path": "/Excavator_Fangshan_05",
+          "choices": [
+            "3dgs",
+            "overlay_urdf",
+            "source_mesh",
+            "urdf_original",
+            "urdf_reference"
+          ],
+          "selected": "source_mesh"
+        }
+      ]
+    },
+    "effective_settings": {
+      "/renderer/raytracingMotion/enabled": true,
+      "/renderer/raytracingMotion/enableHydraEngineMasking": false,
+      "/renderer/raytracingMotion/enabledForHydraEngines": null,
+      "/rtx/hydra/supportMultiTickRate": true,
+      "/rtx/rendering/perSensorTickTlas": true,
+      "/app/useFabricSceneDelegate": true
+    }
+  }
+}

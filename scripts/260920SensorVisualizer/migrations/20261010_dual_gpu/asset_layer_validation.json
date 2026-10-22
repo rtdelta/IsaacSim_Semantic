@@ -1,0 +1,165 @@
+{
+  "exit_code": 0,
+  "stderr": "",
+  "probe": {
+    "layers": [
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_16_terrain_fisheye.usda",
+        "references": [
+          "../environment_module_set/UndulatingGround_20260922/terrain.usdc",
+          "combine_scene_15_surround_fisheye.usda"
+        ],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_15_surround_fisheye.usda",
+        "references": [
+          "../sensor_set/camera_set/fish_eye_camera/fish_eye_camera.usda",
+          "combine_scene_13_3dgs_contract.usda"
+        ],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_13_3dgs_contract.usda",
+        "references": [
+          "../environment_module_set/NvidiaGrid_6_0/default_environment.usd",
+          "../environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+          "../excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+          "../sensor_set/lidar_set/MyAiry/MyAiry.usda",
+          "../sensor_set/lidar_set/NZ3/MyNZ3.usda"
+        ],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/MyNZ3.usda",
+        "references": [
+          "./config/NZ3_scan.usda",
+          "./geometry/NZ3_housing.usda"
+        ],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/geometry/NZ3_housing.usda",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/NZ3/config/NZ3_scan.usda",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/MyAiry.usda",
+        "references": [
+          "./config/MyAiry_scan.usda"
+        ],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/lidar_set/MyAiry/config/MyAiry_scan.usda",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+        "references": [
+          "./geometry/arm.usdc",
+          "./geometry/boom.usdc",
+          "./geometry/bucket.usdc",
+          "./geometry/cab.usdc",
+          "./geometry/track.usdc"
+        ],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/track.usdc",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/cab.usdc",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/bucket.usdc",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/boom.usdc",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/geometry/arm.usdc",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+        "references": [
+          "./SubUSDs/changjing4.usd",
+          "./SubUSDs/textures/langan.usdz"
+        ],
+        "asset_paths": [
+          "./SubUSDs/textures/grasslands_sunset_4k.exr"
+        ]
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/NvidiaGrid_6_0/default_environment.usd",
+        "references": [],
+        "asset_paths": [
+          "OmniPBR.mdl",
+          "./Materials/Textures/WireframeBlur_blue.png",
+          "./Materials/Textures/Wireframe_blue.png",
+          "./Materials/Textures/WireframeBlur_basecolor.png"
+        ]
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/sensor_set/camera_set/fish_eye_camera/fish_eye_camera.usda",
+        "references": [],
+        "asset_paths": []
+      },
+      {
+        "path": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/UndulatingGround_20260922/terrain.usdc",
+        "references": [],
+        "asset_paths": [
+          "./textures/color_0C0C0C.exr"
+        ]
+      }
+    ],
+    "layer_count": 18,
+    "missing": [],
+    "external_urls": [],
+    "package_references": [
+      {
+        "layer": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+        "reference": "./SubUSDs/changjing4.usd",
+        "member_exists": true,
+        "checked": "local zip member name; nested layers not composed"
+      },
+      {
+        "layer": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+        "reference": "./SubUSDs/textures/langan.usdz",
+        "member_exists": true,
+        "checked": "local zip member name; nested layers not composed"
+      },
+      {
+        "layer": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/static_completed_environment_set/environment_Fangshan_02.usdz",
+        "reference": "./SubUSDs/textures/grasslands_sunset_4k.exr",
+        "member_exists": true,
+        "checked": "local zip member name; nested layers not composed"
+      }
+    ],
+    "installed_mdl": [
+      {
+        "reference": "OmniPBR.mdl",
+        "installed_candidates": [
+          "/root/isaacsim/kit/mdl/core/Base/OmniPBR.mdl"
+        ]
+      }
+    ],
+    "mode": "Sdf local layers only; no Stage composition or Kit rendering"
+  }
+}

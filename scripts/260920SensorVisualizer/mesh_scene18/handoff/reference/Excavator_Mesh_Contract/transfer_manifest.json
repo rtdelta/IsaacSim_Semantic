@@ -1,0 +1,37 @@
+[
+  {
+    "path": "Excavator_Mesh_Contract.usda",
+    "bytes": 14186,
+    "sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c"
+  },
+  {
+    "path": "geometry/arm_link.usdc",
+    "bytes": 2924544,
+    "sha256": "b0bccbb60fc31e8e0c6acc5cfc73700fe245e61668ebb01b9ff3f3e32748fbd1"
+  },
+  {
+    "path": "geometry/boom_link.usdc",
+    "bytes": 7162895,
+    "sha256": "aecae49a382971ee31a345c74ce440c87f73923494e87fa2bad2e482bc48ee60"
+  },
+  {
+    "path": "geometry/bucket_link.usdc",
+    "bytes": 2261024,
+    "sha256": "5ec52bc689ce3f55c60a722822942ebd73c6928ef80ade83e8b48b4ad040f526"
+  },
+  {
+    "path": "geometry/swing_link.usdc",
+    "bytes": 14694190,
+    "sha256": "bf4d45a4e4ef614dc39ed771374dfc8b013d7acdb431ea2147239ae9526a5007"
+  },
+  {
+    "path": "geometry/track_link.usdc",
+    "bytes": 12789441,
+    "sha256": "79f7c07929c318bd231a8025e7ad551b2f00013f7b77b2e5ba688bc93bd03f32"
+  },
+  {
+    "path": "manifest.json",
+    "bytes": 14196,
+    "sha256": "9fd54c3a89576df1551da91c071b7085d6ea58d1580a69891dd59c2872a53eb5"
+  }
+]

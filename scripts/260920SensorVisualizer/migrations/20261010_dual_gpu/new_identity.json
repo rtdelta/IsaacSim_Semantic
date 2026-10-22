@@ -1,0 +1,13 @@
+{
+  "hostname": "gpufree-container",
+  "machine_id_sha256": "a22ca394e54dabd7613ed99140e85fe62c9e5b92f160d0451cd893e2b46a0017",
+  "disk": {
+    "total": 157396975616,
+    "used": 2125824,
+    "free": 157378072576
+  },
+  "root_entries": [
+    "lost+found"
+  ],
+  "gpu": "0, GPU-dd705158-62c7-b406-a93d-952e4643bda5, NVIDIA L40, 46068 MiB\n1, GPU-a9910171-024e-c4ba-faf4-26f8321c7f77, NVIDIA L40, 46068 MiB"
+}

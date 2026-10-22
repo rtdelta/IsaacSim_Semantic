@@ -1,0 +1,9 @@
+{
+  "schema_version": 3,
+  "mode": "offline",
+  "scheduling": {
+    "cooperative_yield_ms": 50,
+    "yield_only_with_owner": true,
+    "cpu_nice": 0
+  }
+}

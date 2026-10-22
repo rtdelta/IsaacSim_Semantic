@@ -1,0 +1,85 @@
+FILE_TYPES {".so": 48, ".md": 1, ".toml": 2, ".0": 4, ".57": 1, ".61": 4, ".2": 1, ".3": 1, ".12": 3, ".5": 1, ".8": 2, ".1": 1}
+TEXT_FILES []
+NORMAL_BUILD 
+/root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000184b96>::_M_default_append(unsigned long)@@Base+0x12f06>:
+  184b96:	mov    (%rsp),%rax
+  184b9a:	lea    0x2520c6(%rip),%rsi        # 3d6c67
+  184ba1:	mov    %r12,%rdi
+  184ba4:	call   *0x3a8(%rax)
+  184baa:	mov    $0xd,%ecx
+  184baf:	xor    %eax,%eax
+  184bb1:	mov    %r13,%rdi
+  184bb4:	mov    %ebp,%esi
+  184bb6:	rep stos %rax,%es:(%rdi)
+  184bb9:	mov    0xa00(%rbx),%rdi
+  184bc0:	call   *0xd0(%r15)
+  184bc7:	mov    %rax,0xc8(%rsp)
+  184bcf:	mov    0xc00(%rbx),%rdi
+  184bd6:	mov    %ebp,%esi
+  184bd8:	movq   $0x0,0xc0(%rsp)
+  184be4:	call   *0xa0(%r15)
+  184beb:	lea    0x20(%rsp),%r15
+  184bf0:	mov    (%rsp),%rbx
+  184bf4:	mov    %r13,%rsi
+  184bf7:	mov    %r12,%rdi
+  184bfa:	lea    0x3592bf(%rip),%rbp        # 4ddec0>::lookup_collatename<char const*>(char const*, char const*) const::__collatenames@@Base+0x1060>
+  184c01:	vmovq  %r15,%xmm3
+  184c06:	mov    %rax,0xd0(%rsp)
+  184c0e:	vpinsrq $0x1,%rbp,%xmm3,%xmm2
+  184c14:	movq   $0x0,0xd8(%rsp)
+  184c20:	movb   $0x0,0x120(%rsp)
+  184c28:	movq   $0x0,0xe0(%rsp)
+  184c34:	movq   $0x0,0xf8(%rsp)
+  184c40:	vmovdqa %xmm2,0x10(%rsp)
+  184c46:	call   *0x448(%rbx)
+  184c4c:	mov    0xc8(%rsp),%rax
+  184c54:	vpxor  %xmm0,%xmm0,%xmm0
+  184c58:	xor    %ecx,%ecx
+  184c5a:	xor    %edx,%edx
+  184c5c:	vmovdqa %xmm0,0x60(%rsp)
+  184c62:	mov    %r12,%rdi
+  184c65:	lea    0x80(%rsp),%rsi
+  184c6d:	mov    %rax,0x68(%rsp)
+  184c72:	mov    0x24964f(%rip),%rax        # 3ce2c8
+  184c79:	vmovdqa %xmm0,0x70(%rsp)
+  184c7f:	mov    %rax,0x70(%rsp)
+  184c84:	lea    0x60(%rsp),%rax
+  184c89:	movq   $0x0,0xb0(%rsp)
+  184c95:	mov    %rax,0xa0(%rsp)
+  184c9d:	movq   $0x1,0xa8(%rsp)
+  184ca9:	vmovdqa %xmm0,0x80(%rsp)
+  184cb2:	vmovdqa %xmm0,0x90(%rsp)
+  184cbb:	call   *0x2f8(%rbx)
+  184cc1:	mov    %r12,%rdi
+  184cc4:	call   *0x3b0(%rbx)
+  184cca:	cmpb   $0x0,0x55(%rsp)
+  184ccf:	je     184a56>::_M_default_append(unsigned long)@@Base+0x12dc6>
+  184cd5:	movzbl 0x3591c4(%rip),%eax        # 4ddea0>::lookup_collatename<char const*>(char const*, char const*) const::__collatenames@@Base+0x1040>
+  184cdc:	test   %al,%al
+  184cde:	je     184fc0>::_M_default_append(unsigned long)@@Base+0x13330>
+  184ce4:	lea    0x2405a5(%rip),%rax        # 3c5290>::_M_rehash(unsigned long, unsigned long const&)@@Base+0x92780>
+  184ceb:	mov    %rax,0x20(%rsp)
+  184cf0:	mov    0x2522d9(%rip),%rax        # 3d6fd0
+  184cf7:	mov    %rax,0x28(%rsp)
+  184cfc:	mov    0x3591cd(%rip),%rax        # 4dded0>::lookup_collatename<char const*>(char const*, char const*) const::__collatenames@@Base+0x1070>
+  184d03:	test   %rax,%rax
+  184d06:	je     185071>::_M_default_append(unsigned long)@@Base+0x133e1>
+  184d0c:	mov    0x3591c6(%rip),%ebx        # 4dded8>::lookup_collatename<char const*>(char const*, char const*) const::__collatenames@@Base+0x1078>
+  184d12:	cmp    %ebx,0x28(%rsp)
+  184d16:	je     185056>::_M_default_append(unsigned long)@@Base+0x133c6>
+  184d1c:	vmovdqa 0x10(%rsp),%xmm4
+  184d22:	lea    0x30(%rsp),%rdi
+  184d27:	lea    0x23eeba(%rip),%rsi        # 3c3be8>::_M_rehash(unsigned long, unsigned long const&)@@Base+0x910d8>
+  184d2e:	xor    %eax,%eax
+  184d30:	vmovdqa %xmm4,0x30(%rsp)
+  184d36:	call   53880>::_M_release()@@Base+0x1c0>
+  184d3b:	call   2c3a0
+
+RELEVANT_STRINGS /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.scenedb.plugin.so [" 3c73b0 SceneDB : failed to allocate motion instance row", " 3d62b3 eGaussians", " 3d62be eGaussiansParticleField", " 3d6688 PreprocessedGaussians::releaseGpuResources", " 3d66b8 ../../../source/plugins/rtx.scenedb/PreprocessedGaussians.cpp", " 3d6760 PreprocessedGaussians::internalInitialize", " 3d67c8 Gaussians \"%s\": Max gaussian count has to be less than 2^24 for every prim. Skip loading the excessive gaussians... Please break the asset into separate prims.", " 3d6868 rtx::RtxResult rtx::scenedb::PreprocessedGaussians::createInstanceBuffer(omni::span<carb::graphics::RaytracingInstanceDesc>)", " 3d68e8 PreprocessedGaussians::createInstanceBuffer", " 3d6918 Failed to obtain IBuffer for PreprocessedGaussian instance list buffer", " 3d6960 PreprocessedGaussians::updateGpuResources", " 3d6990 Failed to update Gaussian GeometryGroup", " 3d6a10 Failed to create PreprocessedGaussians: Ray query is not supported on device %d", " 3d6a60 void rtx::scenedb::PreprocessedGaussians::buildTlas(carb::graphics::CommandList*, uint32_t, rtx::scenedb::AccelStructMode, bool) const", " 3d6ae8 PreprocessedGaussians::buildTlas", " 3d6b10 Gaussians do not support motion BVH", " 3d6b38 Gaussians do not support refit", " 3d6b58 Skip building TLAS for gaussians %s, because gaussian count is 0", " 3d6bad Gaussian GeometryGroup", " 3d6c30 Gaussian TLAS: ", " 3d6c67 Gaussian TLAS build", " 3d6e80 N3rtx7scenedb21PreprocessedGaussiansE", " 3db31e create PreprocessedGaussians", " 3db33b createPreprocessedGaussians", " 3db5e0 hasValidGeometryType(geometryId, { Geometry::GeometryType::ePreprocessedStaticMesh, Geometry::GeometryType::ePreprocessedAnimatedMesh, Geometry::GeometryType::ePreprocessedSkeletalMesh, Geometry::GeometryType::ePreprocessedStaticProceduralPrimitive, Geometry::GeometryType::ePreprocessedGaussians, Geometry::GeometryType::ePreprocessedGaussiansParticleField })", " 3dc198 Gaussian prim loaded: %s, count=%zu", " 3e0140 ShaderFeatureMotionInstanceSupport", " 3e0168 Shader Feature: Motion Instance Support", " 3e02f8 Total gaussians across all gaussian prims", " 3e15a2 Gaussian", " 3e15ab Gaussian BVH", " 3e15b8 Number of gaussian prims", " 3e2eb3 MotionInstanceDescGPU"]
+RELEVANT_STRINGS /root/isaacsim/extscache/omni.hydra.rtx-1.0.4+f9bf0dda.lx64.r/bin/deps/librtx.raytracing.plugin.so [" 1cf619 Gaussian mask", " 1cf6d8 /rtx/rtpt/gaussian/accumulatedDepth/enabled", " 1cf708 /rtx/rtpt/gaussian/accumulatedDepth/allHits/enabled", " 1cf740 /rtx/rtpt/gaussian/accumulatedAlbedo/enabled"]
+

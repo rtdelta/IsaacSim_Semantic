@@ -1,0 +1,13 @@
+{
+  "groups": 8,
+  "repetitions": 2,
+  "trajectory": "/root/gpufree-data/semantic/output/sensor_visualizer/v06/benchmarks/1791604257379431843_v05/input_trajectory",
+  "cases": [
+    {"name":"gated_moving","policy":"gated","pose":"moving"},
+    {"name":"keepalive_moving","policy":"keepalive","pose":"moving"},
+    {"name":"gated_static","policy":"gated","pose":"static"},
+    {"name":"keepalive_static","policy":"keepalive","pose":"static"}
+  ],
+  "trace_windows": ["initialize","steady","cleanup"],
+  "quality": {"camera_subframes":16,"capture_subframes":2,"warmup_subframes":4}
+}

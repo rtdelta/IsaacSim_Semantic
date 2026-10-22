@@ -1,0 +1,8 @@
+{
+  "specs": [
+    "config/experiments/e2_room_r01.json",
+    "config/experiments/e2_room_r02.json",
+    "config/experiments/e2_room_r03.json"
+  ],
+  "continue_after_failed_case": false
+}

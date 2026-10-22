@@ -1,0 +1,4 @@
+[
+  ["full_original_bvh_v3", ["--geometry", "full", "--source", "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda", "--bvh", "1", "--multi", "1", "--frames", "90", "--timeout", "180"]],
+  ["full_mesh_bvh_v3", ["--geometry", "full", "--source", "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11_origin03.usda", "--exclude-gaussians", "--bvh", "1", "--multi", "1", "--frames", "90", "--timeout", "180"]]
+]

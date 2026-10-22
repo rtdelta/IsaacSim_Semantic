@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260917_bvh_causality_083739/evidence/CASE_INDEX.md",
+      "destination": "scripts/260917_bvh_causality_083739/docs/reports/evidence/CASE_INDEX.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 2677,
+      "original_sha256": "bac68b71cc5c39b70372e6011699d58793a434c14e8e6c822f371ea78e9295dc",
+      "copied_sha256": "bac68b71cc5c39b70372e6011699d58793a434c14e8e6c822f371ea78e9295dc",
+      "copy_verified": true,
+      "current_sha256": "bac68b71cc5c39b70372e6011699d58793a434c14e8e6c822f371ea78e9295dc",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260917_bvh_causality_083739/evidence/REPORT.md",
+      "destination": "scripts/260917_bvh_causality_083739/docs/reports/evidence/REPORT.md",
+      "kind": "report",
+      "action": "move",
+      "bytes": 13896,
+      "original_sha256": "9da49e039208ca07bf6358e2ef4fc09198f61c44d0ca2292220d1e42d6ee2dea",
+      "copied_sha256": "9da49e039208ca07bf6358e2ef4fc09198f61c44d0ca2292220d1e42d6ee2dea",
+      "copy_verified": true,
+      "current_sha256": "9da49e039208ca07bf6358e2ef4fc09198f61c44d0ca2292220d1e42d6ee2dea",
+      "reference_edits": false
+    },
+    {
+      "source": "scripts/260917_bvh_causality_083739/evidence/camera_only_comparison_v2.png",
+      "destination": "scripts/260917_bvh_causality_083739/docs/reports/evidence/camera_only_comparison_v2.png",
+      "kind": "figure",
+      "action": "copy",
+      "bytes": 420137,
+      "original_sha256": "df7726d17f963930678039aae2d4d2dbb1812f20f786970d1c48f4481979cecb",
+      "copied_sha256": "df7726d17f963930678039aae2d4d2dbb1812f20f786970d1c48f4481979cecb",
+      "copy_verified": true,
+      "current_sha256": "df7726d17f963930678039aae2d4d2dbb1812f20f786970d1c48f4481979cecb",
+      "reference_edits": false
+    }
+  ]
+}

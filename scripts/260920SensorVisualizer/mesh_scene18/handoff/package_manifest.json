@@ -1,0 +1,166 @@
+{
+  "schema": "mesh_handoff_file_manifest_v1",
+  "hash_scope": "All package files except this manifest; observed consistency hashes, not a signature",
+  "files": [
+    {
+      "path": "evidence/alignment.json",
+      "bytes": 3967,
+      "sha256": "f0c8020195071f7520a585b31e2954fa750ced099d6bb4058d19e2e76cd4554a"
+    },
+    {
+      "path": "evidence/final_verification.json",
+      "bytes": 591,
+      "sha256": "fd9c8490165fd7f16d3b1d7550d298c643edcbd4c99db56c92b5a698f8fc4381"
+    },
+    {
+      "path": "evidence/latest_capture.json",
+      "bytes": 108,
+      "sha256": "de079ebe48a67929ee70e204a29aca4ecbafa57f4ba8390725d7ebeb784646f0"
+    },
+    {
+      "path": "evidence/operation_record.md",
+      "bytes": 2059,
+      "sha256": "7da401223aee41f13ad620e84a75ecb81b1a2c72d70adbaf24aa0dd646039a36"
+    },
+    {
+      "path": "evidence/rebuild_verification.json",
+      "bytes": 3873,
+      "sha256": "6506cee613012ff28f4be4ce136eb99e10067d4982b5c6678e29833fcf36da8d"
+    },
+    {
+      "path": "evidence/source_facts.json",
+      "bytes": 99378,
+      "sha256": "245927b7aa66a04da8e3f1b4995e8495f0e2479cc56bcd78bc6c72e69e6e8c5f"
+    },
+    {
+      "path": "evidence/validation.json",
+      "bytes": 6890,
+      "sha256": "f50b8a2596b003e91879e947a9d4e5caf967fec1bb024cf705f5eb680e51217b"
+    },
+    {
+      "path": "inputs/rig_template.usda",
+      "bytes": 14186,
+      "sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c"
+    },
+    {
+      "path": "inputs/transfer_manifest.json",
+      "bytes": 161,
+      "sha256": "cf44d089f2f5f0327107da6dab9eb24b8a8d20d3edc3229514c73947516491d2"
+    },
+    {
+      "path": "inputs/waji_mesh_corrected.usdc",
+      "bytes": 62465254,
+      "sha256": "53098b1b4954c5fa88298569950941389e9a7c718584d23a85e379af477e28a0"
+    },
+    {
+      "path": "kinematics_contract.json",
+      "bytes": 1436,
+      "sha256": "3c6c1bbb7a89215f243260c2c337b0eb6c8e87e15d792ba7fe4748d8f2b3a1d4"
+    },
+    {
+      "path": "launch_usd.py",
+      "bytes": 1460,
+      "sha256": "4d0174ec4451a58be4de0be07e8713e267b02d6bdbbec5efd7cc1cdbbb78be08"
+    },
+    {
+      "path": "MeshRawToExcavator_Reconstruction_Handoff.md",
+      "bytes": 30582,
+      "sha256": "19c2c354245f2f49ae9d70124f2df1b0b9d6373a9434b899209134da0088204c"
+    },
+    {
+      "path": "provenance/20261012_scene17_mesh_excavator_implementation_plan.md",
+      "bytes": 5646,
+      "sha256": "bc6a9e3011f8f34c40ee2bb31e772f518b4fd40a0b5e73f9ef4c5da82a9f8533"
+    },
+    {
+      "path": "provenance/20261012_scene18_mesh_excavator_execution_report.md",
+      "bytes": 6762,
+      "sha256": "cbb696d9516e136ae2150e36cf594215ae066dbc0dea79d64a79cb491419851d"
+    },
+    {
+      "path": "provenance/analyze_alignment.py",
+      "bytes": 4437,
+      "sha256": "b9d9f252257f87779d248327d80ecd50776be82b15efe25530f529218f748425"
+    },
+    {
+      "path": "provenance/build_assets.py",
+      "bytes": 7241,
+      "sha256": "46c961ad85a19135409d6e63212187529237e416262284214906e17a2a892eb1"
+    },
+    {
+      "path": "provenance/extract_handoff.py",
+      "bytes": 6028,
+      "sha256": "34207283ce1dbf043e2636a42c40dc6428d0e072dfabb3ea78c872d78fff7a49"
+    },
+    {
+      "path": "provenance/validate_assets.py",
+      "bytes": 6914,
+      "sha256": "24d0cb08bace123bdb6bc5059f03d17c83875faaa1bdc246b7be9cb3634a3f55"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1842,
+      "sha256": "11afc6607d68c0a0f675304fb51cacc617910c1f7952de89978a2336330c4961"
+    },
+    {
+      "path": "rebuild.py",
+      "bytes": 5607,
+      "sha256": "fdafa5853d463365ee41cab3e8718c0d68ed9e1f17537d401fb1200cd447e613"
+    },
+    {
+      "path": "reconstruction.json",
+      "bytes": 18982,
+      "sha256": "6e067b4933a31f1dfbf1a7e5c64e2efae98707c16504dbe7c55d323f8cd4cfb5"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/Excavator_Mesh_Contract.usda",
+      "bytes": 14186,
+      "sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/geometry/arm_link.usdc",
+      "bytes": 2924544,
+      "sha256": "b0bccbb60fc31e8e0c6acc5cfc73700fe245e61668ebb01b9ff3f3e32748fbd1"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/geometry/boom_link.usdc",
+      "bytes": 7162895,
+      "sha256": "aecae49a382971ee31a345c74ce440c87f73923494e87fa2bad2e482bc48ee60"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/geometry/bucket_link.usdc",
+      "bytes": 2261024,
+      "sha256": "5ec52bc689ce3f55c60a722822942ebd73c6928ef80ade83e8b48b4ad040f526"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/geometry/swing_link.usdc",
+      "bytes": 14694190,
+      "sha256": "bf4d45a4e4ef614dc39ed771374dfc8b013d7acdb431ea2147239ae9526a5007"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/geometry/track_link.usdc",
+      "bytes": 12789441,
+      "sha256": "79f7c07929c318bd231a8025e7ad551b2f00013f7b77b2e5ba688bc93bd03f32"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/manifest.json",
+      "bytes": 14196,
+      "sha256": "9fd54c3a89576df1551da91c071b7085d6ea58d1580a69891dd59c2872a53eb5"
+    },
+    {
+      "path": "reference/Excavator_Mesh_Contract/transfer_manifest.json",
+      "bytes": 1091,
+      "sha256": "23bc10e02c68df0ceada1f7709dbcaeb029b9d0ee343120112997de8bd570555"
+    },
+    {
+      "path": "scene_context/combine_scene_18_terrain_fisheye_mesh.usda",
+      "bytes": 383900,
+      "sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79"
+    },
+    {
+      "path": "verify_package.py",
+      "bytes": 878,
+      "sha256": "a3e82c10404348343c396059a67a5199eed9544afde363d2f216dfadaeee50a3"
+    }
+  ]
+}

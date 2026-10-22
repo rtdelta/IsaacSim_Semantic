@@ -1,0 +1,107 @@
+{
+  "state": "passed",
+  "native_viewport_physical_input": "not tested",
+  "coordinate_position_tolerance_m": 3e-05,
+  "angle_tolerance_deg": 0.001,
+  "mode_toggles": 20,
+  "startup": {
+    "frame_contract_version": "s0602_track_equivalent_v1",
+    "root_frame": "swing_coordinate",
+    "horizontal_frame": "swing_horizontal_coordinate",
+    "keyboard_translation_frame": "swing_horizontal_coordinate",
+    "cab_track_angle_rad": 0.0,
+    "cab_track_angle_source": "assumed_zero",
+    "asset_origin_version": "scene18_contract_base_link_raw_reconstruction_v1",
+    "swing_zero_mapping": {
+      "joint_name": "swing",
+      "native_zero_rad": 0.0,
+      "engineering_zero_rad": 0.0,
+      "angle_source": "assumed_zero",
+      "tolerance_rad": 1e-05,
+      "declared_angle_zero": "Raw reconstruction bind; no old URDF/bag_2 offsets",
+      "evidence": "Pinned asset: swing joint angleZero customData; Z axis, identity localRot0/localRot1, targetPosition=0; track-to-cab localPos0=(0,0,0.6) retained"
+    },
+    "startup_swing_native_rad": 0.0,
+    "swing_zero_readback": {
+      "native_angle_rad": 0.0,
+      "engineering_angle_rad": 0.0,
+      "angle_source": "assumed_zero",
+      "error_rad": 0.0,
+      "verified": true
+    },
+    "root_in_reference_row_matrix": [
+      [
+        0.9999999999999998,
+        2.3852447794681086e-18,
+        -0.0,
+        0.0
+      ],
+      [
+        -4.1199682554449145e-18,
+        0.9999999999999998,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.9999999999999998,
+        0.0
+      ],
+      [
+        -1.1102230246251563e-16,
+        4.440892098500625e-16,
+        -5.5511151231257815e-17,
+        1.0
+      ]
+    ]
+  },
+  "coordinate_checks": [
+    {
+      "heading_deg": 0,
+      "dt_s": 0.015720400586724262,
+      "delta_m": [
+        0.005558013916015625,
+        0.005558013916015625,
+        0.0
+      ],
+      "max_error_m": 1.2987094772862195e-08
+    },
+    {
+      "heading_deg": 90,
+      "dt_s": 0.015424968488514434,
+      "delta_m": [
+        -0.005453526973724365,
+        0.005453586578369141,
+        0.0
+      ],
+      "max_error_m": 3.666946045682157e-08
+    },
+    {
+      "heading_deg": 180,
+      "dt_s": 0.01562032792717219,
+      "delta_m": [
+        -0.005522608757019043,
+        -0.005522608757019043,
+        0.0
+      ],
+      "max_error_m": 1.1143811489908173e-08
+    },
+    {
+      "heading_deg": -90,
+      "dt_s": 0.015338112786412256,
+      "delta_m": [
+        0.005422830581665039,
+        -0.005422830581665039,
+        0.0
+      ],
+      "max_error_m": 1.1199273060140402e-08
+    }
+  ],
+  "trajectory": "/root/gpufree-data/semantic/output/sensor_visualizer/single0602Headless/trajectories/20261015_163638_403178_3dcefb",
+  "duration_s": 0.45131316501647256,
+  "rows": 303,
+  "session_id": "ec1f4e59ac0340c5bd85d37765799e33",
+  "control_events": 155,
+  "interactive_socket_closed": true
+}

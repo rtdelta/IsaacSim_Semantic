@@ -1,0 +1,9 @@
+{
+  "archive": "/root/gpufree-data/.migration_sensor_20261010_dual/assets_and_code.tar.gz",
+  "archive_bytes": 1787585333,
+  "archive_sha256": "693288517fa655f7f1d136f560213734f01de2bcda7258d27092b6e030d2bdc3",
+  "manifest_sha256": "3b368521d88e7c71202cc2c65b112b911fc8003f4f7fd1e92e65e56e737642e4",
+  "files": 1663,
+  "source_bytes": 2532507983,
+  "elapsed_s": 66.975263023749
+}

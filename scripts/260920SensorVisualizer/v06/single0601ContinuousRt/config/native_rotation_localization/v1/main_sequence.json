@@ -1,0 +1,116 @@
+{
+  "id": "main_m01",
+  "runs": [
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r01_m01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R6P_r01_m01.json",
+      "condition": "A3",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R6P_r01_m01.json",
+      "condition": "B1",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R6P_r01_m01.json",
+      "condition": "B2",
+      "profile": "R6P",
+      "repeat": "r01",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R6P_r02_m01.json",
+      "condition": "B2",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R6P_r02_m01.json",
+      "condition": "B1",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R6P_r02_m01.json",
+      "condition": "A3",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r02_m01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r02",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A3_R6P_r03_m01.json",
+      "condition": "A3",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "blocked_missing_local_official_USD"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/A0_R6P_r03_m01.json",
+      "condition": "A0",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B2_R6P_r03_m01.json",
+      "condition": "B2",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    },
+    {
+      "spec": "config/native_rotation_localization/v1/specs/B1_R6P_r03_m01.json",
+      "condition": "B1",
+      "profile": "R6P",
+      "repeat": "r03",
+      "targets": 100,
+      "phase": "M1",
+      "capability": "qualification_pending"
+    }
+  ],
+  "max_batch_runs": 4,
+  "reserve_bytes": 8589934592,
+  "requires_lock": true
+}

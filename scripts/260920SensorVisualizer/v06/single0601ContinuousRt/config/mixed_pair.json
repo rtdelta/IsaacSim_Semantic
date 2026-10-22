@@ -1,0 +1,57 @@
+{
+  "schema_version": 4,
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+  "sensors": {
+    "camera_ids": [
+      "front"
+    ],
+    "lidar_ids": [
+      "MyAiry_front"
+    ]
+  },
+  "clock": {
+    "physics_hz": 60,
+    "loop_hz": 60,
+    "sample_hz": 10
+  },
+  "capture": {
+    "backend": "auto_verified",
+    "policy": "strict_complete",
+    "requested_groups": 300,
+    "max_inflight_groups": 3,
+    "group_timeout_wall_s": 5.0,
+    "source_time_tolerance_ns": 2,
+    "translation_tolerance_m": 0.001,
+    "rotation_tolerance_rad": 0.0001,
+    "state_history_max_records": 1024,
+    "runtime_fallback": false
+  },
+  "render": {
+    "mode": "RealTimePathTracing",
+    "dlss_mode": 2,
+    "aa_mode": 3,
+    "frame_generation": false,
+    "formal_subframes": 1,
+    "initial_warmup_min_updates": 8,
+    "initial_warmup_max_updates": 120,
+    "motion_blur": false
+  },
+  "pipeline": {
+    "max_buffer_bytes": 536870912,
+    "slot_bytes": 67108864,
+    "encoder_workers": 4,
+    "encoded_queue_groups": 2,
+    "png_compress_level": 1,
+    "segment_groups": 1000
+  },
+  "output": {
+    "directory": "/root/gpufree-data/semantic/output/single0601ContinuousRt",
+    "require_readback_validation": true,
+    "image_codec": "png_lossless",
+    "point_fields": [
+      "x",
+      "y",
+      "z"
+    ]
+  }
+}

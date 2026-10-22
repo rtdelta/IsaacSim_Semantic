@@ -1,0 +1,61 @@
+{
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_11.usda",
+  "scene_sha256": "5f0d7a91568a7e44c796d1e62b75ea0c5ca838f890c45a115aa8d0ab1f29c437",
+  "source_file_count": 74,
+  "changed_source_files": [],
+  "authored_subtrees_identical": {
+    "/World/Cube": true,
+    "/World/Stage10BaseAnchor": true,
+    "/World/Stage10SensorPipeline": true,
+    "/Excavator_Fangshan_05": true,
+    "/Environment": true,
+    "/PhysicsScene": true,
+    "/Render": true
+  },
+  "environment_scale": 2.5,
+  "world_pivot_m": [
+    -1.183046737960458,
+    1.5663421562003612,
+    0.0
+  ],
+  "environment_mesh_count": 127,
+  "max_expected_bound_error_m": 1.4210854715202004e-14,
+  "max_unchanged_transform_error": 8.881784197001252e-16,
+  "grid_size_before_m": [
+    100.0,
+    100.0,
+    0.0
+  ],
+  "grid_size_after_m": [
+    250.0,
+    250.0,
+    0.0
+  ],
+  "structural_passed": true,
+  "runtime_passed": true,
+  "sensor_count": 14,
+  "scan_counts": {
+    "MyOS0_left": 5,
+    "MyOS0_front": 5,
+    "MyOS0_right": 5,
+    "MyNZ3_front": 5,
+    "MyNZ3_left": 5,
+    "MyNZ3_right": 5,
+    "MyOS0_backleft": 5,
+    "MyNZ3_backleft": 5,
+    "MyOS0_backright": 5,
+    "MyNZ3_backright": 5,
+    "MyOS0_up": 5,
+    "MyOS0_back": 5,
+    "MyNZ3_back": 5
+  },
+  "editor_authoring_layer": "./combine_scene_11.usda",
+  "light_world_transform_errors": {
+    "/Environment/defaultLight": 0.0,
+    "/environment_Fangshan_02/DomeLight": 8.881784197001252e-16,
+    "/FlatGrid/SphereLight": 0.0
+  },
+  "runtime_verified_current_scene": true,
+  "qa_process_exists": false,
+  "passed": true
+}

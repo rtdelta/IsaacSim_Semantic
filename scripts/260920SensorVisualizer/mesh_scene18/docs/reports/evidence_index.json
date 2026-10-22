@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "path_base": "repository root",
+  "records": [
+    {
+      "source": "scripts/260920SensorVisualizer/mesh_scene18/handoff/evidence/operation_record.md",
+      "destination": "scripts/260920SensorVisualizer/mesh_scene18/docs/reports/handoff/operation_record.md",
+      "kind": "report",
+      "action": "copy",
+      "bytes": 2059,
+      "original_sha256": "7da401223aee41f13ad620e84a75ecb81b1a2c72d70adbaf24aa0dd646039a36",
+      "copied_sha256": "7da401223aee41f13ad620e84a75ecb81b1a2c72d70adbaf24aa0dd646039a36",
+      "copy_verified": true,
+      "current_sha256": "7da401223aee41f13ad620e84a75ecb81b1a2c72d70adbaf24aa0dd646039a36",
+      "reference_edits": false
+    }
+  ]
+}

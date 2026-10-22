@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "articulation_roots": [
+    "/World/CET200/Geometry"
+  ],
+  "screenshot": "reports/CET200_preview.png",
+  "initial": {
+    "Hinge_Slew": {
+      "angle_deg": 0.0,
+      "anchor_error_m": 2.1512150061843633e-07
+    },
+    "Hinge_Boom": {
+      "angle_deg": 0.0,
+      "anchor_error_m": 5.761651765198007e-07
+    },
+    "Hinge_Arm": {
+      "angle_deg": 0.0,
+      "anchor_error_m": 1.0214743872672739e-06
+    },
+    "Hinge_Bucket": {
+      "angle_deg": 0.0,
+      "anchor_error_m": 1.1537142544358362e-06
+    }
+  },
+  "motion_cases": [
+    {
+      "targets_deg": {
+        "Hinge_Slew": 10,
+        "Hinge_Boom": 8,
+        "Hinge_Arm": -12,
+        "Hinge_Bucket": 15
+      },
+      "actual": {
+        "Hinge_Slew": {
+          "angle_deg": 9.999030384065415,
+          "anchor_error_m": 2.679675324535634e-07
+        },
+        "Hinge_Boom": {
+          "angle_deg": 7.998976239947713,
+          "anchor_error_m": 4.608951536746861e-07
+        },
+        "Hinge_Arm": {
+          "angle_deg": -11.996775245761729,
+          "anchor_error_m": 1.7210276949601589e-06
+        },
+        "Hinge_Bucket": {
+          "angle_deg": 14.99432611352766,
+          "anchor_error_m": 8.887355432649048e-07
+        }
+      }
+    },
+    {
+      "targets_deg": {
+        "Hinge_Slew": -10,
+        "Hinge_Boom": -8,
+        "Hinge_Arm": 12,
+        "Hinge_Bucket": -15
+      },
+      "actual": {
+        "Hinge_Slew": {
+          "angle_deg": -9.999892474327932,
+          "anchor_error_m": 3.998471587782928e-07
+        },
+        "Hinge_Boom": {
+          "angle_deg": -7.999759619913647,
+          "anchor_error_m": 5.703677300384307e-07
+        },
+        "Hinge_Arm": {
+          "angle_deg": 11.997494188303724,
+          "anchor_error_m": 1.3691140425481883e-06
+        },
+        "Hinge_Bucket": {
+          "angle_deg": -14.992598537182959,
+          "anchor_error_m": 1.3787698550727183e-06
+        }
+      }
+    }
+  ]
+}

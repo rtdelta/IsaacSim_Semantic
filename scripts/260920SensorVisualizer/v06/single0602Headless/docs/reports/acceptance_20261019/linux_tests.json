@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "tail": [
+    "test_http_receipts_and_complete_zip_roundtrip (test_web_and_lifecycle.WebTests.test_http_receipts_and_complete_zip_roundtrip) ... ok",
+    "test_independent_capture_does_not_block_gui_exit (test_web_and_lifecycle.WebTests.test_independent_capture_does_not_block_gui_exit) ... ok",
+    "test_no_live_owner_query_before_rejecting_live_capture (test_web_and_lifecycle.WebTests.test_no_live_owner_query_before_rejecting_live_capture) ... ok",
+    "",
+    "----------------------------------------------------------------------",
+    "Ran 43 tests in 1.244s",
+    "",
+    "OK"
+  ]
+}

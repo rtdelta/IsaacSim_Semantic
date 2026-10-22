@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "M3_lifecycle_01",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_02",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_03",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_04",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_05",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_06",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_07",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_08",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_09",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_10",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_11",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_12",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_13",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_14",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_15",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_16",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_17",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_18",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_19",
+      "config": "config/mixed_pair.json",
+      "motion": "moving",
+      "groups": 10
+    },
+    {
+      "name": "M3_lifecycle_20",
+      "config": "config/mixed_pair.json",
+      "motion": "static",
+      "groups": 10
+    }
+  ]
+}

@@ -1,0 +1,2957 @@
+{
+  "policy": "Preserve historical identities; no automatic deduplication.",
+  "groups": [
+    {
+      "sha256": "a7dd60ea3a08021a0fbc1541a523cff4b37ffc95069e9ae93fabc82520843904",
+      "bytes_each": 6128,
+      "paths": [
+        "docs/audits/20260916_CET200/README_部署说明.md",
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/finalize_remote/README_部署说明.md"
+      ],
+      "extra_copy_bytes": 6128
+    },
+    {
+      "sha256": "971c393188a4e7652b600a0d47087fb87fb7c7f6014d5aba35fd2a3e40512bf7",
+      "bytes_each": 5361,
+      "paths": [
+        "scripts/260916_CET200_Deploy/audit_geometry_remote.py",
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/finalize_remote/tools/audit_geometry_remote.py"
+      ],
+      "extra_copy_bytes": 5361
+    },
+    {
+      "sha256": "420f8d1d2b5b543f6cea64106ed94893d140d739ed376e4c5f20d9f80fdb0b2b",
+      "bytes_each": 9098,
+      "paths": [
+        "scripts/260916_CET200_Deploy/build_cet200.py",
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/finalize_remote/tools/build_cet200.py",
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/upload_build_remote/tools/build_cet200.py"
+      ],
+      "extra_copy_bytes": 18196
+    },
+    {
+      "sha256": "dac32a5503d7cc3577ab33237dcaa132a42151c9ec55c2db4dd27aea8d69b2d6",
+      "bytes_each": 1054,
+      "paths": [
+        "scripts/260916_CET200_Deploy/launch_job_remote.py",
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/finalize_remote/tools/launch_job_remote.py"
+      ],
+      "extra_copy_bytes": 1054
+    },
+    {
+      "sha256": "58cd174820dcf58a2d6e4365be1b04ecfeb1fe80e53a64db2ca36be9e3e190be",
+      "bytes_each": 3088,
+      "paths": [
+        "scripts/260916_CET200_Deploy/prepare_compatible_meshes.py",
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/finalize_remote/tools/prepare_compatible_meshes.py"
+      ],
+      "extra_copy_bytes": 3088
+    },
+    {
+      "sha256": "3e29f9d07a93da5216966ddadf8980834cdbc49db14b49f4d470ec528982c280",
+      "bytes_each": 628,
+      "paths": [
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/README.md",
+        "scripts/260916_origin03_horizontal/repro/deployment_sources/README.md"
+      ],
+      "extra_copy_bytes": 628
+    },
+    {
+      "sha256": "fdf98cfa8c5bba14629c494f0152dcf9120d0040aead67955185093a2d715e5e",
+      "bytes_each": 4608,
+      "paths": [
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/finalize_remote/tools/validate_cet200.py",
+        "scripts/260916_CET200_Deploy/repro/deployment_sources/upload_validate_remote/tools/validate_cet200.py",
+        "scripts/260916_CET200_Deploy/validate_cet200.py"
+      ],
+      "extra_copy_bytes": 9216
+    },
+    {
+      "sha256": "c63bb61c356e9a4953bce4cbc3a5d7b9bed5771eddd3593c503670b00a6b666e",
+      "bytes_each": 2094,
+      "paths": [
+        "scripts/260916_origin03_horizontal/repro/deployment_sources/deploy_remote/lidar_visualizer/discovery.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/discovery.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/discovery.py"
+      ],
+      "extra_copy_bytes": 4188
+    },
+    {
+      "sha256": "67147580d8b888e41ec591e1606e4f65bd20eb2466287c55f99d4fee51975d6c",
+      "bytes_each": 5270,
+      "paths": [
+        "scripts/260916_origin03_horizontal/repro/deployment_sources/deploy_remote/lidar_visualizer/joint_control.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/joint_control.py"
+      ],
+      "extra_copy_bytes": 5270
+    },
+    {
+      "sha256": "c2d9fca143d6a1acf39ba05ad0ffb9f04d7fbd34175061df9e2ee14c86541a43",
+      "bytes_each": 1441,
+      "paths": [
+        "scripts/260916_origin03_horizontal/repro/deployment_sources/deploy_remote/lidar_visualizer/motion_profile.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/motion_profile.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/motion_profile.py"
+      ],
+      "extra_copy_bytes": 2882
+    },
+    {
+      "sha256": "cce650d2524353a214939786d3f99b97ca3f21c9de76e0fd46cb5614647abcd9",
+      "bytes_each": 2151,
+      "paths": [
+        "scripts/260916_origin03_horizontal/repro/deployment_sources/deploy_remote/lidar_visualizer/reference_frames.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/reference_frames.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/reference_frames.py"
+      ],
+      "extra_copy_bytes": 4302
+    },
+    {
+      "sha256": "8d753e0dcfca1958545dab832b8c18a7f18301327680893da95ca3456205a668",
+      "bytes_each": 2018,
+      "paths": [
+        "scripts/260916_origin03_horizontal/repro/deployment_sources/deploy_remote/lidar_visualizer/render_lease.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/render_lease.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/render_lease.py"
+      ],
+      "extra_copy_bytes": 4036
+    },
+    {
+      "sha256": "287c9bf7734b847096f68fd3065f721ae02dc092013816a659ac53941dde6f57",
+      "bytes_each": 4850,
+      "paths": [
+        "scripts/260916_origin03_horizontal/repro/deployment_sources/deploy_remote/lidar_visualizer/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/robot_discovery.py"
+      ],
+      "extra_copy_bytes": 9700
+    },
+    {
+      "sha256": "bac68b71cc5c39b70372e6011699d58793a434c14e8e6c822f371ea78e9295dc",
+      "bytes_each": 2677,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/CASE_INDEX.md",
+        "scripts/260917_bvh_causality_083739/docs/reports/evidence/CASE_INDEX.md"
+      ],
+      "extra_copy_bytes": 2677
+    },
+    {
+      "sha256": "9da49e039208ca07bf6358e2ef4fc09198f61c44d0ca2292220d1e42d6ee2dea",
+      "bytes_each": 13896,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/REPORT.md",
+        "scripts/260917_bvh_causality_083739/docs/reports/evidence/REPORT.md"
+      ],
+      "extra_copy_bytes": 13896
+    },
+    {
+      "sha256": "934825034c15e58ce04bd2b277ec4e7fc5b2cef0b87364e6ffdac5b44bb5aa35",
+      "bytes_each": 461,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/after_phase2.py",
+        "scripts/260917_bvh_causality_083739/evidence/after_phase2.py"
+      ],
+      "extra_copy_bytes": 461
+    },
+    {
+      "sha256": "79922e46bcaff331df4db37c33ddac99170a51c0f2f2b24c8664d95ce5da1cfe",
+      "bytes_each": 1431,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/debug_python.py",
+        "scripts/260917_bvh_causality_083739/evidence/debug_python.py"
+      ],
+      "extra_copy_bytes": 1431
+    },
+    {
+      "sha256": "8331f62f6f31cf38e033e954f5fa47d8daa3331425ed6c1ca86d2c7962fcaec9",
+      "bytes_each": 17382,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/cases/camera_mesh_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/probe.py",
+        "scripts/260917_bvh_causality_083739/probe.py"
+      ],
+      "extra_copy_bytes": 34764
+    },
+    {
+      "sha256": "9a6f11c8a6d2cc43d984df8f3b3b707fddd1eb7c4007c7c69da1550479ca0a45",
+      "bytes_each": 2299,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_camera_gaussian_off/debug_commands.gdb",
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_camera_gaussian_on/debug_commands.gdb",
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_camera_gaussian_on_r1/debug_commands.gdb",
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_lidar_gaussian_on/debug_commands.gdb",
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_lidar_gaussian_on_r1/debug_commands.gdb"
+      ],
+      "extra_copy_bytes": 9196
+    },
+    {
+      "sha256": "7e8b899a390c5f9015fda9baaaf050d1c768095d407f7957a2ca7aa6060e606e",
+      "bytes_each": 17796,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_camera_gaussian_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_camera_gaussian_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_camera_gaussian_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_camera_mesh_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_camera_mesh_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_lidar_gaussian_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_lidar_gaussian_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_lidar_mesh_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v3_lidar_mesh_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/probe_v3.py",
+        "scripts/260917_bvh_causality_083739/probe_v3.py"
+      ],
+      "extra_copy_bytes": 177960
+    },
+    {
+      "sha256": "ca0d5a9e3e280b2c91fc5c066310c73adbd4670624b350c934ac102a916ed4b8",
+      "bytes_each": 18086,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_camera_gaussian_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_lidar_gaussian_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_gaussian_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_gaussian_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_mesh_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_mesh_on/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/probe_v4.py",
+        "scripts/260917_bvh_causality_083739/probe_v4.py"
+      ],
+      "extra_copy_bytes": 126602
+    },
+    {
+      "sha256": "5801f2dae290c9506363ca4965825b6b5df472f27c371f78139bd54ef3482881",
+      "bytes_each": 18266,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_camera_gaussian_on_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/debug_lidar_gaussian_on_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/flags_01_gaussian_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/flags_01_mesh_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/flags_10_gaussian_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/flags_10_mesh_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/flags_11_gaussian_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/flags_11_mesh_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/motion_off_flags_01_gaussian/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/motion_off_flags_01_mesh/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/motion_off_flags_10_gaussian/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/motion_off_flags_10_mesh/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/motion_off_flags_11_gaussian/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/motion_off_flags_11_mesh/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_gaussian_off_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_gaussian_on_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_mesh_off_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_instant_mesh_on_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_timed_gaussian_off_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/nz3_timed_gaussian_on_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/synthetic_camera_off_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/synthetic_camera_on_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/synthetic_lidar_off_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/synthetic_lidar_on_r1/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/probe_v5.py",
+        "scripts/260917_bvh_causality_083739/probe_v5.py"
+      ],
+      "extra_copy_bytes": 456650
+    },
+    {
+      "sha256": "2aa2b510418dccc452256d523aa56aa476f906f66a90f74908f7d1eacdaa25cb",
+      "bytes_each": 17759,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/cases/seed_camera_mesh_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/cases/v2_camera_mesh_off/probe_snapshot.py",
+        "scripts/260917_bvh_causality_083739/evidence/probe_v2.py",
+        "scripts/260917_bvh_causality_083739/probe_v2.py"
+      ],
+      "extra_copy_bytes": 53277
+    },
+    {
+      "sha256": "9eb766f8b10e7bb9936ea5608f385f63b9f477738e9a8217f6b100c1f2d3a8dc",
+      "bytes_each": 1660,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/fingerprint.py",
+        "scripts/260917_bvh_causality_083739/fingerprint.py"
+      ],
+      "extra_copy_bytes": 1660
+    },
+    {
+      "sha256": "a038c78ba50c7a6f57531b28d41bc4d83a2176e2c2573c64613c39ec1f56e554",
+      "bytes_each": 590,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/queue.py",
+        "scripts/260917_bvh_causality_083739/queue.py"
+      ],
+      "extra_copy_bytes": 590
+    },
+    {
+      "sha256": "c32296b3b2bb96aeefb5d63fb8eddf385b9e7e9b42fe79a0a7c19d067cea2557",
+      "bytes_each": 2620,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/runner.py",
+        "scripts/260917_bvh_causality_083739/runner.py"
+      ],
+      "extra_copy_bytes": 2620
+    },
+    {
+      "sha256": "c04cc8097212560c57e3cdcc65f5a9011cf784a611b900be5bb47f9b72cdf274",
+      "bytes_each": 2677,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/runner_debug.py",
+        "scripts/260917_bvh_causality_083739/runner_debug.py"
+      ],
+      "extra_copy_bytes": 2677
+    },
+    {
+      "sha256": "31e4b04522a3479f089a5b09b561c9b330dd4708cab65dbf3690b74ac03f9816",
+      "bytes_each": 2632,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/runner_seed.py",
+        "scripts/260917_bvh_causality_083739/runner_seed.py"
+      ],
+      "extra_copy_bytes": 2632
+    },
+    {
+      "sha256": "930f9d295977693ad976ad00e1552f5fc0a76308149a593749294a4efae2e18f",
+      "bytes_each": 604,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/suite.py",
+        "scripts/260917_bvh_causality_083739/suite.py"
+      ],
+      "extra_copy_bytes": 604
+    },
+    {
+      "sha256": "6232a854964dfd2574b8f19956656fd511735c35ceb125ce91327163605bd9fc",
+      "bytes_each": 644,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/suite_seed.py",
+        "scripts/260917_bvh_causality_083739/suite_seed.py"
+      ],
+      "extra_copy_bytes": 644
+    },
+    {
+      "sha256": "1814f829f45e09347fb2a690abbe73b4b13cbffc166cd3dce3d50fb4aaf9e7d3",
+      "bytes_each": 2449,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/summarize_results.py",
+        "scripts/260917_bvh_causality_083739/summarize_results.py"
+      ],
+      "extra_copy_bytes": 2449
+    },
+    {
+      "sha256": "5b614268d4bcb5e9cbdc6fd06d489ce9fc285017ca398272024212577d68b5fd",
+      "bytes_each": 1709,
+      "paths": [
+        "scripts/260917_bvh_causality_083739/evidence/trace_hook.py",
+        "scripts/260917_bvh_causality_083739/trace_hook.py"
+      ],
+      "extra_copy_bytes": 1709
+    },
+    {
+      "sha256": "95eafb9e39de0d6b0cd6fafd236a42914c59c015854033d031824f8dbfa03b55",
+      "bytes_each": 3125,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/cases/export_overlays_v2/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/export_isolation.py",
+        "scripts/260917_motion_bvh_probe/export_isolation.py"
+      ],
+      "extra_copy_bytes": 6250
+    },
+    {
+      "sha256": "56dfe2c1ba994623b50ebc07f84613c7e662c3a7a109e0b11b0f39ac6a524362",
+      "bytes_each": 16148,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/cases/full_mesh_bvh/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/full_original_bvh/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask2/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask3/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask4/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask_documented/probe_case_snapshot.py"
+      ],
+      "extra_copy_bytes": 80740
+    },
+    {
+      "sha256": "c7eab1b531e50ad6bb8904bfc32df337a3dc1a0d36b07fb91df448de589272c2",
+      "bytes_each": 16603,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/cases/full_mesh_bvh_v2/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/full_original_bvh_v2/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask_string0/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask_string1/probe_case_snapshot.py"
+      ],
+      "extra_copy_bytes": 49809
+    },
+    {
+      "sha256": "67ecf5cce5912063919430a5110b0b35c3c114e14885a29dad4cfaa00d22603b",
+      "bytes_each": 17102,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/cases/full_mesh_bvh_v3/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/full_original_bvh_v3/probe_case_snapshot.py"
+      ],
+      "extra_copy_bytes": 17102
+    },
+    {
+      "sha256": "756226e4986a6ccd4217dc8b1d9485b6b899efb26a0d942b572d837ff9343292",
+      "bytes_each": 17247,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/cases/full_source_mesh_bvh_v4/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/probe_case.py",
+        "scripts/260917_motion_bvh_probe/probe_case.py"
+      ],
+      "extra_copy_bytes": 34494
+    },
+    {
+      "sha256": "08d75f3618842c410bf2fb9b161bc21cc8b2717e401ff76d3cfed571e0a0456e",
+      "bytes_each": 15067,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_hidden_on/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_inactive_on/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask0/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_mask1/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_off_multi_rgb/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_on_multi_rgb/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/mesh_moving_on/probe_case_snapshot.py"
+      ],
+      "extra_copy_bytes": 90402
+    },
+    {
+      "sha256": "00af90de477c83054a76c58b9aa2bd10a823da696a60a41eefc9596ca7eaa5a3",
+      "bytes_each": 13407,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_off_v2/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_on_multi_v2/probe_case_snapshot.py",
+        "scripts/260917_motion_bvh_probe/evidence/cases/gs_on_single_v2/probe_case_snapshot.py"
+      ],
+      "extra_copy_bytes": 26814
+    },
+    {
+      "sha256": "d452204f0a0e2a57676bd8f64155d4231fbecc337f8e3ea05f2d422d0007d0ee",
+      "bytes_each": 3295,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/preflight.py",
+        "scripts/260917_motion_bvh_probe/preflight.py",
+        "scripts/260917_motion_truth/preflight.py"
+      ],
+      "extra_copy_bytes": 6590
+    },
+    {
+      "sha256": "1b053939f1ae3b1fd50bdf0f2b07ef2170a38efc0c84e411dd2f46a3e6037d55",
+      "bytes_each": 2518,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/run_case.py",
+        "scripts/260917_motion_bvh_probe/run_case.py",
+        "scripts/260917_motion_truth/run_case.py"
+      ],
+      "extra_copy_bytes": 5036
+    },
+    {
+      "sha256": "cab7072d282ff8c35ecc758a85f4322b4e7f66f19c7c5ce0acbb929df5c18c77",
+      "bytes_each": 452,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/run_suite.py",
+        "scripts/260917_motion_bvh_probe/run_suite.py",
+        "scripts/260917_motion_truth/run_suite.py"
+      ],
+      "extra_copy_bytes": 904
+    },
+    {
+      "sha256": "54e6cf478427b52d4fd298504baa2d00b2a51fd6eabaedf075f67b1581227fe9",
+      "bytes_each": 2086,
+      "paths": [
+        "scripts/260917_motion_bvh_probe/evidence/summarize.py",
+        "scripts/260917_motion_bvh_probe/summarize.py"
+      ],
+      "extra_copy_bytes": 2086
+    },
+    {
+      "sha256": "177959525b4ee95c05ae81a0bf427cc1cc79a9cc4da97c3d913bc24f987590b6",
+      "bytes_each": 11996,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/REPORT.md",
+        "scripts/260918_bvh_local_mode_0147/docs/reports/evidence/REPORT.md"
+      ],
+      "extra_copy_bytes": 11996
+    },
+    {
+      "sha256": "a4854bc8df4de5a9ffc046e9d8899c8e911613065c562a3da7d0619300733e9c",
+      "bytes_each": 447,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/after_camera.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/after_camera.py"
+      ],
+      "extra_copy_bytes": 447
+    },
+    {
+      "sha256": "f933e0be19d66e814ce18eaf5e3395dfbf80a8e8eb19fcd80e399797621a6da2",
+      "bytes_each": 654,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/after_repeat_motion.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/after_repeat_motion.py"
+      ],
+      "extra_copy_bytes": 654
+    },
+    {
+      "sha256": "941922d69b7c34af2c9fcec942b6819682d5d1da3690435d80b39b7ce05e69d0",
+      "bytes_each": 463,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/after_suite.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/after_suite.py"
+      ],
+      "extra_copy_bytes": 463
+    },
+    {
+      "sha256": "9980151fc3a642a37e46f9d808a3e636edfbda44d66386d3be30a73cebe5ffd3",
+      "bytes_each": 2952,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/analyze_freeze.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/analyze_freeze.py"
+      ],
+      "extra_copy_bytes": 2952
+    },
+    {
+      "sha256": "4e0f8501717f48e05dfd8e7a94ce49007b1e049f8eadab414c543d4e1b2cd636",
+      "bytes_each": 1813,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/analyze_freeze_controls.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/analyze_freeze_controls.py"
+      ],
+      "extra_copy_bytes": 1813
+    },
+    {
+      "sha256": "30ea6c3096779f31ff82220a9276870f3b350eea2ee24850b7529183c28dd005",
+      "bytes_each": 2817,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/analyze_invariants.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/analyze_invariants.py"
+      ],
+      "extra_copy_bytes": 2817
+    },
+    {
+      "sha256": "012523e9d7870b1fb0911b6aaaec2de4cf82ab613ef0b710f8f7c628f6b76698",
+      "bytes_each": 5604,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/analyze_outputs.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/analyze_outputs.py"
+      ],
+      "extra_copy_bytes": 5604
+    },
+    {
+      "sha256": "d1e78975ee3579e20c29069f48cc9b91bd0672c845ea8b4615bec95e793e0893",
+      "bytes_each": 1438,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r2/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r3/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r2/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r3/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_250ms/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_frame/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1_late_frame/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_250ms/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_frame/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1_late_frame/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r2/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r3/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_B_r1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r2/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r3/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_D_r1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_E_r1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_F_r1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_0/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_1/snapshot_debug_python.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/debug_python.py"
+      ],
+      "extra_copy_bytes": 61834
+    },
+    {
+      "sha256": "d0628399cb6752f88b312e258c3a75cca9c81016f57ff43ed34c9954081e8482",
+      "bytes_each": 2298,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_B/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_D/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_E/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_F/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_B/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_D/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_E/debug_commands.gdb",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_F/debug_commands.gdb"
+      ],
+      "extra_copy_bytes": 25278
+    },
+    {
+      "sha256": "b51fb6553df1e7060c123dc40b0d208b878ccc96e7e2b91017fd089f8e6c14ca",
+      "bytes_each": 19556,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_B/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_D/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_E/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_F/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_B/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_D/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_E/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_F/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/probe_static.py",
+        "scripts/260918_bvh_local_mode_0147/probe_static.py"
+      ],
+      "extra_copy_bytes": 254228
+    },
+    {
+      "sha256": "b40e3296b59ee886ffee691f82dea817de18b62095ed7816666fced7da54c538",
+      "bytes_each": 19996,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r2/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r3/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r2/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r3/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r2/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r3/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r2/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r3/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/probe_static_v3.py",
+        "scripts/260918_bvh_local_mode_0147/probe_static_v3.py"
+      ],
+      "extra_copy_bytes": 179964
+    },
+    {
+      "sha256": "68d61f51e563cb2b70893f69cd045325a79ee203b9142fd153b882b1c01a5cda",
+      "bytes_each": 2903,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r2/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r3/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r2/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r3/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_250ms/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_frame/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1_late_frame/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_250ms/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_frame/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1_late_frame/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r2/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r3/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_B_r1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r2/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r3/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_D_r1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_E_r1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_F_r1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_0/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_1/snapshot_runner.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/runner.py",
+        "scripts/260918_bvh_local_mode_0147/runner.py"
+      ],
+      "extra_copy_bytes": 124829
+    },
+    {
+      "sha256": "c3a9bd5a46807cefa385818cf10c84b4ba5c6f9bf004a932078b1e08b1d1ae65",
+      "bytes_each": 4957,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r2/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_A_r3/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r2/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/camera_C_r3/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_250ms/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_frame/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1_late_frame/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_250ms/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_frame/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1_late_frame/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r2/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r3/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_B_r1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r2/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r3/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_D_r1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_E_r1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_F_r1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_0/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_1/snapshot_trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/trace_hook.py",
+        "scripts/260918_bvh_local_mode_0147/trace_hook.py"
+      ],
+      "extra_copy_bytes": 213151
+    },
+    {
+      "sha256": "013caa58b29c79cb47171245de6b600990c264b3ac7a573594397d4a1489afae",
+      "bytes_each": 21382,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_250ms/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_400000000_1_late_frame/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_gaussian_800000000_1_late_frame/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_250ms/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_400000000_1_late_frame/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/freeze_sensor_800000000_1_late_frame/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/probe_motion_v2.py",
+        "scripts/260918_bvh_local_mode_0147/probe_motion_v2.py"
+      ],
+      "extra_copy_bytes": 320730
+    },
+    {
+      "sha256": "437411a28ac1709361544078a1ac55c661501e87483a4ce71a1b5ff88a7ba4d1",
+      "bytes_each": 19520,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_A_r1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_B_r1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_C_r1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_D_r1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_E_r1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/lidar_F_r1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/probe_static_v2.py",
+        "scripts/260918_bvh_local_mode_0147/probe_static_v2.py"
+      ],
+      "extra_copy_bytes": 136640
+    },
+    {
+      "sha256": "6197b6cb4f027670d8baa926d24428bd03d13b6993b04a96003873d7eb177a77",
+      "bytes_each": 21350,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_both_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_gaussian_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_none_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_reverse_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_gaussian_sensor_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_none_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_0/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/cases/motion_mesh_sensor_1/probe_snapshot.py",
+        "scripts/260918_bvh_local_mode_0147/evidence/probe_motion_v1.py",
+        "scripts/260918_bvh_local_mode_0147/probe_motion_v1.py"
+      ],
+      "extra_copy_bytes": 320250
+    },
+    {
+      "sha256": "cc2d2916618668f684e6d4e2d20307de8363652e492076c13820bec2ba36b2ae",
+      "bytes_each": 3973,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/finalize_checks.py",
+        "scripts/260918_bvh_local_mode_0147/finalize_checks.py"
+      ],
+      "extra_copy_bytes": 3973
+    },
+    {
+      "sha256": "dbce3890ace2eb237538fe38904624b7e0c3b6c6654ba10dcd7937a1c22370db",
+      "bytes_each": 1220,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/make_figures.py",
+        "scripts/260918_bvh_local_mode_0147/make_figures.py"
+      ],
+      "extra_copy_bytes": 1220
+    },
+    {
+      "sha256": "dd2b817931737863928379be0118747c1e0febcfcae9490377b1cce8f0dfb526",
+      "bytes_each": 1359,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/package_evidence.py",
+        "scripts/260918_bvh_local_mode_0147/package_evidence.py"
+      ],
+      "extra_copy_bytes": 1359
+    },
+    {
+      "sha256": "5dbe6993fa02574b70b615cacb2147cc8a23c91ac265f2d39335c3d790adc92a",
+      "bytes_each": 2943,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/prepare_protect.py",
+        "scripts/260918_bvh_local_mode_0147/prepare_protect.py"
+      ],
+      "extra_copy_bytes": 2943
+    },
+    {
+      "sha256": "f22f2326a30ea4d7a48f3cefea85aa5e7dc7b7a5249f28a2a9fc436afca3a4c2",
+      "bytes_each": 883,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/suite_serial.py",
+        "scripts/260918_bvh_local_mode_0147/suite_serial.py"
+      ],
+      "extra_copy_bytes": 883
+    },
+    {
+      "sha256": "244ebf83a1c449c88e2b26b5d811aedee6dcfd7ab12fca64add3f80c0acf4919",
+      "bytes_each": 749,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/suite_v2.py",
+        "scripts/260918_bvh_local_mode_0147/suite_v2.py"
+      ],
+      "extra_copy_bytes": 749
+    },
+    {
+      "sha256": "d0c64b351adaa292550fdfcfc47a9b9731ee702f6b155bdb805083503fe244ed",
+      "bytes_each": 2968,
+      "paths": [
+        "scripts/260918_bvh_local_mode_0147/evidence/summarize.py",
+        "scripts/260918_bvh_local_mode_0147/summarize.py"
+      ],
+      "extra_copy_bytes": 2968
+    },
+    {
+      "sha256": "55b210befcc37af8af9abcce93282d3836140127721e19e3f9198fa2098987e7",
+      "bytes_each": 2493,
+      "paths": [
+        "scripts/260920SensorVisualizer/assets/Excavator_3DGS_Contract/assembly.json",
+        "scripts/260920SensorVisualizer/config/assembly.json"
+      ],
+      "extra_copy_bytes": 2493
+    },
+    {
+      "sha256": "3262838a2479b43b9a9e3afaf6aa2b196225c62f697ec79847e3519fb1ff713f",
+      "bytes_each": 1277,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_pt/config/baseline.json",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/config/baseline.json",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/config/baseline.json",
+        "scripts/260920SensorVisualizer/native_capture_continuous_pt_003/config/baseline.json"
+      ],
+      "extra_copy_bytes": 3831
+    },
+    {
+      "sha256": "882a55779fc0c0832166f44a08f27b85418e055693e0e9e1efd1bc64246cf447",
+      "bytes_each": 17711,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_pt/experiment.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/experiment.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/experiment.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/baseline_sources/experiment.py"
+      ],
+      "extra_copy_bytes": 53133
+    },
+    {
+      "sha256": "01d8f4acfaffa88a0828086bcf6f3eb9496abab8f09ea7f2ba531c0596de87f9",
+      "bytes_each": 19705,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_pt/kit_entry.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/kit_entry.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/kit_entry.py",
+        "scripts/260920SensorVisualizer/native_capture_continuous_pt_003/kit_entry.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/baseline_sources/kit_entry.py"
+      ],
+      "extra_copy_bytes": 78820
+    },
+    {
+      "sha256": "81d9d1f717d93d2f37775df37f0b096be78256e8df18a75fbb44eba4ee12e263",
+      "bytes_each": 13202,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_pt/run.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/run.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/run.py",
+        "scripts/260920SensorVisualizer/native_capture_continuous_pt_003/run.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/baseline_sources/run.py"
+      ],
+      "extra_copy_bytes": 52808
+    },
+    {
+      "sha256": "207e258e8078f4da19c4efa4fd035cc54aa3afe8ab74f755cc8171487c0df546",
+      "bytes_each": 688,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_pt/source_provenance.json",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/source_provenance.json",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/source_provenance.json"
+      ],
+      "extra_copy_bytes": 1376
+    },
+    {
+      "sha256": "834b947750299d0383eade677ff83aeb04e3f55ec1c498ba0a5c0748877845f7",
+      "bytes_each": 9886,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_pt/tools/validate_bag.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/tools/validate_bag.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/tools/validate_bag.py",
+        "scripts/260920SensorVisualizer/native_capture_continuous_pt_003/tools/validate_bag.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/baseline_sources/tools/validate_bag.py"
+      ],
+      "extra_copy_bytes": 39544
+    },
+    {
+      "sha256": "a80696a64164a0594cf00fd8e1de8bd977fbece9ee2764c0c750c59679da613e",
+      "bytes_each": 10899,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/continuous.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/continuous.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/continuous.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/continuous.py",
+        "scripts/260920SensorVisualizer/native_capture_continuous_pt_003/continuous.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/continuous.py"
+      ],
+      "extra_copy_bytes": 54495
+    },
+    {
+      "sha256": "965ddf84f6d0bb2ad43a1704728aaf70032ebf1bf02c87c000780f24f8431c7f",
+      "bytes_each": 7820,
+      "paths": [
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/continuous_rt/tools/validate_groups.py",
+        "scripts/260920SensorVisualizer/capture_comparison_004/engines/frozen/tools/validate_groups.py",
+        "scripts/260920SensorVisualizer/native_capture_continuous_pt_003/tools/validate_groups.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/baseline_sources/tools/validate_groups.py"
+      ],
+      "extra_copy_bytes": 23460
+    },
+    {
+      "sha256": "64b4842de8086fcf5cfe481ce1a578e313e690c021f88802d6167a8d2990e2ce",
+      "bytes_each": 1887,
+      "paths": [
+        "scripts/260920SensorVisualizer/config/sensors.json",
+        "scripts/260920SensorVisualizer/v02/config/legacy_sensors.json"
+      ],
+      "extra_copy_bytes": 1887
+    },
+    {
+      "sha256": "0153174f54878d60ffdfeff68992721b8ae45274769961bbdd393f89b728a398",
+      "bytes_each": 5456,
+      "paths": [
+        "scripts/260920SensorVisualizer/docs/20261011_IsaacNativeCaptureBaselineImplementation.md",
+        "scripts/260920SensorVisualizer/native_capture_baseline/docs/implementation_plan.md"
+      ],
+      "extra_copy_bytes": 5456
+    },
+    {
+      "sha256": "bc6a9e3011f8f34c40ee2bb31e772f518b4fd40a0b5e73f9ef4c5da82a9f8533",
+      "bytes_each": 5646,
+      "paths": [
+        "scripts/260920SensorVisualizer/docs/20261012_scene17_mesh_excavator_implementation_plan.md",
+        "scripts/260920SensorVisualizer/mesh_scene18/handoff/provenance/20261012_scene17_mesh_excavator_implementation_plan.md"
+      ],
+      "extra_copy_bytes": 5646
+    },
+    {
+      "sha256": "cbb696d9516e136ae2150e36cf594215ae066dbc0dea79d64a79cb491419851d",
+      "bytes_each": 6762,
+      "paths": [
+        "scripts/260920SensorVisualizer/docs/20261012_scene18_mesh_excavator_execution_report.md",
+        "scripts/260920SensorVisualizer/mesh_scene18/handoff/provenance/20261012_scene18_mesh_excavator_execution_report.md"
+      ],
+      "extra_copy_bytes": 6762
+    },
+    {
+      "sha256": "360e75002fe0bd09fc21c9b2295f86ee4b1503a813a48c13bb7df4a39a5fda25",
+      "bytes_each": 5623,
+      "paths": [
+        "scripts/260920SensorVisualizer/docs/NC-002_20261012_NativeCaptureQualityAndCost_Implementation.md",
+        "scripts/260920SensorVisualizer/native_capture_quality_002/docs/NC-002_implementation_plan.md"
+      ],
+      "extra_copy_bytes": 5623
+    },
+    {
+      "sha256": "099529528a72c8d0bb7417b44fe7157dca6e2f7e0a7e51ea3cc853b97e0fc892",
+      "bytes_each": 4947,
+      "paths": [
+        "scripts/260920SensorVisualizer/docs/reports/diagnostics/20260921_gui_crash/REPORT.md",
+        "scripts/260920SensorVisualizer/docs/reports/ros_entry/REPORT.md"
+      ],
+      "extra_copy_bytes": 4947
+    },
+    {
+      "sha256": "e50cc4dbf4e645c590ea8995bce509f9b70887eb954d223cc7d576880a66c5b2",
+      "bytes_each": 196,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/capture_policy.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/capture_policy.json",
+        "scripts/260920SensorVisualizer/v06/config/capture_policy.json",
+        "scripts/260920SensorVisualizer/v07/config/capture_policy.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/capture_policy.json"
+      ],
+      "extra_copy_bytes": 784
+    },
+    {
+      "sha256": "924b2b5e110461b472d5978eb0bc3e3d87c687cef8dea272018e13d9ddd91bf7",
+      "bytes_each": 212,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/diagnostic.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/diagnostic.json",
+        "scripts/260920SensorVisualizer/v03/config/diagnostic.json",
+        "scripts/260920SensorVisualizer/v04/config/diagnostic.json",
+        "scripts/260920SensorVisualizer/v05/config/diagnostic.json",
+        "scripts/260920SensorVisualizer/v06/config/diagnostic.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/diagnostic.json"
+      ],
+      "extra_copy_bytes": 1272
+    },
+    {
+      "sha256": "d03b0a6b3e6557dbbcf5bb2f020394347dacc34fe194426471a1b96d20d299a7",
+      "bytes_each": 116,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/interactive.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/interactive.json",
+        "scripts/260920SensorVisualizer/v03/config/interactive.json",
+        "scripts/260920SensorVisualizer/v04/config/interactive.json",
+        "scripts/260920SensorVisualizer/v05/config/interactive.json",
+        "scripts/260920SensorVisualizer/v06/config/interactive.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/interactive.json"
+      ],
+      "extra_copy_bytes": 696
+    },
+    {
+      "sha256": "529211071fcc137cbb1a168c27fb3b29490b2ad8f3a78a02bdf2dfc90edbd7a6",
+      "bytes_each": 303,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/interactive_diagnostic.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/interactive_diagnostic.json",
+        "scripts/260920SensorVisualizer/v06/config/interactive_diagnostic.json",
+        "scripts/260920SensorVisualizer/v07/config/interactive_diagnostic.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/interactive_diagnostic.json"
+      ],
+      "extra_copy_bytes": 1212
+    },
+    {
+      "sha256": "36057e97f577f9e494b7711ef2380781d62200c14f422e7e328bc5dca5651951",
+      "bytes_each": 155,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/interactive_priority_capture.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/interactive_priority_capture.json",
+        "scripts/260920SensorVisualizer/v06/config/interactive_priority_capture.json",
+        "scripts/260920SensorVisualizer/v07/config/interactive_priority_capture.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/interactive_priority_capture.json"
+      ],
+      "extra_copy_bytes": 620
+    },
+    {
+      "sha256": "00d715f2462441de10dd459115f4c649f7770eec3f34aa31cce5e45f59f38053",
+      "bytes_each": 89,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/offline.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/offline.json",
+        "scripts/260920SensorVisualizer/v03/config/offline.json",
+        "scripts/260920SensorVisualizer/v04/config/offline.json",
+        "scripts/260920SensorVisualizer/v05/config/offline.json",
+        "scripts/260920SensorVisualizer/v06/config/offline.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/offline.json"
+      ],
+      "extra_copy_bytes": 534
+    },
+    {
+      "sha256": "344577f6f602e17173f1c550d27e6d5c80fa9b170a71e50f7cf96c19264db8d3",
+      "bytes_each": 1889,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/robot_sensors.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/robot_sensors.json",
+        "scripts/260920SensorVisualizer/v03/config/robot_sensors.json",
+        "scripts/260920SensorVisualizer/v04/config/robot_sensors.json",
+        "scripts/260920SensorVisualizer/v05/config/robot_sensors.json",
+        "scripts/260920SensorVisualizer/v06/config/robot_sensors.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/robot_sensors.json"
+      ],
+      "extra_copy_bytes": 11334
+    },
+    {
+      "sha256": "2ada9781fec0b697ce0e6d67bbd220de210f4c3697acfc20c82ed9ff332d1d69",
+      "bytes_each": 180,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/smoke.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/smoke.json",
+        "scripts/260920SensorVisualizer/v03/config/smoke.json",
+        "scripts/260920SensorVisualizer/v04/config/smoke.json",
+        "scripts/260920SensorVisualizer/v05/config/smoke.json",
+        "scripts/260920SensorVisualizer/v06/config/smoke.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/smoke.json"
+      ],
+      "extra_copy_bytes": 1080
+    },
+    {
+      "sha256": "562aaf2aa763c1dc7d6f855e202f21c81fd6a8e051b8fb8aea703f0144d6775b",
+      "bytes_each": 183,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/config/throughput.json",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/config/throughput.json",
+        "scripts/260920SensorVisualizer/v05/config/throughput.json",
+        "scripts/260920SensorVisualizer/v06/config/throughput.json",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/config/throughput.json"
+      ],
+      "extra_copy_bytes": 732
+    },
+    {
+      "sha256": "9d7cadcd380547a824e11bde20bb3a59dec99cd977c88b08be91bcbc7b9c0f9a",
+      "bytes_each": 999,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/kit_entry.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/kit_entry.py",
+        "scripts/260920SensorVisualizer/v06/kit_entry.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/kit_entry.py"
+      ],
+      "extra_copy_bytes": 2997
+    },
+    {
+      "sha256": "45961f1eef8ea88c49df473d65795b4788a670960f726f24112d708e8c4d3c8a",
+      "bytes_each": 1228,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/kit_interactive_entry.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/kit_interactive_entry.py",
+        "scripts/260920SensorVisualizer/v06/kit_interactive_entry.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/kit_interactive_entry.py"
+      ],
+      "extra_copy_bytes": 3684
+    },
+    {
+      "sha256": "df79c992fdd90076b8f103e979a808489e3aba15c59975281899741a57017c3c",
+      "bytes_each": 929,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/kit_replay_entry.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/kit_replay_entry.py",
+        "scripts/260920SensorVisualizer/v06/kit_replay_entry.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/kit_replay_entry.py"
+      ],
+      "extra_copy_bytes": 2787
+    },
+    {
+      "sha256": "4be29862318f0b44e1d44986e92ec5bf8e0e737c70fb63993965d16f22c30d5f",
+      "bytes_each": 4399,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/run_capture.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/run_capture.py",
+        "scripts/260920SensorVisualizer/v06/run_capture.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/run_capture.py"
+      ],
+      "extra_copy_bytes": 13197
+    },
+    {
+      "sha256": "17cb44daad7c893564eced308b07ab50c66d916609b9bec958980eafad1bfcd3",
+      "bytes_each": 857,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/run_in_isaac.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/run_in_isaac.py",
+        "scripts/260920SensorVisualizer/v06/run_in_isaac.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/run_in_isaac.py"
+      ],
+      "extra_copy_bytes": 2571
+    },
+    {
+      "sha256": "99fcf578002a0e97fbfcc74d93b5972085e465a62c608edb4f5386f95a67c78b",
+      "bytes_each": 1022,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/run_web.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/run_web.py",
+        "scripts/260920SensorVisualizer/v06/run_web.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/run_web.py"
+      ],
+      "extra_copy_bytes": 3066
+    },
+    {
+      "sha256": "50d1d1ba9d344177aa097d59c5f21ef509ec2103ba7be7f723a5c581b86d95b6",
+      "bytes_each": 92,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/__init__.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/__init__.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/__init__.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/__init__.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/__init__.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/__init__.py"
+      ],
+      "extra_copy_bytes": 460
+    },
+    {
+      "sha256": "55350f84c1f244f808a749c806fd53dd120bf0ba7af9289777c1c0eaa55b4719",
+      "bytes_each": 6668,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/analysis.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/analysis.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/analysis.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/analysis.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/analysis.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/analysis.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/analysis.py"
+      ],
+      "extra_copy_bytes": 40008
+    },
+    {
+      "sha256": "a934cc39e481fa55c3f4303b77f33f84f5d242b6273682e5773313fc323775ba",
+      "bytes_each": 4697,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/buffers.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/buffers.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/buffers.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/buffers.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/buffers.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/buffers.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/buffers.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/buffers.py"
+      ],
+      "extra_copy_bytes": 32879
+    },
+    {
+      "sha256": "cdd0fc2ceac056437e74045362e9bfa8e148502d86ded4571f2aeb12ab90f5f8",
+      "bytes_each": 8627,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/capture_supervisor.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/capture_supervisor.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/capture_supervisor.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/capture_supervisor.py"
+      ],
+      "extra_copy_bytes": 25881
+    },
+    {
+      "sha256": "154a7cddcda4f15d4fda459a3b36d324760de38e5de203569ea0e87a8c2c047e",
+      "bytes_each": 7781,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/contracts.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/contracts.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/contracts.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/contracts.py"
+      ],
+      "extra_copy_bytes": 23343
+    },
+    {
+      "sha256": "5583e6351f93b57a1a9555f3ef4502a9902e67f014f65f27d0fd4baf063a3646",
+      "bytes_each": 4000,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/control_ipc.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/control_ipc.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/control_ipc.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/control_ipc.py"
+      ],
+      "extra_copy_bytes": 12000
+    },
+    {
+      "sha256": "d8c66c21aa22760eda4a855f750415e3a0f576a7ee226699738185b58e5e3b1b",
+      "bytes_each": 11524,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/coordinator.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/coordinator.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/coordinator.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/coordinator.py"
+      ],
+      "extra_copy_bytes": 34572
+    },
+    {
+      "sha256": "814a781240b8315de9a9a841b0b64f73cb5189f7fd5b65e24577ebfa528a8a4b",
+      "bytes_each": 16949,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/diagnostics.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/diagnostics.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/diagnostics.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/diagnostics.py"
+      ],
+      "extra_copy_bytes": 50847
+    },
+    {
+      "sha256": "042ee536266e141f01c61ced820054bd1ac6f26dc0d91c6c22373e4659834169",
+      "bytes_each": 1485,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/gating.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/gating.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/gating.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/gating.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/gating.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/gating.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/gating.py"
+      ],
+      "extra_copy_bytes": 8910
+    },
+    {
+      "sha256": "0ed99e571f83b2572a6dd85af17e89e61ee6bcc83c192b70325cb8ba11b46b99",
+      "bytes_each": 1368,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/geometry.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/geometry.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/geometry.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/geometry.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/geometry.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/geometry.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/geometry.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/geometry.py"
+      ],
+      "extra_copy_bytes": 9576
+    },
+    {
+      "sha256": "ff90b85cfc50f024ecca17930f3e58647439c2485f368a857e0a993f308a7715",
+      "bytes_each": 580,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/gpu_config.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/gpu_config.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/gpu_config.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/gpu_config.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/gpu_config.py"
+      ],
+      "extra_copy_bytes": 2320
+    },
+    {
+      "sha256": "387453b0de9f2d0f022d76ca41e60bd0c9c1fcaea5b04bb71c43cfd973d1079d",
+      "bytes_each": 1948,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/hot_path_metrics.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/hot_path_metrics.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/hot_path_metrics.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/hot_path_metrics.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/hot_path_metrics.py"
+      ],
+      "extra_copy_bytes": 7792
+    },
+    {
+      "sha256": "b08bdbd6f73d5cc844869c19d846fefd1aaaed6b356067480023b217b19c6f5a",
+      "bytes_each": 1130,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/interaction_log.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/interaction_log.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/interaction_log.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/interaction_log.py"
+      ],
+      "extra_copy_bytes": 3390
+    },
+    {
+      "sha256": "a48d67d641c6b5a6d406ed1880c279359c29a55f72005d10bf39680ab62f573c",
+      "bytes_each": 20821,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/interactive_runtime.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/interactive_runtime.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/interactive_runtime.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/interactive_runtime.py"
+      ],
+      "extra_copy_bytes": 62463
+    },
+    {
+      "sha256": "df797845ac06937579568bcd56d603dd136319fd0032010badd4798ae7e530fb",
+      "bytes_each": 1053,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/internal_scheduling.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/internal_scheduling.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/internal_scheduling.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/internal_scheduling.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/internal_scheduling.py"
+      ],
+      "extra_copy_bytes": 4212
+    },
+    {
+      "sha256": "d5e3ab15a94ce721afb13a7fc7af495a536755de4f438913881e79f38c8b5e06",
+      "bytes_each": 2399,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/keyboard_control.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/keyboard_control.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/keyboard_control.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/keyboard_control.py"
+      ],
+      "extra_copy_bytes": 7197
+    },
+    {
+      "sha256": "b84a1bc166f3735206f65db2d468c75654967ae3dc69c31e1d8a1f59ecd22abf",
+      "bytes_each": 1892,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/lighting.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/lighting.py"
+      ],
+      "extra_copy_bytes": 1892
+    },
+    {
+      "sha256": "869b8dd3898838519e2319abbfa29106db43d27beaf5be7326e46b41d8bfa970",
+      "bytes_each": 5686,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/messages.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/messages.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/messages.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/messages.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/messages.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/messages.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/messages.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/messages.py"
+      ],
+      "extra_copy_bytes": 39802
+    },
+    {
+      "sha256": "73b60032403d68035159bbd4d7118f823aa139f952fb82c548465fcb0259c1f3",
+      "bytes_each": 2349,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/native_keyboard.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/native_keyboard.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/native_keyboard.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/native_keyboard.py"
+      ],
+      "extra_copy_bytes": 7047
+    },
+    {
+      "sha256": "dc745d4780cea7e5c5019b48bcab7d0fd042a5c37569d1428bde027decaf32b6",
+      "bytes_each": 887,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/native_trace.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/native_trace.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/native_trace.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/native_trace.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/native_trace.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/native_trace.py"
+      ],
+      "extra_copy_bytes": 4435
+    },
+    {
+      "sha256": "7b891e4be436ece09be3bc4895e207ae90d0ddf4e44d76a14e903dde5a2d6ed4",
+      "bytes_each": 8763,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/pipeline.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/pipeline.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/pipeline.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/pipeline.py"
+      ],
+      "extra_copy_bytes": 26289
+    },
+    {
+      "sha256": "090c5cc36f04c624d15103281f6b9bd44469c6e463b8981c331cd30316c63ac7",
+      "bytes_each": 12657,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/record_worker.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/record_worker.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/record_worker.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/record_worker.py"
+      ],
+      "extra_copy_bytes": 37971
+    },
+    {
+      "sha256": "60ed2003b60e268063b6342022035bbbf4d6895505454d1fa4cb2e9204dbca19",
+      "bytes_each": 11830,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/replay_capture.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/replay_capture.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/replay_capture.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/replay_capture.py"
+      ],
+      "extra_copy_bytes": 35490
+    },
+    {
+      "sha256": "667b045f1a57245bb3ca0f1e23f125f2cbc11c22eb130f7c4e9317854090bbb6",
+      "bytes_each": 2462,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/resources.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/resources.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/resources.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/resources.py"
+      ],
+      "extra_copy_bytes": 7386
+    },
+    {
+      "sha256": "82c2b5f339563e10018192e7eaf263647d765934ae5224ad3a8958c372ffb52a",
+      "bytes_each": 62,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/__init__.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/__init__.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/__init__.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/__init__.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/__init__.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/__init__.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/__init__.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/__init__.py"
+      ],
+      "extra_copy_bytes": 434
+    },
+    {
+      "sha256": "9c321215ddcc0c3bc953f81dbc68f27100e8b5a4365401236a00d36ab26612db",
+      "bytes_each": 18481,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/articulation_motion.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/articulation_motion.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/articulation_motion.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/articulation_motion.py"
+      ],
+      "extra_copy_bytes": 55443
+    },
+    {
+      "sha256": "d43a2500b4ee7572adce39bbd483c056929f7277415a861a9b543960762590e2",
+      "bytes_each": 4925,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/base_control.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/base_control.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/base_control.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/base_control.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/base_control.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/base_control.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/base_control.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/base_control.py"
+      ],
+      "extra_copy_bytes": 34475
+    },
+    {
+      "sha256": "458c1e775096390bd949ee4356acb5a2fc3900efebc50593d352d2eb3fbf92fc",
+      "bytes_each": 2145,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/discovery.py",
+        "scripts/260920SensorVisualizer/sensor_visualizer/discovery.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/discovery.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/discovery.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/discovery.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/discovery.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/discovery.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/discovery.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/discovery.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/discovery.py"
+      ],
+      "extra_copy_bytes": 19305
+    },
+    {
+      "sha256": "29124ead3a5db1d5f58b9bc4bc877bcb6f0dfd78f810eeef09cb70e6179e5980",
+      "bytes_each": 5397,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/joint_control.py",
+        "scripts/260920SensorVisualizer/sensor_visualizer/joint_control.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/joint_control.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/joint_control.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/joint_control.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/joint_control.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/joint_control.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/joint_control.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/joint_control.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/joint_control.py"
+      ],
+      "extra_copy_bytes": 48573
+    },
+    {
+      "sha256": "42d6690d593273880be2b3ee253fbf15bfbc5efe823f242e979e1d7c936044e3",
+      "bytes_each": 1468,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/motion_profile.py",
+        "scripts/260920SensorVisualizer/sensor_visualizer/motion_profile.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/motion_profile.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/motion_profile.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/motion_profile.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/motion_profile.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/motion_profile.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/motion_profile.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/motion_profile.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/motion_profile.py"
+      ],
+      "extra_copy_bytes": 13212
+    },
+    {
+      "sha256": "6ef0b1be28464f69455949cbb2ac2ea3627ce040e76f6905ff5f74c5390d909e",
+      "bytes_each": 1042,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/motion_update.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/motion_update.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/motion_update.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/motion_update.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/motion_update.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/motion_update.py"
+      ],
+      "extra_copy_bytes": 5210
+    },
+    {
+      "sha256": "b78ddebf83ffc3dc5ddfa774d03d820954049e48c60044adfb4225a9f7335d91",
+      "bytes_each": 576,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/performance.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/performance.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/performance.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/performance.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/performance.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/performance.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/performance.py"
+      ],
+      "extra_copy_bytes": 3456
+    },
+    {
+      "sha256": "c22c9c1f11e85f989a1e35bf0ce8f73e4dc253748ffd15c39e4e43e77c47937f",
+      "bytes_each": 2204,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/reference_frames.py",
+        "scripts/260920SensorVisualizer/sensor_visualizer/reference_frames.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/reference_frames.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/reference_frames.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/reference_frames.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/reference_frames.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/reference_frames.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/reference_frames.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/reference_frames.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/reference_frames.py"
+      ],
+      "extra_copy_bytes": 19836
+    },
+    {
+      "sha256": "fda083a53be164d46c4011e895b5ec3240f90e46728029e42af04464fa547643",
+      "bytes_each": 2051,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/render_lease.py",
+        "scripts/260920SensorVisualizer/sensor_visualizer/render_lease.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/render_lease.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/render_lease.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/render_lease.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/render_lease.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/render_lease.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/render_lease.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/render_lease.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/render_lease.py"
+      ],
+      "extra_copy_bytes": 18459
+    },
+    {
+      "sha256": "deec282989ef5be0cfd875205cecac3de2b7230c45cb97811a3de4ed7b76a1bb",
+      "bytes_each": 4951,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/robot_discovery.py",
+        "scripts/260920SensorVisualizer/sensor_visualizer/robot_discovery.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/robot/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/robot_discovery.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/robot_discovery.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/robot_discovery.py"
+      ],
+      "extra_copy_bytes": 44559
+    },
+    {
+      "sha256": "168f9352b722511ffbe628d5b0a55f79238f9998b9c45ffc97a41f011bd7b97e",
+      "bytes_each": 11476,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/robot/sensor_pose.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/robot/sensor_pose.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/robot/sensor_pose.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/robot/sensor_pose.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/robot/sensor_pose.py"
+      ],
+      "extra_copy_bytes": 45904
+    },
+    {
+      "sha256": "51e710bdbbfae56a62865d51f64d80048d112692441b2c9110ab7926dec95c35",
+      "bytes_each": 26445,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/scene.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/scene.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/scene.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/scene.py"
+      ],
+      "extra_copy_bytes": 79335
+    },
+    {
+      "sha256": "f6f6a4e46378bea40520f5c159a669f121b0f78e82bf3ac33becc1efd250f3e8",
+      "bytes_each": 21409,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/sensors.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/sensors.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/sensors.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/sensors.py"
+      ],
+      "extra_copy_bytes": 64227
+    },
+    {
+      "sha256": "e40a0fe71935ca7c568654ef5e42b4c4bfa40d284b3d35cc04fb6587d6068c4c",
+      "bytes_each": 2997,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/tickets.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/tickets.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/tickets.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/tickets.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/tickets.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/tickets.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/tickets.py"
+      ],
+      "extra_copy_bytes": 17982
+    },
+    {
+      "sha256": "7b448ef31347ade422163e26556134b93e87e85a1eb06364b23b2eae1b24dce6",
+      "bytes_each": 9421,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/trajectory.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/trajectory.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/trajectory.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/trajectory.py"
+      ],
+      "extra_copy_bytes": 28263
+    },
+    {
+      "sha256": "9f80a86fc564e060507cd5202c76118e0bc8d8b533d70cc0d2a518590ebb3fed",
+      "bytes_each": 18075,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/ui.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/ui.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/ui.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/ui.py"
+      ],
+      "extra_copy_bytes": 54225
+    },
+    {
+      "sha256": "92fd352ee12be3634e8220603bf77a3548e610bac2b1597f64a4cb2891db8b5d",
+      "bytes_each": 3694,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/web_asgi.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/web_asgi.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/web_asgi.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/web_asgi.py"
+      ],
+      "extra_copy_bytes": 11082
+    },
+    {
+      "sha256": "0fe2f53328552aa253c32e427b75203e8f076a99e911ecde1023415be5817654",
+      "bytes_each": 8384,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/frozen_runtime/sensor_visualizer_v06/web_service.py",
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/web_service.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/web_service.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/frozen_runtime/sensor_visualizer_v06/web_service.py"
+      ],
+      "extra_copy_bytes": 25152
+    },
+    {
+      "sha256": "3a6f5a751d89f2613c536a514143b60e22a97b834ac4ff06ebc267dd84b464fd",
+      "bytes_each": 77,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/__init__.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/__init__.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/__init__.py"
+      ],
+      "extra_copy_bytes": 154
+    },
+    {
+      "sha256": "90effd4f1796bc0e9d0b80c79a20d8c9aa35b8bfc111db3e8793a50192c21355",
+      "bytes_each": 20587,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/analysis.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/analysis.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/analysis.py"
+      ],
+      "extra_copy_bytes": 41174
+    },
+    {
+      "sha256": "c5ac4ae5a37499ddcb35b7b21615da12fa79097c3e308b91bf132e5255f36da4",
+      "bytes_each": 2834,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/host_pool.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/host_pool.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/host_pool.py"
+      ],
+      "extra_copy_bytes": 5668
+    },
+    {
+      "sha256": "b9a1d4d5c67af4ea9fa2a8dcf9a702750234ba6073ee35590ecafc9e4cf97f84",
+      "bytes_each": 9086,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/instrumentation.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/instrumentation.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/instrumentation.py"
+      ],
+      "extra_copy_bytes": 18172
+    },
+    {
+      "sha256": "6046b0bf57ac9db120636b3d876ba477bb90db32543ed1f7d59930a0d49be169",
+      "bytes_each": 5733,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/interaction.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/interaction.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/interaction.py"
+      ],
+      "extra_copy_bytes": 11466
+    },
+    {
+      "sha256": "a64b91fa06065f2b06577b67f5b6a853e965ece6c09782ee1cd490934d904cd3",
+      "bytes_each": 3288,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/resources.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/resources.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/resources.py"
+      ],
+      "extra_copy_bytes": 6576
+    },
+    {
+      "sha256": "1a6ee0dbfa56686b9693b2d2078057b3c6630771dc71b4a4a8189d4f9e94eb45",
+      "bytes_each": 9622,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/runner.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/runner.py"
+      ],
+      "extra_copy_bytes": 9622
+    },
+    {
+      "sha256": "1d398333898c49da7a15cf9c131a05aada7e656b54aa84a4038c311ac25e9c97",
+      "bytes_each": 3062,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/scene_lease.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/scene_lease.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/scene_lease.py"
+      ],
+      "extra_copy_bytes": 6124
+    },
+    {
+      "sha256": "d5f5aa6bbaf54dd5b41e24c56ddc1b6b775f5203d0f2aa8b3cff74cc55fb23a0",
+      "bytes_each": 854,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/sdk_copy.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/sdk_copy.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/sdk_copy.py"
+      ],
+      "extra_copy_bytes": 1708
+    },
+    {
+      "sha256": "a5d0ba508234800d58cc9202f770168e1e1a3bb8b6de925d809ea5f3263eb647",
+      "bytes_each": 1648,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/lab/warm_routing.py",
+        "scripts/260920SensorVisualizer/single06_lab/lab/warm_routing.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/lab/warm_routing.py"
+      ],
+      "extra_copy_bytes": 3296
+    },
+    {
+      "sha256": "2f44da77f57a3fa7ba5d5495434e9fd8e4241f74e792a8676379cf1d77a806b5",
+      "bytes_each": 8006,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/legacy/tools/validate_capture_data.py",
+        "scripts/260920SensorVisualizer/single06_lab/tools/validate_capture_data.py",
+        "scripts/261013Rviz2Viewer/capture_runtime/tools/validate_capture_data.py"
+      ],
+      "extra_copy_bytes": 16012
+    },
+    {
+      "sha256": "74666b04c91370f1407dfba00971353c11afd9eb847e6b0cc6f74380e6418921",
+      "bytes_each": 1373,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/config/baseline.json",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/config/baseline.json",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/config/baseline.json"
+      ],
+      "extra_copy_bytes": 2746
+    },
+    {
+      "sha256": "f4df148b6b4aecfafed6a181248359d35e04a2c391ba92429ad575c02f3ccc8f",
+      "bytes_each": 20331,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/kit_entry.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/kit_entry.py"
+      ],
+      "extra_copy_bytes": 20331
+    },
+    {
+      "sha256": "efc2144ee85d69b1c8d4da2e6d618e67481049c6bf1b732059ef2eb0ac6e29ce",
+      "bytes_each": 1575,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/motion.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/motion.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/motion.py"
+      ],
+      "extra_copy_bytes": 3150
+    },
+    {
+      "sha256": "5d3d61938a2235a745274af51b508b2d87759146b99f495ecb152fbfd778016f",
+      "bytes_each": 2728,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/prepare.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/prepare.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/prepare.py"
+      ],
+      "extra_copy_bytes": 5456
+    },
+    {
+      "sha256": "228052c29233a60ef868d71d3948a0ac653a1701523e41c1962a8bc26d26de44",
+      "bytes_each": 13888,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/run.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/run.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/run.py"
+      ],
+      "extra_copy_bytes": 27776
+    },
+    {
+      "sha256": "7f5c40722c31584dd8bd03275595175b7e7914426ecdab15b61cfb83b80a3c99",
+      "bytes_each": 9886,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/tools/validate_bag.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/tools/validate_bag.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/tools/validate_bag.py"
+      ],
+      "extra_copy_bytes": 19772
+    },
+    {
+      "sha256": "8348ce8c61b2e55a366e32e38380ced07854410f35ff9ce5f521370e2a4a3274",
+      "bytes_each": 8127,
+      "paths": [
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native/tools/validate_groups.py",
+        "scripts/260920SensorVisualizer/lidar_equivalence_006/native_dual/tools/validate_groups.py",
+        "scripts/260920SensorVisualizer/native_scene18_capture_005/tools/validate_groups.py"
+      ],
+      "extra_copy_bytes": 16254
+    },
+    {
+      "sha256": "b9d9f252257f87779d248327d80ecd50776be82b15efe25530f529218f748425",
+      "bytes_each": 4437,
+      "paths": [
+        "scripts/260920SensorVisualizer/mesh_scene18/analyze_alignment.py",
+        "scripts/260920SensorVisualizer/mesh_scene18/handoff/provenance/analyze_alignment.py"
+      ],
+      "extra_copy_bytes": 4437
+    },
+    {
+      "sha256": "46c961ad85a19135409d6e63212187529237e416262284214906e17a2a892eb1",
+      "bytes_each": 7241,
+      "paths": [
+        "scripts/260920SensorVisualizer/mesh_scene18/build_assets.py",
+        "scripts/260920SensorVisualizer/mesh_scene18/handoff/provenance/build_assets.py"
+      ],
+      "extra_copy_bytes": 7241
+    },
+    {
+      "sha256": "34207283ce1dbf043e2636a42c40dc6428d0e072dfabb3ea78c872d78fff7a49",
+      "bytes_each": 6028,
+      "paths": [
+        "scripts/260920SensorVisualizer/mesh_scene18/extract_handoff.py",
+        "scripts/260920SensorVisualizer/mesh_scene18/handoff/provenance/extract_handoff.py"
+      ],
+      "extra_copy_bytes": 6028
+    },
+    {
+      "sha256": "24d0cb08bace123bdb6bc5059f03d17c83875faaa1bdc246b7be9cb3634a3f55",
+      "bytes_each": 6914,
+      "paths": [
+        "scripts/260920SensorVisualizer/mesh_scene18/handoff/provenance/validate_assets.py",
+        "scripts/260920SensorVisualizer/mesh_scene18/validate_assets.py"
+      ],
+      "extra_copy_bytes": 6914
+    },
+    {
+      "sha256": "612efc150d72887971d5d5989c2635ddba7449f3ccd154af627c7daa21227629",
+      "bytes_each": 8089,
+      "paths": [
+        "scripts/260920SensorVisualizer/native_capture_baseline/tools/analyze_results.py",
+        "scripts/260920SensorVisualizer/native_capture_quality_002/tools/analyze_results.py"
+      ],
+      "extra_copy_bytes": 8089
+    },
+    {
+      "sha256": "4f5c3f22a68933d06178b94ceeef9d5e168d7e16a0220ecdd2759d85109306a0",
+      "bytes_each": 9759,
+      "paths": [
+        "scripts/260920SensorVisualizer/native_capture_baseline/tools/validate_bag.py",
+        "scripts/260920SensorVisualizer/native_capture_quality_002/tools/validate_bag.py"
+      ],
+      "extra_copy_bytes": 9759
+    },
+    {
+      "sha256": "5ada65e4b45e335e50d9ea8287a00bdbee2608a530042a237eef2436c6218ddc",
+      "bytes_each": 4809,
+      "paths": [
+        "scripts/260920SensorVisualizer/sensor_visualizer/base_control.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/base_control.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/base_control.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/base_control.py"
+      ],
+      "extra_copy_bytes": 14427
+    },
+    {
+      "sha256": "ab71d7dd26c93d20c57735671dfce6ef40dc755457d7fb793474d51d05d8e4e1",
+      "bytes_each": 4799,
+      "paths": [
+        "scripts/260920SensorVisualizer/sensor_visualizer/base_panel.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/base_panel.py"
+      ],
+      "extra_copy_bytes": 4799
+    },
+    {
+      "sha256": "4a3a5bec7ae0fcbf7667d3ba4f66606b56499ae6053bcd28a2beb64dceade1bf",
+      "bytes_each": 7382,
+      "paths": [
+        "scripts/260920SensorVisualizer/sensor_visualizer/joint_panel.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/joint_panel.py"
+      ],
+      "extra_copy_bytes": 7382
+    },
+    {
+      "sha256": "551f0f41835007e62c117e1f30d8d835a99a012f559577e6d81301af7908a9c6",
+      "bytes_each": 6118,
+      "paths": [
+        "scripts/260920SensorVisualizer/sensor_visualizer/performance.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/performance.py"
+      ],
+      "extra_copy_bytes": 6118
+    },
+    {
+      "sha256": "7cdb0205177c60fa49d35e639cbd0a5e6e4902c0bc90eb175663c10a48e4740f",
+      "bytes_each": 9934,
+      "paths": [
+        "scripts/260920SensorVisualizer/sensor_visualizer/sensor_pose.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/sensor_pose.py",
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/robot/sensor_pose.py",
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/robot/sensor_pose.py"
+      ],
+      "extra_copy_bytes": 29802
+    },
+    {
+      "sha256": "c49a66393952cd06c92865bd4e85fa9ae7b4a7406a45633ff2aedf2956bde36a",
+      "bytes_each": 4697,
+      "paths": [
+        "scripts/260920SensorVisualizer/sensor_visualizer/tilt_panel.py",
+        "scripts/260920SensorVisualizer/v02/sv02_legacy/tilt_panel.py"
+      ],
+      "extra_copy_bytes": 4697
+    },
+    {
+      "sha256": "da31b96be491c6dfe653e1bc2de09ea4e75ac96d6dcf16377ee37bf31ca3db2e",
+      "bytes_each": 3518,
+      "paths": [
+        "scripts/260920SensorVisualizer/single06_lab/docs/CoreTargetForSingle06.md",
+        "scripts/260920SensorVisualizer/v06/docs/CoreTargetForSingle06.md"
+      ],
+      "extra_copy_bytes": 3518
+    },
+    {
+      "sha256": "f163263439201ffcf8f5c73503bd88131f5b04cf4f1ed7a726baf2db3c340d0e",
+      "bytes_each": 8119,
+      "paths": [
+        "scripts/260920SensorVisualizer/single06_lab/docs/ImplementationPlanForSingle06.md",
+        "scripts/260920SensorVisualizer/v06/docs/ImplementationPlanForSingle06.md"
+      ],
+      "extra_copy_bytes": 8119
+    },
+    {
+      "sha256": "785cefb1d7cec7ce12fe080cd9fee5d0e26c616eeab1035348cb82bff5e0d29c",
+      "bytes_each": 1916,
+      "paths": [
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/sensor_visualizer_v06/lighting.py",
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/lighting.py",
+        "scripts/260920SensorVisualizer/v06/sensor_visualizer_v06/lighting.py",
+        "scripts/260920SensorVisualizer/v06/single0602Headless/single0602_headless/lighting.py"
+      ],
+      "extra_copy_bytes": 5748
+    },
+    {
+      "sha256": "a361aa896aa3657d504ba5f18f196ee0644eb6f82e446822175f3e08dc2f723f",
+      "bytes_each": 12909,
+      "paths": [
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/web/static/app.js",
+        "scripts/260920SensorVisualizer/v06/web/static/app.js"
+      ],
+      "extra_copy_bytes": 12909
+    },
+    {
+      "sha256": "5bd674e8ef6bf969b710b0e662d6c077b28b0fc10fc0254391b9ffe6dbd8987e",
+      "bytes_each": 5414,
+      "paths": [
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/web/static/index.html",
+        "scripts/260920SensorVisualizer/v06/web/static/index.html"
+      ],
+      "extra_copy_bytes": 5414
+    },
+    {
+      "sha256": "d8c367e8ac8f0877d9d5ae8c1ad9fcf86fc5d069079e34a93722808f58635da5",
+      "bytes_each": 2635,
+      "paths": [
+        "scripts/260920SensorVisualizer/single06_lab/frozen_runtime/web/static/style.css",
+        "scripts/260920SensorVisualizer/v06/web/static/style.css"
+      ],
+      "extra_copy_bytes": 2635
+    },
+    {
+      "sha256": "5a2cecc673b1977418defea65384cb0e99ccee6109cb3b963263d1d6d2599a6f",
+      "bytes_each": 1337,
+      "paths": [
+        "scripts/260920SensorVisualizer/v02/sensor_visualizer_v02/geometry.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/geometry.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/geometry.py"
+      ],
+      "extra_copy_bytes": 2674
+    },
+    {
+      "sha256": "ac10cd05cac14228b386851f8bf0a54b83e374509c8e284836ce6640ac9dd7a7",
+      "bytes_each": 1460,
+      "paths": [
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/gating.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/gating.py"
+      ],
+      "extra_copy_bytes": 1460
+    },
+    {
+      "sha256": "aa7af36043bade2cae3f2ef4fa772694f4a91788cc7467b2ce4f32e0f78139cf",
+      "bytes_each": 2932,
+      "paths": [
+        "scripts/260920SensorVisualizer/v03/sensor_visualizer_v03/tickets.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/tickets.py"
+      ],
+      "extra_copy_bytes": 2932
+    },
+    {
+      "sha256": "896cea09c2fb82453a0445e923dea0e0cdb163beef76d2767c1d6f59a5439b68",
+      "bytes_each": 173,
+      "paths": [
+        "scripts/260920SensorVisualizer/v04/config/throughput.json",
+        "scripts/260920SensorVisualizer/v07/config/throughput.json"
+      ],
+      "extra_copy_bytes": 173
+    },
+    {
+      "sha256": "9588717eb6c184eafa8a87fa1279243b3228dcb5adf1ac5577175c2172949d44",
+      "bytes_each": 1889,
+      "paths": [
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/lighting.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/lighting.py"
+      ],
+      "extra_copy_bytes": 1889
+    },
+    {
+      "sha256": "2451ffbd5e7e9d5d4266fd588c27f3d5c3af5ceb780b5116cd3c4009d7518c71",
+      "bytes_each": 868,
+      "paths": [
+        "scripts/260920SensorVisualizer/v04/sensor_visualizer_v04/native_trace.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/native_trace.py"
+      ],
+      "extra_copy_bytes": 868
+    },
+    {
+      "sha256": "dfc227b2f1c4784310644eb63a28a830cd1bdae22f419b456fb6bcbf4d887e30",
+      "bytes_each": 248,
+      "paths": [
+        "scripts/260920SensorVisualizer/v05/requirements-web.txt",
+        "scripts/260920SensorVisualizer/v07/requirements-web.txt"
+      ],
+      "extra_copy_bytes": 248
+    },
+    {
+      "sha256": "90bfcc31f76c758c608332fa7ac956ca654308d185772bf9372f9a40f60022cf",
+      "bytes_each": 2306,
+      "paths": [
+        "scripts/260920SensorVisualizer/v05/sensor_visualizer_v05/native_keyboard.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/native_keyboard.py"
+      ],
+      "extra_copy_bytes": 2306
+    },
+    {
+      "sha256": "ad543478c4c7ded304586d3ce85ee530da0c739403cb8828c47ea2022787aca0",
+      "bytes_each": 2634,
+      "paths": [
+        "scripts/260920SensorVisualizer/v05/web/static/style.css",
+        "scripts/260920SensorVisualizer/v07/web/static/style.css"
+      ],
+      "extra_copy_bytes": 2634
+    },
+    {
+      "sha256": "81e0731ee0347689913f4a10fdcf369c719ead7add48f5a833157fa6bef20ee5",
+      "bytes_each": 5046,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/docs/Experiments/009_连续旋转时序问题_简要说明与最小复现_20261016.md",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/instant_lidar_timing/简要说明.md"
+      ],
+      "extra_copy_bytes": 5046
+    },
+    {
+      "sha256": "8a60f5b52a610a04facf8dc04ea5311cbd1e2cf34a3e5d3db0449fb79cc90d68",
+      "bytes_each": 586,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/docs/reports/instant_lidar_timing/static_off/summary.json",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/docs/reports/instant_lidar_timing/static_on/summary.json"
+      ],
+      "extra_copy_bytes": 586
+    },
+    {
+      "sha256": "ad1e9b70ab159d2ff84a8a08a3d10dd814ea626442797ad878961a236cf749d5",
+      "bytes_each": 7186,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/instant_lidar_timing/analyze.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/issue_repro_ops/versions/v1/analyze.py"
+      ],
+      "extra_copy_bytes": 7186
+    },
+    {
+      "sha256": "32dc271186ad1755ffa1abe9220f5f3663eea3bc059c3f397f2332711b97aab8",
+      "bytes_each": 11457,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/instant_lidar_timing/sensor.json",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/issue_repro_ops/versions/v1/sensor.json"
+      ],
+      "extra_copy_bytes": 11457
+    },
+    {
+      "sha256": "4b1a753281aff0486e85007841ad13a3d24599bef00acdaf6f35ee50e392241f",
+      "bytes_each": 1892,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/README.md",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/README.md"
+      ],
+      "extra_copy_bytes": 1892
+    },
+    {
+      "sha256": "57391c8dba299c2f1812505be718ce9445d0a6d878082fb39a372b604ba8eb01",
+      "bytes_each": 2516,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_C1_comparison.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_C1_comparison.py"
+      ],
+      "extra_copy_bytes": 2516
+    },
+    {
+      "sha256": "b40d74f910c83f140a9f06880d30245ac0bc4688733f4913f10f8a8795625f2e",
+      "bytes_each": 2400,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_C1_prefix.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_C1_prefix.py"
+      ],
+      "extra_copy_bytes": 2400
+    },
+    {
+      "sha256": "3350d4906d3092cee0e74714d346e8266ad5915153cd35df040e6ddb6128f237",
+      "bytes_each": 374,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_T3_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_T3_remote.py"
+      ],
+      "extra_copy_bytes": 374
+    },
+    {
+      "sha256": "da32056bed499fa7aeafd74ebca9fcafeb81a8aaca4b2c7384636086e4dc7af1",
+      "bytes_each": 2810,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_header_models.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_header_models.py"
+      ],
+      "extra_copy_bytes": 2810
+    },
+    {
+      "sha256": "18c24ffd849d85ea420577f90a599f3ad324523a47a83f4cef33457cd4580a0b",
+      "bytes_each": 19543,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_independent.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_independent.py"
+      ],
+      "extra_copy_bytes": 19543
+    },
+    {
+      "sha256": "029339d80daccb530d9de0768a07a4ff645a0f4aa07cedfc46fa03c989e14d07",
+      "bytes_each": 376,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_main_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_main_remote.py"
+      ],
+      "extra_copy_bytes": 376
+    },
+    {
+      "sha256": "49f1231e1393be61bd42e1f88c71c0b161716b4852a6220f591b905f69bed388",
+      "bytes_each": 2485,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_output_reference.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_output_reference.py"
+      ],
+      "extra_copy_bytes": 2485
+    },
+    {
+      "sha256": "4d6b2a2199a66bcea3113232d070a239a20eed85b032392ef6db9fbda932c5db",
+      "bytes_each": 2607,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_small_rotation.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_small_rotation.py"
+      ],
+      "extra_copy_bytes": 2607
+    },
+    {
+      "sha256": "9348f404f06103eae1b63f3c8e709708234c5e9d0705db2f863fd4286925d7ae",
+      "bytes_each": 5154,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/analyze_stage.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/analyze_stage.py"
+      ],
+      "extra_copy_bytes": 5154
+    },
+    {
+      "sha256": "88ae2c65ccc2720aeb972084efc101ed21cbe0508f4a1a6429cffd7f5b61ab02",
+      "bytes_each": 567,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/asset_inventory_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/asset_inventory_remote.py"
+      ],
+      "extra_copy_bytes": 567
+    },
+    {
+      "sha256": "9a937c1951109ce2b8714bd3526c8c1d78934bc5d6cf3084ad4b1182adf0adb4",
+      "bytes_each": 795,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/baseline_provenance.json",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/baseline_provenance.json"
+      ],
+      "extra_copy_bytes": 795
+    },
+    {
+      "sha256": "f3066fb0f7b3e6ee490891ed8085a60fbd5141f96f088ed545eb6b5f78d1cec5",
+      "bytes_each": 925,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/bootstrap_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/bootstrap_local.py"
+      ],
+      "extra_copy_bytes": 925
+    },
+    {
+      "sha256": "593703ba3b49b1c10b3767d119badfcd2df8a579d2dae15843b2d81bb12a17e6",
+      "bytes_each": 1167,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/brief_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/brief_remote.py"
+      ],
+      "extra_copy_bytes": 1167
+    },
+    {
+      "sha256": "26e5ca1e4795eb5dc7ce2a4915b0af1922bce9d0cf2d21070963fbfe18f2fd4f",
+      "bytes_each": 1023,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/capabilities_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/capabilities_remote.py"
+      ],
+      "extra_copy_bytes": 1023
+    },
+    {
+      "sha256": "e40656f71d5e963b0d75168032f244cbddfd11208725b4259a210d3b4c9b9a0f",
+      "bytes_each": 1882,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/close_verified_parser_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/close_verified_parser_remote.py"
+      ],
+      "extra_copy_bytes": 1882
+    },
+    {
+      "sha256": "493de984fc045c9036c1ae95fb1705179dcc1239db3eef1f601fd11fe12cf2a6",
+      "bytes_each": 1245,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/coded_input_review.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/coded_input_review.py"
+      ],
+      "extra_copy_bytes": 1245
+    },
+    {
+      "sha256": "4d2ac3b0a9849c6312df77a87abf24831a96c99dbf6bdef582cab85b76df608f",
+      "bytes_each": 671,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/coded_outliers_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/coded_outliers_remote.py"
+      ],
+      "extra_copy_bytes": 671
+    },
+    {
+      "sha256": "02e6153483c256e24cad602bb8f16f874766147753c9af6cc07b1d60494efdb4",
+      "bytes_each": 2768,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/compare_interventions.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/compare_interventions.py"
+      ],
+      "extra_copy_bytes": 2768
+    },
+    {
+      "sha256": "7a2e8fb4fef4f7feae8c599a1ce7cae98f581e541d416ac0783646042e4f97f4",
+      "bytes_each": 4304,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/compare_layers.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/compare_layers.py"
+      ],
+      "extra_copy_bytes": 4304
+    },
+    {
+      "sha256": "1b737dee2a70b197c9bbd1ef4418756e3ec9862c9c589df3c2986a6d35c62e45",
+      "bytes_each": 2603,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/continue_declared.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/continue_declared.py"
+      ],
+      "extra_copy_bytes": 2603
+    },
+    {
+      "sha256": "b9bba28f34d6b49a4ce9d4451a0171500df45ebc221e026af907dd24d9e7ca4b",
+      "bytes_each": 3377,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/continue_stage2.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/continue_stage2.py"
+      ],
+      "extra_copy_bytes": 3377
+    },
+    {
+      "sha256": "9bac954081bd331ba6f3aac052903a07eaf7ab4031f340aebdc5b04d992bea69",
+      "bytes_each": 1536,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/contracts_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/contracts_remote.py"
+      ],
+      "extra_copy_bytes": 1536
+    },
+    {
+      "sha256": "b61050b7f90d3cc3dac407386093f94d453fa6ad96a3dbfff2ecf6353a6f7b59",
+      "bytes_each": 7642,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/coordinator.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/coordinator.py"
+      ],
+      "extra_copy_bytes": 7642
+    },
+    {
+      "sha256": "ff4b94f374372874c67348b069235639b3557700e3c1c3d83c2e8ad43c99ce77",
+      "bytes_each": 1985,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/direct_evidence_contract_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/direct_evidence_contract_remote.py"
+      ],
+      "extra_copy_bytes": 1985
+    },
+    {
+      "sha256": "d9856c6b6bbe0c7ef802bdde3ac0982b707ff70a83b39ab16f75dbc8933c53b7",
+      "bytes_each": 2874,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/final_metadata_crosscheck.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/final_metadata_crosscheck.py"
+      ],
+      "extra_copy_bytes": 2874
+    },
+    {
+      "sha256": "c1419d0999711b2f79f298935a3d77240d13b10699c2d92170feef8feeca8fe6",
+      "bytes_each": 3516,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/final_qualification.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/final_qualification.py"
+      ],
+      "extra_copy_bytes": 3516
+    },
+    {
+      "sha256": "753be830d1d46dc1361121a6416eb15d2c6c3eb6ad93300e012afb2f8cf238fc",
+      "bytes_each": 819,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/inspect_C1_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/inspect_C1_remote.py"
+      ],
+      "extra_copy_bytes": 819
+    },
+    {
+      "sha256": "a35c8b3f6019883000b4e95e300b5e78fb52b56c5668997250320be32dc508ad",
+      "bytes_each": 639,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/inspect_T3_semantics_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/inspect_T3_semantics_remote.py"
+      ],
+      "extra_copy_bytes": 639
+    },
+    {
+      "sha256": "810e851ef0f945e7e8db90dacbb5ff9a879e94be95fd9b7a7cdabcd6e9da45fe",
+      "bytes_each": 222,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/inspect_example_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/inspect_example_remote.py"
+      ],
+      "extra_copy_bytes": 222
+    },
+    {
+      "sha256": "096f155885611611db98e38ffd91327f8ee21bdbb69c0e52d1dfa6ad8bfb66e3",
+      "bytes_each": 863,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/inspect_final_parser_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/inspect_final_parser_remote.py"
+      ],
+      "extra_copy_bytes": 863
+    },
+    {
+      "sha256": "6d752781e60b22faa54aecf4ee26c1842c87ea10d0f0376988ee601b24345e29",
+      "bytes_each": 2214,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/inspect_rotary_static.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/inspect_rotary_static.py"
+      ],
+      "extra_copy_bytes": 2214
+    },
+    {
+      "sha256": "7865c3398b2d00c593435eb5f7952b637508a94894b25df05fd280bc15466271",
+      "bytes_each": 2323,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/intervention_boundary.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/intervention_boundary.py"
+      ],
+      "extra_copy_bytes": 2323
+    },
+    {
+      "sha256": "878a0b0966f6783fc49d02907b321f8d7019ae5107fd2eeedc5c5c97be63452b",
+      "bytes_each": 3642,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/io.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/io.py"
+      ],
+      "extra_copy_bytes": 3642
+    },
+    {
+      "sha256": "88c230ddcfd10bb0e72ec64abf11aadeae5f5d816ff9de928b738508f9d688d7",
+      "bytes_each": 389,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/lidar_bindings_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/lidar_bindings_remote.py"
+      ],
+      "extra_copy_bytes": 389
+    },
+    {
+      "sha256": "f9b74345288ebaec0fff06ebccb16bbba9f0acbd44be99716403da6c7b4d0370",
+      "bytes_each": 6540,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/math_independent.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/math_independent.py"
+      ],
+      "extra_copy_bytes": 6540
+    },
+    {
+      "sha256": "dae90310963ebdbab4cea62bcb0fc25fa21e5f553cedcfa457951e444fe8b454",
+      "bytes_each": 1479,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/normalizer.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/normalizer.py"
+      ],
+      "extra_copy_bytes": 1479
+    },
+    {
+      "sha256": "a7401c602ac13b951fcb3a045d2ab86e1dc3695e101f07715268ca98b77af6e7",
+      "bytes_each": 1659,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/official_crosscheck.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/official_crosscheck.py"
+      ],
+      "extra_copy_bytes": 1659
+    },
+    {
+      "sha256": "3cbf3996e47486759bd4dd6e87a71db0f83c57b9f74ba9287367d0f6a43137df",
+      "bytes_each": 5616,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/pack_delivery_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/pack_delivery_remote.py"
+      ],
+      "extra_copy_bytes": 5616
+    },
+    {
+      "sha256": "0594ba84aa7b4cc9b047d22541dfaf684043741e68a286119a669c1ed23f5c13",
+      "bytes_each": 5833,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/plot_delivery_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/plot_delivery_local.py"
+      ],
+      "extra_copy_bytes": 5833
+    },
+    {
+      "sha256": "33b9e60bbcee670bef1b3af21a58e0e03c20e8d62e65f41f57dd3fdedde15552",
+      "bytes_each": 2103,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/preflight_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/preflight_remote.py"
+      ],
+      "extra_copy_bytes": 2103
+    },
+    {
+      "sha256": "a2f09a06929f9561fd01b6466ca4f7dba7ab7d1153053149987ef9c537181475",
+      "bytes_each": 1218,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/prepare_T3_resume_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/prepare_T3_resume_local.py"
+      ],
+      "extra_copy_bytes": 1218
+    },
+    {
+      "sha256": "d7492493490f25dd9f0f0c31bbd6e08fb62cafdf1191c49949a990b48a82477a",
+      "bytes_each": 2972,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/prepare_extensions_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/prepare_extensions_local.py"
+      ],
+      "extra_copy_bytes": 2972
+    },
+    {
+      "sha256": "a7614cdc4e434eb3f14fc4dce340456220e94c12e0312ba8a6e1a964e4d2817e",
+      "bytes_each": 5346,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/prepare_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/prepare_local.py"
+      ],
+      "extra_copy_bytes": 5346
+    },
+    {
+      "sha256": "8c546104dce53ce0cf2e93f258471e3a828284f5ed76e027a6201b4c5be1bb92",
+      "bytes_each": 2834,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/prepare_main_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/prepare_main_local.py"
+      ],
+      "extra_copy_bytes": 2834
+    },
+    {
+      "sha256": "d7a777afcf2889c3d835db5155ad9a8b7e44578d17dc45787a8fcdd3a27ac0ef",
+      "bytes_each": 2753,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/prepare_q02_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/prepare_q02_local.py"
+      ],
+      "extra_copy_bytes": 2753
+    },
+    {
+      "sha256": "f961a184a233c28d07ac4898eaab63dc43c83c4e1471294a345619b04dbda7f9",
+      "bytes_each": 3972,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/prepare_stage2_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/prepare_stage2_local.py"
+      ],
+      "extra_copy_bytes": 3972
+    },
+    {
+      "sha256": "105f554ae74e40c86fec4ce9225b3f25b2e409c53cc8c29e5031e0c477292dbf",
+      "bytes_each": 592,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/progress_compact_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/progress_compact_remote.py"
+      ],
+      "extra_copy_bytes": 592
+    },
+    {
+      "sha256": "eb5f2c159a3653cde68359deedfd2461cc9e1620f73735bea4cf89e0f2dbe84c",
+      "bytes_each": 2187,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/ray_model.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/ray_model.py"
+      ],
+      "extra_copy_bytes": 2187
+    },
+    {
+      "sha256": "5df92f64168135263dc1e52de00f2496c8d9ebd80f0831a8baec6dd2913e116a",
+      "bytes_each": 678,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/read_gmo_binding_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/read_gmo_binding_remote.py"
+      ],
+      "extra_copy_bytes": 678
+    },
+    {
+      "sha256": "6dc9a2e24f9905a58213f6d01635ff6d988b0913aa630b465fe0cc417373b1a0",
+      "bytes_each": 487,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/replay_q01_B2_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/replay_q01_B2_remote.py"
+      ],
+      "extra_copy_bytes": 487
+    },
+    {
+      "sha256": "adccc05140e9a5cfb730217fbe4732ba195f8fd8f019ac5b25e14dcedf0a9e7e",
+      "bytes_each": 382,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/review_T3_boundary_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/review_T3_boundary_remote.py"
+      ],
+      "extra_copy_bytes": 382
+    },
+    {
+      "sha256": "458903221a3b912bbe14eceabd7c768f2559f8317169d5b0c993fc8a59ba883d",
+      "bytes_each": 377,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/run_C1_comparison_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/run_C1_comparison_remote.py"
+      ],
+      "extra_copy_bytes": 377
+    },
+    {
+      "sha256": "c23a5c25b711d4ffc508b61e3bb9b73165dd43a1b96a3eacb61ccd9a8a5b441c",
+      "bytes_each": 373,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/run_C1_prefix_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/run_C1_prefix_remote.py"
+      ],
+      "extra_copy_bytes": 373
+    },
+    {
+      "sha256": "843139941a82602248ae997ecc6984407019931e6b4f9641eadf36182abbba6a",
+      "bytes_each": 1481,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/run_final_metadata_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/run_final_metadata_remote.py"
+      ],
+      "extra_copy_bytes": 1481
+    },
+    {
+      "sha256": "a7a1df5d3747995db7e1eb6e6d1be4bde469f3290b15739fbb1dc66d4f7294a8",
+      "bytes_each": 375,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/run_final_qualification_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/run_final_qualification_remote.py"
+      ],
+      "extra_copy_bytes": 375
+    },
+    {
+      "sha256": "e841f25c1e085b6a303afa8cc9e992379e4dc6f1a797d7c97be526364e74d9db",
+      "bytes_each": 21071,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/run_layers.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/run_layers.py"
+      ],
+      "extra_copy_bytes": 21071
+    },
+    {
+      "sha256": "69ae267ecee6f42a49d91c66d00f23e8f853475f608c3ea52d33ba1c079297a4",
+      "bytes_each": 377,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/run_rotary_static_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/run_rotary_static_remote.py"
+      ],
+      "extra_copy_bytes": 377
+    },
+    {
+      "sha256": "83e33614d3a8640359769c88a959e8c45320a2a7828a2ed9134c17d1faac2b4f",
+      "bytes_each": 378,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/run_small_rotation_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/run_small_rotation_remote.py"
+      ],
+      "extra_copy_bytes": 378
+    },
+    {
+      "sha256": "8ee29d569dca0ae5688f1123f1455f710e7948f7fcaac548d2b2aedac5f84c1a",
+      "bytes_each": 7479,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/runtime.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/runtime.py"
+      ],
+      "extra_copy_bytes": 7479
+    },
+    {
+      "sha256": "ecf53b523a19a966592979d2185cd02e70ebfa9fe4654f05054ca6bc04283331",
+      "bytes_each": 448,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/scan_contract_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/scan_contract_remote.py"
+      ],
+      "extra_copy_bytes": 448
+    },
+    {
+      "sha256": "433e8fcdd652535dcf3b76ba6bc592d93db8707a43e4959df2e4ab3305c6a6b6",
+      "bytes_each": 1848,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/stage_status_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/stage_status_remote.py"
+      ],
+      "extra_copy_bytes": 1848
+    },
+    {
+      "sha256": "56f9283b963e7d4d1cee1b8f92ce565b1743887f54f0c076a4377438e03e7187",
+      "bytes_each": 702,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_B3_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_B3_remote.py"
+      ],
+      "extra_copy_bytes": 702
+    },
+    {
+      "sha256": "24ccf2411381e8b46fe5d519561f9a521cb06be9c060ea0b83725ff9894a4c2b",
+      "bytes_each": 581,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_T3_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_T3_remote.py"
+      ],
+      "extra_copy_bytes": 581
+    },
+    {
+      "sha256": "0a1587c9a68b13ad77e896168f03b9475c3bff2cc435210ca7843c8e74e55d87",
+      "bytes_each": 590,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_T3_resume_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_T3_resume_remote.py"
+      ],
+      "extra_copy_bytes": 590
+    },
+    {
+      "sha256": "109508c87910fa1595272767ec55b9c8d20b54fa4b4eb0c80112c7d5e1085f5a",
+      "bytes_each": 263,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_declared_followup_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_declared_followup_remote.py"
+      ],
+      "extra_copy_bytes": 263
+    },
+    {
+      "sha256": "0446ea5431502d1cdb773a8b3652701d88081e95356f57ae580f9cf52ff89248",
+      "bytes_each": 714,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_main_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_main_remote.py"
+      ],
+      "extra_copy_bytes": 714
+    },
+    {
+      "sha256": "252c213cc370c4bc88b172bc963f53e201adde3b8fd6d26ecd170121e1875c20",
+      "bytes_each": 353,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_q02_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_q02_remote.py"
+      ],
+      "extra_copy_bytes": 353
+    },
+    {
+      "sha256": "37989b8dc3318d97d37f48e393642b5fff1df4add8ecee9d820d3c194ca41c34",
+      "bytes_each": 349,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_remote.py"
+      ],
+      "extra_copy_bytes": 349
+    },
+    {
+      "sha256": "f415c26d0409c471ef848346f816f97eb2aa9f8d6596837641f4997752b649ca",
+      "bytes_each": 581,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_speed_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_speed_remote.py"
+      ],
+      "extra_copy_bytes": 581
+    },
+    {
+      "sha256": "edf63fb306880f30e6beb4cc4cd5efe60a796b70a7c35e29b60f60b08f1cc667",
+      "bytes_each": 261,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/start_stage2_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/start_stage2_remote.py"
+      ],
+      "extra_copy_bytes": 261
+    },
+    {
+      "sha256": "234f22a6dc48fafb7dd5739a06e724ca1ec7f86e5390fc0c7887568e28cb946b",
+      "bytes_each": 1481,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/status_remote.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/status_remote.py"
+      ],
+      "extra_copy_bytes": 1481
+    },
+    {
+      "sha256": "e985e36a99462366aff1e8bedd5d351d6da7279592b0b060f5bd2a6800f496f5",
+      "bytes_each": 4936,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/summarize_delivery_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/summarize_delivery_local.py"
+      ],
+      "extra_copy_bytes": 4936
+    },
+    {
+      "sha256": "73435d00848d151f88c385199445750dcaeef68496953262530e45faa70b2748",
+      "bytes_each": 2014,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/test_contracts.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/test_contracts.py"
+      ],
+      "extra_copy_bytes": 2014
+    },
+    {
+      "sha256": "4c922575601eb04a294b8915d85fee81a6a8b6b0bc970d23af2f6d06ca77ed7e",
+      "bytes_each": 3174,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/transfer_official_asset_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/transfer_official_asset_local.py"
+      ],
+      "extra_copy_bytes": 3174
+    },
+    {
+      "sha256": "9b696d8d38cc79dc430c9ec4f8f55a6d983b5a0231bf4f5911d37a5bac028b06",
+      "bytes_each": 1461,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/unpack_delivery_local.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/unpack_delivery_local.py"
+      ],
+      "extra_copy_bytes": 1461
+    },
+    {
+      "sha256": "74011f3321fcd2f78cb487cda6075e938d1932b591820bbbfcc39ab738924d90",
+      "bytes_each": 2860,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/versions/final_metadata_v1/final_metadata_crosscheck.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/versions/final_metadata_v1/final_metadata_crosscheck.py"
+      ],
+      "extra_copy_bytes": 2860
+    },
+    {
+      "sha256": "59be5b323a9a6b04c58e83ae76aa5f9238fed75719d2beb85c60f50330a0bb7b",
+      "bytes_each": 18282,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/versions/q01/analyze_independent.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/versions/q01/analyze_independent.py"
+      ],
+      "extra_copy_bytes": 18282
+    },
+    {
+      "sha256": "13705526b73d5dbce427377f930a811fddd2a644a9c87207a48a4811cbed6903",
+      "bytes_each": 19261,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/versions/q02/analyze_independent.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/versions/q02/analyze_independent.py"
+      ],
+      "extra_copy_bytes": 19261
+    },
+    {
+      "sha256": "f8f0100c9b4ac4cb5541a434aa95243ca359b9a843195fb3a41cd4744d2d994f",
+      "bytes_each": 1778,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/repro/native007_delivery_20261015/implementation/versions/q02/ray_model.py",
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/tools/native_rotation_localization/versions/q02/ray_model.py"
+      ],
+      "extra_copy_bytes": 1778
+    },
+    {
+      "sha256": "8c9ea96d06775e4f2ce54848bb0dc0ed413472c01cd1e528af5cd2656930e628",
+      "bytes_each": 61,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/__init__.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/__init__.py"
+      ],
+      "extra_copy_bytes": 61
+    },
+    {
+      "sha256": "33700389355ec90199f4e7a0ccf559c55083a8a9b0b1416535ae941171e2b660",
+      "bytes_each": 561,
+      "paths": [
+        "scripts/260920SensorVisualizer/v06/single0601ContinuousRt/single0601_continuous_rt/robot/performance.py",
+        "scripts/260920SensorVisualizer/v07/sensor_visualizer_v07/robot/performance.py"
+      ],
+      "extra_copy_bytes": 561
+    }
+  ]
+}

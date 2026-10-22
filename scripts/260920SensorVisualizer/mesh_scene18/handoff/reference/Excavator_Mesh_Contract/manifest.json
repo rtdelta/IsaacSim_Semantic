@@ -1,0 +1,480 @@
+{
+  "version": "mesh_contract_scene18_v1",
+  "created_utc": "20261012T094456Z",
+  "source_scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_17_terrain_fisheye.usda",
+  "source_scene_sha256": "2e1503a3b34fc23b2f2273fb502c2c0a1e83b39722eaa075bdd4fe94372d51a2",
+  "source_mesh": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Sim_Fangshan_02/waji_mesh_corrected.usdc",
+  "source_mesh_sha256": "53098b1b4954c5fa88298569950941389e9a7c718584d23a85e379af477e28a0",
+  "source_contract": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+  "source_contract_sha256": "3aa1487562696b353c4bacf48caea993a804ff4adf0d92cf663e1caf94618d0b",
+  "coordinate_evidence": {
+    "matrix_convention": "row vectors: corrected = raw @ R + translation",
+    "raw_to_corrected": [
+      [
+        0.44026025201894353,
+        0.8896029756966127,
+        0.12156256053550347,
+        0.0
+      ],
+      [
+        0.22643141878703674,
+        0.02100817185343414,
+        -0.9738005284972201,
+        0.0
+      ],
+      [
+        -0.8688496550487348,
+        0.456251249145806,
+        -0.19218500090950358,
+        0.0
+      ],
+      [
+        1.598039699579051,
+        -0.16933734163923583,
+        0.772668159605301,
+        1.0
+      ]
+    ],
+    "corrected_to_raw": [
+      [
+        0.44026025201894387,
+        0.22643141878703688,
+        -0.8688496550487352,
+        0.0
+      ],
+      [
+        0.8896029756966128,
+        0.021008171853434232,
+        0.4562512491458061,
+        0.0
+      ],
+      [
+        0.1215625605355035,
+        -0.9738005284972211,
+        -0.19218500090950372,
+        -0.0
+      ],
+      [
+        -0.6468378777800076,
+        0.39413573369728344,
+        1.6142118463398636,
+        1.0
+      ]
+    ],
+    "gaussian_checks": {
+      "track": {
+        "count": 70566,
+        "max": 4.2205190231860586e-08,
+        "rms": 1.8237578724232637e-08,
+        "median": 1.4898813475658336e-08
+      },
+      "cab": {
+        "count": 185786,
+        "max": 7.03870666841195e-08,
+        "rms": 2.4416789822635985e-08,
+        "median": 1.9636405142284592e-08
+      },
+      "boom": {
+        "count": 66794,
+        "max": 1.6280627769680907e-07,
+        "rms": 3.797362375016925e-08,
+        "median": 2.6756247488252834e-08
+      },
+      "arm": {
+        "count": 41716,
+        "max": 1.656132546682001e-07,
+        "rms": 7.70165107496871e-08,
+        "median": 6.957657483123573e-08
+      }
+    },
+    "mesh_checks": {
+      "boom": {
+        "corrected_vertices": 57635
+      },
+      "operator_cab": {
+        "corrected_vertices": 116099
+      },
+      "track": {
+        "corrected_vertices": 101771
+      },
+      "bucket_only_full_teeth": {
+        "corrected_vertices": 18406
+      },
+      "small_arm": {
+        "corrected_vertices": 23764
+      }
+    },
+    "raw_mesh_attributes": [
+      {
+        "name": "extent",
+        "type": "float3[]"
+      },
+      {
+        "name": "faceVertexCounts",
+        "type": "int[]"
+      },
+      {
+        "name": "faceVertexIndices",
+        "type": "int[]"
+      },
+      {
+        "name": "normals",
+        "type": "normal3f[]"
+      },
+      {
+        "name": "points",
+        "type": "point3f[]"
+      },
+      {
+        "name": "primvars:displayColor",
+        "type": "color3f[]"
+      },
+      {
+        "name": "subdivisionScheme",
+        "type": "token"
+      }
+    ],
+    "readme": "# Sim_Fangshan_02\n\n## Isaac Sim 主场景\n\n请直接打开：\n\n`waji_mesh_3dgs_with_joints_control_only_v1.usda`\n\n这是控制用场景，包含挖机 mesh、3DGS、关节和关闭重力的控制层。它的本地依赖链为：\n\n```text\nwaji_mesh_3dgs_with_joints_control_only_v1.usda\n  -> waji_mesh_3dgs_with_joints_v2.usda\n    -> waji_mesh_3dgs_aligned.usda\n      -> waji_mesh_corrected.usdc\n      -> 3dgs_usd/*.usd\n```\n\n三个 USDA 文件和 mesh USD 位于本目录根部，引用已经改为相对路径，因此复制整个 `Sim_Fangshan_02` 目录后仍可打开主场景。\n\n## 两个资源目录\n\n- `3dgs_ply/`：5 个 3DGS 原始 PLY，分别对应 `track`、`operator_cab`、`boom`、`small_arm` 和 `bucket_only_full_teeth`。\n- `3dgs_usd/`：由上述 PLY 转换得到、并被 `waji_mesh_3dgs_aligned.usda` 引用的 5 个 3DGS USD。\n",
+    "mesh_global_correspondence": {
+      "scipy_available": false,
+      "source_vertices": 317675,
+      "corrected_vertices": 317675,
+      "rounded_1mm_vertex_match_fraction": 0.9999464861887148,
+      "sampled_128_nearest_vertex_max": 1.2167736616544585e-07,
+      "source_bounds": [
+        -1.2579039737603466,
+        -0.6675517258367011,
+        -0.25870830859142047,
+        2.976897397632976,
+        0.6843578966670706,
+        2.2857006144483707
+      ],
+      "corrected_bounds": [
+        -1.2579039335250854,
+        -0.6675516963005066,
+        -0.25870829820632935,
+        2.9768974781036377,
+        0.6843578815460205,
+        2.285700559616089
+      ]
+    }
+  },
+  "parts": {
+    "track_link": {
+      "source_prim": "/root/track_mesh/track_mesh",
+      "geometry_file": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/track_link.usdc",
+      "target_geometry_path": "/Excavator/track_link/Visuals/MeshAlignment/Geometry/Mesh",
+      "vertices": 101771,
+      "faces": 200806,
+      "corrected_to_raw_row_matrix": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          -0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "link_from_raw_row_matrix": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          3.20352,
+          -0.34217,
+          2.04934,
+          1.0
+        ]
+      ],
+      "topology_sha256": "bf021d6bf214c29de8a97da36d47dc4929a5219bd57d3b84bf58a4662f6ff84b",
+      "geometry_sha256": "79f7c07929c318bd231a8025e7ad551b2f00013f7b77b2e5ba688bc93bd03f32"
+    },
+    "swing_link": {
+      "source_prim": "/root/operator_cab_mesh/operator_cab_mesh",
+      "geometry_file": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/swing_link.usdc",
+      "target_geometry_path": "/Excavator/swing_link/Visuals/MeshAlignment/Geometry/Mesh",
+      "vertices": 116099,
+      "faces": 229912,
+      "corrected_to_raw_row_matrix": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          -0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "link_from_raw_row_matrix": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          3.20352,
+          -0.34217,
+          1.4493399999999999,
+          1.0
+        ]
+      ],
+      "topology_sha256": "e9804f9ba4afb8fc99832b553481a00a2e4d807f1927adc7f16600a842e5261d",
+      "geometry_sha256": "bf4d45a4e4ef614dc39ed771374dfc8b013d7acdb431ea2147239ae9526a5007"
+    },
+    "boom_link": {
+      "source_prim": "/root/boom_mesh/boom_mesh",
+      "geometry_file": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/boom_link.usdc",
+      "target_geometry_path": "/Excavator/boom_link/Visuals/MeshAlignment/Geometry/Mesh",
+      "vertices": 57635,
+      "faces": 114781,
+      "corrected_to_raw_row_matrix": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          -0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "link_from_raw_row_matrix": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          3.5775200000000003,
+          -0.07216999999999996,
+          0.4953400000000001,
+          1.0
+        ]
+      ],
+      "topology_sha256": "b25fe27a870a8519ff922ac0463209f7115cfe772b0127307ac0b24f1270272f",
+      "geometry_sha256": "aecae49a382971ee31a345c74ce440c87f73923494e87fa2bad2e482bc48ee60"
+    },
+    "arm_link": {
+      "source_prim": "/root/small_arm_mesh/small_arm_mesh",
+      "geometry_file": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/arm_link.usdc",
+      "target_geometry_path": "/Excavator/arm_link/Visuals/MeshAlignment/Geometry/Mesh",
+      "vertices": 23764,
+      "faces": 47013,
+      "corrected_to_raw_row_matrix": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          -0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "link_from_raw_row_matrix": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          -0.97248,
+          -0.006169999999999953,
+          -2.70266,
+          1.0
+        ]
+      ],
+      "topology_sha256": "30d4797f9b9b88344d9ba2d7b2512344cfee9dd5b6b5e9ddd1ccc5b2ada2732a",
+      "geometry_sha256": "b0bccbb60fc31e8e0c6acc5cfc73700fe245e61668ebb01b9ff3f3e32748fbd1"
+    },
+    "bucket_link": {
+      "source_prim": "/root/bucket_only_full_teeth_mesh/bucket_only_full_teeth_mesh",
+      "geometry_file": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/geometry/bucket_link.usdc",
+      "target_geometry_path": "/Excavator/bucket_link/Visuals/MeshAlignment/Geometry/Mesh",
+      "vertices": 18406,
+      "faces": 36356,
+      "corrected_to_raw_row_matrix": [
+        [
+          0.44026025201894387,
+          0.22643141878703688,
+          -0.8688496550487352,
+          0.0
+        ],
+        [
+          0.8896029756966128,
+          0.021008171853434232,
+          0.4562512491458061,
+          0.0
+        ],
+        [
+          0.1215625605355035,
+          -0.9738005284972211,
+          -0.19218500090950372,
+          -0.0
+        ],
+        [
+          -0.6468378777800076,
+          0.39413573369728344,
+          1.6142118463398636,
+          1.0
+        ]
+      ],
+      "link_from_raw_row_matrix": [
+        [
+          1.1471508209952654,
+          2.094579558347602,
+          0.23828862256149497,
+          0.0
+        ],
+        [
+          0.6199494079352975,
+          -0.07590455015254771,
+          -2.3173047341398183,
+          0.0
+        ],
+        [
+          -2.014871639953911,
+          1.16917704947476,
+          -0.5773363850398934,
+          0.0
+        ],
+        [
+          -2.19848,
+          0.08683000000000007,
+          -0.04065999999999992,
+          1.0
+        ]
+      ],
+      "topology_sha256": "b19a27500985f72cf5b2b8f272ad723c8c998928eb291a75bdc21f1c247347c5",
+      "geometry_sha256": "5ec52bc689ce3f55c60a722822942ebd73c6928ef80ade83e8b48b4ad040f526"
+    }
+  },
+  "bucket_policy": "Complete original bucket_only_full_teeth_mesh; no clipping or tooth removal",
+  "geometry_policy": "Original mesh points/normals/topology retained; corrected-to-raw transform under existing Visuals; existing 2.4 scale remains only once",
+  "material_policy": "Original linear RGBA vertex colors preserved as Col and mapped to displayColor; opaque UsdPreviewSurface roughness 0.8",
+  "backup_directory": "/root/gpufree-data/semantic/scripts/260920SensorVisualizer/mesh_scene18/backups/20261012T094456Z",
+  "asset": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_Mesh_Contract/Excavator_Mesh_Contract.usda",
+  "asset_sha256": "84b4ba451ce6aff8108a068b08788ec1619213ee4a2079512a108add86402c9c",
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_18_terrain_fisheye_mesh.usda",
+  "scene_sha256": "e44ff38c21caaaccf20aa44a9b834e33d7109407e737df27198a63ad95e9fb79",
+  "total_vertices": 317675,
+  "total_faces": 628868,
+  "source_files_unchanged": true
+}

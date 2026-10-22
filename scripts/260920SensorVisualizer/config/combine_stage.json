@@ -1,0 +1,17 @@
+{
+  "donor_scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_12_myairy.usda",
+  "asset": "/root/gpufree-data/IsaacSim_Asset/excavator_module_set/Excavator_3DGS_Contract/Excavator_3DGS_Contract.usda",
+  "output_scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_13_3dgs_contract.usda",
+  "donor_root": "/Excavator_Fangshan_05",
+  "target_root": "/World/Excavator",
+  "grid_asset": "/root/gpufree-data/IsaacSim_Asset/environment_module_set/NvidiaGrid_6_0/default_environment.usd",
+  "parts": {
+    "track_prim": "track_link",
+    "cab_prim": "swing_link",
+    "boom_prim": "boom_link"
+  },
+  "expected_lidars": {"MyAiry": 7, "MyNZ3": 6},
+  "expected_cameras": 1,
+  "mount_policy": "Preserve attachment to the same raw Gaussian geometry, not old link coordinates or old joint angles",
+  "root_policy": "Align track Gaussian geometry with donor scene; contract link frames and zero joint angles remain unchanged"
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "hypothesis": "Exploratory float32 small-angle branch models, preregistered before fresh T2 100-target and T4 captures; not a claim about installed GPU implementation",
+  "input": "actual POST root quaternion at source step and previous step, converted to float32; GPU normalization and reduction order are unobserved",
+  "float32_thresholds": [
+    "1",
+    "1-eps/2",
+    "1-eps",
+    "1-2eps"
+  ],
+  "comparisons": [
+    ">",
+    ">="
+  ],
+  "dot_models": [
+    "float32_products_float32_sequential_sum",
+    "float32_products_pairwise_sum",
+    "float64_products_sum_then_float32"
+  ],
+  "predicted_rotation_lag_steps": {
+    "branch_true": 1,
+    "branch_false": 0.5
+  },
+  "baselines": [
+    "constant_half_step",
+    "constant_previous_step"
+  ],
+  "denominator": "all planned targets; report unavailable/unobservable separately, never infer position delay in pure rotation",
+  "validation_runs": [
+    "T2_Rplus/r01-r03",
+    "T2_Rminus/r01-r03",
+    "T4_B120_3/r01-r03",
+    "T4_C120_6/r01-r03"
+  ],
+  "interpretation": "Association only. Native endpoints are output, not proof of the GPU input; no source clock or point changes."
+}

@@ -1,0 +1,1068 @@
+{
+  "status": "analysis only; no USD authored",
+  "method": "Preserve sensor relative parent-child hierarchy and device internals. Map 13 ordinary mounts through the corresponding 05 body registration; copy MyOS0_up parent-local transform unchanged.",
+  "mounts": [
+    {
+      "name": "Camera",
+      "old_parent": "/Excavator_Fangshan_03/boom_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/boom_prim",
+      "old_mount_xyz": [
+        0.6173082403699847,
+        -0.09118596316435856,
+        0.4979591991771176
+      ],
+      "candidate_mount_xyz": [
+        1.0411621488599554,
+        -0.8966284176088837,
+        -0.3405483805887414
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          0.3762576547395844,
+          0.04268407432141634,
+          -0.9255313322892917,
+          1.0411621488599554
+        ],
+        [
+          0.9255514902513303,
+          0.02823090234540525,
+          0.37756781516213167,
+          -0.8966284176088837
+        ],
+        [
+          0.04224471734322704,
+          -0.9986896845127059,
+          -0.02888421549052102,
+          -0.3405483805887414
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/boom_prim/Camera",
+      "proposed_mount_path": "/Excavator_Fangshan_05/boom_prim/Camera",
+      "old_sensor_path": "/Excavator_Fangshan_03/boom_prim/Camera",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/boom_prim/Camera",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyOS0_left",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -0.5800000000000001,
+        0.66543,
+        0.6858
+      ],
+      "candidate_mount_xyz": [
+        -1.3338390288949014,
+        1.6311742051191327,
+        1.2250163172912596
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.3338390288949014
+        ],
+        [
+          0.0,
+          -3.422854177870249e-08,
+          0.9999999999999993,
+          1.6311742051191327
+        ],
+        [
+          0.0,
+          -0.9999999999999993,
+          -3.422854177870249e-08,
+          1.2250163172912596
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03622
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_left",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_left",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_left/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_left/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyOS0_front",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        0.531397584248355,
+        0.28304708059532535,
+        1.1567494789377903
+      ],
+      "candidate_mount_xyz": [
+        1.3335151733011508,
+        0.7134551985479138,
+        2.3552950667419563
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -3.422854177870249e-08,
+          0.0,
+          0.9999999999999993,
+          1.3335151733011508
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7134551985479138
+        ],
+        [
+          -0.9999999999999993,
+          0.0,
+          -3.422854177870249e-08,
+          2.3552950667419563
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03622
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_front",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_front",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_front/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_front/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyOS0_right",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -0.45897372991817864,
+        -0.5742271451804657,
+        0.6404213255394343
+      ],
+      "candidate_mount_xyz": [
+        -1.0433759806985299,
+        -1.3440029433139846,
+        1.116107498585902
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.0433759806985299
+        ],
+        [
+          0.0,
+          -3.422854177870249e-08,
+          -0.9999999999999993,
+          -1.3440029433139846
+        ],
+        [
+          0.0,
+          0.9999999999999993,
+          -3.422854177870249e-08,
+          1.116107498585902
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03622
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_right",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_right",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_right/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_right/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyNZ3_front",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        0.5933604651536937,
+        0.2830470731447223,
+        1.1567500000000086
+      ],
+      "candidate_mount_xyz": [
+        1.4822260874739634,
+        0.7134551806664666,
+        2.3552963172912804
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          0.6427877165176881,
+          0.0,
+          0.7660443534769877,
+          1.4822260874739634
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.7134551806664666
+        ],
+        [
+          -0.7660443534769877,
+          0.0,
+          0.6427877165176881,
+          2.3552963172912804
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_front",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_front",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_front/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_front/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyNZ3_left",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -0.5800000000000001,
+        0.665429821640543,
+        0.6858000905872502
+      ],
+      "candidate_mount_xyz": [
+        -1.3338390288949014,
+        1.631173777056436,
+        1.2250165347006603
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -5.740852238034222e-10,
+          -1.0,
+          -2.677004173889941e-10,
+          -1.3338390288949014
+        ],
+        [
+          0.6427876271136381,
+          -5.740852238034222e-10,
+          0.7660444284959055,
+          1.631173777056436
+        ],
+        [
+          -0.7660444284959055,
+          2.677004173889941e-10,
+          0.6427876271136381,
+          1.2250165347006603
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_left",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_left",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_left/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_left/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyNZ3_right",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -0.4589699996878185,
+        -0.5851306058888864,
+        0.6384971542656533
+      ],
+      "candidate_mount_xyz": [
+        -1.0433670281456655,
+        -1.3701712490141944,
+        1.1114894875288277
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -5.740852238034222e-10,
+          1.0,
+          -2.677004173889941e-10,
+          -1.0433670281456655
+        ],
+        [
+          -0.6427876271136381,
+          -5.740852238034222e-10,
+          -0.7660444284959055,
+          -1.3701712490141944
+        ],
+        [
+          -0.7660444284959055,
+          -2.677004173889941e-10,
+          0.6427876271136381,
+          1.1114894875288277
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_right",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_right",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_right/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_right/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyOS0_backleft",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -1.0447499663543933,
+        0.5632858697410941,
+        0.86
+      ],
+      "candidate_mount_xyz": [
+        -2.4492389481454455,
+        1.3860282924977587,
+        1.6430963172912598
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0,
+          -2.4492389481454455
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          1.3860282924977587
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.6430963172912598
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03622
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_backleft",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_backleft",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_backleft/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_backleft/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyNZ3_backleft",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -1.04475,
+        0.5632900000000001,
+        0.86
+      ],
+      "candidate_mount_xyz": [
+        -2.4492390288949015,
+        1.3860382051191331,
+        1.6430963172912598
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -0.6427876174094402,
+          -8.911774340245055e-17,
+          -0.7660444366386956,
+          -2.4492390288949015
+        ],
+        [
+          1.328636432066782e-16,
+          -1.0000000000000009,
+          4.849116536360958e-18,
+          1.3860382051191331
+        ],
+        [
+          -0.7660444366386956,
+          -9.866250264507623e-17,
+          0.6427876174094393,
+          1.6430963172912598
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_backleft",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backleft",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_backleft/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backleft/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyOS0_backright",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -1.1150099999999998,
+        -0.48337760181256284,
+        0.86
+      ],
+      "candidate_mount_xyz": [
+        -2.617863028894901,
+        -1.125964039231018,
+        1.6430963172912598
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -1.0,
+          -1.2246467991473532e-16,
+          0.0,
+          -2.617863028894901
+        ],
+        [
+          1.2246467991473532e-16,
+          -1.0,
+          0.0,
+          -1.125964039231018
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.6430963172912598
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03622
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_backright",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_backright",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_backright/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_backright/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyNZ3_backright",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -1.1150099999999998,
+        -0.4833799999999999,
+        0.86
+      ],
+      "candidate_mount_xyz": [
+        -2.617863028894901,
+        -1.125969794880867,
+        1.6430963172912598
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -0.6427876174094402,
+          -8.911774340245055e-17,
+          -0.7660444366386956,
+          -2.617863028894901
+        ],
+        [
+          1.328636432066782e-16,
+          -1.0000000000000009,
+          4.849116536360958e-18,
+          -1.125969794880867
+        ],
+        [
+          -0.7660444366386956,
+          -9.866250264507623e-17,
+          0.6427876174094393,
+          1.6430963172912598
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_backright",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backright",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_backright/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_backright/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyOS0_up",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -1.1807208058471677,
+        -1.300093821681328,
+        8.03211418882543
+      ],
+      "candidate_mount_xyz": [
+        -1.1807208058471677,
+        -1.300093821681328,
+        8.03211418882543
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.1807208058471677
+        ],
+        [
+          0.0,
+          -1.0,
+          -1.2246467991473532e-16,
+          -1.300093821681328
+        ],
+        [
+          0.0,
+          1.2246467991473532e-16,
+          -1.0,
+          8.03211418882543
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03622
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "User specified preservation; no placement-role decision needed; not applied to USD.",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_up",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_up",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_up/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_up/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "copy_authored_parent_local_xform_ops_unchanged",
+      "source_local_xform_values": {
+        "translate": [
+          -1.1807208058471677,
+          -1.300093821681328,
+          8.03211418882543
+        ],
+        "orient_wxyz": [
+          6.123234e-17,
+          1,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "xformOpOrder": [
+          "xformOp:translate",
+          "xformOp:orient",
+          "xformOp:scale"
+        ]
+      }
+    },
+    {
+      "name": "MyOS0_back",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -1.3296975495044032,
+        0.059074533993223266,
+        0.86
+      ],
+      "candidate_mount_xyz": [
+        -3.133113147705469,
+        0.17592108670286882,
+        1.6430963172912598
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -3.422854177870249e-08,
+          0.0,
+          -0.9999999999999993,
+          -3.133113147705469
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.17592108670286882
+        ],
+        [
+          0.9999999999999993,
+          0.0,
+          -3.422854177870249e-08,
+          1.6430963172912598
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.03622
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_back",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_back",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyOS0_back/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyOS0_back/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    },
+    {
+      "name": "MyNZ3_back",
+      "old_parent": "/Excavator_Fangshan_03/cab_prim",
+      "proposed_parent": "/Excavator_Fangshan_05/cab_prim",
+      "old_mount_xyz": [
+        -1.351957607575355,
+        0.07411339374106385,
+        0.86
+      ],
+      "candidate_mount_xyz": [
+        -3.1865372870757533,
+        0.2120143500976862,
+        1.6430963172912598
+      ],
+      "candidate_T_link_from_mount": [
+        [
+          -0.6427876174094402,
+          2.848026848270343e-17,
+          -0.7660444366386956,
+          -3.1865372870757533
+        ],
+        [
+          2.5046165509183216e-16,
+          -1.0000000000000009,
+          -2.4734063710846104e-16,
+          0.2120143500976862
+        ],
+        [
+          -0.7660444366386956,
+          -3.5085225628989823e-16,
+          0.6427876174094393,
+          1.6430963172912598
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sensor_internal_T_unchanged": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "status": "geometry-derived initial estimate; not applied or validated in scene",
+      "old_mount_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_back",
+      "proposed_mount_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_back",
+      "old_sensor_path": "/Excavator_Fangshan_03/cab_prim/MyNZ3_back/sensor",
+      "proposed_sensor_path": "/Excavator_Fangshan_05/cab_prim/MyNZ3_back/sensor",
+      "relative_hierarchy_unchanged": true,
+      "transform_policy": "body_geometry_mapping_with_unit_device_scale"
+    }
+  ],
+  "revision": "user_constraints_v2",
+  "hierarchy_policy": "Only the excavator root prefix changes from Excavator_Fangshan_03 to Excavator_Fangshan_05; no Sensors intermediate prims; same body parent and device descendants.",
+  "myos0_up_pose_policy": "Preserve authored local transform relative to cab_prim, including xformOpOrder and precision; inherit future parent/world motion without world-pose compensation."
+}

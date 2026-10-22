@@ -1,0 +1,23 @@
+{
+  "scene": "/root/gpufree-data/IsaacSim_Asset/combine_stage/combine_scene_16_terrain_fisheye.usda",
+  "scene_sha256": "ab2a2ef736030adba3420450f916420e705952a04fec163c05b545655fc7f0ae",
+  "robot": "/World/Excavator",
+  "physics_hz": 60,
+  "warmup_frames": 24,
+  "measure_frames": 60,
+  "expected_lidars": 13,
+  "expected_cameras": 4,
+  "ros_domain_id": 187,
+  "render_mode": "RealTimePathTracing",
+  "dlss_mode": 2,
+  "aa_mode": 3,
+  "multi_tick": false,
+  "mode": "record",
+  "motion": "static",
+  "trajectory": "/root/gpufree-data/semantic/output/sensor_visualizer/v06/benchmarks/1791604257379431843_v05/input_trajectory/states.jsonl",
+  "trace": false,
+  "schedule": "continuous",
+  "subframes": 18,
+  "timeout_s": 600,
+  "output_root": "/root/gpufree-data/semantic/output/native_capture_baseline"
+}
